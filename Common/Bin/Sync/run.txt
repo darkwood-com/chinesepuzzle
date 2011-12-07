@@ -1,0 +1,46 @@
+** git on encfs on dropbox **
+http://www.blusky.fr/billet/2/Dropbox-comme-depot-GIT
+https://github.com/s-aska/dropbox-api-command
+
+* install :
+sudo port install encfs
+
+- création du dépôt en local
+encfs /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
+- création du dépôt git en local
+cd /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
+git --bare init
+- clone du dépot git local
+cd /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/
+git clone /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git ChinesePuzzle
+git config --global user.name "Mathieu Ledru"
+git config --global user.email math@home.local
+- configuration du dépôt sur dropbox
+(installation des modules perl)
+$sudo cpan
+>install DateTime
+>install DateTime::Format::Strptime.pm
+>install Encode::Locale
+>install JSON
+>install Path::Class
+>install WebService::Dropbox
+>install Encode::UTF8Mac
+
+umount /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
+chmod +x dropbox-api
+./dropbox-api setup
+- création du dépôt sur dropbox
+./dropbox-api mkdir ChinesePuzzle -v
+./dropbox-api sync /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ dropbox:/ChinesePuzzle/ -vd
+
+* update :
+./dropbox-api sync dropbox:/ChinesePuzzle/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ -vd
+encfs /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
+git pull
+umount /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
+
+* commit :
+encfs /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
+git push --all
+umount /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
+./dropbox-api sync /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ dropbox:/ChinesePuzzle/ -vd
