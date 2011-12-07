@@ -34,7 +34,7 @@ chmod +x dropbox-api
 ./dropbox-api sync /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ dropbox:/ChinesePuzzle/ -vd
 
 * update :
-./dropbox-api sync dropbox:/ChinesePuzzle/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ -vd
+Common/Bin/Sync/dropbox-api/dropbox-api sync dropbox:/ChinesePuzzle/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ -vd
 encfs /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
 git pull
 umount /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
@@ -43,4 +43,4 @@ umount /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/Chinese
 encfs /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
 git push --all
 umount /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.local.git/
-./dropbox-api sync /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ dropbox:/ChinesePuzzle/ -vd
+Common/Bin/Sync/dropbox-api/dropbox-api sync /Users/math/Mathieu/Programmation/Ma\ programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ dropbox:/ChinesePuzzle/ -vd
