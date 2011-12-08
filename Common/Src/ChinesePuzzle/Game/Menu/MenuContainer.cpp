@@ -24,6 +24,7 @@
 
 
 #include "MenuContainer.h"
+#include <math.h>
 
 using namespace cocos2d;
 
@@ -119,7 +120,7 @@ MenuContainer::~MenuContainer()
 bool MenuContainer::init()
 {
 	// Set default minimum touch length to scroll.
-	m_fMinimumTouchLengthToSlide = 30.0f;
+	m_fMinimumTouchLengthToSlide = 10.0f;
 	m_fMinimumTouchLengthToChangePage = 100.0f;
 	
 	CCLabelTTF* pValidBtn = new CCLabelTTF();
@@ -140,7 +141,7 @@ bool MenuContainer::initWithContentSize(const CCSize& size)
 		this->setContentSize(size);
 		
 		// Set default minimum touch length to scroll.
-		m_fMinimumTouchLengthToChangePage = size.width / 2;
+		m_fMinimumTouchLengthToChangePage = size.width / 8;
 		
 		return true;
 	}
@@ -239,10 +240,11 @@ CGFloat MenuContainer::getSwipe()
 
 void MenuContainer::setPage(int page)
 {
-	if(page >= 0 && page < this->items->count() / (this->gridSize.x * this->gridSize.y))
+	if(page >= 0 && page < this->getMaxPage())
 	{
 		this->page = page;
 		
+		this->setSwipe(0);
 		this->resetGrid();
 	}
 }
@@ -254,19 +256,24 @@ int MenuContainer::getPage()
 
 void MenuContainer::swipeToPage(int page)
 {
-	if(page >= 0 && page < this->items->count() / (this->gridSize.x * this->gridSize.y))
+	if(page >= 0 && page < this->getMaxPage())
 	{
-		 runAction(CCSequence::actionOneTwo(
-			MenuContainerSwipeTo::actionWithDuration(0.3f, 50.0f),
+		runAction(CCSequence::actionOneTwo(
+			MenuContainerSwipeTo::actionWithDuration(0.3f, (this->page - page) * this->getContentSize().width),
 			CCCallFunc::actionWithTarget(this, callfunc_selector(MenuContainer::swipeToPageEnded))
-		 ));
-		
-		this->page = page;
+		));
 	}
+}
+
+int MenuContainer::getMaxPage()
+{
+	return (int) ceil((float) this->items->count() / (this->gridSize.x * this->gridSize.y));
 }
 
 void MenuContainer::swipeToPageEnded()
 {
+	this->setPage(this->getPage() - (int) round(this->getSwipe() / this->getContentSize().width));
+	
 	if (m_pDelegate)
 		m_pDelegate->scrollLayerScrolledToPageNumber(this, this->page);
 }
@@ -353,9 +360,7 @@ void MenuContainer::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 	
 	if (m_iState == kCCScrollLayerStateSliding)
 	{
-		m_fOffsetSwipe = touchPoint.x - m_fStartSwipe;
-		
-		this->layout();
+		this->setSwipe(touchPoint.x - m_fStartSwipe);
 	}
 }
 
@@ -369,12 +374,21 @@ void MenuContainer::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
 	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
-	unsigned int selectedPage = this->getPage();
-	m_fOffsetSwipe = touchPoint.x - m_fStartSwipe;
-	if (fabs(m_fOffsetSwipe) >= m_fMinimumTouchLengthToChangePage)
+	int selectedPage = this->getPage();
+	int swipe = touchPoint.x - m_fStartSwipe;
+	
+	this->setSwipe(swipe);
+	if (swipe > 0 && swipe >= m_fMinimumTouchLengthToChangePage)
 	{
-		selectedPage -= (int) (m_fOffsetSwipe / this->getContentSize().width);
+		selectedPage -= (int) ((this->getSwipe() - m_fMinimumTouchLengthToChangePage) / this->getContentSize().width) + 1;
 	}
+	else if(swipe < 0 && swipe <= -m_fMinimumTouchLengthToChangePage)
+	{
+		selectedPage += - (int) ((this->getSwipe() + m_fMinimumTouchLengthToChangePage) / this->getContentSize().width) + 1;
+	}
+	if(selectedPage < 0) selectedPage = 0;
+	if(selectedPage >= this->getMaxPage()) selectedPage = this->getMaxPage() - 1;
+	
 	this->swipeToPage(selectedPage);
 }
 

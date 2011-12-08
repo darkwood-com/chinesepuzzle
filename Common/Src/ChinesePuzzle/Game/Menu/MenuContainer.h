@@ -104,6 +104,7 @@ protected:
 	cocos2d::CCTouch* m_pScrollTouch;
 	
 	void swipeToPageEnded();
+	int getMaxPage();
 	
 public:
 	MenuContainer();

@@ -59,7 +59,7 @@ void MenuLayout::layout()
 		CCArray* items = CCArray::array();
 		
 		MenuItem* item = NULL;
-		for(int i = 0; i < 16; ++i)
+		for(int i = 0; i < 13; ++i)
 		{
 			item = new MenuItem();
 			item->init();
