@@ -168,6 +168,7 @@
 		C3C48C44147EB0AA00C54E14 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C37147EB0AA00C54E14 /* GameScene.cpp */; };
 		C3C48C45147EB0AA00C54E14 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C3A147EB0AA00C54E14 /* Menu.cpp */; };
 		C3C48C46147EB0AA00C54E14 /* MenuLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C3C147EB0AA00C54E14 /* MenuLayout.cpp */; };
+		C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F6ABDC1491222D003A2F70 /* DecoratedBox.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -544,6 +545,8 @@
 		C3C48C3B147EB0AA00C54E14 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		C3C48C3C147EB0AA00C54E14 /* MenuLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLayout.cpp; sourceTree = "<group>"; };
 		C3C48C3D147EB0AA00C54E14 /* MenuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayout.h; sourceTree = "<group>"; };
+		C3F6ABDC1491222D003A2F70 /* DecoratedBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecoratedBox.cpp; sourceTree = "<group>"; };
+		C3F6ABDD1491222D003A2F70 /* DecoratedBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoratedBox.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1295,6 +1298,7 @@
 			children = (
 				C3B8571B14642B9C00C440B3 /* ChipmunkDraw */,
 				C30957B41461AB8500924761 /* Cocos2Dx */,
+				C3F6ABDB1491222C003A2F70 /* DecoratedBox */,
 			);
 			path = Externals;
 			sourceTree = "<group>";
@@ -1352,6 +1356,15 @@
 				C3C48C3C147EB0AA00C54E14 /* MenuLayout.cpp */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		C3F6ABDB1491222C003A2F70 /* DecoratedBox */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6ABDD1491222D003A2F70 /* DecoratedBox.h */,
+				C3F6ABDC1491222D003A2F70 /* DecoratedBox.cpp */,
+			);
+			path = DecoratedBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1568,6 +1581,7 @@
 				C3C48C46147EB0AA00C54E14 /* MenuLayout.cpp in Sources */,
 				C3AC43FC148396140042E2C8 /* MenuContainer.cpp in Sources */,
 				C3AC43FD148396140042E2C8 /* MenuItem.cpp in Sources */,
+				C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
