@@ -66,18 +66,18 @@ void Menu::step(ccTime dt)
 	
 }
 
-void Menu::pushNav(MenuContainer* mc)
+void Menu::pushNav(MenuBox* mBox)
 {
-	ccArrayAppendObjectWithResize(nav, mc);
-	this->addChild(mc);
+	ccArrayAppendObjectWithResize(nav, mBox);
+	this->addChild(mBox);
 }
 
-MenuContainer* Menu::popNav()
+MenuBox* Menu::popNav()
 {
-	MenuContainer* mc = NULL;
-	ccArrayRemoveObject(nav, mc);
-	this->removeChild(mc, true);
-	return mc;
+	MenuBox* mBox = NULL;
+	ccArrayRemoveObject(nav, mBox);
+	this->removeChild(mBox, true);
+	return mBox;
 }
 
 //input touches/mouse
@@ -91,7 +91,7 @@ bool Menu::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 	//last menu menu touch management
 	if(nav->num > 0)
 	{
-		MenuContainer* mc = (MenuContainer*) nav->arr[nav->num-1];
+		MenuBox* mc = (MenuBox*) nav->arr[nav->num-1];
 		mc->ccTouchBegan(pTouch, pEvent);
 	}
 	
@@ -103,7 +103,7 @@ void Menu::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 	//last menu menu touch management
 	if(nav->num > 0)
 	{
-		MenuContainer* mc = (MenuContainer*) nav->arr[nav->num-1];
+		MenuBox* mc = (MenuBox*) nav->arr[nav->num-1];
 		mc->ccTouchMoved(pTouch, pEvent);
 	}
 }
@@ -113,7 +113,7 @@ void Menu::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 	//last menu menu touch management
 	if(nav->num > 0)
 	{
-		MenuContainer* mc = (MenuContainer*) nav->arr[nav->num-1];
+		MenuBox* mc = (MenuBox*) nav->arr[nav->num-1];
 		mc->ccTouchEnded(pTouch, pEvent);
 	}
 }
@@ -123,7 +123,7 @@ void Menu::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 	//last menu menu touch management
 	if(nav->num > 0)
 	{
-		MenuContainer* mc = (MenuContainer*) nav->arr[nav->num-1];
+		MenuBox* mc = (MenuBox*) nav->arr[nav->num-1];
 		mc->ccTouchCancelled(pTouch, pEvent);
 	}
 }

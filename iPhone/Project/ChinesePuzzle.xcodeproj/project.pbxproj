@@ -169,6 +169,7 @@
 		C3C48C45147EB0AA00C54E14 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C3A147EB0AA00C54E14 /* Menu.cpp */; };
 		C3C48C46147EB0AA00C54E14 /* MenuLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C3C147EB0AA00C54E14 /* MenuLayout.cpp */; };
 		C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F6ABDC1491222D003A2F70 /* DecoratedBox.cpp */; };
+		C3F6ABE214925571003A2F70 /* MenuBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F6ABE01492556F003A2F70 /* MenuBox.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -547,6 +548,8 @@
 		C3C48C3D147EB0AA00C54E14 /* MenuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayout.h; sourceTree = "<group>"; };
 		C3F6ABDC1491222D003A2F70 /* DecoratedBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecoratedBox.cpp; sourceTree = "<group>"; };
 		C3F6ABDD1491222D003A2F70 /* DecoratedBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoratedBox.h; sourceTree = "<group>"; };
+		C3F6ABE01492556F003A2F70 /* MenuBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBox.cpp; sourceTree = "<group>"; };
+		C3F6ABE114925570003A2F70 /* MenuBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBox.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1348,6 +1351,8 @@
 			children = (
 				C3C48C3B147EB0AA00C54E14 /* Menu.h */,
 				C3C48C3A147EB0AA00C54E14 /* Menu.cpp */,
+				C3F6ABE114925570003A2F70 /* MenuBox.h */,
+				C3F6ABE01492556F003A2F70 /* MenuBox.cpp */,
 				C3AC43F9148396140042E2C8 /* MenuContainer.h */,
 				C3AC43F8148396140042E2C8 /* MenuContainer.cpp */,
 				C3AC43FB148396140042E2C8 /* MenuItem.h */,
@@ -1582,6 +1587,7 @@
 				C3AC43FC148396140042E2C8 /* MenuContainer.cpp in Sources */,
 				C3AC43FD148396140042E2C8 /* MenuItem.cpp in Sources */,
 				C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */,
+				C3F6ABE214925571003A2F70 /* MenuBox.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1606,7 +1612,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = NO;
@@ -1628,7 +1634,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

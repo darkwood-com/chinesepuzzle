@@ -50,8 +50,8 @@ public:
 	void step(cocos2d::ccTime dt);
 	void draw();
 	
-	void pushNav(MenuContainer* mc);
-	MenuContainer* popNav();
+	void pushNav(MenuBox* mBox);
+	MenuBox* popNav();
 	
 	//input touches/mouse
 	virtual void registerWithTouchDispatcher();

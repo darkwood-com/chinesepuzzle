@@ -93,12 +93,9 @@ enum
 }; 
 
 MenuContainer::MenuContainer() :
-title(NULL),
 items(NULL),
 gridSize(ccg(0, 0)),
 page(0),
-validBtn(NULL),
-titleLabel(NULL),
 m_pDelegate(NULL),
 m_fStartSwipe(0),
 m_fOffsetSwipe(0),
@@ -110,29 +107,17 @@ m_iState(kCCScrollLayerStateIdle)
 
 MenuContainer::~MenuContainer()
 {
-	CC_SAFE_RELEASE(title);
 	CC_SAFE_RELEASE(items);
-	CC_SAFE_RELEASE(validBtn);
-	CC_SAFE_RELEASE(titleLabel);
 	m_pDelegate = NULL;
 }
 
 bool MenuContainer::init()
 {
+	items = CCArray::array();
+	
 	// Set default minimum touch length to scroll.
 	m_fMinimumTouchLengthToSlide = 10.0f;
 	m_fMinimumTouchLengthToChangePage = 100.0f;
-	
-	bg = new DecoratedBox();
-	bg->initWithFile("Data/menuContainer.png", this->getContentSize());
-	bg->setAnchorPoint(ccp(0.0f, 0.0f));
-	this->addChild(bg);
-	
-	CCLabelTTF* pValidBtn = new CCLabelTTF();
-	pValidBtn->initWithString("Ok", "Arial", 12);
-	pValidBtn->setAnchorPoint(ccp(1.0f, 0.5f));
-	this->addChild(pValidBtn);
-	validBtn = pValidBtn;
 	
 	this->layout();
 	
@@ -159,7 +144,7 @@ void MenuContainer::resetGrid()
 {
 	for(ItemGrid::iterator it = itemsGrid.begin(); it != itemsGrid.end(); ++it)
 	{
-		this->removeChild((*it).second, false);
+		this->removeChild((*it).second, true);
 	}
 	itemsGrid.clear();
 	
@@ -180,29 +165,6 @@ void MenuContainer::resetGrid()
 	}
 	
 	this->layout();
-}
-
-void MenuContainer::setTitle(CCString* title)
-{
-	CC_SAFE_RETAIN(title);
-	CC_SAFE_RELEASE(this->title);
-	this->title = title;
-	
-	if(titleLabel) titleLabel->setString(title->toStdString().c_str());
-	else
-	{
-		titleLabel = new CCLabelTTF();
-		titleLabel->initWithString(title->toStdString().c_str(), "Arial", 12);
-		titleLabel->setAnchorPoint(ccp(0.0f, 1.0f));
-		this->addChild(titleLabel);
-	}
-	
-	this->layout();
-}
-
-CCString* MenuContainer::getTitle()
-{
-	return this->title;
 }
 
 void MenuContainer::setItems(CCArray* items)
@@ -287,19 +249,12 @@ void MenuContainer::setContentSize(const cocos2d::CCSize& size)
 {
 	CCNode::setContentSize(size);
 	
-	bg->setPosition(ccp(size.width / 2, size.height / 2));
-	bg->setAnchorPoint(ccp(0.5f, 0.5f));
-	bg->setContentSize(CCSizeMake(size.width * 1.25, size.height * 1.25));
-
 	this->layout();
 }
 
 void MenuContainer::layout()
 {
 	CCSize size = this->getContentSize();
-	
-	if(titleLabel) titleLabel->setPosition(ccp(20, size.height - 10));
-	if(validBtn) validBtn->setPosition(ccp(size.width - 10, size.height));
 	
 	if(gridSize.x > 0 && gridSize.y > 0)
 	{
@@ -327,6 +282,23 @@ void MenuContainer::draw(void)
 	};
 	
 	ccDrawPoly(vertices, 4, true);
+}
+
+void MenuContainer::visit(void)
+{
+	CCNode::visit();
+	
+	/*
+	glEnable(GL_SCISSOR_TEST);
+	
+	CCRect rect = this->boundingBox();
+	rect.origin = this->convertToWorldSpace(rect.origin);
+	glScissor(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+	
+	CCNode::visit();
+	
+	glDisable(GL_SCISSOR_TEST);
+	 */
 }
 
 bool MenuContainer::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)

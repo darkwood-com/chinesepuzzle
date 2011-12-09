@@ -90,9 +90,6 @@ class CC_DLL MenuContainer : public cocos2d::CCNode, public cocos2d::CCTouchDele
 {
 protected:
 	//display
-	DecoratedBox* bg; //background
-	cocos2d::CCSprite* validBtn; //valid button
-	cocos2d::CCLabelTTF* titleLabel; //title
 	cocos2d::ItemGrid itemsGrid; //items (=3x gridSize)
 	
 	void resetGrid();
@@ -116,7 +113,6 @@ public:
 	bool init();
 	bool initWithContentSize(const cocos2d::CCSize& size);
 	
-	CC_PROPERTY(cocos2d::CCString*, title, Title)
 	CC_PROPERTY(cocos2d::CCArray*, items, Items)
 	CC_PROPERTY(cocos2d::ccGridSize, gridSize, GridSize)
 	CC_PROPERTY(cocos2d::CGFloat, m_fOffsetSwipe, Swipe)
@@ -124,6 +120,7 @@ public:
 	
 	void layout();
 	virtual void draw(void);
+	virtual void visit(void);
 	
 	CC_PROPERTY(int, page, Page)
 	

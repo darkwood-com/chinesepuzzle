@@ -48,13 +48,14 @@ void MenuLayout::layout()
 	bg->setAnchorPoint(ccp(0,0));
 	menu->addChild(bg);
 	
-	MenuContainer* mc = new MenuContainer();
-	if(mc->initWithContentSize(CCSizeMake(200, 200)))
+	MenuBox* mBox = new MenuBox();
+	if(mBox->initWithContentSize(CCSizeMake(200, 200)))
 	{
-		mc->setPosition(ccp(100, 50));
-		CCString* mcTitle = new CCString("Options");
-		mc->setTitle(mcTitle);
-		mcTitle->release();
+		mBox->setPosition(ccp(100, 50));
+		CCString* mBoxTitle = new CCString("Options");
+		mBox->setTitle(mBoxTitle);
+		mBoxTitle->release();
+		
 		
 		CCArray* items = CCArray::array();
 		
@@ -68,11 +69,13 @@ void MenuLayout::layout()
 			item->release();
 		}
 		
-		mc->setItems(items);
-		mc->setGridSize(ccg(4, 2));
-		mc->setPage(0);
+		mBox->setMargin(CCSizeMake(50, 50));
+		mBox->setItems(items);
+		mBox->setGridSize(ccg(4, 2));
+		mBox->setPage(0);
+		mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
 		
-		menu->pushNav(mc);
+		menu->pushNav(mBox);
 	}
 	
 	isLayout = true;
