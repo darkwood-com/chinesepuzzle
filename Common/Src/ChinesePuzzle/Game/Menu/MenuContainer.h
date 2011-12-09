@@ -27,6 +27,7 @@
 
 #include "cocos2d.h"
 #include "MenuItem.h"
+#include "DecoratedBox.h"
 
 namespace   cocos2d
 {
@@ -88,9 +89,11 @@ public:
 class CC_DLL MenuContainer : public cocos2d::CCNode, public cocos2d::CCTouchDelegate
 {
 protected:
-	cocos2d::CCSprite* validBtn;
-	cocos2d::CCLabelTTF* titleLabel; //displayed title
-	cocos2d::ItemGrid itemsGrid; //displayed items (=3x gridSize)
+	//display
+	DecoratedBox* bg; //background
+	cocos2d::CCSprite* validBtn; //valid button
+	cocos2d::CCLabelTTF* titleLabel; //title
+	cocos2d::ItemGrid itemsGrid; //items (=3x gridSize)
 	
 	void resetGrid();
 	

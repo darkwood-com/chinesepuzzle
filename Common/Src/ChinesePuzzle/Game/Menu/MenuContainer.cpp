@@ -123,6 +123,11 @@ bool MenuContainer::init()
 	m_fMinimumTouchLengthToSlide = 10.0f;
 	m_fMinimumTouchLengthToChangePage = 100.0f;
 	
+	bg = new DecoratedBox();
+	bg->initWithFile("Data/menuContainer.png", this->getContentSize());
+	bg->setAnchorPoint(ccp(0.0f, 0.0f));
+	this->addChild(bg);
+	
 	CCLabelTTF* pValidBtn = new CCLabelTTF();
 	pValidBtn->initWithString("Ok", "Arial", 12);
 	pValidBtn->setAnchorPoint(ccp(1.0f, 0.5f));
@@ -282,6 +287,10 @@ void MenuContainer::setContentSize(const cocos2d::CCSize& size)
 {
 	CCNode::setContentSize(size);
 	
+	bg->setPosition(ccp(size.width / 2, size.height / 2));
+	bg->setAnchorPoint(ccp(0.5f, 0.5f));
+	bg->setContentSize(CCSizeMake(size.width * 1.25, size.height * 1.25));
+
 	this->layout();
 }
 

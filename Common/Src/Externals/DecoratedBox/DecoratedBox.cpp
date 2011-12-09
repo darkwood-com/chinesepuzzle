@@ -5,6 +5,8 @@
  *  Created by Mathieu LEDRU on 01/11/11.
  *
  *  Conversion of code from Cocos2D (Fabio Rodella) to Cocos2D-x (Mathieu Ledru)
+ *  Adapted for my uses
+ *  
  *  Original code can be found at https://github.com/crocodella/DecoratedBox
  */
 
@@ -12,10 +14,10 @@
 
 using namespace cocos2d;
 
-DecoratedBox* DecoratedBox::decoratedBoxWithFile(const char* filename, cocos2d::CGFloat w, cocos2d::CGFloat h)
+DecoratedBox* DecoratedBox::decoratedBoxWithFile(const char* filename, const cocos2d::CCSize& size)
 {
 	DecoratedBox* box = new DecoratedBox();
-	if (box && box->initWithFile(filename, w, h))
+	if (box && box->initWithFile(filename, size))
 	{
         box->autorelease();
         return box;
@@ -24,7 +26,7 @@ DecoratedBox* DecoratedBox::decoratedBoxWithFile(const char* filename, cocos2d::
 	return NULL;
 }
 
-bool DecoratedBox::initWithFile(const char*  filename, cocos2d::CGFloat w, cocos2d::CGFloat h)
+bool DecoratedBox::initWithFile(const char*  filename, const cocos2d::CCSize& size)
 {
 	if(!CCSpriteBatchNode::initWithFile(filename, 9))
 	{
@@ -33,22 +35,22 @@ bool DecoratedBox::initWithFile(const char*  filename, cocos2d::CGFloat w, cocos
 	
 	cellSize = this->getTextureAtlas()->getTexture()->getContentSize().width / 3;
 	this->setAnchorPoint(ccp(0.5, 0.5));
-	this->resizeToWidth(w, h);
+	this->setContentSize(size);
 	
     return true;
 }
 
-void DecoratedBox::resizeToWidth(cocos2d::CGFloat w, cocos2d::CGFloat h)
+void DecoratedBox::setContentSize(const CCSize& size)
 {
 	this->removeAllChildrenWithCleanup(true);
     
-    boxWidth = w;
-    boxHeight = h;
+    boxWidth = size.width;
+    boxHeight = size.height;
     
-    int uw = floor(w / cellSize);
-    int uh = floor(h / cellSize);
+    int uw = floor(size.width / cellSize);
+    int uh = floor(size.height / cellSize);
     
-    this->setContentSize(CCSizeMake(uw * cellSize, uh * cellSize));
+	CCSpriteBatchNode::setContentSize(CCSizeMake(uw * cellSize, uh * cellSize));
 	
     for (int j = 0; j < uh; j++) {
         for (int i = 0; i < uw; i++) {
@@ -99,6 +101,7 @@ void DecoratedBox::resizeToWidth(cocos2d::CGFloat w, cocos2d::CGFloat h)
             }
             
 			CCSprite* b = CCSprite::spriteWithBatchNode(this, rect);
+			b->setAnchorPoint(ccp(0, 0));
 			b->setPosition(ccp(i * cellSize, j * cellSize));
 			b->setTag(j * cellSize + i);
             
