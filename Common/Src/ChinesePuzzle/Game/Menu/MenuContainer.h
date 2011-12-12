@@ -121,7 +121,7 @@ public:
 	void layout();
 	virtual void draw(void);
 	virtual void visit(void);
-	
+
 	CC_PROPERTY(int, page, Page)
 	
 	/* Moves scrollLayer to page with given number & invokes delegate

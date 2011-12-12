@@ -49,7 +49,7 @@ MenuBox::~MenuBox()
 bool MenuBox::init()
 {
 	bg = new DecoratedBox();
-	bg->initWithFile("Data/menuContainer.png", this->getContentSize());
+	bg->initWithFile("Data/ui/480x320/menuContainer.png", this->getContentSize());
 	bg->setAnchorPoint(ccp(0.5f, 0.5f));
 	this->addChild(bg);
 	
@@ -195,6 +195,7 @@ void MenuBox::draw(void)
 {
 	CCNode::draw();
 	
+	/*
 	CCSize size = this->getContentSize();
 	
 	CCPoint vertices[] = {
@@ -205,6 +206,7 @@ void MenuBox::draw(void)
 	};
 	
 	ccDrawPoly(vertices, 4, true);
+	 */
 }
 
 bool MenuBox::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)

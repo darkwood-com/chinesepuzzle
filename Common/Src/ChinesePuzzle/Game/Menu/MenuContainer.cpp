@@ -272,6 +272,7 @@ void MenuContainer::draw(void)
 {
 	CCNode::draw();
 	
+	/*
 	CCSize size = this->getContentSize();
 	
 	CCPoint vertices[] = {
@@ -282,23 +283,21 @@ void MenuContainer::draw(void)
 	};
 	
 	ccDrawPoly(vertices, 4, true);
+	 */
 }
 
 void MenuContainer::visit(void)
 {
-	CCNode::visit();
-	
-	/*
 	glEnable(GL_SCISSOR_TEST);
 	
-	CCRect rect = this->boundingBox();
+	CCSize size = this->getContentSize();
+	CCRect rect = CCRectMake(0, 0, size.width, size.height);
 	rect.origin = this->convertToWorldSpace(rect.origin);
 	glScissor(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
 	
 	CCNode::visit();
 	
 	glDisable(GL_SCISSOR_TEST);
-	 */
 }
 
 bool MenuContainer::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
