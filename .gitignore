@@ -1,5 +1,9 @@
+# Src
 Common/Bin/Design
 Common/Bin/OpenSources
+
+# Mac
+.DS_Store
 
 # Xcode
 *.pbxuser

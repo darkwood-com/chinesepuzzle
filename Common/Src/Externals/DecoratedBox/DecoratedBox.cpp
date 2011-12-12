@@ -47,8 +47,8 @@ void DecoratedBox::setContentSize(const CCSize& size)
     boxWidth = size.width;
     boxHeight = size.height;
     
-    int uw = floor(size.width / cellSize);
-    int uh = floor(size.height / cellSize);
+    int uw = floorf(size.width / cellSize);
+    int uh = floorf(size.height / cellSize);
     
 	CCSpriteBatchNode::setContentSize(CCSizeMake(uw * cellSize, uh * cellSize));
 	
