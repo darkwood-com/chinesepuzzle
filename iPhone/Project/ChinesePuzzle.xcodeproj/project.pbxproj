@@ -151,7 +151,6 @@
 		C36ACDF114619EB10006151B /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDEE14619EB10006151B /* AppController.mm */; };
 		C36ACDF214619EB10006151B /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
 		C3AC43FC148396140042E2C8 /* MenuContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AC43F8148396140042E2C8 /* MenuContainer.cpp */; };
-		C3AC43FD148396140042E2C8 /* MenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AC43FA148396140042E2C8 /* MenuItem.cpp */; };
 		C3B854331462934100C440B3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854321462934100C440B3 /* QuartzCore.framework */; };
 		C3B854361462934800C440B3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854351462934800C440B3 /* OpenGLES.framework */; };
 		C3B854381462935000C440B3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854371462935000C440B3 /* OpenAL.framework */; };
@@ -516,8 +515,6 @@
 		C36ACDF014619EB10006151B /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		C3AC43F8148396140042E2C8 /* MenuContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuContainer.cpp; sourceTree = "<group>"; };
 		C3AC43F9148396140042E2C8 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
-		C3AC43FA148396140042E2C8 /* MenuItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuItem.cpp; sourceTree = "<group>"; };
-		C3AC43FB148396140042E2C8 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		C3B854321462934100C440B3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3B854351462934800C440B3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C3B854371462935000C440B3 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1355,8 +1352,6 @@
 				C3F6ABE01492556F003A2F70 /* MenuBox.cpp */,
 				C3AC43F9148396140042E2C8 /* MenuContainer.h */,
 				C3AC43F8148396140042E2C8 /* MenuContainer.cpp */,
-				C3AC43FB148396140042E2C8 /* MenuItem.h */,
-				C3AC43FA148396140042E2C8 /* MenuItem.cpp */,
 				C3C48C3D147EB0AA00C54E14 /* MenuLayout.h */,
 				C3C48C3C147EB0AA00C54E14 /* MenuLayout.cpp */,
 			);
@@ -1585,7 +1580,6 @@
 				C3C48C45147EB0AA00C54E14 /* Menu.cpp in Sources */,
 				C3C48C46147EB0AA00C54E14 /* MenuLayout.cpp in Sources */,
 				C3AC43FC148396140042E2C8 /* MenuContainer.cpp in Sources */,
-				C3AC43FD148396140042E2C8 /* MenuItem.cpp in Sources */,
 				C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */,
 				C3F6ABE214925571003A2F70 /* MenuBox.cpp in Sources */,
 			);

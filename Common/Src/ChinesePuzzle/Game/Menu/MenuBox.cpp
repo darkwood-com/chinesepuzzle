@@ -48,6 +48,9 @@ MenuBox::~MenuBox()
 
 bool MenuBox::init()
 {
+	m_eState = kCCMenuStateWaiting;
+	m_pSelectedItem = NULL;
+	
 	bg = new DecoratedBox();
 	bg->initWithFile("Data/ui/480x320/menuContainer.png", this->getContentSize());
 	bg->setAnchorPoint(ccp(0.5f, 0.5f));
@@ -211,20 +214,107 @@ void MenuBox::draw(void)
 
 bool MenuBox::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
+	CC_UNUSED_PARAM(pEvent);
+	if (m_eState != kCCMenuStateWaiting || ! m_bIsVisible)
+	{
+		return false;
+	}
+	
+	for (CCNode *c = this->m_pParent; c != NULL; c = c->getParent())
+	{
+		if (c->getIsVisible() == false)
+		{
+			return false;
+		}
+	}
+	
+	m_pSelectedItem = this->itemForTouch(pTouch);
+	if (m_pSelectedItem)
+	{
+		m_eState = kCCMenuStateTrackingTouch;
+		m_pSelectedItem->selected();
+		return true;
+	}
+	
 	return container->ccTouchBegan(pTouch, pEvent);
 }
 
 void MenuBox::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 {
+	CC_UNUSED_PARAM(pEvent);
+	CCAssert(m_eState == kCCMenuStateTrackingTouch, "[Menu ccTouchMoved] -- invalid state");
+	CCMenuItem* currentItem = this->itemForTouch(pTouch);
+	if (currentItem != m_pSelectedItem) 
+	{
+		if (m_pSelectedItem)
+		{
+			m_pSelectedItem->unselected();
+		}
+		m_pSelectedItem = currentItem;
+		if (m_pSelectedItem)
+		{
+			m_pSelectedItem->selected();
+		}
+	}
+	
 	container->ccTouchMoved(pTouch, pEvent);
 }
 
 void MenuBox::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 {
+	CC_UNUSED_PARAM(pTouch);
+	CC_UNUSED_PARAM(pEvent);
+	CCAssert(m_eState == kCCMenuStateTrackingTouch, "[Menu ccTouchEnded] -- invalid state");
+	if (m_pSelectedItem)
+	{
+		m_pSelectedItem->unselected();
+		m_pSelectedItem->activate();
+	}
+	m_eState = kCCMenuStateWaiting;
+	
 	container->ccTouchEnded(pTouch, pEvent);
 }
 
 void MenuBox::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 {
+	CC_UNUSED_PARAM(pTouch);
+	CC_UNUSED_PARAM(pEvent);
+	CCAssert(m_eState == kCCMenuStateTrackingTouch, "[Menu ccTouchCancelled] -- invalid state");
+	if (m_pSelectedItem)
+	{
+		m_pSelectedItem->unselected();
+	}
+	m_eState = kCCMenuStateWaiting;
+	
 	container->ccTouchCancelled(pTouch, pEvent);
+}
+
+CCMenuItem* MenuBox::itemForTouch(CCTouch *touch)
+{
+	CCPoint touchLocation = touch->locationInView(touch->view());
+	touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
+	
+	CCArray* menuItems = this->getItems();
+	if (menuItems && menuItems->count() > 0)
+	{
+		CCObject* pObject = NULL;
+		CCARRAY_FOREACH(menuItems, pObject)
+		{
+			CCNode* pChild = (CCNode*) pObject;
+			if (pChild && pChild->getIsVisible() && ((CCMenuItem*)pChild)->getIsEnabled())
+			{
+				CCPoint local = pChild->convertToNodeSpace(touchLocation);
+				CCRect r = ((CCMenuItem*)pChild)->rect();
+				r.origin = CCPointZero;
+				
+				if (CCRect::CCRectContainsPoint(r, local))
+				{
+					return (CCMenuItem*)pChild;
+				}
+			}
+		}
+		
+	}
+	
+	return NULL;
 }

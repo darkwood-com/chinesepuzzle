@@ -59,19 +59,14 @@ void MenuLayout::layout()
 		
 		CCArray* items = CCArray::array();
 		
-		MenuItem* item = NULL;
-		for(int i = 0; i < 13; ++i)
-		{
-			item = new MenuItem();
-			item->init();
-			item->setContentSize(CCSizeMake(10, 10));
-			items->addObject(item);
-			item->release();
-		}
+		CCMenuItemImage* item = new CCMenuItemImage();
+		item->initFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, menu, menu_selector(Menu::actionTheme));
+		items->addObject(item);
+		item->release();
 		
 		mBox->setMargin(CCSizeMake(50, 50));
 		mBox->setItems(items);
-		mBox->setGridSize(ccg(4, 2));
+		mBox->setGridSize(ccg(4, 1));
 		mBox->setPage(0);
 		mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
 		

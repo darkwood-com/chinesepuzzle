@@ -80,6 +80,13 @@ MenuBox* Menu::popNav()
 	return mBox;
 }
 
+//actions
+void Menu::actionTheme(CCObject* data)
+{
+	
+}
+
+
 //input touches/mouse
 void Menu::registerWithTouchDispatcher()
 {

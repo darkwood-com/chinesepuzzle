@@ -26,7 +26,6 @@
 #define __MENU_BOX_H__
 
 #include "cocos2d.h"
-#include "MenuItem.h"
 #include "DecoratedBox.h"
 #include "MenuContainer.h"
 
@@ -38,6 +37,10 @@ protected:
 	cocos2d::CCSprite* validBtn; //valid button
 	cocos2d::CCLabelTTF* titleLabel; //title
 	MenuContainer* container; //container
+	
+	cocos2d::tCCMenuState m_eState;
+	cocos2d::CCMenuItem* itemForTouch(cocos2d::CCTouch* touch);
+	cocos2d::CCMenuItem* m_pSelectedItem;
 	
 public:
 	MenuBox();
@@ -64,9 +67,8 @@ public:
 	 */
 	CC_PROPERTY(cocos2d::CGFloat, m_fMinimumTouchLengthToChangePage, MinimumTouchLengthToChangePage)
 	
-	void layout();
-
 public:
+	void layout();
 	void draw(void);
 	
 	bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);

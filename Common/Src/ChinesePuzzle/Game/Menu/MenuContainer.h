@@ -26,7 +26,6 @@
 #define __MENU_CONTAINER_H__
 
 #include "cocos2d.h"
-#include "MenuItem.h"
 #include "DecoratedBox.h"
 
 namespace   cocos2d
@@ -47,7 +46,7 @@ namespace   cocos2d
 		v.y = y;
 		return v;
 	}
-	typedef std::map<ccGridCoord, MenuItem*> ItemGrid;
+	typedef std::map<ccGridCoord, CCMenuItem*> ItemGrid;
 }
 
 class MenuContainer;
@@ -99,7 +98,6 @@ protected:
 	
 	// Internal state of scroll (scrolling or idle).
 	int m_iState;
-	bool m_bStealingTouchInProgress;
 	// Holds the touch that started the scroll
 	cocos2d::CCTouch* m_pScrollTouch;
 	

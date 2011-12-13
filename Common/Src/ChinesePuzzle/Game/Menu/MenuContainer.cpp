@@ -153,7 +153,7 @@ void MenuContainer::resetGrid()
 	{
 		if(k >= 0 && k < items->count())
 		{
-			MenuItem* item = (MenuItem*) items->objectAtIndex(k);
+			CCMenuItem* item = (CCMenuItem*) items->objectAtIndex(k);
 			item->setAnchorPoint(ccp(0.5f, 0.5f));
 			this->addChild(item);
 			
@@ -221,6 +221,11 @@ int MenuContainer::getPage()
 	return this->page;
 }
 
+int MenuContainer::getMaxPage()
+{
+	return (int) ceil((float) this->items->count() / (this->gridSize.x * this->gridSize.y));
+}
+
 void MenuContainer::swipeToPage(int page)
 {
 	if(page >= 0 && page < this->getMaxPage())
@@ -230,11 +235,6 @@ void MenuContainer::swipeToPage(int page)
 			CCCallFunc::actionWithTarget(this, callfunc_selector(MenuContainer::swipeToPageEnded))
 		));
 	}
-}
-
-int MenuContainer::getMaxPage()
-{
-	return (int) ceil((float) this->items->count() / (this->gridSize.x * this->gridSize.y));
 }
 
 void MenuContainer::swipeToPageEnded()
@@ -374,10 +374,6 @@ void MenuContainer::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 
 void MenuContainer::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 {
-	// Do not cancel touch, if this method is called from cancelAndStoleTouch:
-	if (m_bStealingTouchInProgress)
-		return;
-	
 	if (m_pScrollTouch == pTouch)
 	{
 		m_pScrollTouch = NULL;
