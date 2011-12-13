@@ -53,9 +53,6 @@ public:
 	void pushNav(MenuBox* mBox);
 	MenuBox* popNav();
 	
-	//actions
-	void actionTheme(CCObject* item);
-	
 	//input touches/mouse
 	virtual void registerWithTouchDispatcher();
 	

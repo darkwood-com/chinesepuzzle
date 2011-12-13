@@ -31,19 +31,23 @@
 class Menu;
 
 // MenuLayout Layer
-class MenuLayout : public cocos2d::CCObject
+class MenuLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
 {
 protected:
 	Menu* menu;
-	bool isLayout;
+	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>* themes;
 	
-	cocos2d::CCSprite* bg;
+	MenuBox* mBoxDefault;
+	MenuBox* mBoxTheme;
+	cocos2d::CCMenuItemImage* miTheme;
 	
 public:
 	MenuLayout(Menu* menu);
 	virtual ~MenuLayout();
 	
-	void layout();
+	virtual bool init();
+	
+	void layout(CCObject* node);
 };
 
 #endif // __MENU_LAYOUT_H__

@@ -29,7 +29,6 @@ using namespace cocos2d;
 Menu::Menu() :
 nav(ccArrayNew(1))
 {
-	ml = new MenuLayout(this);
 }
 
 Menu::~Menu()
@@ -49,7 +48,9 @@ bool Menu::init(GameScene* gs)
 	this->gs = gs;
 	this->setIsTouchEnabled(true);
 	
-	ml->layout();
+	ml = new MenuLayout(this);
+	ml->init();
+	ml->layout(NULL);
 	
 	this->schedule(schedule_selector(Menu::step));
 	
@@ -68,6 +69,10 @@ void Menu::step(ccTime dt)
 
 void Menu::pushNav(MenuBox* mBox)
 {
+	if(nav->num > 0)
+	{
+		this->removeChild((MenuBox*) nav->arr[nav->num-1], true);
+	}
 	ccArrayAppendObjectWithResize(nav, mBox);
 	this->addChild(mBox);
 }
@@ -79,18 +84,13 @@ MenuBox* Menu::popNav()
 		MenuBox* mBox = NULL;
 		ccArrayRemoveObject(nav, mBox);
 		this->removeChild(mBox, true);
+		
+		this->addChild((MenuBox*) nav->arr[nav->num-1]);
 		return mBox;
 	}
 	
 	return NULL;
 }
-
-//actions
-void Menu::actionTheme(CCObject* data)
-{
-	
-}
-
 
 //input touches/mouse
 void Menu::registerWithTouchDispatcher()
