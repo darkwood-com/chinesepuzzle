@@ -214,7 +214,6 @@ void MenuBox::draw(void)
 
 bool MenuBox::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CC_UNUSED_PARAM(pEvent);
 	if (m_eState != kCCMenuStateWaiting || ! m_bIsVisible)
 	{
 		return false;
@@ -233,7 +232,6 @@ bool MenuBox::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 	{
 		m_eState = kCCMenuStateTrackingTouch;
 		m_pSelectedItem->selected();
-		return true;
 	}
 	
 	return container->ccTouchBegan(pTouch, pEvent);
@@ -241,19 +239,20 @@ bool MenuBox::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 
 void MenuBox::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CC_UNUSED_PARAM(pEvent);
-	CCAssert(m_eState == kCCMenuStateTrackingTouch, "[Menu ccTouchMoved] -- invalid state");
-	CCMenuItem* currentItem = this->itemForTouch(pTouch);
-	if (currentItem != m_pSelectedItem) 
+	if(m_eState == kCCMenuStateTrackingTouch)
 	{
-		if (m_pSelectedItem)
+		CCMenuItem* currentItem = this->itemForTouch(pTouch);
+		if (currentItem != m_pSelectedItem) 
 		{
-			m_pSelectedItem->unselected();
-		}
-		m_pSelectedItem = currentItem;
-		if (m_pSelectedItem)
-		{
-			m_pSelectedItem->selected();
+			if (m_pSelectedItem)
+			{
+				m_pSelectedItem->unselected();
+			}
+			m_pSelectedItem = currentItem;
+			if (m_pSelectedItem)
+			{
+				m_pSelectedItem->selected();
+			}
 		}
 	}
 	
@@ -262,29 +261,29 @@ void MenuBox::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 
 void MenuBox::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CC_UNUSED_PARAM(pTouch);
-	CC_UNUSED_PARAM(pEvent);
-	CCAssert(m_eState == kCCMenuStateTrackingTouch, "[Menu ccTouchEnded] -- invalid state");
-	if (m_pSelectedItem)
+	if(m_eState == kCCMenuStateTrackingTouch)
 	{
-		m_pSelectedItem->unselected();
-		m_pSelectedItem->activate();
+		if (m_pSelectedItem)
+		{
+			m_pSelectedItem->unselected();
+			m_pSelectedItem->activate();
+		}
+		m_eState = kCCMenuStateWaiting;
 	}
-	m_eState = kCCMenuStateWaiting;
 	
 	container->ccTouchEnded(pTouch, pEvent);
 }
 
 void MenuBox::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CC_UNUSED_PARAM(pTouch);
-	CC_UNUSED_PARAM(pEvent);
-	CCAssert(m_eState == kCCMenuStateTrackingTouch, "[Menu ccTouchCancelled] -- invalid state");
-	if (m_pSelectedItem)
+	if(m_eState == kCCMenuStateTrackingTouch)
 	{
-		m_pSelectedItem->unselected();
+		if (m_pSelectedItem)
+		{
+			m_pSelectedItem->unselected();
+		}
+		m_eState = kCCMenuStateWaiting;
 	}
-	m_eState = kCCMenuStateWaiting;
 	
 	container->ccTouchCancelled(pTouch, pEvent);
 }

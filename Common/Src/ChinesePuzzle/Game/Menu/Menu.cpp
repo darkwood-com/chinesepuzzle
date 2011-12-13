@@ -74,10 +74,15 @@ void Menu::pushNav(MenuBox* mBox)
 
 MenuBox* Menu::popNav()
 {
-	MenuBox* mBox = NULL;
-	ccArrayRemoveObject(nav, mBox);
-	this->removeChild(mBox, true);
-	return mBox;
+	if(nav->num > 0)
+	{
+		MenuBox* mBox = NULL;
+		ccArrayRemoveObject(nav, mBox);
+		this->removeChild(mBox, true);
+		return mBox;
+	}
+	
+	return NULL;
 }
 
 //actions
