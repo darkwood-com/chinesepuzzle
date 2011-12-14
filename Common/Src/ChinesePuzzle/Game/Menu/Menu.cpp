@@ -23,6 +23,7 @@
  */
 
 #include "Menu.h"
+#include "GameScene.h"
 
 using namespace cocos2d;
 
@@ -33,7 +34,7 @@ nav(ccArrayNew(1))
 
 Menu::~Menu()
 {
-	CC_SAFE_DELETE(ml);
+	CC_SAFE_RELEASE(ml);
 	
 	ccArrayFree(nav);
 }
@@ -81,15 +82,28 @@ MenuBox* Menu::popNav()
 {
 	if(nav->num > 0)
 	{
-		MenuBox* mBox = NULL;
+		MenuBox* mBox = (MenuBox*) nav->arr[nav->num-1];
 		ccArrayRemoveObject(nav, mBox);
 		this->removeChild(mBox, true);
 		
-		this->addChild((MenuBox*) nav->arr[nav->num-1]);
+		if(nav->num > 0)
+		{
+			this->addChild((MenuBox*) nav->arr[nav->num-1]);
+		}
 		return mBox;
 	}
 	
 	return NULL;
+}
+
+void Menu::okMenu(cocos2d::CCObject* item)
+{
+	this->popNav();
+	
+	if(nav->num == 0)
+	{
+		gs->game();
+	}
 }
 
 //input touches/mouse

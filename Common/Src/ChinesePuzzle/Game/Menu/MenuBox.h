@@ -34,14 +34,13 @@ class CC_DLL MenuBox : public cocos2d::CCNode, public cocos2d::CCTouchDelegate
 protected:
 	//display
 	DecoratedBox* bg; //background
-	cocos2d::CCSprite* validBtn; //valid button
+	cocos2d::CCMenuItemImage* validBtn; //valid button
 	cocos2d::CCLabelTTF* titleLabel; //title
 	MenuContainer* container; //container
 	
 	cocos2d::tCCMenuState m_eState;
 	cocos2d::CCMenuItem* itemForTouch(cocos2d::CCTouch* touch);
 	cocos2d::CCMenuItem* m_pSelectedItem;
-	
 public:
 	MenuBox();
 	virtual ~MenuBox();
@@ -70,6 +69,8 @@ public:
 public:
 	void layout();
 	void draw(void);
+	
+	void setOkTarget(cocos2d::SelectorProtocol *rec, cocos2d::SEL_MenuHandler selector);
 	
 	bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);

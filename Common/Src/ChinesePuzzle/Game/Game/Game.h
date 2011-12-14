@@ -72,7 +72,7 @@ public:
 	void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	
-	CC_PROPERTY_READONLY(GameConfig*, conf, Conf);
+	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
 };
 
 #endif // __GAME_H__

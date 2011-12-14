@@ -77,6 +77,7 @@ void MenuLayout::layout(CCObject* node)
 			mBoxDefault->setGridSize(ccg(4, 1));
 			mBoxDefault->setPage(0);
 			mBoxDefault->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+			mBoxDefault->setOkTarget(menu, menu_selector(Menu::okMenu));
 			
 			CCString* mBoxTitle = new CCString("Options");
 			mBoxDefault->setTitle(mBoxTitle);
@@ -110,6 +111,7 @@ void MenuLayout::layout(CCObject* node)
 			mBoxTheme->setGridSize(ccg(2, 2));
 			mBoxTheme->setPage(0);
 			mBoxTheme->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+			mBoxTheme->setOkTarget(menu, menu_selector(Menu::okMenu));
 			
 			CCString* mBoxTitle = new CCString("Themes");
 			mBoxTheme->setTitle(mBoxTitle);

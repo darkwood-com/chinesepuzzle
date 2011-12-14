@@ -53,6 +53,8 @@ public:
 	void pushNav(MenuBox* mBox);
 	MenuBox* popNav();
 	
+	void okMenu(cocos2d::CCObject* item);
+	
 	//input touches/mouse
 	virtual void registerWithTouchDispatcher();
 	

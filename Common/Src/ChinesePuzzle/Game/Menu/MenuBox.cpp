@@ -56,11 +56,10 @@ bool MenuBox::init()
 	bg->setAnchorPoint(ccp(0.5f, 0.5f));
 	this->addChild(bg);
 	
-	CCLabelTTF* pValidBtn = new CCLabelTTF();
-	pValidBtn->initWithString("Ok", "Arial", 12);
-	pValidBtn->setAnchorPoint(ccp(1.0f, 0.5f));
-	this->addChild(pValidBtn);
-	validBtn = pValidBtn;
+	validBtn = new CCMenuItemImage();
+	validBtn->initFromNormalImage("Data/ui/480x320/menuItemOk.png", NULL, NULL, NULL, NULL);
+	validBtn->setAnchorPoint(ccp(1.0f, 0.5f));
+	this->addChild(validBtn);
 	
 	container = new MenuContainer();
 	container->init();
@@ -212,6 +211,11 @@ void MenuBox::draw(void)
 	 */
 }
 
+void MenuBox::setOkTarget(SelectorProtocol *rec, SEL_MenuHandler selector)
+{
+	validBtn->setTarget(rec, selector);
+}
+
 bool MenuBox::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
 	if (m_eState != kCCMenuStateWaiting || ! m_bIsVisible)
@@ -293,7 +297,8 @@ CCMenuItem* MenuBox::itemForTouch(CCTouch *touch)
 	CCPoint touchLocation = touch->locationInView(touch->view());
 	touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
 	
-	CCArray* menuItems = this->getItems();
+	CCArray* menuItems = CCArray::arrayWithArray(this->getItems());
+	menuItems->addObject(validBtn);
 	if (menuItems && menuItems->count() > 0)
 	{
 		CCObject* pObject = NULL;

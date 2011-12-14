@@ -37,6 +37,8 @@ protected:
 	Menu* pMenu;
 	
 public:
+	GameScene();
+	virtual ~GameScene();
 	SCENE_NODE_FUNC(GameScene);
 	
 	virtual bool init();

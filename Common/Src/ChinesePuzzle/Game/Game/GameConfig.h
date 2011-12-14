@@ -35,7 +35,7 @@ public:
 	
 	virtual bool init();
 	
-	CC_PROPERTY(cocos2d::CCString*, theme, Theme);
+	CC_SYNTHESIZE(cocos2d::CCString*, theme, Theme);
 };
 
 #endif // __GAME_CONFIG_H__

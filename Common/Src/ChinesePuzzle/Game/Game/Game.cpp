@@ -42,8 +42,9 @@ conf(NULL)
 
 Game::~Game()
 {
-	CC_SAFE_DELETE(gc);
-	CC_SAFE_DELETE(gl);
+	CC_SAFE_RELEASE(gc);
+	CC_SAFE_RELEASE(gl);
+	CC_SAFE_RELEASE(conf);
 }
 
 bool Game::init(GameScene* gs)

@@ -34,12 +34,12 @@ theme(NULL)
 
 GameConfig::~GameConfig()
 {
-	CC_SAFE_DELETE(theme);
+	CC_SAFE_RELEASE(theme);
 }
 
 bool GameConfig::init()
 {
-	theme = new CCString("default");
+	theme = new CCString("classic");
 	
 	return true;
 }

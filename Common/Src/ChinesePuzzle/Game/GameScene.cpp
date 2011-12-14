@@ -27,6 +27,17 @@
 
 using namespace cocos2d;
 
+GameScene::GameScene()
+{
+	
+}
+
+GameScene::~GameScene()
+{
+	CC_SAFE_RELEASE(pGame);
+	CC_SAFE_RELEASE(pMenu);
+}
+
 bool GameScene::init()
 {
 	if (!CCScene::init())
@@ -37,24 +48,41 @@ bool GameScene::init()
 	pGame = NULL;
 	pMenu = NULL;
 	
-	//this->game();
-	this->menu();
+	this->game();
 	
 	return true;
 }
 
 void GameScene::menu()
 {
-	if (pMenu == NULL) {
+	if (pMenu == NULL)
+	{
 		pMenu = Menu::node(this);
+		pMenu->retain();
+	}
+	
+	if(pMenu->getParent() == NULL)
+	{
 		this->addChild(pMenu);
 	}
 }
 
 void GameScene::game()
 {
-	if (pGame == NULL) {
+	if(pMenu)
+	{
+		this->removeChild(pMenu, true);
+		CC_SAFE_RELEASE_NULL(pMenu);
+	}
+
+	if (pGame == NULL)
+	{
 		pGame = Game::node(this);
+		pGame->retain();
+	}
+	
+	if(pGame->getParent() == NULL)
+	{
 		this->addChild(pGame);
 	}
 }
