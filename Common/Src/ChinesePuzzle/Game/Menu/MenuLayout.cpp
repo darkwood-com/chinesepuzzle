@@ -39,7 +39,6 @@ mBoxDefault(NULL),
 mBoxTheme(NULL),
 miTheme(NULL)
 {
-	
 }
 
 MenuLayout::~MenuLayout()
@@ -54,7 +53,6 @@ MenuLayout::~MenuLayout()
 bool MenuLayout::init()
 {
 	themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
-	themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout)), "default");
 	
 	return true;
 }
@@ -98,6 +96,11 @@ void MenuLayout::layout(CCObject* node)
 	}
 	else if(node == miTheme)
 	{
+		if(themes->count() == 0)
+		{
+			themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout)), "default");
+		}
+		
 		if(!mBoxTheme)
 		{
 			mBoxTheme = new MenuBox();

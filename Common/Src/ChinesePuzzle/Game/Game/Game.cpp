@@ -32,11 +32,12 @@
 
 using namespace cocos2d;
 
-Game::Game() : dragCard(NULL)
+Game::Game() : 
+dragCard(NULL),
+gc(NULL),
+gl(NULL),
+conf(NULL)
 {
-	//gc = new GameControlChipmunk();
-	gc = new GameControlSprite();
-	gl = new GameLayout(this);
 }
 
 Game::~Game()
@@ -52,6 +53,10 @@ bool Game::init(GameScene* gs)
 		return false;
 	}
 	
+	this->gc = new GameControlSprite();
+	this->gl = new GameLayout(this);
+	this->conf = new GameConfig();
+	this->conf->init();
 	this->gs = gs;
 	this->setIsTouchEnabled(true);
 	

@@ -29,6 +29,7 @@
 #include "Card.h"
 #include "GameControl.h"
 #include "GameLayout.h"
+#include "GameConfig.h"
 
 class GameScene;
 
@@ -70,6 +71,8 @@ public:
 	void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+	
+	CC_PROPERTY_READONLY(GameConfig*, conf, Conf);
 };
 
 #endif // __GAME_H__
