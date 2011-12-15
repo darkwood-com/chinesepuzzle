@@ -45,8 +45,8 @@ static AppDelegate s_sharedApplication;
     // Add the view controller's view to the window and display.
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     EAGLView* __glView = [EAGLView viewWithFrame: [window bounds]
-                                     pixelFormat: kEAGLColorFormatRGBA8
-                                     depthFormat: GL_DEPTH_COMPONENT16_OES
+                                     pixelFormat: kEAGLColorFormatRGBA8	// kEAGLColorFormatRGBA8
+                                     depthFormat: 0						// GL_DEPTH_COMPONENT16_OES
                               preserveBackbuffer: NO
                                       sharegroup: nil
                                    multiSampling: NO
