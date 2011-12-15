@@ -34,6 +34,13 @@ struct GridCoord {
 	int j;
 };
 
+typedef enum {
+	GameZOrderBG = 0,
+	GameZOrderUI = 1,
+	GameZOrderCard = 2,
+	GameZOrderMoveCard = 3,
+} GameZOrder;
+
 // GameLayout Layer
 class GameLayout : public cocos2d::CCObject
 {

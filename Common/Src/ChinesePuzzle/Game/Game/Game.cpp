@@ -134,7 +134,7 @@ void Game::newGame()
 				if(isFirstGame)
 				{
 					card->setPosition(coordPos);
-					this->addChild(card);
+					this->addChild(card, GameZOrderCard);
 					gc->addCard(card);
 				}
 				
@@ -190,6 +190,7 @@ void Game::tapDownAt(CCPoint location)
 	{
 		dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
 		dragCard = tapCard;
+		this->reorderChild(dragCard, GameZOrderMoveCard);
 	}
 	
     lastTouchLocation = location;
@@ -238,6 +239,7 @@ void Game::tapUpAt(CCPoint location)
 			//drop is invalid : undo changes
 			dragCard->runAction(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(dragCardCoord)));
 		}
+		this->reorderChild(dragCard, GameZOrderCard);
     }
     
     dragCard = NULL;
