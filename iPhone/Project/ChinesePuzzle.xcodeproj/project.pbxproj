@@ -150,6 +150,7 @@
 		C36ABC9414619A3C0006151B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36ABC9114619A3C0006151B /* main.m */; };
 		C36ACDF114619EB10006151B /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDEE14619EB10006151B /* AppController.mm */; };
 		C36ACDF214619EB10006151B /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
+		C38D77C2149B781F00C06E0F /* BoardCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38D77C0149B781F00C06E0F /* BoardCard.cpp */; };
 		C3AC43FC148396140042E2C8 /* MenuContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AC43F8148396140042E2C8 /* MenuContainer.cpp */; };
 		C3B854331462934100C440B3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854321462934100C440B3 /* QuartzCore.framework */; };
 		C3B854361462934800C440B3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854351462934800C440B3 /* OpenGLES.framework */; };
@@ -514,6 +515,8 @@
 		C36ACDEE14619EB10006151B /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		C36ACDEF14619EB10006151B /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C36ACDF014619EB10006151B /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
+		C38D77C0149B781F00C06E0F /* BoardCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoardCard.cpp; sourceTree = "<group>"; };
+		C38D77C1149B781F00C06E0F /* BoardCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardCard.h; sourceTree = "<group>"; };
 		C3AC43F8148396140042E2C8 /* MenuContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuContainer.cpp; sourceTree = "<group>"; };
 		C3AC43F9148396140042E2C8 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
 		C3B854321462934100C440B3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1329,6 +1332,8 @@
 		C3C48C29147EB0AA00C54E14 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				C38D77C1149B781F00C06E0F /* BoardCard.h */,
+				C38D77C0149B781F00C06E0F /* BoardCard.cpp */,
 				C3C48C2B147EB0AA00C54E14 /* Card.h */,
 				C3C48C2A147EB0AA00C54E14 /* Card.cpp */,
 				C3C48C2C147EB0AA00C54E14 /* CardDelegate.h */,
@@ -1588,6 +1593,7 @@
 				C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */,
 				C3F6ABE214925571003A2F70 /* MenuBox.cpp in Sources */,
 				C3EA0F171498D084007A7D76 /* GameConfig.cpp in Sources */,
+				C38D77C2149B781F00C06E0F /* BoardCard.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
