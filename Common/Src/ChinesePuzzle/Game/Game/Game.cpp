@@ -24,10 +24,8 @@
 
 #include "Game.h"
 #include "Card.h"
-#include "GameControl.h"
 #include "GameControlChipmunk.h"
 #include "GameControlSprite.h"
-#include "GameLayout.h"
 #include "GameScene.h"
 
 using namespace cocos2d;
@@ -54,6 +52,7 @@ bool Game::init(GameScene* gs)
 		return false;
 	}
 	
+	//this->gc = new GameControlChipmunk();
 	this->gc = new GameControlSprite();
 	this->gl = new GameLayout(this);
 	this->conf = new GameConfig();
@@ -71,7 +70,7 @@ bool Game::init(GameScene* gs)
 
 void Game::newGame()
 {
-	bool isFirstGame = deck.size() == 0;
+	bool isFirstGame = (deck.size() == 0);
 	if(isFirstGame)
 	{
 		//create deck
@@ -167,11 +166,13 @@ void Game::draw()
 {
 	CCLayer::draw();
 	
+	//debug game control draw
 	gc->draw();
 }
 
 void Game::step(ccTime dt)
 {
+	//update game step
 	gc->step(dt);
 }
 

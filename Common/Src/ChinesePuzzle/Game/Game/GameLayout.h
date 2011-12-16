@@ -37,8 +37,9 @@ struct GridCoord {
 typedef enum {
 	GameZOrderBG = 0,
 	GameZOrderUI = 1,
-	GameZOrderCard = 2,
-	GameZOrderMoveCard = 3,
+	GameZOrderBoard = 2,
+	GameZOrderCard = 3,
+	GameZOrderMoveCard = 4,
 } GameZOrder;
 
 // GameLayout Layer
