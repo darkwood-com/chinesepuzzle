@@ -35,7 +35,19 @@ CardBoard::~CardBoard()
 {
 }
 
-bool CardBoard::init()
+CardBoard* CardBoard::cardBoard()
+{
+	CardBoard* cardBoard = new CardBoard();
+	if (cardBoard && cardBoard->initCardBoard())
+	{
+        cardBoard->autorelease();
+        return cardBoard;
+    }
+    CC_SAFE_DELETE(cardBoard);
+	return NULL;
+}
+
+bool CardBoard::initCardBoard()
 {
 	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardempty.png")).c_str());
 	yesTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardyes.png")).c_str());

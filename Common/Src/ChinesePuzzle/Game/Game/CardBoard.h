@@ -44,7 +44,8 @@ public:
 	CardBoard();
 	virtual ~CardBoard();
 	
-	virtual bool init();
+	static CardBoard* cardBoard();
+	virtual bool initCardBoard();
 	
 	virtual CardType getType() { return CardTypeBoard; }
 };

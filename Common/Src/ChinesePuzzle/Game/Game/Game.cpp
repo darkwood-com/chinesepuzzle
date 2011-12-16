@@ -27,7 +27,6 @@
 #include "GameControlSprite.h"
 #include "GameScene.h"
 #include "CardPlay.h"
-//#include "CardPlayAction.h"
 #include "CardBoard.h"
 
 using namespace cocos2d;
@@ -117,20 +116,30 @@ void Game::newGame()
 	{
 		for(int j = 0; j < 14; ++j)
 		{
+			GridCoord coord;
+			coord.i = i;
+			coord.j = j;
+			
 			if(j == 0)
 			{
-				board[i][j] = NULL;
+				CardBoard* card = CardBoard::cardBoard();
+				
+				board[i][j] = card;
+				
+				//card position
+				CCPoint coordPos = gl->getPositionInBoardPoint(coord);
+				card->setPosition(coordPos);
+				if(isFirstGame)
+				{
+					this->addChild(card, GameZOrderCard);
+				}
 			}
 			else
 			{
-				GridCoord coord;
-				coord.i = i;
-				coord.j = j;
-				
 				CardPlay* card = deck[k++];
+				card->setIsLocked(false);
 				
 				board[i][j] = card;
-				card->setIsLocked(false);
 				
 				//card position
 				CCPoint coordPos = gl->getPositionInBoardPoint(coord);
@@ -191,7 +200,7 @@ void Game::tapDownAt(CCPoint location)
 	if(gl->tapDownAt(location)) return;
 	
 	Card* tapCard = gc->getCard(location);
-	if(tapCard && tapCard->getType() == CardTypeCard && !((CardPlay*)tapCard)->getIsLocked())
+	if(tapCard && tapCard->getType() == CardTypePlay && !((CardPlay*)tapCard)->getIsLocked())
 	{
 		dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
 		dragCard = (CardPlay*) tapCard;
