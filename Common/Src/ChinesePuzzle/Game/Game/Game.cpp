@@ -23,18 +23,20 @@
  */
 
 #include "Game.h"
-#include "Card.h"
 #include "GameControlChipmunk.h"
 #include "GameControlSprite.h"
 #include "GameScene.h"
+#include "CardPlay.h"
+//#include "CardPlayAction.h"
+#include "CardBoard.h"
 
 using namespace cocos2d;
 
 Game::Game() : 
-dragCard(NULL),
 gc(NULL),
 gl(NULL),
-conf(NULL)
+conf(NULL),
+dragCard(NULL)
 {
 }
 
@@ -74,34 +76,34 @@ void Game::newGame()
 	if(isFirstGame)
 	{
 		//create deck
-		std::vector<CardColor> colors;
-		colors.push_back(CardColorSpade);
-		colors.push_back(CardColorClub);
-		colors.push_back(CardColorHeart);
-		colors.push_back(CardColorDiamond);
+		std::vector<CardPlayColor> colors;
+		colors.push_back(CardPlayColorSpade);
+		colors.push_back(CardPlayColorClub);
+		colors.push_back(CardPlayColorHeart);
+		colors.push_back(CardPlayColorDiamond);
 		
-		std::vector<CardRank> ranks;
-		ranks.push_back(CardRankAce);
-		ranks.push_back(CardRankTwo);
-		ranks.push_back(CardRankThree);
-		ranks.push_back(CardRankFour);
-		ranks.push_back(CardRankFive);
-		ranks.push_back(CardRankSix);
-		ranks.push_back(CardRankSeven);
-		ranks.push_back(CardRankEight);
-		ranks.push_back(CardRankNine);
-		ranks.push_back(CardRankTen);
-		ranks.push_back(CardRankJack);
-		ranks.push_back(CardRankQueen);
-		ranks.push_back(CardRankKing);
+		std::vector<CardPlayRank> ranks;
+		ranks.push_back(CardPlayRankAce);
+		ranks.push_back(CardPlayRankTwo);
+		ranks.push_back(CardPlayRankThree);
+		ranks.push_back(CardPlayRankFour);
+		ranks.push_back(CardPlayRankFive);
+		ranks.push_back(CardPlayRankSix);
+		ranks.push_back(CardPlayRankSeven);
+		ranks.push_back(CardPlayRankEight);
+		ranks.push_back(CardPlayRankNine);
+		ranks.push_back(CardPlayRankTen);
+		ranks.push_back(CardPlayRankJack);
+		ranks.push_back(CardPlayRankQueen);
+		ranks.push_back(CardPlayRankKing);
 		
 		for (int k = 0; k < 2; ++k)
 		{
-			for(std::vector<CardColor>::const_iterator color = colors.begin(); color != colors.end(); ++color)
+			for(std::vector<CardPlayColor>::const_iterator color = colors.begin(); color != colors.end(); ++color)
 			{
-				for(std::vector<CardRank>::const_iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
+				for(std::vector<CardPlayRank>::const_iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
 				{
-					Card* card = Card::cardWithColorAndRank(*color, *rank);
+					CardPlay* card = CardPlay::cardPlayWithColorAndRank(*color, *rank);
 					deck.push_back(card);
 				}
 			}
@@ -115,15 +117,17 @@ void Game::newGame()
 	{
 		for(int j = 0; j < 14; ++j)
 		{
-			board[i][j] = NULL;
-			
-			if(j != 0)
+			if(j == 0)
+			{
+				board[i][j] = NULL;
+			}
+			else
 			{
 				GridCoord coord;
 				coord.i = i;
 				coord.j = j;
 				
-				Card* card = deck[k++];
+				CardPlay* card = deck[k++];
 				
 				board[i][j] = card;
 				card->setIsLocked(false);
@@ -147,7 +151,7 @@ void Game::newGame()
 				if(!card->getIsFaceUp())
 				{
 					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 0, 90, 0, 0));
-					actions->addObject(CardFlipAction::actionWithCard(card));
+					actions->addObject(CardPlayFlipAction::actionWithCardPlay(card));
 					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 270, 90, 0, 0));
 				}
 				card->runAction(CCSequence::actionsWithArray(actions));
@@ -187,10 +191,10 @@ void Game::tapDownAt(CCPoint location)
 	if(gl->tapDownAt(location)) return;
 	
 	Card* tapCard = gc->getCard(location);
-	if(tapCard && !tapCard->getIsLocked())
+	if(tapCard && tapCard->getType() == CardTypeCard && !((CardPlay*)tapCard)->getIsLocked())
 	{
 		dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
-		dragCard = tapCard;
+		dragCard = (CardPlay*) tapCard;
 		this->reorderChild(dragCard, GameZOrderMoveCard);
 	}
 	
@@ -219,7 +223,9 @@ void Game::tapUpAt(CCPoint location)
     {
 		//check drop
 		GridCoord coord = gl->getPositionInGridCoord(location);
-		if((0 <= coord.i && coord.i < 8 && 0 <= coord.j && coord.j < 14 && board[coord.i][coord.j] == NULL) && 
+		
+		/*
+		if((0 <= coord.i && coord.i < 8 && 0 <= coord.j && coord.j < 14 && board[coord.i][coord.j] && board[coord.i][coord.j]->getType() == CardTypeBoard) && 
 		   ((coord.j == 0 && dragCard->getCardRank() == CardRankAce) || (coord.j > 0 && board[coord.i][coord.j - 1] != NULL && dragCard->isNextToCard(board[coord.i][coord.j - 1]))))
 		{
 			//drop is valid : apply changes
@@ -240,6 +246,8 @@ void Game::tapUpAt(CCPoint location)
 			//drop is invalid : undo changes
 			dragCard->runAction(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(dragCardCoord)));
 		}
+		 */
+		 
 		this->reorderChild(dragCard, GameZOrderCard);
     }
     

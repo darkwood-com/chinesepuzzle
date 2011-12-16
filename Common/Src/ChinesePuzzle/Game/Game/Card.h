@@ -28,76 +28,27 @@
 #include "cocos2d.h"
 #include "CardDelegate.h"
 
-
 typedef enum {
-	CardColorSpade,
-	CardColorClub,
-	CardColorHeart,
-	CardColorDiamond
-} CardColor;
-
-typedef enum {
-	CardRankAce,
-	CardRankTwo,
-	CardRankThree,
-	CardRankFour,
-	CardRankFive,
-	CardRankSix,
-	CardRankSeven,
-	CardRankEight,
-	CardRankNine,
-	CardRankTen,
-	CardRankJack,
-	CardRankQueen,
-	CardRankKing
-} CardRank;
-
-class Card;
-class CC_DLL CardFlipAction : public cocos2d::CCFiniteTimeAction
-{
-protected:
-	Card* card;
-
-public:
-	static CardFlipAction* actionWithCard(Card* card);
-	virtual bool initWithCard(Card* card);
-	virtual void update(cocos2d::ccTime time);
-	virtual CCObject* copyWithZone(cocos2d::CCZone* pZone);
-};
+	CardTypeCard,
+	CardTypePlay,
+	CardTypeBoard,
+} CardType;
 
 class CC_DLL Card : public cocos2d::CCSprite
 {
 protected:
-	CardColor color;
-	CardRank rank;
-	bool isLocked; //flag that tels if the card is well placed
-	
-	bool isFaceUp;
-	cocos2d::CCTexture2D* faceTexture;
-	cocos2d::CCTexture2D* backTexture;
-	
 	std::set<CardDelegate*> cardDelegates;
 	
 public:
 	Card();
 	virtual ~Card();
 	
-	static Card* cardWithColorAndRank(CardColor color, CardRank rank);
-	virtual bool initWithColorAndRank(CardColor color, CardRank rank);
 	virtual void setPosition(const cocos2d::CCPoint& pos);
 	
 	virtual void addCardDelegate(CardDelegate* delegate);
 	virtual void removeCardDelegate(CardDelegate* delegate);
 	
-	CardColor getCardColor();
-	CardRank getCardRank();
-	bool getIsLocked();
-	void setIsLocked(bool isLocked);
-
-	virtual bool isNextToCard(Card* card);
-	
-	virtual bool getIsFaceUp();
-	virtual void setIsFaceUp(bool isFaceUp);
+	virtual CardType getType() = 0;
 };
 
 #endif // __CARD_H__

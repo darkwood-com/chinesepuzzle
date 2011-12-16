@@ -1,5 +1,5 @@
 /**
- *  BoardCard.h
+ *  CardBoard.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,18 +22,18 @@
  *
  */
 
-#ifndef __BOARDCARD_H__
-#define __BOARDCARD_H__
+#ifndef __CARDBOARD_H__
+#define __CARDBOARD_H__
 
-#include "cocos2d.h"
+#include "Card.h"
 
 typedef enum {
-	BoardCardEmpty,
-	BoardCardYes,
-	BoardCardNo,
-} BoardCardState;
+	CardBoardEmpty,
+	CardBoardYes,
+	CardBoardNo,
+} CardBoardState;
 
-class CC_DLL BoardCard : public cocos2d::CCSprite
+class CC_DLL CardBoard : public Card
 {
 protected:
 	cocos2d::CCTexture2D* emptyTexture;
@@ -41,10 +41,12 @@ protected:
 	cocos2d::CCTexture2D* noTexture;
 	
 public:
-	BoardCard();
-	virtual ~BoardCard();
+	CardBoard();
+	virtual ~CardBoard();
 	
 	virtual bool init();
+	
+	virtual CardType getType() { return CardTypeBoard; }
 };
 
-#endif // __BOARDCARD_H__
+#endif // __CARDBOARD_H__

@@ -1,5 +1,5 @@
 /**
- *  BoardCard.cpp
+ *  CardBoard.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -23,23 +23,23 @@
  */
 
 
-#include "BoardCard.h"
+#include "CardBoard.h"
 
 using namespace cocos2d;
 
-BoardCard::BoardCard()
+CardBoard::CardBoard()
 {
 }
 
-BoardCard::~BoardCard()
+CardBoard::~CardBoard()
 {
 }
 
-bool BoardCard::init()
+bool CardBoard::init()
 {
-	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/boardcard.png")).c_str());
-	yesTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/boardcardno.png")).c_str());
-	noTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/boardcardyes.png")).c_str());
+	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardempty.png")).c_str());
+	yesTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardyes.png")).c_str());
+	noTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardno.png")).c_str());
 	
 	if(!CCSprite::initWithTexture(emptyTexture))
 	{

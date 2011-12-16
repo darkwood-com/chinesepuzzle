@@ -150,7 +150,9 @@
 		C36ABC9414619A3C0006151B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36ABC9114619A3C0006151B /* main.m */; };
 		C36ACDF114619EB10006151B /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDEE14619EB10006151B /* AppController.mm */; };
 		C36ACDF214619EB10006151B /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
-		C38D77C2149B781F00C06E0F /* BoardCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38D77C0149B781F00C06E0F /* BoardCard.cpp */; };
+		C38D77CB149B7F5A00C06E0F /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38D77C4149B7F5900C06E0F /* Card.cpp */; };
+		C38D77CC149B7F5A00C06E0F /* CardBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38D77C6149B7F5900C06E0F /* CardBoard.cpp */; };
+		C38D77CD149B7F5A00C06E0F /* CardPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38D77C9149B7F5A00C06E0F /* CardPlay.cpp */; };
 		C3AC43FC148396140042E2C8 /* MenuContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AC43F8148396140042E2C8 /* MenuContainer.cpp */; };
 		C3B854331462934100C440B3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854321462934100C440B3 /* QuartzCore.framework */; };
 		C3B854361462934800C440B3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854351462934800C440B3 /* OpenGLES.framework */; };
@@ -159,7 +161,6 @@
 		C3B8543C1462935E00C440B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B8543B1462935E00C440B3 /* AVFoundation.framework */; };
 		C3B856E41462D3B900C440B3 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = C3B856E31462D3B900C440B3 /* Data */; };
 		C3B8571E14642BA600C440B3 /* cpDrawSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B8571D14642BA600C440B3 /* cpDrawSpace.cpp */; };
-		C3C48C3E147EB0AA00C54E14 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C2A147EB0AA00C54E14 /* Card.cpp */; };
 		C3C48C3F147EB0AA00C54E14 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C2D147EB0AA00C54E14 /* Game.cpp */; };
 		C3C48C40147EB0AA00C54E14 /* GameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C2F147EB0AA00C54E14 /* GameControl.cpp */; };
 		C3C48C41147EB0AA00C54E14 /* GameControlChipmunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C31147EB0AA00C54E14 /* GameControlChipmunk.cpp */; };
@@ -515,8 +516,13 @@
 		C36ACDEE14619EB10006151B /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		C36ACDEF14619EB10006151B /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C36ACDF014619EB10006151B /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
-		C38D77C0149B781F00C06E0F /* BoardCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoardCard.cpp; sourceTree = "<group>"; };
-		C38D77C1149B781F00C06E0F /* BoardCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardCard.h; sourceTree = "<group>"; };
+		C38D77C4149B7F5900C06E0F /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
+		C38D77C5149B7F5900C06E0F /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		C38D77C6149B7F5900C06E0F /* CardBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardBoard.cpp; sourceTree = "<group>"; };
+		C38D77C7149B7F5900C06E0F /* CardBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardBoard.h; sourceTree = "<group>"; };
+		C38D77C8149B7F5900C06E0F /* CardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDelegate.h; sourceTree = "<group>"; };
+		C38D77C9149B7F5A00C06E0F /* CardPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardPlay.cpp; sourceTree = "<group>"; };
+		C38D77CA149B7F5A00C06E0F /* CardPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPlay.h; sourceTree = "<group>"; };
 		C3AC43F8148396140042E2C8 /* MenuContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuContainer.cpp; sourceTree = "<group>"; };
 		C3AC43F9148396140042E2C8 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
 		C3B854321462934100C440B3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -528,9 +534,6 @@
 		C3B85706146424BE00C440B3 /* cpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpConfig.h; sourceTree = "<group>"; };
 		C3B8571C14642BA600C440B3 /* cpDrawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpDrawSpace.h; sourceTree = "<group>"; };
 		C3B8571D14642BA600C440B3 /* cpDrawSpace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cpDrawSpace.cpp; sourceTree = "<group>"; };
-		C3C48C2A147EB0AA00C54E14 /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
-		C3C48C2B147EB0AA00C54E14 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		C3C48C2C147EB0AA00C54E14 /* CardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDelegate.h; sourceTree = "<group>"; };
 		C3C48C2D147EB0AA00C54E14 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		C3C48C2E147EB0AA00C54E14 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		C3C48C2F147EB0AA00C54E14 /* GameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControl.cpp; sourceTree = "<group>"; };
@@ -1332,11 +1335,13 @@
 		C3C48C29147EB0AA00C54E14 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				C38D77C1149B781F00C06E0F /* BoardCard.h */,
-				C38D77C0149B781F00C06E0F /* BoardCard.cpp */,
-				C3C48C2B147EB0AA00C54E14 /* Card.h */,
-				C3C48C2A147EB0AA00C54E14 /* Card.cpp */,
-				C3C48C2C147EB0AA00C54E14 /* CardDelegate.h */,
+				C38D77C5149B7F5900C06E0F /* Card.h */,
+				C38D77C4149B7F5900C06E0F /* Card.cpp */,
+				C38D77C7149B7F5900C06E0F /* CardBoard.h */,
+				C38D77C6149B7F5900C06E0F /* CardBoard.cpp */,
+				C38D77C8149B7F5900C06E0F /* CardDelegate.h */,
+				C38D77CA149B7F5A00C06E0F /* CardPlay.h */,
+				C38D77C9149B7F5A00C06E0F /* CardPlay.cpp */,
 				C3C48C2E147EB0AA00C54E14 /* Game.h */,
 				C3C48C2D147EB0AA00C54E14 /* Game.cpp */,
 				C3EA0F161498D083007A7D76 /* GameConfig.h */,
@@ -1580,7 +1585,6 @@
 				C309647D1461AB8A00924761 /* SimpleAudioEngine.mm in Sources */,
 				C309647E1461AB8A00924761 /* SimpleAudioEngine_objc.m in Sources */,
 				C3B8571E14642BA600C440B3 /* cpDrawSpace.cpp in Sources */,
-				C3C48C3E147EB0AA00C54E14 /* Card.cpp in Sources */,
 				C3C48C3F147EB0AA00C54E14 /* Game.cpp in Sources */,
 				C3C48C40147EB0AA00C54E14 /* GameControl.cpp in Sources */,
 				C3C48C41147EB0AA00C54E14 /* GameControlChipmunk.cpp in Sources */,
@@ -1593,7 +1597,9 @@
 				C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */,
 				C3F6ABE214925571003A2F70 /* MenuBox.cpp in Sources */,
 				C3EA0F171498D084007A7D76 /* GameConfig.cpp in Sources */,
-				C38D77C2149B781F00C06E0F /* BoardCard.cpp in Sources */,
+				C38D77CB149B7F5A00C06E0F /* Card.cpp in Sources */,
+				C38D77CC149B7F5A00C06E0F /* CardBoard.cpp in Sources */,
+				C38D77CD149B7F5A00C06E0F /* CardPlay.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

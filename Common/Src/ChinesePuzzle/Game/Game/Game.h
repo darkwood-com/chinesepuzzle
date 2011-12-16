@@ -25,13 +25,13 @@
 #ifndef __GAME_H__
 #define __GAME_H__
 
-#include "cocos2d.h"
 #include "Card.h"
 #include "GameControl.h"
 #include "GameLayout.h"
 #include "GameConfig.h"
 
 class GameScene;
+class CardPlay;
 
 // Game Layer
 class Game : public cocos2d::CCLayer
@@ -39,14 +39,15 @@ class Game : public cocos2d::CCLayer
 protected:
 	GameScene* gs; //scene parent
 	
-	std::vector<Card*> deck; //deck cards
+	std::vector<CardPlay*> deck; //deck cards
 	Card* board[8][14]; //board game that reference to the deck cards
+	
 	GameControl* gc;
 	GameLayout* gl;
 
     //input touches/mouse
-	Card* dragCard;
     cocos2d::CCPoint lastTouchLocation;
+	Card* dragCard;
     GridCoord dragCardCoord;
 	
 public:
