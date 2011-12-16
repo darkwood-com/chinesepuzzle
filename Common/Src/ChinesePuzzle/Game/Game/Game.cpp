@@ -107,6 +107,10 @@ void Game::newGame()
 				}
 			}
 		}
+		
+		switchBoardCard = CardBoard::cardBoard();
+		switchBoardCard->setIsVisible(false);
+		this->addChild(switchBoardCard);
 	}
 	
 	//assign random cards into the board
@@ -189,6 +193,71 @@ void Game::step(ccTime dt)
 	gc->step(dt);
 }
 
+Card* Game::getCard(GridCoord coord)
+{
+	return (0 <= coord.i && coord.i < 8 && 0 <= coord.j && coord.j < 14) ? board[coord.i][coord.j] : NULL;
+}
+
+CheckMove Game::checkMove(GridCoord from, GridCoord to)
+{
+	Card* cFromCard = this->getCard(from);
+	if(cFromCard == NULL || cFromCard->getType() != CardTypePlay) return CheckMoveFrom;
+	CardPlay* cFrom = (CardPlay*) cFromCard;
+	
+	GridCoord toBefore = to; toBefore.j--;
+	if(toBefore.j == -1)
+	{
+		if(cFrom->getRank() == CardPlayRankAce) return CheckMoveOk;
+		else return CheckMoveKo;
+	}
+	else
+	{
+		Card* cToCard = this->getCard(to);
+		if(cToCard == NULL || cToCard->getType() != CardTypeBoard) return CheckMoveTo;
+		
+		Card* cToBeforeCard = this->getCard(toBefore);
+		if(cToBeforeCard == NULL || cToBeforeCard->getType() != CardTypePlay) return CheckMoveToBefore;
+		CardPlay* cToBefore = (CardPlay*) cToBeforeCard;
+		
+		if(cFrom->isNextToCardPlay(cToBefore)) return CheckMoveOk;
+		else return CheckMoveKo;
+	}
+}
+
+int Game::lockLine(int i)
+{
+	if(!(0 <= i && i < 8)) return 0;
+	
+	int nb = 0;
+	
+	for (int j = 0; j < 14; ++j)
+	{
+		Card* cCard = board[i][j];
+		if(cCard == NULL || cCard->getType() != CardTypePlay) continue;
+		CardPlay* c = (CardPlay*) cCard;
+		
+		Card* cCardBefore = (j == 0) ? NULL : board[i][j - 1];
+		CardPlay* cBefore = NULL;
+		if(cCardBefore != NULL && cCardBefore->getType() == CardTypePlay)
+		{
+			cBefore = (CardPlay*) cCardBefore;
+		}
+		
+		if((j == 0 && c->getRank() == CardPlayRankAce) ||
+		   (cBefore && cBefore->getIsLocked() && c->isNextToCardPlay(cBefore)))
+		{
+			c->setIsLocked(true);
+			nb++;
+		}
+		else
+		{
+			c->setIsLocked(false);
+		}
+	}
+	
+	return nb;
+}
+
 //input touches/mouse
 void Game::registerWithTouchDispatcher()
 {
@@ -232,30 +301,20 @@ void Game::tapUpAt(CCPoint location)
     {
 		//check drop
 		GridCoord coord = gl->getPositionInGridCoord(location);
-		
-		/*
-		if((0 <= coord.i && coord.i < 8 && 0 <= coord.j && coord.j < 14 && board[coord.i][coord.j] && board[coord.i][coord.j]->getType() == CardTypeBoard) && 
-		   ((coord.j == 0 && dragCard->getCardRank() == CardRankAce) || (coord.j > 0 && board[coord.i][coord.j - 1] != NULL && dragCard->isNextToCard(board[coord.i][coord.j - 1]))))
+		if(this->checkMove(dragCardCoord, coord) == CheckMoveOk)
 		{
 			//drop is valid : apply changes
 			board[coord.i][coord.j] = board[dragCardCoord.i][dragCardCoord.j]; board[dragCardCoord.i][dragCardCoord.j] = NULL;
 			dragCard->runAction(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(coord)));
 			
 			//check and set lock for line cards
-			for (int k = 0; k < 13; ++k)
-			{
-				if(k == 0 && board[coord.i][k]) board[coord.i][k]->setIsLocked(true);
-				else if(board[coord.i][k - 1] && board[coord.i][k] && 
-						board[coord.i][k - 1]->getIsLocked() && 
-						board[coord.i][k]->isNextToCard(board[coord.i][k - 1])) board[coord.i][k]->setIsLocked(true);
-			}
+			this->lockLine(coord.i);
 		}
 		else
 		{
 			//drop is invalid : undo changes
 			dragCard->runAction(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(dragCardCoord)));
 		}
-		 */
 		 
 		this->reorderChild(dragCard, GameZOrderCard);
     }

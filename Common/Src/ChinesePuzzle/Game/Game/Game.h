@@ -32,6 +32,15 @@
 
 class GameScene;
 class CardPlay;
+class CardBoard;
+
+typedef enum {
+	CheckMoveFrom,
+	CheckMoveTo,
+	CheckMoveToBefore,
+	CheckMoveKo,
+	CheckMoveOk,
+} CheckMove;
 
 // Game Layer
 class Game : public cocos2d::CCLayer
@@ -47,8 +56,9 @@ protected:
 
     //input touches/mouse
     cocos2d::CCPoint lastTouchLocation;
-	Card* dragCard;
-    GridCoord dragCardCoord;
+	CardPlay* dragCard;
+	GridCoord dragCardCoord;
+    CardBoard* switchBoardCard; //board card used for switch
 	
 public:
 	Game();
@@ -59,8 +69,12 @@ public:
 	
 	void newGame();
 	void menu();
-	void step(cocos2d::ccTime dt);
 	void draw();
+	void step(cocos2d::ccTime dt);
+	
+	Card* getCard(GridCoord coord);
+	CheckMove checkMove(GridCoord from, GridCoord to); //check move for card from - to board coord
+	int lockLine(int i); //update lock for a given grid line, return number of locked cards
 	
 	//input touches/mouse
 	virtual void registerWithTouchDispatcher();

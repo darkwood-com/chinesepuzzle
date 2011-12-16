@@ -139,32 +139,9 @@ bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
 	return true;
 }
 
-CardPlayColor CardPlay::getCardPlayColor()
+bool CardPlay::isNextToCardPlay(CardPlay* cardPlay)
 {
-	return this->color;
-}
-
-CardPlayRank CardPlay::getCardPlayRank()
-{
-	return this->rank;
-}
-
-bool CardPlay::getIsLocked()
-{
-	return this->isLocked;
-}
-
-void CardPlay::setIsLocked(bool isLocked)
-{
-	if(this->isLocked != isLocked)
-	{
-		this->isLocked = isLocked;
-	}
-}
-
-bool CardPlay::isNextToCardPlay(CardPlay* CardPlay)
-{
-	return CardPlay != NULL && this->color == CardPlay->color && this->rank == CardPlay->rank + 1;
+	return cardPlay != NULL && this->color == cardPlay->color && this->rank == cardPlay->rank + 1;
 }
 
 bool CardPlay::getIsFaceUp()

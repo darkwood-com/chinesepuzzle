@@ -66,11 +66,6 @@ public:
 class CC_DLL CardPlay : public Card
 {
 protected:
-	CardPlayColor color;
-	CardPlayRank rank;
-	bool isLocked; //flag that tels if the CardPlay is well placed
-	
-	bool isFaceUp;
 	cocos2d::CCTexture2D* faceTexture;
 	cocos2d::CCTexture2D* backTexture;
 	
@@ -81,17 +76,14 @@ public:
 	static CardPlay* cardPlayWithColorAndRank(CardPlayColor color, CardPlayRank rank);
 	virtual bool initWithColorAndRank(CardPlayColor color, CardPlayRank rank);
 	
-	CardPlayColor getCardPlayColor();
-	CardPlayRank getCardPlayRank();
-	bool getIsLocked();
-	void setIsLocked(bool isLocked);
-
-	virtual bool isNextToCardPlay(CardPlay* CardPlay);
-	
-	virtual bool getIsFaceUp();
-	virtual void setIsFaceUp(bool isFaceUp);
+	virtual bool isNextToCardPlay(CardPlay* cardPlay);
 	
 	virtual CardType getType() { return CardTypePlay; }
+	
+	CC_SYNTHESIZE_READONLY(CardPlayColor, color, Color);
+	CC_SYNTHESIZE_READONLY(CardPlayRank, rank, Rank);
+	CC_SYNTHESIZE(bool, isLocked, IsLocked); //flag that tels if the CardPlay is well placed
+	CC_PROPERTY(bool, isFaceUp, IsFaceUp);
 };
 
 #endif // __CARDPLAY_H__
