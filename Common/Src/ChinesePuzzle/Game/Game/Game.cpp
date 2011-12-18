@@ -35,7 +35,9 @@ Game::Game() :
 gc(NULL),
 gl(NULL),
 conf(NULL),
-dragCard(NULL)
+dragCard(NULL),
+hintCard(NULL),
+switchBoardCard(NULL)
 {
 }
 
@@ -258,6 +260,44 @@ int Game::lockLine(int i)
 	return nb;
 }
 
+void Game::hintTouch(CCPoint location)
+{
+	if(this->dragCard)
+	{
+		//check drop
+		GridCoord coord = gl->getPositionInGridCoord(location);
+		Card* cToCard = this->getCard(coord);
+		if(cToCard != NULL && cToCard->getType() == CardTypeBoard)
+		{
+			CardBoard* cTo = (CardBoard*) cToCard;
+			if(hintCard && hintCard != cTo)
+			{
+				hintCard->setState(CardBoardEmpty);
+			}
+			hintCard = cTo;
+			
+			if(this->checkMove(dragCardCoord, coord) == CheckMoveOk)
+			{
+				hintCard->setState(CardBoardYes);
+			}
+			else
+			{
+				hintCard->setState(CardBoardNo);
+			}
+		}
+		else if(hintCard)
+		{
+			hintCard->setState(CardBoardEmpty);
+			hintCard = NULL;
+		}
+	}
+	else if(hintCard)
+	{
+		hintCard->setState(CardBoardEmpty);
+		hintCard = NULL;
+	}
+}
+
 //input touches/mouse
 void Game::registerWithTouchDispatcher()
 {
@@ -276,6 +316,7 @@ void Game::tapDownAt(CCPoint location)
 		this->reorderChild(dragCard, GameZOrderMoveCard);
 	}
 	
+	this->hintTouch(location);
     lastTouchLocation = location;
 }
 
@@ -290,7 +331,8 @@ void Game::tapMoveAt(CCPoint location)
         dragCard->setPosition(ccpAdd(dragCard->getPosition(), movePos));
     }
     
-    lastTouchLocation = location;
+	this->hintTouch(location);
+	lastTouchLocation = location;
 }
 
 void Game::tapUpAt(CCPoint location)
@@ -320,6 +362,7 @@ void Game::tapUpAt(CCPoint location)
     }
     
     dragCard = NULL;
+	this->hintTouch(location);
     lastTouchLocation = location;
 }
 

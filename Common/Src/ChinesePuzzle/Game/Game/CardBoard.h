@@ -47,6 +47,8 @@ public:
 	static CardBoard* cardBoard();
 	virtual bool initCardBoard();
 	
+	CC_PROPERTY(CardBoardState, state, State);
+	
 	virtual CardType getType() { return CardTypeBoard; }
 };
 

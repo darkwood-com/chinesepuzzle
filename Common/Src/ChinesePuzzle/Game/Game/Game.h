@@ -58,6 +58,7 @@ protected:
     cocos2d::CCPoint lastTouchLocation;
 	CardPlay* dragCard;
 	GridCoord dragCardCoord;
+	CardBoard* hintCard;
     CardBoard* switchBoardCard; //board card used for switch
 	
 public:
@@ -75,6 +76,7 @@ public:
 	Card* getCard(GridCoord coord);
 	CheckMove checkMove(GridCoord from, GridCoord to); //check move for card from - to board coord
 	int lockLine(int i); //update lock for a given grid line, return number of locked cards
+	void hintTouch(cocos2d::CCPoint location); //hint with dragged/touched card
 	
 	//input touches/mouse
 	virtual void registerWithTouchDispatcher();

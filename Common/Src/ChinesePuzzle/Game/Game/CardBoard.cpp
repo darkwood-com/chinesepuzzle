@@ -60,3 +60,23 @@ bool CardBoard::initCardBoard()
 	
 	return true;
 }
+
+CardBoardState CardBoard::getState()
+{
+	return this->state;
+}
+
+void CardBoard::setState(CardBoardState state)
+{
+	if(this->state != state)
+	{
+		switch (state)
+		{
+			case CardBoardEmpty: this->setTexture(emptyTexture); break;
+			case CardBoardYes: this->setTexture(yesTexture); break;
+			case CardBoardNo: this->setTexture(noTexture); break;
+		}
+		
+		this->state = state;
+	}
+}
