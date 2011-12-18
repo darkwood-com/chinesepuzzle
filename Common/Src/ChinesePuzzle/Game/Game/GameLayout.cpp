@@ -34,7 +34,7 @@ GameLayout::GameLayout(Game* game) :
 game(game),
 gridCardSize(26,36),
 gridSpaceSize(4, 4),
-gridPosition(4, 2),
+gridPosition(4, 0),
 isLayout(false)
 {
 	activesBtn = CCArray::array();
@@ -132,15 +132,16 @@ bool GameLayout::tapUpAt(CCPoint location)
 
 CCPoint GameLayout::getPositionInBoardPoint(GridCoord coord)
 {
-	return ccp(gridPosition.x + gridCardSize.width / 2.0 + coord.j * (gridCardSize.width + gridSpaceSize.width), gridPosition.y + gridCardSize.height / 2.0 + coord.i * (gridCardSize.height + gridSpaceSize.height));
+	return ccp(gridPosition.x + (0.5f + coord.j) * (gridCardSize.width + gridSpaceSize.width),
+			   gridPosition.y + (0.5f + coord.i) * (gridCardSize.height + gridSpaceSize.height));
 }
 
 GridCoord GameLayout::getPositionInGridCoord(CCPoint point)
 {
 	GridCoord coord;
 	
-	coord.i = std::floor((point.y - gridPosition.y - gridCardSize.height / 2.0) / (gridCardSize.height + gridSpaceSize.height));
-	coord.j = std::floor((point.x - gridPosition.x - gridCardSize.width / 2.0) / (gridCardSize.width + gridSpaceSize.width));
+	coord.i = std::floor((point.y - gridPosition.y - 0.5) / (gridCardSize.height + gridSpaceSize.height));
+	coord.j = std::floor((point.x - gridPosition.x - 0.5) / (gridCardSize.width + gridSpaceSize.width));
 	
 	return coord;
 }

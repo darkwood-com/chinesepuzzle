@@ -206,6 +206,9 @@ CheckMove Game::checkMove(GridCoord from, GridCoord to)
 	if(cFromCard == NULL || cFromCard->getType() != CardTypePlay) return CheckMoveFrom;
 	CardPlay* cFrom = (CardPlay*) cFromCard;
 	
+	Card* cToCard = this->getCard(to);
+	if(cToCard == NULL || cToCard->getType() != CardTypeBoard) return CheckMoveTo;
+	
 	GridCoord toBefore = to; toBefore.j--;
 	if(toBefore.j == -1)
 	{
@@ -214,9 +217,6 @@ CheckMove Game::checkMove(GridCoord from, GridCoord to)
 	}
 	else
 	{
-		Card* cToCard = this->getCard(to);
-		if(cToCard == NULL || cToCard->getType() != CardTypeBoard) return CheckMoveTo;
-		
 		Card* cToBeforeCard = this->getCard(toBefore);
 		if(cToBeforeCard == NULL || cToBeforeCard->getType() != CardTypePlay) return CheckMoveToBefore;
 		CardPlay* cToBefore = (CardPlay*) cToBeforeCard;
@@ -262,10 +262,12 @@ int Game::lockLine(int i)
 
 void Game::hintTouch(CCPoint location)
 {
+	CC_UNUSED_PARAM(location);
+	
 	if(this->dragCard)
 	{
 		//check drop
-		GridCoord coord = gl->getPositionInGridCoord(location);
+		GridCoord coord = gl->getPositionInGridCoord(dragCard->getPosition());
 		Card* cToCard = this->getCard(coord);
 		if(cToCard != NULL && cToCard->getType() == CardTypeBoard)
 		{
@@ -308,12 +310,19 @@ void Game::tapDownAt(CCPoint location)
 {
 	if(gl->tapDownAt(location)) return;
 	
-	Card* tapCard = gc->getCard(location);
-	if(tapCard && tapCard->getType() == CardTypePlay && !((CardPlay*)tapCard)->getIsLocked())
-	{
-		dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
-		dragCard = (CardPlay*) tapCard;
-		this->reorderChild(dragCard, GameZOrderMoveCard);
+	if(!dragCard)
+    {
+		Card* tapCard = gc->getCard(location);
+		if(tapCard && tapCard->getType() == CardTypePlay && !((CardPlay*)tapCard)->getIsLocked())
+		{
+			dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
+			dragCard = (CardPlay*) tapCard;
+			
+			switchBoardCard->setPosition(gl->getPositionInBoardPoint(dragCardCoord));
+			switchBoardCard->setIsVisible(true);
+			
+			this->reorderChild(dragCard, GameZOrderMoveCard);
+		}
 	}
 	
 	this->hintTouch(location);
@@ -342,12 +351,16 @@ void Game::tapUpAt(CCPoint location)
     if(dragCard)
     {
 		//check drop
-		GridCoord coord = gl->getPositionInGridCoord(location);
+		GridCoord coord = gl->getPositionInGridCoord(dragCard->getPosition());
 		if(this->checkMove(dragCardCoord, coord) == CheckMoveOk)
 		{
-			//drop is valid : apply changes
-			board[coord.i][coord.j] = board[dragCardCoord.i][dragCardCoord.j]; board[dragCardCoord.i][dragCardCoord.j] = NULL;
+			//drop is valid : apply changes and switch
+			Card* cSwitch = this->getCard(coord);
+			board[coord.i][coord.j] = board[dragCardCoord.i][dragCardCoord.j];
+			board[dragCardCoord.i][dragCardCoord.j] = cSwitch;
 			dragCard->runAction(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(coord)));
+			if(cSwitch) cSwitch->setPosition(gl->getPositionInBoardPoint(dragCardCoord));
+			switchBoardCard->setPosition(gl->getPositionInBoardPoint(coord));
 			
 			//check and set lock for line cards
 			this->lockLine(coord.i);
