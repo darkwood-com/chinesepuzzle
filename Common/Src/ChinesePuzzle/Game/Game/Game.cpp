@@ -384,28 +384,32 @@ void Game::tapDownAt(CCPoint location)
 	if(!dragCard)
     {
 		Card* tapCard = gc->getCard(location);
-		if(tapCard && tapCard->getType() == CardTypePlay && !((CardPlay*)tapCard)->getIsLocked())
+		if(tapCard)
 		{
-			dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
-			dragCard = (CardPlay*) tapCard;
-			CCPoint dragCardPos = gl->getPositionInBoardPoint(dragCardCoord);
-			
-			switchBoardCard->setPosition(dragCardPos);
-			switchBoardCard->setIsVisible(true);
-			touchLastCard->setPosition(dragCardPos);
-			
-			this->reorderChild(dragCard, GameZOrderMoveCard);
-		}
-		else if(tapCard && tapCard->getType() == CardTypeBoard && touchLastCard->getIsVisible())
-		{
-			touchLastCard->setIsVisible(false);
-			if(this->checkMoveCard(touchLastCard, tapCard) == CheckMoveOk)
+			if(touchLastCard->getIsVisible())
 			{
-				switchBoardCard->setPosition(touchLastCard->getPosition());
+				if(this->checkMoveCard(touchLastCard, tapCard) == CheckMoveOk)
+				{
+					switchBoardCard->setPosition(touchLastCard->getPosition());
+					switchBoardCard->setIsVisible(true);
+					this->makeMoveCard(touchLastCard, tapCard);
+				}
+			}
+			else if(tapCard->getType() == CardTypePlay && !((CardPlay*)tapCard)->getIsLocked())
+			{
+				dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
+				dragCard = (CardPlay*) tapCard;
+				CCPoint dragCardPos = gl->getPositionInBoardPoint(dragCardCoord);
+				
+				switchBoardCard->setPosition(dragCardPos);
 				switchBoardCard->setIsVisible(true);
-				this->makeMoveCard(touchLastCard, tapCard);
+				touchLastCard->setPosition(dragCardPos);
+				
+				this->reorderChild(dragCard, GameZOrderMoveCard);
 			}
 		}
+		
+		touchLastCard->setIsVisible(false);
 	}
 	
 	this->hintMove();
