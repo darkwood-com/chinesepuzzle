@@ -57,7 +57,7 @@ protected:
 	cocos2d::CCSprite* newBtn;
 	cocos2d::CCSprite* hintBtn;
 	cocos2d::CCSprite* undoBtn;
-	cocos2d::CCSprite* menuBtn;
+	cocos2d::CCSprite* themeBtn;
 	
 	//card grid layout stuff
 	cocos2d::CCSize gridCardSize;

@@ -53,7 +53,32 @@ bool GameScene::init()
 	return true;
 }
 
+void GameScene::game()
+{
+	if(pMenu)
+	{
+		this->removeChild(pMenu, true);
+		CC_SAFE_RELEASE_NULL(pMenu);
+	}
+	
+	if (pGame == NULL)
+	{
+		pGame = Game::node(this);
+		pGame->retain();
+	}
+	
+	if(pGame->getParent() == NULL)
+	{
+		this->addChild(pGame);
+	}
+}
+
 void GameScene::menu()
+{
+	this->menuWithLayout(NULL);
+}
+
+void GameScene::menuWithLayout(MenuLayout* ml)
 {
 	if (pMenu == NULL)
 	{
@@ -64,25 +89,5 @@ void GameScene::menu()
 	if(pMenu->getParent() == NULL)
 	{
 		this->addChild(pMenu);
-	}
-}
-
-void GameScene::game()
-{
-	if(pMenu)
-	{
-		this->removeChild(pMenu, true);
-		CC_SAFE_RELEASE_NULL(pMenu);
-	}
-
-	if (pGame == NULL)
-	{
-		pGame = Game::node(this);
-		pGame->retain();
-	}
-	
-	if(pGame->getParent() == NULL)
-	{
-		this->addChild(pGame);
 	}
 }

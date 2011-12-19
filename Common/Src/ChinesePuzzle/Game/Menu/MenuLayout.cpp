@@ -35,8 +35,7 @@ typedef enum
 MenuLayout::MenuLayout(Menu* menu) :
 menu(menu),
 themes(NULL),
-mBoxDefault(NULL),
-mBoxTheme(NULL),
+mBox(NULL),
 miTheme(NULL)
 {
 }
@@ -44,9 +43,7 @@ miTheme(NULL)
 MenuLayout::~MenuLayout()
 {
 	CC_SAFE_RELEASE(themes);
-	
-	CC_SAFE_RELEASE(mBoxDefault);
-	CC_SAFE_RELEASE(mBoxTheme);
+	CC_SAFE_RELEASE(mBox);
 	CC_SAFE_RELEASE(miTheme);
 }
 
@@ -57,78 +54,47 @@ bool MenuLayout::init()
 	return true;
 }
 
-void MenuLayout::layout(CCObject* node)
+void MenuLayout::layout()
 {
-	if(node == NULL)
+
+	if(!menu->getChildByTag(kMenuTagBg))
 	{
-		if(!menu->getChildByTag(kMenuTagBg))
-		{
-			CCSprite* bg = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/bg.png")).c_str());
-			bg->setAnchorPoint(ccp(0,0));
-			menu->addChild(bg, 0, kMenuTagBg);
-		}
-		
-		if(!mBoxDefault)
-		{
-			mBoxDefault = new MenuBox();
-			mBoxDefault->initWithContentSize(CCSizeMake(200, 200));
-			mBoxDefault->setPosition(ccp(100, 50));
-			mBoxDefault->setMargin(CCSizeMake(50, 50));
-			mBoxDefault->setGridSize(ccg(4, 1));
-			mBoxDefault->setPage(0);
-			mBoxDefault->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
-			mBoxDefault->setOkTarget(menu, menu_selector(Menu::okMenu));
-			
-			CCString* mBoxTitle = new CCString("Options");
-			mBoxDefault->setTitle(mBoxTitle);
-			mBoxTitle->release();
-			
-			CCArray* items = CCArray::array();
-			
-			miTheme = new CCMenuItemImage();
-			miTheme->initFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout));
-			items->addObject(miTheme);
-			miTheme->release();
-			
-			mBoxDefault->setItems(items);
-		}
-		
-		menu->pushNav(mBoxDefault);
+		CCSprite* bg = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/bg.png")).c_str());
+		bg->setAnchorPoint(ccp(0,0));
+		menu->addChild(bg, 0, kMenuTagBg);
 	}
-	else if(node == miTheme)
+	
+	if(themes->count() == 0)
 	{
-		if(themes->count() == 0)
-		{
-			themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout)), "default");
-		}
-		
-		if(!mBoxTheme)
-		{
-			mBoxTheme = new MenuBox();
-			mBoxTheme->initWithContentSize(CCSizeMake(200, 200));
-			mBoxTheme->setPosition(ccp(100, 50));
-			mBoxTheme->setMargin(CCSizeMake(50, 50));
-			mBoxTheme->setGridSize(ccg(2, 2));
-			mBoxTheme->setPage(0);
-			mBoxTheme->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
-			mBoxTheme->setOkTarget(menu, menu_selector(Menu::okMenu));
-			
-			CCString* mBoxTitle = new CCString("Themes");
-			mBoxTheme->setTitle(mBoxTitle);
-			mBoxTitle->release();
-			
-			CCArray* items = CCArray::array();
-			
-			std::vector<std::string> sTheme = themes->allKeys();
-			for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
-			{
-				CCMenuItemImage* mItem = themes->objectForKey(*it);
-				items->addObject(mItem);
-			}
-			
-			mBoxTheme->setItems(items);
-		}
-		
-		menu->pushNav(mBoxTheme);
+		themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout)), "default");
 	}
+	
+	if(!mBox)
+	{
+		mBox = new MenuBox();
+		mBox->initWithContentSize(CCSizeMake(200, 200));
+		mBox->setPosition(ccp(100, 50));
+		mBox->setMargin(CCSizeMake(50, 50));
+		mBox->setGridSize(ccg(2, 2));
+		mBox->setPage(0);
+		mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+		mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
+		
+		CCString* mBoxTitle = new CCString("Themes");
+		mBox->setTitle(mBoxTitle);
+		mBoxTitle->release();
+		
+		CCArray* items = CCArray::array();
+		
+		std::vector<std::string> sTheme = themes->allKeys();
+		for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
+		{
+			CCMenuItemImage* mItem = themes->objectForKey(*it);
+			items->addObject(mItem);
+		}
+		
+		mBox->setItems(items);
+	}
+	
+	menu->pushNav(mBox);
 }

@@ -185,12 +185,6 @@ void Game::newGame()
 	}
 }
 
-void Game::menu()
-{
-	//show menu
-	gs->menu();
-}
-
 void Game::draw()
 {
 	CCLayer::draw();

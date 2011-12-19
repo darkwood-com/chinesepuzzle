@@ -34,10 +34,6 @@ class GameScene;
 class Menu : public cocos2d::CCLayer
 {
 protected:
-	GameScene* gs; //scene parent
-	
-	MenuLayout* ml;
-	
 	cocos2d::ccArray* nav;
 	
 public:
@@ -62,6 +58,10 @@ public:
 	void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+	
+	CC_SYNTHESIZE_READONLY(GameScene*, gs, GameScene);
+	
+	CC_PROPERTY(MenuLayout*, ml, Layout);
 };
 
 #endif // __MENU_H__

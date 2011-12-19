@@ -46,8 +46,6 @@ typedef enum {
 class Game : public cocos2d::CCLayer
 {
 protected:
-	GameScene* gs; //scene parent
-	
 	std::vector<CardPlay*> deck; //deck cards
 	std::vector<CardBoard*> boardCards; //board cards
 	Card* board[8][14]; //board game that reference to the deck cards
@@ -74,7 +72,6 @@ public:
 	virtual bool init(GameScene* gs);
 	
 	void newGame();
-	void menu();
 	void draw();
 	void step(cocos2d::ccTime dt);
 	
@@ -97,6 +94,8 @@ public:
 	void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	
 	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
+	
+	CC_SYNTHESIZE_READONLY(GameScene*, gs, GameScene);
 };
 
 #endif // __GAME_H__

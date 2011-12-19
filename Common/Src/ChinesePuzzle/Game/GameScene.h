@@ -32,10 +32,6 @@
 
 class GameScene : public cocos2d::CCScene
 {
-protected:
-	Game* pGame;
-	Menu* pMenu;
-	
 public:
 	GameScene();
 	virtual ~GameScene();
@@ -43,8 +39,12 @@ public:
 	
 	virtual bool init();
 	
-	void menu();
 	void game();
+	void menu();
+	void menuWithLayout(MenuLayout* ml);
+	
+	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
+	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);
 };
 
 #endif // __GAME_SCENE_H__

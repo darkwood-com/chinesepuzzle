@@ -24,6 +24,7 @@
 
 #include "GameLayout.h"
 #include "Game.h"
+#include "GameScene.h"
 
 #include <cmath>
 #include <algorithm>
@@ -72,11 +73,11 @@ void GameLayout::layout()
 	game->addChild(hintBtn, GameZOrderUI);
 	activesBtn->addObject(hintBtn);
 	
-	menuBtn = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/menuBtn.png")).c_str());
-	menuBtn->setPosition(ccp(450,140));
-	menuBtn->setScale(0.75f);
-	game->addChild(menuBtn, GameZOrderUI);
-	activesBtn->addObject(menuBtn);
+	themeBtn = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/themeBtn.png")).c_str());
+	themeBtn->setPosition(ccp(450,140));
+	themeBtn->setScale(0.75f);
+	game->addChild(themeBtn, GameZOrderUI);
+	activesBtn->addObject(themeBtn);
 	
 	isLayout = true;
 }
@@ -108,9 +109,9 @@ bool GameLayout::tapDownAt(CCPoint location)
 			{
 				
 			}
-			else if(btn == menuBtn)
+			else if(btn == themeBtn)
 			{
-				game->menu();
+				game->getGameScene()->menu();
 			}
 			
 			return true;

@@ -37,8 +37,7 @@ protected:
 	Menu* menu;
 	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>* themes;
 	
-	MenuBox* mBoxDefault;
-	MenuBox* mBoxTheme;
+	MenuBox* mBox;
 	cocos2d::CCMenuItemImage* miTheme;
 	
 public:
@@ -47,7 +46,7 @@ public:
 	
 	virtual bool init();
 	
-	void layout(CCObject* node);
+	void layout();
 };
 
 #endif // __MENU_LAYOUT_H__
