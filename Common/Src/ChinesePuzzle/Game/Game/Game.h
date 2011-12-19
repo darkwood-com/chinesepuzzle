@@ -49,6 +49,7 @@ protected:
 	GameScene* gs; //scene parent
 	
 	std::vector<CardPlay*> deck; //deck cards
+	std::vector<CardBoard*> boardCards; //board cards
 	Card* board[8][14]; //board game that reference to the deck cards
 	
 	GameControl* gc;
@@ -58,8 +59,12 @@ protected:
     cocos2d::CCPoint lastTouchLocation;
 	CardPlay* dragCard;
 	GridCoord dragCardCoord;
-	CardBoard* hintCard;
+	Card* touchLastCard; //visible hint last touched card, for semi-auto move
+	CardBoard* hintCard; //card play hint on over card board
     CardBoard* switchBoardCard; //board card used for switch
+	
+	void makeMoveEnd(); //move end
+	void hintMove(); //hint move
 	
 public:
 	Game();
@@ -74,9 +79,11 @@ public:
 	void step(cocos2d::ccTime dt);
 	
 	Card* getCard(GridCoord coord);
-	CheckMove checkMove(GridCoord from, GridCoord to); //check move for card from - to board coord
+	CheckMove checkMoveCoord(GridCoord from, GridCoord to); //check move for coord from - to board
+	CheckMove checkMoveCard(Card* from, Card* to); //check move for card from - to board
+	CheckMove makeMoveCoord(GridCoord from, GridCoord to); //make move for coord from - to board
+	CheckMove makeMoveCard(Card* from, Card* to); //make move for card from - to board
 	int lockLine(int i); //update lock for a given grid line, return number of locked cards
-	void hintTouch(cocos2d::CCPoint location); //hint with dragged/touched card
 	
 	//input touches/mouse
 	virtual void registerWithTouchDispatcher();

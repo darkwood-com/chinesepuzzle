@@ -40,6 +40,7 @@ typedef enum {
 	GameZOrderBoard = 2,
 	GameZOrderCard = 3,
 	GameZOrderMoveCard = 4,
+	GameZOrderHintCard = 5,
 } GameZOrder;
 
 // GameLayout Layer

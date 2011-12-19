@@ -48,7 +48,7 @@ public:
 	virtual void addCardDelegate(CardDelegate* delegate);
 	virtual void removeCardDelegate(CardDelegate* delegate);
 	
-	virtual CardType getType() = 0;
+	virtual CardType getType() { return CardTypeCard; }
 };
 
 #endif // __CARD_H__

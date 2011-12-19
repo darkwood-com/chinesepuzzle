@@ -31,7 +31,7 @@ USING_NS_CC;
 
 AppDelegate::AppDelegate()
 {
-	srand(time(NULL)); // initialisation de rand
+	srand(time(NULL)); // generate random
 }
 
 AppDelegate::~AppDelegate()
