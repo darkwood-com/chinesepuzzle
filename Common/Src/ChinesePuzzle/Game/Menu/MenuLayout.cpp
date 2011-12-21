@@ -47,16 +47,15 @@ MenuLayout::~MenuLayout()
 	CC_SAFE_RELEASE(miTheme);
 }
 
-bool MenuLayout::init()
+bool MenuLayout::initWithType(Type type)
 {
-	themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
+	this->type = type;
 	
 	return true;
 }
 
 void MenuLayout::layout()
 {
-
 	if(!menu->getChildByTag(kMenuTagBg))
 	{
 		CCSprite* bg = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/bg.png")).c_str());
@@ -64,37 +63,73 @@ void MenuLayout::layout()
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
 	
-	if(themes->count() == 0)
-	{
-		themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout)), "default");
+	switch (this->type) {
+		case TypeTheme:
+			if(!themes)
+			{
+				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
+				themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout)), "default");
+			}
+			
+			if(!mBox)
+			{
+				mBox = new MenuBox();
+				mBox->initWithContentSize(CCSizeMake(200, 200));
+				mBox->setPosition(ccp(100, 50));
+				mBox->setMargin(CCSizeMake(50, 50));
+				mBox->setGridSize(ccg(2, 2));
+				mBox->setPage(0);
+				mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
+				
+				CCString* mBoxTitle = new CCString("Themes");
+				mBox->setTitle(mBoxTitle);
+				mBoxTitle->release();
+				
+				CCArray* items = CCArray::array();
+				
+				std::vector<std::string> sTheme = themes->allKeys();
+				for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
+				{
+					CCMenuItemImage* mItem = themes->objectForKey(*it);
+					items->addObject(mItem);
+				}
+				
+				mBox->setItems(items);
+			}
+			
+			menu->pushNav(mBox);
+		break;
+		case TypeNone:
+			if(!mBox)
+			{
+				mBox = new MenuBox();
+				mBox->initWithContentSize(CCSizeMake(200, 200));
+				mBox->setPosition(ccp(100, 50));
+				mBox->setMargin(CCSizeMake(50, 50));
+				mBox->setGridSize(ccg(1, 1));
+				mBox->setPage(0);
+				mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
+				
+				CCString* mBoxTitle = new CCString("None");
+				mBox->setTitle(mBoxTitle);
+				mBoxTitle->release();
+				
+				CCArray* items = CCArray::array();
+				
+				CCMenuItemFont* item = new CCMenuItemFont();
+				item->initFromString("exit menu", menu, menu_selector(Menu::okMenu));
+				item->setAnchorPoint(ccp(0.5f, 0.5f));
+				item->setPosition(ccp(240, 160));
+				items->addObject(item);
+				item->release();
+				
+				mBox->setItems(items);
+			}
+			
+			menu->pushNav(mBox);
+		break;
 	}
 	
-	if(!mBox)
-	{
-		mBox = new MenuBox();
-		mBox->initWithContentSize(CCSizeMake(200, 200));
-		mBox->setPosition(ccp(100, 50));
-		mBox->setMargin(CCSizeMake(50, 50));
-		mBox->setGridSize(ccg(2, 2));
-		mBox->setPage(0);
-		mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
-		mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
-		
-		CCString* mBoxTitle = new CCString("Themes");
-		mBox->setTitle(mBoxTitle);
-		mBoxTitle->release();
-		
-		CCArray* items = CCArray::array();
-		
-		std::vector<std::string> sTheme = themes->allKeys();
-		for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
-		{
-			CCMenuItemImage* mItem = themes->objectForKey(*it);
-			items->addObject(mItem);
-		}
-		
-		mBox->setItems(items);
-	}
-	
-	menu->pushNav(mBox);
 }

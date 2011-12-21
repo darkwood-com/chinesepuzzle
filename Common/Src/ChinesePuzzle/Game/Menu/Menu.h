@@ -30,6 +30,12 @@
 
 class GameScene;
 
+typedef struct
+{
+	GameScene* gs;
+	MenuLayout::Type layout;
+} MenuInit;
+
 // Menu Layer
 class Menu : public cocos2d::CCLayer
 {
@@ -39,9 +45,9 @@ protected:
 public:
 	Menu();
 	virtual ~Menu();
-	LAYER_NODE_FUNC_PARAM(Menu, GameScene*, gs);
+	LAYER_NODE_FUNC_PARAM(Menu, MenuInit, init);
 	
-	virtual bool init(GameScene* gs);
+	virtual bool init(MenuInit init);
 	
 	void step(cocos2d::ccTime dt);
 	void draw();
@@ -61,7 +67,7 @@ public:
 	
 	CC_SYNTHESIZE_READONLY(GameScene*, gs, GameScene);
 	
-	CC_PROPERTY(MenuLayout*, ml, Layout);
+	CC_SYNTHESIZE_READONLY(MenuLayout*, ml, Layout);
 };
 
 #endif // __MENU_H__

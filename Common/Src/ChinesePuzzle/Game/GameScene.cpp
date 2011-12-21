@@ -75,14 +75,18 @@ void GameScene::game()
 
 void GameScene::menu()
 {
-	this->menuWithLayout(NULL);
+	this->menuWithLayout(MenuLayout::TypeNone);
 }
 
-void GameScene::menuWithLayout(MenuLayout* ml)
+void GameScene::menuWithLayout(MenuLayout::Type ml)
 {
 	if (pMenu == NULL)
 	{
-		pMenu = Menu::node(this);
+		MenuInit mi;
+		mi.gs = this;
+		mi.layout = ml;
+		
+		pMenu = Menu::node(mi);
 		pMenu->retain();
 	}
 	

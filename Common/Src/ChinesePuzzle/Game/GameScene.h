@@ -41,7 +41,7 @@ public:
 	
 	void game();
 	void menu();
-	void menuWithLayout(MenuLayout* ml);
+	void menuWithLayout(MenuLayout::Type ml);
 	
 	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
 	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);

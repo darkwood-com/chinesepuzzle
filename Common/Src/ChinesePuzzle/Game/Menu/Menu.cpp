@@ -39,20 +39,19 @@ Menu::~Menu()
 	ccArrayFree(nav);
 }
 
-bool Menu::init(GameScene* gs)
+bool Menu::init(MenuInit init)
 {
 	if (!CCLayer::init())
 	{
 		return false;
 	}
 	
-	this->gs = gs;
+	this->gs = init.gs;
 	this->setIsTouchEnabled(true);
 
-	ml = new MenuLayout(this);
-	ml->init();
-	this->setLayout(ml);
-	ml->release();
+	this->ml = new MenuLayout(this);
+	this->ml->initWithType(init.layout);
+	this->ml->layout();
 	
 	this->schedule(schedule_selector(Menu::step));
 	
@@ -105,21 +104,6 @@ void Menu::okMenu(cocos2d::CCObject* item)
 	{
 		gs->game();
 	}
-}
-
-MenuLayout* Menu::getLayout()
-{
-	return this->ml;
-}
-
-void Menu::setLayout(MenuLayout* ml)
-{
-	ml->retain();
-	this->ml->release();
-	this->ml = ml;
-	
-	this->removeAllChildrenWithCleanup(true);
-	this->ml->layout();
 }
 
 //input touches/mouse

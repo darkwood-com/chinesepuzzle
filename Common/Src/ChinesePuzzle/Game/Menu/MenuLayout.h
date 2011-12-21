@@ -41,12 +41,20 @@ protected:
 	cocos2d::CCMenuItemImage* miTheme;
 	
 public:
+	typedef enum
+	{
+		TypeNone,
+		TypeTheme,
+	} Type;
+	
 	MenuLayout(Menu* menu);
 	virtual ~MenuLayout();
 	
-	virtual bool init();
+	virtual bool initWithType(Type type);
 	
 	void layout();
+	
+	CC_SYNTHESIZE_READONLY(Type, type, Type);
 };
 
 #endif // __MENU_LAYOUT_H__
