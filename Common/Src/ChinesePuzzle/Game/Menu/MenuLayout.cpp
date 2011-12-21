@@ -58,7 +58,7 @@ void MenuLayout::layout()
 {
 	if(!menu->getChildByTag(kMenuTagBg))
 	{
-		CCSprite* bg = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/bg.png")).c_str());
+		CCSprite* bg = CCSprite::spriteWithFile((std::string("Data/ui/480x320/menuMask.png")).c_str());
 		bg->setAnchorPoint(ccp(0,0));
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
@@ -68,7 +68,7 @@ void MenuLayout::layout()
 			if(!themes)
 			{
 				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
-				themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL, NULL, this, menu_selector(MenuLayout::layout)), "default");
+				themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL), "default");
 			}
 			
 			if(!mBox)
@@ -94,6 +94,36 @@ void MenuLayout::layout()
 					CCMenuItemImage* mItem = themes->objectForKey(*it);
 					items->addObject(mItem);
 				}
+				
+				mBox->setItems(items);
+			}
+			
+			menu->pushNav(mBox);
+		break;
+		case TypeNewGame:
+			if(!mBox)
+			{
+				mBox = new MenuBox();
+				mBox->initWithContentSize(CCSizeMake(200, 200));
+				mBox->setPosition(ccp(100, 50));
+				mBox->setMargin(CCSizeMake(50, 50));
+				mBox->setGridSize(ccg(1, 1));
+				mBox->setPage(0);
+				mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
+				
+				CCString* mBoxTitle = new CCString("None");
+				mBox->setTitle(mBoxTitle);
+				mBoxTitle->release();
+				
+				CCArray* items = CCArray::array();
+				
+				CCMenuItemFont* item = new CCMenuItemFont();
+				item->initFromString("exit menu", menu, menu_selector(Menu::okMenu));
+				item->setAnchorPoint(ccp(0.5f, 0.5f));
+				item->setPosition(ccp(240, 160));
+				items->addObject(item);
+				item->release();
 				
 				mBox->setItems(items);
 			}

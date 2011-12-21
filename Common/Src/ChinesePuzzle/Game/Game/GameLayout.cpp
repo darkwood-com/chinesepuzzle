@@ -99,7 +99,7 @@ bool GameLayout::tapDownAt(CCPoint location)
 											   NULL));
 			if(btn == newBtn)
 			{
-				game->newGame();
+				game->getGameScene()->menuWithLayout(MenuLayout::TypeNewGame);
 			}
 			else if(btn == undoBtn)
 			{
@@ -111,7 +111,7 @@ bool GameLayout::tapDownAt(CCPoint location)
 			}
 			else if(btn == themeBtn)
 			{
-				game->getGameScene()->menu();
+				game->getGameScene()->menuWithLayout(MenuLayout::TypeTheme);
 			}
 			
 			return true;

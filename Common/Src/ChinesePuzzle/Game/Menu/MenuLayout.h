@@ -44,6 +44,7 @@ public:
 	typedef enum
 	{
 		TypeNone,
+		TypeNewGame,
 		TypeTheme,
 	} Type;
 	
