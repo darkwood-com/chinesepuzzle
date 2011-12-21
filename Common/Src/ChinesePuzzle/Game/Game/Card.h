@@ -29,9 +29,10 @@
 #include "CardDelegate.h"
 
 typedef enum {
-	CardTypeCard,
-	CardTypePlay,
-	CardTypeBoard,
+	CardTypeCard = 0x1,
+	CardTypePlay = 0x2,
+	CardTypeBoard = 0x4,
+	CardTypeAll = 0x7,
 } CardType;
 
 class CC_DLL Card : public cocos2d::CCSprite

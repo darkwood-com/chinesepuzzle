@@ -61,19 +61,88 @@ void GameControlSprite::updateCard(Card* card)
 	
 }
 
-Card* GameControlSprite::getCard(CCPoint p)
+Card* GameControlSprite::checkPoint(cocos2d::CCPoint p)
 {
 	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
 	{
-		CCPoint local = (*it)->convertToNodeSpace(p);
-		CCRect r = (*it)->getTextureRect();
-		r.origin = CCPointZero;
+		CCRect rIt = (*it)->boundingBox();
 		
-		if (CCRect::CCRectContainsPoint(r, local))
+		if (CCRect::CCRectContainsPoint(rIt, p))
 		{
 			return (*it);
 		}
 	}
 	
 	return NULL;
+}
+
+Card* GameControlSprite::checkPointCard(Card* c)
+{
+	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
+	{
+		if((*it) == c) continue;
+		
+		CCPoint p = c->getPosition();
+		CCRect rIt = (*it)->boundingBox();
+		
+		if (CCRect::CCRectContainsPoint(rIt, p))
+		{
+			return (*it);
+		}
+	}
+	
+	return NULL;
+}
+
+Card* GameControlSprite::checkRect(cocos2d::CCRect r, CardType filter)
+{
+	Card* cRes = NULL;
+	float minDist = -1;
+	
+	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
+	{
+		if((*it)->getType() != filter) continue;
+		
+		CCRect rIt = (*it)->boundingBox();
+		
+		if (CCRect::CCRectIntersectsRect(rIt, r))
+		{
+			CCPoint vect = ccpAdd(r.origin, ccpNeg(rIt.origin));
+			float dist = vect.x * vect.x + vect.y * vect.y;
+			if(minDist == -1 || dist < minDist)
+			{
+				minDist = dist;
+				cRes = (*it);
+			}
+		}
+	}
+	
+	return cRes;
+}
+
+Card* GameControlSprite::checkRectCard(Card* c, CardType filter)
+{
+	Card* cRes = NULL;
+	float minDist = -1;
+	
+	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
+	{
+		if((*it) == c || (*it)->getType() != filter) continue;
+		
+		CCRect r = c->boundingBox();
+		CCRect rIt = (*it)->boundingBox();
+		
+		if (CCRect::CCRectIntersectsRect(rIt, r))
+		{
+			CCPoint vect = ccpAdd(r.origin, ccpNeg(rIt.origin));
+			float dist = vect.x * vect.x + vect.y * vect.y;
+			if(minDist == -1 || dist < minDist)
+			{
+				minDist = dist;
+				cRes = (*it);
+			}
+		}
+	}
+	
+	return cRes;
 }

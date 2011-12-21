@@ -298,7 +298,7 @@ void Game::hintMove()
 	if(this->dragCard)
 	{
 		//check drop
-		Card* cToCard = gc->getCard(dragCard->getPosition());
+		Card* cToCard = gc->checkRectCard(dragCard, CardTypeBoard);
 		if(cToCard != NULL && cToCard->getType() == CardTypeBoard)
 		{
 			CardBoard* cTo = (CardBoard*) cToCard;
@@ -377,7 +377,7 @@ void Game::tapDownAt(CCPoint location)
 	
 	if(!dragCard)
     {
-		Card* tapCard = gc->getCard(location);
+		Card* tapCard = gc->checkPoint(location);
 		if(tapCard)
 		{
 			if(touchLastCard->getIsVisible())
@@ -433,7 +433,12 @@ void Game::tapUpAt(CCPoint location)
     if(dragCard)
     {
 		//check drop
-		GridCoord coord = gl->getPositionInGridCoord(dragCard->getPosition());
+		Card* cToCard = gc->checkRectCard(dragCard, CardTypeBoard);
+		if(cToCard == NULL || cToCard->getType() != CardTypeBoard)
+		{
+			cToCard = dragCard;
+		}
+		GridCoord coord = gl->getPositionInGridCoord(cToCard->getPosition());
 		CheckMove check = this->makeMoveCoord(dragCardCoord, coord);
 		if(check != CheckMoveOk && CCPoint::CCPointEqualToPoint(dragCard->getPosition(), touchLastCard->getPosition()))
 		{

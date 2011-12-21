@@ -62,7 +62,26 @@ void GameControl::updateCard(Card* card)
 	
 }
 
-Card* GameControl::getCard(cocos2d::CCPoint p)
+Card* GameControl::checkPoint(cocos2d::CCPoint p)
 {
 	return NULL;
+}
+
+Card* GameControl::checkPointCard(Card* c)
+{
+	return this->checkPoint(c->getPosition());
+}
+
+Card* GameControl::checkRect(cocos2d::CCRect r, CardType filter)
+{
+	return NULL;
+}
+
+Card* GameControl::checkRectCard(Card* c, CardType filter)
+{
+	CCRect rect;
+	rect.origin = c->getPosition();
+	rect.size = c->getContentSize();
+	
+	return this->checkRect(rect, filter);
 }

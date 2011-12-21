@@ -27,8 +27,7 @@
 
 #include "cocos2d.h"
 #include "CardDelegate.h"
-
-class Card;
+#include "Card.h"
 
 // GameControl
 class GameControl : public cocos2d::CCObject, public CardDelegate
@@ -43,7 +42,10 @@ public:
 	virtual void addCard(Card* card); //add controls for this card
 	virtual void removeCard(Card* card); //remove controls for this card
 	virtual void updateCard(Card* card); //update card controls
-	virtual Card* getCard(cocos2d::CCPoint p); //retrive a card from a location
+	virtual Card* checkPoint(cocos2d::CCPoint p); //retrive a card from a location
+	virtual Card* checkPointCard(Card* c); //retrive a card from a card
+	virtual Card* checkRect(cocos2d::CCRect r, CardType filter); //retrive a card from a location
+	virtual Card* checkRectCard(Card* c, CardType filter); //retrive a card from a card
 };
 
 #endif // __GAME_CONTROL_H__

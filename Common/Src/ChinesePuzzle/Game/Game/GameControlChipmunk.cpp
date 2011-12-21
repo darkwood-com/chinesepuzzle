@@ -117,7 +117,7 @@ void GameControlChipmunk::updateCard(Card* card)
 	}
 }
 
-Card* GameControlChipmunk::getCard(CCPoint p)
+Card* GameControlChipmunk::checkPoint(cocos2d::CCPoint p)
 {
 	cpVect cpP = {p.x, p.y};
     cpShape* shape = cpSpacePointQueryFirst(space, cpP, CP_ALL_LAYERS, CP_NO_GROUP);
@@ -126,5 +126,10 @@ Card* GameControlChipmunk::getCard(CCPoint p)
         return shape->body->data;
 	}
 	
+	return NULL;
+}
+
+Card* GameControlChipmunk::checkRect(cocos2d::CCRect r, CardType filter)
+{
 	return NULL;
 }

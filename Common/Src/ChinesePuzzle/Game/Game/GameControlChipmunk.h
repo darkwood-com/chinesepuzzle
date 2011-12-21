@@ -27,7 +27,6 @@
 
 #include "GameControl.h"
 
-class Card;
 struct cpSpace;
 struct cpShape;
 
@@ -49,7 +48,8 @@ public:
 	virtual void addCard(Card* card);
 	virtual void removeCard(Card* card);
 	virtual void updateCard(Card* card);
-	virtual Card* getCard(cocos2d::CCPoint p);
+	virtual Card* checkPoint(cocos2d::CCPoint p);
+	virtual Card* checkRect(cocos2d::CCRect r, CardType filter);
 };
 
 #endif // __GAME_CONTROL_CHIPMUNK_H__
