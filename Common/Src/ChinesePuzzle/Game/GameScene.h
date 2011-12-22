@@ -39,9 +39,11 @@ public:
 	
 	virtual bool init();
 	
-	void game();
-	void menu();
-	void menuWithLayout(MenuLayout::Type ml);
+	Game* game();
+	Menu* menu();
+	Menu* menuWithLayout(MenuLayout::Type ml);
+	
+	void newGame();
 	
 	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
 	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);

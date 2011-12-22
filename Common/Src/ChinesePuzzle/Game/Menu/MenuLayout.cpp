@@ -25,6 +25,7 @@
 #include "MenuLayout.h"
 #include "Menu.h"
 #include "MenuBoxContainer.h"
+#include "GameScene.h"
 
 using namespace cocos2d;
 
@@ -113,12 +114,20 @@ void MenuLayout::layout()
 				
 				CCArray* items = CCArray::array();
 				
-				CCMenuItemFont* item = new CCMenuItemFont();
-				item->initFromString("Do you want start a new game?", menu, menu_selector(Menu::okMenu));
-				item->setAnchorPoint(ccp(0.5f, 0.5f));
-				item->setPosition(ccp(0, 0));
-				items->addObject(item);
-				item->release();
+				CCMenuItemFont* itemTitle = CCMenuItemFont::itemFromString("Do you want start\na new game?");
+				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemTitle->setPosition(ccp(100, 100));
+				items->addObject(itemTitle);
+				
+				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage("Data/ui/480x320/menuItemYes.png", NULL, menu->getGameScene(), menu_selector(GameScene::newGame));
+				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemYes->setPosition(ccp(150, 50));
+				items->addObject(itemYes);
+				
+				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage("Data/ui/480x320/menuItemNo.png", NULL, menu, menu_selector(Menu::okMenu));
+				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemNo->setPosition(ccp(50, 50));
+				items->addObject(itemNo);
 				
 				mb->setItems(items);
 				mb->layout();

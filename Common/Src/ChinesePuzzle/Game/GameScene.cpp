@@ -53,7 +53,7 @@ bool GameScene::init()
 	return true;
 }
 
-void GameScene::game()
+Game* GameScene::game()
 {
 	if(pMenu)
 	{
@@ -71,14 +71,16 @@ void GameScene::game()
 	{
 		this->addChild(pGame);
 	}
+	
+	return pGame;
 }
 
-void GameScene::menu()
+Menu* GameScene::menu()
 {
-	this->menuWithLayout(MenuLayout::TypeNone);
+	return this->menuWithLayout(MenuLayout::TypeNone);
 }
 
-void GameScene::menuWithLayout(MenuLayout::Type ml)
+Menu* GameScene::menuWithLayout(MenuLayout::Type ml)
 {
 	if (pMenu == NULL)
 	{
@@ -94,4 +96,12 @@ void GameScene::menuWithLayout(MenuLayout::Type ml)
 	{
 		this->addChild(pMenu);
 	}
+	
+	return pMenu;
+}
+
+void GameScene::newGame()
+{
+	Game* aGame = this->game();
+	aGame->newGame();
 }
