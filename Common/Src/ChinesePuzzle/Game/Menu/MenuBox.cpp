@@ -28,26 +28,25 @@
 using namespace cocos2d;
 
 MenuBox::MenuBox() :
-title(NULL),
 items(NULL),
 validBtn(NULL),
-titleLabel(NULL),
-container(NULL)
+titleLabel(NULL)
 {
 	
 }
 
 MenuBox::~MenuBox()
 {
-	CC_SAFE_RELEASE(title);
 	CC_SAFE_RELEASE(items);
 	CC_SAFE_RELEASE(validBtn);
 	CC_SAFE_RELEASE(titleLabel);
-	CC_SAFE_RELEASE(container);
 }
 
 bool MenuBox::init()
 {
+	this->items = CCArray::array();
+	this->items->retain();
+	
 	m_eState = kCCMenuStateWaiting;
 	m_pSelectedItem = NULL;
 	
@@ -60,15 +59,6 @@ bool MenuBox::init()
 	validBtn->initFromNormalImage("Data/ui/480x320/menuItemOk.png", NULL, NULL, NULL, NULL);
 	validBtn->setAnchorPoint(ccp(1.0f, 0.5f));
 	this->addChild(validBtn);
-	
-	container = new MenuContainer();
-	container->init();
-	container->setAnchorPoint(ccp(0.5f, 0.5f));
-	this->addChild(container);
-	
-	this->margin = CCSizeMake(0, 0);
-	
-	this->layout();
 	
 	return true;
 }
@@ -85,17 +75,13 @@ bool MenuBox::initWithContentSize(const CCSize& size)
 	return false;
 }
 
-void MenuBox::setTitle(CCString* title)
+void MenuBox::setTitle(const char* title)
 {
-	CC_SAFE_RETAIN(title);
-	CC_SAFE_RELEASE(this->title);
-	this->title = title;
-	
-	if(titleLabel) titleLabel->setString(title->toStdString().c_str());
+	if(titleLabel) titleLabel->setString(title);
 	else
 	{
 		titleLabel = new CCLabelTTF();
-		titleLabel->initWithString(title->toStdString().c_str(), "Arial", 12);
+		titleLabel->initWithString(title, "Arial", 12);
 		titleLabel->setAnchorPoint(ccp(0.0f, 1.0f));
 		this->addChild(titleLabel);
 	}
@@ -103,71 +89,41 @@ void MenuBox::setTitle(CCString* title)
 	this->layout();
 }
 
-CCString* MenuBox::getTitle()
+const char* MenuBox::getTitle()
 {
-	return this->title;
+	return (titleLabel) ? titleLabel->getString() : NULL;
 }
 
 void MenuBox::setItems(CCArray* items)
 {
-	container->setItems(items);
+	if(this->items && this->items->count() > 0)
+	{
+        CCObject* child;
+        CCARRAY_FOREACH(this->items, child)
+        {
+            CCNode* pChild = (CCNode*) child;
+			this->removeChild(pChild, true);
+        }
+	}
+	
+	CC_SAFE_RELEASE(this->items);
+	this->items = CCArray::arrayWithArray(items);
+	this->items->retain();
+	
+	if(this->items->count() > 0)
+	{
+        CCObject* child;
+        CCARRAY_FOREACH(this->items, child)
+        {
+            CCNode* pChild = (CCNode*) child;
+			this->addChild(pChild);
+		}
+	}
 }
 
 CCArray* MenuBox::getItems()
 {
-	return container->getItems();
-}
-
-void MenuBox::setGridSize(ccGridSize gridSize)
-{
-	container->setGridSize(gridSize);
-}
-
-ccGridSize MenuBox::getGridSize()
-{
-	return container->getGridSize();
-}
-
-void MenuBox::setMargin(cocos2d::CCSize margin)
-{
-	this->margin = margin;
-	
-	this->layout();
-}
-
-CCSize MenuBox::getMargin()
-{
-	return this->margin;
-}
-
-void MenuBox::setPage(int page)
-{
-	container->setPage(page);
-}
-
-int MenuBox::getPage()
-{
-	return container->getPage();
-}
-
-void MenuBox::setMinimumTouchLengthToSlide(cocos2d::CGFloat length)
-{
-	container->setMinimumTouchLengthToSlide(length);
-}
-
-CGFloat MenuBox::getMinimumTouchLengthToSlide()
-{
-	return container->getMinimumTouchLengthToSlide();
-}
-
-void MenuBox::setMinimumTouchLengthToChangePage(cocos2d::CGFloat length)
-{
-	container->setMinimumTouchLengthToChangePage(length);
-}
-
-CGFloat MenuBox::getMinimumTouchLengthToChangePage()
-{
-	return container->getMinimumTouchLengthToChangePage();
+	return this->items;
 }
 
 void MenuBox::setContentSize(const cocos2d::CCSize& size)
@@ -188,27 +144,6 @@ void MenuBox::layout()
 		bg->setPosition(ccp(size.width / 2, size.height / 2));
 		bg->setContentSize(CCSizeMake(size.width, size.height));
 	}
-	
-	container->setPosition(ccp(size.width / 2, size.height / 2));
-	container->setContentSize(CCSizeMake(size.width - 2 * margin.width, size.height - 2 * margin.height));
-}
-
-void MenuBox::draw(void)
-{
-	CCNode::draw();
-	
-	/*
-	CCSize size = this->getContentSize();
-	
-	CCPoint vertices[] = {
-		CCPoint(0, 0),
-		CCPoint(size.width, 0),
-		CCPoint(size.width, size.height),
-		CCPoint(0, size.height),
-	};
-	
-	ccDrawPoly(vertices, 4, true);
-	 */
 }
 
 void MenuBox::setOkTarget(SelectorProtocol *rec, SEL_MenuHandler selector)
@@ -238,7 +173,7 @@ bool MenuBox::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 		m_pSelectedItem->selected();
 	}
 	
-	return container->ccTouchBegan(pTouch, pEvent);
+	return true;
 }
 
 void MenuBox::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
@@ -259,8 +194,6 @@ void MenuBox::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 			}
 		}
 	}
-	
-	container->ccTouchMoved(pTouch, pEvent);
 }
 
 void MenuBox::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
@@ -274,8 +207,6 @@ void MenuBox::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 		}
 		m_eState = kCCMenuStateWaiting;
 	}
-	
-	container->ccTouchEnded(pTouch, pEvent);
 }
 
 void MenuBox::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
@@ -288,8 +219,6 @@ void MenuBox::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 		}
 		m_eState = kCCMenuStateWaiting;
 	}
-	
-	container->ccTouchCancelled(pTouch, pEvent);
 }
 
 CCMenuItem* MenuBox::itemForTouch(CCTouch *touch)

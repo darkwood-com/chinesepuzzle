@@ -24,6 +24,7 @@
 
 #include "MenuLayout.h"
 #include "Menu.h"
+#include "MenuBoxContainer.h"
 
 using namespace cocos2d;
 
@@ -63,7 +64,8 @@ void MenuLayout::layout()
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
 	
-	switch (this->type) {
+	switch (this->type)
+	{
 		case TypeTheme:
 			if(!themes)
 			{
@@ -73,18 +75,15 @@ void MenuLayout::layout()
 			
 			if(!mBox)
 			{
-				mBox = new MenuBox();
-				mBox->initWithContentSize(CCSizeMake(200, 200));
-				mBox->setPosition(ccp(100, 50));
-				mBox->setMargin(CCSizeMake(50, 50));
-				mBox->setGridSize(ccg(2, 2));
-				mBox->setPage(0);
-				mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
-				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
-				
-				CCString* mBoxTitle = new CCString("Themes");
-				mBox->setTitle(mBoxTitle);
-				mBoxTitle->release();
+				MenuBoxContainer* mb = new MenuBoxContainer();
+				mb->initWithContentSize(CCSizeMake(200, 200));
+				mb->setPosition(ccp(100, 50));
+				mb->setMargin(CCSizeMake(50, 50));
+				mb->setGridSize(ccg(2, 2));
+				mb->setPage(0);
+				mb->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mb->setTitle("Themes");
 				
 				CCArray* items = CCArray::array();
 				
@@ -95,7 +94,10 @@ void MenuLayout::layout()
 					items->addObject(mItem);
 				}
 				
-				mBox->setItems(items);
+				mb->setItems(items);
+				mb->layout();
+				
+				mBox =  mb;
 			}
 			
 			menu->pushNav(mBox);
@@ -103,29 +105,25 @@ void MenuLayout::layout()
 		case TypeNewGame:
 			if(!mBox)
 			{
-				mBox = new MenuBox();
-				mBox->initWithContentSize(CCSizeMake(200, 200));
-				mBox->setPosition(ccp(100, 50));
-				mBox->setMargin(CCSizeMake(50, 50));
-				mBox->setGridSize(ccg(1, 1));
-				mBox->setPage(0);
-				mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
-				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
-				
-				CCString* mBoxTitle = new CCString("None");
-				mBox->setTitle(mBoxTitle);
-				mBoxTitle->release();
+				MenuBox* mb = new MenuBox();
+				mb->initWithContentSize(CCSizeMake(200, 200));
+				mb->setPosition(ccp(100, 50));
+				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mb->setTitle("None");
 				
 				CCArray* items = CCArray::array();
 				
 				CCMenuItemFont* item = new CCMenuItemFont();
-				item->initFromString("exit menu", menu, menu_selector(Menu::okMenu));
+				item->initFromString("Do you want start a new game?", menu, menu_selector(Menu::okMenu));
 				item->setAnchorPoint(ccp(0.5f, 0.5f));
-				item->setPosition(ccp(240, 160));
+				item->setPosition(ccp(0, 0));
 				items->addObject(item);
 				item->release();
 				
-				mBox->setItems(items);
+				mb->setItems(items);
+				mb->layout();
+				
+				mBox =  mb;
 			}
 			
 			menu->pushNav(mBox);
@@ -133,29 +131,25 @@ void MenuLayout::layout()
 		case TypeNone:
 			if(!mBox)
 			{
-				mBox = new MenuBox();
-				mBox->initWithContentSize(CCSizeMake(200, 200));
-				mBox->setPosition(ccp(100, 50));
-				mBox->setMargin(CCSizeMake(50, 50));
-				mBox->setGridSize(ccg(1, 1));
-				mBox->setPage(0);
-				mBox->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
-				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
-				
-				CCString* mBoxTitle = new CCString("None");
-				mBox->setTitle(mBoxTitle);
-				mBoxTitle->release();
+				MenuBox* mb = new MenuBox();
+				mb->initWithContentSize(CCSizeMake(200, 200));
+				mb->setPosition(ccp(100, 50));
+				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mb->setTitle("None");
 				
 				CCArray* items = CCArray::array();
 				
 				CCMenuItemFont* item = new CCMenuItemFont();
-				item->initFromString("exit menu", menu, menu_selector(Menu::okMenu));
+				item->initFromString("Exit menu", menu, menu_selector(Menu::okMenu));
 				item->setAnchorPoint(ccp(0.5f, 0.5f));
-				item->setPosition(ccp(240, 160));
+				item->setPosition(ccp(0, 0));
 				items->addObject(item);
 				item->release();
 				
-				mBox->setItems(items);
+				mb->setItems(items);
+				mb->layout();
+				
+				mBox =  mb;
 			}
 			
 			menu->pushNav(mBox);

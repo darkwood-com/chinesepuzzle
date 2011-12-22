@@ -119,8 +119,6 @@ bool MenuContainer::init()
 	m_fMinimumTouchLengthToSlide = 10.0f;
 	m_fMinimumTouchLengthToChangePage = 100.0f;
 	
-	this->layout();
-	
 	return true;
 }
 
@@ -266,24 +264,6 @@ void MenuContainer::layout()
 			it->second->setPosition(ccpAdd(origin, ccp(it->first.x * pad.width + m_fOffsetSwipe, it->first.y * pad.height)));
 		}
 	}
-}
-
-void MenuContainer::draw(void)
-{
-	CCNode::draw();
-	
-	/*
-	CCSize size = this->getContentSize();
-	
-	CCPoint vertices[] = {
-		CCPoint(0, 0),
-		CCPoint(size.width, 0),
-		CCPoint(size.width, size.height),
-		CCPoint(0, size.height),
-	};
-	
-	ccDrawPoly(vertices, 4, true);
-	 */
 }
 
 void MenuContainer::visit(void)

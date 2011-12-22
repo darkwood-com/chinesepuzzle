@@ -117,7 +117,6 @@ public:
 	virtual void setContentSize(const cocos2d::CCSize& size);
 	
 	void layout();
-	virtual void draw(void);
 	virtual void visit(void);
 
 	CC_PROPERTY(int, page, Page)
