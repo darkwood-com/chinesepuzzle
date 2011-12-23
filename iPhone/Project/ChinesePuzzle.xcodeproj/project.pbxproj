@@ -169,6 +169,7 @@
 		C3C48C44147EB0AA00C54E14 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C37147EB0AA00C54E14 /* GameScene.cpp */; };
 		C3C48C45147EB0AA00C54E14 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C3A147EB0AA00C54E14 /* Menu.cpp */; };
 		C3C48C46147EB0AA00C54E14 /* MenuLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3C48C3C147EB0AA00C54E14 /* MenuLayout.cpp */; };
+		C3E532C114A33C9D0079844D /* MenuBoxContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E532BF14A33C9B0079844D /* MenuBoxContainer.cpp */; };
 		C3EA0F171498D084007A7D76 /* GameConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3EA0F151498D083007A7D76 /* GameConfig.cpp */; };
 		C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F6ABDC1491222D003A2F70 /* DecoratedBox.cpp */; };
 		C3F6ABE214925571003A2F70 /* MenuBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F6ABE01492556F003A2F70 /* MenuBox.cpp */; };
@@ -550,6 +551,8 @@
 		C3C48C3B147EB0AA00C54E14 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		C3C48C3C147EB0AA00C54E14 /* MenuLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLayout.cpp; sourceTree = "<group>"; };
 		C3C48C3D147EB0AA00C54E14 /* MenuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayout.h; sourceTree = "<group>"; };
+		C3E532BF14A33C9B0079844D /* MenuBoxContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBoxContainer.cpp; sourceTree = "<group>"; };
+		C3E532C014A33C9C0079844D /* MenuBoxContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBoxContainer.h; sourceTree = "<group>"; };
 		C3EA0F151498D083007A7D76 /* GameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig.cpp; sourceTree = "<group>"; };
 		C3EA0F161498D083007A7D76 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		C3F6ABDC1491222D003A2F70 /* DecoratedBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DecoratedBox.cpp; sourceTree = "<group>"; };
@@ -1365,6 +1368,8 @@
 				C3C48C3A147EB0AA00C54E14 /* Menu.cpp */,
 				C3F6ABE114925570003A2F70 /* MenuBox.h */,
 				C3F6ABE01492556F003A2F70 /* MenuBox.cpp */,
+				C3E532C014A33C9C0079844D /* MenuBoxContainer.h */,
+				C3E532BF14A33C9B0079844D /* MenuBoxContainer.cpp */,
 				C3AC43F9148396140042E2C8 /* MenuContainer.h */,
 				C3AC43F8148396140042E2C8 /* MenuContainer.cpp */,
 				C3C48C3D147EB0AA00C54E14 /* MenuLayout.h */,
@@ -1600,6 +1605,7 @@
 				C38D77CB149B7F5A00C06E0F /* Card.cpp in Sources */,
 				C38D77CC149B7F5A00C06E0F /* CardBoard.cpp in Sources */,
 				C38D77CD149B7F5A00C06E0F /* CardPlay.cpp in Sources */,
+				C3E532C114A33C9D0079844D /* MenuBoxContainer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1658,10 +1664,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1697,10 +1700,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					armv7,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
