@@ -58,6 +58,7 @@ public class ChinesePuzzle extends Cocos2dxActivity{
      static {
     	 System.loadLibrary("cocos2d");
     	 System.loadLibrary("cocosdenshion");
+    	 System.loadLibrary("chipmunk");
     	 System.loadLibrary("game_logic");
          System.loadLibrary("game");
      }

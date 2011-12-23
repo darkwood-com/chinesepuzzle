@@ -29,6 +29,8 @@
 #include "CardPlay.h"
 #include "CardBoard.h"
 
+#include <algorithm>
+
 using namespace cocos2d;
 
 Game::Game() : 
