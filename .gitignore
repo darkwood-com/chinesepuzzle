@@ -1,6 +1,13 @@
-# Src
+# Common
 Common/Bin/Design
 Common/Bin/OpenSources
+
+# Android
+Android/Project/assets
+Android/Project/bin
+Android/Project/gen
+Android/Project/libs
+Android/Project/obj
 
 # Mac
 .DS_Store
@@ -13,3 +20,8 @@ Common/Bin/OpenSources
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
+
+# Eclipse
+Android/Project/.classpath
+Android/Project/.project
+Android/Project/.settings
