@@ -16,6 +16,7 @@ $(LOCAL_PATH)/../../Common/Src/ChinesePuzzle/Game/Game/GameControlSprite.cpp \
 $(LOCAL_PATH)/../../Common/Src/ChinesePuzzle/Game/Game/GameLayout.cpp \
 $(LOCAL_PATH)/../../Common/Src/ChinesePuzzle/Game/Menu/Menu.cpp \
 $(LOCAL_PATH)/../../Common/Src/ChinesePuzzle/Game/Menu/MenuBox.cpp \
+$(LOCAL_PATH)/../../Common/Src/ChinesePuzzle/Game/Menu/MenuBoxContainer.cpp \
 $(LOCAL_PATH)/../../Common/Src/ChinesePuzzle/Game/Menu/MenuContainer.cpp \
 $(LOCAL_PATH)/../../Common/Src/ChinesePuzzle/Game/Menu/MenuLayout.cpp \
 $(LOCAL_PATH)/../../Common/Src/Externals/ChipmunkDraw/cpDrawSpace.cpp \

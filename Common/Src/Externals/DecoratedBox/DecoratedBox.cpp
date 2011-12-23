@@ -10,7 +10,7 @@
  *  Original code can be found at https://github.com/crocodella/DecoratedBox
  */
 
-#import "DecoratedBox.h"
+#include "DecoratedBox.h"
 
 using namespace cocos2d;
 
