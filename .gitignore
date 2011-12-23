@@ -3,11 +3,11 @@ Common/Bin/Design
 Common/Bin/OpenSources
 
 # Android
-Android/Project/android/assets
-Android/Project/android/bin
-Android/Project/android/gen
-Android/Project/android/libs
-Android/Project/android/obj
+Android/Project/assets
+Android/Project/bin
+Android/Project/gen
+Android/Project/libs
+Android/Project/obj
 
 # Mac
 .DS_Store
@@ -20,3 +20,8 @@ Android/Project/android/obj
 *.xcuserstate
 project.xcworkspace/
 xcuserdata/
+
+# Eclipse
+Android/Project/.classpath
+Android/Project/.project
+Android/Project/.settings

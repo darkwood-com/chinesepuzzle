@@ -1,9 +1,9 @@
 # set params
 ANDROID_NDK_ROOT=/Applications/Programmation/android-ndk-r7
 COCOS2DX_ROOT=/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx
-GAME_ROOT=/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Android/Project
-GAME_ANDROID_ROOT=$GAME_ROOT/android
-RESOURCE_ROOT=$GAME_ROOT/Resources
+GAME_ROOT=/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Android
+GAME_ANDROID_ROOT=$GAME_ROOT/Project
+RESOURCE_ROOT=$GAME_ROOT/Bin
 
 # make sure assets is exist
 if [ -d $GAME_ANDROID_ROOT/assets ]; then
