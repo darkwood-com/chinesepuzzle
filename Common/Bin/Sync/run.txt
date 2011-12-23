@@ -5,17 +5,17 @@ https://github.com/s-aska/dropbox-api-command
 * install :
 sudo port install encfs
 
-- création du dépôt en local
+- creation du depot en local
 encfs /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle.local.git/
-- création du dépôt git en local
+- creation du depot git en local
 cd /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle.local.git/
 git init --bare
-- clone du dépot git local
+- clone du depot git local
 cd /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/
 git clone /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle.local.git ChinesePuzzle
 git config --global user.name "Mathieu Ledru"
 git config --global user.email math@home.local
-- configuration du dépôt sur dropbox
+- configuration du depot sur dropbox
 (installation des modules perl)
 $sudo cpan
 >install DateTime
@@ -29,7 +29,7 @@ $sudo cpan
 umount /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle.local.git/
 chmod +x dropbox-api
 ./dropbox-api setup
-- création du dépôt sur dropbox
+- creation du depot sur dropbox
 ./dropbox-api mkdir ChinesePuzzle -v
 ./dropbox-api sync /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle.dropbox.git/ dropbox:/ChinesePuzzle/ -vd
 

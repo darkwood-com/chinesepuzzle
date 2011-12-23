@@ -1,6 +1,13 @@
-# Src
+# Common
 Common/Bin/Design
 Common/Bin/OpenSources
+
+# Android
+Android/Project/android/assets
+Android/Project/android/bin
+Android/Project/android/gen
+Android/Project/android/libs
+Android/Project/android/obj
 
 # Mac
 .DS_Store
