@@ -9,7 +9,11 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>ChinesePuzzleApp.png</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
+	<key>UILaunchImageFile</key>
+	<string>ChinesePuzzleDefault.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>iphone.darkwood.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
