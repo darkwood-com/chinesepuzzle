@@ -144,6 +144,10 @@
 		C309647C1461AB8A00924761 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = C3095C8D1461AB8600924761 /* CocosDenshion.m */; };
 		C309647D1461AB8A00924761 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3095C8E1461AB8600924761 /* SimpleAudioEngine.mm */; };
 		C309647E1461AB8A00924761 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C3095C901461AB8600924761 /* SimpleAudioEngine_objc.m */; };
+		C30BBC9914A8D41100E69DA5 /* ChinesePuzzleApp.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */; };
+		C30BBC9A14A8D41100E69DA5 /* ChinesePuzzleApp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */; };
+		C30BBC9E14A8D67700E69DA5 /* ChinesePuzzleDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */; };
+		C30BBC9F14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */; };
 		C36ABC5D146196000006151B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC5C146196000006151B /* UIKit.framework */; };
 		C36ABC5F146196000006151B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC5E146196000006151B /* Foundation.framework */; };
 		C36ABC61146196000006151B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC60146196000006151B /* CoreGraphics.framework */; };
@@ -507,6 +511,10 @@
 		C3095C8E1461AB8600924761 /* SimpleAudioEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleAudioEngine.mm; sourceTree = "<group>"; };
 		C3095C8F1461AB8600924761 /* SimpleAudioEngine_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine_objc.h; sourceTree = "<group>"; };
 		C3095C901461AB8600924761 /* SimpleAudioEngine_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine_objc.m; sourceTree = "<group>"; };
+		C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleApp.png; sourceTree = "<group>"; };
+		C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleApp@2x.png"; sourceTree = "<group>"; };
+		C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleDefault.png; sourceTree = "<group>"; };
+		C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault@2x.png"; sourceTree = "<group>"; };
 		C36ABC58146196000006151B /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36ABC5C146196000006151B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C36ABC5E146196000006151B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1252,6 +1260,10 @@
 				C30957991461A4F000924761 /* ChinesePuzzle-Prefix.pch */,
 				C36ABC9014619A3C0006151B /* InfoPlist.strings */,
 				C36ABC9114619A3C0006151B /* main.m */,
+				C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */,
+				C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */,
+				C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */,
+				C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1440,6 +1452,10 @@
 			files = (
 				C309579B1461A59900924761 /* InfoPlist.strings in Resources */,
 				C3B856E41462D3B900C440B3 /* Data in Resources */,
+				C30BBC9914A8D41100E69DA5 /* ChinesePuzzleApp.png in Resources */,
+				C30BBC9A14A8D41100E69DA5 /* ChinesePuzzleApp@2x.png in Resources */,
+				C30BBC9E14A8D67700E69DA5 /* ChinesePuzzleDefault.png in Resources */,
+				C30BBC9F14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
