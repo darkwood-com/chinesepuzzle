@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C379409A14AA23A0005A2045 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379409914AA23A0005A2045 /* Cocoa.framework */; };
+		C37940D214AA25A0005A2045 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C37940CD14AA25A0005A2045 /* Credits.rtf */; };
+		C37940D314AA25A0005A2045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37940CE14AA25A0005A2045 /* InfoPlist.strings */; };
+		C37940D414AA25A0005A2045 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C37940CF14AA25A0005A2045 /* main.m */; };
+		C37940D514AA25A0005A2045 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C37940D014AA25A0005A2045 /* MainMenu.xib */; };
+		C379428B14AA268C005A2045 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379428A14AA268B005A2045 /* QuartzCore.framework */; };
+		C379428D14AA269C005A2045 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379428C14AA269C005A2045 /* OpenGL.framework */; };
+		C379428F14AA26A8005A2045 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379428E14AA26A8005A2045 /* OpenAL.framework */; };
+		C379429114AA26B4005A2045 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379429014AA26B4005A2045 /* AudioToolbox.framework */; };
+		C379429714AA2947005A2045 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C379429514AA2947005A2045 /* AppController.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C379409514AA23A0005A2045 /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C379409914AA23A0005A2045 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C379409C14AA23A0005A2045 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C379409D14AA23A0005A2045 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C379409E14AA23A0005A2045 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C37940CB14AA25A0005A2045 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C37940CC14AA25A0005A2045 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		C37940CD14AA25A0005A2045 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = SOURCE_ROOT; };
+		C37940CE14AA25A0005A2045 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		C37940CF14AA25A0005A2045 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		C37940D014AA25A0005A2045 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = SOURCE_ROOT; };
+		C379428A14AA268B005A2045 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C379428C14AA269C005A2045 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C379428E14AA26A8005A2045 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		C379429014AA26B4005A2045 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C379429414AA2947005A2045 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		C379429514AA2947005A2045 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C379409214AA23A0005A2045 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C379429114AA26B4005A2045 /* AudioToolbox.framework in Frameworks */,
+				C379428F14AA26A8005A2045 /* OpenAL.framework in Frameworks */,
+				C379428D14AA269C005A2045 /* OpenGL.framework in Frameworks */,
+				C379428B14AA268C005A2045 /* QuartzCore.framework in Frameworks */,
+				C379409A14AA23A0005A2045 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C379408A14AA239F005A2045 = {
+			isa = PBXGroup;
+			children = (
+				C379429214AA2947005A2045 /* Src - Platform */,
+				C379409F14AA23A0005A2045 /* Resources */,
+				C379409814AA23A0005A2045 /* Frameworks */,
+				C379409614AA23A0005A2045 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C379409614AA23A0005A2045 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C379409514AA23A0005A2045 /* ChinesePuzzle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C379409814AA23A0005A2045 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C379429014AA26B4005A2045 /* AudioToolbox.framework */,
+				C379428E14AA26A8005A2045 /* OpenAL.framework */,
+				C379428C14AA269C005A2045 /* OpenGL.framework */,
+				C379428A14AA268B005A2045 /* QuartzCore.framework */,
+				C379409914AA23A0005A2045 /* Cocoa.framework */,
+				C379409C14AA23A0005A2045 /* AppKit.framework */,
+				C379409D14AA23A0005A2045 /* CoreData.framework */,
+				C379409E14AA23A0005A2045 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C379409F14AA23A0005A2045 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C37940CB14AA25A0005A2045 /* ChinesePuzzle-Info.plist */,
+				C37940CC14AA25A0005A2045 /* ChinesePuzzle-Prefix.pch */,
+				C37940CD14AA25A0005A2045 /* Credits.rtf */,
+				C37940CE14AA25A0005A2045 /* InfoPlist.strings */,
+				C37940CF14AA25A0005A2045 /* main.m */,
+				C37940D014AA25A0005A2045 /* MainMenu.xib */,
+			);
+			name = Resources;
+			path = ChinesePuzzle;
+			sourceTree = "<group>";
+		};
+		C379429214AA2947005A2045 /* Src - Platform */ = {
+			isa = PBXGroup;
+			children = (
+				C379429314AA2947005A2045 /* ChinesePuzzle */,
+				C379429614AA2947005A2045 /* Externals */,
+			);
+			name = "Src - Platform";
+			path = ../Src;
+			sourceTree = "<group>";
+		};
+		C379429314AA2947005A2045 /* ChinesePuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				C379429414AA2947005A2045 /* AppController.h */,
+				C379429514AA2947005A2045 /* AppController.mm */,
+			);
+			path = ChinesePuzzle;
+			sourceTree = "<group>";
+		};
+		C379429614AA2947005A2045 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Externals;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C379409414AA23A0005A2045 /* ChinesePuzzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C37940B314AA23A0005A2045 /* Build configuration list for PBXNativeTarget "ChinesePuzzle" */;
+			buildPhases = (
+				C379409114AA23A0005A2045 /* Sources */,
+				C379409214AA23A0005A2045 /* Frameworks */,
+				C379409314AA23A0005A2045 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChinesePuzzle;
+			productName = ChinesePuzzle;
+			productReference = C379409514AA23A0005A2045 /* ChinesePuzzle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C379408C14AA239F005A2045 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Les-Argonautes";
+			};
+			buildConfigurationList = C379408F14AA239F005A2045 /* Build configuration list for PBXProject "ChinesePuzzle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C379408A14AA239F005A2045;
+			productRefGroup = C379409614AA23A0005A2045 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C379409414AA23A0005A2045 /* ChinesePuzzle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C379409314AA23A0005A2045 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C37940D214AA25A0005A2045 /* Credits.rtf in Resources */,
+				C37940D314AA25A0005A2045 /* InfoPlist.strings in Resources */,
+				C37940D514AA25A0005A2045 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C379409114AA23A0005A2045 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C37940D414AA25A0005A2045 /* main.m in Sources */,
+				C379429714AA2947005A2045 /* AppController.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C37940B114AA23A0005A2045 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C37940B214AA23A0005A2045 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C37940B414AA23A0005A2045 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
+				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C37940B514AA23A0005A2045 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
+				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C379408F14AA239F005A2045 /* Build configuration list for PBXProject "ChinesePuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C37940B114AA23A0005A2045 /* Debug */,
+				C37940B214AA23A0005A2045 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C37940B314AA23A0005A2045 /* Build configuration list for PBXNativeTarget "ChinesePuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C37940B414AA23A0005A2045 /* Debug */,
+				C37940B514AA23A0005A2045 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C379408C14AA239F005A2045 /* Project object */;
+}
