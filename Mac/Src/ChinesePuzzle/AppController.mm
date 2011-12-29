@@ -22,15 +22,32 @@
  *
  */
 
+#import <AppKit/AppKit.h>
 #import "AppController.h"
+#import "cocos2d.h"
+#import "EAGLView.h"
+#import "AppDelegate.h"
 
 @implementation AppController
+
+#pragma mark -
+#pragma mark Application lifecycle
+
+// cocos2d application instance
+static AppDelegate s_sharedApplication;
 
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Insert code here to initialize your application
+	EAGLView* __glView = [[[EAGLView alloc] initWithFrame:NSZeroRect shareContext:nil] autorelease];
+	[NSOpenGLContext clearCurrentContext];
+	[__glView.context makeCurrentContext];
+	
+	// Set RootViewController to window
+    [window setContentView:__glView];
+	
+	cocos2d::CCApplication::sharedApplication().run();
 }
 
 @end

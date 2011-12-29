@@ -215,28 +215,6 @@
 		C309583E1461AB8500924761 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C30958501461AB8500924761 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		C30958521461AB8500924761 /* chipmunk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = chipmunk.c; sourceTree = "<group>"; };
-		C30958551461AB8500924761 /* build.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build.make; sourceTree = "<group>"; };
-		C30958561461AB8500924761 /* C.includecache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C.includecache; sourceTree = "<group>"; };
-		C30958571461AB8500924761 /* cmake_clean.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake_clean.cmake; sourceTree = "<group>"; };
-		C30958581461AB8500924761 /* depend.internal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = depend.internal; sourceTree = "<group>"; };
-		C30958591461AB8500924761 /* depend.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = depend.make; sourceTree = "<group>"; };
-		C309585A1461AB8500924761 /* DependInfo.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DependInfo.cmake; sourceTree = "<group>"; };
-		C309585B1461AB8500924761 /* flags.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flags.make; sourceTree = "<group>"; };
-		C309585C1461AB8500924761 /* link.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = link.txt; sourceTree = "<group>"; };
-		C309585D1461AB8500924761 /* progress.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = progress.make; sourceTree = "<group>"; };
-		C309585F1461AB8500924761 /* build.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build.make; sourceTree = "<group>"; };
-		C30958601461AB8500924761 /* C.includecache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C.includecache; sourceTree = "<group>"; };
-		C30958611461AB8500924761 /* cmake_clean.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake_clean.cmake; sourceTree = "<group>"; };
-		C30958621461AB8500924761 /* cmake_clean_target.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake_clean_target.cmake; sourceTree = "<group>"; };
-		C30958631461AB8500924761 /* depend.internal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = depend.internal; sourceTree = "<group>"; };
-		C30958641461AB8500924761 /* depend.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = depend.make; sourceTree = "<group>"; };
-		C30958651461AB8500924761 /* DependInfo.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DependInfo.cmake; sourceTree = "<group>"; };
-		C30958661461AB8500924761 /* flags.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flags.make; sourceTree = "<group>"; };
-		C30958671461AB8500924761 /* link.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = link.txt; sourceTree = "<group>"; };
-		C30958681461AB8500924761 /* progress.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = progress.make; sourceTree = "<group>"; };
-		C30958691461AB8500924761 /* CMakeDirectoryInformation.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeDirectoryInformation.cmake; sourceTree = "<group>"; };
-		C309586A1461AB8500924761 /* progress.marks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = progress.marks; sourceTree = "<group>"; };
-		C309586B1461AB8500924761 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		C309586D1461AB8500924761 /* cpConstraint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpConstraint.c; sourceTree = "<group>"; };
 		C309586E1461AB8500924761 /* cpDampedRotarySpring.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpDampedRotarySpring.c; sourceTree = "<group>"; };
 		C309586F1461AB8500924761 /* cpDampedSpring.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpDampedSpring.c; sourceTree = "<group>"; };
@@ -262,7 +240,6 @@
 		C30958831461AB8500924761 /* cpSpaceQuery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpSpaceQuery.c; sourceTree = "<group>"; };
 		C30958841461AB8500924761 /* cpSpaceStep.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpSpaceStep.c; sourceTree = "<group>"; };
 		C30958851461AB8500924761 /* cpVect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpVect.c; sourceTree = "<group>"; };
-		C30958861461AB8500924761 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C30958871461AB8500924761 /* prime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prime.h; sourceTree = "<group>"; };
 		C309588F1461AB8500924761 /* CCAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCAction.cpp; sourceTree = "<group>"; };
 		C30958901461AB8500924761 /* CCActionCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCActionCamera.cpp; sourceTree = "<group>"; };
@@ -664,8 +641,6 @@
 			isa = PBXGroup;
 			children = (
 				C30958521461AB8500924761 /* chipmunk.c */,
-				C30958531461AB8500924761 /* CMakeFiles */,
-				C309586B1461AB8500924761 /* CMakeLists.txt */,
 				C309586C1461AB8500924761 /* constraints */,
 				C30958781461AB8500924761 /* cpArbiter.c */,
 				C30958791461AB8500924761 /* cpArray.c */,
@@ -681,54 +656,9 @@
 				C30958831461AB8500924761 /* cpSpaceQuery.c */,
 				C30958841461AB8500924761 /* cpSpaceStep.c */,
 				C30958851461AB8500924761 /* cpVect.c */,
-				C30958861461AB8500924761 /* Makefile */,
 				C30958871461AB8500924761 /* prime.h */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		C30958531461AB8500924761 /* CMakeFiles */ = {
-			isa = PBXGroup;
-			children = (
-				C30958541461AB8500924761 /* chipmunk.dir */,
-				C309585E1461AB8500924761 /* chipmunk_static.dir */,
-				C30958691461AB8500924761 /* CMakeDirectoryInformation.cmake */,
-				C309586A1461AB8500924761 /* progress.marks */,
-			);
-			path = CMakeFiles;
-			sourceTree = "<group>";
-		};
-		C30958541461AB8500924761 /* chipmunk.dir */ = {
-			isa = PBXGroup;
-			children = (
-				C30958551461AB8500924761 /* build.make */,
-				C30958561461AB8500924761 /* C.includecache */,
-				C30958571461AB8500924761 /* cmake_clean.cmake */,
-				C30958581461AB8500924761 /* depend.internal */,
-				C30958591461AB8500924761 /* depend.make */,
-				C309585A1461AB8500924761 /* DependInfo.cmake */,
-				C309585B1461AB8500924761 /* flags.make */,
-				C309585C1461AB8500924761 /* link.txt */,
-				C309585D1461AB8500924761 /* progress.make */,
-			);
-			path = chipmunk.dir;
-			sourceTree = "<group>";
-		};
-		C309585E1461AB8500924761 /* chipmunk_static.dir */ = {
-			isa = PBXGroup;
-			children = (
-				C309585F1461AB8500924761 /* build.make */,
-				C30958601461AB8500924761 /* C.includecache */,
-				C30958611461AB8500924761 /* cmake_clean.cmake */,
-				C30958621461AB8500924761 /* cmake_clean_target.cmake */,
-				C30958631461AB8500924761 /* depend.internal */,
-				C30958641461AB8500924761 /* depend.make */,
-				C30958651461AB8500924761 /* DependInfo.cmake */,
-				C30958661461AB8500924761 /* flags.make */,
-				C30958671461AB8500924761 /* link.txt */,
-				C30958681461AB8500924761 /* progress.make */,
-			);
-			path = chipmunk_static.dir;
 			sourceTree = "<group>";
 		};
 		C309586C1461AB8500924761 /* constraints */ = {

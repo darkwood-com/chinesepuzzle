@@ -1319,7 +1319,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {480, 360}}</string>
+				<string key="NSWindowRect">{{335, 390}, {480, 320}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">ChinesePuzzle</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1327,7 +1327,7 @@
 				<object class="NSView" key="NSWindowView" id="439893737">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
-					<string key="NSFrame">{{7, 11}, {480, 360}}</string>
+					<string key="NSFrame">{{7, 11}, {480, 320}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView"/>

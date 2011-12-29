@@ -57,6 +57,10 @@ bool AppDelegate::initInstance()
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         // OpenGLView is initialized in AppDelegate.mm on ios platform, nothing need to do here.
 #endif  // CC_PLATFORM_IOS
+		
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+        // OpenGLView is initialized in AppDelegate.mm on mac platform, nothing need to do here.
+#endif  // CC_PLATFORM_MAC
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)        
         // OpenGLView is initialized in HelloWorld/android/jni/helloworld/main.cpp
