@@ -25,7 +25,7 @@
 #ifndef __MENU_LAYOUT_H__
 #define __MENU_LAYOUT_H__
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 #include "MenuBox.h"
 
 class Menu;

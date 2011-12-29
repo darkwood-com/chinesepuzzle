@@ -10,10 +10,10 @@
  *  Original code can be found at https://github.com/crocodella/DecoratedBox
  */
 
-#ifndef __DecoratedBox_H__
-#define __DecoratedBox_H__
+#ifndef __DECORATED_BOX_H__
+#define __DECORATED_BOX_H__
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 
 class CC_DLL DecoratedBox : public cocos2d::CCSpriteBatchNode
 {
@@ -29,4 +29,4 @@ public:
 	virtual void setContentSize(const cocos2d::CCSize& size);
 };
 
-#endif // __DecoratedBox_H__
+#endif // __DECORATED_BOX_H__

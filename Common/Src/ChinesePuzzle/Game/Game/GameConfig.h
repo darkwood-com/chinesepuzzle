@@ -25,7 +25,7 @@
 #ifndef __GAME_CONFIG_H__
 #define __GAME_CONFIG_H__
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 
 class GameConfig : public cocos2d::CCObject
 {

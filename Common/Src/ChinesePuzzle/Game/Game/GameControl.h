@@ -25,7 +25,7 @@
 #ifndef __GAME_CONTROL_H__
 #define __GAME_CONTROL_H__
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 #include "CardDelegate.h"
 #include "Card.h"
 

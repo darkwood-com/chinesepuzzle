@@ -24,7 +24,7 @@
 
 #include "AppDelegate.h"
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 #include "Game/GameScene.h"
 
 USING_NS_CC;
@@ -104,9 +104,11 @@ bool AppDelegate::applicationDidFinishLaunching()
 	// sets landscape mode
 	// pDirector->setDeviceOrientation(kCCDeviceOrientationLandscapeLeft);
 
+	#if CC_TARGET_PLATFORM != CC_PLATFORM_MAC
 	// turn on display FPS
 	pDirector->setDisplayFPS(true);
-
+	#endif
+	
 	// set FPS. the default value is 1.0/60 if you don't call this
 	pDirector->setAnimationInterval(1.0 / 60);
 

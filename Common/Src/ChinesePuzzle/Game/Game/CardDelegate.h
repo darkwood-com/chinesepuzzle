@@ -25,7 +25,7 @@
 #ifndef __CARD_DELEGATE_H__
 #define __CARD_DELEGATE_H__
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 
 class Card;
 

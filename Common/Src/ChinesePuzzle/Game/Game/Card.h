@@ -25,7 +25,7 @@
 #ifndef __CARD_H__
 #define __CARD_H__
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 #include "CardDelegate.h"
 
 typedef enum {

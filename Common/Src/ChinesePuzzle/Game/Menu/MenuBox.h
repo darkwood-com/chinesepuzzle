@@ -25,7 +25,7 @@
 #ifndef __MENU_BOX_H__
 #define __MENU_BOX_H__
 
-#include "cocos2d.h"
+#import "cocos2d.h"
 #include "DecoratedBox.h"
 #include "MenuContainer.h"
 
