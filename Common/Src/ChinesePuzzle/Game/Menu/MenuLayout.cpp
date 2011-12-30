@@ -60,7 +60,7 @@ void MenuLayout::layout()
 {
 	if(!menu->getChildByTag(kMenuTagBg))
 	{
-		CCSprite* bg = CCSprite::spriteWithFile((std::string("Data/ui/480x320/menuMask.png")).c_str());
+		CCSprite* bg = CCSprite::spriteWithFile((std::string("480x320/ui/menuMask.png")).c_str());
 		bg->setAnchorPoint(ccp(0,0));
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
@@ -71,7 +71,7 @@ void MenuLayout::layout()
 			if(!themes)
 			{
 				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
-				themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("Data/ui/480x320/menuItemTheme.png").c_str(), NULL), "default");
+				themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("480x320/ui/menuItemTheme.png").c_str(), NULL), "default");
 			}
 			
 			if(!mBox)
@@ -119,12 +119,12 @@ void MenuLayout::layout()
 				itemTitle->setPosition(ccp(100, 100));
 				items->addObject(itemTitle);
 				
-				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage("Data/ui/480x320/menuItemYes.png", NULL, menu->getGameScene(), menu_selector(GameScene::newGame));
+				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage("480x320/ui/menuItemYes.png", NULL, menu->getGameScene(), menu_selector(GameScene::newGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemYes->setPosition(ccp(150, 50));
 				items->addObject(itemYes);
 				
-				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage("Data/ui/480x320/menuItemNo.png", NULL, menu, menu_selector(Menu::okMenu));
+				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage("480x320/ui/menuItemNo.png", NULL, menu, menu_selector(Menu::okMenu));
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemNo->setPosition(ccp(50, 50));
 				items->addObject(itemNo);

@@ -51,12 +51,12 @@ bool MenuBox::init()
 	m_pSelectedItem = NULL;
 	
 	bg = new DecoratedBox();
-	bg->initWithFile("Data/ui/480x320/menuContainer.png", this->getContentSize());
+	bg->initWithFile("480x320/ui/menuContainer.png", this->getContentSize());
 	bg->setAnchorPoint(ccp(0.5f, 0.5f));
 	this->addChild(bg);
 	
 	validBtn = new CCMenuItemImage();
-	validBtn->initFromNormalImage("Data/ui/480x320/menuItemOk.png", NULL, NULL, NULL, NULL);
+	validBtn->initFromNormalImage("480x320/ui/menuItemOk.png", NULL, NULL, NULL, NULL);
 	validBtn->setAnchorPoint(ccp(1.0f, 0.5f));
 	this->addChild(validBtn);
 	

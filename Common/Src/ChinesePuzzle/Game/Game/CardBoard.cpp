@@ -49,9 +49,9 @@ CardBoard* CardBoard::cardBoard()
 
 bool CardBoard::initCardBoard()
 {
-	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardempty.png")).c_str());
-	yesTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardyes.png")).c_str());
-	noTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardboardno.png")).c_str());
+	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardboardempty.png")).c_str());
+	yesTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardboardyes.png")).c_str());
+	noTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardboardno.png")).c_str());
 	
 	if(!CCSprite::initWithTexture(emptyTexture))
 	{

@@ -124,8 +124,8 @@ bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
 		case CardPlayRankKing:	CardPlayname += "K"; break;
 	}
 	
-	faceTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/") + CardPlayname + std::string(".png")).c_str());
-	backTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("Data/themes/classic/480x320/cardplaybg.png")).c_str());
+	faceTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/") + CardPlayname + std::string(".png")).c_str());
+	backTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardplaybg.png")).c_str());
 	
 	if(!CCSprite::initWithTexture(backTexture))
 	{

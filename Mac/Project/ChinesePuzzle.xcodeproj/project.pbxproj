@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */; };
+		C355885C14ADF72500D549E4 /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C355885B14ADF72500D549E4 /* 480x320 */; };
+		C355886614ADFB2500D549E4 /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C355886514ADFB2500D549E4 /* bgPattern.png */; };
 		C379409A14AA23A0005A2045 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379409914AA23A0005A2045 /* Cocoa.framework */; };
 		C37940D214AA25A0005A2045 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C37940CD14AA25A0005A2045 /* Credits.rtf */; };
 		C37940D314AA25A0005A2045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37940CE14AA25A0005A2045 /* InfoPlist.strings */; };
@@ -17,7 +20,6 @@
 		C379428F14AA26A8005A2045 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379428E14AA26A8005A2045 /* OpenAL.framework */; };
 		C379429114AA26B4005A2045 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379429014AA26B4005A2045 /* AudioToolbox.framework */; };
 		C379429714AA2947005A2045 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C379429514AA2947005A2045 /* AppController.mm */; };
-		C37942BB14AA2D8B005A2045 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = C37942BA14AA2D8B005A2045 /* Data */; };
 		C37953F714AA2DC7005A2045 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942BE14AA2DBF005A2045 /* AppDelegate.cpp */; };
 		C37953F814AA2DC7005A2045 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942C314AA2DBF005A2045 /* Card.cpp */; };
 		C37953F914AA2DC7005A2045 /* CardBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942C514AA2DBF005A2045 /* CardBoard.cpp */; };
@@ -164,6 +166,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
+		C355885B14ADF72500D549E4 /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../../Common/Bin/Data/480x320; sourceTree = "<group>"; };
+		C355886514ADFB2500D549E4 /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../Bin/bgPattern.png; sourceTree = "<group>"; };
 		C379409514AA23A0005A2045 /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C379409914AA23A0005A2045 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C379409C14AA23A0005A2045 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -181,7 +186,6 @@
 		C379429014AA26B4005A2045 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C379429414AA2947005A2045 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		C379429514AA2947005A2045 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
-		C37942BA14AA2D8B005A2045 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Data; path = ../../Common/Bin/Data; sourceTree = "<group>"; };
 		C37942BE14AA2DBF005A2045 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C37942BF14AA2DBF005A2045 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C37942C014AA2DBF005A2045 /* cpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpConfig.h; sourceTree = "<group>"; };
@@ -591,13 +595,15 @@
 		C37942B914AA2D6E005A2045 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C37942BA14AA2D8B005A2045 /* Data */,
+				C355885B14ADF72500D549E4 /* 480x320 */,
+				C355886514ADFB2500D549E4 /* bgPattern.png */,
 				C37940CB14AA25A0005A2045 /* ChinesePuzzle-Info.plist */,
 				C37940CC14AA25A0005A2045 /* ChinesePuzzle-Prefix.pch */,
 				C37940CD14AA25A0005A2045 /* Credits.rtf */,
 				C37940CE14AA25A0005A2045 /* InfoPlist.strings */,
 				C37940CF14AA25A0005A2045 /* main.m */,
 				C37940D014AA25A0005A2045 /* MainMenu.xib */,
+				C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1319,7 +1325,9 @@
 				C37940D214AA25A0005A2045 /* Credits.rtf in Resources */,
 				C37940D314AA25A0005A2045 /* InfoPlist.strings in Resources */,
 				C37940D514AA25A0005A2045 /* MainMenu.xib in Resources */,
-				C37942BB14AA2D8B005A2045 /* Data in Resources */,
+				C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */,
+				C355885C14ADF72500D549E4 /* 480x320 in Resources */,
+				C355886614ADFB2500D549E4 /* bgPattern.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

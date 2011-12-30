@@ -51,29 +51,29 @@ void GameLayout::layout()
 {
 	if(isLayout) return;
 	
-	bg = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/bg.png")).c_str());
+	bg = CCSprite::spriteWithFile((std::string("480x320/themes/classic/bg.png")).c_str());
 	bg->setAnchorPoint(ccp(0,0));
 	game->addChild(bg, GameZOrderBG);
 	
-	newBtn = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/newBtn.png")).c_str());
+	newBtn = CCSprite::spriteWithFile((std::string("480x320/themes/classic/newBtn.png")).c_str());
 	newBtn->setPosition(ccp(450,290));
 	newBtn->setScale(0.75f);
 	game->addChild(newBtn, GameZOrderUI);
 	activesBtn->addObject(newBtn);
 	
-	undoBtn = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/undoBtn.png")).c_str());
+	undoBtn = CCSprite::spriteWithFile((std::string("480x320/themes/classic/undoBtn.png")).c_str());
 	undoBtn->setPosition(ccp(450,240));
 	undoBtn->setScale(0.75f);
 	game->addChild(undoBtn, GameZOrderUI);
 	activesBtn->addObject(undoBtn);
 	
-	hintBtn = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/hintBtn.png")).c_str());
+	hintBtn = CCSprite::spriteWithFile((std::string("480x320/themes/classic/hintBtn.png")).c_str());
 	hintBtn->setPosition(ccp(450,190));
 	hintBtn->setScale(0.75f);
 	game->addChild(hintBtn, GameZOrderUI);
 	activesBtn->addObject(hintBtn);
 	
-	themeBtn = CCSprite::spriteWithFile((std::string("Data/themes/classic/480x320/themeBtn.png")).c_str());
+	themeBtn = CCSprite::spriteWithFile((std::string("480x320/themes/classic/themeBtn.png")).c_str());
 	themeBtn->setPosition(ccp(450,140));
 	themeBtn->setScale(0.75f);
 	game->addChild(themeBtn, GameZOrderUI);

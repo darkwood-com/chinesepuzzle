@@ -127,7 +127,7 @@ void Game::newGame()
 		}
 		
 		touchLastCard = new Card();
-		touchLastCard->initWithFile((std::string("Data/themes/classic/480x320/cardtouched.png")).c_str());
+		touchLastCard->initWithFile((std::string("480x320/themes/classic/cardtouched.png")).c_str());
 		touchLastCard->setIsVisible(false);
 		this->addChild(touchLastCard, GameZOrderHintCard);
 		touchLastCard->release();
