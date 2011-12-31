@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C31BB93214AECA210077D8FB /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93014AECA210077D8FB /* fps_images-hd.png */; };
+		C31BB93314AECA210077D8FB /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93114AECA210077D8FB /* fps_images.png */; };
 		C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */; };
 		C355885C14ADF72500D549E4 /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C355885B14ADF72500D549E4 /* 480x320 */; };
-		C355886614ADFB2500D549E4 /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C355886514ADFB2500D549E4 /* bgPattern.png */; };
 		C379409A14AA23A0005A2045 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379409914AA23A0005A2045 /* Cocoa.framework */; };
 		C37940D214AA25A0005A2045 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C37940CD14AA25A0005A2045 /* Credits.rtf */; };
 		C37940D314AA25A0005A2045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37940CE14AA25A0005A2045 /* InfoPlist.strings */; };
@@ -166,9 +167,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C31BB93014AECA210077D8FB /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "../../Common/Bin/Data/fps_images-hd.png"; sourceTree = "<group>"; };
+		C31BB93114AECA210077D8FB /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = ../../Common/Bin/Data/fps_images.png; sourceTree = "<group>"; };
 		C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
 		C355885B14ADF72500D549E4 /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../../Common/Bin/Data/480x320; sourceTree = "<group>"; };
-		C355886514ADFB2500D549E4 /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../Bin/bgPattern.png; sourceTree = "<group>"; };
 		C379409514AA23A0005A2045 /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C379409914AA23A0005A2045 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C379409C14AA23A0005A2045 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -596,7 +598,8 @@
 			isa = PBXGroup;
 			children = (
 				C355885B14ADF72500D549E4 /* 480x320 */,
-				C355886514ADFB2500D549E4 /* bgPattern.png */,
+				C31BB93014AECA210077D8FB /* fps_images-hd.png */,
+				C31BB93114AECA210077D8FB /* fps_images.png */,
 				C37940CB14AA25A0005A2045 /* ChinesePuzzle-Info.plist */,
 				C37940CC14AA25A0005A2045 /* ChinesePuzzle-Prefix.pch */,
 				C37940CD14AA25A0005A2045 /* Credits.rtf */,
@@ -1298,6 +1301,7 @@
 		C379408C14AA239F005A2045 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Les-Argonautes";
 			};
 			buildConfigurationList = C379408F14AA239F005A2045 /* Build configuration list for PBXProject "ChinesePuzzle" */;
@@ -1327,7 +1331,8 @@
 				C37940D514AA25A0005A2045 /* MainMenu.xib in Resources */,
 				C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */,
 				C355885C14ADF72500D549E4 /* 480x320 in Resources */,
-				C355886614ADFB2500D549E4 /* bgPattern.png in Resources */,
+				C31BB93214AECA210077D8FB /* fps_images-hd.png in Resources */,
+				C31BB93314AECA210077D8FB /* fps_images.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1552,7 @@
 					USE_FILE32API,
 					MAC,
 				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/chipmunk/include/chipmunk/\"",
@@ -1579,6 +1585,7 @@
 					USE_FILE32API,
 					MAC,
 				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/chipmunk/include/chipmunk/\"",
