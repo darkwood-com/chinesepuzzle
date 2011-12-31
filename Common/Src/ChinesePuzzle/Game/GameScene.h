@@ -30,7 +30,7 @@
 #include "Game.h"
 #include "Menu.h"
 
-class GameScene : public cocos2d::CCScene
+class CC_DLL GameScene : public cocos2d::CCScene
 {
 public:
 	GameScene();

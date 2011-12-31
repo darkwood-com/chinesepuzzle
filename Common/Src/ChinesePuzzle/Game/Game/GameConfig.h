@@ -27,7 +27,7 @@
 
 #import "cocos2d.h"
 
-class GameConfig : public cocos2d::CCObject
+class CC_DLL GameConfig : public cocos2d::CCObject
 {
 public:
 	GameConfig();
@@ -36,6 +36,7 @@ public:
 	virtual bool init();
 	
 	CC_SYNTHESIZE(cocos2d::CCString*, theme, Theme);
+	CC_SYNTHESIZE(cocos2d::CCString*, resolution, Resolution);
 };
 
 #endif // __GAME_CONFIG_H__

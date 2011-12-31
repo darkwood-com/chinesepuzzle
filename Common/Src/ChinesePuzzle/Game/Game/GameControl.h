@@ -30,7 +30,7 @@
 #include "Card.h"
 
 // GameControl
-class GameControl : public cocos2d::CCObject, public CardDelegate
+class CC_DLL GameControl : public cocos2d::CCObject, public CardDelegate
 {
 public:
 	GameControl();

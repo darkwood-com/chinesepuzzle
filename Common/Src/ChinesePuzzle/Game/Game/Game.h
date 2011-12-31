@@ -43,7 +43,7 @@ typedef enum {
 } CheckMove;
 
 // Game Layer
-class Game : public cocos2d::CCLayer
+class CC_DLL Game : public cocos2d::CCLayer
 {
 protected:
 	std::vector<CardPlay*> deck; //deck cards

@@ -44,7 +44,7 @@ typedef enum {
 } GameZOrder;
 
 // GameLayout Layer
-class GameLayout : public cocos2d::CCObject
+class CC_DLL GameLayout : public cocos2d::CCObject
 {
 protected:
 	Game* game;

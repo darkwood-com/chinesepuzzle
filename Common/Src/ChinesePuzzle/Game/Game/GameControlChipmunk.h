@@ -32,7 +32,7 @@ struct cpShape;
 
 typedef std::map<Card*, cpShape*> CardCpMap;
 
-class GameControlChipmunk : public GameControl
+class CC_DLL GameControlChipmunk : public GameControl
 {
 protected:
 	cpSpace* space;

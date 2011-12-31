@@ -31,7 +31,7 @@
 class Menu;
 
 // MenuLayout Layer
-class MenuLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
+class CC_DLL MenuLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
 {
 protected:
 	Menu* menu;

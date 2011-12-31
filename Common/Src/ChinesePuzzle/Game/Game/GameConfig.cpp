@@ -27,7 +27,8 @@
 using namespace cocos2d;
 
 GameConfig::GameConfig() :
-theme(NULL)
+theme(NULL),
+resolution(NULL)
 {
 	
 }
@@ -35,11 +36,13 @@ theme(NULL)
 GameConfig::~GameConfig()
 {
 	CC_SAFE_RELEASE(theme);
+	CC_SAFE_RELEASE(resolution);
 }
 
 bool GameConfig::init()
 {
 	theme = new CCString("classic");
+	resolution = new CCString("480x320");
 	
 	return true;
 }

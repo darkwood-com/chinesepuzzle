@@ -37,7 +37,7 @@ typedef struct
 } MenuInit;
 
 // Menu Layer
-class Menu : public cocos2d::CCLayer
+class CC_DLL Menu : public cocos2d::CCLayer
 {
 protected:
 	cocos2d::ccArray* nav;

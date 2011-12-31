@@ -29,7 +29,7 @@
 
 typedef std::set<Card*> CardSpriteSet;
 
-class GameControlSprite : public GameControl
+class CC_DLL GameControlSprite : public GameControl
 {
 protected:
 	CardSpriteSet cards;

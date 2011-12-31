@@ -71,7 +71,7 @@ protected:
 	cocos2d::CGFloat m_delta;
 };
 
-class MenuContainerDelegate
+class CC_DLL MenuContainerDelegate
 {
 public:
 	/** Called when scroll layer begins scrolling.
