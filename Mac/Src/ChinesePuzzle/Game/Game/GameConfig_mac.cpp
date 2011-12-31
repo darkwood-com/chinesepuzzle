@@ -28,7 +28,6 @@ using namespace cocos2d;
 
 GameConfig::GameConfig()
 {
-	
 }
 
 GameConfig::~GameConfig()

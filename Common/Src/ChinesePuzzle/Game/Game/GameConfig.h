@@ -39,8 +39,6 @@ public:
 	CC_SYNTHESIZE(cocos2d::CCString*, resolution, Resolution);
 };
 
-
-
 #include CP_PLATFORM(GameConfig)
  
 #endif // __GAME_CONFIG_COMMON_H__
