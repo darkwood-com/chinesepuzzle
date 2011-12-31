@@ -164,6 +164,7 @@
 		C3795E7914AB4C17005A2045 /* CCImage_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5C14AB4C17005A2045 /* CCImage_mac.mm */; };
 		C3795E7A14AB4C17005A2045 /* CCLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5D14AB4C17005A2045 /* CCLock.cpp */; };
 		C3795E7C14AB4C17005A2045 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E6114AB4C17005A2045 /* EAGLView.mm */; };
+		C3F6330814AF6AB600AA50B8 /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F6330614AF6AB600AA50B8 /* GameConfig_mac.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -516,6 +517,9 @@
 		C3795E6014AB4C17005A2045 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		C3795E6114AB4C17005A2045 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		C3795E7114AB4C17005A2045 /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
+		C3F632FF14AF598500AA50B8 /* cpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMacro.h; sourceTree = "<group>"; };
+		C3F6330614AF6AB600AA50B8 /* GameConfig_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_mac.cpp; sourceTree = "<group>"; };
+		C3F6330714AF6AB600AA50B8 /* GameConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig_mac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,6 +587,7 @@
 			children = (
 				C379429414AA2947005A2045 /* AppController.h */,
 				C379429514AA2947005A2045 /* AppController.mm */,
+				C3F6330114AF6A9400AA50B8 /* Game */,
 			);
 			path = ChinesePuzzle;
 			sourceTree = "<group>";
@@ -628,6 +633,7 @@
 				C37942BE14AA2DBF005A2045 /* AppDelegate.cpp */,
 				C37942C114AA2DBF005A2045 /* Game */,
 				C37942C014AA2DBF005A2045 /* cpConfig.h */,
+				C3F632FF14AF598500AA50B8 /* cpMacro.h */,
 			);
 			path = ChinesePuzzle;
 			sourceTree = "<group>";
@@ -1275,6 +1281,23 @@
 			path = mac;
 			sourceTree = "<group>";
 		};
+		C3F6330114AF6A9400AA50B8 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6330214AF6A9400AA50B8 /* Game */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		C3F6330214AF6A9400AA50B8 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C3F6330714AF6AB600AA50B8 /* GameConfig_mac.h */,
+				C3F6330614AF6AB600AA50B8 /* GameConfig_mac.cpp */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1488,6 +1511,7 @@
 				C3795E7914AB4C17005A2045 /* CCImage_mac.mm in Sources */,
 				C3795E7A14AB4C17005A2045 /* CCLock.cpp in Sources */,
 				C3795E7C14AB4C17005A2045 /* EAGLView.mm in Sources */,
+				C3F6330814AF6AB600AA50B8 /* GameConfig_mac.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

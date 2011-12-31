@@ -1,5 +1,5 @@
 /**
- *  GameConfig.h
+ *  GameConfig.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,25 +22,15 @@
  *
  */
 
-#ifndef __GAME_CONFIG_COMMON_H__
-#define __GAME_CONFIG_COMMON_H__
+#include "GameConfig.h"
 
-#include "cpMacro.h"
+using namespace cocos2d;
 
-class CC_DLL GameConfigCommon : public cocos2d::CCObject
+GameConfig::GameConfig()
 {
-public:
-	GameConfigCommon();
-	virtual ~GameConfigCommon();
 	
-	virtual bool init();
-	
-	CC_SYNTHESIZE(cocos2d::CCString*, theme, Theme);
-	CC_SYNTHESIZE(cocos2d::CCString*, resolution, Resolution);
-};
+}
 
-
-
-#include CP_PLATFORM(GameConfig)
- 
-#endif // __GAME_CONFIG_COMMON_H__
+GameConfig::~GameConfig()
+{
+}

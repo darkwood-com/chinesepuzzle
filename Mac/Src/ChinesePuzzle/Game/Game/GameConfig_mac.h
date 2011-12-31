@@ -22,25 +22,16 @@
  *
  */
 
-#ifndef __GAME_CONFIG_COMMON_H__
-#define __GAME_CONFIG_COMMON_H__
+#ifndef __GAME_CONFIG_H__
+#define __GAME_CONFIG_H__
 
-#include "cpMacro.h"
+#include "GameConfig.h"
 
-class CC_DLL GameConfigCommon : public cocos2d::CCObject
+class CC_DLL GameConfig : public GameConfigCommon
 {
 public:
-	GameConfigCommon();
-	virtual ~GameConfigCommon();
-	
-	virtual bool init();
-	
-	CC_SYNTHESIZE(cocos2d::CCString*, theme, Theme);
-	CC_SYNTHESIZE(cocos2d::CCString*, resolution, Resolution);
+	GameConfig();
+	virtual ~GameConfig();
 };
-
-
-
-#include CP_PLATFORM(GameConfig)
  
-#endif // __GAME_CONFIG_COMMON_H__
+#endif // __GAME_CONFIG_H__

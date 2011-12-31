@@ -22,8 +22,8 @@
  *
  */
 
-#ifndef __CP_CONFIG_H
-#define __CP_CONFIG_H
+#ifndef __CP_CONFIG_H__
+#define __CP_CONFIG_H__
 
 //chipmunk custom config
 class Card;
@@ -32,5 +32,5 @@ class Card;
 
 #include "chipmunk.h"
 
-#endif // __GAME_CONFIG_H
+#endif // __CP_CONFIG_H__
 
