@@ -95,8 +95,27 @@ CardPlay* CardPlay::cardPlayWithColorAndRank(CardPlayColor color, CardPlayRank r
 	return NULL;
 }
 
+CardPlay* CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank)
+{
+	CardPlay* cardPlay = new CardPlay();
+	if (cardPlay && cardPlay->initWithResolutionAndThemeAndColorAndRank(resolution, theme, color, rank))
+	{
+        cardPlay->autorelease();
+        return cardPlay;
+    }
+    CC_SAFE_DELETE(cardPlay);
+	return NULL;
+}
+
 bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
 {
+	return initWithResolutionAndThemeAndColorAndRank("480x320", "classic", color, rank);
+}
+
+bool CardPlay::initWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank)
+{
+	std::string path = std::string(resolution) + std::string("/themes/") + std::string(theme) + std::string("/");
+	
 	//patch
 	std::string CardPlayname;
 	switch (color)
@@ -124,8 +143,8 @@ bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
 		case CardPlayRankKing:	CardPlayname += "K"; break;
 	}
 	
-	faceTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/") + CardPlayname + std::string(".png")).c_str());
-	backTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardplaybg.png")).c_str());
+	faceTexture = CCTextureCache::sharedTextureCache()->addImage((path + CardPlayname + std::string(".png")).c_str());
+	backTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardplaybg.png")).c_str());
 	
 	if(!CCSprite::initWithTexture(backTexture))
 	{
@@ -135,7 +154,7 @@ bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
 	this->isFaceUp = false;
 	this->color = color;
 	this->rank = rank;
-		
+	
 	return true;
 }
 

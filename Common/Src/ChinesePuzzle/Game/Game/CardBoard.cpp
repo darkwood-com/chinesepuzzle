@@ -47,11 +47,31 @@ CardBoard* CardBoard::cardBoard()
 	return NULL;
 }
 
+CardBoard* CardBoard::cardBoardWithResolutionAndTheme(const char* resolution, const char* theme)
+{
+	CardBoard* cardBoard = new CardBoard();
+	if (cardBoard && cardBoard->initCardBoardWithResolutionAndTheme(resolution, theme))
+	{
+        cardBoard->autorelease();
+        return cardBoard;
+    }
+    CC_SAFE_DELETE(cardBoard);
+	return NULL;
+}
+
+
 bool CardBoard::initCardBoard()
 {
-	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardboardempty.png")).c_str());
-	yesTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardboardyes.png")).c_str());
-	noTexture = CCTextureCache::sharedTextureCache()->addImage((std::string("480x320/themes/classic/cardboardno.png")).c_str());
+	return initCardBoardWithResolutionAndTheme("480x320", "classic");
+}
+
+bool CardBoard::initCardBoardWithResolutionAndTheme(const char* resolution, const char* theme)
+{
+	std::string path = std::string(resolution) + std::string("/themes/") + std::string(theme) + std::string("/");
+	
+	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardempty.png")).c_str());
+	yesTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardyes.png")).c_str());
+	noTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardno.png")).c_str());
 	
 	if(!CCSprite::initWithTexture(emptyTexture))
 	{

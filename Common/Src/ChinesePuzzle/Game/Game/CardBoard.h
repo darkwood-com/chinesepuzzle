@@ -45,7 +45,9 @@ public:
 	virtual ~CardBoard();
 	
 	static CardBoard* cardBoard();
+	static CardBoard* cardBoardWithResolutionAndTheme(const char* resolution, const char* theme);
 	virtual bool initCardBoard();
+	virtual bool initCardBoardWithResolutionAndTheme(const char* resolution, const char* theme);
 	
 	CC_PROPERTY(CardBoardState, state, State);
 	

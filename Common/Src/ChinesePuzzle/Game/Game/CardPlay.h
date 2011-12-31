@@ -74,7 +74,9 @@ public:
 	virtual ~CardPlay();
 	
 	static CardPlay* cardPlayWithColorAndRank(CardPlayColor color, CardPlayRank rank);
+	static CardPlay* cardBoardWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank);
 	virtual bool initWithColorAndRank(CardPlayColor color, CardPlayRank rank);
+	virtual bool initWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank);
 	
 	virtual bool isNextToCardPlay(CardPlay* cardPlay);
 	
