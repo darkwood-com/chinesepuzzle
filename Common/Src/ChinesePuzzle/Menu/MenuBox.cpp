@@ -44,6 +44,18 @@ MenuBox::~MenuBox()
 
 bool MenuBox::init()
 {
+	return initWithResolution("480x320");
+}
+
+bool MenuBox::initWithContentSize(const CCSize& size)
+{
+	return initWithResolutionAndContentSize("480x320", size);
+}
+
+bool MenuBox::initWithResolution(const char* resolution)
+{
+	std::string path = std::string(resolution) + std::string("/ui/");
+	
 	this->items = CCArray::array();
 	this->items->retain();
 	
@@ -51,21 +63,21 @@ bool MenuBox::init()
 	m_pSelectedItem = NULL;
 	
 	bg = new DecoratedBox();
-	bg->initWithFile("480x320/ui/menuContainer.png", this->getContentSize());
+	bg->initWithFile((path + std::string("menuContainer.png")).c_str(), this->getContentSize());
 	bg->setAnchorPoint(ccp(0.5f, 0.5f));
 	this->addChild(bg);
 	
 	validBtn = new CCMenuItemImage();
-	validBtn->initFromNormalImage("480x320/ui/menuItemOk.png", NULL, NULL, NULL, NULL);
+	validBtn->initFromNormalImage((path + std::string("menuItemOk.png")).c_str(), NULL, NULL, NULL, NULL);
 	validBtn->setAnchorPoint(ccp(1.0f, 0.5f));
 	this->addChild(validBtn);
 	
 	return true;
 }
 
-bool MenuBox::initWithContentSize(const CCSize& size)
+bool MenuBox::initWithResolutionAndContentSize(const char* resolution, const cocos2d::CCSize& size)
 {
-	if (this->init())
+	if (this->initWithResolution(resolution))
 	{
 		this->setContentSize(size);
 		

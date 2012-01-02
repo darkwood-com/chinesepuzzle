@@ -25,6 +25,7 @@
 #ifndef __GAME_CONFIG_COMMON_H__
 #define __GAME_CONFIG_COMMON_H__
 
+#include <stdio.h>
 #include "cpMacro.h"
 
 class CC_DLL GameConfigCommon : public cocos2d::CCObject
@@ -34,9 +35,13 @@ public:
 	virtual ~GameConfigCommon();
 	
 	virtual bool init();
+	std::string getRootPath(const char* file);
+	std::string getResolutionPath(const char* file);
+	std::string getUiPath(const char* file);
+	std::string getThemePath(const char* file);
 	
-	CC_SYNTHESIZE(cocos2d::CCString*, theme, Theme);
-	CC_SYNTHESIZE(cocos2d::CCString*, resolution, Resolution);
+	CC_SYNTHESIZE(std::string, resolution, Resolution);
+	CC_SYNTHESIZE(std::string, theme, Theme);
 };
 
 #include CP_PLATFORM(GameConfig)

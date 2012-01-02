@@ -62,7 +62,6 @@ bool Game::init(GameScene* gs)
 	this->setIsTouchEnabled(true);
 	
 	gl->layout();
-	this->newGame();
 	
 	this->schedule(schedule_selector(Game::step));
 	
@@ -74,6 +73,8 @@ void Game::newGame()
 	bool isFirstGame = (deck.size() == 0);
 	if(isFirstGame)
 	{
+		GameConfig* conf = gs->getConf();
+		
 		//create deck
 		std::vector<CardPlayColor> colors;
 		colors.push_back(CardPlayColorSpade);
@@ -102,7 +103,10 @@ void Game::newGame()
 			{
 				for(std::vector<CardPlayRank>::const_iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
 				{
-					CardPlay* card = CardPlay::cardPlayWithColorAndRank(*color, *rank);
+					CardPlay* card = CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(conf->getResolution().c_str(),
+																							  conf->getTheme().c_str(),
+																							  *color,
+																							  *rank);
 					this->addChild(card, GameZOrderCard);
 					gc->addCard(card);
 					deck.push_back(card);
@@ -110,20 +114,20 @@ void Game::newGame()
 			}
 		}
 		
-		switchBoardCard = CardBoard::cardBoard();
+		switchBoardCard = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
 		switchBoardCard->setIsVisible(false);
 		this->addChild(switchBoardCard, GameZOrderBoard);
 		
 		for (int l = 0; l < 8; ++l)
 		{
-			CardBoard* card = CardBoard::cardBoard();
+			CardBoard* card = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
 			this->addChild(card, GameZOrderCard);
 			gc->addCard(card);
 			boardCards.push_back(card);
 		}
 		
 		touchLastCard = new Card();
-		touchLastCard->initWithFile((std::string("480x320/themes/classic/cardtouched.png")).c_str());
+		touchLastCard->initWithFile(gs->getConf()->getThemePath("cardtouched.png").c_str());
 		touchLastCard->setIsVisible(false);
 		this->addChild(touchLastCard, GameZOrderHintCard);
 		touchLastCard->release();

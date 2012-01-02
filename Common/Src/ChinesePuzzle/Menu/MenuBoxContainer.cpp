@@ -38,9 +38,9 @@ MenuBoxContainer::~MenuBoxContainer()
 	CC_SAFE_RELEASE(container);
 }
 
-bool MenuBoxContainer::init()
+bool MenuBoxContainer::initWithResolution(const char* resolution)
 {
-	if(!MenuBox::init())
+	if(!MenuBox::initWithResolution(resolution))
 	{
 		return false;
 	}

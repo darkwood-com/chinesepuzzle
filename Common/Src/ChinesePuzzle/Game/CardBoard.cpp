@@ -62,7 +62,7 @@ CardBoard* CardBoard::cardBoardWithResolutionAndTheme(const char* resolution, co
 
 bool CardBoard::initCardBoard()
 {
-	return initCardBoardWithResolutionAndTheme("480x320", "classic");
+	return initCardBoardWithResolutionAndTheme("480x320", "default");
 }
 
 bool CardBoard::initCardBoardWithResolutionAndTheme(const char* resolution, const char* theme)

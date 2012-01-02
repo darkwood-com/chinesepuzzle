@@ -46,6 +46,8 @@ public:
 	
 	virtual bool init();
 	virtual bool initWithContentSize(const cocos2d::CCSize& size);
+	virtual bool initWithResolution(const char* resolution);
+	virtual bool initWithResolutionAndContentSize(const char* resolution, const cocos2d::CCSize& size);
 	
 	virtual void setTitle(const char* title);
 	virtual const char* getTitle(void);

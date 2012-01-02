@@ -54,6 +54,7 @@ bool GameScene::init()
 	pMenu = NULL;
 	
 	this->game();
+	this->newGame(); //start a new game!!
 	
 	return true;
 }
@@ -62,6 +63,7 @@ Game* GameScene::game()
 {
 	if(pMenu)
 	{
+		//remove menu when getting the game
 		this->removeChild(pMenu, true);
 		CC_SAFE_RELEASE_NULL(pMenu);
 	}

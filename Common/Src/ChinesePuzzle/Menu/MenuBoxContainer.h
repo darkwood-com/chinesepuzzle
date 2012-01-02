@@ -37,7 +37,7 @@ public:
 	MenuBoxContainer();
 	virtual ~MenuBoxContainer();
 	
-	bool init();
+	virtual bool initWithResolution(const char* resolution);
 	
 	virtual void setItems(cocos2d::CCArray* items);
 	virtual cocos2d::CCArray* getItems();

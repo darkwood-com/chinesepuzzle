@@ -58,9 +58,11 @@ bool MenuLayout::initWithType(Type type)
 
 void MenuLayout::layout()
 {
+	GameConfig* conf = menu->getGameScene()->getConf();
+	
 	if(!menu->getChildByTag(kMenuTagBg))
 	{
-		CCSprite* bg = CCSprite::spriteWithFile((std::string("480x320/ui/menuMask.png")).c_str());
+		CCSprite* bg = CCSprite::spriteWithFile(conf->getUiPath("menuMask.png").c_str());
 		bg->setAnchorPoint(ccp(0,0));
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
@@ -71,13 +73,13 @@ void MenuLayout::layout()
 			if(!themes)
 			{
 				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
-				themes->setObject(CCMenuItemImage::itemFromNormalImage(std::string("480x320/ui/menuItemTheme.png").c_str(), NULL), "default");
+				themes->setObject(CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemTheme.png").c_str(), NULL), "default");
 			}
 			
 			if(!mBox)
 			{
 				MenuBoxContainer* mb = new MenuBoxContainer();
-				mb->initWithContentSize(CCSizeMake(200, 200));
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), CCSizeMake(200, 200));
 				mb->setPosition(ccp(100, 50));
 				mb->setMargin(CCSizeMake(50, 50));
 				mb->setGridSize(ccg(2, 2));
@@ -107,7 +109,7 @@ void MenuLayout::layout()
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
-				mb->initWithContentSize(CCSizeMake(200, 200));
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), CCSizeMake(200, 200));
 				mb->setPosition(ccp(100, 50));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
 				mb->setTitle("None");
@@ -119,12 +121,12 @@ void MenuLayout::layout()
 				itemTitle->setPosition(ccp(100, 100));
 				items->addObject(itemTitle);
 				
-				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage("480x320/ui/menuItemYes.png", NULL, menu->getGameScene(), menu_selector(GameScene::newGame));
+				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemYes.png").c_str(), NULL, menu->getGameScene(), menu_selector(GameScene::newGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemYes->setPosition(ccp(150, 50));
 				items->addObject(itemYes);
 				
-				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage("480x320/ui/menuItemNo.png", NULL, menu, menu_selector(Menu::okMenu));
+				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemNo.png").c_str(), NULL, menu, menu_selector(Menu::okMenu));
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemNo->setPosition(ccp(50, 50));
 				items->addObject(itemNo);
@@ -141,7 +143,7 @@ void MenuLayout::layout()
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
-				mb->initWithContentSize(CCSizeMake(200, 200));
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), CCSizeMake(200, 200));
 				mb->setPosition(ccp(100, 50));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
 				mb->setTitle("None");

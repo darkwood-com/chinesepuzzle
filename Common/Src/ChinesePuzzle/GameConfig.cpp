@@ -26,23 +26,39 @@
 
 using namespace cocos2d;
 
-GameConfigCommon::GameConfigCommon() :
-theme(NULL),
-resolution(NULL)
+GameConfigCommon::GameConfigCommon()
 {
 	
 }
 
 GameConfigCommon::~GameConfigCommon()
 {
-	CC_SAFE_RELEASE(theme);
-	CC_SAFE_RELEASE(resolution);
 }
 
 bool GameConfigCommon::init()
 {
-	theme = new CCString("classic");
-	resolution = new CCString("480x320");
+	this->resolution = std::string("480x320");
+	this->theme = std::string("classic");
 	
 	return true;
+}
+
+std::string GameConfigCommon::getRootPath(const char* file)
+{
+	return std::string(file);
+}
+
+std::string GameConfigCommon::getResolutionPath(const char* file)
+{
+	return this->resolution + std::string("/") + std::string(file);
+}
+
+std::string GameConfigCommon::getUiPath(const char* file)
+{
+	return this->resolution + std::string("/ui/") + std::string(file);
+}
+
+std::string GameConfigCommon::getThemePath(const char* file)
+{
+	return this->resolution + std::string("/themes/") + this->theme + std::string("/") + std::string(file);
 }
