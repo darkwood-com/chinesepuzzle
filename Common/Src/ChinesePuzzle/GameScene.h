@@ -27,6 +27,7 @@
 
 #import "cocos2d.h"
 
+#include "GameConfig.h"
 #include "Game.h"
 #include "Menu.h"
 
@@ -44,7 +45,10 @@ public:
 	Menu* menuWithLayout(MenuLayout::Type ml);
 	
 	void newGame();
+	void setResolution(cocos2d::CCString* resolution);
+	void setTheme(cocos2d::CCString* theme);
 	
+	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
 	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
 	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);
 };

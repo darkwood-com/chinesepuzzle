@@ -28,7 +28,6 @@
 #include "Card.h"
 #include "GameControl.h"
 #include "GameLayout.h"
-#include "GameConfig.h"
 
 class GameScene;
 class CardPlay;
@@ -92,8 +91,6 @@ public:
 	void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
-	
-	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
 	
 	CC_SYNTHESIZE_READONLY(GameScene*, gs, GameScene);
 };

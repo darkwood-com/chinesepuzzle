@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C30A610614B1FAF5007D3BDE /* GameConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60EF14B1FAF5007D3BDE /* GameConfig.cpp */; };
+		C30A610714B1FAF5007D3BDE /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F114B1FAF5007D3BDE /* GameScene.cpp */; };
+		C30A610814B1FAF5007D3BDE /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F414B1FAF5007D3BDE /* Menu.cpp */; };
+		C30A610914B1FAF5007D3BDE /* MenuBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F614B1FAF5007D3BDE /* MenuBox.cpp */; };
+		C30A610A14B1FAF5007D3BDE /* MenuBoxContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F814B1FAF5007D3BDE /* MenuBoxContainer.cpp */; };
+		C30A610B14B1FAF5007D3BDE /* MenuContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60FA14B1FAF5007D3BDE /* MenuContainer.cpp */; };
+		C30A610C14B1FAF5007D3BDE /* MenuLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */; };
+		C30A610F14B1FB01007D3BDE /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A610D14B1FB01007D3BDE /* GameConfig_mac.cpp */; };
+		C30A612214B1FB20007D3BDE /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611114B1FB20007D3BDE /* Card.cpp */; };
+		C30A612314B1FB20007D3BDE /* CardBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611314B1FB20007D3BDE /* CardBoard.cpp */; };
+		C30A612414B1FB20007D3BDE /* CardPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611614B1FB20007D3BDE /* CardPlay.cpp */; };
+		C30A612514B1FB20007D3BDE /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611814B1FB20007D3BDE /* Game.cpp */; };
+		C30A612614B1FB20007D3BDE /* GameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611A14B1FB20007D3BDE /* GameControl.cpp */; };
+		C30A612714B1FB20007D3BDE /* GameControlChipmunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611C14B1FB20007D3BDE /* GameControlChipmunk.cpp */; };
+		C30A612814B1FB20007D3BDE /* GameControlSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611E14B1FB20007D3BDE /* GameControlSprite.cpp */; };
+		C30A612914B1FB20007D3BDE /* GameLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A612014B1FB20007D3BDE /* GameLayout.cpp */; };
 		C31BB93214AECA210077D8FB /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93014AECA210077D8FB /* fps_images-hd.png */; };
 		C31BB93314AECA210077D8FB /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93114AECA210077D8FB /* fps_images.png */; };
 		C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */; };
@@ -22,21 +38,6 @@
 		C379429114AA26B4005A2045 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379429014AA26B4005A2045 /* AudioToolbox.framework */; };
 		C379429714AA2947005A2045 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C379429514AA2947005A2045 /* AppController.mm */; };
 		C37953F714AA2DC7005A2045 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942BE14AA2DBF005A2045 /* AppDelegate.cpp */; };
-		C37953F814AA2DC7005A2045 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942C314AA2DBF005A2045 /* Card.cpp */; };
-		C37953F914AA2DC7005A2045 /* CardBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942C514AA2DBF005A2045 /* CardBoard.cpp */; };
-		C37953FA14AA2DC7005A2045 /* CardPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942C814AA2DBF005A2045 /* CardPlay.cpp */; };
-		C37953FB14AA2DC7005A2045 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942CA14AA2DBF005A2045 /* Game.cpp */; };
-		C37953FC14AA2DC7005A2045 /* GameConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942CC14AA2DBF005A2045 /* GameConfig.cpp */; };
-		C37953FD14AA2DC7005A2045 /* GameControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942CE14AA2DBF005A2045 /* GameControl.cpp */; };
-		C37953FE14AA2DC7005A2045 /* GameControlChipmunk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942D014AA2DBF005A2045 /* GameControlChipmunk.cpp */; };
-		C37953FF14AA2DC7005A2045 /* GameControlSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942D214AA2DBF005A2045 /* GameControlSprite.cpp */; };
-		C379540014AA2DC7005A2045 /* GameLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942D414AA2DBF005A2045 /* GameLayout.cpp */; };
-		C379540114AA2DC7005A2045 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942D614AA2DBF005A2045 /* GameScene.cpp */; };
-		C379540214AA2DC7005A2045 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942D914AA2DBF005A2045 /* Menu.cpp */; };
-		C379540314AA2DC7005A2045 /* MenuBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942DB14AA2DBF005A2045 /* MenuBox.cpp */; };
-		C379540414AA2DC7005A2045 /* MenuBoxContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942DD14AA2DBF005A2045 /* MenuBoxContainer.cpp */; };
-		C379540514AA2DC7005A2045 /* MenuContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942DF14AA2DBF005A2045 /* MenuContainer.cpp */; };
-		C379540614AA2DC7005A2045 /* MenuLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942E114AA2DBF005A2045 /* MenuLayout.cpp */; };
 		C379540714AA2DC7005A2045 /* cpDrawSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C37942E514AA2DBF005A2045 /* cpDrawSpace.cpp */; };
 		C379549214AA2DC7005A2045 /* chipmunk.c in Sources */ = {isa = PBXBuildFile; fileRef = C37943EC14AA2DBF005A2045 /* chipmunk.c */; };
 		C37954A914AA2DC7005A2045 /* cpConstraint.c in Sources */ = {isa = PBXBuildFile; fileRef = C379440714AA2DBF005A2045 /* cpConstraint.c */; };
@@ -164,10 +165,42 @@
 		C3795E7914AB4C17005A2045 /* CCImage_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5C14AB4C17005A2045 /* CCImage_mac.mm */; };
 		C3795E7A14AB4C17005A2045 /* CCLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5D14AB4C17005A2045 /* CCLock.cpp */; };
 		C3795E7C14AB4C17005A2045 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E6114AB4C17005A2045 /* EAGLView.mm */; };
-		C3F6330814AF6AB600AA50B8 /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3F6330614AF6AB600AA50B8 /* GameConfig_mac.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C30A60EF14B1FAF5007D3BDE /* GameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig.cpp; sourceTree = "<group>"; };
+		C30A60F014B1FAF5007D3BDE /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/ChinesePuzzle/GameConfig.h; sourceTree = "<absolute>"; };
+		C30A60F114B1FAF5007D3BDE /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		C30A60F214B1FAF5007D3BDE /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		C30A60F414B1FAF5007D3BDE /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
+		C30A60F514B1FAF5007D3BDE /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		C30A60F614B1FAF5007D3BDE /* MenuBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBox.cpp; sourceTree = "<group>"; };
+		C30A60F714B1FAF5007D3BDE /* MenuBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBox.h; sourceTree = "<group>"; };
+		C30A60F814B1FAF5007D3BDE /* MenuBoxContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBoxContainer.cpp; sourceTree = "<group>"; };
+		C30A60F914B1FAF5007D3BDE /* MenuBoxContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBoxContainer.h; sourceTree = "<group>"; };
+		C30A60FA14B1FAF5007D3BDE /* MenuContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuContainer.cpp; sourceTree = "<group>"; };
+		C30A60FB14B1FAF5007D3BDE /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
+		C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLayout.cpp; sourceTree = "<group>"; };
+		C30A60FD14B1FAF5007D3BDE /* MenuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayout.h; sourceTree = "<group>"; };
+		C30A610D14B1FB01007D3BDE /* GameConfig_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_mac.cpp; sourceTree = "<group>"; };
+		C30A610E14B1FB01007D3BDE /* GameConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig_mac.h; sourceTree = "<group>"; };
+		C30A611114B1FB20007D3BDE /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
+		C30A611214B1FB20007D3BDE /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		C30A611314B1FB20007D3BDE /* CardBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardBoard.cpp; sourceTree = "<group>"; };
+		C30A611414B1FB20007D3BDE /* CardBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardBoard.h; sourceTree = "<group>"; };
+		C30A611514B1FB20007D3BDE /* CardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDelegate.h; sourceTree = "<group>"; };
+		C30A611614B1FB20007D3BDE /* CardPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardPlay.cpp; sourceTree = "<group>"; };
+		C30A611714B1FB20007D3BDE /* CardPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPlay.h; sourceTree = "<group>"; };
+		C30A611814B1FB20007D3BDE /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		C30A611914B1FB20007D3BDE /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		C30A611A14B1FB20007D3BDE /* GameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControl.cpp; sourceTree = "<group>"; };
+		C30A611B14B1FB20007D3BDE /* GameControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameControl.h; sourceTree = "<group>"; };
+		C30A611C14B1FB20007D3BDE /* GameControlChipmunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControlChipmunk.cpp; sourceTree = "<group>"; };
+		C30A611D14B1FB20007D3BDE /* GameControlChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameControlChipmunk.h; sourceTree = "<group>"; };
+		C30A611E14B1FB20007D3BDE /* GameControlSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControlSprite.cpp; sourceTree = "<group>"; };
+		C30A611F14B1FB20007D3BDE /* GameControlSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameControlSprite.h; sourceTree = "<group>"; };
+		C30A612014B1FB20007D3BDE /* GameLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayout.cpp; sourceTree = "<group>"; };
+		C30A612114B1FB20007D3BDE /* GameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayout.h; sourceTree = "<group>"; };
 		C31BB93014AECA210077D8FB /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "../../Common/Bin/Data/fps_images-hd.png"; sourceTree = "<group>"; };
 		C31BB93114AECA210077D8FB /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = ../../Common/Bin/Data/fps_images.png; sourceTree = "<group>"; };
 		C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
@@ -192,37 +225,6 @@
 		C37942BE14AA2DBF005A2045 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C37942BF14AA2DBF005A2045 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C37942C014AA2DBF005A2045 /* cpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpConfig.h; sourceTree = "<group>"; };
-		C37942C314AA2DBF005A2045 /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
-		C37942C414AA2DBF005A2045 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		C37942C514AA2DBF005A2045 /* CardBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardBoard.cpp; sourceTree = "<group>"; };
-		C37942C614AA2DBF005A2045 /* CardBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardBoard.h; sourceTree = "<group>"; };
-		C37942C714AA2DBF005A2045 /* CardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDelegate.h; sourceTree = "<group>"; };
-		C37942C814AA2DBF005A2045 /* CardPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardPlay.cpp; sourceTree = "<group>"; };
-		C37942C914AA2DBF005A2045 /* CardPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPlay.h; sourceTree = "<group>"; };
-		C37942CA14AA2DBF005A2045 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
-		C37942CB14AA2DBF005A2045 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		C37942CC14AA2DBF005A2045 /* GameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig.cpp; sourceTree = "<group>"; };
-		C37942CD14AA2DBF005A2045 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
-		C37942CE14AA2DBF005A2045 /* GameControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControl.cpp; sourceTree = "<group>"; };
-		C37942CF14AA2DBF005A2045 /* GameControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameControl.h; sourceTree = "<group>"; };
-		C37942D014AA2DBF005A2045 /* GameControlChipmunk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControlChipmunk.cpp; sourceTree = "<group>"; };
-		C37942D114AA2DBF005A2045 /* GameControlChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameControlChipmunk.h; sourceTree = "<group>"; };
-		C37942D214AA2DBF005A2045 /* GameControlSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameControlSprite.cpp; sourceTree = "<group>"; };
-		C37942D314AA2DBF005A2045 /* GameControlSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameControlSprite.h; sourceTree = "<group>"; };
-		C37942D414AA2DBF005A2045 /* GameLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayout.cpp; sourceTree = "<group>"; };
-		C37942D514AA2DBF005A2045 /* GameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayout.h; sourceTree = "<group>"; };
-		C37942D614AA2DBF005A2045 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
-		C37942D714AA2DBF005A2045 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/ChinesePuzzle/Game/GameScene.h; sourceTree = "<absolute>"; };
-		C37942D914AA2DBF005A2045 /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
-		C37942DA14AA2DBF005A2045 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
-		C37942DB14AA2DBF005A2045 /* MenuBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBox.cpp; sourceTree = "<group>"; };
-		C37942DC14AA2DBF005A2045 /* MenuBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBox.h; sourceTree = "<group>"; };
-		C37942DD14AA2DBF005A2045 /* MenuBoxContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBoxContainer.cpp; sourceTree = "<group>"; };
-		C37942DE14AA2DBF005A2045 /* MenuBoxContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBoxContainer.h; sourceTree = "<group>"; };
-		C37942DF14AA2DBF005A2045 /* MenuContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuContainer.cpp; sourceTree = "<group>"; };
-		C37942E014AA2DBF005A2045 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
-		C37942E114AA2DBF005A2045 /* MenuLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLayout.cpp; sourceTree = "<group>"; };
-		C37942E214AA2DBF005A2045 /* MenuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayout.h; sourceTree = "<group>"; };
 		C37942E514AA2DBF005A2045 /* cpDrawSpace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cpDrawSpace.cpp; sourceTree = "<group>"; };
 		C37942E614AA2DBF005A2045 /* cpDrawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpDrawSpace.h; sourceTree = "<group>"; };
 		C37943AF14AA2DBF005A2045 /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
@@ -518,8 +520,6 @@
 		C3795E6114AB4C17005A2045 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		C3795E7114AB4C17005A2045 /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
 		C3F632FF14AF598500AA50B8 /* cpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMacro.h; sourceTree = "<group>"; };
-		C3F6330614AF6AB600AA50B8 /* GameConfig_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_mac.cpp; sourceTree = "<group>"; };
-		C3F6330714AF6AB600AA50B8 /* GameConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig_mac.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -538,6 +538,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C30A60F314B1FAF5007D3BDE /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C30A60F414B1FAF5007D3BDE /* Menu.cpp */,
+				C30A60F514B1FAF5007D3BDE /* Menu.h */,
+				C30A60F614B1FAF5007D3BDE /* MenuBox.cpp */,
+				C30A60F714B1FAF5007D3BDE /* MenuBox.h */,
+				C30A60F814B1FAF5007D3BDE /* MenuBoxContainer.cpp */,
+				C30A60F914B1FAF5007D3BDE /* MenuBoxContainer.h */,
+				C30A60FA14B1FAF5007D3BDE /* MenuContainer.cpp */,
+				C30A60FB14B1FAF5007D3BDE /* MenuContainer.h */,
+				C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */,
+				C30A60FD14B1FAF5007D3BDE /* MenuLayout.h */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		C30A611014B1FB20007D3BDE /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C30A611114B1FB20007D3BDE /* Card.cpp */,
+				C30A611214B1FB20007D3BDE /* Card.h */,
+				C30A611314B1FB20007D3BDE /* CardBoard.cpp */,
+				C30A611414B1FB20007D3BDE /* CardBoard.h */,
+				C30A611514B1FB20007D3BDE /* CardDelegate.h */,
+				C30A611614B1FB20007D3BDE /* CardPlay.cpp */,
+				C30A611714B1FB20007D3BDE /* CardPlay.h */,
+				C30A611814B1FB20007D3BDE /* Game.cpp */,
+				C30A611914B1FB20007D3BDE /* Game.h */,
+				C30A611A14B1FB20007D3BDE /* GameControl.cpp */,
+				C30A611B14B1FB20007D3BDE /* GameControl.h */,
+				C30A611C14B1FB20007D3BDE /* GameControlChipmunk.cpp */,
+				C30A611D14B1FB20007D3BDE /* GameControlChipmunk.h */,
+				C30A611E14B1FB20007D3BDE /* GameControlSprite.cpp */,
+				C30A611F14B1FB20007D3BDE /* GameControlSprite.h */,
+				C30A612014B1FB20007D3BDE /* GameLayout.cpp */,
+				C30A612114B1FB20007D3BDE /* GameLayout.h */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		C379408A14AA239F005A2045 = {
 			isa = PBXGroup;
 			children = (
@@ -631,65 +672,16 @@
 			children = (
 				C37942BF14AA2DBF005A2045 /* AppDelegate.h */,
 				C37942BE14AA2DBF005A2045 /* AppDelegate.cpp */,
-				C37942C114AA2DBF005A2045 /* Game */,
 				C37942C014AA2DBF005A2045 /* cpConfig.h */,
 				C3F632FF14AF598500AA50B8 /* cpMacro.h */,
+				C30A611014B1FB20007D3BDE /* Game */,
+				C30A60F014B1FAF5007D3BDE /* GameConfig.h */,
+				C30A60EF14B1FAF5007D3BDE /* GameConfig.cpp */,
+				C30A60F214B1FAF5007D3BDE /* GameScene.h */,
+				C30A60F114B1FAF5007D3BDE /* GameScene.cpp */,
+				C30A60F314B1FAF5007D3BDE /* Menu */,
 			);
 			path = ChinesePuzzle;
-			sourceTree = "<group>";
-		};
-		C37942C114AA2DBF005A2045 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				C37942C214AA2DBF005A2045 /* Game */,
-				C37942D714AA2DBF005A2045 /* GameScene.h */,
-				C37942D614AA2DBF005A2045 /* GameScene.cpp */,
-				C37942D814AA2DBF005A2045 /* Menu */,
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
-		C37942C214AA2DBF005A2045 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				C37942C414AA2DBF005A2045 /* Card.h */,
-				C37942C314AA2DBF005A2045 /* Card.cpp */,
-				C37942C614AA2DBF005A2045 /* CardBoard.h */,
-				C37942C514AA2DBF005A2045 /* CardBoard.cpp */,
-				C37942C714AA2DBF005A2045 /* CardDelegate.h */,
-				C37942C914AA2DBF005A2045 /* CardPlay.h */,
-				C37942C814AA2DBF005A2045 /* CardPlay.cpp */,
-				C37942CB14AA2DBF005A2045 /* Game.h */,
-				C37942CA14AA2DBF005A2045 /* Game.cpp */,
-				C37942CD14AA2DBF005A2045 /* GameConfig.h */,
-				C37942CC14AA2DBF005A2045 /* GameConfig.cpp */,
-				C37942CF14AA2DBF005A2045 /* GameControl.h */,
-				C37942CE14AA2DBF005A2045 /* GameControl.cpp */,
-				C37942D114AA2DBF005A2045 /* GameControlChipmunk.h */,
-				C37942D014AA2DBF005A2045 /* GameControlChipmunk.cpp */,
-				C37942D314AA2DBF005A2045 /* GameControlSprite.h */,
-				C37942D214AA2DBF005A2045 /* GameControlSprite.cpp */,
-				C37942D514AA2DBF005A2045 /* GameLayout.h */,
-				C37942D414AA2DBF005A2045 /* GameLayout.cpp */,
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
-		C37942D814AA2DBF005A2045 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				C37942DA14AA2DBF005A2045 /* Menu.h */,
-				C37942D914AA2DBF005A2045 /* Menu.cpp */,
-				C37942DC14AA2DBF005A2045 /* MenuBox.h */,
-				C37942DB14AA2DBF005A2045 /* MenuBox.cpp */,
-				C37942DE14AA2DBF005A2045 /* MenuBoxContainer.h */,
-				C37942DD14AA2DBF005A2045 /* MenuBoxContainer.cpp */,
-				C37942E014AA2DBF005A2045 /* MenuContainer.h */,
-				C37942DF14AA2DBF005A2045 /* MenuContainer.cpp */,
-				C37942E214AA2DBF005A2045 /* MenuLayout.h */,
-				C37942E114AA2DBF005A2045 /* MenuLayout.cpp */,
-			);
-			path = Menu;
 			sourceTree = "<group>";
 		};
 		C37942E314AA2DBF005A2045 /* Externals */ = {
@@ -1284,16 +1276,8 @@
 		C3F6330114AF6A9400AA50B8 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				C3F6330214AF6A9400AA50B8 /* Game */,
-			);
-			path = Game;
-			sourceTree = "<group>";
-		};
-		C3F6330214AF6A9400AA50B8 /* Game */ = {
-			isa = PBXGroup;
-			children = (
-				C3F6330714AF6AB600AA50B8 /* GameConfig_mac.h */,
-				C3F6330614AF6AB600AA50B8 /* GameConfig_mac.cpp */,
+				C30A610E14B1FB01007D3BDE /* GameConfig_mac.h */,
+				C30A610D14B1FB01007D3BDE /* GameConfig_mac.cpp */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1369,21 +1353,6 @@
 				C37940D414AA25A0005A2045 /* main.m in Sources */,
 				C379429714AA2947005A2045 /* AppController.mm in Sources */,
 				C37953F714AA2DC7005A2045 /* AppDelegate.cpp in Sources */,
-				C37953F814AA2DC7005A2045 /* Card.cpp in Sources */,
-				C37953F914AA2DC7005A2045 /* CardBoard.cpp in Sources */,
-				C37953FA14AA2DC7005A2045 /* CardPlay.cpp in Sources */,
-				C37953FB14AA2DC7005A2045 /* Game.cpp in Sources */,
-				C37953FC14AA2DC7005A2045 /* GameConfig.cpp in Sources */,
-				C37953FD14AA2DC7005A2045 /* GameControl.cpp in Sources */,
-				C37953FE14AA2DC7005A2045 /* GameControlChipmunk.cpp in Sources */,
-				C37953FF14AA2DC7005A2045 /* GameControlSprite.cpp in Sources */,
-				C379540014AA2DC7005A2045 /* GameLayout.cpp in Sources */,
-				C379540114AA2DC7005A2045 /* GameScene.cpp in Sources */,
-				C379540214AA2DC7005A2045 /* Menu.cpp in Sources */,
-				C379540314AA2DC7005A2045 /* MenuBox.cpp in Sources */,
-				C379540414AA2DC7005A2045 /* MenuBoxContainer.cpp in Sources */,
-				C379540514AA2DC7005A2045 /* MenuContainer.cpp in Sources */,
-				C379540614AA2DC7005A2045 /* MenuLayout.cpp in Sources */,
 				C379540714AA2DC7005A2045 /* cpDrawSpace.cpp in Sources */,
 				C379549214AA2DC7005A2045 /* chipmunk.c in Sources */,
 				C37954A914AA2DC7005A2045 /* cpConstraint.c in Sources */,
@@ -1511,7 +1480,22 @@
 				C3795E7914AB4C17005A2045 /* CCImage_mac.mm in Sources */,
 				C3795E7A14AB4C17005A2045 /* CCLock.cpp in Sources */,
 				C3795E7C14AB4C17005A2045 /* EAGLView.mm in Sources */,
-				C3F6330814AF6AB600AA50B8 /* GameConfig_mac.cpp in Sources */,
+				C30A610614B1FAF5007D3BDE /* GameConfig.cpp in Sources */,
+				C30A610714B1FAF5007D3BDE /* GameScene.cpp in Sources */,
+				C30A610814B1FAF5007D3BDE /* Menu.cpp in Sources */,
+				C30A610914B1FAF5007D3BDE /* MenuBox.cpp in Sources */,
+				C30A610A14B1FAF5007D3BDE /* MenuBoxContainer.cpp in Sources */,
+				C30A610B14B1FAF5007D3BDE /* MenuContainer.cpp in Sources */,
+				C30A610C14B1FAF5007D3BDE /* MenuLayout.cpp in Sources */,
+				C30A610F14B1FB01007D3BDE /* GameConfig_mac.cpp in Sources */,
+				C30A612214B1FB20007D3BDE /* Card.cpp in Sources */,
+				C30A612314B1FB20007D3BDE /* CardBoard.cpp in Sources */,
+				C30A612414B1FB20007D3BDE /* CardPlay.cpp in Sources */,
+				C30A612514B1FB20007D3BDE /* Game.cpp in Sources */,
+				C30A612614B1FB20007D3BDE /* GameControl.cpp in Sources */,
+				C30A612714B1FB20007D3BDE /* GameControlChipmunk.cpp in Sources */,
+				C30A612814B1FB20007D3BDE /* GameControlSprite.cpp in Sources */,
+				C30A612914B1FB20007D3BDE /* GameLayout.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

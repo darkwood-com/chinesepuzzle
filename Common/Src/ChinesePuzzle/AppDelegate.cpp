@@ -25,7 +25,7 @@
 #include "AppDelegate.h"
 
 #import "cocos2d.h"
-#include "Game/GameScene.h"
+#include "GameScene.h"
 
 USING_NS_CC;
 

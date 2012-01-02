@@ -27,13 +27,15 @@
 
 using namespace cocos2d;
 
-GameScene::GameScene()
+GameScene::GameScene() :
+conf(NULL)
 {
 	
 }
 
 GameScene::~GameScene()
 {
+	CC_SAFE_RELEASE(conf);
 	CC_SAFE_RELEASE(pGame);
 	CC_SAFE_RELEASE(pMenu);
 }
@@ -44,6 +46,9 @@ bool GameScene::init()
 	{
 		return false;
 	}
+	
+	this->conf = new GameConfig();
+	this->conf->init();
 	
 	pGame = NULL;
 	pMenu = NULL;
@@ -104,4 +109,14 @@ void GameScene::newGame()
 {
 	Game* aGame = this->game();
 	aGame->newGame();
+}
+
+void GameScene::setResolution(CCString* resolution)
+{
+	
+}
+
+void GameScene::setTheme(CCString* theme)
+{
+	
 }
