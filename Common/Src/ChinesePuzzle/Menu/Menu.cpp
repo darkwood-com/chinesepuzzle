@@ -28,6 +28,7 @@
 using namespace cocos2d;
 
 Menu::Menu() :
+gs(NULL),
 nav(ccArrayNew(1))
 {
 }

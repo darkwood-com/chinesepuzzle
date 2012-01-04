@@ -1,5 +1,5 @@
 /**
- *  GameScene_mac.h
+ *  Background.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,25 +22,29 @@
  *
  */
 
-#ifndef __GAME_SCENE_H__
-#define __GAME_SCENE_H__
+#ifndef __BACKGROUND_H__
+#define __BACKGROUND_H__
 
-#import "GameScene.h"
-#include "CCReshapeDelegate.h"
-#include "Background.h"
+#include "cocos2d.h"
 
-class CC_DLL GameScene : public GameSceneCommon, public cocos2d::CCReshapeDelegate
+class GameSceneCommon;
+
+// Background Layer
+class CC_DLL Background : public cocos2d::CCLayer
 {
+protected:
+	cocos2d::CCSprite* bgPattern;
+
 public:
-	GameScene();
-	virtual ~GameScene();
-	SCENE_NODE_FUNC(GameScene);
+	Background();
+	virtual ~Background();
+	LAYER_NODE_FUNC_PARAM(Background, GameSceneCommon*, gs);
 	
-	virtual bool init();
-	
-	virtual void ccReshape();
-	
-	CC_SYNTHESIZE_READONLY(Background*, pBackground, Background);
+	virtual bool init(GameSceneCommon* gs);
+
+	virtual void setContentSize(const cocos2d::CCSize& size);
+
+	CC_SYNTHESIZE_READONLY(GameSceneCommon*, gs, BackgroundScene);
 };
 
-#endif // __GAME_SCENE_H__
+#endif // __Background_H__

@@ -28,9 +28,10 @@
 
 using namespace cocos2d;
 
-GameScene::GameScene() :
-bgPattern(NULL)
+GameScene::GameScene() : 
+pBackground(NULL)
 {
+	m_bIsRelativeAnchorPoint = true;
 }
 
 GameScene::~GameScene()
@@ -44,11 +45,14 @@ bool GameScene::init()
 		return false;
 	}
 	
-	ccTexParams texParams = {GL_LINEAR,GL_LINEAR,GL_REPEAT ,GL_REPEAT};
-	bgPattern = CCSprite::spriteWithFile(conf->getRootPath("bgPattern.png").c_str());
-	bgPattern->getTexture()->setTexParameters(&texParams);
-	bgPattern->setAnchorPoint(ccp(0,0));
-	this->addChild(bgPattern, GameZOrderBG);
+	CCSize confsize = conf->getResolutionSize();
+	CCPoint confcenter = ccpMult(ccp(confsize.width, confsize.height), 0.5);
+	
+	this->setContentSize(confsize);
+	
+	pBackground = Background::node(this);
+	pBackground->setPosition(confcenter);
+	this->addChild(pBackground, GameSceneZOrderBG);
 	
 	ccReshape();
 	
@@ -57,12 +61,12 @@ bool GameScene::init()
 
 void GameScene::ccReshape()
 {
-	CCRect rect;
-	rect.size = CCDirector::sharedDirector()->getWinSize();
+	CCSize winsize = CCDirector::sharedDirector()->getWinSize();
+	CCPoint wincenter = ccpMult(ccp(winsize.width, winsize.height), 0.5);
 	
-	//this->setPosition(CCPointMake(50, 50));
-	
-	CCLog("toto reshape scene");
-	
-	bgPattern->setTextureRect(rect);
+	if(pBackground)
+	{
+		this->setPosition(wincenter);
+		pBackground->setContentSize(winsize);
+	}
 }

@@ -40,6 +40,7 @@ public:
 	std::string getUiPath(const char* file);
 	std::string getThemePath(const char* file);
 	
+	cocos2d::CCSize getResolutionSize();
 	CC_SYNTHESIZE(std::string, resolution, Resolution);
 	CC_SYNTHESIZE(std::string, theme, Theme);
 };

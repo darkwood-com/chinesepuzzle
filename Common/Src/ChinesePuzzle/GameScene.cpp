@@ -76,7 +76,7 @@ Game* GameSceneCommon::game()
 	
 	if(pGame->getParent() == NULL)
 	{
-		this->addChild(pGame);
+		this->addChild(pGame, GameSceneZOrderGame);
 	}
 	
 	return pGame;
@@ -101,7 +101,7 @@ Menu* GameSceneCommon::menuWithLayout(MenuLayout::Type ml)
 	
 	if(pMenu->getParent() == NULL)
 	{
-		this->addChild(pMenu);
+		this->addChild(pMenu, GameSceneZOrderMenu);
 	}
 	
 	return pMenu;

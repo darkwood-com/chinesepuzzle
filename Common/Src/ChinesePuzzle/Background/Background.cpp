@@ -1,5 +1,5 @@
 /**
- *  GameConfig.cpp
+ *  Background.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,48 +22,47 @@
  *
  */
 
-#include "GameConfig.h"
+#include "Background.h"
+#include "GameScene.h"
 
 using namespace cocos2d;
 
-GameConfigCommon::GameConfigCommon()
+Background::Background() : 
+gs(NULL),
+bgPattern(NULL)
 {
+	m_bIsRelativeAnchorPoint = true;
+}
+
+Background::~Background()
+{
+}
+
+bool Background::init(GameSceneCommon* gs)
+{
+	if (!CCLayer::init())
+	{
+		return false;
+	}
 	
-}
-
-GameConfigCommon::~GameConfigCommon()
-{
-}
-
-bool GameConfigCommon::init()
-{
-	this->resolution = std::string("480x320");
-	this->theme = std::string("classic");
+	ccTexParams texParams = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
+	bgPattern = CCSprite::spriteWithFile(gs->getConf()->getRootPath("bgPattern.png").c_str());
+	bgPattern->getTexture()->setTexParameters(&texParams);
+	bgPattern->setAnchorPoint(ccp(0,0));
+	this->addChild(bgPattern, GameZOrderBG);
+	
+	this->gs = gs;
+	this->setContentSize(this->gs->getConf()->getResolutionSize());
 	
 	return true;
 }
 
-cocos2d::CCSize GameConfigCommon::getResolutionSize()
+void Background::setContentSize(const CCSize& size)
 {
-	return CCSizeMake(480, 320);
-}
-
-std::string GameConfigCommon::getRootPath(const char* file)
-{
-	return std::string(file);
-}
-
-std::string GameConfigCommon::getResolutionPath(const char* file)
-{
-	return this->resolution + std::string("/") + std::string(file);
-}
-
-std::string GameConfigCommon::getUiPath(const char* file)
-{
-	return this->resolution + std::string("/ui/") + std::string(file);
-}
-
-std::string GameConfigCommon::getThemePath(const char* file)
-{
-	return this->resolution + std::string("/themes/") + this->theme + std::string("/") + std::string(file);
+	CCLayer::setContentSize(size);
+	
+	CCRect rect;
+	rect.size = size;
+	
+	bgPattern->setTextureRect(rect);
 }

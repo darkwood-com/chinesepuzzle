@@ -34,6 +34,7 @@
 using namespace cocos2d;
 
 Game::Game() : 
+gs(NULL),
 gc(NULL),
 gl(NULL),
 dragCard(NULL),

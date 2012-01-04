@@ -31,6 +31,12 @@
 #include "Game.h"
 #include "Menu.h"
 
+typedef enum {
+	GameSceneZOrderBG = 0,
+	GameSceneZOrderGame = 1,
+	GameSceneZOrderMenu = 2,
+} GameSceneZOrder;
+
 class CC_DLL GameSceneCommon : public cocos2d::CCScene
 {
 public:
