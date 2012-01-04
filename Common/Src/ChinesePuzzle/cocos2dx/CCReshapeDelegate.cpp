@@ -1,5 +1,5 @@
 /**
- *  GameConfig.cpp
+ *  CCReshapeDelegate.ccp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,14 +22,26 @@
  *
  */
 
-#include "GameConfig.h"
+#include "CCReshapeDelegate.h"
+#include "CCNode.h"
 
 using namespace cocos2d;
 
-GameConfig::GameConfig()
+void CCReshapeDelegate::ccReshape()
 {
-}
-
-GameConfig::~GameConfig()
-{
+	//reshape child nodes
+	CCNode* node = dynamic_cast<CCNode*>(this);
+	if(node)
+	{
+		CCObject* pObject = NULL;
+		CCARRAY_FOREACH(node->getChildren(), pObject)
+		{
+			CCNode* pChild = dynamic_cast<CCNode*>(pObject);
+			if (pChild)
+			{
+				CCReshapeDelegate* pChildReshape = dynamic_cast<CCReshapeDelegate*>(pChild);
+				if(pChildReshape) pChildReshape->ccReshape();
+			}
+		}
+	}
 }

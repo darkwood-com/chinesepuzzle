@@ -24,8 +24,9 @@
 
 #include "AppDelegate.h"
 
-#import "cocos2d.h"
-#include "GameScene.h"
+#include "cpMacro.h"
+#include "CCReshapeDelegate.h"
+#include CP_PLATFORM(GameScene)
 
 USING_NS_CC;
 
@@ -136,3 +137,18 @@ void AppDelegate::applicationWillEnterForeground()
 	// if you use SimpleAudioEngine, it must resume here
 	// SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
+
+void AppDelegate::reshape()
+{
+	//update projection
+	CCDirector::sharedDirector()->reshapeProjection(CCSizeZero);
+	
+	//reshape scene
+	CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
+	CCReshapeDelegate* sceneReshape = dynamic_cast<CCReshapeDelegate*>(scene);
+	if(sceneReshape) sceneReshape->ccReshape();
+	
+	//update draw
+	CCDirector::sharedDirector()->drawScene();
+}
+

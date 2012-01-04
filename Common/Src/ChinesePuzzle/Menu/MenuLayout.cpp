@@ -121,7 +121,7 @@ void MenuLayout::layout()
 				itemTitle->setPosition(ccp(100, 100));
 				items->addObject(itemTitle);
 				
-				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemYes.png").c_str(), NULL, menu->getGameScene(), menu_selector(GameScene::newGame));
+				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemYes.png").c_str(), NULL, menu->getGameScene(), menu_selector(GameSceneCommon::newGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemYes->setPosition(ccp(150, 50));
 				items->addObject(itemYes);

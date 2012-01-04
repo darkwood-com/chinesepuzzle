@@ -48,7 +48,7 @@ Game::~Game()
 	CC_SAFE_RELEASE(gl);
 }
 
-bool Game::init(GameScene* gs)
+bool Game::init(GameSceneCommon* gs)
 {
 	if (!CCLayer::init())
 	{

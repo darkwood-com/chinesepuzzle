@@ -1,5 +1,5 @@
 /**
- *  GameScene.h
+ *  GameScene_mac.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,35 +22,47 @@
  *
  */
 
-#ifndef __GAME_SCENE_COMMON_H__
-#define __GAME_SCENE_COMMON_H__
-
-#import "cocos2d.h"
-
-#include "GameConfig.h"
+#include "GameScene_mac.h"
 #include "Game.h"
-#include "Menu.h"
+#include "GameScene.h"
 
-class CC_DLL GameSceneCommon : public cocos2d::CCScene
+using namespace cocos2d;
+
+GameScene::GameScene() :
+bgPattern(NULL)
 {
-public:
-	GameSceneCommon();
-	virtual ~GameSceneCommon();
-	SCENE_NODE_FUNC(GameSceneCommon);
-	
-	virtual bool init();
-	
-	Game* game();
-	Menu* menu();
-	Menu* menuWithLayout(MenuLayout::Type ml);
-	
-	void newGame();
-	void setResolution(cocos2d::CCString* resolution);
-	void setTheme(cocos2d::CCString* theme);
-	
-	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
-	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
-	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);
-};
+}
 
-#endif // __GAME_SCENE_COMMON_H__
+GameScene::~GameScene()
+{
+}
+
+bool GameScene::init()
+{
+	if (!GameSceneCommon::init())
+	{
+		return false;
+	}
+	
+	ccTexParams texParams = {GL_LINEAR,GL_LINEAR,GL_REPEAT ,GL_REPEAT};
+	bgPattern = CCSprite::spriteWithFile(conf->getRootPath("bgPattern.png").c_str());
+	bgPattern->getTexture()->setTexParameters(&texParams);
+	bgPattern->setAnchorPoint(ccp(0,0));
+	this->addChild(bgPattern, GameZOrderBG);
+	
+	ccReshape();
+	
+	return true;
+}
+
+void GameScene::ccReshape()
+{
+	CCRect rect;
+	rect.size = CCDirector::sharedDirector()->getWinSize();
+	
+	//this->setPosition(CCPointMake(50, 50));
+	
+	CCLog("toto reshape scene");
+	
+	bgPattern->setTextureRect(rect);
+}

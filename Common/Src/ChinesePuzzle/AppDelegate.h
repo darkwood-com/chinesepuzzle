@@ -61,6 +61,12 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+	
+    /**
+	 @brief  The function be called when the application resize window
+	 @param  the pointer of the application
+	 */
+	virtual void reshape();
 };
 
 #endif // _APP_DELEGATE_H_

@@ -14,7 +14,6 @@
 		C30A610A14B1FAF5007D3BDE /* MenuBoxContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F814B1FAF5007D3BDE /* MenuBoxContainer.cpp */; };
 		C30A610B14B1FAF5007D3BDE /* MenuContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60FA14B1FAF5007D3BDE /* MenuContainer.cpp */; };
 		C30A610C14B1FAF5007D3BDE /* MenuLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */; };
-		C30A610F14B1FB01007D3BDE /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A610D14B1FB01007D3BDE /* GameConfig_mac.cpp */; };
 		C30A612214B1FB20007D3BDE /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611114B1FB20007D3BDE /* Card.cpp */; };
 		C30A612314B1FB20007D3BDE /* CardBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611314B1FB20007D3BDE /* CardBoard.cpp */; };
 		C30A612414B1FB20007D3BDE /* CardPlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611614B1FB20007D3BDE /* CardPlay.cpp */; };
@@ -165,6 +164,10 @@
 		C3795E7914AB4C17005A2045 /* CCImage_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5C14AB4C17005A2045 /* CCImage_mac.mm */; };
 		C3795E7A14AB4C17005A2045 /* CCLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5D14AB4C17005A2045 /* CCLock.cpp */; };
 		C3795E7C14AB4C17005A2045 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E6114AB4C17005A2045 /* EAGLView.mm */; };
+		C39D80B614B49EC600AA683C /* CCReshapeDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39D80B514B49EC600AA683C /* CCReshapeDelegate.cpp */; };
+		C39D80BC14B4B55200AA683C /* GameScene_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39D80BA14B4B55200AA683C /* GameScene_mac.cpp */; };
+		C39FE33814B34A4000F0EAF9 /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */; };
+		C39FE33E14B34CFA00F0EAF9 /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C39FE33D14B34CFA00F0EAF9 /* bgPattern.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,8 +185,6 @@
 		C30A60FB14B1FAF5007D3BDE /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
 		C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLayout.cpp; sourceTree = "<group>"; };
 		C30A60FD14B1FAF5007D3BDE /* MenuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayout.h; sourceTree = "<group>"; };
-		C30A610D14B1FB01007D3BDE /* GameConfig_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_mac.cpp; sourceTree = "<group>"; };
-		C30A610E14B1FB01007D3BDE /* GameConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig_mac.h; sourceTree = "<group>"; };
 		C30A611114B1FB20007D3BDE /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
 		C30A611214B1FB20007D3BDE /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		C30A611314B1FB20007D3BDE /* CardBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CardBoard.cpp; sourceTree = "<group>"; };
@@ -519,6 +520,13 @@
 		C3795E6014AB4C17005A2045 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		C3795E6114AB4C17005A2045 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		C3795E7114AB4C17005A2045 /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
+		C39D80B314B471EF00AA683C /* CCReshapeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCReshapeDelegate.h; sourceTree = "<group>"; };
+		C39D80B514B49EC600AA683C /* CCReshapeDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCReshapeDelegate.cpp; sourceTree = "<group>"; };
+		C39D80BA14B4B55200AA683C /* GameScene_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene_mac.cpp; sourceTree = "<group>"; };
+		C39D80BB14B4B55200AA683C /* GameScene_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene_mac.h; sourceTree = "<group>"; };
+		C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_mac.cpp; sourceTree = "<group>"; };
+		C39FE33714B34A4000F0EAF9 /* GameConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig_mac.h; sourceTree = "<group>"; };
+		C39FE33D14B34CFA00F0EAF9 /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../Bin/Data/bgPattern.png; sourceTree = "<group>"; };
 		C3F632FF14AF598500AA50B8 /* cpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -628,7 +636,10 @@
 			children = (
 				C379429414AA2947005A2045 /* AppController.h */,
 				C379429514AA2947005A2045 /* AppController.mm */,
-				C3F6330114AF6A9400AA50B8 /* Game */,
+				C39FE33714B34A4000F0EAF9 /* GameConfig_mac.h */,
+				C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */,
+				C39D80BB14B4B55200AA683C /* GameScene_mac.h */,
+				C39D80BA14B4B55200AA683C /* GameScene_mac.cpp */,
 			);
 			path = ChinesePuzzle;
 			sourceTree = "<group>";
@@ -646,6 +657,7 @@
 				C355885B14ADF72500D549E4 /* 480x320 */,
 				C31BB93014AECA210077D8FB /* fps_images-hd.png */,
 				C31BB93114AECA210077D8FB /* fps_images.png */,
+				C39FE33D14B34CFA00F0EAF9 /* bgPattern.png */,
 				C37940CB14AA25A0005A2045 /* ChinesePuzzle-Info.plist */,
 				C37940CC14AA25A0005A2045 /* ChinesePuzzle-Prefix.pch */,
 				C37940CD14AA25A0005A2045 /* Credits.rtf */,
@@ -672,6 +684,7 @@
 			children = (
 				C37942BF14AA2DBF005A2045 /* AppDelegate.h */,
 				C37942BE14AA2DBF005A2045 /* AppDelegate.cpp */,
+				C39D80B214B471EE00AA683C /* cocos2dx */,
 				C37942C014AA2DBF005A2045 /* cpConfig.h */,
 				C3F632FF14AF598500AA50B8 /* cpMacro.h */,
 				C30A611014B1FB20007D3BDE /* Game */,
@@ -1273,13 +1286,13 @@
 			path = mac;
 			sourceTree = "<group>";
 		};
-		C3F6330114AF6A9400AA50B8 /* Game */ = {
+		C39D80B214B471EE00AA683C /* cocos2dx */ = {
 			isa = PBXGroup;
 			children = (
-				C30A610E14B1FB01007D3BDE /* GameConfig_mac.h */,
-				C30A610D14B1FB01007D3BDE /* GameConfig_mac.cpp */,
+				C39D80B314B471EF00AA683C /* CCReshapeDelegate.h */,
+				C39D80B514B49EC600AA683C /* CCReshapeDelegate.cpp */,
 			);
-			path = Game;
+			path = cocos2dx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1340,6 +1353,7 @@
 				C355885C14ADF72500D549E4 /* 480x320 in Resources */,
 				C31BB93214AECA210077D8FB /* fps_images-hd.png in Resources */,
 				C31BB93314AECA210077D8FB /* fps_images.png in Resources */,
+				C39FE33E14B34CFA00F0EAF9 /* bgPattern.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1487,7 +1501,6 @@
 				C30A610A14B1FAF5007D3BDE /* MenuBoxContainer.cpp in Sources */,
 				C30A610B14B1FAF5007D3BDE /* MenuContainer.cpp in Sources */,
 				C30A610C14B1FAF5007D3BDE /* MenuLayout.cpp in Sources */,
-				C30A610F14B1FB01007D3BDE /* GameConfig_mac.cpp in Sources */,
 				C30A612214B1FB20007D3BDE /* Card.cpp in Sources */,
 				C30A612314B1FB20007D3BDE /* CardBoard.cpp in Sources */,
 				C30A612414B1FB20007D3BDE /* CardPlay.cpp in Sources */,
@@ -1496,6 +1509,9 @@
 				C30A612714B1FB20007D3BDE /* GameControlChipmunk.cpp in Sources */,
 				C30A612814B1FB20007D3BDE /* GameControlSprite.cpp in Sources */,
 				C30A612914B1FB20007D3BDE /* GameLayout.cpp in Sources */,
+				C39FE33814B34A4000F0EAF9 /* GameConfig_mac.cpp in Sources */,
+				C39D80B614B49EC600AA683C /* CCReshapeDelegate.cpp in Sources */,
+				C39D80BC14B4B55200AA683C /* GameScene_mac.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 /**
- *  GameScene.h
+ *  GameScene_mac.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,35 +22,27 @@
  *
  */
 
-#ifndef __GAME_SCENE_COMMON_H__
-#define __GAME_SCENE_COMMON_H__
+#ifndef __GAME_SCENE_H__
+#define __GAME_SCENE_H__
 
-#import "cocos2d.h"
+#import "GameScene.h"
+#include "CCReshapeDelegate.h"
 
-#include "GameConfig.h"
-#include "Game.h"
-#include "Menu.h"
+class Game;
 
-class CC_DLL GameSceneCommon : public cocos2d::CCScene
+class CC_DLL GameScene : public GameSceneCommon, public cocos2d::CCReshapeDelegate
 {
+protected:
+	cocos2d::CCSprite* bgPattern;
+	
 public:
-	GameSceneCommon();
-	virtual ~GameSceneCommon();
-	SCENE_NODE_FUNC(GameSceneCommon);
+	GameScene();
+	virtual ~GameScene();
+	SCENE_NODE_FUNC(GameScene);
 	
 	virtual bool init();
 	
-	Game* game();
-	Menu* menu();
-	Menu* menuWithLayout(MenuLayout::Type ml);
-	
-	void newGame();
-	void setResolution(cocos2d::CCString* resolution);
-	void setTheme(cocos2d::CCString* theme);
-	
-	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
-	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
-	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);
+	virtual void ccReshape();
 };
 
-#endif // __GAME_SCENE_COMMON_H__
+#endif // __GAME_SCENE_H__

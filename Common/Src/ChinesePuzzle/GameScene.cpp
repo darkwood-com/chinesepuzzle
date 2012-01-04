@@ -27,20 +27,20 @@
 
 using namespace cocos2d;
 
-GameScene::GameScene() :
+GameSceneCommon::GameSceneCommon() :
 conf(NULL)
 {
 	
 }
 
-GameScene::~GameScene()
+GameSceneCommon::~GameSceneCommon()
 {
 	CC_SAFE_RELEASE(conf);
 	CC_SAFE_RELEASE(pGame);
 	CC_SAFE_RELEASE(pMenu);
 }
 
-bool GameScene::init()
+bool GameSceneCommon::init()
 {
 	if (!CCScene::init())
 	{
@@ -59,7 +59,7 @@ bool GameScene::init()
 	return true;
 }
 
-Game* GameScene::game()
+Game* GameSceneCommon::game()
 {
 	if(pMenu)
 	{
@@ -82,12 +82,12 @@ Game* GameScene::game()
 	return pGame;
 }
 
-Menu* GameScene::menu()
+Menu* GameSceneCommon::menu()
 {
 	return this->menuWithLayout(MenuLayout::TypeNone);
 }
 
-Menu* GameScene::menuWithLayout(MenuLayout::Type ml)
+Menu* GameSceneCommon::menuWithLayout(MenuLayout::Type ml)
 {
 	if (pMenu == NULL)
 	{
@@ -107,18 +107,18 @@ Menu* GameScene::menuWithLayout(MenuLayout::Type ml)
 	return pMenu;
 }
 
-void GameScene::newGame()
+void GameSceneCommon::newGame()
 {
 	Game* aGame = this->game();
 	aGame->newGame();
 }
 
-void GameScene::setResolution(CCString* resolution)
+void GameSceneCommon::setResolution(CCString* resolution)
 {
 	
 }
 
-void GameScene::setTheme(CCString* theme)
+void GameSceneCommon::setTheme(CCString* theme)
 {
 	
 }

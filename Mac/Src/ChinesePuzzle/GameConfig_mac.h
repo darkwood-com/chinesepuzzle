@@ -1,5 +1,5 @@
 /**
- *  GameConfig.h
+ *  GameConfig_mac.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.

@@ -49,7 +49,6 @@ class CC_DLL GameLayout : public cocos2d::CCObject
 protected:
 	Game* game;
 	cocos2d::CCArray* activesBtn;
-	bool isLayout;
 	
 	cocos2d::CCSprite* bg;
 	

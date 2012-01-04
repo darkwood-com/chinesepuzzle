@@ -1,5 +1,5 @@
 /**
- *  GameScene.h
+ *  GameConfig_mac.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,35 +22,14 @@
  *
  */
 
-#ifndef __GAME_SCENE_COMMON_H__
-#define __GAME_SCENE_COMMON_H__
+#include "GameConfig_mac.h"
 
-#import "cocos2d.h"
+using namespace cocos2d;
 
-#include "GameConfig.h"
-#include "Game.h"
-#include "Menu.h"
-
-class CC_DLL GameSceneCommon : public cocos2d::CCScene
+GameConfig::GameConfig()
 {
-public:
-	GameSceneCommon();
-	virtual ~GameSceneCommon();
-	SCENE_NODE_FUNC(GameSceneCommon);
-	
-	virtual bool init();
-	
-	Game* game();
-	Menu* menu();
-	Menu* menuWithLayout(MenuLayout::Type ml);
-	
-	void newGame();
-	void setResolution(cocos2d::CCString* resolution);
-	void setTheme(cocos2d::CCString* theme);
-	
-	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
-	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
-	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);
-};
+}
 
-#endif // __GAME_SCENE_COMMON_H__
+GameConfig::~GameConfig()
+{
+}

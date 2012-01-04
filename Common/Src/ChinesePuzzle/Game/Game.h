@@ -29,7 +29,7 @@
 #include "GameControl.h"
 #include "GameLayout.h"
 
-class GameScene;
+class GameSceneCommon;
 class CardPlay;
 class CardBoard;
 
@@ -66,9 +66,9 @@ protected:
 public:
 	Game();
 	virtual ~Game();
-	LAYER_NODE_FUNC_PARAM(Game, GameScene*, gs);
+	LAYER_NODE_FUNC_PARAM(Game, GameSceneCommon*, gs);
 	
-	virtual bool init(GameScene* gs);
+	virtual bool init(GameSceneCommon* gs);
 	
 	void newGame();
 	void draw();
@@ -92,7 +92,7 @@ public:
 	void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	
-	CC_SYNTHESIZE_READONLY(GameScene*, gs, GameScene);
+	CC_SYNTHESIZE_READONLY(GameSceneCommon*, gs, GameScene);
 };
 
 #endif // __GAME_H__

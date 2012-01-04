@@ -28,11 +28,11 @@
 #import "cocos2d.h"
 #include "MenuLayout.h"
 
-class GameScene;
+class GameSceneCommon;
 
 typedef struct
 {
-	GameScene* gs;
+	GameSceneCommon* gs;
 	MenuLayout::Type layout;
 } MenuInit;
 
@@ -65,7 +65,7 @@ public:
 	void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	
-	CC_SYNTHESIZE_READONLY(GameScene*, gs, GameScene);
+	CC_SYNTHESIZE_READONLY(GameSceneCommon*, gs, GameScene);
 	
 	CC_SYNTHESIZE_READONLY(MenuLayout*, ml, Layout);
 };

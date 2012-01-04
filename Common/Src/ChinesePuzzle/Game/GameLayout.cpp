@@ -33,10 +33,14 @@ using namespace cocos2d;
 
 GameLayout::GameLayout(Game* game) :
 game(game),
+bg(NULL),
+newBtn(NULL),
+undoBtn(NULL),
+hintBtn(NULL),
+themeBtn(NULL),
 gridCardSize(26,36),
 gridSpaceSize(4, 4),
-gridPosition(4, 0),
-isLayout(false)
+gridPosition(4, 0)
 {
 	activesBtn = CCArray::array();
 	activesBtn->retain();
@@ -49,39 +53,50 @@ GameLayout::~GameLayout()
 
 void GameLayout::layout()
 {
-	if(isLayout) return;
-	
 	GameConfig* gc = game->getGameScene()->getConf();
 	
-	bg = CCSprite::spriteWithFile(gc->getThemePath("bg.png").c_str());
-	bg->setAnchorPoint(ccp(0,0));
-	game->addChild(bg, GameZOrderBG);
+	if(!bg)
+	{
+		bg = CCSprite::spriteWithFile(gc->getThemePath("bg.png").c_str());
+		bg->setAnchorPoint(ccp(0,0));
+		game->addChild(bg, GameZOrderBG);
+	}
 	
-	newBtn = CCSprite::spriteWithFile(gc->getThemePath("newBtn.png").c_str());
-	newBtn->setPosition(ccp(450,290));
-	newBtn->setScale(0.75f);
-	game->addChild(newBtn, GameZOrderUI);
-	activesBtn->addObject(newBtn);
+	if(!newBtn)
+	{
+		newBtn = CCSprite::spriteWithFile(gc->getThemePath("newBtn.png").c_str());
+		newBtn->setPosition(ccp(450,290));
+		newBtn->setScale(0.75f);
+		game->addChild(newBtn, GameZOrderUI);
+		activesBtn->addObject(newBtn);
+	}
 	
-	undoBtn = CCSprite::spriteWithFile(gc->getThemePath("undoBtn.png").c_str());
-	undoBtn->setPosition(ccp(450,240));
-	undoBtn->setScale(0.75f);
-	game->addChild(undoBtn, GameZOrderUI);
-	activesBtn->addObject(undoBtn);
+	if(!undoBtn)
+	{
+		undoBtn = CCSprite::spriteWithFile(gc->getThemePath("undoBtn.png").c_str());
+		undoBtn->setPosition(ccp(450,240));
+		undoBtn->setScale(0.75f);
+		game->addChild(undoBtn, GameZOrderUI);
+		activesBtn->addObject(undoBtn);
+	}
 	
-	hintBtn = CCSprite::spriteWithFile(gc->getThemePath("hintBtn.png").c_str());
-	hintBtn->setPosition(ccp(450,190));
-	hintBtn->setScale(0.75f);
-	game->addChild(hintBtn, GameZOrderUI);
-	activesBtn->addObject(hintBtn);
+	if(!hintBtn)
+	{
+		hintBtn = CCSprite::spriteWithFile(gc->getThemePath("hintBtn.png").c_str());
+		hintBtn->setPosition(ccp(450,190));
+		hintBtn->setScale(0.75f);
+		game->addChild(hintBtn, GameZOrderUI);
+		activesBtn->addObject(hintBtn);
+	}
 	
-	themeBtn = CCSprite::spriteWithFile(gc->getThemePath("themeBtn.png").c_str());
-	themeBtn->setPosition(ccp(450,140));
-	themeBtn->setScale(0.75f);
-	game->addChild(themeBtn, GameZOrderUI);
-	activesBtn->addObject(themeBtn);
-	
-	isLayout = true;
+	if(!themeBtn)
+	{
+		themeBtn = CCSprite::spriteWithFile(gc->getThemePath("themeBtn.png").c_str());
+		themeBtn->setPosition(ccp(450,140));
+		themeBtn->setScale(0.75f);
+		game->addChild(themeBtn, GameZOrderUI);
+		activesBtn->addObject(themeBtn);
+	}
 }
 
 bool GameLayout::tapDownAt(CCPoint location)
