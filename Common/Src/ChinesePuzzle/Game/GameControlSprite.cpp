@@ -66,6 +66,7 @@ Card* GameControlSprite::checkPoint(cocos2d::CCPoint p)
 	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
 	{
 		CCRect rIt = (*it)->boundingBox();
+		rIt.origin = (*it)->convertToWorldSpace(CCPointZero);
 		
 		if (CCRect::CCRectContainsPoint(rIt, p))
 		{
@@ -104,6 +105,7 @@ Card* GameControlSprite::checkRect(cocos2d::CCRect r, CardType filter)
 		if((*it)->getType() != filter) continue;
 		
 		CCRect rIt = (*it)->boundingBox();
+		rIt.origin = (*it)->convertToWorldSpace(CCPointZero);
 		
 		if (CCRect::CCRectIntersectsRect(rIt, r))
 		{
