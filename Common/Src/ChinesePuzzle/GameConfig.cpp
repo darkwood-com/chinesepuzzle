@@ -24,6 +24,8 @@
 
 #include "GameConfig.h"
 
+#include <stdio.h>
+
 using namespace cocos2d;
 
 GameConfigCommon::GameConfigCommon()
@@ -43,9 +45,11 @@ bool GameConfigCommon::init()
 	return true;
 }
 
-cocos2d::CCSize GameConfigCommon::getResolutionSize()
+CCSize GameConfigCommon::getResolutionSize()
 {
-	return CCSizeMake(480, 320);
+	CCSize resolution = CCSizeZero;
+	if(sscanf(this->resolution.c_str(), "%fx%f", &resolution.width, &resolution.height)) return resolution;
+	else return CCSizeZero;
 }
 
 std::string GameConfigCommon::getRootPath(const char* file)
