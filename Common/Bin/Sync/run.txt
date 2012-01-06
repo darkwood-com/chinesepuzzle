@@ -1,4 +1,4 @@
-** git on encfs on dropbox **
+cd** git on encfs on dropbox **
 http://www.blusky.fr/billet/2/Dropbox-comme-depot-GIT
 https://github.com/s-aska/dropbox-api-command
 
