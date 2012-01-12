@@ -34,42 +34,41 @@ using namespace cocos2d;
 
 template <class T> T* GameLayout::layoutRes(const char* key)
 {
-	static std::map<const char*, void*> datas;
+	static std::map<std::string, void*>* datas = NULL;
 	
-	if(datas.find(key) == datas.end())
+	if(!datas)
 	{
-		string sKey = key;
-		string sRes = game->getGameScene()->getConf()->getResolution();
+		datas = new std::map<std::string, void*>();
 		
-		if(sRes == "480x320")
-		{
-			if(sKey == "gridCardSize") datas[key] = new CCSize(26,36);
-			else if(sKey == "gridSpaceSize") datas[key] = new CCSize(4, 4);
-			else if(sKey == "gridPosition") datas[key] = new CCSize(4, 0);
-			else if(sKey == "bg.png") datas[key] = new CCPoint(0, 0);
-			else if(sKey == "newBtn.png") datas[key] = new CCPoint(450,290);
-			else if(sKey == "retryBtn.png") datas[key] = new CCPoint(450,170);
-			else if(sKey == "undoBtn.png") datas[key] = new CCPoint(450,240);
-			else if(sKey == "hintBtn.png") datas[key] = new CCPoint(450,190);
-			else if(sKey == "soundBtn.png") datas[key] = new CCPoint(450,220);
-			else if(sKey == "themeBtn.png") datas[key] = new CCPoint(450,140);
-		}
-		else if(sRes == "1920x1200")
-		{
-			if(sKey == "gridCardSize") datas[key] = new CCSize(73,100);
-			else if(sKey == "gridSpaceSize") datas[key] = new CCSize(20, 20);
-			else if(sKey == "gridPosition") datas[key] = new CCSize(4, 0);
-			else if(sKey == "bg.png") datas[key] = new CCPoint(0, 0);
-			else if(sKey == "newBtn.png") datas[key] = new CCPoint(1825,95);
-			else if(sKey == "retryBtn.png") datas[key] = new CCPoint(1825,297);
-			else if(sKey == "undoBtn.png") datas[key] = new CCPoint(1825,499);
-			else if(sKey == "hintBtn.png") datas[key] = new CCPoint(1825,701);
-			else if(sKey == "soundBtn.png") datas[key] = new CCPoint(1825,903);
-			else if(sKey == "themeBtn.png") datas[key] = new CCPoint(1825,1105);
-		}
+		std::string sRes;
+		
+		sRes = "480x320";
+		(*datas)[sRes + "gridCardSize"] = new CCSize(26,36);
+		(*datas)[sRes + "gridSpaceSize"] = new CCSize(4, 4);
+		(*datas)[sRes + "gridPosition"] = new CCSize(4, 0);
+		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(450,290);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(450,170);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(450,240);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(450,190);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(450,220);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(450,140);
+		
+		sRes = "1920x1200";
+		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
+		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
+		(*datas)[sRes + "gridPosition"] = new CCSize(4, 0);
+		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,95);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,297);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,499);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1825,701);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1825,903);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1825,1105);
 	}
 	
-	return reinterpret_cast<T*>(datas[key]);
+	string sRes = game->getGameScene()->getConf()->getResolution();
+	return reinterpret_cast<T*>((*datas)[sRes + key]);
 }
 
 GameLayout::GameLayout(Game* game) :
