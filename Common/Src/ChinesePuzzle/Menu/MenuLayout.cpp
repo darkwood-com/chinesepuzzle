@@ -36,15 +36,23 @@ typedef enum
 
 template <class T> T* MenuLayout::layoutRes(const char* key)
 {
-	static std::map<const char*, void*> datas;
+	static std::map<std::string, void*>* datas = NULL;
 	
-	if(datas.find(key) == datas.end())
+	if(!datas)
 	{
-		string sKey = key;
-		if(sKey == "menuMask.png") datas[key] = new CCPoint(0,0);
+		datas = new std::map<std::string, void*>();
+		
+		std::string sRes;
+		
+		sRes = "480x320";
+		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
+		
+		sRes = "1920x1200";
+		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
 	}
 	
-	return reinterpret_cast<T*>(datas[key]);
+	string sRes = menu->getGameScene()->getConf()->getResolution();
+	return reinterpret_cast<T*>((*datas)[sRes + key]);
 }
 
 MenuLayout::MenuLayout(Menu* menu) :
@@ -179,5 +187,4 @@ void MenuLayout::layout()
 			menu->pushNav(mBox);
 		break;
 	}
-	
 }

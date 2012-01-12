@@ -149,4 +149,3 @@ void AppDelegate::reshape()
 	//update draw
 	CCDirector::sharedDirector()->drawScene();
 }
-
