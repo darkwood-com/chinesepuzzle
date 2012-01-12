@@ -27,12 +27,15 @@
 
 #include "CCApplication.h"
 
+#include "cpMacro.h"
+#include CP_PLATFORM(GameScene)
+
 /**
 @brief	The cocos2d Application.
 
 The reason for implement as private inheritance is to hide some interface call by CCDirector.
 */
-class CC_DLL AppDelegate : private cocos2d::CCApplication
+class CC_DLL AppDelegate : public cocos2d::CCApplication
 {
 public:
 	AppDelegate();
@@ -67,6 +70,8 @@ public:
 	 @param  the pointer of the application
 	 */
 	virtual void reshape();
+	
+	CC_SYNTHESIZE_READONLY(GameScene*, pGameScene, GameScene);
 };
 
 #endif // _APP_DELEGATE_H_

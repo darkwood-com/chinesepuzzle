@@ -24,19 +24,56 @@
 
 #import <AppKit/AppKit.h>
 #import "AppController.h"
-#import "cocos2d.h"
+#include "cpMacro.h"
 #import "EAGLView.h"
 #import "AppDelegate.h"
+#include CP_PLATFORM(GameScene)
 
 @implementation AppController
+@synthesize window;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
+using namespace cocos2d;
+
 // cocos2d application instance
 static AppDelegate s_sharedApplication;
 
-@synthesize window;
+- (id)init
+{
+    if (self = [super init])
+	{
+		resolutions = [[NSMutableDictionary dictionary] retain];
+    }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+	[resolutions release];
+}
+
+- (NSMenuItem*) resolution480x320
+{
+	return [resolutions valueForKey:@"480x320"];
+}
+
+- (NSMenuItem*) resolution1920x1200
+{
+	return [resolutions valueForKey:@"1920x1200"];
+}
+
+- (void) setResolution480x320:(NSMenuItem*) item
+{
+	return [resolutions setValue:item forKey:@"480x320"];
+}
+
+- (void) setResolution1920x1200:(NSMenuItem*) item
+{
+	return [resolutions setValue:item forKey:@"1920x1200"];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -47,7 +84,37 @@ static AppDelegate s_sharedApplication;
 	// Set RootViewController to window
     [window setContentView:__glView];
 	
-	cocos2d::CCApplication::sharedApplication().run();
+	AppDelegate* app = &dynamic_cast<AppDelegate&>(cocos2d::CCApplication::sharedApplication());
+	app->run();
+	
+	for(NSString* menuItemKey in resolutions)
+	{
+		[[resolutions valueForKey:menuItemKey] setState:NSOffState];
+	}
+	NSString* sRes = [NSString stringWithCString:app->getGameScene()->getConf()->getResolution().c_str() encoding:NSUTF8StringEncoding];
+	if([resolutions valueForKey:sRes])
+	{
+		[[resolutions valueForKey:sRes] setState:NSOnState];
+	}
+}
+
+- (IBAction)changeResolution:(NSMenuItem*)sender
+{
+	for(NSString* menuItemKey in resolutions)
+	{
+		NSMenuItem* menuItem = [resolutions valueForKey:menuItemKey];
+		if(menuItem == sender)
+		{
+			AppDelegate* app = &dynamic_cast<AppDelegate&>(cocos2d::CCApplication::sharedApplication());
+			std::string sRes = [menuItemKey cStringUsingEncoding:NSUTF8StringEncoding];
+			app->getGameScene()->setResolution(sRes);
+			[menuItem setState:NSOnState];
+		}
+		else
+		{
+			[menuItem setState:NSOffState];
+		}
+	}
 }
 
 @end

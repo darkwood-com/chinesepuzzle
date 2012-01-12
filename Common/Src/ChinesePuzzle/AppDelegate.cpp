@@ -24,9 +24,7 @@
 
 #include "AppDelegate.h"
 
-#include "cpMacro.h"
 #include "CCReshapeDelegate.h"
-#include CP_PLATFORM(GameScene)
 
 USING_NS_CC;
 
@@ -112,10 +110,10 @@ bool AppDelegate::applicationDidFinishLaunching()
 	pDirector->setAnimationInterval(1.0 / 60);
 
 	// create a scene. it's an autorelease object
-	CCScene* pScene = GameScene::node();
+	pGameScene = GameScene::node();
 
 	// run
-	pDirector->runWithScene(pScene);
+	pDirector->runWithScene(pGameScene);
 
 	return true;
 }

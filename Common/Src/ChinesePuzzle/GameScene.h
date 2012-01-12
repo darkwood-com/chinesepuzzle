@@ -51,8 +51,8 @@ public:
 	Menu* menuWithLayout(MenuLayout::Type ml);
 	
 	void newGame();
-	void setResolution(cocos2d::CCString* resolution);
-	void setTheme(cocos2d::CCString* theme);
+	void setResolution(const std::string& resolution);
+	void setTheme(const std::string& theme);
 	
 	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
 	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);

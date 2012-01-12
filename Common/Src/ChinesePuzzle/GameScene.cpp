@@ -113,12 +113,12 @@ void GameSceneCommon::newGame()
 	aGame->newGame();
 }
 
-void GameSceneCommon::setResolution(CCString* resolution)
+void GameSceneCommon::setResolution(const std::string& resolution)
 {
 	
 }
 
-void GameSceneCommon::setTheme(CCString* theme)
+void GameSceneCommon::setTheme(const std::string& theme)
 {
 	
 }
