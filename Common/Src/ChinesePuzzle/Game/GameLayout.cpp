@@ -26,22 +26,66 @@
 #include "Game.h"
 #include "GameScene.h"
 
+#include <map>
 #include <cmath>
 #include <algorithm>
 
 using namespace cocos2d;
 
+template <class T> T* GameLayout::layoutRes(const char* key)
+{
+	static std::map<const char*, void*> datas;
+	
+	if(datas.find(key) == datas.end())
+	{
+		string sKey = key;
+		string sRes = game->getGameScene()->getConf()->getResolution();
+		
+		if(sRes == "480x320")
+		{
+			if(sKey == "gridCardSize") datas[key] = new CCSize(26,36);
+			else if(sKey == "gridSpaceSize") datas[key] = new CCSize(4, 4);
+			else if(sKey == "gridPosition") datas[key] = new CCSize(4, 0);
+			else if(sKey == "bg.png") datas[key] = new CCPoint(0, 0);
+			else if(sKey == "newBtn.png") datas[key] = new CCPoint(450,290);
+			else if(sKey == "retryBtn.png") datas[key] = new CCPoint(450,170);
+			else if(sKey == "undoBtn.png") datas[key] = new CCPoint(450,240);
+			else if(sKey == "hintBtn.png") datas[key] = new CCPoint(450,190);
+			else if(sKey == "soundBtn.png") datas[key] = new CCPoint(450,220);
+			else if(sKey == "themeBtn.png") datas[key] = new CCPoint(450,140);
+		}
+		else if(sRes == "1920x1200")
+		{
+			if(sKey == "gridCardSize") datas[key] = new CCSize(73,100);
+			else if(sKey == "gridSpaceSize") datas[key] = new CCSize(20, 20);
+			else if(sKey == "gridPosition") datas[key] = new CCSize(4, 0);
+			else if(sKey == "bg.png") datas[key] = new CCPoint(0, 0);
+			else if(sKey == "newBtn.png") datas[key] = new CCPoint(1825,95);
+			else if(sKey == "retryBtn.png") datas[key] = new CCPoint(1825,297);
+			else if(sKey == "undoBtn.png") datas[key] = new CCPoint(1825,499);
+			else if(sKey == "hintBtn.png") datas[key] = new CCPoint(1825,701);
+			else if(sKey == "soundBtn.png") datas[key] = new CCPoint(1825,903);
+			else if(sKey == "themeBtn.png") datas[key] = new CCPoint(1825,1105);
+		}
+	}
+	
+	return reinterpret_cast<T*>(datas[key]);
+}
+
 GameLayout::GameLayout(Game* game) :
 game(game),
 bg(NULL),
 newBtn(NULL),
+retryBtn(NULL),
 undoBtn(NULL),
 hintBtn(NULL),
-themeBtn(NULL),
-gridCardSize(26,36),
-gridSpaceSize(4, 4),
-gridPosition(4, 0)
+soundBtn(NULL),
+themeBtn(NULL)
 {
+	gridCardSize = *this->layoutRes<CCSize>("gridCardSize");
+	gridSpaceSize = *this->layoutRes<CCSize>("gridSpaceSize");
+	gridPosition = *this->layoutRes<CCPoint>("gridPosition");
+	
 	activesBtn = CCArray::array();
 	activesBtn->retain();
 }
@@ -58,23 +102,32 @@ void GameLayout::layout()
 	if(!bg)
 	{
 		bg = CCSprite::spriteWithFile(gc->getThemePath("bg.png").c_str());
-		bg->setAnchorPoint(ccp(0,0));
+		bg->setAnchorPoint(*this->layoutRes<CCPoint>("bg.png"));
 		game->addChild(bg, GameZOrderBG);
 	}
 	
 	if(!newBtn)
 	{
 		newBtn = CCSprite::spriteWithFile(gc->getThemePath("newBtn.png").c_str());
-		newBtn->setPosition(ccp(450,290));
+		newBtn->setPosition(*this->layoutRes<CCPoint>("newBtn.png"));
 		newBtn->setScale(0.75f);
 		game->addChild(newBtn, GameZOrderUI);
 		activesBtn->addObject(newBtn);
 	}
 	
+	if(!retryBtn)
+	{
+		retryBtn = CCSprite::spriteWithFile(gc->getThemePath("retryBtn.png").c_str());
+		retryBtn->setPosition(*this->layoutRes<CCPoint>("retryBtn.png"));
+		retryBtn->setScale(0.75f);
+		game->addChild(retryBtn, GameZOrderUI);
+		activesBtn->addObject(retryBtn);
+	}
+	
 	if(!undoBtn)
 	{
 		undoBtn = CCSprite::spriteWithFile(gc->getThemePath("undoBtn.png").c_str());
-		undoBtn->setPosition(ccp(450,240));
+		undoBtn->setPosition(*this->layoutRes<CCPoint>("undoBtn.png"));
 		undoBtn->setScale(0.75f);
 		game->addChild(undoBtn, GameZOrderUI);
 		activesBtn->addObject(undoBtn);
@@ -83,16 +136,25 @@ void GameLayout::layout()
 	if(!hintBtn)
 	{
 		hintBtn = CCSprite::spriteWithFile(gc->getThemePath("hintBtn.png").c_str());
-		hintBtn->setPosition(ccp(450,190));
+		hintBtn->setPosition(*this->layoutRes<CCPoint>("hintBtn.png"));
 		hintBtn->setScale(0.75f);
 		game->addChild(hintBtn, GameZOrderUI);
 		activesBtn->addObject(hintBtn);
 	}
 	
+	if(!soundBtn)
+	{
+		soundBtn = CCSprite::spriteWithFile(gc->getThemePath("soundOnBtn.png").c_str());
+		soundBtn->setPosition(*this->layoutRes<CCPoint>("soundBtn.png"));
+		soundBtn->setScale(0.75f);
+		game->addChild(soundBtn, GameZOrderUI);
+		activesBtn->addObject(soundBtn);
+	}
+	
 	if(!themeBtn)
 	{
 		themeBtn = CCSprite::spriteWithFile(gc->getThemePath("themeBtn.png").c_str());
-		themeBtn->setPosition(ccp(450,140));
+		themeBtn->setPosition(*this->layoutRes<CCPoint>("themeBtn.png"));
 		themeBtn->setScale(0.75f);
 		game->addChild(themeBtn, GameZOrderUI);
 		activesBtn->addObject(themeBtn);
@@ -118,11 +180,19 @@ bool GameLayout::tapDownAt(CCPoint location)
 			{
 				game->getGameScene()->menuWithLayout(MenuLayout::TypeNewGame);
 			}
+			else if(btn == retryBtn)
+			{
+				
+			}
 			else if(btn == undoBtn)
 			{
 				
 			}
 			else if(btn == hintBtn)
+			{
+				
+			}
+			else if(btn == soundBtn)
 			{
 				
 			}

@@ -56,10 +56,10 @@ bool Game::init(GameSceneCommon* gs)
 		return false;
 	}
 	
+	this->gs = gs;
 	//this->gc = new GameControlChipmunk();
 	this->gc = new GameControlSprite();
 	this->gl = new GameLayout(this);
-	this->gs = gs;
 	this->setIsTouchEnabled(true);
 	
 	gl->layout();

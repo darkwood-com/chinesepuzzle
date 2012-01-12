@@ -46,6 +46,9 @@ typedef enum {
 // GameLayout Layer
 class CC_DLL GameLayout : public cocos2d::CCObject
 {
+private:
+	template <class T> T* layoutRes(const char* key);
+	
 protected:
 	Game* game;
 	cocos2d::CCArray* activesBtn;
@@ -54,8 +57,10 @@ protected:
 	
 	//button layout
 	cocos2d::CCSprite* newBtn;
+	cocos2d::CCSprite* retryBtn;
 	cocos2d::CCSprite* hintBtn;
 	cocos2d::CCSprite* undoBtn;
+	cocos2d::CCSprite* soundBtn;
 	cocos2d::CCSprite* themeBtn;
 	
 	//card grid layout stuff

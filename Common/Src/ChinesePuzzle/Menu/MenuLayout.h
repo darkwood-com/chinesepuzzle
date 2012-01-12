@@ -33,6 +33,9 @@ class Menu;
 // MenuLayout Layer
 class CC_DLL MenuLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
 {
+private:
+	template <class T> T* layoutRes(const char* key);
+	
 protected:
 	Menu* menu;
 	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>* themes;

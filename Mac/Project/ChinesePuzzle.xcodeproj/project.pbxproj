@@ -167,6 +167,7 @@
 		C39D80B614B49EC600AA683C /* CCReshapeDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39D80B514B49EC600AA683C /* CCReshapeDelegate.cpp */; };
 		C39D80BC14B4B55200AA683C /* GameScene_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39D80BA14B4B55200AA683C /* GameScene_mac.cpp */; };
 		C39FE33814B34A4000F0EAF9 /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */; };
+		C3A88C9714BED5B600416D62 /* 1920x1200 in Resources */ = {isa = PBXBuildFile; fileRef = C3A88C9614BED5B600416D62 /* 1920x1200 */; };
 		C3E08E5514B4E2C700E3418B /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E08E5314B4E2C700E3418B /* Background.cpp */; };
 		C3E08E5814B5051900E3418B /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E08E5714B5051900E3418B /* bgPattern.png */; };
 /* End PBXBuildFile section */
@@ -527,6 +528,7 @@
 		C39D80BB14B4B55200AA683C /* GameScene_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene_mac.h; sourceTree = "<group>"; };
 		C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_mac.cpp; sourceTree = "<group>"; };
 		C39FE33714B34A4000F0EAF9 /* GameConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig_mac.h; sourceTree = "<group>"; };
+		C3A88C9614BED5B600416D62 /* 1920x1200 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1200; path = ../../Common/Bin/Data/1920x1200; sourceTree = "<group>"; };
 		C3E08E5314B4E2C700E3418B /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		C3E08E5414B4E2C700E3418B /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		C3E08E5714B5051900E3418B /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../../Common/Bin/Data/bgPattern.png; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 			isa = PBXGroup;
 			children = (
 				C355885B14ADF72500D549E4 /* 480x320 */,
+				C3A88C9614BED5B600416D62 /* 1920x1200 */,
 				C31BB93014AECA210077D8FB /* fps_images-hd.png */,
 				C31BB93114AECA210077D8FB /* fps_images.png */,
 				C3E08E5714B5051900E3418B /* bgPattern.png */,
@@ -1367,6 +1370,7 @@
 				C31BB93214AECA210077D8FB /* fps_images-hd.png in Resources */,
 				C31BB93314AECA210077D8FB /* fps_images.png in Resources */,
 				C3E08E5814B5051900E3418B /* bgPattern.png in Resources */,
+				C3A88C9714BED5B600416D62 /* 1920x1200 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

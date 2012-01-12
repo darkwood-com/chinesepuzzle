@@ -34,6 +34,19 @@ typedef enum
 	kMenuTagBg,
 } kMenuTag;
 
+template <class T> T* MenuLayout::layoutRes(const char* key)
+{
+	static std::map<const char*, void*> datas;
+	
+	if(datas.find(key) == datas.end())
+	{
+		string sKey = key;
+		if(sKey == "menuMask.png") datas[key] = new CCPoint(0,0);
+	}
+	
+	return reinterpret_cast<T*>(datas[key]);
+}
+
 MenuLayout::MenuLayout(Menu* menu) :
 menu(menu),
 themes(NULL),
@@ -63,7 +76,7 @@ void MenuLayout::layout()
 	if(!menu->getChildByTag(kMenuTagBg))
 	{
 		CCSprite* bg = CCSprite::spriteWithFile(conf->getUiPath("menuMask.png").c_str());
-		bg->setAnchorPoint(ccp(0,0));
+		bg->setAnchorPoint(*this->layoutRes<CCPoint>("menuMask.png"));
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
 	
