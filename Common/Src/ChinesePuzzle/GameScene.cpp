@@ -115,16 +115,17 @@ void GameSceneCommon::newGame()
 
 void GameSceneCommon::setResolution(const std::string& resolution)
 {
+	/*
 	this->removeChild(pGame, true);
 	this->removeChild(pMenu, true);
 	CC_SAFE_RELEASE_NULL(pGame);
 	CC_SAFE_RELEASE_NULL(pMenu);
+	*/
 	
 	conf->setResolution(resolution);
 	this->setContentSize(conf->getResolutionSize());
 	
-	this->game();
-	this->newGame(); //start a new game!!
+	this->game()->layout();
 }
 
 void GameSceneCommon::setTheme(const std::string& theme)

@@ -50,6 +50,8 @@ public:
 	virtual void removeCardDelegate(CardDelegate* delegate);
 	
 	virtual CardType getType() { return CardTypeCard; }
+	
+	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
 };
 
 #endif // __CARD_H__

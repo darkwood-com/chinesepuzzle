@@ -54,3 +54,8 @@ void Card::removeCardDelegate(CardDelegate* delegate)
 {
 	cardDelegates.erase(delegate);
 }
+
+void Card::setTextureResolutionAndTheme(const char* resolution, const char* theme)
+{
+
+}

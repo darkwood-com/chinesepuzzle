@@ -81,11 +81,13 @@ public:
 	virtual bool isNextToCardPlay(CardPlay* cardPlay);
 	
 	virtual CardType getType() { return CardTypePlay; }
+	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
 	
 	CC_SYNTHESIZE_READONLY(CardPlayColor, color, Color);
 	CC_SYNTHESIZE_READONLY(CardPlayRank, rank, Rank);
 	CC_SYNTHESIZE(bool, isLocked, IsLocked); //flag that tels if the CardPlay is well placed
 	CC_PROPERTY(bool, isFaceUp, IsFaceUp);
+	void setIsFaceUp(bool isFaceUp, bool force);
 };
 
 #endif // __CARDPLAY_H__

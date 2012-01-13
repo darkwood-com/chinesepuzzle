@@ -39,8 +39,16 @@ gc(NULL),
 gl(NULL),
 dragCard(NULL),
 hintCard(NULL),
-switchBoardCard(NULL)
+switchBoardCard(NULL),
+touchLastCard(NULL)
 {
+	for(int i = 0; i < 8; ++i)
+	{
+		for(int j = 0; j < 14; ++j)
+		{
+			board[i][j] = NULL;
+		}
+	}
 }
 
 Game::~Game()
@@ -62,7 +70,7 @@ bool Game::init(GameSceneCommon* gs)
 	this->gl = new GameLayout(this);
 	this->setIsTouchEnabled(true);
 	
-	gl->layout();
+	this->layout();
 	
 	this->schedule(schedule_selector(Game::step));
 	
@@ -200,6 +208,47 @@ void Game::step(ccTime dt)
 {
 	//update game step
 	gc->step(dt);
+}
+
+void Game::layout()
+{
+	gl->layout();
+
+	GameConfig* conf = gs->getConf();
+	
+	if(touchLastCard)
+	{
+		CCTexture2D *pTexture = CCTextureCache::sharedTextureCache()->addImage(conf->getThemePath("cardtouched.png").c_str());
+		if (pTexture)
+		{
+			CCRect rect = CCRectZero;
+			rect.size = pTexture->getContentSize();
+			touchLastCard->setTexture(pTexture);
+			touchLastCard->setTextureRect(rect);
+		}
+	}
+	
+	if(switchBoardCard)
+	{
+		switchBoardCard->setTextureResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+	}
+	
+	for(int i = 0; i < 8; ++i)
+	{
+		for(int j = 0; j < 14; ++j)
+		{
+			GridCoord coord;
+			coord.i = i;
+			coord.j = j;
+			
+			Card* card = board[i][j];
+			if(card)
+			{
+				card->setTextureResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+				card->setPosition(gl->getPositionInBoardPoint(coord));
+			}
+		}
+	}
 }
 
 Card* Game::getCard(GridCoord coord)

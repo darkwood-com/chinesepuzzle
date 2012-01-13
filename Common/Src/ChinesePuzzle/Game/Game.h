@@ -73,6 +73,7 @@ public:
 	void newGame();
 	void draw();
 	void step(cocos2d::ccTime dt);
+	void layout();
 	
 	Card* getCard(GridCoord coord);
 	CheckMove checkMoveCoord(GridCoord from, GridCoord to); //check move for coord from - to board

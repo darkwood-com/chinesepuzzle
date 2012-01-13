@@ -114,6 +114,51 @@ bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
 
 bool CardPlay::initWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank)
 {
+	if(!CCSprite::init())
+	{
+		return false;
+	}
+	
+	this->isFaceUp = false;
+	this->color = color;
+	this->rank = rank;
+	
+	this->setTextureResolutionAndTheme(resolution, theme);
+	
+	return true;
+}
+
+bool CardPlay::isNextToCardPlay(CardPlay* cardPlay)
+{
+	return cardPlay != NULL && this->color == cardPlay->color && this->rank == cardPlay->rank + 1;
+}
+
+bool CardPlay::getIsFaceUp()
+{
+	return this->isFaceUp;
+}
+
+void CardPlay::setIsFaceUp(bool isFaceUp)
+{
+	this->setIsFaceUp(isFaceUp, false);
+}
+
+void CardPlay::setIsFaceUp(bool isFaceUp, bool force)
+{
+	if(this->isFaceUp != isFaceUp || force)
+	{
+		this->isFaceUp = isFaceUp;
+		
+		this->setTexture(isFaceUp ? faceTexture : backTexture);
+		
+		CCRect rect = CCRectZero;
+		rect.size = this->getTexture()->getContentSize();
+		this->setTextureRect(rect);
+	}
+}
+
+void CardPlay::setTextureResolutionAndTheme(const char* resolution, const char* theme)
+{
 	std::string path = std::string(resolution) + std::string("/themes/") + std::string(theme) + std::string("/");
 	
 	//patch
@@ -146,34 +191,6 @@ bool CardPlay::initWithResolutionAndThemeAndColorAndRank(const char* resolution,
 	faceTexture = CCTextureCache::sharedTextureCache()->addImage((path + CardPlayname + std::string(".png")).c_str());
 	backTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardplaybg.png")).c_str());
 	
-	if(!CCSprite::initWithTexture(backTexture))
-	{
-		return false;
-	}
-	
-	this->isFaceUp = false;
-	this->color = color;
-	this->rank = rank;
-	
-	return true;
+	this->setIsFaceUp(this->getIsFaceUp(), true);
 }
 
-bool CardPlay::isNextToCardPlay(CardPlay* cardPlay)
-{
-	return cardPlay != NULL && this->color == cardPlay->color && this->rank == cardPlay->rank + 1;
-}
-
-bool CardPlay::getIsFaceUp()
-{
-	return this->isFaceUp;
-}
-
-void CardPlay::setIsFaceUp(bool isFaceUp)
-{
-	if(this->isFaceUp != isFaceUp)
-	{
-		this->isFaceUp = isFaceUp;
-		
-		this->setTexture(isFaceUp ? faceTexture : backTexture);
-	}
-}

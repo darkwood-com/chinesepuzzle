@@ -79,12 +79,11 @@ retryBtn(NULL),
 undoBtn(NULL),
 hintBtn(NULL),
 soundBtn(NULL),
-themeBtn(NULL)
+themeBtn(NULL),
+gridCardSize(CCSizeZero),
+gridSpaceSize(CCSizeZero),
+gridPosition(CCPointZero)
 {
-	gridCardSize = *this->layoutRes<CCSize>("gridCardSize");
-	gridSpaceSize = *this->layoutRes<CCSize>("gridSpaceSize");
-	gridPosition = *this->layoutRes<CCPoint>("gridPosition");
-	
 	activesBtn = CCArray::array();
 	activesBtn->retain();
 }
@@ -98,66 +97,108 @@ void GameLayout::layout()
 {
 	GameConfig* gc = game->getGameScene()->getConf();
 	
+	gridCardSize = *this->layoutRes<CCSize>("gridCardSize");
+	gridSpaceSize = *this->layoutRes<CCSize>("gridSpaceSize");
+	gridPosition = *this->layoutRes<CCPoint>("gridPosition");
+	
+	CCTexture2D* pTexture = NULL;
+	CCRect rect = CCRectZero;
+	
 	if(!bg)
 	{
-		bg = CCSprite::spriteWithFile(gc->getThemePath("bg.png").c_str());
-		bg->setAnchorPoint(*this->layoutRes<CCPoint>("bg.png"));
+		bg = new CCSprite();
+		bg->init();
 		game->addChild(bg, GameZOrderBG);
 	}
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("bg.png").c_str());
+	rect.size = pTexture->getContentSize();
+	bg->setTexture(pTexture);
+	bg->setTextureRect(rect);
+	bg->setAnchorPoint(*this->layoutRes<CCPoint>("bg.png"));
 	
 	if(!newBtn)
 	{
-		newBtn = CCSprite::spriteWithFile(gc->getThemePath("newBtn.png").c_str());
-		newBtn->setPosition(*this->layoutRes<CCPoint>("newBtn.png"));
-		newBtn->setScale(0.75f);
+		newBtn = new CCSprite();
+		newBtn->init();
 		game->addChild(newBtn, GameZOrderUI);
 		activesBtn->addObject(newBtn);
 	}
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("newBtn.png").c_str());
+	rect.size = pTexture->getContentSize();
+	newBtn->setTexture(pTexture);
+	newBtn->setTextureRect(rect);
+	newBtn->setPosition(*this->layoutRes<CCPoint>("newBtn.png"));
+	newBtn->setScale(0.75f);
 	
 	if(!retryBtn)
 	{
-		retryBtn = CCSprite::spriteWithFile(gc->getThemePath("retryBtn.png").c_str());
-		retryBtn->setPosition(*this->layoutRes<CCPoint>("retryBtn.png"));
-		retryBtn->setScale(0.75f);
+		retryBtn = new CCSprite();
+		retryBtn->init();
 		game->addChild(retryBtn, GameZOrderUI);
 		activesBtn->addObject(retryBtn);
 	}
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("newBtn.png").c_str());
+	rect.size = pTexture->getContentSize();
+	retryBtn->setTexture(pTexture);
+	retryBtn->setTextureRect(rect);
+	retryBtn->setPosition(*this->layoutRes<CCPoint>("retryBtn.png"));
+	retryBtn->setScale(0.75f);
 	
 	if(!undoBtn)
 	{
-		undoBtn = CCSprite::spriteWithFile(gc->getThemePath("undoBtn.png").c_str());
-		undoBtn->setPosition(*this->layoutRes<CCPoint>("undoBtn.png"));
-		undoBtn->setScale(0.75f);
+		undoBtn = new CCSprite();
+		undoBtn->init();
 		game->addChild(undoBtn, GameZOrderUI);
 		activesBtn->addObject(undoBtn);
 	}
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("undoBtn.png").c_str());
+	rect.size = pTexture->getContentSize();
+	undoBtn->setTexture(pTexture);
+	undoBtn->setTextureRect(rect);
+	undoBtn->setPosition(*this->layoutRes<CCPoint>("undoBtn.png"));
+	undoBtn->setScale(0.75f);
 	
 	if(!hintBtn)
 	{
-		hintBtn = CCSprite::spriteWithFile(gc->getThemePath("hintBtn.png").c_str());
-		hintBtn->setPosition(*this->layoutRes<CCPoint>("hintBtn.png"));
-		hintBtn->setScale(0.75f);
+		hintBtn = new CCSprite();
+		hintBtn->init();
 		game->addChild(hintBtn, GameZOrderUI);
 		activesBtn->addObject(hintBtn);
 	}
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("hintBtn.png").c_str());
+	rect.size = pTexture->getContentSize();
+	hintBtn->setTexture(pTexture);
+	hintBtn->setTextureRect(rect);
+	hintBtn->setPosition(*this->layoutRes<CCPoint>("hintBtn.png"));
+	hintBtn->setScale(0.75f);
 	
 	if(!soundBtn)
 	{
-		soundBtn = CCSprite::spriteWithFile(gc->getThemePath("soundOnBtn.png").c_str());
-		soundBtn->setPosition(*this->layoutRes<CCPoint>("soundBtn.png"));
-		soundBtn->setScale(0.75f);
+		soundBtn = new CCSprite();
+		soundBtn->init();
 		game->addChild(soundBtn, GameZOrderUI);
 		activesBtn->addObject(soundBtn);
 	}
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOnBtn.png").c_str());
+	rect.size = pTexture->getContentSize();
+	soundBtn->setTexture(pTexture);
+	soundBtn->setTextureRect(rect);
+	soundBtn->setPosition(*this->layoutRes<CCPoint>("soundBtn.png"));
+	soundBtn->setScale(0.75f);
 	
 	if(!themeBtn)
 	{
-		themeBtn = CCSprite::spriteWithFile(gc->getThemePath("themeBtn.png").c_str());
-		themeBtn->setPosition(*this->layoutRes<CCPoint>("themeBtn.png"));
-		themeBtn->setScale(0.75f);
+		themeBtn = new CCSprite();
+		themeBtn->init();
 		game->addChild(themeBtn, GameZOrderUI);
 		activesBtn->addObject(themeBtn);
 	}
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("themeBtn.png").c_str());
+	rect.size = pTexture->getContentSize();
+	themeBtn->setTexture(pTexture);
+	themeBtn->setTextureRect(rect);
+	themeBtn->setPosition(*this->layoutRes<CCPoint>("themeBtn.png"));
+	themeBtn->setScale(0.75f);
 }
 
 bool GameLayout::tapDownAt(CCPoint location)

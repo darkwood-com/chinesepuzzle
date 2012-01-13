@@ -27,7 +27,8 @@
 
 using namespace cocos2d;
 
-CardBoard::CardBoard()
+CardBoard::CardBoard() :
+state(CardBoardEmpty)
 {
 }
 
@@ -59,7 +60,6 @@ CardBoard* CardBoard::cardBoardWithResolutionAndTheme(const char* resolution, co
 	return NULL;
 }
 
-
 bool CardBoard::initCardBoard()
 {
 	return initCardBoardWithResolutionAndTheme("480x320", "default");
@@ -67,16 +67,12 @@ bool CardBoard::initCardBoard()
 
 bool CardBoard::initCardBoardWithResolutionAndTheme(const char* resolution, const char* theme)
 {
-	std::string path = std::string(resolution) + std::string("/themes/") + std::string(theme) + std::string("/");
-	
-	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardempty.png")).c_str());
-	yesTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardyes.png")).c_str());
-	noTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardno.png")).c_str());
-	
-	if(!CCSprite::initWithTexture(emptyTexture))
+	if(!CCSprite::init())
 	{
 		return false;
 	}
+	
+	this->setTextureResolutionAndTheme(resolution, theme);
 	
 	return true;
 }
@@ -88,7 +84,12 @@ CardBoardState CardBoard::getState()
 
 void CardBoard::setState(CardBoardState state)
 {
-	if(this->state != state)
+	this->setState(state, false);
+}
+
+void CardBoard::setState(CardBoardState state, bool force)
+{
+	if(this->state != state || force)
 	{
 		switch (state)
 		{
@@ -97,6 +98,21 @@ void CardBoard::setState(CardBoardState state)
 			case CardBoardNo: this->setTexture(noTexture); break;
 		}
 		
+		CCRect rect = CCRectZero;
+		rect.size = this->getTexture()->getContentSize();
+		this->setTextureRect(rect);
+		
 		this->state = state;
 	}
+}
+
+void CardBoard::setTextureResolutionAndTheme(const char* resolution, const char* theme)
+{
+	std::string path = std::string(resolution) + std::string("/themes/") + std::string(theme) + std::string("/");
+	
+	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardempty.png")).c_str());
+	yesTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardyes.png")).c_str());
+	noTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardno.png")).c_str());
+	
+	this->setState(this->getState(), true);
 }
