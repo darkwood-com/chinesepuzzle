@@ -59,12 +59,12 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
 		(*datas)[sRes + "gridPosition"] = new CCSize(4, 0);
 		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,95);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,297);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,499);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1825,701);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1825,903);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1825,1105);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,1105);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,903);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,701);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1825,499);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1825,297);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1825,95);
 	}
 	
 	string sRes = game->getGameScene()->getConf()->getResolution();
@@ -137,7 +137,7 @@ void GameLayout::layout()
 		game->addChild(retryBtn, GameZOrderUI);
 		activesBtn->addObject(retryBtn);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("newBtn.png").c_str());
+	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("retryBtn.png").c_str());
 	rect.size = pTexture->getContentSize();
 	retryBtn->setTexture(pTexture);
 	retryBtn->setTextureRect(rect);
