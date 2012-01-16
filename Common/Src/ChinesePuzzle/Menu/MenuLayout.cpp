@@ -94,7 +94,7 @@ void MenuLayout::layout()
 			if(!themes)
 			{
 				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
-				themes->setObject(CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemTheme.png").c_str(), NULL), "default");
+				themes->setObject(CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemThemeClassic.png").c_str(), NULL), "classic");
 			}
 			
 			if(!mBox)
