@@ -115,13 +115,6 @@ void GameSceneCommon::newGame()
 
 void GameSceneCommon::setResolution(const std::string& resolution)
 {
-	/*
-	this->removeChild(pGame, true);
-	this->removeChild(pMenu, true);
-	CC_SAFE_RELEASE_NULL(pGame);
-	CC_SAFE_RELEASE_NULL(pMenu);
-	*/
-	
 	conf->setResolution(resolution);
 	this->setContentSize(conf->getResolutionSize());
 	

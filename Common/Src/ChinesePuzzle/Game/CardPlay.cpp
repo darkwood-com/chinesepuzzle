@@ -188,7 +188,7 @@ void CardPlay::setTextureResolutionAndTheme(const char* resolution, const char* 
 		case CardPlayRankKing:	CardPlayname += "K"; break;
 	}
 	
-	faceTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("card") + CardPlayname + std::string(".png")).c_str());
+	faceTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("card_") + CardPlayname + std::string(".png")).c_str());
 	backTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardplaybg.png")).c_str());
 	
 	this->setIsFaceUp(this->getIsFaceUp(), true);
