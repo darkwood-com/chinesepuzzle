@@ -47,9 +47,21 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		
 		sRes = "480x320";
 		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(50,50);
+		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
 		sRes = "1920x1200";
 		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 	}
 	
 	string sRes = menu->getGameScene()->getConf()->getResolution();
@@ -81,6 +93,7 @@ bool MenuLayout::initWithType(Type type)
 void MenuLayout::layout()
 {
 	GameConfig* conf = menu->getGameScene()->getConf();
+	CCPoint center = ccpMult(ccp(conf->getResolutionSize().width, conf->getResolutionSize().height), 0.5);
 	
 	if(!menu->getChildByTag(kMenuTagBg))
 	{
@@ -101,8 +114,9 @@ void MenuLayout::layout()
 			if(!mBox)
 			{
 				MenuBoxContainer* mb = new MenuBoxContainer();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), CCSizeMake(200, 200));
-				mb->setPosition(ccp(100, 50));
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuThemeBoxSize"));
+				mb->setPosition(center);
+				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setMargin(CCSizeMake(50, 50));
 				mb->setGridSize(ccg(2, 2));
 				mb->setPage(0);
@@ -131,27 +145,27 @@ void MenuLayout::layout()
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), CCSizeMake(200, 200));
-				mb->setPosition(ccp(100, 50));
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuNewBoxSize"));
+				mb->setPosition(center);
+				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("None");
+				mb->setTitle("New");
 				
 				CCArray* items = CCArray::array();
 				
-				;
-				CCMenuItemBMFont* itemTitle = CCMenuItemBMFont::itemFromString("Do you want start\na new game?", conf->getFontPath("arial.fnt").c_str());
+				CCMenuItemBMFont* itemTitle = CCMenuItemBMFont::itemFromString("Do you want start\na new game?", conf->getFontPath("arial32.fnt").c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemTitle->setPosition(ccp(100, 100));
+				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuNewTitle"));
 				items->addObject(itemTitle);
 				
 				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemYes.png").c_str(), NULL, menu->getGameScene(), menu_selector(GameSceneCommon::newGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemYes->setPosition(ccp(150, 50));
+				itemYes->setPosition(*this->layoutRes<CCPoint>("menuNewYes"));
 				items->addObject(itemYes);
 				
 				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemNo.png").c_str(), NULL, menu, menu_selector(Menu::okMenu));
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemNo->setPosition(ccp(50, 50));
+				itemNo->setPosition(*this->layoutRes<CCPoint>("menuNewNo"));
 				items->addObject(itemNo);
 				
 				mb->setItems(items);
@@ -166,8 +180,9 @@ void MenuLayout::layout()
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), CCSizeMake(200, 200));
-				mb->setPosition(ccp(100, 50));
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuNoneBoxSize"));
+				mb->setPosition(center);
+				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
 				mb->setTitle("None");
 				

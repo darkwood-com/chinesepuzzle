@@ -69,7 +69,7 @@ bool MenuBox::initWithResolution(const char* resolution)
 	
 	validBtn = new CCMenuItemImage();
 	validBtn->initFromNormalImage((path + std::string("menuItemOk.png")).c_str(), NULL, NULL, NULL, NULL);
-	validBtn->setAnchorPoint(ccp(1.0f, 0.5f));
+	validBtn->setAnchorPoint(ccp(0.5f, 0.5f));
 	this->addChild(validBtn);
 	
 	return true;
@@ -93,7 +93,7 @@ void MenuBox::setTitle(const char* title)
 	else
 	{
 		titleLabel = new CCLabelBMFont();
-		titleLabel->initWithString(title, "fonts/arial.fnt");
+		titleLabel->initWithString(title, "fonts/arial32.fnt");
 		titleLabel->setAnchorPoint(ccp(0.0f, 1.0f));
 		this->addChild(titleLabel);
 	}
@@ -150,7 +150,7 @@ void MenuBox::layout()
 	CCSize size = this->getContentSize();
 	
 	if(titleLabel) titleLabel->setPosition(ccp(20, size.height - 10));
-	if(validBtn) validBtn->setPosition(ccp(size.width - 10, size.height));
+	if(validBtn) validBtn->setPosition(ccp(size.width - 10, size.height - 10));
 	if(bg)
 	{
 		bg->setPosition(ccp(size.width / 2, size.height / 2));
