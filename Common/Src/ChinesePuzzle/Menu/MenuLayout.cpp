@@ -56,7 +56,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		
 		sRes = "1920x1200";
 		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
