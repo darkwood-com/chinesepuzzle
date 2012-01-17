@@ -149,7 +149,7 @@ void MenuLayout::layout()
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("New");
+				mb->setTitle("New game");
 				
 				CCArray* items = CCArray::array();
 				

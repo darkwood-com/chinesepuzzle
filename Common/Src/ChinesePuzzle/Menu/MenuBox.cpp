@@ -70,6 +70,7 @@ bool MenuBox::initWithResolution(const char* resolution)
 	validBtn = new CCMenuItemImage();
 	validBtn->initFromNormalImage((path + std::string("menuItemOk.png")).c_str(), NULL, NULL, NULL, NULL);
 	validBtn->setAnchorPoint(ccp(0.5f, 0.5f));
+	validBtn->setScale(0.75f);
 	this->addChild(validBtn);
 	
 	return true;
@@ -149,7 +150,7 @@ void MenuBox::layout()
 {
 	CCSize size = this->getContentSize();
 	
-	if(titleLabel) titleLabel->setPosition(ccp(20, size.height - 10));
+	if(titleLabel) titleLabel->setPosition(ccp(40, size.height - 30));
 	if(validBtn) validBtn->setPosition(ccp(size.width - 20, size.height - 20));
 	if(bg)
 	{
