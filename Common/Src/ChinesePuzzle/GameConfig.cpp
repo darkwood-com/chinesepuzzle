@@ -72,3 +72,9 @@ std::string GameConfigCommon::getThemePath(const char* file)
 {
 	return this->resolution + std::string("/themes/") + this->theme + std::string("/") + std::string(file);
 }
+
+std::string GameConfigCommon::getFontPath(const char* file)
+{
+	return std::string("fonts/") + file;
+}
+

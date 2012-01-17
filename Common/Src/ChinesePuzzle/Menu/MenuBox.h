@@ -35,7 +35,7 @@ protected:
 	//display
 	DecoratedBox* bg; //background
 	cocos2d::CCMenuItemImage* validBtn; //valid button
-	cocos2d::CCLabelTTF* titleLabel; //title
+	cocos2d::CCLabelBMFont* titleLabel; //title
 	
 	cocos2d::tCCMenuState m_eState;
 	cocos2d::CCMenuItem* itemForTouch(cocos2d::CCTouch* touch);

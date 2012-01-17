@@ -92,8 +92,8 @@ void MenuBox::setTitle(const char* title)
 	if(titleLabel) titleLabel->setString(title);
 	else
 	{
-		titleLabel = new CCLabelTTF();
-		titleLabel->initWithString(title, "Arial", 12);
+		titleLabel = new CCLabelBMFont();
+		titleLabel->initWithString(title, "fonts/arial.fnt");
 		titleLabel->setAnchorPoint(ccp(0.0f, 1.0f));
 		this->addChild(titleLabel);
 	}

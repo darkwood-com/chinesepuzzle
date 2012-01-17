@@ -26,6 +26,7 @@
 #include "Menu.h"
 #include "MenuBoxContainer.h"
 #include "GameScene.h"
+#include "CCMenuItemBMFont.h"
 
 using namespace cocos2d;
 
@@ -137,7 +138,8 @@ void MenuLayout::layout()
 				
 				CCArray* items = CCArray::array();
 				
-				CCMenuItemFont* itemTitle = CCMenuItemFont::itemFromString("Do you want start\na new game?");
+				;
+				CCMenuItemBMFont* itemTitle = CCMenuItemBMFont::itemFromString("Do you want start\na new game?", conf->getFontPath("arial.fnt").c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemTitle->setPosition(ccp(100, 100));
 				items->addObject(itemTitle);
