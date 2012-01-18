@@ -34,6 +34,11 @@ struct GridCoord {
 	int j;
 };
 
+struct MoveCoord {
+	GridCoord from;
+	GridCoord to;
+};
+
 typedef enum {
 	GameZOrderBG = 0,
 	GameZOrderUI = 1,

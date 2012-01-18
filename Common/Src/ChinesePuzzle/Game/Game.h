@@ -48,6 +48,7 @@ protected:
 	std::vector<CardPlay*> deck; //deck cards
 	std::vector<CardBoard*> boardCards; //board cards
 	Card* board[8][14]; //board game that reference to the deck cards
+	std::vector<MoveCoord> moves; //log moves history
 	
 	GameControl* gc;
 	GameLayout* gl;
@@ -76,10 +77,11 @@ public:
 	void layout();
 	
 	Card* getCard(GridCoord coord);
-	CheckMove checkMoveCoord(GridCoord from, GridCoord to); //check move for coord from - to board
+	CheckMove checkMoveCoord(const MoveCoord& move); //check move for coord from - to board
 	CheckMove checkMoveCard(Card* from, Card* to); //check move for card from - to board
-	CheckMove makeMoveCoord(GridCoord from, GridCoord to); //make move for coord from - to board
+	CheckMove makeMoveCoord(const MoveCoord& move); //make move for coord from - to board
 	CheckMove makeMoveCard(Card* from, Card* to); //make move for card from - to board
+	void undoMove();
 	int lockLine(int i); //update lock for a given grid line, return number of locked cards
 	
 	//input touches/mouse

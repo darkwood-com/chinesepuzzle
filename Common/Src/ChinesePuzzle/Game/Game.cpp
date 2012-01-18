@@ -194,6 +194,8 @@ void Game::newGame()
 			}
 		}
 	}
+	
+	moves.clear();
 }
 
 void Game::draw()
@@ -256,16 +258,16 @@ Card* Game::getCard(GridCoord coord)
 	return (0 <= coord.i && coord.i < 8 && 0 <= coord.j && coord.j < 14) ? board[coord.i][coord.j] : NULL;
 }
 
-CheckMove Game::checkMoveCoord(GridCoord from, GridCoord to)
+CheckMove Game::checkMoveCoord(const MoveCoord& move)
 {
-	Card* cFromCard = this->getCard(from);
+	Card* cFromCard = this->getCard(move.from);
 	if(cFromCard == NULL || cFromCard->getType() != CardTypePlay) return CheckMoveFrom;
 	CardPlay* cFrom = (CardPlay*) cFromCard;
 	
-	Card* cToCard = this->getCard(to);
+	Card* cToCard = this->getCard(move.to);
 	if(cToCard == NULL || cToCard->getType() != CardTypeBoard) return CheckMoveTo;
 	
-	GridCoord toBefore = to; toBefore.j--;
+	GridCoord toBefore = move.to; toBefore.j--;
 	if(toBefore.j == -1)
 	{
 		if(cFrom->getRank() == CardPlayRankAce) return CheckMoveOk;
@@ -284,40 +286,45 @@ CheckMove Game::checkMoveCoord(GridCoord from, GridCoord to)
 
 CheckMove Game::checkMoveCard(Card* from, Card* to)
 {
-	return this->checkMoveCoord(gl->getPositionInGridCoord(from->getPosition()), gl->getPositionInGridCoord(to->getPosition()));
+	MoveCoord move;
+	move.from = gl->getPositionInGridCoord(from->getPosition());
+	move.to = gl->getPositionInGridCoord(to->getPosition());
+	return this->checkMoveCoord(move);
 }
 
-CheckMove Game::makeMoveCoord(GridCoord from, GridCoord to)
+CheckMove Game::makeMoveCoord(const MoveCoord& move)
 {
-	CheckMove check = this->checkMoveCoord(from, to);
+	CheckMove check = this->checkMoveCoord(move);
 	
-	Card* cFrom = this->getCard(from);
+	Card* cFrom = this->getCard(move.from);
 	if(check == CheckMoveOk)
 	{
 		//drop is valid : apply changes and switch
-		Card* cSwitch = this->getCard(to);
-		board[to.i][to.j] = board[from.i][from.j];
-		board[from.i][from.j] = cSwitch;
-		cFrom->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(to)),
+		Card* cSwitch = this->getCard(move.to);
+		board[move.to.i][move.to.j] = board[move.from.i][move.from.j];
+		board[move.from.i][move.from.j] = cSwitch;
+		cFrom->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(move.to)),
 												CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveEnd)),
 												NULL));
 		if(cSwitch)
 		{
-			cSwitch->setPosition(gl->getPositionInBoardPoint(from));
+			cSwitch->setPosition(gl->getPositionInBoardPoint(move.from));
 			if(cSwitch->getType() == CardTypeBoard)
 			{
 				((CardBoard*) cSwitch)->setState(CardBoardEmpty);
 			}
 		}
-		switchBoardCard->setPosition(gl->getPositionInBoardPoint(to));
+		switchBoardCard->setPosition(gl->getPositionInBoardPoint(move.to));
 		
 		//check and set lock for line cards
-		this->lockLine(to.i);
+		this->lockLine(move.to.i);
+		
+		moves.push_back(move);
 	}
 	else if(cFrom)
 	{
 		//drop is invalid : undo changes
-		cFrom->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(from)),
+		cFrom->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(move.from)),
 											 CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveEnd)),
 											 NULL));
 	}
@@ -331,15 +338,19 @@ CheckMove Game::makeMoveCoord(GridCoord from, GridCoord to)
 
 CheckMove Game::makeMoveCard(Card* from, Card* to)
 {
-	return this->makeMoveCoord(gl->getPositionInGridCoord(from->getPosition()), gl->getPositionInGridCoord(to->getPosition()));
+	MoveCoord move;
+	move.from = gl->getPositionInGridCoord(from->getPosition());
+	move.to = gl->getPositionInGridCoord(to->getPosition());
+	return this->makeMoveCoord(move);
 }
 
 void Game::makeMoveEnd()
 {
+	switchBoardCard->setIsVisible(false);
+	
 	if(dragCard)
 	{
 		this->reorderChild(dragCard, GameZOrderCard);
-		switchBoardCard->setIsVisible(false);
 		dragCard = NULL;
 		this->hintMove();
 	}
@@ -361,7 +372,8 @@ void Game::hintMove()
 			hintCard = cTo;
 			
 			GridCoord coord = gl->getPositionInGridCoord(cToCard->getPosition());
-			if(this->checkMoveCoord(dragCardCoord, coord) == CheckMoveOk)
+			MoveCoord move = {dragCardCoord, coord};
+			if(this->checkMoveCoord(move) == CheckMoveOk)
 			{
 				hintCard->setState(CardBoardYes);
 			}
@@ -381,6 +393,37 @@ void Game::hintMove()
 		hintCard->setState(CardBoardEmpty);
 		hintCard = NULL;
 	}
+}
+
+void Game::undoMove()
+{
+	if(moves.size() == 0) return;
+	MoveCoord move = moves.back();
+	
+	//drop is valid : apply changes and switch
+	Card* cTo = this->getCard(move.to);
+	Card* cSwitch = this->getCard(move.from);
+	board[move.from.i][move.from.j] = board[move.to.i][move.to.j];
+	board[move.to.i][move.to.j] = cSwitch;
+	cTo->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(move.from)),
+									   CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveEnd)),
+									   NULL));
+	if(cSwitch)
+	{
+		cSwitch->setPosition(gl->getPositionInBoardPoint(move.to));
+		if(cSwitch->getType() == CardTypeBoard)
+		{
+			((CardBoard*) cSwitch)->setState(CardBoardEmpty);
+		}
+	}
+	switchBoardCard->setPosition(gl->getPositionInBoardPoint(move.from));
+	switchBoardCard->setIsVisible(true);
+	
+	//check and set lock for line cards
+	this->lockLine(move.from.i);
+	this->lockLine(move.to.i);
+	
+	moves.pop_back();
 }
 
 int Game::lockLine(int i)
@@ -491,7 +534,8 @@ void Game::tapUpAt(CCPoint location)
 			cToCard = dragCard;
 		}
 		GridCoord coord = gl->getPositionInGridCoord(cToCard->getPosition());
-		CheckMove check = this->makeMoveCoord(dragCardCoord, coord);
+		MoveCoord move = {dragCardCoord, coord};
+		CheckMove check = this->makeMoveCoord(move);
 		if(check != CheckMoveOk && CCPoint::CCPointEqualToPoint(dragCard->getPosition(), touchLastCard->getPosition()))
 		{
 			touchLastCard->setIsVisible(true);

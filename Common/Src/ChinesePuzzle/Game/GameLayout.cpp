@@ -226,7 +226,7 @@ bool GameLayout::tapDownAt(CCPoint location)
 			}
 			else if(btn == undoBtn)
 			{
-				
+				game->undoMove();
 			}
 			else if(btn == hintBtn)
 			{
