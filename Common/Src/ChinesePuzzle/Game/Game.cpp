@@ -253,6 +253,22 @@ void Game::layout()
 	}
 }
 
+bool Game::isBusy()
+{
+	for(int i = 0; i < 8; ++i)
+	{
+		for(int j = 0; j < 14; ++j)
+		{
+			if(board[i][j] && board[i][j]->numberOfRunningActions())
+			{
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
 Card* Game::getCard(GridCoord coord)
 {
 	return (0 <= coord.i && coord.i < 8 && 0 <= coord.j && coord.j < 14) ? board[coord.i][coord.j] : NULL;
@@ -397,7 +413,7 @@ void Game::hintMove()
 
 void Game::undoMove()
 {
-	if(moves.size() == 0) return;
+	if(moves.size() == 0 || this->isBusy()) return;
 	MoveCoord move = moves.back();
 	
 	//drop is valid : apply changes and switch

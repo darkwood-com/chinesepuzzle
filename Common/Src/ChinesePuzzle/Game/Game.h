@@ -76,6 +76,7 @@ public:
 	void step(cocos2d::ccTime dt);
 	void layout();
 	
+	bool isBusy();
 	Card* getCard(GridCoord coord);
 	CheckMove checkMoveCoord(const MoveCoord& move); //check move for coord from - to board
 	CheckMove checkMoveCard(Card* from, Card* to); //check move for card from - to board
