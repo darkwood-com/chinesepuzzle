@@ -151,7 +151,7 @@ void MenuBox::layout()
 	CCSize size = this->getContentSize();
 	
 	if(titleLabel) titleLabel->setPosition(ccp(40, size.height - 30));
-	if(validBtn) validBtn->setPosition(ccp(size.width - 20, size.height - 20));
+	if(validBtn) validBtn->setPosition(ccp(size.width - 10, size.height - 10));
 	if(bg)
 	{
 		bg->setPosition(ccp(size.width / 2, size.height / 2));
