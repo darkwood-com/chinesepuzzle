@@ -181,6 +181,11 @@ void Game::retryGame()
 	for(Board::iterator it = gs->getConf()->getInitBoard()->begin(); it != gs->getConf()->getInitBoard()->end(); ++it)
 	{
 		board[it->first.i][it->first.j] = it->second;
+		CardPlay* cardPlay = dynamic_cast<CardPlay*>(it->second);
+		if(cardPlay)
+		{
+			cardPlay->setIsLocked(false);
+		}
 	}
 	
 	gs->getConf()->getMoves()->clear();
