@@ -52,3 +52,21 @@ bool CCMenuItemBMFont::initFromString(const char *value, const char *fntFile, Se
 	}
 	return true;
 }
+
+void CCMenuItemBMFont::selected()
+{
+	// subclass to change the default action
+	if(m_bIsEnabled)
+	{
+		CCMenuItem::selected();
+	}
+}
+
+void CCMenuItemBMFont::unselected()
+{
+	// subclass to change the default action
+	if(m_bIsEnabled)
+	{
+		CCMenuItem::unselected();
+	}
+}

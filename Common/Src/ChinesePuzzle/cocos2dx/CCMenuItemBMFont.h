@@ -40,6 +40,9 @@ public:
 	static CCMenuItemBMFont* itemFromString(const char *value, const char *fntFile, SelectorProtocol* target, SEL_MenuHandler selector);
 	/** initializes a menu item from a string and atlas with a target/selector */
 	bool initFromString(const char *value, const char *fntFile, SelectorProtocol* target, SEL_MenuHandler selector);
+	
+	virtual void selected();
+	virtual void unselected();
 };
 
 } //namespace   cocos2d 
