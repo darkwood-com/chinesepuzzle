@@ -28,13 +28,15 @@
 
 using namespace cocos2d;
 
-GameConfigCommon::GameConfigCommon()
+GameConfigCommon::GameConfigCommon() :
+moves(new std::vector<MoveCoord>())
 {
 	
 }
 
 GameConfigCommon::~GameConfigCommon()
 {
+	delete moves;
 }
 
 bool GameConfigCommon::init()
@@ -42,6 +44,7 @@ bool GameConfigCommon::init()
 	this->resolution = std::string("480x320");
 	//this->resolution = std::string("1920x1200");
 	this->theme = std::string("classic");
+	this->isSoundOn = true;
 	
 	return true;
 }

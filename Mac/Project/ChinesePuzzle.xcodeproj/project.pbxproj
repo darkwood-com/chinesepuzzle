@@ -537,6 +537,7 @@
 		C3E71DED14C57FA000F6F1D9 /* CCMenuItemBMFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCMenuItemBMFont.cpp; sourceTree = "<group>"; };
 		C3E71DEE14C57FA000F6F1D9 /* CCMenuItemBMFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemBMFont.h; sourceTree = "<group>"; };
 		C3E71DF114C583D300F6F1D9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../Common/Bin/Data/fonts; sourceTree = "<group>"; };
+		C3E71DF914C816AE00F6F1D9 /* cpStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpStruct.h; sourceTree = "<group>"; };
 		C3F632FF14AF598500AA50B8 /* cpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -700,6 +701,7 @@
 				C39D80B214B471EE00AA683C /* cocos2dx */,
 				C37942C014AA2DBF005A2045 /* cpConfig.h */,
 				C3F632FF14AF598500AA50B8 /* cpMacro.h */,
+				C3E71DF914C816AE00F6F1D9 /* cpStruct.h */,
 				C30A611014B1FB20007D3BDE /* Game */,
 				C30A60F014B1FAF5007D3BDE /* GameConfig.h */,
 				C30A60EF14B1FAF5007D3BDE /* GameConfig.cpp */,

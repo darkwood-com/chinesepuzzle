@@ -48,7 +48,6 @@ protected:
 	std::vector<CardPlay*> deck; //deck cards
 	std::vector<CardBoard*> boardCards; //board cards
 	Card* board[8][14]; //board game that reference to the deck cards
-	std::vector<MoveCoord> moves; //log moves history
 	
 	GameControl* gc;
 	GameLayout* gl;

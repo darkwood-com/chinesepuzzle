@@ -28,6 +28,7 @@
 #include "GameScene.h"
 #include "CardPlay.h"
 #include "CardBoard.h"
+#include "GameConfig.h"
 
 #include <algorithm>
 
@@ -195,7 +196,7 @@ void Game::newGame()
 		}
 	}
 	
-	moves.clear();
+	gs->getConf()->getMoves()->clear();
 }
 
 void Game::draw()
@@ -320,8 +321,8 @@ CheckMove Game::makeMoveCoord(const MoveCoord& move)
 		board[move.to.i][move.to.j] = board[move.from.i][move.from.j];
 		board[move.from.i][move.from.j] = cSwitch;
 		cFrom->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(move.to)),
-												CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveEnd)),
-												NULL));
+											 CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveEnd)),
+											 NULL));
 		if(cSwitch)
 		{
 			cSwitch->setPosition(gl->getPositionInBoardPoint(move.from));
@@ -335,7 +336,7 @@ CheckMove Game::makeMoveCoord(const MoveCoord& move)
 		//check and set lock for line cards
 		this->lockLine(move.to.i);
 		
-		moves.push_back(move);
+		gs->getConf()->getMoves()->push_back(move);
 	}
 	else if(cFrom)
 	{
@@ -413,8 +414,8 @@ void Game::hintMove()
 
 void Game::undoMove()
 {
-	if(moves.size() == 0 || this->isBusy()) return;
-	MoveCoord move = moves.back();
+	if(gs->getConf()->getMoves()->size() == 0 || this->isBusy()) return;
+	MoveCoord move = gs->getConf()->getMoves()->back();
 	
 	//drop is valid : apply changes and switch
 	Card* cTo = this->getCard(move.to);
@@ -439,7 +440,7 @@ void Game::undoMove()
 	this->lockLine(move.from.i);
 	this->lockLine(move.to.i);
 	
-	moves.pop_back();
+	gs->getConf()->getMoves()->pop_back();
 }
 
 int Game::lockLine(int i)

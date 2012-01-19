@@ -26,18 +26,9 @@
 #define __GAME_LAYOUT_H__
 
 #import "cocos2d.h"
+#include "cpStruct.h"
 
 class Game;
-
-struct GridCoord {
-	int i;
-	int j;
-};
-
-struct MoveCoord {
-	GridCoord from;
-	GridCoord to;
-};
 
 typedef enum {
 	GameZOrderBG = 0,
@@ -49,10 +40,12 @@ typedef enum {
 } GameZOrder;
 
 // GameLayout Layer
-class CC_DLL GameLayout : public cocos2d::CCObject
+class CC_DLL GameLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
 {
 private:
 	template <class T> T* layoutRes(const char* key);
+	
+	void actionBtn(cocos2d::CCNode* node);
 	
 protected:
 	Game* game;

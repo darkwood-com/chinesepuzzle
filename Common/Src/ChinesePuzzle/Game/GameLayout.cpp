@@ -71,6 +71,28 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 	return reinterpret_cast<T*>((*datas)[sRes + key]);
 }
 
+void GameLayout::actionBtn(cocos2d::CCNode* node)
+{
+	if(node == soundBtn)
+	{
+		GameConfig* gc = game->getGameScene()->getConf();
+		
+		CCTexture2D* pTexture = NULL;
+		CCRect rect = CCRectZero;
+		
+		if(gc->getIsSoundOn()) {
+			pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOffBtn.png").c_str());
+		} else {
+			pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOnBtn.png").c_str());
+		}
+		rect.size = pTexture->getContentSize();
+		soundBtn->setTexture(pTexture);
+		soundBtn->setTextureRect(rect);
+		
+		gc->setIsSoundOn(!gc->getIsSoundOn());
+	}
+}
+
 GameLayout::GameLayout(Game* game) :
 game(game),
 bg(NULL),
@@ -179,7 +201,11 @@ void GameLayout::layout()
 		game->addChild(soundBtn, GameZOrderUI);
 		activesBtn->addObject(soundBtn);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOnBtn.png").c_str());
+	if(gc->getIsSoundOn()) {
+		pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOnBtn.png").c_str());
+	} else {
+		pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOffBtn.png").c_str());
+	}
 	rect.size = pTexture->getContentSize();
 	soundBtn->setTexture(pTexture);
 	soundBtn->setTextureRect(rect);
@@ -214,6 +240,7 @@ bool GameLayout::tapDownAt(CCPoint location)
 		if (CCRect::CCRectContainsPoint(r, local))
 		{
 			btn->runAction(CCSequence::actions(CCEaseIn::actionWithAction(CCScaleTo::actionWithDuration(0.1f, 1.0f), 2.0f),
+											   CCCallFuncN::actionWithTarget(this, callfuncN_selector(GameLayout::actionBtn)),
 											   CCEaseOut::actionWithAction(CCScaleTo::actionWithDuration(0.1f, 0.75f), 2.0f),
 											   NULL));
 			if(btn == newBtn)

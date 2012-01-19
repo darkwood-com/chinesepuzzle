@@ -27,6 +27,7 @@
 
 #include <stdio.h>
 #include "cpMacro.h"
+#include "cpStruct.h"
 
 class CC_DLL GameConfigCommon : public cocos2d::CCObject
 {
@@ -44,6 +45,8 @@ public:
 	cocos2d::CCSize getResolutionSize();
 	CC_SYNTHESIZE(std::string, resolution, Resolution);
 	CC_SYNTHESIZE(std::string, theme, Theme);
+	CC_SYNTHESIZE(bool, isSoundOn, IsSoundOn);
+	CC_SYNTHESIZE_READONLY(std::vector<MoveCoord>*, moves, Moves); //log moves history
 };
 
 #include CP_PLATFORM(GameConfig)
