@@ -109,7 +109,7 @@ CardPlay* CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(const char* r
 
 bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
 {
-	return initWithResolutionAndThemeAndColorAndRank("480x320", "default", color, rank);
+	return initWithResolutionAndThemeAndColorAndRank("480x320", "classic", color, rank);
 }
 
 bool CardPlay::initWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank)

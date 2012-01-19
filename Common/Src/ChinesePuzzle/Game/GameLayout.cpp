@@ -71,9 +71,25 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 	return reinterpret_cast<T*>((*datas)[sRes + key]);
 }
 
-void GameLayout::actionBtn(cocos2d::CCNode* node)
+void GameLayout::actionBtn(cocos2d::CCNode* btn)
 {
-	if(node == soundBtn)
+	if(btn == newBtn)
+	{
+		game->getGameScene()->menuWithLayout(MenuLayout::TypeNewGame);
+	}
+	else if(btn == retryBtn)
+	{
+		game->getGameScene()->menuWithLayout(MenuLayout::TypeRetryGame);
+	}
+	else if(btn == undoBtn)
+	{
+		game->undoMove();
+	}
+	else if(btn == hintBtn)
+	{
+		
+	}
+	else if(btn == soundBtn)
 	{
 		GameConfig* gc = game->getGameScene()->getConf();
 		
@@ -90,6 +106,10 @@ void GameLayout::actionBtn(cocos2d::CCNode* node)
 		soundBtn->setTextureRect(rect);
 		
 		gc->setIsSoundOn(!gc->getIsSoundOn());
+	}
+	else if(btn == themeBtn)
+	{
+		game->getGameScene()->menuWithLayout(MenuLayout::TypeTheme);
 	}
 }
 
@@ -243,31 +263,6 @@ bool GameLayout::tapDownAt(CCPoint location)
 											   CCCallFuncN::actionWithTarget(this, callfuncN_selector(GameLayout::actionBtn)),
 											   CCEaseOut::actionWithAction(CCScaleTo::actionWithDuration(0.1f, 0.75f), 2.0f),
 											   NULL));
-			if(btn == newBtn)
-			{
-				game->getGameScene()->menuWithLayout(MenuLayout::TypeNewGame);
-			}
-			else if(btn == retryBtn)
-			{
-				
-			}
-			else if(btn == undoBtn)
-			{
-				game->undoMove();
-			}
-			else if(btn == hintBtn)
-			{
-				
-			}
-			else if(btn == soundBtn)
-			{
-				
-			}
-			else if(btn == themeBtn)
-			{
-				game->getGameScene()->menuWithLayout(MenuLayout::TypeTheme);
-			}
-			
 			return true;
 		}
 	}

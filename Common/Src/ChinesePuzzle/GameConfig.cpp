@@ -29,7 +29,8 @@
 using namespace cocos2d;
 
 GameConfigCommon::GameConfigCommon() :
-moves(new std::vector<MoveCoord>())
+moves(new Moves()),
+initBoard(new Board())
 {
 	
 }
@@ -37,6 +38,7 @@ moves(new std::vector<MoveCoord>())
 GameConfigCommon::~GameConfigCommon()
 {
 	delete moves;
+	delete initBoard;
 }
 
 bool GameConfigCommon::init()

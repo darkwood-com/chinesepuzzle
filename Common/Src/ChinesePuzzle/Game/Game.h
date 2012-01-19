@@ -71,6 +71,7 @@ public:
 	virtual bool init(GameSceneCommon* gs);
 	
 	void newGame();
+	void retryGame();
 	void draw();
 	void step(cocos2d::ccTime dt);
 	void layout();

@@ -51,6 +51,7 @@ public:
 	Menu* menuWithLayout(MenuLayout::Type ml);
 	
 	void newGame();
+	void retryGame();
 	void setResolution(const std::string& resolution);
 	void setTheme(const std::string& theme);
 	

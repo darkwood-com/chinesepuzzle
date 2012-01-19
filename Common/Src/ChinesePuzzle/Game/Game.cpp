@@ -124,10 +124,6 @@ void Game::newGame()
 			}
 		}
 		
-		switchBoardCard = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
-		switchBoardCard->setIsVisible(false);
-		this->addChild(switchBoardCard, GameZOrderBoard);
-		
 		for (int l = 0; l < 8; ++l)
 		{
 			CardBoard* card = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
@@ -135,12 +131,6 @@ void Game::newGame()
 			gc->addCard(card);
 			boardCards.push_back(card);
 		}
-		
-		touchLastCard = new Card();
-		touchLastCard->initWithFile(gs->getConf()->getThemePath("cardtouched.png").c_str());
-		touchLastCard->setIsVisible(false);
-		this->addChild(touchLastCard, GameZOrderHintCard);
-		touchLastCard->release();
 	}
 	
 	//assign random cards into the board
@@ -161,8 +151,7 @@ void Game::newGame()
 				board[i][j] = card;
 				
 				//card position
-				CCPoint coordPos = gl->getPositionInBoardPoint(coord);
-				card->setPosition(coordPos);
+				card->setPosition(gl->getPositionInBoardPoint(coord));
 			}
 			else
 			{
@@ -172,31 +161,31 @@ void Game::newGame()
 				board[i][j] = card;
 				
 				//card position
-				CCPoint coordPos = gl->getPositionInBoardPoint(coord);
 				if(isFirstGame)
 				{
-					card->setPosition(coordPos);
+					card->setPosition(gl->getPositionInBoardPoint(coord));
 				}
-				
-				//card animation
-				CCArray* actions = CCArray::array();
-				actions->addObject(CCDelayTime::actionWithDuration(0.05 * (7 - coord.i + coord.j - 1)));
-				if(!CCPoint::CCPointEqualToPoint(card->getPosition(), coordPos))
-				{
-					actions->addObject(CCMoveTo::actionWithDuration(1.0f, coordPos));
-				}
-				if(!card->getIsFaceUp())
-				{
-					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 0, 90, 0, 0));
-					actions->addObject(CardPlayFlipAction::actionWithCardPlay(card));
-					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 270, 90, 0, 0));
-				}
-				card->runAction(CCSequence::actionsWithArray(actions));
 			}
+			
+			(*gs->getConf()->getInitBoard())[coord] = board[i][j];
 		}
 	}
 	
 	gs->getConf()->getMoves()->clear();
+	
+	this->layout();
+}
+
+void Game::retryGame()
+{
+	for(Board::iterator it = gs->getConf()->getInitBoard()->begin(); it != gs->getConf()->getInitBoard()->end(); ++it)
+	{
+		board[it->first.i][it->first.j] = it->second;
+	}
+	
+	gs->getConf()->getMoves()->clear();
+	
+	this->layout();
 }
 
 void Game::draw()
@@ -204,7 +193,7 @@ void Game::draw()
 	CCLayer::draw();
 	
 	//debug game control draw
-	gc->draw();
+	//gc->draw();
 }
 
 void Game::step(ccTime dt)
@@ -219,22 +208,30 @@ void Game::layout()
 
 	GameConfig* conf = gs->getConf();
 	
-	if(touchLastCard)
+	if(!touchLastCard)
 	{
-		CCTexture2D *pTexture = CCTextureCache::sharedTextureCache()->addImage(conf->getThemePath("cardtouched.png").c_str());
-		if (pTexture)
-		{
-			CCRect rect = CCRectZero;
-			rect.size = pTexture->getContentSize();
-			touchLastCard->setTexture(pTexture);
-			touchLastCard->setTextureRect(rect);
-		}
+		touchLastCard = new Card();
+		touchLastCard->init();
+		touchLastCard->setIsVisible(false);
+		this->addChild(touchLastCard, GameZOrderHintCard);
+		touchLastCard->release();
+	}
+	CCTexture2D *pTexture = CCTextureCache::sharedTextureCache()->addImage(conf->getThemePath("cardtouched.png").c_str());
+	if (pTexture)
+	{
+		CCRect rect = CCRectZero;
+		rect.size = pTexture->getContentSize();
+		touchLastCard->setTexture(pTexture);
+		touchLastCard->setTextureRect(rect);
 	}
 	
-	if(switchBoardCard)
+	if(!switchBoardCard)
 	{
-		switchBoardCard->setTextureResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+		switchBoardCard = CardBoard::cardBoard();
+		switchBoardCard->setIsVisible(false);
+		this->addChild(switchBoardCard, GameZOrderBoard);
 	}
+	switchBoardCard->setTextureResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
 	
 	for(int i = 0; i < 8; ++i)
 	{
@@ -248,7 +245,31 @@ void Game::layout()
 			if(card)
 			{
 				card->setTextureResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+			}
+			
+			CardBoard* cardBoard = dynamic_cast<CardBoard*>(card);
+			CardPlay* cardPlay = dynamic_cast<CardPlay*>(card);
+			if(cardBoard)
+			{
 				card->setPosition(gl->getPositionInBoardPoint(coord));
+			}
+			else if(cardPlay)
+			{
+				//card animation
+				CCPoint coordPos = gl->getPositionInBoardPoint(coord);
+				CCArray* actions = CCArray::array();
+				actions->addObject(CCDelayTime::actionWithDuration(0.05 * (7 - coord.i + coord.j - 1)));
+				if(!CCPoint::CCPointEqualToPoint(cardPlay->getPosition(), coordPos))
+				{
+					actions->addObject(CCMoveTo::actionWithDuration(1.0f, coordPos));
+				}
+				if(!cardPlay->getIsFaceUp())
+				{
+					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 0, 90, 0, 0));
+					actions->addObject(CardPlayFlipAction::actionWithCardPlay(cardPlay));
+					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 270, 90, 0, 0));
+				}
+				cardPlay->runAction(CCSequence::actionsWithArray(actions));
 			}
 		}
 	}

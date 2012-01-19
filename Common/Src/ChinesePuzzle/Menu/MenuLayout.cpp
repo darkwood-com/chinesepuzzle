@@ -52,6 +52,10 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
 		(*datas)[sRes + "menuNewNo"] = new CCPoint(50,50);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(150,50);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(50,50);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
 		sRes = "1920x1200";
@@ -61,6 +65,10 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
 		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 	}
 	
@@ -175,7 +183,42 @@ void MenuLayout::layout()
 			}
 			
 			menu->pushNav(mBox);
-		break;
+			break;
+		case TypeRetryGame:
+			if(!mBox)
+			{
+				MenuBox* mb = new MenuBox();
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuRetryBoxSize"));
+				mb->setPosition(center);
+				mb->setAnchorPoint(ccp(0.5f, 0.5f));
+				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mb->setTitle("Retry game");
+				
+				CCArray* items = CCArray::array();
+				
+				CCMenuItemBMFont* itemTitle = CCMenuItemBMFont::itemFromString("Do you want retry\nthe game?", conf->getFontPath("arial32.fnt").c_str());
+				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuRetryTitle"));
+				items->addObject(itemTitle);
+				
+				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemYes.png").c_str(), NULL, menu->getGameScene(), menu_selector(GameSceneCommon::retryGame));
+				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemYes->setPosition(*this->layoutRes<CCPoint>("menuRetryYes"));
+				items->addObject(itemYes);
+				
+				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemNo.png").c_str(), NULL, menu, menu_selector(Menu::okMenu));
+				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemNo->setPosition(*this->layoutRes<CCPoint>("menuRetryNo"));
+				items->addObject(itemNo);
+				
+				mb->setItems(items);
+				mb->layout();
+				
+				mBox =  mb;
+			}
+			
+			menu->pushNav(mBox);
+			break;
 		case TypeNone:
 			if(!mBox)
 			{

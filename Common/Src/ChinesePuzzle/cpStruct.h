@@ -27,15 +27,28 @@
 
 //chinese puzzle struct
 
+#include <vector>
+#include <map>
+
+class Card;
+
 struct GridCoord {
 	int i;
 	int j;
+	
+	bool operator<( const GridCoord & g ) const
+	{
+		return i < g.i || (i == g.i && j < g.j);
+	}
 };
 
 struct MoveCoord {
 	GridCoord from;
 	GridCoord to;
 };
+
+typedef std::vector<MoveCoord> Moves;
+typedef std::map<GridCoord, Card*> Board;
 
 #endif // __CP_STRUCT_H__
 

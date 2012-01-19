@@ -113,6 +113,12 @@ void GameSceneCommon::newGame()
 	aGame->newGame();
 }
 
+void GameSceneCommon::retryGame()
+{
+	Game* aGame = this->game();
+	aGame->retryGame();
+}
+
 void GameSceneCommon::setResolution(const std::string& resolution)
 {
 	conf->setResolution(resolution);

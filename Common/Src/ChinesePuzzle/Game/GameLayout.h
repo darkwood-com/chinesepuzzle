@@ -45,7 +45,7 @@ class CC_DLL GameLayout : public cocos2d::CCObject, public cocos2d::SelectorProt
 private:
 	template <class T> T* layoutRes(const char* key);
 	
-	void actionBtn(cocos2d::CCNode* node);
+	void actionBtn(cocos2d::CCNode* btn);
 	
 protected:
 	Game* game;
