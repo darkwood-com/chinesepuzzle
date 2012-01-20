@@ -58,6 +58,12 @@ namespace cocos2d{
 	//
 	//CCLabelBMFontMultiline
 	//
+	
+	//LabelBMFont - Purge Cache
+	void CCLabelBMFontMultiline::purgeCachedData()
+	{
+		FNTConfigRemoveCache();
+	}
 
 	//LabelBMFont - Creation & Init
 	CCLabelBMFontMultiline *CCLabelBMFontMultiline::labelWithString(const char *str, const char *fntFile, float width, CCLabelBMFontMultilineAlignment align)
@@ -73,16 +79,33 @@ namespace cocos2d{
 	}
 
 	bool CCLabelBMFontMultiline::initWithString(const char *theString, const char *fntFile, float width, CCLabelBMFontMultilineAlignment align)
-	{	
+	{
+		CCAssert(theString != NULL, "");
+		CC_SAFE_RELEASE(m_pConfiguration);// allow re-init
+		m_pConfiguration = FNTConfigLoadFile(fntFile);
+		m_pConfiguration->retain();
+		CCAssert( m_pConfiguration, "Error creating config for LabelBMFont");
+		
 		m_sfntFile = fntFile;
 		m_width = width;
 		m_align = align;
 
-		if (CCLabelBMFont::initWithString(theString, fntFile))
+		if (CCSpriteBatchNode::initWithFile(m_pConfiguration->m_sAtlasName.c_str(), strlen(theString)))
 		{
+			m_cOpacity = 255;
+			m_tColor = ccWHITE;
+			m_tContentSize = CCSizeZero;
+			m_bIsOpacityModifyRGB = m_pobTextureAtlas->getTexture()->getHasPremultipliedAlpha();
+			setAnchorPoint(ccp(0.5f, 0.5f));
+			this->setString(theString);
 			return true;
 		}
 		return false;
+	}
+	CCLabelBMFontMultiline::~CCLabelBMFontMultiline()
+	{
+		m_sString.clear();
+		CC_SAFE_RELEASE(m_pConfiguration);
 	}
 
 	// LabelBMFont - Atlas generation
@@ -294,6 +317,111 @@ namespace cocos2d{
 		}
 		this->createFontChars();
 	}
+	
+	const char* CCLabelBMFontMultiline::getString(void)
+	{
+		return m_sString.c_str();
+	}
+	
+    void CCLabelBMFontMultiline::setCString(const char *label)
+    {
+        setString(label);
+    }
+	
+	//LabelBMFont - CCRGBAProtocol protocol
+	void CCLabelBMFontMultiline::setColor(const ccColor3B& var)
+	{
+		m_tColor = var;
+		if (m_pChildren && m_pChildren->count() != 0)
+		{
+            CCObject* child;
+            CCARRAY_FOREACH(m_pChildren, child)
+            {
+                CCSprite* pNode = (CCSprite*) child;
+                if (pNode)
+                {
+                    pNode->setColor(m_tColor);
+                }
+            }
+		}
+	}
+	const ccColor3B& CCLabelBMFontMultiline::getColor()
+	{
+		return m_tColor;
+	}
+	void CCLabelBMFontMultiline::setOpacity(GLubyte var)
+	{
+		m_cOpacity = var;
+		
+		if (m_pChildren && m_pChildren->count() != 0)
+		{
+            CCObject* child;
+            CCARRAY_FOREACH(m_pChildren, child)
+            {
+                CCNode* pNode = (CCNode*) child;
+                if (pNode)
+                {
+                    CCRGBAProtocol *pRGBAProtocol = dynamic_cast<CCRGBAProtocol*>(pNode);
+                    if (pRGBAProtocol)
+                    {
+                        pRGBAProtocol->setOpacity(m_cOpacity);
+                    }
+                }
+            }
+		}
+	}
+	GLubyte CCLabelBMFontMultiline::getOpacity()
+	{
+		return m_cOpacity;
+	}
+	void CCLabelBMFontMultiline::setIsOpacityModifyRGB(bool var)
+	{
+		m_bIsOpacityModifyRGB = var;
+		if (m_pChildren && m_pChildren->count() != 0)
+		{
+            CCObject* child;
+            CCARRAY_FOREACH(m_pChildren, child)
+            {
+                CCNode* pNode = (CCNode*) child;
+                if (pNode)
+                {
+                    CCRGBAProtocol *pRGBAProtocol = dynamic_cast<CCRGBAProtocol*>(pNode);
+                    if (pRGBAProtocol)
+                    {
+                        pRGBAProtocol->setIsOpacityModifyRGB(m_bIsOpacityModifyRGB);
+                    }
+                }
+            }
+		}
+	}
+	bool CCLabelBMFontMultiline::getIsOpacityModifyRGB()
+	{
+		return m_bIsOpacityModifyRGB;
+	}
+	
+	// LabelBMFont - AnchorPoint
+	void CCLabelBMFontMultiline::setAnchorPoint(const CCPoint& point)
+	{
+		if( ! CCPoint::CCPointEqualToPoint(point, m_tAnchorPoint) )
+		{
+			CCSpriteBatchNode::setAnchorPoint(point);
+			this->createFontChars();
+		}
+	}
+	
+	//LabelBMFont - Debug draw
+#if CC_LABELBMFONT_DEBUG_DRAW
+	void CCLabelBMFontMultiline::draw()
+	{
+		CCSpriteBatchNode::draw();
+		const CCSize& s = this->getContentSize();
+		CCPoint vertices[4]={
+			ccp(0,0),ccp(s.width,0),
+			ccp(s.width,s.height),ccp(0,s.height),
+		};
+		ccDrawPoly(vertices, 4, true);
+	}
+#endif // CC_LABELBMFONT_DEBUG_DRAW
 	
 	void CCLabelBMFontMultiline::setWidth(float width)
 	{

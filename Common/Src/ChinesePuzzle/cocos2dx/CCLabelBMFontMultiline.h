@@ -41,9 +41,31 @@ namespace cocos2d{
 		CCLabelBMFontMultilineRightAlignment
 	} CCLabelBMFontMultilineAlignment;
 	
-	class CC_DLL CCLabelBMFontMultiline  : public CCLabelBMFont
+	class CC_DLL CCLabelBMFontMultiline  : public CCSpriteBatchNode, public CCLabelProtocol, public CCRGBAProtocol
 	{
+		/** conforms to CCRGBAProtocol protocol */
+		CC_PROPERTY(GLubyte, m_cOpacity, Opacity)
+		/** conforms to CCRGBAProtocol protocol */
+		CC_PROPERTY_PASS_BY_REF(ccColor3B, m_tColor, Color)
+		/** conforms to CCRGBAProtocol protocol */
+		CC_PROPERTY(bool, m_bIsOpacityModifyRGB, IsOpacityModifyRGB)
+	protected:
+		// string to render
+		std::string m_sString;
+		CCBMFontConfiguration *m_pConfiguration;
 	public:
+		CCLabelBMFontMultiline()
+		: m_cOpacity(0)           
+		, m_bIsOpacityModifyRGB(false)
+		, m_sString("")
+		, m_pConfiguration(NULL)
+		{}
+		virtual ~CCLabelBMFontMultiline();
+		/** Purges the cached data.
+		 Removes from memory the cached configurations and the atlas name dictionary.
+		 @since v0.99.3
+		 */
+		static void purgeCachedData();
 		/** creates a bitmap font altas with an initial string and the FNT file */
 		static CCLabelBMFontMultiline * labelWithString(const char *str, const char *fntFile, float width, CCLabelBMFontMultilineAlignment align);
 
@@ -55,6 +77,13 @@ namespace cocos2d{
 
 		// super method
 		virtual void setString(const char *label);
+		virtual const char* getString(void);
+        virtual void setCString(const char *label);
+		virtual void setAnchorPoint(const CCPoint& var);
+		
+#if CC_LABELBMFONT_DEBUG_DRAW
+		virtual void draw();
+#endif // CC_LABELBMFONT_DEBUG_DRAW
 		
 		CC_PROPERTY(float, m_width, Width);
 		CC_PROPERTY(CCLabelBMFontMultilineAlignment, m_align, Align);
