@@ -87,7 +87,7 @@ void GameLayout::actionBtn(cocos2d::CCNode* btn)
 	}
 	else if(btn == hintBtn)
 	{
-		
+		game->getGameScene()->menuWithLayout(MenuLayout::TypeHint);
 	}
 	else if(btn == soundBtn)
 	{

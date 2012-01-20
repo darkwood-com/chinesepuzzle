@@ -49,6 +49,7 @@ public:
 		TypeNone,
 		TypeNewGame,
 		TypeRetryGame,
+		TypeHint,
 		TypeTheme,
 	} Type;
 	

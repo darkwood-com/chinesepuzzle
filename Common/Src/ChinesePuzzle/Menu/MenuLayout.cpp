@@ -24,9 +24,9 @@
 
 #include "MenuLayout.h"
 #include "Menu.h"
-#include "MenuBoxContainer.h"
+#include "MenuGridContainer.h"
+#include "MenuLabelContainer.h"
 #include "GameScene.h"
-#include "CCMenuItemBMFont.h"
 
 using namespace cocos2d;
 
@@ -47,7 +47,6 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		
 		sRes = "480x320";
 		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
@@ -56,11 +55,12 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuRetryYes"] = new CCPoint(150,50);
 		(*datas)[sRes + "menuRetryNo"] = new CCPoint(50,50);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
 		sRes = "1920x1200";
 		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -69,6 +69,8 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
 		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 	}
 	
@@ -112,43 +114,6 @@ void MenuLayout::layout()
 	
 	switch (this->type)
 	{
-		case TypeTheme:
-			if(!themes)
-			{
-				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
-				themes->setObject(CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemThemeClassic.png").c_str(), NULL), "classic");
-			}
-			
-			if(!mBox)
-			{
-				MenuBoxContainer* mb = new MenuBoxContainer();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuThemeBoxSize"));
-				mb->setPosition(center);
-				mb->setAnchorPoint(ccp(0.5f, 0.5f));
-				mb->setMargin(CCSizeMake(50, 50));
-				mb->setGridSize(ccg(2, 2));
-				mb->setPage(0);
-				mb->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
-				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("Themes");
-				
-				CCArray* items = CCArray::array();
-				
-				std::vector<std::string> sTheme = themes->allKeys();
-				for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
-				{
-					CCMenuItemImage* mItem = themes->objectForKey(*it);
-					items->addObject(mItem);
-				}
-				
-				mb->setItems(items);
-				mb->layout();
-				
-				mBox =  mb;
-			}
-			
-			menu->pushNav(mBox);
-		break;
 		case TypeNewGame:
 			if(!mBox)
 			{
@@ -161,7 +126,7 @@ void MenuLayout::layout()
 				
 				CCArray* items = CCArray::array();
 				
-				CCMenuItemBMFont* itemTitle = CCMenuItemBMFont::itemFromString("Do you want start\na new game?", conf->getFontPath("arial32.fnt").c_str());
+				CCLabelBMFont* itemTitle = CCLabelBMFont::labelWithString("Do you want start a new game?", conf->getFontPath("arial32.fnt").c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuNewTitle"));
 				items->addObject(itemTitle);
@@ -196,7 +161,7 @@ void MenuLayout::layout()
 				
 				CCArray* items = CCArray::array();
 				
-				CCMenuItemBMFont* itemTitle = CCMenuItemBMFont::itemFromString("Do you want retry\nthe game?", conf->getFontPath("arial32.fnt").c_str());
+				CCLabelBMFont* itemTitle = CCLabelBMFont::labelWithString("Do you want retry the game?", conf->getFontPath("arial32.fnt").c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuRetryTitle"));
 				items->addObject(itemTitle);
@@ -210,6 +175,61 @@ void MenuLayout::layout()
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemNo->setPosition(*this->layoutRes<CCPoint>("menuRetryNo"));
 				items->addObject(itemNo);
+				
+				mb->setItems(items);
+				mb->layout();
+				
+				mBox =  mb;
+			}
+			
+			menu->pushNav(mBox);
+			break;
+		case TypeHint:
+			if(!mBox)
+			{
+				MenuLabelContainer* mb = new MenuLabelContainer();
+				mb->initWithResolutionAndContentSizeAndFntFile(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuHintBoxSize"), conf->getFontPath("arial32.fnt").c_str());
+				mb->setPosition(center);
+				mb->setAnchorPoint(ccp(0.5f, 0.5f));
+				mb->setMargin(CCSizeMake(50, 50));
+				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mb->setTitle("Hint");
+				mb->setString("Chinese Puzzle is a solitaire card game which is similar to Gallery. Like that game, Chinese Puzzle uses two standard decks of cards, laid out in a tableau of eight rows. Also like Gallery, the goal is to lay move cards around in vacant spaces, so that they end up in a certain order.");
+				mb->layout();
+				
+				mBox =  mb;
+			}
+			
+			menu->pushNav(mBox);
+			break;
+		case TypeTheme:
+			if(!themes)
+			{
+				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
+				themes->setObject(CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemThemeClassic.png").c_str(), NULL), "classic");
+			}
+			
+			if(!mBox)
+			{
+				MenuGridContainer* mb = new MenuGridContainer();
+				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuThemeBoxSize"));
+				mb->setPosition(center);
+				mb->setAnchorPoint(ccp(0.5f, 0.5f));
+				mb->setMargin(CCSizeMake(50, 50));
+				mb->setGridSize(ccg(2, 2));
+				mb->setPage(0);
+				mb->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
+				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mb->setTitle("Themes");
+				
+				CCArray* items = CCArray::array();
+				
+				std::vector<std::string> sTheme = themes->allKeys();
+				for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
+				{
+					CCMenuItemImage* mItem = themes->objectForKey(*it);
+					items->addObject(mItem);
+				}
 				
 				mb->setItems(items);
 				mb->layout();

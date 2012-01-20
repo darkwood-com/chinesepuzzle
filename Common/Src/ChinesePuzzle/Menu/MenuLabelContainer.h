@@ -1,5 +1,5 @@
 /**
- *  MenuBox.h
+ *  MenuLabelContainer.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,47 +22,39 @@
  *
  */
 
-#ifndef __MENU_BOX_H__
-#define __MENU_BOX_H__
+#ifndef __MENU_LABEL_CONTAINER_H__
+#define __MENU_LABEL_CONTAINER_H__
 
-#import "cocos2d.h"
-#include "DecoratedBox.h"
+#include "MenuBox.h"
+#include "MenuLabel.h"
 
-class CC_DLL MenuBox : public cocos2d::CCNode, public cocos2d::CCTouchDelegate
+class CC_DLL MenuLabelContainer : public MenuBox
 {
 protected:
 	//display
-	DecoratedBox* bg; //background
-	cocos2d::CCMenuItemImage* validBtn; //valid button
-	cocos2d::CCLabelBMFont* titleLabel; //title
-	
-	cocos2d::tCCMenuState m_eState;
-	cocos2d::CCMenuItem* itemForTouch(cocos2d::CCTouch* touch);
-	cocos2d::CCMenuItem* m_pSelectedItem;
+	MenuLabel* container; //container
 public:
-	MenuBox();
-	virtual ~MenuBox();
+	MenuLabelContainer();
+	virtual ~MenuLabelContainer();
 	
-	virtual bool init();
-	virtual bool initWithContentSize(const cocos2d::CCSize& size);
-	virtual bool initWithResolution(const char* resolution);
-	virtual bool initWithResolutionAndContentSize(const char* resolution, const cocos2d::CCSize& size);
+	virtual bool initWithResolutionAndContentSizeAndFntFile(const char* resolution, const cocos2d::CCSize& size, const char *fntFile);
 	
-	virtual void setTitle(const char* title);
-	virtual const char* getTitle(void);
+	virtual void setString(const char *str);
+	virtual const char* getString(void);
+	virtual void setWidth(float width);
+	virtual float getWidth();
+	virtual void setAlign(cocos2d::CCLabelBMFontMultilineAlignment align);
+	virtual cocos2d::CCLabelBMFontMultilineAlignment getAlign();
 	
-	virtual void setContentSize(const cocos2d::CCSize& size);
+	CC_PROPERTY(cocos2d::CCSize, margin, Margin);
 	
+public:
 	virtual void layout();
-	
-	virtual void setOkTarget(cocos2d::SelectorProtocol *rec, cocos2d::SEL_MenuHandler selector);
 	
 	virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
-	
-	CC_PROPERTY(cocos2d::CCArray*, items, Items);
 };
 
-#endif // __MENU_BOX_H__
+#endif // __MENU_LABEL_CONTAINER_H__

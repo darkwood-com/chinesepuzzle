@@ -11,8 +11,6 @@
 		C30A610714B1FAF5007D3BDE /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F114B1FAF5007D3BDE /* GameScene.cpp */; };
 		C30A610814B1FAF5007D3BDE /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F414B1FAF5007D3BDE /* Menu.cpp */; };
 		C30A610914B1FAF5007D3BDE /* MenuBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F614B1FAF5007D3BDE /* MenuBox.cpp */; };
-		C30A610A14B1FAF5007D3BDE /* MenuBoxContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60F814B1FAF5007D3BDE /* MenuBoxContainer.cpp */; };
-		C30A610B14B1FAF5007D3BDE /* MenuContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60FA14B1FAF5007D3BDE /* MenuContainer.cpp */; };
 		C30A610C14B1FAF5007D3BDE /* MenuLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */; };
 		C30A612214B1FB20007D3BDE /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611114B1FB20007D3BDE /* Card.cpp */; };
 		C30A612314B1FB20007D3BDE /* CardBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A611314B1FB20007D3BDE /* CardBoard.cpp */; };
@@ -24,6 +22,8 @@
 		C30A612914B1FB20007D3BDE /* GameLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A612014B1FB20007D3BDE /* GameLayout.cpp */; };
 		C31BB93214AECA210077D8FB /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93014AECA210077D8FB /* fps_images-hd.png */; };
 		C31BB93314AECA210077D8FB /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93114AECA210077D8FB /* fps_images.png */; };
+		C34C147714C86F76006A735C /* CCLabelBMFontMultiline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34C147514C86F76006A735C /* CCLabelBMFontMultiline.cpp */; };
+		C34C148014C87827006A735C /* MenuLabelContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34C147E14C87827006A735C /* MenuLabelContainer.cpp */; };
 		C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */; };
 		C355885C14ADF72500D549E4 /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C355885B14ADF72500D549E4 /* 480x320 */; };
 		C379409A14AA23A0005A2045 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379409914AA23A0005A2045 /* Cocoa.framework */; };
@@ -168,9 +168,11 @@
 		C39D80BC14B4B55200AA683C /* GameScene_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39D80BA14B4B55200AA683C /* GameScene_mac.cpp */; };
 		C39FE33814B34A4000F0EAF9 /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */; };
 		C3A88C9714BED5B600416D62 /* 1920x1200 in Resources */ = {isa = PBXBuildFile; fileRef = C3A88C9614BED5B600416D62 /* 1920x1200 */; };
+		C3AA40D914C9A83C003C2BB8 /* MenuGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D314C9A835003C2BB8 /* MenuGrid.cpp */; };
+		C3AA40DA14C9A83C003C2BB8 /* MenuGridContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D514C9A836003C2BB8 /* MenuGridContainer.cpp */; };
+		C3AA40DC14C9A9BB003C2BB8 /* MenuLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D714C9A839003C2BB8 /* MenuLabel.cpp */; };
 		C3E08E5514B4E2C700E3418B /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E08E5314B4E2C700E3418B /* Background.cpp */; };
 		C3E08E5814B5051900E3418B /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E08E5714B5051900E3418B /* bgPattern.png */; };
-		C3E71DEF14C57FA000F6F1D9 /* CCMenuItemBMFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E71DED14C57FA000F6F1D9 /* CCMenuItemBMFont.cpp */; };
 		C3E71DF214C583D300F6F1D9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3E71DF114C583D300F6F1D9 /* fonts */; };
 /* End PBXBuildFile section */
 
@@ -183,10 +185,6 @@
 		C30A60F514B1FAF5007D3BDE /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		C30A60F614B1FAF5007D3BDE /* MenuBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBox.cpp; sourceTree = "<group>"; };
 		C30A60F714B1FAF5007D3BDE /* MenuBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBox.h; sourceTree = "<group>"; };
-		C30A60F814B1FAF5007D3BDE /* MenuBoxContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBoxContainer.cpp; sourceTree = "<group>"; };
-		C30A60F914B1FAF5007D3BDE /* MenuBoxContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuBoxContainer.h; sourceTree = "<group>"; };
-		C30A60FA14B1FAF5007D3BDE /* MenuContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuContainer.cpp; sourceTree = "<group>"; };
-		C30A60FB14B1FAF5007D3BDE /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
 		C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLayout.cpp; sourceTree = "<group>"; };
 		C30A60FD14B1FAF5007D3BDE /* MenuLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayout.h; sourceTree = "<group>"; };
 		C30A611114B1FB20007D3BDE /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
@@ -208,6 +206,10 @@
 		C30A612114B1FB20007D3BDE /* GameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayout.h; sourceTree = "<group>"; };
 		C31BB93014AECA210077D8FB /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "../../Common/Bin/Data/fps_images-hd.png"; sourceTree = "<group>"; };
 		C31BB93114AECA210077D8FB /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = ../../Common/Bin/Data/fps_images.png; sourceTree = "<group>"; };
+		C34C147514C86F76006A735C /* CCLabelBMFontMultiline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLabelBMFontMultiline.cpp; sourceTree = "<group>"; };
+		C34C147614C86F76006A735C /* CCLabelBMFontMultiline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelBMFontMultiline.h; sourceTree = "<group>"; };
+		C34C147E14C87827006A735C /* MenuLabelContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLabelContainer.cpp; sourceTree = "<group>"; };
+		C34C147F14C87827006A735C /* MenuLabelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLabelContainer.h; sourceTree = "<group>"; };
 		C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
 		C355885B14ADF72500D549E4 /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../../Common/Bin/Data/480x320; sourceTree = "<group>"; };
 		C379409514AA23A0005A2045 /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -531,11 +533,15 @@
 		C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_mac.cpp; sourceTree = "<group>"; };
 		C39FE33714B34A4000F0EAF9 /* GameConfig_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig_mac.h; sourceTree = "<group>"; };
 		C3A88C9614BED5B600416D62 /* 1920x1200 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1200; path = ../../Common/Bin/Data/1920x1200; sourceTree = "<group>"; };
+		C3AA40D314C9A835003C2BB8 /* MenuGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuGrid.cpp; sourceTree = "<group>"; };
+		C3AA40D414C9A836003C2BB8 /* MenuGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuGrid.h; sourceTree = "<group>"; };
+		C3AA40D514C9A836003C2BB8 /* MenuGridContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuGridContainer.cpp; sourceTree = "<group>"; };
+		C3AA40D614C9A837003C2BB8 /* MenuGridContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuGridContainer.h; sourceTree = "<group>"; };
+		C3AA40D714C9A839003C2BB8 /* MenuLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLabel.cpp; sourceTree = "<group>"; };
+		C3AA40D814C9A83B003C2BB8 /* MenuLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLabel.h; sourceTree = "<group>"; };
 		C3E08E5314B4E2C700E3418B /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		C3E08E5414B4E2C700E3418B /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		C3E08E5714B5051900E3418B /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../../Common/Bin/Data/bgPattern.png; sourceTree = "<group>"; };
-		C3E71DED14C57FA000F6F1D9 /* CCMenuItemBMFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCMenuItemBMFont.cpp; sourceTree = "<group>"; };
-		C3E71DEE14C57FA000F6F1D9 /* CCMenuItemBMFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemBMFont.h; sourceTree = "<group>"; };
 		C3E71DF114C583D300F6F1D9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../Common/Bin/Data/fonts; sourceTree = "<group>"; };
 		C3E71DF914C816AE00F6F1D9 /* cpStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpStruct.h; sourceTree = "<group>"; };
 		C3F632FF14AF598500AA50B8 /* cpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMacro.h; sourceTree = "<group>"; };
@@ -564,10 +570,14 @@
 				C30A60F414B1FAF5007D3BDE /* Menu.cpp */,
 				C30A60F714B1FAF5007D3BDE /* MenuBox.h */,
 				C30A60F614B1FAF5007D3BDE /* MenuBox.cpp */,
-				C30A60F914B1FAF5007D3BDE /* MenuBoxContainer.h */,
-				C30A60F814B1FAF5007D3BDE /* MenuBoxContainer.cpp */,
-				C30A60FB14B1FAF5007D3BDE /* MenuContainer.h */,
-				C30A60FA14B1FAF5007D3BDE /* MenuContainer.cpp */,
+				C3AA40D414C9A836003C2BB8 /* MenuGrid.h */,
+				C3AA40D314C9A835003C2BB8 /* MenuGrid.cpp */,
+				C3AA40D614C9A837003C2BB8 /* MenuGridContainer.h */,
+				C3AA40D514C9A836003C2BB8 /* MenuGridContainer.cpp */,
+				C3AA40D814C9A83B003C2BB8 /* MenuLabel.h */,
+				C3AA40D714C9A839003C2BB8 /* MenuLabel.cpp */,
+				C34C147F14C87827006A735C /* MenuLabelContainer.h */,
+				C34C147E14C87827006A735C /* MenuLabelContainer.cpp */,
 				C30A60FD14B1FAF5007D3BDE /* MenuLayout.h */,
 				C30A60FC14B1FAF5007D3BDE /* MenuLayout.cpp */,
 			);
@@ -1304,8 +1314,8 @@
 		C39D80B214B471EE00AA683C /* cocos2dx */ = {
 			isa = PBXGroup;
 			children = (
-				C3E71DEE14C57FA000F6F1D9 /* CCMenuItemBMFont.h */,
-				C3E71DED14C57FA000F6F1D9 /* CCMenuItemBMFont.cpp */,
+				C34C147614C86F76006A735C /* CCLabelBMFontMultiline.h */,
+				C34C147514C86F76006A735C /* CCLabelBMFontMultiline.cpp */,
 				C39D80B314B471EF00AA683C /* CCReshapeDelegate.h */,
 				C39D80B514B49EC600AA683C /* CCReshapeDelegate.cpp */,
 			);
@@ -1526,8 +1536,6 @@
 				C30A610714B1FAF5007D3BDE /* GameScene.cpp in Sources */,
 				C30A610814B1FAF5007D3BDE /* Menu.cpp in Sources */,
 				C30A610914B1FAF5007D3BDE /* MenuBox.cpp in Sources */,
-				C30A610A14B1FAF5007D3BDE /* MenuBoxContainer.cpp in Sources */,
-				C30A610B14B1FAF5007D3BDE /* MenuContainer.cpp in Sources */,
 				C30A610C14B1FAF5007D3BDE /* MenuLayout.cpp in Sources */,
 				C30A612214B1FB20007D3BDE /* Card.cpp in Sources */,
 				C30A612314B1FB20007D3BDE /* CardBoard.cpp in Sources */,
@@ -1541,7 +1549,11 @@
 				C39D80B614B49EC600AA683C /* CCReshapeDelegate.cpp in Sources */,
 				C39D80BC14B4B55200AA683C /* GameScene_mac.cpp in Sources */,
 				C3E08E5514B4E2C700E3418B /* Background.cpp in Sources */,
-				C3E71DEF14C57FA000F6F1D9 /* CCMenuItemBMFont.cpp in Sources */,
+				C34C147714C86F76006A735C /* CCLabelBMFontMultiline.cpp in Sources */,
+				C34C148014C87827006A735C /* MenuLabelContainer.cpp in Sources */,
+				C3AA40D914C9A83C003C2BB8 /* MenuGrid.cpp in Sources */,
+				C3AA40DA14C9A83C003C2BB8 /* MenuGridContainer.cpp in Sources */,
+				C3AA40DC14C9A9BB003C2BB8 /* MenuLabel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

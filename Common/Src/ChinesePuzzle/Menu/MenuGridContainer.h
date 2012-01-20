@@ -1,5 +1,5 @@
 /**
- *  MenuBox.h
+ *  MenuGridContainer.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,47 +22,48 @@
  *
  */
 
-#ifndef __MENU_BOX_H__
-#define __MENU_BOX_H__
+#ifndef __MENU_GRID_CONTAINER_H__
+#define __MENU_GRID_CONTAINER_H__
 
-#import "cocos2d.h"
-#include "DecoratedBox.h"
+#include "MenuBox.h"
+#include "MenuGrid.h"
 
-class CC_DLL MenuBox : public cocos2d::CCNode, public cocos2d::CCTouchDelegate
+class CC_DLL MenuGridContainer : public MenuBox
 {
 protected:
 	//display
-	DecoratedBox* bg; //background
-	cocos2d::CCMenuItemImage* validBtn; //valid button
-	cocos2d::CCLabelBMFont* titleLabel; //title
-	
-	cocos2d::tCCMenuState m_eState;
-	cocos2d::CCMenuItem* itemForTouch(cocos2d::CCTouch* touch);
-	cocos2d::CCMenuItem* m_pSelectedItem;
+	MenuGrid* container; //container
 public:
-	MenuBox();
-	virtual ~MenuBox();
+	MenuGridContainer();
+	virtual ~MenuGridContainer();
 	
-	virtual bool init();
-	virtual bool initWithContentSize(const cocos2d::CCSize& size);
 	virtual bool initWithResolution(const char* resolution);
-	virtual bool initWithResolutionAndContentSize(const char* resolution, const cocos2d::CCSize& size);
 	
-	virtual void setTitle(const char* title);
-	virtual const char* getTitle(void);
+	virtual void setItems(cocos2d::CCArray* items);
+	virtual cocos2d::CCArray* getItems();
 	
-	virtual void setContentSize(const cocos2d::CCSize& size);
+	CC_PROPERTY(cocos2d::ccGridSize, gridSize, GridSize);
+	CC_PROPERTY(cocos2d::CCSize, margin, Margin);
 	
+	CC_PROPERTY(int, page, Page);
+	
+	/** Calibration property. Minimum moving touch length that is enough
+	 * to cancel menu items and start scrolling a layer. 
+	 */
+	CC_PROPERTY(cocos2d::CGFloat, m_fMinimumTouchLengthToSlide, MinimumTouchLengthToSlide)
+	
+	/** Calibration property. Minimum moving touch length that is enough to change
+	 * the page, without snapping back to the previous selected page.
+	 */
+	CC_PROPERTY(cocos2d::CGFloat, m_fMinimumTouchLengthToChangePage, MinimumTouchLengthToChangePage)
+	
+public:
 	virtual void layout();
-	
-	virtual void setOkTarget(cocos2d::SelectorProtocol *rec, cocos2d::SEL_MenuHandler selector);
 	
 	virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
-	
-	CC_PROPERTY(cocos2d::CCArray*, items, Items);
 };
 
-#endif // __MENU_BOX_H__
+#endif // __MENU_GRID_CONTAINER_H__
