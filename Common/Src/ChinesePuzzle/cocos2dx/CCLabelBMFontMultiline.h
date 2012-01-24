@@ -76,9 +76,9 @@ namespace cocos2d{
 		int substrlenInPixels(char *);
 
 		// super method
-		virtual void setString(const char *label);
+		virtual void setString(const char *str);
 		virtual const char* getString(void);
-        virtual void setCString(const char *label);
+        virtual void setCString(const char *str);
 		virtual void setAnchorPoint(const CCPoint& var);
 		
 #if CC_LABELBMFONT_DEBUG_DRAW

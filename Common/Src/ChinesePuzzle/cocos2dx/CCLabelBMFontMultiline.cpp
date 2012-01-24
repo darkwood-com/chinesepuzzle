@@ -78,9 +78,9 @@ namespace cocos2d{
 		return NULL;
 	}
 
-	bool CCLabelBMFontMultiline::initWithString(const char *theString, const char *fntFile, float width, CCLabelBMFontMultilineAlignment align)
+	bool CCLabelBMFontMultiline::initWithString(const char *str, const char *fntFile, float width, CCLabelBMFontMultilineAlignment align)
 	{
-		CCAssert(theString != NULL, "");
+		CCAssert(str != NULL, "");
 		CC_SAFE_RELEASE(m_pConfiguration);// allow re-init
 		m_pConfiguration = FNTConfigLoadFile(fntFile);
 		m_pConfiguration->retain();
@@ -90,14 +90,14 @@ namespace cocos2d{
 		m_width = width;
 		m_align = align;
 
-		if (CCSpriteBatchNode::initWithFile(m_pConfiguration->m_sAtlasName.c_str(), strlen(theString)))
+		if (CCSpriteBatchNode::initWithFile(m_pConfiguration->m_sAtlasName.c_str(), strlen(str)))
 		{
 			m_cOpacity = 255;
 			m_tColor = ccWHITE;
 			m_tContentSize = CCSizeZero;
 			m_bIsOpacityModifyRGB = m_pobTextureAtlas->getTexture()->getHasPremultipliedAlpha();
 			setAnchorPoint(ccp(0.5f, 0.5f));
-			this->setString(theString);
+			this->setString(str);
 			return true;
 		}
 		return false;
@@ -122,8 +122,42 @@ namespace cocos2d{
 		}
 		return ret;
 	}
+	
 	void CCLabelBMFontMultiline::createFontChars()
 	{
+		char tmpStr[4096]; memset(tmpStr, 0, 4096);
+		int lastSentence = 0, lastWord = 0, strLen = m_sString.size();
+		for (int i=0; i < strLen; ++i)
+		{
+			tmpStr[i] = m_sString[i];
+			if (m_sString[i] == ' ' || i == strLen - 1)
+			{
+				CCLabelBMFont* jopa = CCLabelBMFont::labelWithString(&tmpStr[lastSentence], m_sfntFile.c_str());
+				CCSize size = jopa->getContentSize();
+				if (size.width > m_width)
+				{
+					tmpStr[lastWord] = '\n';
+					lastSentence = lastWord + 1;
+				}
+				lastWord = i;
+			}
+		}
+		
+		if (m_pChildren && m_pChildren->count() != 0)
+		{
+            CCObject* child;
+            CCARRAY_FOREACH(m_pChildren, child)
+            {
+                CCNode* pNode = (CCNode*) child;
+                if (pNode)
+                {
+                    pNode->setIsVisible(false);
+                }
+            }
+		}
+		
+		//CCLog("%s", tmpStr);
+		
 		int nextFontPositionX = 0;
         int nextFontPositionY = 0;
 		unsigned short prev = -1;
@@ -135,8 +169,7 @@ namespace cocos2d{
         unsigned int totalHeight = 0;
 
         unsigned int quantityOfLines = 1;
-
-		unsigned int stringLen = m_sString.length();
+		unsigned int stringLen = strlen(tmpStr);
 
         if (0 == stringLen)
         {
@@ -145,7 +178,7 @@ namespace cocos2d{
 
         for (unsigned int i = 0; i < stringLen - 1; ++i)
         {
-            unsigned short c = m_sString[i];
+            unsigned short c = tmpStr[i];
             if (c == '\n')
             {
                 quantityOfLines++;
@@ -156,7 +189,7 @@ namespace cocos2d{
         nextFontPositionY = -(m_pConfiguration->m_uCommonHeight - m_pConfiguration->m_uCommonHeight * quantityOfLines);
 		for (unsigned int i= 0; i < stringLen; i++)
 		{
-			unsigned short c = m_sString[i];
+			unsigned short c = tmpStr[i];
 			CCAssert( c < kCCBMFontMaxChars, "LabelBMFont: character outside bounds");
 
             if (c == '\n')
@@ -166,12 +199,12 @@ namespace cocos2d{
 				else
 					if (m_align == CCLabelBMFontMultilineRightAlignment)
 					{
-						nextFontPositionX = m_width-substrlenInPixels(&m_sString[i+1]);
+						nextFontPositionX = m_width-substrlenInPixels(&tmpStr[i+1]);
 					}
 					else
 						if (m_align == CCLabelBMFontMultilineCenterAlignment)
 						{
-							nextFontPositionX = (m_width-substrlenInPixels(&m_sString[i+1]))/2;
+							nextFontPositionX = (m_width-substrlenInPixels(&tmpStr[i+1]))/2;
 						}
                 nextFontPositionY -= m_pConfiguration->m_uCommonHeight;
 
@@ -208,7 +241,7 @@ namespace cocos2d{
 			fontChar->setPositionInPixels( ccp( nextFontPositionX + fontDef.xOffset + fontDef.rect.size.width / 2.0f + kerningAmount,
 				                                (float) nextFontPositionY + yOffset - rect.size.height/2.0f ) );		
 
-			//CCLog("position.y: %f", fontChar->getPosition().y);
+			//CCLog("%c %d : (%f,%f)", c, i, fontChar->getPosition().x, fontChar->getPosition().y);
 
 			// update kerning
 			nextFontPositionX += m_pConfiguration->m_pBitmapFontArray[c].xAdvance + kerningAmount;
@@ -260,61 +293,9 @@ namespace cocos2d{
 	}
 
 	//LabelBMFont - CCLabelProtocol protocol
-	void CCLabelBMFontMultiline::setString(const char *newString)
+	void CCLabelBMFontMultiline::setString(const char *str)
 	{
-		int lastInsertedWord=0, prev_cnt=0;
-		
-		char tempstr[4096]; memset(tempstr, 0, 4096);
-		int cnt=0;
-		for (int i=0; i < strlen(newString); ++i)
-		{
-			if (newString[i] == ' ' || newString[i] == ',' || newString[i] == '.' || newString[i] == '!' || newString[i] == '?')
-			{
-				CCLabelBMFont * jopa = CCLabelBMFont::labelWithString(tempstr, m_sfntFile.c_str());
-				CCSize size = jopa->getContentSize();
-				if (size.width < m_width)
-				{
-					lastInsertedWord = i;
-					prev_cnt = cnt;
-					tempstr[cnt++] = newString[i];
-					tempstr[cnt] = '\0';
-				}
-				else if (newString[lastInsertedWord] == ' ')
-				{
-					tempstr[prev_cnt] = '\n';
-					tempstr[cnt++] = newString[i];
-					tempstr[cnt] = '\0';
-				}
-				else
-				{
-					memcpy(&tempstr[prev_cnt+2], newString, i-lastInsertedWord);
-					tempstr[prev_cnt+1] = '\n';
-					cnt+=2;
-				}
-			}
-			else
-			{
-				tempstr[cnt++] = newString[i];
-				tempstr[cnt] = '\0';
-			}
-		}
-		
-		m_sString.clear();
-		m_sString = tempstr;
-		
-
-		if (m_pChildren && m_pChildren->count() != 0)
-		{
-            CCObject* child;
-            CCARRAY_FOREACH(m_pChildren, child)
-            {
-                CCNode* pNode = (CCNode*) child;
-                if (pNode)
-                {
-                    pNode->setIsVisible(false);
-                }
-            }
-		}
+		m_sString = str;
 		this->createFontChars();
 	}
 	
@@ -323,9 +304,9 @@ namespace cocos2d{
 		return m_sString.c_str();
 	}
 	
-    void CCLabelBMFontMultiline::setCString(const char *label)
+    void CCLabelBMFontMultiline::setCString(const char *str)
     {
-        setString(label);
+        setString(str);
     }
 	
 	//LabelBMFont - CCRGBAProtocol protocol

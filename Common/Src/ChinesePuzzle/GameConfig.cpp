@@ -43,8 +43,8 @@ GameConfigCommon::~GameConfigCommon()
 
 bool GameConfigCommon::init()
 {
-	//this->resolution = std::string("480x320");
-	this->resolution = std::string("1920x1200");
+	this->resolution = std::string("480x320");
+	//this->resolution = std::string("1920x1200");
 	this->theme = std::string("classic");
 	this->isSoundOn = true;
 	
