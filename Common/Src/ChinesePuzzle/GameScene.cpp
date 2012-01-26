@@ -49,12 +49,13 @@ bool GameSceneCommon::init()
 	
 	this->conf = new GameConfig();
 	this->conf->init();
+	this->conf->load();
 	
 	pGame = NULL;
 	pMenu = NULL;
 	
 	this->game();
-	this->newGame(); //start a new game!!
+	this->newGame();
 	
 	return true;
 }

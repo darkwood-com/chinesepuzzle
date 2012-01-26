@@ -133,13 +133,17 @@ Archivist::Object GameConfigCommon::Encode( void ) const
 	data["moves"] = Archivist::Encode(*moves);
 	
 	Archivist::Array board;
-	for(Board::const_iterator it = initBoard->begin(); it != initBoard->end(); ++it)
+	initBoard->begin();
+	GridCoord gridKey;
+	CardPlay* cardValue = NULL;
+	while((cardValue = initBoard->next(&gridKey)))
 	{
 		Archivist::Object coordCard;
-		coordCard["coord"] = Archivist::Encode(it->first);
-		coordCard["card"] = Archivist::Encode(CardPlayStruct(it->second));
+		coordCard["coord"] = Archivist::Encode(gridKey);
+		coordCard["card"] = Archivist::Encode(CardPlayStruct(cardValue));
 		board.Insert(coordCard);
 	}
+	initBoard->end();
 	data["board"] = board;
 	
 	return data;
@@ -148,13 +152,17 @@ Archivist::Object GameConfigCommon::Encode( void ) const
 void GameConfigCommon::Decode( const Archivist::Object & data )
 {
 	std::multimap<CardPlayStruct,CardPlay*> mapCard; //keep card instance comparison with card pointer
-	for(Board::const_iterator it = initBoard->begin(); it != initBoard->end(); ++it)
+	initBoard->begin();
+	GridCoord gridKey;
+	CardPlay* cardValue = NULL;
+	while((cardValue = initBoard->next(&gridKey)))
 	{
-		mapCard.insert(std::pair<CardPlayStruct, CardPlay*>(CardPlayStruct(it->second), it->second));
+		mapCard.insert(std::pair<CardPlayStruct, CardPlay*>(CardPlayStruct(cardValue), cardValue));
 	}
+	initBoard->end();
 	
 	moves->clear();
-	initBoard->clear();
+	initBoard->removeAllObjects();
 	
 	Archivist::Decode(data["resolution"], resolution);
 	Archivist::Decode(data["theme"], theme);
@@ -169,9 +177,12 @@ void GameConfigCommon::Decode( const Archivist::Object & data )
 		CardPlayStruct card; Archivist::Decode(coordCard["card"], card);
 		
 		std::map<CardPlayStruct,CardPlay*>::iterator mapIt = mapCard.find(card);
-		if(mapIt != mapCard.end())
+		if(mapIt == mapCard.end())
 		{
-			(*initBoard)[coord] = mapIt->second;
+		}
+		else
+		{
+			initBoard->setObject(mapIt->second, coord);
 			mapCard.erase(mapIt);
 		}
 	}
@@ -190,7 +201,8 @@ bool GameConfigCommon::load()
 	if(data.Type() != Archivist::Type::Null)
 	{
 		this->Decode(data);
+		return true;
 	}
 	
-	return true;
+	return false;
 }

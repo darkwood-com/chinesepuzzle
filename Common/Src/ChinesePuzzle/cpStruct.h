@@ -66,7 +66,7 @@ struct MoveCoord {
 };
 
 typedef std::vector<MoveCoord> Moves;
-typedef std::map<GridCoord, CardPlay*> Board;
+typedef cocos2d::CCMutableDictionary<GridCoord, CardPlay*> Board;
 
 #endif // __CP_STRUCT_H__
 

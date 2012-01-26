@@ -166,7 +166,7 @@ void Game::newGame()
 					card->setPosition(gl->getPositionInBoardPoint(coord));
 				}
 				
-				(*gs->getConf()->getInitBoard())[coord] = card;
+				gs->getConf()->getInitBoard()->setObject(card, coord);
 			}
 		}
 	}
@@ -183,11 +183,16 @@ void Game::retryGame()
 		board[i][0] = boardCards[i];
 	}
 	
-	for(Board::iterator it = gs->getConf()->getInitBoard()->begin(); it != gs->getConf()->getInitBoard()->end(); ++it)
+	Board* initBoard = gs->getConf()->getInitBoard();
+	initBoard->begin();
+	GridCoord gridKey;
+	CardPlay* cardValue = NULL;
+	while((cardValue = initBoard->next(&gridKey)))
 	{
-		board[it->first.i][it->first.j] = it->second;
-		it->second->setIsLocked(false);
+		board[gridKey.i][gridKey.j] = cardValue;
+		cardValue->setIsLocked(false);
 	}
+	initBoard->end();
 	
 	gs->getConf()->getMoves()->clear();
 	
