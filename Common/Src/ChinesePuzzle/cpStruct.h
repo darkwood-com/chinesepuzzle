@@ -29,8 +29,9 @@
 
 #include <vector>
 #include <map>
+#include "Archivist.h"
 
-class Card;
+class CardPlay;
 
 struct GridCoord {
 	int i;
@@ -40,15 +41,32 @@ struct GridCoord {
 	{
 		return i < g.i || (i == g.i && j < g.j);
 	}
+	
+	ArchiveAttributes( i, j );
 };
 
 struct MoveCoord {
 	GridCoord from;
 	GridCoord to;
+	
+	Archivist::Object Encode( void ) const
+	{
+		Archivist::Object data;
+		data["from"] = Archivist::Encode(from);
+		data["to"] = Archivist::Encode(to);
+		
+		return data;
+	}
+	
+	void Decode( const Archivist::Object & data )
+	{
+		Archivist::Decode(data["from"], from);
+		Archivist::Decode(data["to"], to);
+	}
 };
 
 typedef std::vector<MoveCoord> Moves;
-typedef std::map<GridCoord, Card*> Board;
+typedef std::map<GridCoord, CardPlay*> Board;
 
 #endif // __CP_STRUCT_H__
 

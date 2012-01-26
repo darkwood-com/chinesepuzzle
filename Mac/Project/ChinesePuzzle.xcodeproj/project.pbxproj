@@ -26,6 +26,13 @@
 		C34C148014C87827006A735C /* MenuLabelContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34C147E14C87827006A735C /* MenuLabelContainer.cpp */; };
 		C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */; };
 		C355885C14ADF72500D549E4 /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C355885B14ADF72500D549E4 /* 480x320 */; };
+		C365A6B114D0161000139DD5 /* Archive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A68114D0161000139DD5 /* Archive.cpp */; };
+		C365A6B214D0161000139DD5 /* Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A68614D0161000139DD5 /* Array.cpp */; };
+		C365A6B414D0161000139DD5 /* Null.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A68F14D0161000139DD5 /* Null.cpp */; };
+		C365A6B514D0161000139DD5 /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A69114D0161000139DD5 /* Object.cpp */; };
+		C365A6B614D0161000139DD5 /* StreamReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A69414D0161000139DD5 /* StreamReader.cpp */; };
+		C365A6B714D0161000139DD5 /* StreamWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A69614D0161000139DD5 /* StreamWriter.cpp */; };
+		C365A6B814D0161000139DD5 /* Unknown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A69814D0161000139DD5 /* Unknown.cpp */; };
 		C379409A14AA23A0005A2045 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379409914AA23A0005A2045 /* Cocoa.framework */; };
 		C37940D214AA25A0005A2045 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C37940CD14AA25A0005A2045 /* Credits.rtf */; };
 		C37940D314AA25A0005A2045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37940CE14AA25A0005A2045 /* InfoPlist.strings */; };
@@ -212,6 +219,32 @@
 		C34C147F14C87827006A735C /* MenuLabelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLabelContainer.h; sourceTree = "<group>"; };
 		C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
 		C355885B14ADF72500D549E4 /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../../Common/Bin/Data/480x320; sourceTree = "<group>"; };
+		C365A68014D0161000139DD5 /* Archivable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Archivable.h; sourceTree = "<group>"; };
+		C365A68114D0161000139DD5 /* Archive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Archive.cpp; sourceTree = "<group>"; };
+		C365A68214D0161000139DD5 /* Archive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Archive.h; sourceTree = "<group>"; };
+		C365A68314D0161000139DD5 /* Archivist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Archivist.h; sourceTree = "<group>"; };
+		C365A68414D0161000139DD5 /* ArchivistCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivistCore.h; sourceTree = "<group>"; };
+		C365A68514D0161000139DD5 /* ArchivistMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchivistMore.h; sourceTree = "<group>"; };
+		C365A68614D0161000139DD5 /* Array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Array.cpp; sourceTree = "<group>"; };
+		C365A68714D0161000139DD5 /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
+		C365A68814D0161000139DD5 /* Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attributes.h; sourceTree = "<group>"; };
+		C365A68A14D0161000139DD5 /* Decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decode.h; sourceTree = "<group>"; };
+		C365A68B14D0161000139DD5 /* Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encode.h; sourceTree = "<group>"; };
+		C365A68C14D0161000139DD5 /* Enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enum.h; sourceTree = "<group>"; };
+		C365A68D14D0161000139DD5 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		C365A68E14D0161000139DD5 /* Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Internal.h; sourceTree = "<group>"; };
+		C365A68F14D0161000139DD5 /* Null.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Null.cpp; sourceTree = "<group>"; };
+		C365A69014D0161000139DD5 /* Null.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Null.h; sourceTree = "<group>"; };
+		C365A69114D0161000139DD5 /* Object.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
+		C365A69214D0161000139DD5 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		C365A69314D0161000139DD5 /* Primitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primitive.h; sourceTree = "<group>"; };
+		C365A69414D0161000139DD5 /* StreamReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamReader.cpp; sourceTree = "<group>"; };
+		C365A69514D0161000139DD5 /* StreamReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamReader.h; sourceTree = "<group>"; };
+		C365A69614D0161000139DD5 /* StreamWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamWriter.cpp; sourceTree = "<group>"; };
+		C365A69714D0161000139DD5 /* StreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamWriter.h; sourceTree = "<group>"; };
+		C365A69814D0161000139DD5 /* Unknown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Unknown.cpp; sourceTree = "<group>"; };
+		C365A69914D0161000139DD5 /* Unknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unknown.h; sourceTree = "<group>"; };
+		C365A69A14D0161000139DD5 /* Visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Visitor.h; sourceTree = "<group>"; };
 		C379409514AA23A0005A2045 /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C379409914AA23A0005A2045 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C379409C14AA23A0005A2045 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -608,6 +641,47 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		C365A67114D0160F00139DD5 /* Archivist */ = {
+			isa = PBXGroup;
+			children = (
+				C365A67F14D0161000139DD5 /* Source */,
+			);
+			path = Archivist;
+			sourceTree = "<group>";
+		};
+		C365A67F14D0161000139DD5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C365A68014D0161000139DD5 /* Archivable.h */,
+				C365A68114D0161000139DD5 /* Archive.cpp */,
+				C365A68214D0161000139DD5 /* Archive.h */,
+				C365A68314D0161000139DD5 /* Archivist.h */,
+				C365A68414D0161000139DD5 /* ArchivistCore.h */,
+				C365A68514D0161000139DD5 /* ArchivistMore.h */,
+				C365A68614D0161000139DD5 /* Array.cpp */,
+				C365A68714D0161000139DD5 /* Array.h */,
+				C365A68814D0161000139DD5 /* Attributes.h */,
+				C365A68A14D0161000139DD5 /* Decode.h */,
+				C365A68B14D0161000139DD5 /* Encode.h */,
+				C365A68C14D0161000139DD5 /* Enum.h */,
+				C365A68D14D0161000139DD5 /* Exception.h */,
+				C365A68E14D0161000139DD5 /* Internal.h */,
+				C365A68F14D0161000139DD5 /* Null.cpp */,
+				C365A69014D0161000139DD5 /* Null.h */,
+				C365A69114D0161000139DD5 /* Object.cpp */,
+				C365A69214D0161000139DD5 /* Object.h */,
+				C365A69314D0161000139DD5 /* Primitive.h */,
+				C365A69414D0161000139DD5 /* StreamReader.cpp */,
+				C365A69514D0161000139DD5 /* StreamReader.h */,
+				C365A69614D0161000139DD5 /* StreamWriter.cpp */,
+				C365A69714D0161000139DD5 /* StreamWriter.h */,
+				C365A69814D0161000139DD5 /* Unknown.cpp */,
+				C365A69914D0161000139DD5 /* Unknown.h */,
+				C365A69A14D0161000139DD5 /* Visitor.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		C379408A14AA239F005A2045 = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +799,7 @@
 		C37942E314AA2DBF005A2045 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				C365A67114D0160F00139DD5 /* Archivist */,
 				C37942E414AA2DBF005A2045 /* ChipmunkDraw */,
 				C37942E714AA2DBF005A2045 /* Cocos2Dx */,
 				C37953D414AA2DC2005A2045 /* DecoratedBox */,
@@ -1554,6 +1629,13 @@
 				C3AA40D914C9A83C003C2BB8 /* MenuGrid.cpp in Sources */,
 				C3AA40DA14C9A83C003C2BB8 /* MenuGridContainer.cpp in Sources */,
 				C3AA40DC14C9A9BB003C2BB8 /* MenuLabel.cpp in Sources */,
+				C365A6B114D0161000139DD5 /* Archive.cpp in Sources */,
+				C365A6B214D0161000139DD5 /* Array.cpp in Sources */,
+				C365A6B414D0161000139DD5 /* Null.cpp in Sources */,
+				C365A6B514D0161000139DD5 /* Object.cpp in Sources */,
+				C365A6B614D0161000139DD5 /* StreamReader.cpp in Sources */,
+				C365A6B714D0161000139DD5 /* StreamWriter.cpp in Sources */,
+				C365A6B814D0161000139DD5 /* Unknown.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

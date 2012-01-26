@@ -26,6 +26,7 @@
 #define __CARDPLAY_H__
 
 #include "Card.h"
+#include "Archivist.h"
 
 typedef enum {
 	CardPlayColorSpade,
@@ -88,6 +89,11 @@ public:
 	CC_SYNTHESIZE(bool, isLocked, IsLocked); //flag that tels if the CardPlay is well placed
 	CC_PROPERTY(bool, isFaceUp, IsFaceUp);
 	void setIsFaceUp(bool isFaceUp, bool force);
+	
+	static std::string matchColor(CardPlayColor color);
+	static CardPlayColor matchColor(std::string color);
+	static std::string matchRank(CardPlayRank rank);
+	static CardPlayRank matchRank(std::string rank);
 };
 
 #endif // __CARDPLAY_H__

@@ -28,8 +28,11 @@
 #include <stdio.h>
 #include "cpMacro.h"
 #include "cpStruct.h"
+#include "Archivist.h"
 
 class Card;
+
+#define XML_FILE_NAME "chinesePuzzleConf.plist"
 
 class CC_DLL GameConfigCommon : public cocos2d::CCObject
 {
@@ -50,6 +53,12 @@ public:
 	CC_SYNTHESIZE(bool, isSoundOn, IsSoundOn);
 	CC_SYNTHESIZE_READONLY(Moves*, moves, Moves); //log moves history
 	CC_SYNTHESIZE_READONLY(Board*, initBoard, InitBoard); //board[8][14] when starting a new game
+	
+	virtual Archivist::Object Encode( void ) const;
+	virtual void Decode( const Archivist::Object & data );
+
+	bool save();
+	bool load();
 };
 
 #include CP_PLATFORM(GameConfig)

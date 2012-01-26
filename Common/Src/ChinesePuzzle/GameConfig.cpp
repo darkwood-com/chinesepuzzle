@@ -25,6 +25,7 @@
 #include "GameConfig.h"
 
 #include <stdio.h>
+#include "CardPlay.h"
 
 using namespace cocos2d;
 
@@ -83,3 +84,113 @@ std::string GameConfigCommon::getFontPath(const char* file)
 	return std::string("fonts/") + file;
 }
 
+struct CardPlayStruct {
+	CardPlayColor color;
+	CardPlayRank rank;
+	
+	CardPlayStruct() :
+	color(CardPlayColorSpade),
+	rank(CardPlayRankAce)
+	{
+	}
+	
+	CardPlayStruct(CardPlay* card)
+	{
+		color = card->getColor();
+		rank = card->getRank();
+	}
+	
+	bool operator<( const CardPlayStruct & c ) const
+	{
+		return color < c.color || (color == c.color && rank < c.rank);
+	}
+	
+	virtual Archivist::Object Encode( void ) const
+	{
+		Archivist::Object data;
+		data["color"] = Archivist::Encode(CardPlay::matchColor(color));
+		data["rank"] = Archivist::Encode(CardPlay::matchRank(rank));
+		return data;
+	}
+	
+	virtual void Decode( const Archivist::Object & data )
+	{
+		std::string sColor, sRank;
+		Archivist::Decode(data["color"], sColor);
+		Archivist::Decode(data["rank"], sRank);
+		
+		color = CardPlay::matchColor(sColor);
+		rank = CardPlay::matchRank(sRank);
+	}
+};
+
+Archivist::Object GameConfigCommon::Encode( void ) const
+{
+	Archivist::Object data;
+	data["resolution"] = Archivist::Encode(resolution);
+	data["theme"] = Archivist::Encode(theme);
+	data["isSoundOn"] = Archivist::Encode(isSoundOn);
+	data["moves"] = Archivist::Encode(*moves);
+	
+	Archivist::Array board;
+	for(Board::const_iterator it = initBoard->begin(); it != initBoard->end(); ++it)
+	{
+		Archivist::Object coordCard;
+		coordCard["coord"] = Archivist::Encode(it->first);
+		coordCard["card"] = Archivist::Encode(CardPlayStruct(it->second));
+		board.Insert(coordCard);
+	}
+	data["board"] = board;
+	
+	return data;
+}
+
+void GameConfigCommon::Decode( const Archivist::Object & data )
+{
+	std::multimap<CardPlayStruct,CardPlay*> mapCard; //keep card instance comparison with card pointer
+	for(Board::const_iterator it = initBoard->begin(); it != initBoard->end(); ++it)
+	{
+		mapCard.insert(std::pair<CardPlayStruct, CardPlay*>(CardPlayStruct(it->second), it->second));
+	}
+	
+	moves->clear();
+	initBoard->clear();
+	
+	Archivist::Decode(data["resolution"], resolution);
+	Archivist::Decode(data["theme"], theme);
+	Archivist::Decode(data["isSoundOn"], isSoundOn);
+	Archivist::Decode(data["moves"], *moves);
+	
+	Archivist::Array board = data["board"];
+	for (Archivist::Array::ConstIterator it = board.Begin(); it != board.End(); ++it)
+	{
+		Archivist::Object coordCard = *it;
+		GridCoord coord; Archivist::Decode(coordCard["coord"], coord);
+		CardPlayStruct card; Archivist::Decode(coordCard["card"], card);
+		
+		std::map<CardPlayStruct,CardPlay*>::iterator mapIt = mapCard.find(card);
+		if(mapIt != mapCard.end())
+		{
+			(*initBoard)[coord] = mapIt->second;
+			mapCard.erase(mapIt);
+		}
+	}
+}
+
+bool GameConfigCommon::save()
+{
+	Archivist::Archive::Save(CCFileUtils::getWriteablePath() + XML_FILE_NAME, this->Encode());
+	
+	return true;
+}
+
+bool GameConfigCommon::load()
+{
+	Archivist::Unknown data = Archivist::Archive::Load(CCFileUtils::getWriteablePath() + XML_FILE_NAME);
+	if(data.Type() != Archivist::Type::Null)
+	{
+		this->Decode(data);
+	}
+	
+	return true;
+}
