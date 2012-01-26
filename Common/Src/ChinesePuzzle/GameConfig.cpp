@@ -179,6 +179,11 @@ void GameConfigCommon::Decode( const Archivist::Object & data )
 		std::map<CardPlayStruct,CardPlay*>::iterator mapIt = mapCard.find(card);
 		if(mapIt == mapCard.end())
 		{
+			CardPlay* cardInstance = CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(resolution.c_str(),
+																							  theme.c_str(),
+																							  card.color,
+																							  card.rank);
+			initBoard->setObject(cardInstance, coord);
 		}
 		else
 		{

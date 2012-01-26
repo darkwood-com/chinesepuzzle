@@ -55,7 +55,6 @@ bool GameSceneCommon::init()
 	pMenu = NULL;
 	
 	this->game();
-	this->newGame();
 	
 	return true;
 }

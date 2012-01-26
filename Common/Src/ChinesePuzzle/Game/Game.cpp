@@ -71,20 +71,29 @@ bool Game::init(GameSceneCommon* gs)
 	this->gl = new GameLayout(this);
 	this->setIsTouchEnabled(true);
 	
-	this->layout();
 	
-	this->schedule(schedule_selector(Game::step));
+	//init cards
+	GameConfig* conf = gs->getConf();
 	
-	return true;
-}
-
-void Game::newGame()
-{
-	bool isFirstGame = (deck.size() == 0);
-	if(isFirstGame)
+	for (int l = 0; l < 8; ++l)
 	{
-		GameConfig* conf = gs->getConf();
+		CardBoard* card = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+		this->addChild(card, GameZOrderCard);
+		gc->addCard(card);
+		boardCards.push_back(card);
 		
+		GridCoord coord;
+		coord.i = l;
+		coord.j = 0;
+		
+		board[coord.i][coord.j] = card;
+		card->setPosition(gl->getPositionInBoardPoint(coord));
+	}
+	
+	gl->layout();
+	Board* initBoard = gs->getConf()->getInitBoard();
+	if(initBoard->count() == 0)
+	{
 		//create deck
 		std::vector<CardPlayColor> colors;
 		colors.push_back(CardPlayColorSpade);
@@ -124,18 +133,64 @@ void Game::newGame()
 			}
 		}
 		
-		for (int l = 0; l < 8; ++l)
+		std::random_shuffle(deck.begin(), deck.end());
+		
+		int k = 0;
+		for(int i = 0; i < 8; ++i)
 		{
-			CardBoard* card = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
-			this->addChild(card, GameZOrderCard);
-			gc->addCard(card);
-			boardCards.push_back(card);
+			for(int j = 1; j < 14; ++j)
+			{
+				GridCoord coord;
+				coord.i = i;
+				coord.j = j;
+				
+				CardPlay* card = deck[k++];
+				card->setIsLocked(false);
+				
+				board[i][j] = card;
+				
+				//card position
+				card->setPosition(gl->getPositionInBoardPoint(coord));
+				
+				gs->getConf()->getInitBoard()->setObject(card, coord);
+			}
 		}
 	}
+	else
+	{
+		//load conf state
+		initBoard->begin();
+		GridCoord coord;
+		CardPlay* card = NULL;
+		while((card = initBoard->next(&coord)))
+		{
+			this->addChild(card, GameZOrderCard);
+			gc->addCard(card);
+			deck.push_back(card);
+			
+			card->setIsLocked(false);
+			
+			board[coord.i][coord.j] = card;
+			
+			//card position
+			card->setPosition(gl->getPositionInBoardPoint(coord));
+		}
+		initBoard->end();
+	}
+	
+	this->layout();
+	
+	this->schedule(schedule_selector(Game::step));
+	
+	return true;
+}
+
+void Game::newGame()
+{
+	std::random_shuffle(deck.begin(), deck.end());
 	
 	//assign random cards into the board
 	int k = 0, l = 0;
-	std::random_shuffle(deck.begin(), deck.end());
 	for(int i = 0; i < 8; ++i)
 	{
 		for(int j = 0; j < 14; ++j)
@@ -159,12 +214,6 @@ void Game::newGame()
 				card->setIsLocked(false);
 				
 				board[i][j] = card;
-				
-				//card position
-				if(isFirstGame)
-				{
-					card->setPosition(gl->getPositionInBoardPoint(coord));
-				}
 				
 				gs->getConf()->getInitBoard()->setObject(card, coord);
 			}
@@ -283,6 +332,8 @@ void Game::layout()
 				cardPlay->runAction(CCSequence::actionsWithArray(actions));
 			}
 		}
+		
+		this->lockLine(i);
 	}
 }
 
