@@ -59,6 +59,34 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
+		sRes = "1680x1050";
+		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
+		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
+		
+		sRes = "1920x1080";
+		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
+		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
+		
 		sRes = "1920x1200";
 		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);

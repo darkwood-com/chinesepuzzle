@@ -56,6 +56,7 @@ class CC_DLL CardPlayFlipAction : public cocos2d::CCFiniteTimeAction
 {
 protected:
 	CardPlay* cardPlay;
+	bool isFaceUp;
 	
 public:
 	static CardPlayFlipAction* actionWithCardPlay(CardPlay* cardPlay);

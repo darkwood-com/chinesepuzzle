@@ -60,14 +60,34 @@ static AppDelegate s_sharedApplication;
 	return [resolutions valueForKey:@"480x320"];
 }
 
-- (NSMenuItem*) resolution1920x1200
-{
-	return [resolutions valueForKey:@"1920x1200"];
-}
-
 - (void) setResolution480x320:(NSMenuItem*) item
 {
 	return [resolutions setValue:item forKey:@"480x320"];
+}
+
+- (NSMenuItem*) resolution1680x1050
+{
+	return [resolutions valueForKey:@"1680x1050"];
+}
+
+- (void) setResolution1680x1050:(NSMenuItem*) item
+{
+	return [resolutions setValue:item forKey:@"1680x1050"];
+}
+
+- (NSMenuItem*) resolution1920x1080
+{
+	return [resolutions valueForKey:@"1920x1080"];
+}
+
+- (void) setResolution1920x1080:(NSMenuItem*) item
+{
+	return [resolutions setValue:item forKey:@"1920x1080"];
+}
+
+- (NSMenuItem*) resolution1920x1200
+{
+	return [resolutions valueForKey:@"1920x1200"];
 }
 
 - (void) setResolution1920x1200:(NSMenuItem*) item

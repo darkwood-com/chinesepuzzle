@@ -34,6 +34,8 @@
 @property (assign) IBOutlet NSWindow *window;
 
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution480x320;
+@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1680x1050;
+@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1920x1080;
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution1920x1200;
 
 - (IBAction)changeResolution:(NSMenuItem*)sender;

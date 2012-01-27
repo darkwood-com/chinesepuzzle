@@ -42,6 +42,18 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		
 		std::string sRes;
 		
+		/*
+		 tmp : calc gridPosition : 
+		 - x : ( width  - (cs.x + ss.x ) * 14 ) / 2
+		 - y : ( height - (cs.y + ss.y ) * 8  ) / 2
+		 
+		 CCSize* cs = (CCSize*)(*datas)[sRes + "gridCardSize"];
+		 CCSize* ss = (CCSize*)(*datas)[sRes + "gridSpaceSize"];
+		 CCSize* gp = new CCSize(( 1730 - (cs->width  + ss->width  ) * 14 ) / 2,
+								 ( 1080 - (cs->height + ss->height ) * 8  ) / 2);
+		 CCLog("%f, %f", gp->width, gp->height);
+		 */
+		
 		sRes = "480x320";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(26,36);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(4, 4);
@@ -54,10 +66,34 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "soundBtn.png"] = new CCPoint(450,220);
 		(*datas)[sRes + "themeBtn.png"] = new CCPoint(450,140);
 		
+		sRes = "1680x1050";
+		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
+		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
+		(*datas)[sRes + "gridPosition"] = new CCSize(99, 55);
+		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(1590,960);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1590,786);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1590,612);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1590,438);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1590,264);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1590,90);
+		
+		sRes = "1920x1080";
+		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
+		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
+		(*datas)[sRes + "gridPosition"] = new CCSize(214, 60);
+		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,985);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,807);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,629);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1825,451);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1825,273);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1825,95);
+		
 		sRes = "1920x1200";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
-		(*datas)[sRes + "gridPosition"] = new CCSize(4, 0);
+		(*datas)[sRes + "gridPosition"] = new CCSize(214, 120);
 		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
 		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,1105);
 		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,903);

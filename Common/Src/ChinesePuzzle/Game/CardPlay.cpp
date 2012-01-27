@@ -42,13 +42,14 @@ CardPlayFlipAction* CardPlayFlipAction::actionWithCardPlay(CardPlay* cardPlay)
 bool CardPlayFlipAction::initWithCardPlay(CardPlay* cardPlay)
 {
 	this->cardPlay = cardPlay;
+	this->isFaceUp = cardPlay->getIsFaceUp();
 	
 	return true;
 }
 
 void CardPlayFlipAction::update(ccTime time)
 {
-	cardPlay->setIsFaceUp(!cardPlay->getIsFaceUp());
+	cardPlay->setIsFaceUp(!this->isFaceUp);
 }
 
 CCObject* CardPlayFlipAction::copyWithZone(CCZone *pZone)

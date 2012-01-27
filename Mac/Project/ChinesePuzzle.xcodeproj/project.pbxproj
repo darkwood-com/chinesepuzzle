@@ -22,6 +22,8 @@
 		C30A612914B1FB20007D3BDE /* GameLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C30A612014B1FB20007D3BDE /* GameLayout.cpp */; };
 		C31BB93214AECA210077D8FB /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93014AECA210077D8FB /* fps_images-hd.png */; };
 		C31BB93314AECA210077D8FB /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = C31BB93114AECA210077D8FB /* fps_images.png */; };
+		C32DC57A14D2F5890038FE44 /* 1920x1080 in Resources */ = {isa = PBXBuildFile; fileRef = C32DC57914D2F5890038FE44 /* 1920x1080 */; };
+		C32DC57D14D310680038FE44 /* 1680x1050 in Resources */ = {isa = PBXBuildFile; fileRef = C32DC57C14D310680038FE44 /* 1680x1050 */; };
 		C34C147714C86F76006A735C /* CCLabelBMFontMultiline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34C147514C86F76006A735C /* CCLabelBMFontMultiline.cpp */; };
 		C34C148014C87827006A735C /* MenuLabelContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34C147E14C87827006A735C /* MenuLabelContainer.cpp */; };
 		C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */; };
@@ -213,6 +215,8 @@
 		C30A612114B1FB20007D3BDE /* GameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayout.h; sourceTree = "<group>"; };
 		C31BB93014AECA210077D8FB /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "../../Common/Bin/Data/fps_images-hd.png"; sourceTree = "<group>"; };
 		C31BB93114AECA210077D8FB /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = ../../Common/Bin/Data/fps_images.png; sourceTree = "<group>"; };
+		C32DC57914D2F5890038FE44 /* 1920x1080 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1080; path = ../../Common/Bin/Data/1920x1080; sourceTree = "<group>"; };
+		C32DC57C14D310680038FE44 /* 1680x1050 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1680x1050; path = ../../Common/Bin/Data/1680x1050; sourceTree = "<group>"; };
 		C34C147514C86F76006A735C /* CCLabelBMFontMultiline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLabelBMFontMultiline.cpp; sourceTree = "<group>"; };
 		C34C147614C86F76006A735C /* CCLabelBMFontMultiline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelBMFontMultiline.h; sourceTree = "<group>"; };
 		C34C147E14C87827006A735C /* MenuLabelContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLabelContainer.cpp; sourceTree = "<group>"; };
@@ -750,6 +754,8 @@
 			isa = PBXGroup;
 			children = (
 				C355885B14ADF72500D549E4 /* 480x320 */,
+				C32DC57C14D310680038FE44 /* 1680x1050 */,
+				C32DC57914D2F5890038FE44 /* 1920x1080 */,
 				C3A88C9614BED5B600416D62 /* 1920x1200 */,
 				C3E71DF114C583D300F6F1D9 /* fonts */,
 				C31BB93014AECA210077D8FB /* fps_images-hd.png */,
@@ -1467,6 +1473,8 @@
 				C3E08E5814B5051900E3418B /* bgPattern.png in Resources */,
 				C3A88C9714BED5B600416D62 /* 1920x1200 in Resources */,
 				C3E71DF214C583D300F6F1D9 /* fonts in Resources */,
+				C32DC57A14D2F5890038FE44 /* 1920x1080 in Resources */,
+				C32DC57D14D310680038FE44 /* 1680x1050 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
