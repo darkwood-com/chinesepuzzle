@@ -152,7 +152,9 @@ bool Game::init(GameSceneCommon* gs)
 				//card position
 				card->setPosition(gl->getPositionInBoardPoint(coord));
 				
-				gs->getConf()->getInitBoard()->setObject(card, coord);
+				//save init position
+				initBoard->removeObjectForKey(coord);
+				initBoard->setObject(card, coord);
 			}
 		}
 	}
@@ -171,11 +173,32 @@ bool Game::init(GameSceneCommon* gs)
 			card->setIsLocked(false);
 			
 			board[coord.i][coord.j] = card;
-			
-			//card position
-			card->setPosition(gl->getPositionInBoardPoint(coord));
 		}
 		initBoard->end();
+		
+		std::vector<MoveCoord>* moves = gs->getConf()->getMoves();
+		for(std::vector<MoveCoord>::iterator it = moves->begin(); it != moves->end(); ++it)
+		{
+			Card* cSwitch = this->getCard(it->to);
+			board[it->to.i][it->to.j] = board[it->from.i][it->from.j];
+			board[it->from.i][it->from.j] = cSwitch;
+		}
+		
+		for(int i = 0; i < 8; ++i)
+		{
+			for(int j = 0; j < 14; ++j)
+			{
+				coord.i = i;
+				coord.j = j;
+				Card* card = this->getCard(coord);
+				
+				if(card)
+				{
+					//card position
+					card->setPosition(gl->getPositionInBoardPoint(coord));
+				}
+			}
+		}
 	}
 	
 	this->layout();
@@ -215,6 +238,8 @@ void Game::newGame()
 				
 				board[i][j] = card;
 				
+				//save init position
+				gs->getConf()->getInitBoard()->removeObjectForKey(coord);
 				gs->getConf()->getInitBoard()->setObject(card, coord);
 			}
 		}
@@ -223,6 +248,8 @@ void Game::newGame()
 	gs->getConf()->getMoves()->clear();
 	
 	this->layout();
+	
+	gs->getConf()->save(); //save conf state
 }
 
 void Game::retryGame()
@@ -246,6 +273,8 @@ void Game::retryGame()
 	gs->getConf()->getMoves()->clear();
 	
 	this->layout();
+	
+	gs->getConf()->save(); //save conf state
 }
 
 void Game::draw()
@@ -420,6 +449,7 @@ CheckMove Game::makeMoveCoord(const MoveCoord& move)
 		this->lockLine(move.to.i);
 		
 		gs->getConf()->getMoves()->push_back(move);
+		gs->getConf()->save(); //save conf state
 	}
 	else if(cFrom)
 	{
