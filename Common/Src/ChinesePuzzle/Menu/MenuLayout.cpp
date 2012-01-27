@@ -194,7 +194,7 @@ void MenuLayout::layout()
 				mb->setMargin(CCSizeMake(50, 50));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
 				mb->setTitle("Hint");
-				mb->setString("Chinese Puzzle is a solitaire card game which is similar to Gallery. Like that game, Chinese Puzzle uses two standard decks of cards, laid out in a tableau of eight rows. Also like Gallery, the goal is to lay move cards around in vacant spaces, so that they end up in a certain order.");
+				mb->setString("Chinese Puzzle is a two-deck solitaire card game in which your memory and familiarity with the rules are tested to the limit. The game laid out in a tableau of eight rows. The goal is to move cards around in vacant spaces, so that all rows end up in a same family-colored and sorted order from Ace to King. Ace cards can only be moved at the first column, then you can fill the vacant space by drag and dropping one of the two card from same family color and next rank to the left card. Not clear? Just make some moves and play the game, but be careful with Kings!");
 				mb->layout();
 				
 				mBox =  mb;
