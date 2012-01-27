@@ -117,9 +117,9 @@ CGFloat MenuGridContainer::getMinimumTouchLengthToChangePage()
 	return container->getMinimumTouchLengthToChangePage();
 }
 
-void MenuGridContainer::layout()
+void MenuGridContainer::layout(bool anim)
 {
-	MenuBox::layout();
+	MenuBox::layout(anim);
 	
 	CCSize size = this->getContentSize();
 	

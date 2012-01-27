@@ -124,10 +124,15 @@ void GameSceneCommon::setResolution(const std::string& resolution)
 	conf->setResolution(resolution);
 	this->setContentSize(conf->getResolutionSize());
 	
-	this->game()->layout();
+	this->game()->layout(false);
+	conf->save();
 }
 
 void GameSceneCommon::setTheme(const std::string& theme)
 {
+	conf->setTheme(theme);
+	if(pGame) pGame->layout();
+	if(pMenu) pMenu->layout();
 	
+	conf->save();
 }

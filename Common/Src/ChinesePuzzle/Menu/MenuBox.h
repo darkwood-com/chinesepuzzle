@@ -53,7 +53,7 @@ public:
 	
 	virtual void setContentSize(const cocos2d::CCSize& size);
 	
-	virtual void layout();
+	virtual void layout(bool anim = true);
 	
 	virtual void setOkTarget(cocos2d::SelectorProtocol *rec, cocos2d::SEL_MenuHandler selector);
 	

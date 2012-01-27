@@ -70,7 +70,7 @@ public:
 	GameLayout(Game* game);
 	virtual ~GameLayout();
 	
-	void layout();
+	void layout(bool anim = true);
 	
 	bool tapDownAt(cocos2d::CCPoint location);
 	bool tapMoveAt(cocos2d::CCPoint location);

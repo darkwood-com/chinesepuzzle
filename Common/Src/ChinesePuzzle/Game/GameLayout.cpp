@@ -84,6 +84,7 @@ void GameLayout::actionBtn(cocos2d::CCNode* btn)
 	else if(btn == undoBtn)
 	{
 		game->undoMove();
+		game->getGameScene()->getConf()->save();
 	}
 	else if(btn == hintBtn)
 	{
@@ -106,6 +107,7 @@ void GameLayout::actionBtn(cocos2d::CCNode* btn)
 		soundBtn->setTextureRect(rect);
 		
 		gc->setIsSoundOn(!gc->getIsSoundOn());
+		gc->save();
 	}
 	else if(btn == themeBtn)
 	{
@@ -135,7 +137,7 @@ GameLayout::~GameLayout()
 	activesBtn->release();
 }
 
-void GameLayout::layout()
+void GameLayout::layout(bool anim)
 {
 	GameConfig* gc = game->getGameScene()->getConf();
 	

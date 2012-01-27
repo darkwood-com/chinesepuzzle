@@ -250,7 +250,7 @@ void MenuGrid::setContentSize(const cocos2d::CCSize& size)
 	this->layout();
 }
 
-void MenuGrid::layout()
+void MenuGrid::layout(bool anim)
 {
 	CCSize size = this->getContentSize();
 	

@@ -146,7 +146,7 @@ void MenuBox::setContentSize(const cocos2d::CCSize& size)
 	this->layout();
 }
 
-void MenuBox::layout()
+void MenuBox::layout(bool anim)
 {
 	CCSize size = this->getContentSize();
 	

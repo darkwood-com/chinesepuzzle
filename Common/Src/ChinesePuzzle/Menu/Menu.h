@@ -49,8 +49,9 @@ public:
 	
 	virtual bool init(MenuInit init);
 	
-	void step(cocos2d::ccTime dt);
 	void draw();
+	void step(cocos2d::ccTime dt);
+	void layout(bool anim = true);
 	
 	void pushNav(MenuBox* mBox);
 	MenuBox* popNav();

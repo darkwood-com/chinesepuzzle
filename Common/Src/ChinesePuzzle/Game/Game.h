@@ -74,7 +74,7 @@ public:
 	void retryGame();
 	void draw();
 	void step(cocos2d::ccTime dt);
-	void layout();
+	void layout(bool anim = true);
 	
 	bool isBusy();
 	Card* getCard(GridCoord coord);

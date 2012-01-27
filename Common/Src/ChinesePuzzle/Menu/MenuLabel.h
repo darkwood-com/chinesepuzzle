@@ -60,7 +60,7 @@ public:
 	CC_SYNTHESIZE(cocos2d::CGFloat, m_fOffsetScroll, Scroll);
 	virtual void setContentSize(const cocos2d::CCSize& size);
 	
-	void layout();
+	void layout(bool anim = true);
 	virtual void visit(void);
 	
 public:

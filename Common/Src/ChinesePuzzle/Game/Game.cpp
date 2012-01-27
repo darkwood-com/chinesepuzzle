@@ -291,9 +291,9 @@ void Game::step(ccTime dt)
 	gc->step(dt);
 }
 
-void Game::layout()
+void Game::layout(bool anim)
 {
-	gl->layout();
+	gl->layout(anim);
 
 	GameConfig* conf = gs->getConf();
 	
@@ -344,21 +344,32 @@ void Game::layout()
 			}
 			else if(cardPlay)
 			{
-				//card animation
 				CCPoint coordPos = gl->getPositionInBoardPoint(coord);
-				CCArray* actions = CCArray::array();
-				actions->addObject(CCDelayTime::actionWithDuration(0.05 * (7 - coord.i + coord.j - 1)));
-				if(!CCPoint::CCPointEqualToPoint(cardPlay->getPosition(), coordPos))
+				if(anim)
 				{
-					actions->addObject(CCMoveTo::actionWithDuration(1.0f, coordPos));
+					//card animation
+					CCArray* actions = CCArray::array();
+					actions->addObject(CCDelayTime::actionWithDuration(0.05 * (7 - coord.i + coord.j - 1)));
+					if(!CCPoint::CCPointEqualToPoint(cardPlay->getPosition(), coordPos))
+					{
+						actions->addObject(CCMoveTo::actionWithDuration(1.0f, coordPos));
+					}
+					if(!cardPlay->getIsFaceUp())
+					{
+						actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 0, 90, 0, 0));
+						actions->addObject(CardPlayFlipAction::actionWithCardPlay(cardPlay));
+						actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 270, 90, 0, 0));
+					}
+					cardPlay->runAction(CCSequence::actionsWithArray(actions));
 				}
-				if(!cardPlay->getIsFaceUp())
+				else
 				{
-					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 0, 90, 0, 0));
-					actions->addObject(CardPlayFlipAction::actionWithCardPlay(cardPlay));
-					actions->addObject(CCOrbitCamera::actionWithDuration(0.1f, 1, 0, 270, 90, 0, 0));
+					cardPlay->setPosition(coordPos);
+					if(!cardPlay->getIsFaceUp())
+					{
+						cardPlay->setIsFaceUp(true);
+					}
 				}
-				cardPlay->runAction(CCSequence::actionsWithArray(actions));
 			}
 		}
 		

@@ -58,7 +58,7 @@ public:
 	CC_PROPERTY(cocos2d::CGFloat, m_fMinimumTouchLengthToChangePage, MinimumTouchLengthToChangePage)
 	
 public:
-	virtual void layout();
+	virtual void layout(bool anim = true);
 	
 	virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);

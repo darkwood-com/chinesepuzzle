@@ -58,7 +58,7 @@ public:
 	
 	virtual bool initWithType(Type type);
 	
-	void layout();
+	void layout(bool anim = true);
 	
 	CC_SYNTHESIZE_READONLY(Type, type, Type);
 };

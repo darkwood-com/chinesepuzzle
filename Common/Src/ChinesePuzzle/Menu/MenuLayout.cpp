@@ -100,7 +100,7 @@ bool MenuLayout::initWithType(Type type)
 	return true;
 }
 
-void MenuLayout::layout()
+void MenuLayout::layout(bool anim)
 {
 	GameConfig* conf = menu->getGameScene()->getConf();
 	CCPoint center = ccpMult(ccp(conf->getResolutionSize().width, conf->getResolutionSize().height), 0.5);
@@ -142,7 +142,7 @@ void MenuLayout::layout()
 				items->addObject(itemNo);
 				
 				mb->setItems(items);
-				mb->layout();
+				mb->layout(anim);
 				
 				mBox =  mb;
 			}
@@ -177,7 +177,7 @@ void MenuLayout::layout()
 				items->addObject(itemNo);
 				
 				mb->setItems(items);
-				mb->layout();
+				mb->layout(anim);
 				
 				mBox =  mb;
 			}
@@ -195,7 +195,7 @@ void MenuLayout::layout()
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
 				mb->setTitle("Hint");
 				mb->setString("Chinese Puzzle is a two-deck solitaire card game in which your memory and familiarity with the rules are tested to the limit. The game laid out in a tableau of eight rows. The goal is to move cards around in vacant spaces, so that all rows end up in a same family-colored and sorted order from Ace to King. Ace cards can only be moved at the first column, then you can fill the vacant space by drag and dropping one of the two card from same family color and next rank to the left card. Not clear? Just make some moves and play the game, but be careful with Kings!");
-				mb->layout();
+				mb->layout(anim);
 				
 				mBox =  mb;
 			}
@@ -232,7 +232,7 @@ void MenuLayout::layout()
 				}
 				
 				mb->setItems(items);
-				mb->layout();
+				mb->layout(anim);
 				
 				mBox =  mb;
 			}
@@ -259,7 +259,7 @@ void MenuLayout::layout()
 				item->release();
 				
 				mb->setItems(items);
-				mb->layout();
+				mb->layout(anim);
 				
 				mBox =  mb;
 			}

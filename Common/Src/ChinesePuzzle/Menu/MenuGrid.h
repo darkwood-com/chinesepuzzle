@@ -115,7 +115,7 @@ public:
 	CC_PROPERTY(cocos2d::CGFloat, m_fOffsetSwipe, Swipe)
 	virtual void setContentSize(const cocos2d::CCSize& size);
 	
-	void layout();
+	void layout(bool anim = true);
 	virtual void visit(void);
 
 	CC_PROPERTY(int, page, Page)

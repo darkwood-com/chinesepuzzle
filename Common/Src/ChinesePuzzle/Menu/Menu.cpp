@@ -52,11 +52,16 @@ bool Menu::init(MenuInit init)
 
 	this->ml = new MenuLayout(this);
 	this->ml->initWithType(init.layout);
-	this->ml->layout();
+	this->layout();
 	
 	this->schedule(schedule_selector(Menu::step));
 	
 	return true;
+}
+
+void Menu::step(ccTime dt)
+{
+	
 }
 
 void Menu::draw()
@@ -64,9 +69,9 @@ void Menu::draw()
 	CCLayer::draw();
 }
 
-void Menu::step(ccTime dt)
+void Menu::layout(bool anim)
 {
-	
+	ml->layout(anim);
 }
 
 void Menu::pushNav(MenuBox* mBox)

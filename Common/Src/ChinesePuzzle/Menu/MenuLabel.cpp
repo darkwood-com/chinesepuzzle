@@ -111,7 +111,7 @@ void MenuLabel::setContentSize(const cocos2d::CCSize& size)
 	this->layout();
 }
 
-void MenuLabel::layout()
+void MenuLabel::layout(bool anim)
 {
 	CCSize size = this->getContentSize();
 	

@@ -49,7 +49,7 @@ public:
 	CC_PROPERTY(cocos2d::CCSize, margin, Margin);
 	
 public:
-	virtual void layout();
+	virtual void layout(bool anim = true);
 	
 	virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);

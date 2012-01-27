@@ -97,9 +97,9 @@ CCSize MenuLabelContainer::getMargin()
 	return this->margin;
 }
 
-void MenuLabelContainer::layout()
+void MenuLabelContainer::layout(bool anim)
 {
-	MenuBox::layout();
+	MenuBox::layout(anim);
 	
 	CCSize size = this->getContentSize();
 	
