@@ -180,6 +180,7 @@
 		C3AA40D914C9A83C003C2BB8 /* MenuGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D314C9A835003C2BB8 /* MenuGrid.cpp */; };
 		C3AA40DA14C9A83C003C2BB8 /* MenuGridContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D514C9A836003C2BB8 /* MenuGridContainer.cpp */; };
 		C3AA40DC14C9A9BB003C2BB8 /* MenuLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D714C9A839003C2BB8 /* MenuLabel.cpp */; };
+		C3C8C1E614D6FAE10079F254 /* 1024x768 in Resources */ = {isa = PBXBuildFile; fileRef = C3C8C1E514D6FAE10079F254 /* 1024x768 */; };
 		C3E08E5514B4E2C700E3418B /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E08E5314B4E2C700E3418B /* Background.cpp */; };
 		C3E08E5814B5051900E3418B /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E08E5714B5051900E3418B /* bgPattern.png */; };
 		C3E71DF214C583D300F6F1D9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3E71DF114C583D300F6F1D9 /* fonts */; };
@@ -576,6 +577,7 @@
 		C3AA40D614C9A837003C2BB8 /* MenuGridContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuGridContainer.h; sourceTree = "<group>"; };
 		C3AA40D714C9A839003C2BB8 /* MenuLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLabel.cpp; sourceTree = "<group>"; };
 		C3AA40D814C9A83B003C2BB8 /* MenuLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLabel.h; sourceTree = "<group>"; };
+		C3C8C1E514D6FAE10079F254 /* 1024x768 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1024x768; path = ../../Common/Bin/Data/1024x768; sourceTree = "<group>"; };
 		C3E08E5314B4E2C700E3418B /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		C3E08E5414B4E2C700E3418B /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		C3E08E5714B5051900E3418B /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../../Common/Bin/Data/bgPattern.png; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 			isa = PBXGroup;
 			children = (
 				C355885B14ADF72500D549E4 /* 480x320 */,
+				C3C8C1E514D6FAE10079F254 /* 1024x768 */,
 				C32DC57C14D310680038FE44 /* 1680x1050 */,
 				C32DC57914D2F5890038FE44 /* 1920x1080 */,
 				C3A88C9614BED5B600416D62 /* 1920x1200 */,
@@ -1475,6 +1478,7 @@
 				C3E71DF214C583D300F6F1D9 /* fonts in Resources */,
 				C32DC57A14D2F5890038FE44 /* 1920x1080 in Resources */,
 				C32DC57D14D310680038FE44 /* 1680x1050 in Resources */,
+				C3C8C1E614D6FAE10079F254 /* 1024x768 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
