@@ -46,7 +46,6 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		std::string sRes;
 		
 		sRes = "480x320";
-		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
@@ -60,7 +59,6 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
 		sRes = "1680x1050";
-		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -74,7 +72,6 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1920x1080";
-		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -88,7 +85,6 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1920x1200";
-		(*datas)[sRes + "menuMask.png"] = new CCPoint(0,0);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -136,7 +132,7 @@ void MenuLayout::layout(bool anim)
 	if(!menu->getChildByTag(kMenuTagBg))
 	{
 		CCSprite* bg = CCSprite::spriteWithFile(conf->getUiPath("menuMask.png").c_str());
-		bg->setAnchorPoint(*this->layoutRes<CCPoint>("menuMask.png"));
+		bg->setAnchorPoint(ccp(0, 0));
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
 	

@@ -58,7 +58,6 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "gridCardSize"] = new CCSize(26,36);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(4, 4);
 		(*datas)[sRes + "gridPosition"] = new CCSize(4, 0);
-		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
 		(*datas)[sRes + "newBtn.png"] = new CCPoint(450,290);
 		(*datas)[sRes + "retryBtn.png"] = new CCPoint(450,170);
 		(*datas)[sRes + "undoBtn.png"] = new CCPoint(450,240);
@@ -70,7 +69,6 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
 		(*datas)[sRes + "gridPosition"] = new CCSize(99, 55);
-		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
 		(*datas)[sRes + "newBtn.png"] = new CCPoint(1590,960);
 		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1590,786);
 		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1590,612);
@@ -82,7 +80,6 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
 		(*datas)[sRes + "gridPosition"] = new CCSize(214, 60);
-		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
 		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,985);
 		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,807);
 		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,629);
@@ -94,7 +91,6 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
 		(*datas)[sRes + "gridPosition"] = new CCSize(214, 120);
-		(*datas)[sRes + "bg.png"] = new CCPoint(0, 0);
 		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,1105);
 		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,903);
 		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,701);
@@ -194,7 +190,8 @@ void GameLayout::layout(bool anim)
 	rect.size = pTexture->getContentSize();
 	bg->setTexture(pTexture);
 	bg->setTextureRect(rect);
-	bg->setAnchorPoint(*this->layoutRes<CCPoint>("bg.png"));
+	bg->setPosition(ccp(0, 0));
+	bg->setAnchorPoint(ccp(0, 0));
 	
 	if(!newBtn)
 	{
