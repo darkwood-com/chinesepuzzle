@@ -36,6 +36,7 @@
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution480x320;
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution1024x768;
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution1280x800;
+@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1280x1024;
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution1366x768;
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution1440x900;
 @property (nonatomic, retain) IBOutlet NSMenuItem* resolution1680x1050;

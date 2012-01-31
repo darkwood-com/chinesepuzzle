@@ -1258,7 +1258,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="594888466">
+								<object class="NSMenuItem" id="921068118">
 									<reference key="NSMenu" ref="107120032"/>
 									<string key="NSTitle">1280 x 800</string>
 									<string key="NSKeyEquiv"/>
@@ -1266,7 +1266,15 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="192681514">
+								<object class="NSMenuItem" id="972043945">
+									<reference key="NSMenu" ref="107120032"/>
+									<string key="NSTitle">1280 x 1024</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="507490815">
 									<reference key="NSMenu" ref="107120032"/>
 									<string key="NSTitle">1366 x 768</string>
 									<string key="NSKeyEquiv"/>
@@ -1274,7 +1282,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="674182559">
+								<object class="NSMenuItem" id="837313009">
 									<reference key="NSMenu" ref="107120032"/>
 									<string key="NSTitle">1440 x 900</string>
 									<string key="NSKeyEquiv"/>
@@ -1407,6 +1415,7 @@
 					<string key="NSFrameSize">{480, 320}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1058}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -2187,7 +2196,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">changeResolution:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="674182559"/>
+						<reference key="destination" ref="837313009"/>
 					</object>
 					<int key="connectionID">552</int>
 				</object>
@@ -2195,7 +2204,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">resolution1440x900</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="674182559"/>
+						<reference key="destination" ref="837313009"/>
 					</object>
 					<int key="connectionID">553</int>
 				</object>
@@ -2203,7 +2212,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">changeResolution:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="594888466"/>
+						<reference key="destination" ref="921068118"/>
 					</object>
 					<int key="connectionID">555</int>
 				</object>
@@ -2211,7 +2220,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">resolution1280x800</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="594888466"/>
+						<reference key="destination" ref="921068118"/>
 					</object>
 					<int key="connectionID">556</int>
 				</object>
@@ -2219,7 +2228,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">changeResolution:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="192681514"/>
+						<reference key="destination" ref="507490815"/>
 					</object>
 					<int key="connectionID">558</int>
 				</object>
@@ -2227,9 +2236,25 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">resolution1366x768</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="192681514"/>
+						<reference key="destination" ref="507490815"/>
 					</object>
 					<int key="connectionID">559</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">changeResolution:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="972043945"/>
+					</object>
+					<int key="connectionID">561</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">resolution1280x1024</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="972043945"/>
+					</object>
+					<int key="connectionID">562</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3294,9 +3319,10 @@
 							<reference ref="749487021"/>
 							<reference ref="386736265"/>
 							<reference ref="870907722"/>
-							<reference ref="674182559"/>
-							<reference ref="594888466"/>
-							<reference ref="192681514"/>
+							<reference ref="837313009"/>
+							<reference ref="921068118"/>
+							<reference ref="507490815"/>
+							<reference ref="972043945"/>
 						</object>
 						<reference key="parent" ref="447893705"/>
 					</object>
@@ -3327,17 +3353,22 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">551</int>
-						<reference key="object" ref="674182559"/>
+						<reference key="object" ref="837313009"/>
 						<reference key="parent" ref="107120032"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">554</int>
-						<reference key="object" ref="594888466"/>
+						<reference key="object" ref="921068118"/>
 						<reference key="parent" ref="107120032"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">557</int>
-						<reference key="object" ref="192681514"/>
+						<reference key="object" ref="507490815"/>
+						<reference key="parent" ref="107120032"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">560</int>
+						<reference key="object" ref="972043945"/>
 						<reference key="parent" ref="107120032"/>
 					</object>
 				</object>
@@ -3496,6 +3527,7 @@
 					<string>554.IBPluginDependency</string>
 					<string>557.IBPluginDependency</string>
 					<string>56.IBPluginDependency</string>
+					<string>560.IBPluginDependency</string>
 					<string>57.IBPluginDependency</string>
 					<string>58.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
@@ -3677,6 +3709,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -3691,7 +3724,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">559</int>
+			<int key="maxID">562</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3715,6 +3748,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>resolution1024x768</string>
+							<string>resolution1280x1024</string>
 							<string>resolution1280x800</string>
 							<string>resolution1366x768</string>
 							<string>resolution1440x900</string>
@@ -3726,6 +3760,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
@@ -3742,6 +3777,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>resolution1024x768</string>
+							<string>resolution1280x1024</string>
 							<string>resolution1280x800</string>
 							<string>resolution1366x768</string>
 							<string>resolution1440x900</string>
@@ -3755,6 +3791,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">resolution1024x768</string>
+								<string key="candidateClassName">NSMenuItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">resolution1280x1024</string>
 								<string key="candidateClassName">NSMenuItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">

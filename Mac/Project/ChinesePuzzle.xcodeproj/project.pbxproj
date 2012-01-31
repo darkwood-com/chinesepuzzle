@@ -25,6 +25,7 @@
 		C320214E14D7FF2200280090 /* 1440x900 in Resources */ = {isa = PBXBuildFile; fileRef = C320214D14D7FF2200280090 /* 1440x900 */; };
 		C320215114D816E700280090 /* 1280x800 in Resources */ = {isa = PBXBuildFile; fileRef = C320215014D816E700280090 /* 1280x800 */; };
 		C320215314D820A000280090 /* 1366x768 in Resources */ = {isa = PBXBuildFile; fileRef = C320215214D820A000280090 /* 1366x768 */; };
+		C320215514D8439A00280090 /* 1280x1024 in Resources */ = {isa = PBXBuildFile; fileRef = C320215414D8439A00280090 /* 1280x1024 */; };
 		C32DC57A14D2F5890038FE44 /* 1920x1080 in Resources */ = {isa = PBXBuildFile; fileRef = C32DC57914D2F5890038FE44 /* 1920x1080 */; };
 		C32DC57D14D310680038FE44 /* 1680x1050 in Resources */ = {isa = PBXBuildFile; fileRef = C32DC57C14D310680038FE44 /* 1680x1050 */; };
 		C34C147714C86F76006A735C /* CCLabelBMFontMultiline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34C147514C86F76006A735C /* CCLabelBMFontMultiline.cpp */; };
@@ -222,6 +223,7 @@
 		C320214D14D7FF2200280090 /* 1440x900 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1440x900; path = ../../Common/Bin/Data/1440x900; sourceTree = "<group>"; };
 		C320215014D816E700280090 /* 1280x800 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1280x800; path = ../../Common/Bin/Data/1280x800; sourceTree = "<group>"; };
 		C320215214D820A000280090 /* 1366x768 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1366x768; path = ../../Common/Bin/Data/1366x768; sourceTree = "<group>"; };
+		C320215414D8439A00280090 /* 1280x1024 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1280x1024; path = ../../Common/Bin/Data/1280x1024; sourceTree = "<group>"; };
 		C32DC57914D2F5890038FE44 /* 1920x1080 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1080; path = ../../Common/Bin/Data/1920x1080; sourceTree = "<group>"; };
 		C32DC57C14D310680038FE44 /* 1680x1050 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1680x1050; path = ../../Common/Bin/Data/1680x1050; sourceTree = "<group>"; };
 		C34C147514C86F76006A735C /* CCLabelBMFontMultiline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLabelBMFontMultiline.cpp; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 				C355885B14ADF72500D549E4 /* 480x320 */,
 				C3C8C1E514D6FAE10079F254 /* 1024x768 */,
 				C320215014D816E700280090 /* 1280x800 */,
+				C320215414D8439A00280090 /* 1280x1024 */,
 				C320215214D820A000280090 /* 1366x768 */,
 				C320214D14D7FF2200280090 /* 1440x900 */,
 				C32DC57C14D310680038FE44 /* 1680x1050 */,
@@ -1491,6 +1494,7 @@
 				C320214E14D7FF2200280090 /* 1440x900 in Resources */,
 				C320215114D816E700280090 /* 1280x800 in Resources */,
 				C320215314D820A000280090 /* 1366x768 in Resources */,
+				C320215514D8439A00280090 /* 1280x1024 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
