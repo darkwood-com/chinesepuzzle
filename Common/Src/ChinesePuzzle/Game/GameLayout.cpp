@@ -76,6 +76,28 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "soundBtn.png"] = new CCPoint(977,186);
 		(*datas)[sRes + "themeBtn.png"] = new CCPoint(977,56);
 		
+		sRes = "1280x800";
+		(*datas)[sRes + "gridCardSize"] = new CCSize(56,78);
+		(*datas)[sRes + "gridSpaceSize"] = new CCSize(10, 10);
+		(*datas)[sRes + "gridPosition"] = new CCSize(118, 48);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(1220,740);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1220,604);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1220,468);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1220,332);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1220,196);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1220,60);
+		
+		sRes = "1366x768";
+		(*datas)[sRes + "gridCardSize"] = new CCSize(56,78);
+		(*datas)[sRes + "gridSpaceSize"] = new CCSize(10, 10);
+		(*datas)[sRes + "gridPosition"] = new CCSize(158, 32);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(1303,714);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1303,582);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1303,450);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1303,318);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1303,186);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1303,56);
+		
 		sRes = "1440x900";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(66,92);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(12, 12);
