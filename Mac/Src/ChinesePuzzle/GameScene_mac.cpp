@@ -45,28 +45,39 @@ bool GameScene::init()
 		return false;
 	}
 	
+	pBackground = Background::node(this);
+	this->addChild(pBackground, GameSceneZOrderBG);
+	
+	this->layout();
+	this->ccReshape();
+	
+	return true;
+}
+
+void GameScene::layout(bool anim)
+{
+	GameSceneCommon::layout(anim);
+	
 	CCSize confsize = conf->getResolutionSize();
 	CCPoint confcenter = ccpMult(ccp(confsize.width, confsize.height), 0.5);
 	
 	this->setContentSize(confsize);
 	
-	pBackground = Background::node(this);
-	pBackground->setPosition(confcenter);
-	this->addChild(pBackground, GameSceneZOrderBG);
-	
-	ccReshape();
-	
-	return true;
+	if(pBackground)
+	{
+		pBackground->setPosition(confcenter);
+	}
 }
 
 void GameScene::ccReshape()
 {
 	CCSize winsize = CCDirector::sharedDirector()->getWinSize();
 	CCPoint wincenter = ccpMult(ccp(winsize.width, winsize.height), 0.5);
+
+	this->setPosition(wincenter);
 	
 	if(pBackground)
 	{
-		this->setPosition(wincenter);
 		pBackground->setContentSize(winsize);
 	}
 }

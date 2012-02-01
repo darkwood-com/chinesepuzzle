@@ -38,6 +38,7 @@ public:
 	
 	virtual bool init();
 	
+	void layout(bool anim = true);
 	virtual void ccReshape();
 	
 	CC_SYNTHESIZE_READONLY(Background*, pBackground, Background);

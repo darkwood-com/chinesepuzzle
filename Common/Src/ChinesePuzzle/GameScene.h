@@ -55,6 +55,8 @@ public:
 	void setResolution(const std::string& resolution);
 	void setTheme(const std::string& theme);
 	
+	virtual void layout(bool anim = true);
+	
 	CC_SYNTHESIZE_READONLY(GameConfig*, conf, Conf);
 	CC_SYNTHESIZE_READONLY(Game*, pGame, Game);
 	CC_SYNTHESIZE_READONLY(Menu*, pMenu, Menu);
