@@ -184,6 +184,7 @@
 		C3AA40D914C9A83C003C2BB8 /* MenuGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D314C9A835003C2BB8 /* MenuGrid.cpp */; };
 		C3AA40DA14C9A83C003C2BB8 /* MenuGridContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D514C9A836003C2BB8 /* MenuGridContainer.cpp */; };
 		C3AA40DC14C9A9BB003C2BB8 /* MenuLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3AA40D714C9A839003C2BB8 /* MenuLabel.cpp */; };
+		C3BC707C14D9777400BB1CCE /* 960x640 in Resources */ = {isa = PBXBuildFile; fileRef = C3BC707B14D9777400BB1CCE /* 960x640 */; };
 		C3C8C1E614D6FAE10079F254 /* 1024x768 in Resources */ = {isa = PBXBuildFile; fileRef = C3C8C1E514D6FAE10079F254 /* 1024x768 */; };
 		C3E08E5514B4E2C700E3418B /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3E08E5314B4E2C700E3418B /* Background.cpp */; };
 		C3E08E5814B5051900E3418B /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E08E5714B5051900E3418B /* bgPattern.png */; };
@@ -585,6 +586,7 @@
 		C3AA40D614C9A837003C2BB8 /* MenuGridContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuGridContainer.h; sourceTree = "<group>"; };
 		C3AA40D714C9A839003C2BB8 /* MenuLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLabel.cpp; sourceTree = "<group>"; };
 		C3AA40D814C9A83B003C2BB8 /* MenuLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLabel.h; sourceTree = "<group>"; };
+		C3BC707B14D9777400BB1CCE /* 960x640 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 960x640; path = ../../Common/Bin/Data/960x640; sourceTree = "<group>"; };
 		C3C8C1E514D6FAE10079F254 /* 1024x768 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1024x768; path = ../../Common/Bin/Data/1024x768; sourceTree = "<group>"; };
 		C3E08E5314B4E2C700E3418B /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		C3E08E5414B4E2C700E3418B /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 			isa = PBXGroup;
 			children = (
 				C355885B14ADF72500D549E4 /* 480x320 */,
+				C3BC707B14D9777400BB1CCE /* 960x640 */,
 				C3C8C1E514D6FAE10079F254 /* 1024x768 */,
 				C320215014D816E700280090 /* 1280x800 */,
 				C320215414D8439A00280090 /* 1280x1024 */,
@@ -1495,6 +1498,7 @@
 				C320215114D816E700280090 /* 1280x800 in Resources */,
 				C320215314D820A000280090 /* 1366x768 in Resources */,
 				C320215514D8439A00280090 /* 1280x1024 in Resources */,
+				C3BC707C14D9777400BB1CCE /* 960x640 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,6 +58,19 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
+		sRes = "960x640";
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(50,50);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(100,100);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(150,50);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(50,50);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
+		
 		sRes = "1024x768";
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);

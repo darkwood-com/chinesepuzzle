@@ -65,6 +65,17 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		(*datas)[sRes + "soundBtn.png"] = new CCPoint(451,82);
 		(*datas)[sRes + "themeBtn.png"] = new CCPoint(451,30);
 		
+		sRes = "960x640";
+		(*datas)[sRes + "gridCardSize"] = new CCSize(52,72);
+		(*datas)[sRes + "gridSpaceSize"] = new CCSize(8, 8);
+		(*datas)[sRes + "gridPosition"] = new CCSize(8, 0);
+		(*datas)[sRes + "newBtn.png"] = new CCPoint(902,580);
+		(*datas)[sRes + "retryBtn.png"] = new CCPoint(902,476);
+		(*datas)[sRes + "undoBtn.png"] = new CCPoint(902,372);
+		(*datas)[sRes + "hintBtn.png"] = new CCPoint(902,268);
+		(*datas)[sRes + "soundBtn.png"] = new CCPoint(902,164);
+		(*datas)[sRes + "themeBtn.png"] = new CCPoint(902,60);
+		
 		sRes = "1024x768";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(56,78);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(10, 10);

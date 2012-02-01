@@ -65,6 +65,16 @@ static AppDelegate s_sharedApplication;
 	return [resolutions setValue:item forKey:@"480x320"];
 }
 
+- (NSMenuItem*) resolution960x640
+{
+	return [resolutions valueForKey:@"960x640"];
+}
+
+- (void) setResolution960x640:(NSMenuItem*) item
+{
+	return [resolutions setValue:item forKey:@"960x640"];
+}
+
 - (NSMenuItem*) resolution1024x768
 {
 	return [resolutions valueForKey:@"1024x768"];
