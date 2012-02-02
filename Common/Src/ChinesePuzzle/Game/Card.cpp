@@ -35,26 +35,6 @@ Card::~Card()
 {
 }
 
-void Card::setPosition(const cocos2d::CCPoint& pos)
-{
-	CCSprite::setPosition(pos);
-	
-	for (std::set<CardDelegate*>::const_iterator it = cardDelegates.begin(); it != cardDelegates.end(); ++it)
-	{
-		(*it)->updateCard(this);
-	}
-}
-
-void Card::addCardDelegate(CardDelegate* delegate)
-{
-	cardDelegates.insert(delegate);
-}
-
-void Card::removeCardDelegate(CardDelegate* delegate)
-{
-	cardDelegates.erase(delegate);
-}
-
 void Card::setTextureResolutionAndTheme(const char* resolution, const char* theme)
 {
 

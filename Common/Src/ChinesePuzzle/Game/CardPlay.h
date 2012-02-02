@@ -82,7 +82,6 @@ public:
 	
 	virtual bool isNextToCardPlay(CardPlay* cardPlay);
 	
-	virtual CardType getType() { return CardTypePlay; }
 	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
 	
 	CC_SYNTHESIZE_READONLY(CardPlayColor, color, Color);

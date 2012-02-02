@@ -23,7 +23,7 @@
  */
 
 #include "GameControlChipmunk.h"
-#include "Card.h"
+#include "CCNode.h"
 #include "Game.h"
 
 #include "cpConfig.h"
@@ -45,7 +45,7 @@ using namespace cocos2d;
 //chipmunk callbacks
 void cpSpriteBodyUpdatePosition(cpBody *body, cpFloat dt)
 {
-    CCSprite* sprite = body->data;
+    CCNode* sprite = body->data;
 	body->p.x = sprite->getPosition().x;
 	body->p.y = sprite->getPosition().y;
 }
@@ -77,47 +77,47 @@ void GameControlChipmunk::draw()
 	cpDrawSpace(space, &cpDrawSpaceOpts);
 }
 
-void GameControlChipmunk::addCard(Card* card)
+void GameControlChipmunk::addNode(CCNode* node)
 {
-	this->removeCard(card);
+	this->removeNode(node);
 	
 	//chipmunk
 	float mass = 1.0;
 	
-	cpBody* body = cpBodyNew(mass, cpMomentForBox(mass, card->getContentSize().width, card->getContentSize().height));
-	body->data = card;
+	cpBody* body = cpBodyNew(mass, cpMomentForBox(mass, node->getContentSize().width, node->getContentSize().height));
+	body->data = node;
 	body->position_func = cpSpriteBodyUpdatePosition;
 	cpSpaceAddBody(space, body);
 	
-	cpShape* shape = cpBoxShapeNew(body, card->getContentSize().width, card->getContentSize().height);
+	cpShape* shape = cpBoxShapeNew(body, node->getContentSize().width, node->getContentSize().height);
 	cpSpaceAddShape(space, shape);
 	
-	cards.insert(pair<Card*, cpShape*>(card, shape));
-	card->addCardDelegate(this);
-	this->updateCard(card);
+	nodes.insert(pair<CCNode*, cpShape*>(node, shape));
+	//node->addNodeDelegate(this);
+	this->updateNode(node);
 }
 
-void GameControlChipmunk::removeCard(Card* card)
+void GameControlChipmunk::removeNode(CCNode* node)
 {
-	CardCpMap::iterator it = cards.find(card);
-	if(it != cards.end())
+	NodeCpMap::iterator it = nodes.find(node);
+	if(it != nodes.end())
 	{
 		cpSpaceRemoveShape(space, it->second);
-		cards.erase(card);
-		card->removeCardDelegate(this);
+		nodes.erase(node);
+		//node->removeNodeDelegate(this);
 	}
 }
 
-void GameControlChipmunk::updateCard(Card* card)
+void GameControlChipmunk::updateNode(CCNode* node)
 {
-	CardCpMap::iterator it = cards.find(card);
-	if(it != cards.end())
+	NodeCpMap::iterator it = nodes.find(node);
+	if(it != nodes.end())
 	{
 		cpSpriteBodyUpdatePosition(it->second->body, 0);
 	}
 }
 
-Card* GameControlChipmunk::checkPoint(cocos2d::CCPoint p)
+CCNode* GameControlChipmunk::checkPoint(cocos2d::CCPoint p)
 {
 	cpVect cpP = {p.x, p.y};
     cpShape* shape = cpSpacePointQueryFirst(space, cpP, CP_ALL_LAYERS, CP_NO_GROUP);
@@ -129,7 +129,7 @@ Card* GameControlChipmunk::checkPoint(cocos2d::CCPoint p)
 	return NULL;
 }
 
-Card* GameControlChipmunk::checkRect(cocos2d::CCRect r, CardType filter)
+CCNode* GameControlChipmunk::checkRect(cocos2d::CCRect r, Filter filter)
 {
 	return NULL;
 }

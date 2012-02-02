@@ -30,13 +30,13 @@
 struct cpSpace;
 struct cpShape;
 
-typedef std::map<Card*, cpShape*> CardCpMap;
+typedef std::map<cocos2d::CCNode*, cpShape*> NodeCpMap;
 
 class CC_DLL GameControlChipmunk : public GameControl
 {
 protected:
 	cpSpace* space;
-	CardCpMap cards;
+	NodeCpMap nodes;
 	
 public:
 	GameControlChipmunk();
@@ -45,11 +45,11 @@ public:
 	virtual void step(cocos2d::ccTime dt);
 	virtual void draw();
 	
-	virtual void addCard(Card* card);
-	virtual void removeCard(Card* card);
-	virtual void updateCard(Card* card);
-	virtual Card* checkPoint(cocos2d::CCPoint p);
-	virtual Card* checkRect(cocos2d::CCRect r, CardType filter);
+	virtual void addNode(cocos2d::CCNode* node);
+	virtual void removeNode(cocos2d::CCNode* node);
+	virtual void updateNode(cocos2d::CCNode* node);
+	virtual cocos2d::CCNode* checkPoint(cocos2d::CCPoint p);
+	virtual cocos2d::CCNode* checkRect(cocos2d::CCRect r, Filter filter);
 };
 
 #endif // __GAME_CONTROL_CHIPMUNK_H__

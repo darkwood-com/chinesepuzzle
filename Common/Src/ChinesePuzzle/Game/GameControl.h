@@ -26,26 +26,27 @@
 #define __GAME_CONTROL_H__
 
 #import "cocos2d.h"
-#include "CardDelegate.h"
-#include "Card.h"
+#include "CCNode.h"
 
 // GameControl
-class CC_DLL GameControl : public cocos2d::CCObject, public CardDelegate
+class CC_DLL GameControl : public cocos2d::CCObject
 {
 public:
+	typedef bool (*Filter)(cocos2d::CCNode*);
+
 	GameControl();
 	virtual ~GameControl();
 	
 	virtual void step(cocos2d::ccTime dt);
 	virtual void draw();
 	
-	virtual void addCard(Card* card); //add controls for this card
-	virtual void removeCard(Card* card); //remove controls for this card
-	virtual void updateCard(Card* card); //update card controls
-	virtual Card* checkPoint(cocos2d::CCPoint p); //retrive a card from a location
-	virtual Card* checkPointCard(Card* c); //retrive a card from a card
-	virtual Card* checkRect(cocos2d::CCRect r, CardType filter); //retrive a card from a location
-	virtual Card* checkRectCard(Card* c, CardType filter); //retrive a card from a card
+	virtual void addNode(cocos2d::CCNode* node); //add controls for this node
+	virtual void removeNode(cocos2d::CCNode* node); //remove controls for this node
+	virtual void updateNode(cocos2d::CCNode* node); //update node controls
+	virtual cocos2d::CCNode* checkPoint(cocos2d::CCPoint p); //retrive a node from a location
+	virtual cocos2d::CCNode* checkPointNode(cocos2d::CCNode* c); //retrive a node from a node
+	virtual cocos2d::CCNode* checkRect(cocos2d::CCRect r, Filter filter); //retrive a node from a location
+	virtual cocos2d::CCNode* checkRectNode(cocos2d::CCNode* c, Filter filter); //retrive a node from a node
 };
 
 #endif // __GAME_CONTROL_H__

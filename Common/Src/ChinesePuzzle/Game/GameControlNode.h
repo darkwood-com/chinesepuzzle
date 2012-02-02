@@ -1,5 +1,5 @@
 /**
- *  GameControlSprite.h
+ *  GameControlNode.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,32 +22,32 @@
  *
  */
 
-#ifndef __GAME_CONTROL_SPRITE_H__
-#define __GAME_CONTROL_SPRITE_H__
+#ifndef __GAME_CONTROL_NODE_H__
+#define __GAME_CONTROL_NODE_H__
 
 #include "GameControl.h"
 
-typedef std::set<Card*> CardSpriteSet;
+typedef std::set<cocos2d::CCNode*> NodeNodeSet;
 
-class CC_DLL GameControlSprite : public GameControl
+class CC_DLL GameControlNode : public GameControl
 {
 protected:
-	CardSpriteSet cards;
+	NodeNodeSet nodes;
 	
 public:
-	GameControlSprite();
-	virtual ~GameControlSprite();
+	GameControlNode();
+	virtual ~GameControlNode();
 	
 	virtual void step(cocos2d::ccTime dt);
 	virtual void draw();
 	
-	virtual void addCard(Card* card);
-	virtual void removeCard(Card* card);
-	virtual void updateCard(Card* card);
-	virtual Card* checkPoint(cocos2d::CCPoint p);
-	virtual Card* checkPointCard(Card* c);
-	virtual Card* checkRect(cocos2d::CCRect r, CardType filter);
-	virtual Card* checkRectCard(Card* c, CardType filter);
+	virtual void addNode(cocos2d::CCNode* node);
+	virtual void removeNode(cocos2d::CCNode* node);
+	virtual void updateNode(cocos2d::CCNode* node);
+	virtual cocos2d::CCNode* checkPoint(cocos2d::CCPoint p);
+	virtual cocos2d::CCNode* checkPointNode(cocos2d::CCNode* c);
+	virtual cocos2d::CCNode* checkRect(cocos2d::CCRect r, Filter filter);
+	virtual cocos2d::CCNode* checkRectNode(cocos2d::CCNode* c, Filter filter);
 };
 
-#endif // __GAME_CONTROL_SPRITE_H__
+#endif // __GAME_CONTROL_NODE_H__

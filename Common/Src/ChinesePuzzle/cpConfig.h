@@ -26,9 +26,7 @@
 #define __CP_CONFIG_H__
 
 //chipmunk custom config
-class Card;
-
-#define CP_DATA_POINTER_TYPE Card*
+#define CP_DATA_POINTER_TYPE cocos2d::CCNode*
 
 #include "chipmunk.h"
 

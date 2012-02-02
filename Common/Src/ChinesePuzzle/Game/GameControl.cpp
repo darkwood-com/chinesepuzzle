@@ -47,37 +47,37 @@ void GameControl::draw()
 	
 }
 
-void GameControl::addCard(Card* card)
+void GameControl::addNode(CCNode* node)
 {
 	
 }
 
-void GameControl::removeCard(Card* card)
+void GameControl::removeNode(CCNode* node)
 {
 	
 }
 
-void GameControl::updateCard(Card* card)
+void GameControl::updateNode(CCNode* node)
 {
 	
 }
 
-Card* GameControl::checkPoint(cocos2d::CCPoint p)
+CCNode* GameControl::checkPoint(cocos2d::CCPoint p)
 {
 	return NULL;
 }
 
-Card* GameControl::checkPointCard(Card* c)
+CCNode* GameControl::checkPointNode(CCNode* c)
 {
 	return this->checkPoint(c->getPosition());
 }
 
-Card* GameControl::checkRect(cocos2d::CCRect r, CardType filter)
+CCNode* GameControl::checkRect(cocos2d::CCRect r, Filter filter)
 {
 	return NULL;
 }
 
-Card* GameControl::checkRectCard(Card* c, CardType filter)
+CCNode* GameControl::checkRectNode(CCNode* c, Filter filter)
 {
 	CCRect rect;
 	rect.origin = c->getPosition();

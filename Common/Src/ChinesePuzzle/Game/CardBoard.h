@@ -52,7 +52,6 @@ public:
 	CC_PROPERTY(CardBoardState, state, State);
 	void setState(CardBoardState state, bool force);
 	
-	virtual CardType getType() { return CardTypeBoard; }
 	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
 };
 

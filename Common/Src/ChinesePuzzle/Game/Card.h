@@ -26,30 +26,12 @@
 #define __CARD_H__
 
 #import "cocos2d.h"
-#include "CardDelegate.h"
-
-typedef enum {
-	CardTypeCard = 0x1,
-	CardTypePlay = 0x2,
-	CardTypeBoard = 0x4,
-	CardTypeAll = 0x7,
-} CardType;
 
 class CC_DLL Card : public cocos2d::CCSprite
 {
-protected:
-	std::set<CardDelegate*> cardDelegates;
-	
 public:
 	Card();
 	virtual ~Card();
-	
-	virtual void setPosition(const cocos2d::CCPoint& pos);
-	
-	virtual void addCardDelegate(CardDelegate* delegate);
-	virtual void removeCardDelegate(CardDelegate* delegate);
-	
-	virtual CardType getType() { return CardTypeCard; }
 	
 	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
 };

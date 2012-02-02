@@ -24,7 +24,7 @@
 
 #include "Game.h"
 #include "GameControlChipmunk.h"
-#include "GameControlSprite.h"
+#include "GameControlNode.h"
 #include "GameScene.h"
 #include "CardPlay.h"
 #include "CardBoard.h"
@@ -33,6 +33,11 @@
 #include <algorithm>
 
 using namespace cocos2d;
+
+bool filterCardBoard(CCNode* node)
+{
+	return dynamic_cast<CardBoard*>(node) != NULL;
+}
 
 Game::Game() : 
 gs(NULL),
@@ -67,7 +72,7 @@ bool Game::init(GameSceneCommon* gs)
 	
 	this->gs = gs;
 	//this->gc = new GameControlChipmunk();
-	this->gc = new GameControlSprite();
+	this->gc = new GameControlNode();
 	this->gl = new GameLayout(this);
 	this->setIsTouchEnabled(true);
 	
@@ -79,7 +84,7 @@ bool Game::init(GameSceneCommon* gs)
 	{
 		CardBoard* card = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
 		this->addChild(card, GameZOrderCard);
-		gc->addCard(card);
+		gc->addNode(card);
 		boardCards.push_back(card);
 		
 		GridCoord coord;
@@ -127,7 +132,7 @@ bool Game::init(GameSceneCommon* gs)
 																							  *color,
 																							  *rank);
 					this->addChild(card, GameZOrderCard);
-					gc->addCard(card);
+					gc->addNode(card);
 					deck.push_back(card);
 				}
 			}
@@ -167,7 +172,7 @@ bool Game::init(GameSceneCommon* gs)
 		while((card = initBoard->next(&coord)))
 		{
 			this->addChild(card, GameZOrderCard);
-			gc->addCard(card);
+			gc->addNode(card);
 			deck.push_back(card);
 			
 			card->setIsLocked(false);
@@ -400,12 +405,11 @@ Card* Game::getCard(GridCoord coord)
 
 CheckMove Game::checkMoveCoord(const MoveCoord& move)
 {
-	Card* cFromCard = this->getCard(move.from);
-	if(cFromCard == NULL || cFromCard->getType() != CardTypePlay) return CheckMoveFrom;
-	CardPlay* cFrom = (CardPlay*) cFromCard;
+	CardPlay* cFrom = dynamic_cast<CardPlay*>(this->getCard(move.from));
+	if(cFrom == NULL) return CheckMoveFrom;
 	
-	Card* cToCard = this->getCard(move.to);
-	if(cToCard == NULL || cToCard->getType() != CardTypeBoard) return CheckMoveTo;
+	CardBoard* cTo = dynamic_cast<CardBoard*>(this->getCard(move.to));
+	if(cTo == NULL) return CheckMoveTo;
 	
 	GridCoord toBefore = move.to; toBefore.j--;
 	if(toBefore.j == -1)
@@ -415,9 +419,8 @@ CheckMove Game::checkMoveCoord(const MoveCoord& move)
 	}
 	else
 	{
-		Card* cToBeforeCard = this->getCard(toBefore);
-		if(cToBeforeCard == NULL || cToBeforeCard->getType() != CardTypePlay) return CheckMoveToBefore;
-		CardPlay* cToBefore = (CardPlay*) cToBeforeCard;
+		CardPlay* cToBefore = dynamic_cast<CardPlay*>(this->getCard(toBefore));
+		if(cToBefore == NULL) return CheckMoveToBefore;
 		
 		if(cFrom->isNextToCardPlay(cToBefore)) return CheckMoveOk;
 		else return CheckMoveKo;
@@ -449,9 +452,11 @@ CheckMove Game::makeMoveCoord(const MoveCoord& move)
 		if(cSwitch)
 		{
 			cSwitch->setPosition(gl->getPositionInBoardPoint(move.from));
-			if(cSwitch->getType() == CardTypeBoard)
+			
+			CardBoard* cSwitchBoard = dynamic_cast<CardBoard*>(cSwitch);
+			if(cSwitchBoard)
 			{
-				((CardBoard*) cSwitch)->setState(CardBoardEmpty);
+				cSwitchBoard->setState(CardBoardEmpty);
 			}
 		}
 		switchBoardCard->setPosition(gl->getPositionInBoardPoint(move.to));
@@ -502,17 +507,16 @@ void Game::hintMove()
 	if(this->dragCard)
 	{
 		//check drop
-		Card* cToCard = gc->checkRectCard(dragCard, CardTypeBoard);
-		if(cToCard != NULL && cToCard->getType() == CardTypeBoard)
+		CardBoard* cTo = dynamic_cast<CardBoard*>(gc->checkRectNode(dragCard, &filterCardBoard));
+		if(cTo != NULL)
 		{
-			CardBoard* cTo = (CardBoard*) cToCard;
 			if(hintCard && hintCard != cTo)
 			{
 				hintCard->setState(CardBoardEmpty);
 			}
 			hintCard = cTo;
 			
-			GridCoord coord = gl->getPositionInGridCoord(cToCard->getPosition());
+			GridCoord coord = gl->getPositionInGridCoord(cTo->getPosition());
 			MoveCoord move = {dragCardCoord, coord};
 			if(this->checkMoveCoord(move) == CheckMoveOk)
 			{
@@ -552,9 +556,11 @@ void Game::undoMove()
 	if(cSwitch)
 	{
 		cSwitch->setPosition(gl->getPositionInBoardPoint(move.to));
-		if(cSwitch->getType() == CardTypeBoard)
+		
+		CardBoard* cSwitchBoard = dynamic_cast<CardBoard*>(cSwitch);
+		if(cSwitchBoard)
 		{
-			((CardBoard*) cSwitch)->setState(CardBoardEmpty);
+			cSwitchBoard->setState(CardBoardEmpty);
 		}
 	}
 	switchBoardCard->setPosition(gl->getPositionInBoardPoint(move.from));
@@ -575,26 +581,20 @@ int Game::lockLine(int i)
 	
 	for (int j = 0; j < 14; ++j)
 	{
-		Card* cCard = board[i][j];
-		if(cCard == NULL || cCard->getType() != CardTypePlay) continue;
-		CardPlay* c = (CardPlay*) cCard;
+		CardPlay* cCard = dynamic_cast<CardPlay*>(board[i][j]);
+		if(cCard == NULL) continue;
 		
-		Card* cCardBefore = (j == 0) ? NULL : board[i][j - 1];
-		CardPlay* cBefore = NULL;
-		if(cCardBefore != NULL && cCardBefore->getType() == CardTypePlay)
-		{
-			cBefore = (CardPlay*) cCardBefore;
-		}
+		CardPlay* cBefore = (j == 0) ? NULL : dynamic_cast<CardPlay*>(board[i][j - 1]);
+		if(cBefore == NULL) continue;
 		
-		if((j == 0 && c->getRank() == CardPlayRankAce) ||
-		   (cBefore && cBefore->getIsLocked() && c->isNextToCardPlay(cBefore)))
+		if((j == 0 && cCard->getRank() == CardPlayRankAce) || (cBefore && cBefore->getIsLocked() && cCard->isNextToCardPlay(cBefore)))
 		{
-			c->setIsLocked(true);
+			cCard->setIsLocked(true);
 			nb++;
 		}
 		else
 		{
-			c->setIsLocked(false);
+			cCard->setIsLocked(false);
 		}
 	}
 	
@@ -613,22 +613,22 @@ void Game::tapDownAt(CCPoint location)
 	
 	if(!dragCard)
     {
-		Card* tapCard = gc->checkPoint(location);
+		Card* tapCard = dynamic_cast<Card*>(gc->checkPoint(location));
 		if(tapCard)
 		{
-			if(touchLastCard->getIsVisible())
+			CardBoard* tapCardBoard = dynamic_cast<CardBoard*>(tapCard);
+			if(tapCardBoard && touchLastCard->getIsVisible() && this->checkMoveCard(touchLastCard, tapCard) == CheckMoveOk)
 			{
-				if(this->checkMoveCard(touchLastCard, tapCard) == CheckMoveOk)
-				{
 					switchBoardCard->setPosition(touchLastCard->getPosition());
 					switchBoardCard->setIsVisible(true);
 					this->makeMoveCard(touchLastCard, tapCard);
-				}
 			}
-			else if(tapCard->getType() == CardTypePlay && !((CardPlay*)tapCard)->getIsLocked())
+			
+			CardPlay* tapCardPlay = dynamic_cast<CardPlay*>(tapCard);
+			if(tapCardPlay && !tapCardPlay->getIsLocked())
 			{
-				dragCardCoord = gl->getPositionInGridCoord(tapCard->getPosition());
-				dragCard = (CardPlay*) tapCard;
+				dragCardCoord = gl->getPositionInGridCoord(tapCardPlay->getPosition());
+				dragCard = tapCardPlay;
 				CCPoint dragCardPos = gl->getPositionInBoardPoint(dragCardCoord);
 				
 				switchBoardCard->setPosition(dragCardPos);
@@ -669,8 +669,8 @@ void Game::tapUpAt(CCPoint location)
     if(dragCard)
     {
 		//check drop
-		Card* cToCard = gc->checkRectCard(dragCard, CardTypeBoard);
-		if(cToCard == NULL || cToCard->getType() != CardTypeBoard)
+		Card* cToCard = dynamic_cast<Card*>(gc->checkRectNode(dragCard, &filterCardBoard));
+		if(cToCard == NULL || dynamic_cast<CardBoard*>(cToCard) == NULL)
 		{
 			cToCard = dragCard;
 		}
@@ -681,6 +681,8 @@ void Game::tapUpAt(CCPoint location)
 		{
 			touchLastCard->setIsVisible(true);
 		}
+		
+		dragCard = NULL;
     }
     
     lastTouchLocation = location;

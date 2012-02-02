@@ -1,5 +1,5 @@
 /**
- *  GameControlSprite.cpp
+ *  GameControlNode.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,48 +22,48 @@
  *
  */
 
-#include "GameControlSprite.h"
-#include "Card.h"
+#include "GameControlNode.h"
+#include "CCNode.h"
 #include "Game.h"
 
 using namespace cocos2d;
 
-GameControlSprite::GameControlSprite()
+GameControlNode::GameControlNode()
 {
 }
 
-GameControlSprite::~GameControlSprite()
+GameControlNode::~GameControlNode()
 {
 }
 
-void GameControlSprite::step(ccTime dt)
+void GameControlNode::step(ccTime dt)
 {
 	
 }
 
-void GameControlSprite::draw()
+void GameControlNode::draw()
 {
 	
 }
 
-void GameControlSprite::addCard(Card* card)
+void GameControlNode::addNode(CCNode* node)
 {
-	cards.insert(card);
+	nodes.insert(node);
 }
 
-void GameControlSprite::removeCard(Card* card)
+void GameControlNode::removeNode(CCNode* node)
 {
-	cards.erase(card);
+	nodes.erase(node);
 }
 
-void GameControlSprite::updateCard(Card* card)
+void GameControlNode::updateNode(CCNode* node)
 {
 	
 }
 
-Card* GameControlSprite::checkPoint(cocos2d::CCPoint p)
+CCNode* GameControlNode::checkPoint(cocos2d::CCPoint p)
 {
-	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
+	for(NodeNodeSet::const_iterator it = nodes.begin(); it != nodes.end(); ++it)
 	{
 		CCRect rIt = (*it)->boundingBox();
 		rIt.origin = (*it)->convertToWorldSpace(CCPointZero);
@@ -77,9 +77,9 @@ Card* GameControlSprite::checkPoint(cocos2d::CCPoint p)
 	return NULL;
 }
 
-Card* GameControlSprite::checkPointCard(Card* c)
+CCNode* GameControlNode::checkPointNode(CCNode* c)
 {
-	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
+	for(NodeNodeSet::const_iterator it = nodes.begin(); it != nodes.end(); ++it)
 	{
 		if((*it) == c) continue;
 		
@@ -95,14 +95,14 @@ Card* GameControlSprite::checkPointCard(Card* c)
 	return NULL;
 }
 
-Card* GameControlSprite::checkRect(cocos2d::CCRect r, CardType filter)
+CCNode* GameControlNode::checkRect(cocos2d::CCRect r, Filter filter)
 {
-	Card* cRes = NULL;
+	CCNode* cRes = NULL;
 	float minDist = -1;
 	
-	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
+	for(NodeNodeSet::const_iterator it = nodes.begin(); it != nodes.end(); ++it)
 	{
-		if((*it)->getType() != filter) continue;
+		if(!filter(*it)) continue;
 		
 		CCRect rIt = (*it)->boundingBox();
 		rIt.origin = (*it)->convertToWorldSpace(CCPointZero);
@@ -122,14 +122,14 @@ Card* GameControlSprite::checkRect(cocos2d::CCRect r, CardType filter)
 	return cRes;
 }
 
-Card* GameControlSprite::checkRectCard(Card* c, CardType filter)
+CCNode* GameControlNode::checkRectNode(CCNode* c, Filter filter)
 {
-	Card* cRes = NULL;
+	CCNode* cRes = NULL;
 	float minDist = -1;
 	
-	for(CardSpriteSet::const_iterator it = cards.begin(); it != cards.end(); ++it)
+	for(NodeNodeSet::const_iterator it = nodes.begin(); it != nodes.end(); ++it)
 	{
-		if((*it) == c || (*it)->getType() != filter) continue;
+		if(!filter(*it)) continue;
 		
 		CCRect r = c->boundingBox();
 		CCRect rIt = (*it)->boundingBox();
