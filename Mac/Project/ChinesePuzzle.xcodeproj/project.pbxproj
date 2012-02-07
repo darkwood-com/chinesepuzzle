@@ -570,6 +570,13 @@
 		C3795E6014AB4C17005A2045 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		C3795E6114AB4C17005A2045 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		C3795E7114AB4C17005A2045 /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
+		C388374414E17079006876C7 /* constructors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constructors.h; sourceTree = "<group>"; };
+		C388374514E17079006876C7 /* javascript_end.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = javascript_end.h; sourceTree = "<group>"; };
+		C388374614E17079006876C7 /* javascript_start.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = javascript_start.h; sourceTree = "<group>"; };
+		C388374714E17079006876C7 /* object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = object.h; sourceTree = "<group>"; };
+		C388374814E17079006876C7 /* operators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operators.h; sourceTree = "<group>"; };
+		C388374914E17079006876C7 /* stdlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdlib.h; sourceTree = "<group>"; };
+		C388374A14E17079006876C7 /* underscore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = underscore.h; sourceTree = "<group>"; };
 		C39D80B314B471EF00AA683C /* CCReshapeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCReshapeDelegate.h; sourceTree = "<group>"; };
 		C39D80B514B49EC600AA683C /* CCReshapeDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCReshapeDelegate.cpp; sourceTree = "<group>"; };
 		C39D80BA14B4B55200AA683C /* GameScene_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene_mac.cpp; sourceTree = "<group>"; };
@@ -825,6 +832,7 @@
 				C37942E414AA2DBF005A2045 /* ChipmunkDraw */,
 				C37942E714AA2DBF005A2045 /* Cocos2Dx */,
 				C37953D414AA2DC2005A2045 /* DecoratedBox */,
+				C388372914E17079006876C7 /* JSPP */,
 			);
 			path = Externals;
 			sourceTree = "<group>";
@@ -1408,6 +1416,28 @@
 			path = mac;
 			sourceTree = "<group>";
 		};
+		C388372914E17079006876C7 /* JSPP */ = {
+			isa = PBXGroup;
+			children = (
+				C388374314E17079006876C7 /* src */,
+			);
+			path = JSPP;
+			sourceTree = "<group>";
+		};
+		C388374314E17079006876C7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C388374414E17079006876C7 /* constructors.h */,
+				C388374514E17079006876C7 /* javascript_end.h */,
+				C388374614E17079006876C7 /* javascript_start.h */,
+				C388374714E17079006876C7 /* object.h */,
+				C388374814E17079006876C7 /* operators.h */,
+				C388374914E17079006876C7 /* stdlib.h */,
+				C388374A14E17079006876C7 /* underscore.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		C39D80B214B471EE00AA683C /* cocos2dx */ = {
 			isa = PBXGroup;
 			children = (
@@ -1735,6 +1765,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/chipmunk/include/chipmunk/\"",
 					"\"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/cocos2dx/\"",
+					"\"$(SRCROOT)/../../Common/Src/Externals/\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
 				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
@@ -1768,6 +1799,7 @@
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/chipmunk/include/chipmunk/\"",
 					"\"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/cocos2dx/\"",
+					"\"$(SRCROOT)/../../Common/Src/Externals/\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
 				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";

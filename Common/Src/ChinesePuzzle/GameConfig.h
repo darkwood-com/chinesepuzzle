@@ -26,6 +26,7 @@
 #define __GAME_CONFIG_COMMON_H__
 
 #include <stdio.h>
+#include "cocos2d.h"
 #include "cpMacro.h"
 #include "cpStruct.h"
 #include "Archivist.h"
@@ -46,6 +47,8 @@ public:
 	std::string getUiPath(const char* file);
 	std::string getThemePath(const char* file);
 	std::string getFontPath(const char* file);
+	cocos2d::CCSpriteBatchNode* getNodeUiPath(const char* file);
+	cocos2d::CCSpriteBatchNode* getNodeThemePath(const char* file);
 	
 	cocos2d::CCSize getResolutionSize();
 	CC_SYNTHESIZE(std::string, resolution, Resolution);
