@@ -301,7 +301,7 @@ cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* 
 {
 	static CCMutableDictionary<std::string, CCSpriteBatchNode*>* sGameConfigBatchNodePath = new CCMutableDictionary<std::string, CCSpriteBatchNode*>();
 	
-	std::string nodePath = resolution + ((mode == 1) ? theme : "") + file;
+	std::string nodePath = resolution  + "/" + ((mode == 1) ? "themes/" + theme : "ui") + ".png:" + file;
 	CCSpriteBatchNode* node = sGameConfigBatchNodePath->objectForKey(nodePath);
 	if(node == NULL)
 	{
@@ -568,28 +568,54 @@ cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* 
 			}),
 		});
 		
-		var sprites;
+		var sprites = _$({});
 		if(mode == 0)
 		{
-			sprites = data[resolution.c_str()]["ui"];
+			//sprites data for ui
+			sprites = data[resolution]["ui"];
 		}
 		else if(mode == 1)
 		{
-			sprites = data[resolution.c_str()]["theme"];
+			//sprites data for theme
+			sprites = data[resolution]["theme"];
 			
 			var colors = _$({"D","S","H","C"});
             var ranks = _$({"A","2","3","4","5","6","7","8","9","10","J","Q","K"});
-			for(std::map<std::string, var>::iterator color = colors.begin(); color != colors.end(); ++color)
+			for(std::map<std::string, var>::const_iterator color = colors.begin(); color != colors.end(); ++color)
 			{
-				for(std::map<std::string, var>::iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
+				for(std::map<std::string, var>::const_iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
 				{
-					sprites[(std::string("card_") + color->second.s->s + rank->second.s->s).c_str()] = data[resolution]["card"](atoi(color->first.c_str()), atoi(rank->first.c_str()));
+					sprites[std::string("card_") + color->second.s->s + rank->second.s->s] = data[resolution]["card"](atoi(color->first.c_str()), atoi(rank->first.c_str()));
 				}
 			}
 		}
 		
-		node = CCSpriteBatchNode::batchNodeWithFile("480x320/themes/classic/bg.png");
-		sGameConfigBatchNodePath->setObject(node, file);
+		std::string spritePath = resolution  + "/" + ((mode == 1) ? "themes/" + theme : "ui") + ".png";
+		for(std::map<std::string, var>::iterator sprite = sprites.begin(); sprite != sprites.end(); ++sprite)
+		{
+			std::cout << sprite->second << std::endl;
+			
+			node = CCSpriteBatchNode::batchNodeWithFile(spritePath.c_str());
+			
+			CCSize nodeSize;
+			for(std::map<std::string, var>::iterator zone = sprite->second.begin(); zone != sprite->second.end(); ++zone)
+			{
+				CCRect zoneRect;
+				zoneRect.origin = ccp(zone->second["from"]["0"].s->n, zone->second["from"]["1"].s->n);
+				zoneRect.size = CCSizeMake(zone->second["from"]["2"].s->n, zone->second["from"]["3"].s->n);
+				CCPoint zonePosition = ccp(zone->second["to"]["0"].s->n, zone->second["to"]["1"].s->n);
+				nodeSize.width = std::max(zonePosition.x + zoneRect.size.width, nodeSize.width);
+				nodeSize.height = std::max(zonePosition.y + zoneRect.size.height, nodeSize.height);
+				
+				CCSprite* zoneSprite = CCSprite::spriteWithBatchNode(node, zoneRect);
+				zoneSprite->setAnchorPoint(ccp(0, 0));
+				zoneSprite->setPosition(zonePosition);
+				node->addChild(zoneSprite);
+			}
+			node->setContentSize(nodeSize);
+			
+			sGameConfigBatchNodePath->setObject(node, spritePath + ":" + sprite->first);
+		}
 	}
 	
 	return sGameConfigBatchNodePath->objectForKey(nodePath);
