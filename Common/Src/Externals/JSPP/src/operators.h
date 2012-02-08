@@ -222,9 +222,8 @@ std::string JSPPObject::toString() {
 		std::ostringstream stream;
 		stream << "{";
 
-		/*
 		bool first = true;
-		for (auto it = this->s->map.begin(); it != this->s->map.end(); ++it) {
+		for (std::map<std::string, JSPPObject>::const_iterator it = this->s->map.begin(); it != this->s->map.end(); ++it) {
 			if (it->second != undefined) {
 				if (!first) {
 					stream << ", ";
@@ -233,7 +232,6 @@ std::string JSPPObject::toString() {
 				stream << it->first << ": " << it->second;
 			}
 		}
-		 */
 
 		stream << "}";
 		return stream.str();
