@@ -59,5 +59,6 @@ LOCAL_LDLIBS := -L$(call host-path, $(LOCAL_PATH)/../Project/libs/$(TARGET_ARCH_
                 -lGLESv1_CM
 
 LOCAL_CPPFLAGS += -fexceptions
+LOCAL_CPPFLAGS += -frtti
 
 include $(BUILD_SHARED_LIBRARY)

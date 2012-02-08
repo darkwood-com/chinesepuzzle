@@ -25,7 +25,7 @@
 #include <limits.h>
 #include <string.h>
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 #include "cpConfig.h"
 #include "cpDrawSpace.h"
 

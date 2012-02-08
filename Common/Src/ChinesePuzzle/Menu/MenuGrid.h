@@ -25,7 +25,7 @@
 #ifndef __MENU_GRID_H__
 #define __MENU_GRID_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 
 namespace   cocos2d
 {

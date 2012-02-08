@@ -25,6 +25,7 @@
 #include "GameConfig.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "CardPlay.h"
 
 #include "JSPP/src/object.h"
@@ -582,7 +583,7 @@ cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* 
 			{
 				for(std::map<std::string, var>::iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
 				{
-					sprites[(std::string("card_") + color->second.s->s + rank->second.s->s).c_str()] = data[resolution]["card"](std::atoi(color->first.c_str()), std::atoi(rank->first.c_str()));
+					sprites[(std::string("card_") + color->second.s->s + rank->second.s->s).c_str()] = data[resolution]["card"](atoi(color->first.c_str()), atoi(rank->first.c_str()));
 				}
 			}
 		}
@@ -696,7 +697,7 @@ void GameConfigCommon::Decode( const Archivist::Object & data )
 		GridCoord coord; Archivist::Decode(coordCard["coord"], coord);
 		CardPlayStruct card; Archivist::Decode(coordCard["card"], card);
 		
-		std::map<CardPlayStruct,CardPlay*>::iterator mapIt = mapCard.find(card);
+		std::multimap<CardPlayStruct,CardPlay*>::iterator mapIt = mapCard.find(card);
 		if(mapIt == mapCard.end())
 		{
 			CardPlay* cardInstance = CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(resolution.c_str(),

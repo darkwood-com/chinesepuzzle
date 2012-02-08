@@ -665,10 +665,10 @@
 		C3638F1414E2760A0082777A /* Cocos2Dx */ = {
 			isa = PBXGroup;
 			children = (
-				C3638F1514E2760A0082777A /* CCLabelBMFontMultiline.cpp */,
 				C3638F1614E2760A0082777A /* CCLabelBMFontMultiline.h */,
-				C3638F1714E2760A0082777A /* CCReshapeDelegate.cpp */,
+				C3638F1514E2760A0082777A /* CCLabelBMFontMultiline.cpp */,
 				C3638F1814E2760A0082777A /* CCReshapeDelegate.h */,
+				C3638F1714E2760A0082777A /* CCReshapeDelegate.cpp */,
 			);
 			path = Cocos2Dx;
 			sourceTree = "<group>";
