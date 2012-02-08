@@ -25,7 +25,7 @@
 #ifndef __MENU_BOX_H__
 #define __MENU_BOX_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 #include "DecoratedBox.h"
 
 class CC_DLL MenuBox : public cocos2d::CCNode, public cocos2d::CCTouchDelegate

@@ -1,5 +1,5 @@
 /**
- *  MenuLayout.h
+ *  GameConfig_android.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,45 +22,14 @@
  *
  */
 
-#ifndef __MENU_LAYOUT_H__
-#define __MENU_LAYOUT_H__
+#include "GameConfig_android.h"
 
-#include "cocos2d.h"
-#include "MenuBox.h"
+using namespace cocos2d;
 
-class Menu;
-
-// MenuLayout Layer
-class CC_DLL MenuLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
+GameConfig::GameConfig()
 {
-private:
-	template <class T> T* layoutRes(const char* key);
-	
-protected:
-	Menu* menu;
-	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>* themes;
-	
-	MenuBox* mBox;
-	cocos2d::CCMenuItemImage* miTheme;
-	
-public:
-	typedef enum
-	{
-		TypeNone,
-		TypeNewGame,
-		TypeRetryGame,
-		TypeHint,
-		TypeTheme,
-	} Type;
-	
-	MenuLayout(Menu* menu);
-	virtual ~MenuLayout();
-	
-	virtual bool initWithType(Type type);
-	
-	void layout(bool anim = true);
-	
-	CC_SYNTHESIZE_READONLY(Type, type, Type);
-};
+}
 
-#endif // __MENU_LAYOUT_H__
+GameConfig::~GameConfig()
+{
+}

@@ -25,7 +25,7 @@
 #ifndef __GAME_CONTROL_H__
 #define __GAME_CONTROL_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 #include "CCNode.h"
 
 // GameControl

@@ -25,7 +25,7 @@
 #ifndef __CARD_H__
 #define __CARD_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 
 class CC_DLL Card : public cocos2d::CCSprite
 {

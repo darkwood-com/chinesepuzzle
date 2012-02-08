@@ -25,7 +25,7 @@
 #ifndef __GAME_SCENE_COMMON_H__
 #define __GAME_SCENE_COMMON_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 
 #include "GameConfig.h"
 #include "Game.h"

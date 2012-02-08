@@ -13,7 +13,7 @@
 #ifndef __DECORATED_BOX_H__
 #define __DECORATED_BOX_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 
 class CC_DLL DecoratedBox : public cocos2d::CCSpriteBatchNode
 {

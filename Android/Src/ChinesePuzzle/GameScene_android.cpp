@@ -1,5 +1,5 @@
 /**
- *  MenuLayout.h
+ *  GameScene_android.cpp
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,45 +22,48 @@
  *
  */
 
-#ifndef __MENU_LAYOUT_H__
-#define __MENU_LAYOUT_H__
+#include "GameScene_android.h"
+#include "Game.h"
+#include "GameScene.h"
 
-#include "cocos2d.h"
-#include "MenuBox.h"
+using namespace cocos2d;
 
-class Menu;
-
-// MenuLayout Layer
-class CC_DLL MenuLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
+GameScene::GameScene()
 {
-private:
-	template <class T> T* layoutRes(const char* key);
-	
-protected:
-	Menu* menu;
-	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>* themes;
-	
-	MenuBox* mBox;
-	cocos2d::CCMenuItemImage* miTheme;
-	
-public:
-	typedef enum
-	{
-		TypeNone,
-		TypeNewGame,
-		TypeRetryGame,
-		TypeHint,
-		TypeTheme,
-	} Type;
-	
-	MenuLayout(Menu* menu);
-	virtual ~MenuLayout();
-	
-	virtual bool initWithType(Type type);
-	
-	void layout(bool anim = true);
-	
-	CC_SYNTHESIZE_READONLY(Type, type, Type);
-};
+	m_bIsRelativeAnchorPoint = true;
+}
 
-#endif // __MENU_LAYOUT_H__
+GameScene::~GameScene()
+{
+}
+
+bool GameScene::init()
+{
+	if (!GameSceneCommon::init())
+	{
+		return false;
+	}
+	
+	this->layout();
+	this->ccReshape();
+	
+	return true;
+}
+
+void GameScene::layout(bool anim)
+{
+	GameSceneCommon::layout(anim);
+	
+	CCSize confsize = conf->getResolutionSize();
+	CCPoint confcenter = ccpMult(ccp(confsize.width, confsize.height), 0.5);
+	
+	this->setContentSize(confsize);
+}
+
+void GameScene::ccReshape()
+{
+	CCSize winsize = CCDirector::sharedDirector()->getWinSize();
+	CCPoint wincenter = ccpMult(ccp(winsize.width, winsize.height), 0.5);
+
+	this->setPosition(wincenter);
+}

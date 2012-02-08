@@ -25,7 +25,7 @@
 #ifndef __MENU_LABEL_H__
 #define __MENU_LABEL_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 #include "CCLabelBMFontMultiline.h"
 
 class CC_DLL MenuLabel : public cocos2d::CCNode, public cocos2d::CCTouchDelegate

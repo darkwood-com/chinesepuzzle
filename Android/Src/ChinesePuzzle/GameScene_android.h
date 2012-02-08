@@ -1,5 +1,5 @@
 /**
- *  MenuLayout.h
+ *  GameScene_android.h
  *  ChinesePuzzle
  *
  *  Created by Mathieu LEDRU on 01/11/11.
@@ -22,45 +22,24 @@
  *
  */
 
-#ifndef __MENU_LAYOUT_H__
-#define __MENU_LAYOUT_H__
+#ifndef __GAME_SCENE_H__
+#define __GAME_SCENE_H__
 
-#include "cocos2d.h"
-#include "MenuBox.h"
+#include "GameScene.h"
+#include "CCReshapeDelegate.h"
+#include "Background.h"
 
-class Menu;
-
-// MenuLayout Layer
-class CC_DLL MenuLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
+class CC_DLL GameScene : public GameSceneCommon, public cocos2d::CCReshapeDelegate
 {
-private:
-	template <class T> T* layoutRes(const char* key);
-	
-protected:
-	Menu* menu;
-	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>* themes;
-	
-	MenuBox* mBox;
-	cocos2d::CCMenuItemImage* miTheme;
-	
 public:
-	typedef enum
-	{
-		TypeNone,
-		TypeNewGame,
-		TypeRetryGame,
-		TypeHint,
-		TypeTheme,
-	} Type;
+	GameScene();
+	virtual ~GameScene();
+	SCENE_NODE_FUNC(GameScene);
 	
-	MenuLayout(Menu* menu);
-	virtual ~MenuLayout();
-	
-	virtual bool initWithType(Type type);
+	virtual bool init();
 	
 	void layout(bool anim = true);
-	
-	CC_SYNTHESIZE_READONLY(Type, type, Type);
+	virtual void ccReshape();
 };
 
-#endif // __MENU_LAYOUT_H__
+#endif // __GAME_SCENE_H__

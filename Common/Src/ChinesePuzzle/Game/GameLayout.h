@@ -25,7 +25,7 @@
 #ifndef __GAME_LAYOUT_H__
 #define __GAME_LAYOUT_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 #include "cpStruct.h"
 
 class Game;

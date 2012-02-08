@@ -25,7 +25,7 @@
 #ifndef __MENU_H__
 #define __MENU_H__
 
-#import "cocos2d.h"
+#include "cocos2d.h"
 #include "MenuLayout.h"
 
 class GameSceneCommon;
