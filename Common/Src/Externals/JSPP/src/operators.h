@@ -110,14 +110,14 @@ bool operator !=(JSPPObject a, JSPPObject b) {
 
 JSPPObject operator *(JSPPObject a, JSPPObject b) {
 	if (a.s->type == JSPP_NUMBER && b.s->type == JSPP_NUMBER) {
-		return a.s->n * a.s->n;
+		return a.s->n * b.s->n;
 	}
 	return NaN;
 }
 
 JSPPObject operator /(JSPPObject a, JSPPObject b) {
 	if (a.s->type == JSPP_NUMBER && b.s->type == JSPP_NUMBER) {
-		return a.s->n / a.s->n;
+		return a.s->n / b.s->n;
 	}
 	return NaN;
 }
