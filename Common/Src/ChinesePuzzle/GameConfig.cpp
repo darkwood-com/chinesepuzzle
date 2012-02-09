@@ -297,7 +297,7 @@ var card1920x1200(var This, var colorIndex, var rankIndex)
 }
 
 //internal json data like parser
-cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* file)
+void GameConfigCommon::getNodePath(int mode, const char* file, CCSpriteBatchNode* sprite)
 {
 	static CCMutableDictionary<std::string, CCSpriteBatchNode*>* sGameConfigBatchNodePath = new CCMutableDictionary<std::string, CCSpriteBatchNode*>();
 	
@@ -571,12 +571,10 @@ cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* 
 		var sprites = _$({});
 		if(mode == 0)
 		{
-			//sprites data for ui
 			sprites = data[resolution]["ui"];
 		}
 		else if(mode == 1)
 		{
-			//sprites data for theme
 			sprites = data[resolution]["theme"];
 			
 			var colors = _$({"D","S","H","C"});
@@ -617,19 +615,44 @@ cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* 
 				sGameConfigBatchNodePath->setObject(node, spritePath + ":" + sprite->first);
 			}
 		}
+		
+		node = sGameConfigBatchNodePath->objectForKey(nodePath);
 	}
 	
-	return sGameConfigBatchNodePath->objectForKey(nodePath);
+	if(node)
+	{
+		sprite->removeAllChildrenWithCleanup(true);
+		sprite->setTexture(node->getTexture());
+		
+		CCArray* pChildren = node->getChildren();
+		if (pChildren && pChildren->count() > 0)
+		{
+            CCObject* pObject = NULL;
+            CCARRAY_FOREACH(pChildren, pObject)
+            {
+                CCSprite* pChild = (CCSprite*) pObject;
+                if (pChild)
+                {
+                    CCSprite* zoneSprite = CCSprite::spriteWithBatchNode(sprite, pChild->getTextureRect());
+					zoneSprite->setAnchorPoint(ccp(0, 0));
+					zoneSprite->setPosition(pChild->getPosition());
+					sprite->addChild(zoneSprite);
+                }
+            }
+		}
+		
+		sprite->setContentSize(node->getContentSize());
+	}
 }
 
-cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodeUiPath(const char* file)
+void GameConfigCommon::getNodeUiPath(const char* file, CCSpriteBatchNode* sprite)
 {
-	return getNodePath(0, file);
+	getNodePath(0, file, sprite);
 }
 
-cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodeThemePath(const char* file)
+void GameConfigCommon::getNodeThemePath(const char* file, CCSpriteBatchNode* sprite)
 {
-	return getNodePath(1, file);
+	getNodePath(1, file, sprite);
 }
 
 struct CardPlayStruct {

@@ -38,7 +38,7 @@ class Card;
 class CC_DLL GameConfigCommon : public cocos2d::CCObject
 {
 private:
-	cocos2d::CCSpriteBatchNode* getNodePath(int mode, const char* file);
+	void getNodePath(int mode, const char* file, cocos2d::CCSpriteBatchNode* sprite);
 	
 public:
 	GameConfigCommon();
@@ -50,8 +50,8 @@ public:
 	std::string getUiPath(const char* file);
 	std::string getThemePath(const char* file);
 	std::string getFontPath(const char* file);
-	cocos2d::CCSpriteBatchNode* getNodeUiPath(const char* file);
-	cocos2d::CCSpriteBatchNode* getNodeThemePath(const char* file);
+	void getNodeUiPath(const char* file, cocos2d::CCSpriteBatchNode* sprite);
+	void getNodeThemePath(const char* file, cocos2d::CCSpriteBatchNode* sprite);
 	
 	cocos2d::CCSize getResolutionSize();
 	CC_SYNTHESIZE(std::string, resolution, Resolution);

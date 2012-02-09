@@ -29,6 +29,8 @@
 
 #include "cocos2d.h"
 
+static cocos2d::CCTexture2D* ccTextureNull = new cocos2d::CCTexture2D();
+
 #define CP_STR(s)			#s
 #define CP_CSTR(s1, s2)		CP_STR(s1 ## s2)
 
