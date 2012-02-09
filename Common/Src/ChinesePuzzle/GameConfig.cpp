@@ -146,7 +146,7 @@ var midPoint(var point)
     return point;
 }
 
-var card480x320(var colorIndex, var rankIndex)
+var card480x320(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({53,73,93,112});
     var txtRankLine = _$({516,8,526,7,535,7,544,7,553,7,562,7,571,7,580,7,589,7,597,9,608,7,616,10,627,7});
@@ -161,7 +161,7 @@ var card480x320(var colorIndex, var rankIndex)
     });
 }
 
-var card960x640(var colorIndex, var rankIndex)
+var card960x640(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({106,146,186,224});
     var txtRankLine = _$({1032,16,1052,14,1070,14,1088,14,1106,14,1124,14,1142,14,1160,14,1178,14,1194,18,1216,14,1232,20,1254,14});
@@ -176,7 +176,7 @@ var card960x640(var colorIndex, var rankIndex)
     });
 }
 
-var card1024x768(var colorIndex, var rankIndex)
+var card1024x768(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({143,185,231,273});
     var txtRankLine = _$({1102,18,1123,14,1143,14,1162,15,1183,15,1203,14,1223,14,1243,14,1263,14,1281,20,1304,14,1320,21,1343,15});
@@ -191,7 +191,7 @@ var card1024x768(var colorIndex, var rankIndex)
     });
 }
 
-var card1280x800(var colorIndex, var rankIndex)
+var card1280x800(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({143,185,231,273});
     var txtRankLine = _$({1358,18,1379,14,1399,14,1418,15,1439,15,1459,14,1479,14,1499,14,1519,14,1537,20,1560,14,1576,21,1599,15});
@@ -206,7 +206,7 @@ var card1280x800(var colorIndex, var rankIndex)
     });
 }
 
-var card1280x1024(var colorIndex, var rankIndex)
+var card1280x1024(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({145,194,246,296});
     var txtRankLine = _$({1370,20,1395,16,1418,16,1441,18,1464,17,1488,16,1512,16,1536,16,1559,16,1580,23,1608,16,1627,24,1655,17});
@@ -221,7 +221,7 @@ var card1280x1024(var colorIndex, var rankIndex)
     });
 }
 
-var card1366x768(var colorIndex, var rankIndex)
+var card1366x768(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({143,185,231,273});
     var txtRankLine = _$({1444,18,1465,14,1485,14,1504,15,1525,15,1545,14,1565,14,1585,14,1605,14,1623,20,1646,14,1662,21,1685,15});
@@ -236,7 +236,7 @@ var card1366x768(var colorIndex, var rankIndex)
     });
 }
 
-var card1440x900(var colorIndex, var rankIndex)
+var card1440x900(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({145,194,246,296});
     var txtRankLine = _$({1530,20,1555,16,1578,16,1601,18,1624,17,1648,16,1672,16,1696,16,1719,16,1740,23,1768,16,1787,24,1815,17});
@@ -251,7 +251,7 @@ var card1440x900(var colorIndex, var rankIndex)
     });
 }
 
-var card1680x1050(var colorIndex, var rankIndex)
+var card1680x1050(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({146,200,258,312});
     var txtRankLine = _$({1780,22,1808,17,1833,17,1858,19,1884,18,1910,17,1936,17,1962,17,1987,17,2010,25,2040,17,2060,26,2090,18});
@@ -266,7 +266,7 @@ var card1680x1050(var colorIndex, var rankIndex)
     });
 }
 
-var card1920x1080(var colorIndex, var rankIndex)
+var card1920x1080(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({146,200,258,312});
     var txtRankLine = _$({2020,22,2048,17,2073,17,2098,19,2124,18,2150,17,2176,17,2202,17,2227,17,2250,25,2280,17,2300,26,2330,18});
@@ -281,7 +281,7 @@ var card1920x1080(var colorIndex, var rankIndex)
     });
 }
 
-var card1920x1200(var colorIndex, var rankIndex)
+var card1920x1200(var This, var colorIndex, var rankIndex)
 {
     var txtColorLine = _$({146,200,258,312});
     var txtRankLine = _$({2020,22,2048,17,2073,17,2098,19,2124,18,2150,17,2176,17,2202,17,2227,17,2250,25,2280,17,2300,26,2330,18});
@@ -581,11 +581,11 @@ cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* 
 			
 			var colors = _$({"D","S","H","C"});
             var ranks = _$({"A","2","3","4","5","6","7","8","9","10","J","Q","K"});
-			for(std::map<std::string, var>::const_iterator color = colors.begin(); color != colors.end(); ++color)
+			for (var colorIndex = 0; colorIndex < colors["length"]; ++colorIndex)
 			{
-				for(std::map<std::string, var>::const_iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
+				for (var rankIndex = 0; rankIndex < ranks["length"]; ++rankIndex)
 				{
-					sprites[std::string("card_") + color->second.s->s + rank->second.s->s] = data[resolution]["card"](atoi(color->first.c_str()), atoi(rank->first.c_str()));
+					sprites[std::string("card_") + colors[colorIndex].s->s + ranks[rankIndex].s->s] = data[resolution]["card"](colorIndex, rankIndex);
 				}
 			}
 		}
@@ -593,28 +593,29 @@ cocos2d::CCSpriteBatchNode* GameConfigCommon::getNodePath(int mode, const char* 
 		std::string spritePath = resolution  + "/" + ((mode == 1) ? "themes/" + theme : "ui") + ".png";
 		for(std::map<std::string, var>::iterator sprite = sprites.begin(); sprite != sprites.end(); ++sprite)
 		{
-			std::cout << sprite->second << std::endl;
-			
-			node = CCSpriteBatchNode::batchNodeWithFile(spritePath.c_str());
-			
-			CCSize nodeSize;
-			for(std::map<std::string, var>::iterator zone = sprite->second.begin(); zone != sprite->second.end(); ++zone)
+			if(sprite->second != undefined)
 			{
-				CCRect zoneRect;
-				zoneRect.origin = ccp(zone->second["from"]["0"].s->n, zone->second["from"]["1"].s->n);
-				zoneRect.size = CCSizeMake(zone->second["from"]["2"].s->n, zone->second["from"]["3"].s->n);
-				CCPoint zonePosition = ccp(zone->second["to"]["0"].s->n, zone->second["to"]["1"].s->n);
-				nodeSize.width = std::max(zonePosition.x + zoneRect.size.width, nodeSize.width);
-				nodeSize.height = std::max(zonePosition.y + zoneRect.size.height, nodeSize.height);
+				node = CCSpriteBatchNode::batchNodeWithFile(spritePath.c_str());
 				
-				CCSprite* zoneSprite = CCSprite::spriteWithBatchNode(node, zoneRect);
-				zoneSprite->setAnchorPoint(ccp(0, 0));
-				zoneSprite->setPosition(zonePosition);
-				node->addChild(zoneSprite);
+				CCSize nodeSize;
+				for (var zone = 0; zone < sprite->second["length"]; ++zone)
+				{
+					CCRect zoneRect;
+					zoneRect.origin = ccp(sprite->second[zone]["from"][0].s->n, sprite->second[zone]["from"][1].s->n);
+					zoneRect.size = CCSizeMake(sprite->second[zone]["from"][2].s->n, sprite->second[zone]["from"][3].s->n);
+					CCPoint zonePosition = ccp(sprite->second[zone]["to"][0].s->n, sprite->second[zone]["to"][1].s->n);
+					nodeSize.width = std::max(zonePosition.x + zoneRect.size.width, nodeSize.width);
+					nodeSize.height = std::max(zonePosition.y + zoneRect.size.height, nodeSize.height);
+					
+					CCSprite* zoneSprite = CCSprite::spriteWithBatchNode(node, zoneRect);
+					zoneSprite->setAnchorPoint(ccp(0, 0));
+					zoneSprite->setPosition(zonePosition);
+					node->addChild(zoneSprite);
+				}
+				node->setContentSize(nodeSize);
+				
+				sGameConfigBatchNodePath->setObject(node, spritePath + ":" + sprite->first);
 			}
-			node->setContentSize(nodeSize);
-			
-			sGameConfigBatchNodePath->setObject(node, spritePath + ":" + sprite->first);
 		}
 	}
 	
