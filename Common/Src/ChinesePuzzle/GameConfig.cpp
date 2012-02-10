@@ -642,6 +642,7 @@ void GameConfigCommon::getNodePath(int mode, const char* file, CCSpriteBatchNode
 		}
 		
 		sprite->setContentSize(node->getContentSize());
+		sprite->setAnchorPoint(ccp(0.5f, 0.5f));
 	}
 }
 
