@@ -155,9 +155,9 @@ var card480x320(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({480,0,26,36}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],13}), _["to"] = _$({8,9})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({13,25})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({18,9})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],13}), _["to"] = _$({8,27})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({13,11})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({18,27})})), //color right
     });
 }
 
@@ -170,9 +170,9 @@ var card960x640(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({960,0,52,72}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],26}), _["to"] = _$({16,18})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({26,50})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({36,18})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],26}), _["to"] = _$({16,54})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({26,22})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({36,54})})), //color right
     });
 }
 
@@ -185,9 +185,9 @@ var card1024x768(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1024,0,56,78}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],27}), _["to"] = _$({17,20})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({28,54})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({39,20})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],27}), _["to"] = _$({17,58})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({28,24})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({39,58})})), //color right
     });
 }
 
@@ -200,9 +200,9 @@ var card1280x800(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1280,0,56,78}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],27}), _["to"] = _$({17,20})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({28,54})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({39,20})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],27}), _["to"] = _$({17,58})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({28,24})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({39,58})})), //color right
     });
 }
 
@@ -215,9 +215,9 @@ var card1280x1024(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1280,0,66,92}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],31}), _["to"] = _$({18,24})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({32,64})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({46,24})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],31}), _["to"] = _$({18,68})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({32,28})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({46,68})})), //color right
     });
 }
 
@@ -230,9 +230,9 @@ var card1366x768(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1366,0,56,78}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],27}), _["to"] = _$({17,20})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({28,54})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({39,20})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],27}), _["to"] = _$({17,58})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({28,24})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({39,58})})), //color right
     });
 }
 
@@ -245,9 +245,9 @@ var card1440x900(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1440,0,66,92}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],31}), _["to"] = _$({18,24})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({32,64})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({46,24})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],31}), _["to"] = _$({18,68})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({32,28})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({46,68})})), //color right
     });
 }
 
@@ -260,9 +260,9 @@ var card1680x1050(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1680,0,73,100}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],34}), _["to"] = _$({22,24})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({36,70})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({51,24})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],34}), _["to"] = _$({22,76})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({36,30})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({51,76})})), //color right
     });
 }
 
@@ -275,9 +275,9 @@ var card1920x1080(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1920,0,73,100}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],34}), _["to"] = _$({22,24})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({36,70})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({51,24})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],34}), _["to"] = _$({22,76})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({36,30})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({51,76})})), //color right
     });
 }
 
@@ -290,9 +290,9 @@ var card1920x1200(var This, var colorIndex, var rankIndex)
 	
     return _$({
 		_$({_["from"] = _$({1920,0,73,100}), _["to"] = _$({0,0})}), //card bg
-		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],34}), _["to"] = _$({22,24})})), //rank left
-		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({36,70})})), //color center
-		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({51,24})})), //color right
+		midPoint(_$({_["from"] = _$({txtRankLine[rankIndex*2],txtColorLine[colorIndex],txtRankLine[rankIndex*2+1],34}), _["to"] = _$({22,76})})), //rank left
+		midPoint(_$({_["from"] = shapeColorBig[colorIndex], _["to"] = _$({36,30})})), //color center
+		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({51,76})})), //color right
     });
 }
 
