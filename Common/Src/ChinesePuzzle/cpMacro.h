@@ -31,6 +31,57 @@
 
 static cocos2d::CCTexture2D* ccTextureNull = new cocos2d::CCTexture2D();
 
+namespace cocos2d
+{
+	inline void copySpriteBatchNode(cocos2d::CCSpriteBatchNode* from, cocos2d::CCSpriteBatchNode* to)
+	{
+		CCAssert(from != NULL, "sprite batch node should not be null");
+		CCAssert(to != NULL, "sprite batch node should not be null");
+		
+		to->removeAllChildrenWithCleanup(true);
+		to->setTexture(from->getTexture());
+		
+		CCArray* pChildren = from->getChildren();
+		if (pChildren && pChildren->count() > 0)
+		{
+			CCObject* pObject = NULL;
+			CCARRAY_FOREACH(pChildren, pObject)
+			{
+				CCSprite* pChild = (CCSprite*) pObject;
+				if (pChild)
+				{
+					CCSprite* zoneSprite = CCSprite::spriteWithBatchNode(to, pChild->getTextureRect());
+					zoneSprite->setAnchorPoint(ccp(0, 0));
+					zoneSprite->setPosition(pChild->getPosition());
+					to->addChild(zoneSprite);
+				}
+			}
+		}
+		
+		to->setContentSize(from->getContentSize());
+		to->setAnchorPoint(ccp(0.5f, 0.5f));
+	}
+
+	inline CCSprite* copyFirstSpriteBatchNode(cocos2d::CCSpriteBatchNode* sprite)
+	{
+		CCArray* pChildren = sprite->getChildren();
+		if (pChildren && pChildren->count() > 0)
+		{
+			CCObject* pObject = NULL;
+			CCARRAY_FOREACH(pChildren, pObject)
+			{
+				CCSprite* pChild = (CCSprite*) pObject;
+				if (pChild)
+				{
+					return CCSprite::spriteWithTexture(pChild->getTexture(), pChild->getTextureRect());
+				}
+			}
+		}
+		
+		return NULL;
+	}
+}
+
 #define CP_STR(s)			#s
 #define CP_CSTR(s1, s2)		CP_STR(s1 ## s2)
 

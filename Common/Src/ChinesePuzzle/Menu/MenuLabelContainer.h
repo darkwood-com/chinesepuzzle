@@ -37,7 +37,7 @@ public:
 	MenuLabelContainer();
 	virtual ~MenuLabelContainer();
 	
-	virtual bool initWithResolutionAndContentSizeAndFntFile(const char* resolution, const cocos2d::CCSize& size, const char *fntFile);
+	virtual bool initWithConfAndContentSizeAndFntFile(GameConfigCommon* conf, const cocos2d::CCSize& size, const char *fntFile);
 	
 	virtual void setString(const char *str);
 	virtual const char* getString(void);

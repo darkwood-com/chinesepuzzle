@@ -23,7 +23,9 @@
  */
 
 
+#include "cpMacro.h"
 #include "CardPlay.h"
+#include "GameConfig.h"
 
 using namespace cocos2d;
 
@@ -75,18 +77,23 @@ CCObject* CardPlayFlipAction::copyWithZone(CCZone *pZone)
 	return pCopy;
 }
 
-CardPlay::CardPlay() : isLocked(false)
+CardPlay::CardPlay() :
+faceSprite(NULL),
+backSprite(NULL),
+isLocked(false)
 {
 }
 
 CardPlay::~CardPlay()
 {
+	CC_SAFE_RELEASE(faceSprite);
+	CC_SAFE_RELEASE(backSprite);
 }
 
-CardPlay* CardPlay::cardPlayWithColorAndRank(CardPlayColor color, CardPlayRank rank)
+CardPlay* CardPlay::cardBoardWithConfAndColorAndRank(GameConfigCommon* conf, CardPlayColor color, CardPlayRank rank)
 {
 	CardPlay* cardPlay = new CardPlay();
-	if (cardPlay && cardPlay->initWithColorAndRank(color, rank))
+	if (cardPlay && cardPlay->initWithConfAndColorAndRank(conf, color, rank))
 	{
         cardPlay->autorelease();
         return cardPlay;
@@ -95,26 +102,9 @@ CardPlay* CardPlay::cardPlayWithColorAndRank(CardPlayColor color, CardPlayRank r
 	return NULL;
 }
 
-CardPlay* CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank)
+bool CardPlay::initWithConfAndColorAndRank(GameConfigCommon* conf, CardPlayColor color, CardPlayRank rank)
 {
-	CardPlay* cardPlay = new CardPlay();
-	if (cardPlay && cardPlay->initWithResolutionAndThemeAndColorAndRank(resolution, theme, color, rank))
-	{
-        cardPlay->autorelease();
-        return cardPlay;
-    }
-    CC_SAFE_DELETE(cardPlay);
-	return NULL;
-}
-
-bool CardPlay::initWithColorAndRank(CardPlayColor color, CardPlayRank rank)
-{
-	return initWithResolutionAndThemeAndColorAndRank("480x320", "classic", color, rank);
-}
-
-bool CardPlay::initWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank)
-{
-	if(!CCSprite::init())
+	if(!CCSpriteBatchNode::initWithTexture(ccTextureNull, 4))
 	{
 		return false;
 	}
@@ -123,7 +113,7 @@ bool CardPlay::initWithResolutionAndThemeAndColorAndRank(const char* resolution,
 	this->color = color;
 	this->rank = rank;
 	
-	this->setTextureResolutionAndTheme(resolution, theme);
+	this->setConf(conf);
 	
 	return true;
 }
@@ -149,22 +139,26 @@ void CardPlay::setIsFaceUp(bool isFaceUp, bool force)
 	{
 		this->isFaceUp = isFaceUp;
 		
-		this->setTexture(isFaceUp ? faceTexture : backTexture);
-		
-		CCRect rect = CCRectZero;
-		rect.size = this->getTexture()->getContentSize();
-		this->setTextureRect(rect);
+		copySpriteBatchNode(isFaceUp ? faceSprite : backSprite, this);
 	}
 }
 
-void CardPlay::setTextureResolutionAndTheme(const char* resolution, const char* theme)
+void CardPlay::setConf(GameConfigCommon* conf)
 {
-	std::string path = std::string(resolution) + std::string("/themes/") + std::string(theme) + std::string("/");
+	if(faceSprite == NULL)
+	{
+		faceSprite = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+		faceSprite->retain();
+	}
 	
-	//patch
-	std::string pathA = path + std::string("card_") + matchColor(color) + matchRank(rank) + std::string(".png");
-	faceTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("card_") + matchColor(color) + matchRank(rank) + std::string(".png")).c_str());
-	backTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardplaybg.png")).c_str());
+	if(backSprite == NULL)
+	{
+		backSprite = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+		backSprite->retain();
+	}
+	
+	conf->getNodeThemePath((std::string("card_") + matchColor(color) + matchRank(rank)).c_str(), faceSprite);
+	conf->getNodeThemePath("cardplaybg", backSprite);
 	
 	this->setIsFaceUp(this->getIsFaceUp(), true);
 }

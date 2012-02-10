@@ -181,6 +181,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 }
 
 MenuLayout::MenuLayout(Menu* menu) :
+bg(NULL),
 menu(menu),
 themes(NULL),
 mBox(NULL),
@@ -204,15 +205,25 @@ bool MenuLayout::initWithType(Type type)
 
 void MenuLayout::layout(bool anim)
 {
-	GameConfig* conf = menu->getGameScene()->getConf();
+	GameConfigCommon* conf = menu->getGameScene()->getConf();
 	CCPoint center = ccpMult(ccp(conf->getResolutionSize().width, conf->getResolutionSize().height), 0.5);
 	
-	if(!menu->getChildByTag(kMenuTagBg))
+	if(!bg)
 	{
-		CCSprite* bg = CCSprite::spriteWithFile(conf->getUiPath("menuMask.png").c_str());
-		bg->setAnchorPoint(ccp(0, 0));
+		bg = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		menu->addChild(bg, 0, kMenuTagBg);
 	}
+	conf->getNodeUiPath("menuMask", bg);
+	bg->setPosition(ccp(0, 0));
+	bg->setAnchorPoint(ccp(0, 0));
+	
+	CCSpriteBatchNode* yesNode = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+	conf->getNodeUiPath("menuItemYes", yesNode);
+	CCSprite* yesSprite = copyFirstSpriteBatchNode(yesNode);
+	
+	CCSpriteBatchNode* noNode = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+	conf->getNodeUiPath("menuItemNo", noNode);
+	CCSprite* noSprite = copyFirstSpriteBatchNode(noNode);
 	
 	switch (this->type)
 	{
@@ -220,7 +231,7 @@ void MenuLayout::layout(bool anim)
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuNewBoxSize"));
+				mb->initWithConfAndContentSize(conf, *this->layoutRes<CCSize>("menuNewBoxSize"));
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
@@ -233,12 +244,12 @@ void MenuLayout::layout(bool anim)
 				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuNewTitle"));
 				items->addObject(itemTitle);
 				
-				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemYes.png").c_str(), NULL, menu->getGameScene(), menu_selector(GameSceneCommon::newGame));
+				CCMenuItemSprite* itemYes = CCMenuItemSprite::itemFromNormalSprite(yesSprite, NULL, menu->getGameScene(), menu_selector(GameSceneCommon::newGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemYes->setPosition(*this->layoutRes<CCPoint>("menuNewYes"));
 				items->addObject(itemYes);
 				
-				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemNo.png").c_str(), NULL, menu, menu_selector(Menu::okMenu));
+				CCMenuItemSprite* itemNo = CCMenuItemSprite::itemFromNormalSprite(noSprite, NULL, menu, menu_selector(Menu::okMenu));
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemNo->setPosition(*this->layoutRes<CCPoint>("menuNewNo"));
 				items->addObject(itemNo);
@@ -255,7 +266,7 @@ void MenuLayout::layout(bool anim)
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuRetryBoxSize"));
+				mb->initWithConfAndContentSize(conf, *this->layoutRes<CCSize>("menuRetryBoxSize"));
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
@@ -268,12 +279,12 @@ void MenuLayout::layout(bool anim)
 				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuRetryTitle"));
 				items->addObject(itemTitle);
 				
-				CCMenuItemImage* itemYes = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemYes.png").c_str(), NULL, menu->getGameScene(), menu_selector(GameSceneCommon::retryGame));
+				CCMenuItemSprite* itemYes = CCMenuItemSprite::itemFromNormalSprite(yesSprite, NULL, menu->getGameScene(), menu_selector(GameSceneCommon::retryGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemYes->setPosition(*this->layoutRes<CCPoint>("menuRetryYes"));
 				items->addObject(itemYes);
 				
-				CCMenuItemImage* itemNo = CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemNo.png").c_str(), NULL, menu, menu_selector(Menu::okMenu));
+				CCMenuItemSprite* itemNo = CCMenuItemSprite::itemFromNormalSprite(noSprite, NULL, menu, menu_selector(Menu::okMenu));
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemNo->setPosition(*this->layoutRes<CCPoint>("menuRetryNo"));
 				items->addObject(itemNo);
@@ -290,7 +301,7 @@ void MenuLayout::layout(bool anim)
 			if(!mBox)
 			{
 				MenuLabelContainer* mb = new MenuLabelContainer();
-				mb->initWithResolutionAndContentSizeAndFntFile(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuHintBoxSize"), conf->getFontPath("arial32.fnt").c_str());
+				mb->initWithConfAndContentSizeAndFntFile(conf, *this->layoutRes<CCSize>("menuHintBoxSize"), conf->getFontPath("arial32.fnt").c_str());
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setMargin(CCSizeMake(50, 50));
@@ -307,14 +318,18 @@ void MenuLayout::layout(bool anim)
 		case TypeTheme:
 			if(!themes)
 			{
-				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>();
-				themes->setObject(CCMenuItemImage::itemFromNormalImage(conf->getUiPath("menuItemThemeClassic.png").c_str(), NULL), "classic");
+				CCSpriteBatchNode* themeClassicNode = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+				conf->getNodeUiPath("menuItemThemeClassic", themeClassicNode);
+				CCSprite* themeClassicSprite = copyFirstSpriteBatchNode(themeClassicNode);
+				
+				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemSprite*>();
+				themes->setObject(CCMenuItemSprite::itemFromNormalSprite(themeClassicSprite, NULL), "classic");
 			}
 			
 			if(!mBox)
 			{
 				MenuGridContainer* mb = new MenuGridContainer();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuThemeBoxSize"));
+				mb->initWithConfAndContentSize(conf, *this->layoutRes<CCSize>("menuThemeBoxSize"));
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setMargin(CCSizeMake(50, 50));
@@ -329,7 +344,7 @@ void MenuLayout::layout(bool anim)
 				std::vector<std::string> sTheme = themes->allKeys();
 				for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
 				{
-					CCMenuItemImage* mItem = themes->objectForKey(*it);
+					CCMenuItemSprite* mItem = themes->objectForKey(*it);
 					items->addObject(mItem);
 				}
 				
@@ -345,7 +360,7 @@ void MenuLayout::layout(bool anim)
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
-				mb->initWithResolutionAndContentSize(conf->getResolution().c_str(), *this->layoutRes<CCSize>("menuNoneBoxSize"));
+				mb->initWithConfAndContentSize(conf, *this->layoutRes<CCSize>("menuNoneBoxSize"));
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));

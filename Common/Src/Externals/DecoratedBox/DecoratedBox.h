@@ -17,13 +17,15 @@
 
 class CC_DLL DecoratedBox : public cocos2d::CCSpriteBatchNode
 {
-	CC_SYNTHESIZE_READONLY(cocos2d::CGFloat, cellSize, CellSize);
+	CC_SYNTHESIZE_READONLY(cocos2d::CCRect, cell, Cell);
 	
 	CC_SYNTHESIZE_READONLY(cocos2d::CGFloat, boxWidth, BoxWidth);
 	CC_SYNTHESIZE_READONLY(cocos2d::CGFloat, boxHeight, BoxHeight);
 	
 public:
+	static DecoratedBox* decoratedBoxWithTexture(cocos2d::CCTexture2D *pTexture, const cocos2d::CCRect& rect, const cocos2d::CCSize& size);
 	static DecoratedBox* decoratedBoxWithFile(const char* filename, const cocos2d::CCSize& size);
+	virtual bool initWithTexture(cocos2d::CCTexture2D *pTexture, const cocos2d::CCRect& rect, const cocos2d::CCSize& size);
 	virtual bool initWithFile(const char* filename, const cocos2d::CCSize& size);
 	
 	virtual void setContentSize(const cocos2d::CCSize& size);

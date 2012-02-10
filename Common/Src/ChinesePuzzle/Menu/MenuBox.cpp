@@ -23,7 +23,9 @@
  */
 
 
+#include "cpMacro.h"
 #include "MenuBox.h"
+#include "GameConfig.h"
 
 using namespace cocos2d;
 
@@ -42,33 +44,29 @@ MenuBox::~MenuBox()
 	CC_SAFE_RELEASE(titleLabel);
 }
 
-bool MenuBox::init()
+bool MenuBox::initWithConf(GameConfigCommon* conf)
 {
-	return initWithResolution("480x320");
-}
-
-bool MenuBox::initWithContentSize(const CCSize& size)
-{
-	return initWithResolutionAndContentSize("480x320", size);
-}
-
-bool MenuBox::initWithResolution(const char* resolution)
-{
-	std::string path = std::string(resolution) + std::string("/ui/");
-	
 	this->items = CCArray::array();
 	this->items->retain();
 	
 	m_eState = kCCMenuStateWaiting;
 	m_pSelectedItem = NULL;
 	
+	CCSpriteBatchNode* spriteNodeBg = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+	conf->getNodeUiPath("menuContainer", spriteNodeBg);
+	CCSprite* spriteBg = copyFirstSpriteBatchNode(spriteNodeBg);
+	
 	bg = new DecoratedBox();
-	bg->initWithFile((path + std::string("menuContainer.png")).c_str(), this->getContentSize());
+	bg->initWithTexture(spriteBg->getTexture(), spriteBg->getTextureRect(), this->getContentSize());
 	bg->setAnchorPoint(ccp(0.5f, 0.5f));
 	this->addChild(bg);
 	
-	validBtn = new CCMenuItemImage();
-	validBtn->initFromNormalImage((path + std::string("menuItemOk.png")).c_str(), NULL, NULL, NULL, NULL);
+	CCSpriteBatchNode* spriteNodeValidBtn = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+	conf->getNodeUiPath("menuItemOk", spriteNodeValidBtn);
+	CCSprite* spriteValidBtn = copyFirstSpriteBatchNode(spriteNodeValidBtn);
+	
+	validBtn = new CCMenuItemSprite();
+	validBtn->initFromNormalSprite(spriteValidBtn, NULL, NULL, NULL, NULL);
 	validBtn->setAnchorPoint(ccp(0.5f, 0.5f));
 	validBtn->setScale(0.75f);
 	this->addChild(validBtn);
@@ -76,9 +74,9 @@ bool MenuBox::initWithResolution(const char* resolution)
 	return true;
 }
 
-bool MenuBox::initWithResolutionAndContentSize(const char* resolution, const cocos2d::CCSize& size)
+bool MenuBox::initWithConfAndContentSize(GameConfigCommon* conf, const cocos2d::CCSize& size)
 {
-	if (this->initWithResolution(resolution))
+	if (this->initWithConf(conf))
 	{
 		this->setContentSize(size);
 		

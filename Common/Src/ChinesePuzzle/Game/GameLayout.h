@@ -51,15 +51,15 @@ protected:
 	Game* game;
 	cocos2d::CCArray* activesBtn;
 	
-	cocos2d::CCSprite* bg;
+	cocos2d::CCSpriteBatchNode* bg;
 	
 	//button layout
-	cocos2d::CCSprite* newBtn;
-	cocos2d::CCSprite* retryBtn;
-	cocos2d::CCSprite* hintBtn;
-	cocos2d::CCSprite* undoBtn;
-	cocos2d::CCSprite* soundBtn;
-	cocos2d::CCSprite* themeBtn;
+	cocos2d::CCSpriteBatchNode* newBtn;
+	cocos2d::CCSpriteBatchNode* retryBtn;
+	cocos2d::CCSpriteBatchNode* hintBtn;
+	cocos2d::CCSpriteBatchNode* undoBtn;
+	cocos2d::CCSpriteBatchNode* soundBtn;
+	cocos2d::CCSpriteBatchNode* themeBtn;
 	
 	//card grid layout stuff
 	cocos2d::CCSize gridCardSize;

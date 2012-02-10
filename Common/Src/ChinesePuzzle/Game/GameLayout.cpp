@@ -42,127 +42,115 @@ template <class T> T* GameLayout::layoutRes(const char* key)
 		
 		std::string sRes;
 		
-		/*
-		 tmp : calc gridPosition : 
-		 - x : ( width  - (cs.x + ss.x ) * 14 ) / 2
-		 - y : ( height - (cs.y + ss.y ) * 8  ) / 2
-		 
-		 CCSize* cs = (CCSize*)(*datas)[sRes + "gridCardSize"];
-		 CCSize* ss = (CCSize*)(*datas)[sRes + "gridSpaceSize"];
-		 CCSize* gp = new CCSize(( 1730 - (cs->width  + ss->width  ) * 14 ) / 2,
-								 ( 1080 - (cs->height + ss->height ) * 8  ) / 2);
-		 CCLog("%f, %f", gp->width, gp->height);
-		 */
-		
 		sRes = "480x320";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(26,36);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(4, 4);
 		(*datas)[sRes + "gridPosition"] = new CCSize(4, 0);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(451,290);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(451,238);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(451,186);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(451,134);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(451,82);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(451,30);
+		(*datas)[sRes + "newBtn"] = new CCPoint(451,290);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(451,238);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(451,186);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(451,134);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(451,82);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(451,30);
 		
 		sRes = "960x640";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(52,72);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(8, 8);
 		(*datas)[sRes + "gridPosition"] = new CCSize(8, 0);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(902,580);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(902,476);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(902,372);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(902,268);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(902,164);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(902,60);
+		(*datas)[sRes + "newBtn"] = new CCPoint(902,580);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(902,476);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(902,372);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(902,268);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(902,164);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(902,60);
 		
 		sRes = "1024x768";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(56,78);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(10, 10);
 		(*datas)[sRes + "gridPosition"] = new CCSize(10, 32);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(977,714);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(977,582);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(977,450);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(977,318);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(977,186);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(977,56);
+		(*datas)[sRes + "newBtn"] = new CCPoint(977,714);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(977,582);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(977,450);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(977,318);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(977,186);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(977,56);
 		
 		sRes = "1280x800";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(56,78);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(10, 10);
 		(*datas)[sRes + "gridPosition"] = new CCSize(118, 48);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1220,740);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1220,604);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1220,468);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1220,332);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1220,196);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1220,60);
+		(*datas)[sRes + "newBtn"] = new CCPoint(1220,740);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(1220,604);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(1220,468);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(1220,332);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(1220,196);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(1220,60);
 		
 		sRes = "1280x1024";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(66,92);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(12, 12);
 		(*datas)[sRes + "gridPosition"] = new CCSize(24, 96);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1210,952);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1210,776);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1210,600);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1210,424);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1210,248);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1210,72);
+		(*datas)[sRes + "newBtn"] = new CCPoint(1210,952);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(1210,776);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(1210,600);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(1210,424);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(1210,248);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(1210,72);
 		
 		sRes = "1366x768";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(56,78);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(10, 10);
 		(*datas)[sRes + "gridPosition"] = new CCSize(158, 32);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1303,714);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1303,582);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1303,450);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1303,318);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1303,186);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1303,56);
+		(*datas)[sRes + "newBtn"] = new CCPoint(1303,714);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(1303,582);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(1303,450);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(1303,318);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(1303,186);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(1303,56);
 		
 		sRes = "1440x900";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(66,92);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(12, 12);
 		(*datas)[sRes + "gridPosition"] = new CCSize(104, 34);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1370,830);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1370,678);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1370,526);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1370,374);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1370,222);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1370,70);
+		(*datas)[sRes + "newBtn"] = new CCPoint(1370,830);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(1370,678);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(1370,526);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(1370,374);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(1370,222);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(1370,70);
 		
 		sRes = "1680x1050";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
 		(*datas)[sRes + "gridPosition"] = new CCSize(99, 45);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1590,960);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1590,786);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1590,612);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1590,438);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1590,264);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1590,90);
+		(*datas)[sRes + "newBtn"] = new CCPoint(1590,960);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(1590,786);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(1590,612);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(1590,438);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(1590,264);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(1590,90);
 		
 		sRes = "1920x1080";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
 		(*datas)[sRes + "gridPosition"] = new CCSize(214, 60);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,985);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,807);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,629);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1825,451);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1825,273);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1825,95);
+		(*datas)[sRes + "newBtn"] = new CCPoint(1825,985);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(1825,807);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(1825,629);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(1825,451);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(1825,273);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(1825,95);
 		
 		sRes = "1920x1200";
 		(*datas)[sRes + "gridCardSize"] = new CCSize(73,100);
 		(*datas)[sRes + "gridSpaceSize"] = new CCSize(20, 20);
 		(*datas)[sRes + "gridPosition"] = new CCSize(214, 120);
-		(*datas)[sRes + "newBtn.png"] = new CCPoint(1825,1105);
-		(*datas)[sRes + "retryBtn.png"] = new CCPoint(1825,903);
-		(*datas)[sRes + "undoBtn.png"] = new CCPoint(1825,701);
-		(*datas)[sRes + "hintBtn.png"] = new CCPoint(1825,499);
-		(*datas)[sRes + "soundBtn.png"] = new CCPoint(1825,297);
-		(*datas)[sRes + "themeBtn.png"] = new CCPoint(1825,95);
+		(*datas)[sRes + "newBtn"] = new CCPoint(1825,1105);
+		(*datas)[sRes + "retryBtn"] = new CCPoint(1825,903);
+		(*datas)[sRes + "undoBtn"] = new CCPoint(1825,701);
+		(*datas)[sRes + "hintBtn"] = new CCPoint(1825,499);
+		(*datas)[sRes + "soundBtn"] = new CCPoint(1825,297);
+		(*datas)[sRes + "themeBtn"] = new CCPoint(1825,95);
 	}
 	
 	string sRes = game->getGameScene()->getConf()->getResolution();
@@ -190,22 +178,16 @@ void GameLayout::actionBtn(cocos2d::CCNode* btn)
 	}
 	else if(btn == soundBtn)
 	{
-		GameConfig* gc = game->getGameScene()->getConf();
+		GameConfigCommon* conf = game->getGameScene()->getConf();
 		
-		CCTexture2D* pTexture = NULL;
-		CCRect rect = CCRectZero;
-		
-		if(gc->getIsSoundOn()) {
-			pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOffBtn.png").c_str());
+		if(conf->getIsSoundOn()) {
+			conf->getNodeThemePath("soundOnBtn", soundBtn);
 		} else {
-			pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOnBtn.png").c_str());
+			conf->getNodeThemePath("soundOffBtn", soundBtn);
 		}
-		rect.size = pTexture->getContentSize();
-		soundBtn->setTexture(pTexture);
-		soundBtn->setTextureRect(rect);
 		
-		gc->setIsSoundOn(!gc->getIsSoundOn());
-		gc->save();
+		conf->setIsSoundOn(!conf->getIsSoundOn());
+		conf->save();
 	}
 	else if(btn == themeBtn)
 	{
@@ -237,114 +219,83 @@ GameLayout::~GameLayout()
 
 void GameLayout::layout(bool anim)
 {
-	GameConfig* gc = game->getGameScene()->getConf();
+	GameConfigCommon* conf = game->getGameScene()->getConf();
 	
 	gridCardSize = *this->layoutRes<CCSize>("gridCardSize");
 	gridSpaceSize = *this->layoutRes<CCSize>("gridSpaceSize");
 	gridPosition = *this->layoutRes<CCPoint>("gridPosition");
 	
-	CCTexture2D* pTexture = NULL;
-	CCRect rect = CCRectZero;
-	
 	if(!bg)
 	{
-		bg = new CCSprite();
-		bg->init();
+		bg = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		game->addChild(bg, GameZOrderBG);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("bg.png").c_str());
-	rect.size = pTexture->getContentSize();
-	bg->setTexture(pTexture);
-	bg->setTextureRect(rect);
+	conf->getNodeThemePath("bg", bg);
 	bg->setPosition(ccp(0, 0));
 	bg->setAnchorPoint(ccp(0, 0));
 	
 	if(!newBtn)
 	{
-		newBtn = new CCSprite();
-		newBtn->init();
+		newBtn = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		game->addChild(newBtn, GameZOrderUI);
 		activesBtn->addObject(newBtn);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("newBtn.png").c_str());
-	rect.size = pTexture->getContentSize();
-	newBtn->setTexture(pTexture);
-	newBtn->setTextureRect(rect);
-	newBtn->setPosition(*this->layoutRes<CCPoint>("newBtn.png"));
+	conf->getNodeThemePath("newBtn", newBtn);
+	newBtn->setPosition(*this->layoutRes<CCPoint>("newBtn"));
 	newBtn->setScale(0.75f);
 	
 	if(!retryBtn)
 	{
-		retryBtn = new CCSprite();
-		retryBtn->init();
+		retryBtn = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		game->addChild(retryBtn, GameZOrderUI);
 		activesBtn->addObject(retryBtn);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("retryBtn.png").c_str());
-	rect.size = pTexture->getContentSize();
-	retryBtn->setTexture(pTexture);
-	retryBtn->setTextureRect(rect);
-	retryBtn->setPosition(*this->layoutRes<CCPoint>("retryBtn.png"));
+	conf->getNodeThemePath("retryBtn", retryBtn);
+	retryBtn->setPosition(*this->layoutRes<CCPoint>("retryBtn"));
 	retryBtn->setScale(0.75f);
 	
 	if(!undoBtn)
 	{
-		undoBtn = new CCSprite();
-		undoBtn->init();
+		undoBtn = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		game->addChild(undoBtn, GameZOrderUI);
 		activesBtn->addObject(undoBtn);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("undoBtn.png").c_str());
-	rect.size = pTexture->getContentSize();
-	undoBtn->setTexture(pTexture);
-	undoBtn->setTextureRect(rect);
-	undoBtn->setPosition(*this->layoutRes<CCPoint>("undoBtn.png"));
+	conf->getNodeThemePath("undoBtn", undoBtn);
+	undoBtn->setPosition(*this->layoutRes<CCPoint>("undoBtn"));
 	undoBtn->setScale(0.75f);
 	
 	if(!hintBtn)
 	{
-		hintBtn = new CCSprite();
-		hintBtn->init();
+		hintBtn = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		game->addChild(hintBtn, GameZOrderUI);
 		activesBtn->addObject(hintBtn);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("hintBtn.png").c_str());
-	rect.size = pTexture->getContentSize();
-	hintBtn->setTexture(pTexture);
-	hintBtn->setTextureRect(rect);
-	hintBtn->setPosition(*this->layoutRes<CCPoint>("hintBtn.png"));
+	conf->getNodeThemePath("hintBtn", hintBtn);
+	hintBtn->setPosition(*this->layoutRes<CCPoint>("hintBtn"));
 	hintBtn->setScale(0.75f);
 	
 	if(!soundBtn)
 	{
-		soundBtn = new CCSprite();
-		soundBtn->init();
+		soundBtn = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		game->addChild(soundBtn, GameZOrderUI);
 		activesBtn->addObject(soundBtn);
 	}
-	if(gc->getIsSoundOn()) {
-		pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOnBtn.png").c_str());
+	if(conf->getIsSoundOn()) {
+		conf->getNodeThemePath("soundOnBtn", soundBtn);
 	} else {
-		pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("soundOffBtn.png").c_str());
+		conf->getNodeThemePath("soundOffBtn", soundBtn);
 	}
-	rect.size = pTexture->getContentSize();
-	soundBtn->setTexture(pTexture);
-	soundBtn->setTextureRect(rect);
-	soundBtn->setPosition(*this->layoutRes<CCPoint>("soundBtn.png"));
+	soundBtn->setPosition(*this->layoutRes<CCPoint>("soundBtn"));
 	soundBtn->setScale(0.75f);
 	
 	if(!themeBtn)
 	{
-		themeBtn = new CCSprite();
-		themeBtn->init();
+		themeBtn = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
 		game->addChild(themeBtn, GameZOrderUI);
 		activesBtn->addObject(themeBtn);
 	}
-	pTexture = CCTextureCache::sharedTextureCache()->addImage(gc->getThemePath("themeBtn.png").c_str());
-	rect.size = pTexture->getContentSize();
-	themeBtn->setTexture(pTexture);
-	themeBtn->setTextureRect(rect);
-	themeBtn->setPosition(*this->layoutRes<CCPoint>("themeBtn.png"));
+	conf->getNodeThemePath("themeBtn", themeBtn);
+	themeBtn->setPosition(*this->layoutRes<CCPoint>("themeBtn"));
 	themeBtn->setScale(0.75f);
 }
 
@@ -355,7 +306,7 @@ bool GameLayout::tapDownAt(CCPoint location)
 	{
 		CCSprite* btn = (CCSprite*) pObject;
 		CCPoint local = btn->convertToNodeSpace(location);
-		CCRect r = btn->getTextureRect();
+		CCRect r = btn->boundingBox();
 		r.origin = CCPointZero;
 		
 		if (CCRect::CCRectContainsPoint(r, local))

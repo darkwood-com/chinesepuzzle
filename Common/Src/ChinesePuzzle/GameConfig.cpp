@@ -621,28 +621,7 @@ void GameConfigCommon::getNodePath(int mode, const char* file, CCSpriteBatchNode
 	
 	if(node)
 	{
-		sprite->removeAllChildrenWithCleanup(true);
-		sprite->setTexture(node->getTexture());
-		
-		CCArray* pChildren = node->getChildren();
-		if (pChildren && pChildren->count() > 0)
-		{
-            CCObject* pObject = NULL;
-            CCARRAY_FOREACH(pChildren, pObject)
-            {
-                CCSprite* pChild = (CCSprite*) pObject;
-                if (pChild)
-                {
-                    CCSprite* zoneSprite = CCSprite::spriteWithBatchNode(sprite, pChild->getTextureRect());
-					zoneSprite->setAnchorPoint(ccp(0, 0));
-					zoneSprite->setPosition(pChild->getPosition());
-					sprite->addChild(zoneSprite);
-                }
-            }
-		}
-		
-		sprite->setContentSize(node->getContentSize());
-		sprite->setAnchorPoint(ccp(0.5f, 0.5f));
+		copySpriteBatchNode(node, sprite);
 	}
 }
 
@@ -751,10 +730,7 @@ void GameConfigCommon::Decode( const Archivist::Object & data )
 		std::multimap<CardPlayStruct,CardPlay*>::iterator mapIt = mapCard.find(card);
 		if(mapIt == mapCard.end())
 		{
-			CardPlay* cardInstance = CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(resolution.c_str(),
-																							  theme.c_str(),
-																							  card.color,
-																							  card.rank);
+			CardPlay* cardInstance = CardPlay::cardBoardWithConfAndColorAndRank(this,card.color,card.rank);
 			initBoard->setObject(cardInstance, coord);
 		}
 		else

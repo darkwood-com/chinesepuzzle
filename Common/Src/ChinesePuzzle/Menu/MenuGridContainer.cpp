@@ -38,9 +38,9 @@ MenuGridContainer::~MenuGridContainer()
 	CC_SAFE_RELEASE(container);
 }
 
-bool MenuGridContainer::initWithResolution(const char* resolution)
+bool MenuGridContainer::initWithConf(GameConfigCommon* conf)
 {
-	if(!MenuBox::initWithResolution(resolution))
+	if(!MenuBox::initWithConf(conf))
 	{
 		return false;
 	}

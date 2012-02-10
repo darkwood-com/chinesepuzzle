@@ -27,13 +27,15 @@
 
 #include "cocos2d.h"
 
-class CC_DLL Card : public cocos2d::CCSprite
+class GameConfigCommon;
+
+class CC_DLL Card : public cocos2d::CCSpriteBatchNode
 {
 public:
 	Card();
 	virtual ~Card();
 	
-	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
+	virtual void setConf(GameConfigCommon* conf);
 };
 
 #endif // __CARD_H__

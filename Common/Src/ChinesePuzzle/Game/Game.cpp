@@ -78,11 +78,11 @@ bool Game::init(GameSceneCommon* gs)
 	
 	
 	//init cards
-	GameConfig* conf = gs->getConf();
+	GameConfigCommon* conf = gs->getConf();
 	
 	for (int l = 0; l < 8; ++l)
 	{
-		CardBoard* card = CardBoard::cardBoardWithResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+		CardBoard* card = CardBoard::cardBoardWithConf(conf);
 		this->addChild(card, GameZOrderCard);
 		gc->addNode(card);
 		boardCards.push_back(card);
@@ -127,10 +127,7 @@ bool Game::init(GameSceneCommon* gs)
 			{
 				for(std::vector<CardPlayRank>::const_iterator rank = ranks.begin(); rank != ranks.end(); ++rank)
 				{
-					CardPlay* card = CardPlay::cardBoardWithResolutionAndThemeAndColorAndRank(conf->getResolution().c_str(),
-																							  conf->getTheme().c_str(),
-																							  *color,
-																							  *rank);
+					CardPlay* card = CardPlay::cardBoardWithConfAndColorAndRank(conf,*color,*rank);
 					this->addChild(card, GameZOrderCard);
 					gc->addNode(card);
 					deck.push_back(card);
@@ -300,32 +297,27 @@ void Game::layout(bool anim)
 {
 	gl->layout(anim);
 
-	GameConfig* conf = gs->getConf();
+	GameConfigCommon* conf = gs->getConf();
 	
 	if(!touchLastCard)
 	{
 		touchLastCard = new Card();
-		touchLastCard->init();
+		touchLastCard->initWithTexture(ccTextureNull, 4);
 		touchLastCard->setIsVisible(false);
 		this->addChild(touchLastCard, GameZOrderHintCard);
 		touchLastCard->release();
 	}
-	CCTexture2D *pTexture = CCTextureCache::sharedTextureCache()->addImage(conf->getThemePath("cardtouched.png").c_str());
-	if (pTexture)
-	{
-		CCRect rect = CCRectZero;
-		rect.size = pTexture->getContentSize();
-		touchLastCard->setTexture(pTexture);
-		touchLastCard->setTextureRect(rect);
-	}
+	conf->getNodeThemePath("cardtouched", touchLastCard);
 	
 	if(!switchBoardCard)
 	{
-		switchBoardCard = CardBoard::cardBoard();
+		switchBoardCard = new CardBoard();
+		switchBoardCard->initWithTexture(ccTextureNull, 4);
 		switchBoardCard->setIsVisible(false);
 		this->addChild(switchBoardCard, GameZOrderBoard);
+		switchBoardCard->release();
 	}
-	switchBoardCard->setTextureResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+	switchBoardCard->setConf(conf);
 	
 	for(int i = 0; i < 8; ++i)
 	{
@@ -338,7 +330,7 @@ void Game::layout(bool anim)
 			Card* card = board[i][j];
 			if(card)
 			{
-				card->setTextureResolutionAndTheme(conf->getResolution().c_str(), conf->getTheme().c_str());
+				card->setConf(conf);
 			}
 			
 			CardBoard* cardBoard = dynamic_cast<CardBoard*>(card);

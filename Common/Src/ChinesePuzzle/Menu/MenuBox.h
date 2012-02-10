@@ -28,12 +28,14 @@
 #include "cocos2d.h"
 #include "DecoratedBox.h"
 
+class GameConfigCommon;
+
 class CC_DLL MenuBox : public cocos2d::CCNode, public cocos2d::CCTouchDelegate
 {
 protected:
 	//display
 	DecoratedBox* bg; //background
-	cocos2d::CCMenuItemImage* validBtn; //valid button
+	cocos2d::CCMenuItemSprite* validBtn; //valid button
 	cocos2d::CCLabelBMFont* titleLabel; //title
 	
 	cocos2d::tCCMenuState m_eState;
@@ -43,10 +45,8 @@ public:
 	MenuBox();
 	virtual ~MenuBox();
 	
-	virtual bool init();
-	virtual bool initWithContentSize(const cocos2d::CCSize& size);
-	virtual bool initWithResolution(const char* resolution);
-	virtual bool initWithResolutionAndContentSize(const char* resolution, const cocos2d::CCSize& size);
+	virtual bool initWithConf(GameConfigCommon* conf);
+	virtual bool initWithConfAndContentSize(GameConfigCommon* conf, const cocos2d::CCSize& size);
 	
 	virtual void setTitle(const char* title);
 	virtual const char* getTitle(void);

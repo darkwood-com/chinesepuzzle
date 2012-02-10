@@ -68,21 +68,19 @@ public:
 class CC_DLL CardPlay : public Card
 {
 protected:
-	cocos2d::CCTexture2D* faceTexture;
-	cocos2d::CCTexture2D* backTexture;
+	cocos2d::CCSpriteBatchNode* faceSprite;
+	cocos2d::CCSpriteBatchNode* backSprite;
 	
 public:
 	CardPlay();
 	virtual ~CardPlay();
 	
-	static CardPlay* cardPlayWithColorAndRank(CardPlayColor color, CardPlayRank rank);
-	static CardPlay* cardBoardWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank);
-	virtual bool initWithColorAndRank(CardPlayColor color, CardPlayRank rank);
-	virtual bool initWithResolutionAndThemeAndColorAndRank(const char* resolution, const char* theme, CardPlayColor color, CardPlayRank rank);
+	static CardPlay* cardBoardWithConfAndColorAndRank(GameConfigCommon* conf, CardPlayColor color, CardPlayRank rank);
+	virtual bool initWithConfAndColorAndRank(GameConfigCommon* conf, CardPlayColor color, CardPlayRank rank);
 	
 	virtual bool isNextToCardPlay(CardPlay* cardPlay);
 	
-	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
+	virtual void setConf(GameConfigCommon* conf);
 	
 	CC_SYNTHESIZE_READONLY(CardPlayColor, color, Color);
 	CC_SYNTHESIZE_READONLY(CardPlayRank, rank, Rank);

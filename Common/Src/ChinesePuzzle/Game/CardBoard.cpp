@@ -23,23 +23,31 @@
  */
 
 
+#include "cpMacro.h"
 #include "CardBoard.h"
+#include "GameConfig.h"
 
 using namespace cocos2d;
 
 CardBoard::CardBoard() :
+emptySprite(NULL),
+yesSprite(NULL),
+noSprite(NULL),
 state(CardBoardEmpty)
 {
 }
 
 CardBoard::~CardBoard()
 {
+	CC_SAFE_RELEASE(emptySprite);
+	CC_SAFE_RELEASE(yesSprite);
+	CC_SAFE_RELEASE(noSprite);
 }
 
-CardBoard* CardBoard::cardBoard()
+CardBoard* CardBoard::cardBoardWithConf(GameConfigCommon* conf)
 {
 	CardBoard* cardBoard = new CardBoard();
-	if (cardBoard && cardBoard->initCardBoard())
+	if (cardBoard && cardBoard->initCardBoardWithConf(conf))
 	{
         cardBoard->autorelease();
         return cardBoard;
@@ -48,31 +56,14 @@ CardBoard* CardBoard::cardBoard()
 	return NULL;
 }
 
-CardBoard* CardBoard::cardBoardWithResolutionAndTheme(const char* resolution, const char* theme)
+bool CardBoard::initCardBoardWithConf(GameConfigCommon* conf)
 {
-	CardBoard* cardBoard = new CardBoard();
-	if (cardBoard && cardBoard->initCardBoardWithResolutionAndTheme(resolution, theme))
-	{
-        cardBoard->autorelease();
-        return cardBoard;
-    }
-    CC_SAFE_DELETE(cardBoard);
-	return NULL;
-}
-
-bool CardBoard::initCardBoard()
-{
-	return initCardBoardWithResolutionAndTheme("480x320", "classic");
-}
-
-bool CardBoard::initCardBoardWithResolutionAndTheme(const char* resolution, const char* theme)
-{
-	if(!CCSprite::init())
+	if(!CCSpriteBatchNode::initWithTexture(ccTextureNull, 1))
 	{
 		return false;
 	}
 	
-	this->setTextureResolutionAndTheme(resolution, theme);
+	this->setConf(conf);
 	
 	return true;
 }
@@ -93,26 +84,35 @@ void CardBoard::setState(CardBoardState state, bool force)
 	{
 		switch (state)
 		{
-			case CardBoardEmpty: this->setTexture(emptyTexture); break;
-			case CardBoardYes: this->setTexture(yesTexture); break;
-			case CardBoardNo: this->setTexture(noTexture); break;
+			case CardBoardEmpty: copySpriteBatchNode(emptySprite, this); break;
+			case CardBoardYes: copySpriteBatchNode(yesSprite, this); break;
+			case CardBoardNo: copySpriteBatchNode(noSprite, this); break;
 		}
-		
-		CCRect rect = CCRectZero;
-		rect.size = this->getTexture()->getContentSize();
-		this->setTextureRect(rect);
 		
 		this->state = state;
 	}
 }
 
-void CardBoard::setTextureResolutionAndTheme(const char* resolution, const char* theme)
+void CardBoard::setConf(GameConfigCommon* conf)
 {
-	std::string path = std::string(resolution) + std::string("/themes/") + std::string(theme) + std::string("/");
-	
-	emptyTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardempty.png")).c_str());
-	yesTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardyes.png")).c_str());
-	noTexture = CCTextureCache::sharedTextureCache()->addImage((path + std::string("cardboardno.png")).c_str());
+	if(emptySprite == NULL)
+	{
+		emptySprite = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+		emptySprite->retain();
+	}
+	if(yesSprite == NULL)
+	{
+		yesSprite = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+		yesSprite->retain();
+	}
+	if(noSprite == NULL)
+	{
+		noSprite = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+		noSprite->retain();
+	}
+	conf->getNodeThemePath("cardboardempty", emptySprite);
+	conf->getNodeThemePath("cardboardyes", yesSprite);
+	conf->getNodeThemePath("cardboardno", noSprite);
 	
 	this->setState(this->getState(), true);
 }

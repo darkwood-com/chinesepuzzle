@@ -36,23 +36,21 @@ typedef enum {
 class CC_DLL CardBoard : public Card
 {
 protected:
-	cocos2d::CCTexture2D* emptyTexture;
-	cocos2d::CCTexture2D* yesTexture;
-	cocos2d::CCTexture2D* noTexture;
+	cocos2d::CCSpriteBatchNode* emptySprite;
+	cocos2d::CCSpriteBatchNode* yesSprite;
+	cocos2d::CCSpriteBatchNode* noSprite;
 	
 public:
 	CardBoard();
 	virtual ~CardBoard();
 	
-	static CardBoard* cardBoard();
-	static CardBoard* cardBoardWithResolutionAndTheme(const char* resolution, const char* theme);
-	virtual bool initCardBoard();
-	virtual bool initCardBoardWithResolutionAndTheme(const char* resolution, const char* theme);
+	static CardBoard* cardBoardWithConf(GameConfigCommon* conf);
+	virtual bool initCardBoardWithConf(GameConfigCommon* conf);
 	
 	CC_PROPERTY(CardBoardState, state, State);
 	void setState(CardBoardState state, bool force);
 	
-	virtual void setTextureResolutionAndTheme(const char* resolution, const char* theme);
+	virtual void setConf(GameConfigCommon* conf);
 };
 
 #endif // __CARDBOARD_H__

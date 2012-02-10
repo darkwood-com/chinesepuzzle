@@ -38,9 +38,9 @@ MenuLabelContainer::~MenuLabelContainer()
 	CC_SAFE_RELEASE(container);
 }
 
-bool MenuLabelContainer::initWithResolutionAndContentSizeAndFntFile(const char* resolution, const cocos2d::CCSize& size, const char *fntFile)
+bool MenuLabelContainer::initWithConfAndContentSizeAndFntFile(GameConfigCommon* conf, const cocos2d::CCSize& size, const char *fntFile)
 {
-	if(!MenuBox::initWithResolutionAndContentSize(resolution, size))
+	if(!MenuBox::initWithConfAndContentSize(conf, size))
 	{
 		return false;
 	}

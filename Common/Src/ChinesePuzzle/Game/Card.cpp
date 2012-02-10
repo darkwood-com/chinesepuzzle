@@ -35,7 +35,7 @@ Card::~Card()
 {
 }
 
-void Card::setTextureResolutionAndTheme(const char* resolution, const char* theme)
+void Card::setConf(GameConfigCommon* conf)
 {
 
 }

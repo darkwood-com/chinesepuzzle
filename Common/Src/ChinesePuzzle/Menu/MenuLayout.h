@@ -37,8 +37,10 @@ private:
 	template <class T> T* layoutRes(const char* key);
 	
 protected:
+	cocos2d::CCSpriteBatchNode* bg;
+	
 	Menu* menu;
-	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemImage*>* themes;
+	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemSprite*>* themes;
 	
 	MenuBox* mBox;
 	cocos2d::CCMenuItemImage* miTheme;

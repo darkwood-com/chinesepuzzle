@@ -37,7 +37,7 @@ public:
 	MenuGridContainer();
 	virtual ~MenuGridContainer();
 	
-	virtual bool initWithResolution(const char* resolution);
+	virtual bool initWithConf(GameConfigCommon* conf);
 	
 	virtual void setItems(cocos2d::CCArray* items);
 	virtual cocos2d::CCArray* getItems();
