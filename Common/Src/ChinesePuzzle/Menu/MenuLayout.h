@@ -41,6 +41,7 @@ protected:
 	
 	Menu* menu;
 	cocos2d::CCMutableDictionary<std::string, cocos2d::CCMenuItemSprite*>* themes;
+	void selectTheme(cocos2d::CCObject* themeNode);
 	
 	MenuBox* mBox;
 	cocos2d::CCMenuItemImage* miTheme;

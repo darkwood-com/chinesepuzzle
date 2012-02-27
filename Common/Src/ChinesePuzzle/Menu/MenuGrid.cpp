@@ -100,6 +100,7 @@ m_pDelegate(NULL),
 m_fStartSwipe(0),
 m_fOffsetSwipe(0),
 m_pScrollTouch(NULL),
+m_pSelectedItem(NULL),
 m_iState(kCCScrollLayerStateIdle)
 {
 	
@@ -282,13 +283,40 @@ void MenuGrid::visit(void)
 
 bool MenuGrid::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
+	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
+	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
+	
+	if (this->items && this->items->count() > 0)
+	{
+		CCObject* pObject = NULL;
+		CCARRAY_FOREACH(this->items, pObject)
+		{
+			CCNode* pChild = dynamic_cast<CCNode*>(pObject);
+			if (pChild && pChild->getIsVisible() && ((CCMenuItem*)pChild)->getIsEnabled())
+			{
+				CCPoint local = pChild->convertToNodeSpace(touchPoint);
+				CCRect r = ((CCMenuItem*)pChild)->rect();
+				r.origin = CCPointZero;
+				
+				if (CCRect::CCRectContainsPoint(r, local))
+				{
+					if (m_pSelectedItem)
+					{
+						m_pSelectedItem->unselected();
+					}
+
+					m_pSelectedItem = (CCMenuItem*)pChild;
+					m_pSelectedItem->selected();
+					m_pSelectedItem->activate();
+				}
+			}
+		}
+	}
+	
 	if (!m_pScrollTouch)
 		m_pScrollTouch = pTouch;
 	else
 		return false;
-	
-	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
-	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
 	m_fStartSwipe = touchPoint.x;
 	m_iState = kCCScrollLayerStateIdle;

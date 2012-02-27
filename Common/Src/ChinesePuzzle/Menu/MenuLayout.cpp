@@ -318,12 +318,20 @@ void MenuLayout::layout(bool anim)
 		case TypeTheme:
 			if(!themes)
 			{
-				CCSpriteBatchNode* themeClassicNode = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
-				conf->getNodeUiPath("menuItemThemeClassic", themeClassicNode);
-				CCSprite* themeClassicSprite = copyFirstSpriteBatchNode(themeClassicNode);
+				std::map<std::string, std::string> themeNodes;
+				themeNodes["chinese"] = "menuItemThemeChinese";
+				themeNodes["classic"] = "menuItemThemeClassic";
 				
 				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemSprite*>();
-				themes->setObject(CCMenuItemSprite::itemFromNormalSprite(themeClassicSprite, NULL), "classic");
+				for (std::map<std::string, std::string>::const_iterator it = themeNodes.begin(); it != themeNodes.end(); ++it)
+				{
+					CCSpriteBatchNode* themeNode = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+					CCSpriteBatchNode* themeNodeSelected = CCSpriteBatchNode::batchNodeWithTexture(ccTextureNull);
+					conf->getNodeUiPath(it->second.c_str(), themeNode);
+					conf->getNodeUiPath((it->second + "Select").c_str(), themeNodeSelected);
+					
+					themes->setObject(CCMenuItemSprite::itemFromNormalSprite(themeNode, themeNodeSelected, this, menu_selector(MenuLayout::selectTheme)), it->first.c_str());
+				}
 			}
 			
 			if(!mBox)
@@ -383,5 +391,17 @@ void MenuLayout::layout(bool anim)
 			
 			menu->pushNav(mBox);
 		break;
+	}
+}
+
+void MenuLayout::selectTheme(cocos2d::CCObject* themeNode)
+{
+	std::vector<std::string> sTheme = themes->allKeys();
+	for(std::vector<std::string>::iterator it = sTheme.begin(); it != sTheme.end(); ++it)
+	{
+		if(themes->objectForKey(*it) == themeNode)
+		{
+			menu->getGameScene()->setTheme(*it);
+		}
 	}
 }

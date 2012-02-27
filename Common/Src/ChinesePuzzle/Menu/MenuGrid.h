@@ -103,6 +103,7 @@ protected:
 	void swipeToPageEnded();
 	int getMaxPage();
 	
+	cocos2d::CCMenuItem* m_pSelectedItem;
 public:
 	MenuGrid();
 	virtual ~MenuGrid();
