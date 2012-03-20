@@ -53,6 +53,8 @@ static AppDelegate s_sharedApplication;
 - (void)dealloc
 {
 	[resolutions release];
+	
+	[super dealloc];
 }
 
 - (NSMenuItem*) resolution480x320

@@ -193,7 +193,6 @@
 
 /* Begin PBXFileReference section */
 		C30A60EF14B1FAF5007D3BDE /* GameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig.cpp; sourceTree = "<group>"; };
-		C30A60F014B1FAF5007D3BDE /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/ChinesePuzzle/GameConfig.h; sourceTree = "<absolute>"; };
 		C30A60F114B1FAF5007D3BDE /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		C30A60F214B1FAF5007D3BDE /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		C30A60F414B1FAF5007D3BDE /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
@@ -599,6 +598,7 @@
 		C3E08E5714B5051900E3418B /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../../Common/Bin/Data/bgPattern.png; sourceTree = "<group>"; };
 		C3E71DF114C583D300F6F1D9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../Common/Bin/Data/fonts; sourceTree = "<group>"; };
 		C3E71DF914C816AE00F6F1D9 /* cpStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpStruct.h; sourceTree = "<group>"; };
+		C3F078881518848300D356E5 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		C3F632FF14AF598500AA50B8 /* cpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -827,7 +827,7 @@
 				C3F632FF14AF598500AA50B8 /* cpMacro.h */,
 				C3E71DF914C816AE00F6F1D9 /* cpStruct.h */,
 				C30A611014B1FB20007D3BDE /* Game */,
-				C30A60F014B1FAF5007D3BDE /* GameConfig.h */,
+				C3F078881518848300D356E5 /* GameConfig.h */,
 				C30A60EF14B1FAF5007D3BDE /* GameConfig.cpp */,
 				C30A60F214B1FAF5007D3BDE /* GameScene.h */,
 				C30A60F114B1FAF5007D3BDE /* GameScene.cpp */,
