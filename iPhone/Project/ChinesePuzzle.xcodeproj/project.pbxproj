@@ -138,15 +138,16 @@
 		C30964731461AB8A00924761 /* CCTMXXMLParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3095C761461AB8600924761 /* CCTMXXMLParser.cpp */; };
 		C30964741461AB8A00924761 /* CCTouchDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3095C781461AB8600924761 /* CCTouchDispatcher.cpp */; };
 		C30964751461AB8A00924761 /* CCTouchHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3095C791461AB8600924761 /* CCTouchHandler.cpp */; };
-		C309647A1461AB8A00924761 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3095C881461AB8600924761 /* CDAudioManager.m */; };
-		C309647B1461AB8A00924761 /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C3095C8B1461AB8600924761 /* CDOpenALSupport.m */; };
-		C309647C1461AB8A00924761 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = C3095C8D1461AB8600924761 /* CocosDenshion.m */; };
-		C309647D1461AB8A00924761 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3095C8E1461AB8600924761 /* SimpleAudioEngine.mm */; };
-		C309647E1461AB8A00924761 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C3095C901461AB8600924761 /* SimpleAudioEngine_objc.m */; };
 		C30BBC9914A8D41100E69DA5 /* ChinesePuzzleApp.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */; };
 		C30BBC9A14A8D41100E69DA5 /* ChinesePuzzleApp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */; };
 		C30BBC9E14A8D67700E69DA5 /* ChinesePuzzleDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */; };
 		C30BBC9F14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */; };
+		C354C9521573B368005AB3DC /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C354C9491573B368005AB3DC /* CDAudioManager.m */; };
+		C354C9531573B368005AB3DC /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C354C94C1573B368005AB3DC /* CDOpenALSupport.m */; };
+		C354C9541573B368005AB3DC /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = C354C94E1573B368005AB3DC /* CocosDenshion.m */; };
+		C354C9551573B368005AB3DC /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = C354C94F1573B368005AB3DC /* SimpleAudioEngine.mm */; };
+		C354C9561573B368005AB3DC /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = C354C9511573B368005AB3DC /* SimpleAudioEngine_objc.m */; };
+		C354C95A1573B396005AB3DC /* CCNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C354C9581573B396005AB3DC /* CCNotificationCenter.cpp */; };
 		C3638F5614E2BECA0082777A /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2514E2BEC90082777A /* AppDelegate.cpp */; };
 		C3638F5714E2BECA0082777A /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2814E2BEC90082777A /* Background.cpp */; };
 		C3638F5814E2BECA0082777A /* CCLabelBMFontMultiline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2B14E2BEC90082777A /* CCLabelBMFontMultiline.cpp */; };
@@ -494,20 +495,23 @@
 		C3095C791461AB8600924761 /* CCTouchHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCTouchHandler.cpp; sourceTree = "<group>"; };
 		C3095C841461AB8600924761 /* Export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Export.h; sourceTree = "<group>"; };
 		C3095C851461AB8600924761 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
-		C3095C871461AB8600924761 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
-		C3095C881461AB8600924761 /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
-		C3095C891461AB8600924761 /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
-		C3095C8A1461AB8600924761 /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
-		C3095C8B1461AB8600924761 /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
-		C3095C8C1461AB8600924761 /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
-		C3095C8D1461AB8600924761 /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
-		C3095C8E1461AB8600924761 /* SimpleAudioEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleAudioEngine.mm; sourceTree = "<group>"; };
-		C3095C8F1461AB8600924761 /* SimpleAudioEngine_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine_objc.h; sourceTree = "<group>"; };
-		C3095C901461AB8600924761 /* SimpleAudioEngine_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine_objc.m; sourceTree = "<group>"; };
 		C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleApp.png; sourceTree = "<group>"; };
 		C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleApp@2x.png"; sourceTree = "<group>"; };
 		C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleDefault.png; sourceTree = "<group>"; };
 		C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault@2x.png"; sourceTree = "<group>"; };
+		C354C9461573B2E5005AB3DC /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		C354C9481573B368005AB3DC /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
+		C354C9491573B368005AB3DC /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
+		C354C94A1573B368005AB3DC /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
+		C354C94B1573B368005AB3DC /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
+		C354C94C1573B368005AB3DC /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
+		C354C94D1573B368005AB3DC /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
+		C354C94E1573B368005AB3DC /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
+		C354C94F1573B368005AB3DC /* SimpleAudioEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleAudioEngine.mm; sourceTree = "<group>"; };
+		C354C9501573B368005AB3DC /* SimpleAudioEngine_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine_objc.h; sourceTree = "<group>"; };
+		C354C9511573B368005AB3DC /* SimpleAudioEngine_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine_objc.m; sourceTree = "<group>"; };
+		C354C9581573B396005AB3DC /* CCNotificationCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCNotificationCenter.cpp; sourceTree = "<group>"; };
+		C354C9591573B396005AB3DC /* CCNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotificationCenter.h; sourceTree = "<group>"; };
 		C3638F2514E2BEC90082777A /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C3638F2614E2BEC90082777A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3638F2814E2BEC90082777A /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
@@ -536,7 +540,6 @@
 		C3638F4114E2BEC90082777A /* GameLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLayout.cpp; sourceTree = "<group>"; };
 		C3638F4214E2BEC90082777A /* GameLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayout.h; sourceTree = "<group>"; };
 		C3638F4314E2BEC90082777A /* GameConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig.cpp; sourceTree = "<group>"; };
-		C3638F4414E2BEC90082777A /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = /Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/ChinesePuzzle/GameConfig.h; sourceTree = "<absolute>"; };
 		C3638F4514E2BEC90082777A /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		C3638F4614E2BEC90082777A /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		C3638F4814E2BEC90082777A /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
@@ -763,6 +766,7 @@
 				C30958A41461AB8500924761 /* cocoa */,
 				C30958AE1461AB8500924761 /* cocos2d.cpp */,
 				C30958AF1461AB8500924761 /* effects */,
+				C354C9571573B396005AB3DC /* extensions */,
 				C30958B41461AB8500924761 /* include */,
 				C309590A1461AB8500924761 /* keypad_dispatcher */,
 				C309590D1461AB8500924761 /* label_nodes */,
@@ -1187,7 +1191,7 @@
 			isa = PBXGroup;
 			children = (
 				C3095C831461AB8600924761 /* include */,
-				C3095C861461AB8600924761 /* iphone */,
+				C354C9471573B368005AB3DC /* ios */,
 			);
 			path = CocosDenshion;
 			sourceTree = "<group>";
@@ -1201,21 +1205,30 @@
 			path = include;
 			sourceTree = "<group>";
 		};
-		C3095C861461AB8600924761 /* iphone */ = {
+		C354C9471573B368005AB3DC /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				C3095C871461AB8600924761 /* CDAudioManager.h */,
-				C3095C881461AB8600924761 /* CDAudioManager.m */,
-				C3095C891461AB8600924761 /* CDConfig.h */,
-				C3095C8A1461AB8600924761 /* CDOpenALSupport.h */,
-				C3095C8B1461AB8600924761 /* CDOpenALSupport.m */,
-				C3095C8C1461AB8600924761 /* CocosDenshion.h */,
-				C3095C8D1461AB8600924761 /* CocosDenshion.m */,
-				C3095C8E1461AB8600924761 /* SimpleAudioEngine.mm */,
-				C3095C8F1461AB8600924761 /* SimpleAudioEngine_objc.h */,
-				C3095C901461AB8600924761 /* SimpleAudioEngine_objc.m */,
+				C354C9481573B368005AB3DC /* CDAudioManager.h */,
+				C354C9491573B368005AB3DC /* CDAudioManager.m */,
+				C354C94A1573B368005AB3DC /* CDConfig.h */,
+				C354C94B1573B368005AB3DC /* CDOpenALSupport.h */,
+				C354C94C1573B368005AB3DC /* CDOpenALSupport.m */,
+				C354C94D1573B368005AB3DC /* CocosDenshion.h */,
+				C354C94E1573B368005AB3DC /* CocosDenshion.m */,
+				C354C94F1573B368005AB3DC /* SimpleAudioEngine.mm */,
+				C354C9501573B368005AB3DC /* SimpleAudioEngine_objc.h */,
+				C354C9511573B368005AB3DC /* SimpleAudioEngine_objc.m */,
 			);
-			path = iphone;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		C354C9571573B396005AB3DC /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C354C9581573B396005AB3DC /* CCNotificationCenter.cpp */,
+				C354C9591573B396005AB3DC /* CCNotificationCenter.h */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		C3638F2714E2BEC90082777A /* Background */ = {
@@ -1452,7 +1465,7 @@
 				C3638F3014E2BEC90082777A /* cpMacro.h */,
 				C3638F3114E2BEC90082777A /* cpStruct.h */,
 				C3638F3214E2BEC90082777A /* Game */,
-				C3638F4414E2BEC90082777A /* GameConfig.h */,
+				C354C9461573B2E5005AB3DC /* GameConfig.h */,
 				C3638F4314E2BEC90082777A /* GameConfig.cpp */,
 				C3638F4614E2BEC90082777A /* GameScene.h */,
 				C3638F4514E2BEC90082777A /* GameScene.cpp */,
@@ -1695,11 +1708,6 @@
 				C30964731461AB8A00924761 /* CCTMXXMLParser.cpp in Sources */,
 				C30964741461AB8A00924761 /* CCTouchDispatcher.cpp in Sources */,
 				C30964751461AB8A00924761 /* CCTouchHandler.cpp in Sources */,
-				C309647A1461AB8A00924761 /* CDAudioManager.m in Sources */,
-				C309647B1461AB8A00924761 /* CDOpenALSupport.m in Sources */,
-				C309647C1461AB8A00924761 /* CocosDenshion.m in Sources */,
-				C309647D1461AB8A00924761 /* SimpleAudioEngine.mm in Sources */,
-				C309647E1461AB8A00924761 /* SimpleAudioEngine_objc.m in Sources */,
 				C3B8571E14642BA600C440B3 /* cpDrawSpace.cpp in Sources */,
 				C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */,
 				C3638F5614E2BECA0082777A /* AppDelegate.cpp in Sources */,
@@ -1732,6 +1740,12 @@
 				C3638FB214E2BF0D0082777A /* Unknown.cpp in Sources */,
 				C36390A414E2C04B0082777A /* GameConfig_ios.cpp in Sources */,
 				C36390A514E2C04B0082777A /* GameScene_ios.cpp in Sources */,
+				C354C9521573B368005AB3DC /* CDAudioManager.m in Sources */,
+				C354C9531573B368005AB3DC /* CDOpenALSupport.m in Sources */,
+				C354C9541573B368005AB3DC /* CocosDenshion.m in Sources */,
+				C354C9551573B368005AB3DC /* SimpleAudioEngine.mm in Sources */,
+				C354C9561573B368005AB3DC /* SimpleAudioEngine_objc.m in Sources */,
+				C354C95A1573B396005AB3DC /* CCNotificationCenter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

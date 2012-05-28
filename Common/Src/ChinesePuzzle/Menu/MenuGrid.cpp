@@ -283,7 +283,7 @@ void MenuGrid::visit(void)
 
 bool MenuGrid::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
+	CCPoint touchPoint = pTouch->locationInView();
 	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
 	if (this->items && this->items->count() > 0)
@@ -329,7 +329,7 @@ void MenuGrid::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 	if(m_pScrollTouch != pTouch)
 		return;
 	
-	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
+	CCPoint touchPoint = pTouch->locationInView();
 	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
 	// If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
@@ -359,7 +359,7 @@ void MenuGrid::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 	
 	m_pScrollTouch = NULL;
 	
-	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
+	CCPoint touchPoint = pTouch->locationInView();
 	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
 	int selectedPage = this->getPage();

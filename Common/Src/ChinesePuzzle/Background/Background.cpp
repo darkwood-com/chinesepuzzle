@@ -61,8 +61,11 @@ void Background::setContentSize(const CCSize& size)
 {
 	CCLayer::setContentSize(size);
 	
-	CCRect rect;
-	rect.size = size;
-	
-	bgPattern->setTextureRect(rect);
+	if(bgPattern)
+	{
+		CCRect rect;
+		rect.size = size;
+		
+		bgPattern->setTextureRect(rect);
+	}
 }

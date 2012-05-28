@@ -98,8 +98,8 @@ GameConfigCommon::~GameConfigCommon()
 
 bool GameConfigCommon::init()
 {
-	this->resolution = std::string("1920x1200");
-	this->theme = std::string("chinese");
+	this->resolution = std::string("480x320");
+	this->theme = std::string("classic");
 	this->isSoundOn = true;
 	
 	return true;
@@ -137,6 +137,7 @@ std::string GameConfigCommon::getFontPath(const char* file)
 	return std::string("fonts/") + file;
 }
 
+/*
 var addThemeSelected(var sprites)
 {
 	if(sprites.get_key("menuItemThemeSelect") != undefined)
@@ -313,16 +314,21 @@ var card1920x1200(var This, var colorIndex, var rankIndex)
 		midPoint(_$({_["from"] = shapeColorSmall[colorIndex], _["to"] = _$({51,76})})), //color right
     });
 }
+*/
 
 //internal json data like parser
-void GameConfigCommon::getNodePath(int mode, const char* file, CCSpriteBatchNode* sprite)
+void GameConfigCommon::getNodePath(std::string mode, const char* file, CCSpriteBatchNode* sprite)
 {
 	static CCMutableDictionary<std::string, CCSpriteBatchNode*>* sGameConfigBatchNodePath = new CCMutableDictionary<std::string, CCSpriteBatchNode*>();
 	
-	std::string nodePath = resolution  + "/" + ((mode == 1) ? "themes/" + theme : "ui") + ".png:" + file;
+	std::string path = resolution  + "/" + ((mode == "theme") ? "themes/" + theme : "ui");
+	std::string plistPath = path + ".plist";
+	std::string texturePath = path + ".png";
+	std::string nodePath = path  + ":" + file;
 	CCSpriteBatchNode* node = sGameConfigBatchNodePath->objectForKey(nodePath);
 	if(node == NULL)
 	{
+		/*
 		var data = _$({
 			_["480x320"] = _$({
 				_["ui"] = _$({
@@ -635,6 +641,110 @@ void GameConfigCommon::getNodePath(int mode, const char* file, CCSpriteBatchNode
 				sGameConfigBatchNodePath->setObject(node, spritePath + ":" + sprite->first);
 			}
 		}
+		*/
+		CCSpriteFrameCache* spriteFrameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
+		spriteFrameCache->addSpriteFramesWithFile(plistPath.c_str());
+		
+		var sprites = _$({});
+		if(mode == "ui")
+		{
+			sprites = _$({
+				_["menuMask"] =				"auto",
+				_["menuContainer"] =		"auto",
+				_["menuItemYes"] =			"auto",
+				_["menuItemNo"] =			"auto",
+				_["menuItemOk"] =			"auto",
+				_["menuItemThemeClassic"] =	"auto",
+			});
+		}
+		else if(mode == "theme")
+		{
+			sprites = _$({
+				_["bg"] =					"auto",
+				_["cardplaybg"] =			"auto",
+				_["cardboardempty"] =		"auto",
+				_["cardboardyes"] =			"auto",
+				_["cardboardno"] =			"auto",
+				_["cardtouched"] =			"auto",
+				_["newBtn"] =				"auto",
+				_["retryBtn"] =				"auto",
+				_["hintBtn"] =				"auto",
+				_["soundOnBtn"] =			"auto",
+				_["soundOffBtn"] =			"auto",
+				_["themeBtn"] =				"auto",
+				_["undoBtn"] =				"auto",
+			});
+			
+			CCSprite* cardBgSprite = CCSprite::spriteWithSpriteFrameName("cardbg.png");
+			CCRect box = cardBgSprite->boundingBox();
+			
+			var colors = _$({"D","S","H","C"});
+            var ranks = _$({"A","2","3","4","5","6","7","8","9","10","J","Q","K"});
+			for (var colorIndex = 0; colorIndex < colors["length"]; ++colorIndex)
+			{
+				for (var rankIndex = 0; rankIndex < ranks["length"]; ++rankIndex)
+				{
+					sprites[var("card_") + colors[colorIndex] + ranks[rankIndex]] = _$({
+						_$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+						_$({
+							_["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
+							_["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+							_["anchor"] = _$({0.5, 0.5}),
+						}),
+						_$({
+							_["from"] = var("big_") + colors[colorIndex],
+							_["to"] = _$({2.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+							_["anchor"] = _$({0.5, 0.5}),
+						}),
+						_$({
+							_["from"] = var("small_") + colors[colorIndex],
+							_["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+							_["anchor"] = _$({0.5, 0.5}),
+						}),
+					});
+				}
+			}
+		}
+		
+		for(std::map<std::string, var>::iterator sprite = sprites.begin(); sprite != sprites.end(); ++sprite)
+		{
+			if(sprite->second != undefined)
+			{
+				if(sprite->second == "auto")
+				{
+					sprite->second = _$({_$({
+						_["from"] = var(sprite->first),
+						_["to"] = _$({0,0})
+					})});
+				}
+				
+				node = CCSpriteBatchNode::batchNodeWithFile(texturePath.c_str());
+				
+				CCSize nodeSize;
+				for (var zone = 0; zone < sprite->second["length"]; ++zone)
+				{
+					if(sprite->second[zone]["anchor"] == undefined)
+					{
+						sprite->second[zone]["anchor"] = _$({0, 0});
+					}
+					
+					CCPoint zonePosition = ccp(sprite->second[zone]["to"][0].s->n, sprite->second[zone]["to"][1].s->n);
+					CCPoint zoneAnchor = ccp(sprite->second[zone]["anchor"][0].s->n, sprite->second[zone]["anchor"][1].s->n);
+					
+					CCSprite* zoneSprite = CCSprite::spriteWithSpriteFrameName((sprite->second[zone]["from"] + ".png").toString().c_str());
+					zoneSprite->setAnchorPoint(zoneAnchor);
+					zoneSprite->setPosition(zonePosition);
+					node->addChild(zoneSprite);
+					
+					CCRect box = zoneSprite->boundingBox();
+					nodeSize.width = std::max(box.origin.x + box.size.width, nodeSize.width);
+					nodeSize.height = std::max(box.origin.y + box.size.height, nodeSize.height);
+				}
+				node->setContentSize(nodeSize);
+				
+				sGameConfigBatchNodePath->setObject(node, path + ":" + sprite->first);
+			}
+		}
 		
 		node = sGameConfigBatchNodePath->objectForKey(nodePath);
 	}
@@ -647,12 +757,12 @@ void GameConfigCommon::getNodePath(int mode, const char* file, CCSpriteBatchNode
 
 void GameConfigCommon::getNodeUiPath(const char* file, CCSpriteBatchNode* sprite)
 {
-	getNodePath(0, file, sprite);
+	getNodePath("ui", file, sprite);
 }
 
 void GameConfigCommon::getNodeThemePath(const char* file, CCSpriteBatchNode* sprite)
 {
-	getNodePath(1, file, sprite);
+	getNodePath("theme", file, sprite);
 }
 
 struct CardPlayStruct {

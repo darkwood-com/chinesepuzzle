@@ -28,6 +28,7 @@
 		C32DC57A14D2F5890038FE44 /* 1920x1080 in Resources */ = {isa = PBXBuildFile; fileRef = C32DC57914D2F5890038FE44 /* 1920x1080 */; };
 		C32DC57D14D310680038FE44 /* 1680x1050 in Resources */ = {isa = PBXBuildFile; fileRef = C32DC57C14D310680038FE44 /* 1680x1050 */; };
 		C34C148014C87827006A735C /* MenuLabelContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C34C147E14C87827006A735C /* MenuLabelContainer.cpp */; };
+		C354C94315737732005AB3DC /* CCNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C354C94115737732005AB3DC /* CCNotificationCenter.cpp */; };
 		C355885914ADE83600D549E4 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */; };
 		C355885C14ADF72500D549E4 /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C355885B14ADF72500D549E4 /* 480x320 */; };
 		C3638F1914E2760A0082777A /* CCLabelBMFontMultiline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F1514E2760A0082777A /* CCLabelBMFontMultiline.cpp */; };
@@ -225,6 +226,8 @@
 		C32DC57C14D310680038FE44 /* 1680x1050 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1680x1050; path = ../../Common/Bin/Data/1680x1050; sourceTree = "<group>"; };
 		C34C147E14C87827006A735C /* MenuLabelContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuLabelContainer.cpp; sourceTree = "<group>"; };
 		C34C147F14C87827006A735C /* MenuLabelContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLabelContainer.h; sourceTree = "<group>"; };
+		C354C94115737732005AB3DC /* CCNotificationCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCNotificationCenter.cpp; sourceTree = "<group>"; };
+		C354C94215737732005AB3DC /* CCNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotificationCenter.h; sourceTree = "<group>"; };
 		C355885814ADE83600D549E4 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
 		C355885B14ADF72500D549E4 /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../../Common/Bin/Data/480x320; sourceTree = "<group>"; };
 		C3638F1514E2760A0082777A /* CCLabelBMFontMultiline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLabelBMFontMultiline.cpp; sourceTree = "<group>"; };
@@ -662,6 +665,15 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		C354C94015737731005AB3DC /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C354C94115737732005AB3DC /* CCNotificationCenter.cpp */,
+				C354C94215737732005AB3DC /* CCNotificationCenter.h */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		C3638F1414E2760A0082777A /* Cocos2Dx */ = {
 			isa = PBXGroup;
 			children = (
@@ -985,6 +997,7 @@
 				C379443E14AA2DBF005A2045 /* cocoa */,
 				C379444814AA2DBF005A2045 /* cocos2d.cpp */,
 				C379444914AA2DBF005A2045 /* effects */,
+				C354C94015737731005AB3DC /* extensions */,
 				C379444E14AA2DBF005A2045 /* include */,
 				C37944A414AA2DBF005A2045 /* keypad_dispatcher */,
 				C37944A714AA2DBF005A2045 /* label_nodes */,
@@ -1696,6 +1709,7 @@
 				C3BC708014D9947B00BB1CCE /* GameControlNode.cpp in Sources */,
 				C3638F1914E2760A0082777A /* CCLabelBMFontMultiline.cpp in Sources */,
 				C3638F1A14E2760A0082777A /* CCReshapeDelegate.cpp in Sources */,
+				C354C94315737732005AB3DC /* CCNotificationCenter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

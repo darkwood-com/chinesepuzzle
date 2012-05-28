@@ -189,6 +189,7 @@ namespace cocos2d{
         nextFontPositionY = -(m_pConfiguration->m_uCommonHeight - m_pConfiguration->m_uCommonHeight * quantityOfLines);
 		for (unsigned int i= 0; i < stringLen; i++)
 		{
+			/*
 			unsigned short c = tmpStr[i];
 			CCAssert( c < kCCBMFontMaxChars, "LabelBMFont: character outside bounds");
 
@@ -263,6 +264,7 @@ namespace cocos2d{
             {
                 longestLine = nextFontPositionX;
             }
+			 */
 		}
 
         tmpSize.width  = (float) longestLine;
@@ -275,6 +277,7 @@ namespace cocos2d{
 	{
 		int kerningAmount = 0;
 		int substrlen=0;
+		/*
 		unsigned short prev = -1;
 
 		for (unsigned int i= 0; i < strlen(str); i++)
@@ -289,6 +292,7 @@ namespace cocos2d{
 			else
 				return substrlen;
 		}
+		*/
 		return substrlen;
 	}
 

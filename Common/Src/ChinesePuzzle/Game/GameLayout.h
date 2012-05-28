@@ -40,7 +40,7 @@ typedef enum {
 } GameZOrder;
 
 // GameLayout Layer
-class CC_DLL GameLayout : public cocos2d::CCObject, public cocos2d::SelectorProtocol
+class CC_DLL GameLayout : public cocos2d::CCObject
 {
 private:
 	template <class T> T* layoutRes(const char* key);

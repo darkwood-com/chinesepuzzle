@@ -682,7 +682,7 @@ void Game::tapUpAt(CCPoint location)
 
 bool Game::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CCPoint location = pTouch->locationInView(pTouch->view());
+	CCPoint location = pTouch->locationInView();
 	location = CCDirector::sharedDirector()->convertToGL(location);
 	this->tapDownAt(location);
 	return true;
@@ -690,21 +690,21 @@ bool Game::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 
 void Game::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CCPoint location = pTouch->locationInView(pTouch->view());
+	CCPoint location = pTouch->locationInView();
 	location = CCDirector::sharedDirector()->convertToGL(location);
 	this->tapMoveAt(location);
 }
 
 void Game::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CCPoint location = pTouch->locationInView(pTouch->view());
+	CCPoint location = pTouch->locationInView();
 	location = CCDirector::sharedDirector()->convertToGL(location);
 	this->tapUpAt(location);
 }
 
 void Game::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 {
-	CCPoint location = pTouch->locationInView(pTouch->view());
+	CCPoint location = pTouch->locationInView();
 	location = CCDirector::sharedDirector()->convertToGL(location);
 	this->tapUpAt(location);
 }

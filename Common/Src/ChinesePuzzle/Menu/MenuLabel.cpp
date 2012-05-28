@@ -143,7 +143,7 @@ bool MenuLabel::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 	else
 		return false;
 	
-	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
+	CCPoint touchPoint = pTouch->locationInView();
 	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
 	m_fStartSwipe = touchPoint.y;
@@ -157,7 +157,7 @@ void MenuLabel::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 	if(m_pScrollTouch != pTouch)
 		return;
 	
-	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
+	CCPoint touchPoint = pTouch->locationInView();
 	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
 	// If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
@@ -183,7 +183,7 @@ void MenuLabel::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 	
 	m_pScrollTouch = NULL;
 	
-	CCPoint touchPoint = pTouch->locationInView(pTouch->view());
+	CCPoint touchPoint = pTouch->locationInView();
 	touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
 	
 	this->setScroll(this->getScroll() + touchPoint.y - m_fStartSwipe);

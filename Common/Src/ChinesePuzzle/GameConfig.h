@@ -38,7 +38,7 @@ class Card;
 class CC_DLL GameConfigCommon : public cocos2d::CCObject
 {
 private:
-	void getNodePath(int mode, const char* file, cocos2d::CCSpriteBatchNode* sprite);
+	void getNodePath(std::string mode, const char* file, cocos2d::CCSpriteBatchNode* sprite);
 	
 public:
 	GameConfigCommon();

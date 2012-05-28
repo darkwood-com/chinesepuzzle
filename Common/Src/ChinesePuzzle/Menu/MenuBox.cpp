@@ -157,7 +157,7 @@ void MenuBox::layout(bool anim)
 	}
 }
 
-void MenuBox::setOkTarget(SelectorProtocol *rec, SEL_MenuHandler selector)
+void MenuBox::setOkTarget(cocos2d::CCObject *rec, SEL_MenuHandler selector)
 {
 	validBtn->setTarget(rec, selector);
 }
@@ -234,7 +234,7 @@ void MenuBox::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 
 CCMenuItem* MenuBox::itemForTouch(CCTouch *touch)
 {
-	CCPoint touchLocation = touch->locationInView(touch->view());
+	CCPoint touchLocation = touch->locationInView();
 	touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
 	
 	CCArray* menuItems = CCArray::arrayWithArray(this->getItems());

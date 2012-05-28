@@ -51,7 +51,7 @@ namespace cocos2d
 				if (pChild)
 				{
 					CCSprite* zoneSprite = CCSprite::spriteWithBatchNode(to, pChild->getTextureRect());
-					zoneSprite->setAnchorPoint(ccp(0, 0));
+					zoneSprite->setAnchorPoint(pChild->getAnchorPoint());
 					zoneSprite->setPosition(pChild->getPosition());
 					to->addChild(zoneSprite);
 				}

@@ -55,7 +55,7 @@ public:
 	
 	virtual void layout(bool anim = true);
 	
-	virtual void setOkTarget(cocos2d::SelectorProtocol *rec, cocos2d::SEL_MenuHandler selector);
+	virtual void setOkTarget(cocos2d::CCObject *rec, cocos2d::SEL_MenuHandler selector);
 	
 	virtual bool ccTouchBegan(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	virtual void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);

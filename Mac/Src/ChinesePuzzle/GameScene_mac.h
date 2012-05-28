@@ -25,7 +25,7 @@
 #ifndef __GAME_SCENE_H__
 #define __GAME_SCENE_H__
 
-#import "GameScene.h"
+#include "GameScene.h"
 #include "CCReshapeDelegate.h"
 #include "Background.h"
 
