@@ -6,7 +6,7 @@ use Path::Class;
 my $TexturePackerOpts = "--format cocos2d --algorithm Basic --no-trim";
 
 my $datadir = "/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/Common/Bin/";
-my @themes = ("classic","chinese");
+my @themes = ("chinese","circle","classic","polkadots","seamless","shullshearts","splash","spring","stripes","vivid");
 my @resolutions = ("480x320","960x640","1024x768","1280x800","1280x1024","1366x768","1440x900","1680x1050","1920x1080","1920x1200");
 
 foreach my $resolution (@resolutions)
