@@ -54,8 +54,8 @@ bool MenuLabel::initWithContentSizeAndFntFile(const cocos2d::CCSize& size, const
 {
 	this->setContentSize(size);
 	
-	label = new CCLabelBMFontMultiline();
-	label->initWithString("", fntFile, 0, CCLabelBMFontMultilineLeftAlignment);
+	label = new CCLabelBMFont();
+	label->initWithString("", fntFile, 0, CCTextAlignmentLeft);
 	label->setAnchorPoint(ccp(0.5f, 1.0f));
 	this->addChild(label);
 	
@@ -79,17 +79,12 @@ void MenuLabel::setWidth(float width)
 
 float MenuLabel::getWidth()
 {
-	return label->getWidth();
+	return label->getContentSize().width;
 }
 
-void MenuLabel::setAlign(CCLabelBMFontMultilineAlignment align)
+void MenuLabel::setAlignment(CCTextAlignment alignment)
 {
-	label->setAlign(align);
-}
-
-CCLabelBMFontMultilineAlignment MenuLabel::getAlign()
-{
-	return label->getAlign();
+	label->setAlignment(alignment);
 }
 
 void MenuLabel::setSwipe(CGFloat swipe)

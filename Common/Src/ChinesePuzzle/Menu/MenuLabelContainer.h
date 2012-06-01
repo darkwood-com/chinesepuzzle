@@ -43,8 +43,7 @@ public:
 	virtual const char* getString(void);
 	virtual void setWidth(float width);
 	virtual float getWidth();
-	virtual void setAlign(cocos2d::CCLabelBMFontMultilineAlignment align);
-	virtual cocos2d::CCLabelBMFontMultilineAlignment getAlign();
+	virtual void setAlignment(cocos2d::CCTextAlignment alignment);
 	
 	CC_PROPERTY(cocos2d::CCSize, margin, Margin);
 	

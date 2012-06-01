@@ -150,7 +150,6 @@
 		C354C95A1573B396005AB3DC /* CCNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C354C9581573B396005AB3DC /* CCNotificationCenter.cpp */; };
 		C3638F5614E2BECA0082777A /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2514E2BEC90082777A /* AppDelegate.cpp */; };
 		C3638F5714E2BECA0082777A /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2814E2BEC90082777A /* Background.cpp */; };
-		C3638F5814E2BECA0082777A /* CCLabelBMFontMultiline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2B14E2BEC90082777A /* CCLabelBMFontMultiline.cpp */; };
 		C3638F5914E2BECA0082777A /* CCReshapeDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2D14E2BEC90082777A /* CCReshapeDelegate.cpp */; };
 		C3638F5A14E2BECA0082777A /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F3314E2BEC90082777A /* Card.cpp */; };
 		C3638F5B14E2BECA0082777A /* CardBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F3514E2BEC90082777A /* CardBoard.cpp */; };
@@ -516,8 +515,6 @@
 		C3638F2614E2BEC90082777A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C3638F2814E2BEC90082777A /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		C3638F2914E2BEC90082777A /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
-		C3638F2B14E2BEC90082777A /* CCLabelBMFontMultiline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLabelBMFontMultiline.cpp; sourceTree = "<group>"; };
-		C3638F2C14E2BEC90082777A /* CCLabelBMFontMultiline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelBMFontMultiline.h; sourceTree = "<group>"; };
 		C3638F2D14E2BEC90082777A /* CCReshapeDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCReshapeDelegate.cpp; sourceTree = "<group>"; };
 		C3638F2E14E2BEC90082777A /* CCReshapeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCReshapeDelegate.h; sourceTree = "<group>"; };
 		C3638F2F14E2BEC90082777A /* cpConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpConfig.h; sourceTree = "<group>"; };
@@ -1243,8 +1240,6 @@
 		C3638F2A14E2BEC90082777A /* Cocos2Dx */ = {
 			isa = PBXGroup;
 			children = (
-				C3638F2C14E2BEC90082777A /* CCLabelBMFontMultiline.h */,
-				C3638F2B14E2BEC90082777A /* CCLabelBMFontMultiline.cpp */,
 				C3638F2E14E2BEC90082777A /* CCReshapeDelegate.h */,
 				C3638F2D14E2BEC90082777A /* CCReshapeDelegate.cpp */,
 			);
@@ -1712,7 +1707,6 @@
 				C3F6ABDE1491222D003A2F70 /* DecoratedBox.cpp in Sources */,
 				C3638F5614E2BECA0082777A /* AppDelegate.cpp in Sources */,
 				C3638F5714E2BECA0082777A /* Background.cpp in Sources */,
-				C3638F5814E2BECA0082777A /* CCLabelBMFontMultiline.cpp in Sources */,
 				C3638F5914E2BECA0082777A /* CCReshapeDelegate.cpp in Sources */,
 				C3638F5A14E2BECA0082777A /* Card.cpp in Sources */,
 				C3638F5B14E2BECA0082777A /* CardBoard.cpp in Sources */,

@@ -26,13 +26,12 @@
 #define __MENU_LABEL_H__
 
 #include "cocos2d.h"
-#include "CCLabelBMFontMultiline.h"
 
 class CC_DLL MenuLabel : public cocos2d::CCNode, public cocos2d::CCTouchDelegate
 {
 protected:
 	//display
-	cocos2d::CCLabelBMFontMultiline* label; //text label
+	cocos2d::CCLabelBMFont* label; //text label
 	
 	void resetLabel();
 	
@@ -54,8 +53,7 @@ public:
 	virtual const char* getString(void);
 	virtual void setWidth(float width);
 	virtual float getWidth();
-	virtual void setAlign(cocos2d::CCLabelBMFontMultilineAlignment align);
-	virtual cocos2d::CCLabelBMFontMultilineAlignment getAlign();
+	virtual void setAlignment(cocos2d::CCTextAlignment alignment);
 	CC_PROPERTY(cocos2d::CGFloat, m_fOffsetSwipe, Swipe);
 	CC_SYNTHESIZE(cocos2d::CGFloat, m_fOffsetScroll, Scroll);
 	virtual void setContentSize(const cocos2d::CCSize& size);

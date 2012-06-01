@@ -75,14 +75,9 @@ float MenuLabelContainer::getWidth()
 	return container->getWidth();
 }
 
-void MenuLabelContainer::setAlign(CCLabelBMFontMultilineAlignment align)
+void MenuLabelContainer::setAlignment(CCTextAlignment alignment)
 {
-	container->setAlign(align);
-}
-
-CCLabelBMFontMultilineAlignment MenuLabelContainer::getAlign()
-{
-	return container->getAlign();
+	container->setAlignment(alignment);
 }
 
 void MenuLabelContainer::setMargin(cocos2d::CCSize margin)
