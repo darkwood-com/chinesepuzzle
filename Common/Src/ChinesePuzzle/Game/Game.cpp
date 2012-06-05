@@ -490,8 +490,9 @@ void Game::makeMoveEnd()
 	{
 		this->reorderChild(dragCard, GameZOrderCard);
 		dragCard = NULL;
-		this->hintMove();
 	}
+	
+	this->hintMove();
 }
 
 void Game::hintMove()
@@ -603,7 +604,7 @@ void Game::tapDownAt(CCPoint location)
 {
 	if(gl->tapDownAt(location)) return;
 	
-	if(!dragCard)
+	if(!dragCard && !this->isBusy())
     {
 		Card* tapCard = dynamic_cast<Card*>(gc->checkPoint(location));
 		if(tapCard)
