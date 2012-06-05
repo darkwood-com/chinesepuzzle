@@ -577,9 +577,9 @@ int Game::lockLine(int i)
 		if(cCard == NULL) continue;
 		
 		CardPlay* cBefore = (j == 0) ? NULL : dynamic_cast<CardPlay*>(board[i][j - 1]);
-		if(cBefore == NULL) continue;
 		
-		if((j == 0 && cCard->getRank() == CardPlayRankAce) || (cBefore && cBefore->getIsLocked() && cCard->isNextToCardPlay(cBefore)))
+		if((j == 0 && cCard->getRank() == CardPlayRankAce)
+		|| (cBefore && cBefore->getIsLocked() && cCard->isNextToCardPlay(cBefore)))
 		{
 			cCard->setIsLocked(true);
 			nb++;

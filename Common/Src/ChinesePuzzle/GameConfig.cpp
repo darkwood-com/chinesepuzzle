@@ -643,6 +643,7 @@ void GameConfigCommon::getNodePath(std::string mode, const char* file, CCSpriteB
 		}
 		*/
 		CCSpriteFrameCache* spriteFrameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
+		spriteFrameCache->removeSpriteFramesFromFile(plistPath.c_str());
 		spriteFrameCache->addSpriteFramesWithFile(plistPath.c_str());
 		
 		var sprites = _$({});
