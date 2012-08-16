@@ -650,12 +650,21 @@ void GameConfigCommon::getNodePath(std::string mode, const char* file, CCSpriteB
 		if(mode == "ui")
 		{
 			sprites = _$({
-				_["menuMask"] =				"auto",
-				_["menuContainer"] =		"auto",
-				_["menuItemYes"] =			"auto",
-				_["menuItemNo"] =			"auto",
-				_["menuItemOk"] =			"auto",
-				_["menuItemThemeClassic"] =	"auto",
+				_["menuMask"] =                     "auto",
+				_["menuContainer"] =                "auto",
+				_["menuItemYes"] =                  "auto",
+				_["menuItemNo"] =                   "auto",
+				_["menuItemOk"] =                   "auto",
+				_["menuItemThemeClassic"] =         "auto",
+                _["menuItemThemeChinese"] =         "auto",
+                _["menuItemThemeCircle"] =          "auto",
+                _["menuItemThemePolkadots"] =       "auto",
+                _["menuItemThemeSeamless"] =        "auto",
+                _["menuItemThemeSkullshearts"] =    "auto",
+                _["menuItemThemeSplash"] =          "auto",
+                _["menuItemThemeSpring"] =          "auto",
+                _["menuItemThemeStripes"] =         "auto",
+                _["menuItemThemeVivid"] =           "auto",
 			});
 		}
 		else if(mode == "theme")

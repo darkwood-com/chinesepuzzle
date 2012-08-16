@@ -319,8 +319,16 @@ void MenuLayout::layout(bool anim)
 			if(!themes)
 			{
 				std::map<std::string, std::string> themeNodes;
-				themeNodes["chinese"] = "menuItemThemeChinese";
-				themeNodes["classic"] = "menuItemThemeClassic";
+                themeNodes["classic"]       = "menuItemThemeClassic";
+                themeNodes["chinese"]       = "menuItemThemeChinese";
+                themeNodes["circle"]        = "menuItemThemeCircle";
+                themeNodes["polkadots"]     = "menuItemThemePolkadots";
+                themeNodes["seamless"]      = "menuItemThemeSeamless";
+                themeNodes["skullshearts"]  = "menuItemThemeSkullshearts";
+                themeNodes["splash"]        = "menuItemThemeSplash";
+                themeNodes["spring"]        = "menuItemThemeSpring";
+                themeNodes["stripes"]       = "menuItemThemeStripes";
+                themeNodes["vivid"]         = "menuItemThemeVivid";
 				
 				themes = new CCMutableDictionary<std::string, cocos2d::CCMenuItemSprite*>();
 				for (std::map<std::string, std::string>::const_iterator it = themeNodes.begin(); it != themeNodes.end(); ++it)
