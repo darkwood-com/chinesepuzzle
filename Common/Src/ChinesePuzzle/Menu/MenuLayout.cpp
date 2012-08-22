@@ -33,6 +33,12 @@ using namespace cocos2d;
 typedef enum  
 {
 	kMenuTagBg,
+	kMenuTagNewTitle,
+	kMenuTagNewYes,
+	kMenuTagNewNo,
+	kMenuTagRetryTitle,
+	kMenuTagRetryYes,
+	kMenuTagRetryNo,
 } kMenuTag;
 
 template <class T> T* MenuLayout::layoutRes(const char* key)
@@ -46,6 +52,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		std::string sRes;
 		
 		sRes = "480x320";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
@@ -59,6 +66,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
 		sRes = "960x640";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
@@ -72,6 +80,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
 		sRes = "1024x768";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -85,6 +94,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1280x800";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -98,6 +108,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1280x1024";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -111,6 +122,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1366x768";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -124,6 +136,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1440x900";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -137,6 +150,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1680x1050";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -150,6 +164,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1920x1080";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -163,6 +178,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1920x1200";
+		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
@@ -228,78 +244,114 @@ void MenuLayout::layout(bool anim)
 	switch (this->type)
 	{
 		case TypeNewGame:
+		{
 			if(!mBox)
 			{
-				MenuBox* mb = new MenuBox();
-				mb->initWithConfAndContentSize(conf, *this->layoutRes<CCSize>("menuNewBoxSize"));
-				mb->setPosition(center);
-				mb->setAnchorPoint(ccp(0.5f, 0.5f));
-				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("New game");
-				
-				CCArray* items = CCArray::array();
-				
-				CCLabelBMFont* itemTitle = CCLabelBMFont::labelWithString("Do you want start a new game?", conf->getFontPath("arial32.fnt").c_str());
-				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuNewTitle"));
-				items->addObject(itemTitle);
-				
-				CCMenuItemSprite* itemYes = CCMenuItemSprite::itemFromNormalSprite(yesSprite, NULL, menu->getGameScene(), menu_selector(GameSceneCommon::newGame));
-				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemYes->setPosition(*this->layoutRes<CCPoint>("menuNewYes"));
-				items->addObject(itemYes);
-				
-				CCMenuItemSprite* itemNo = CCMenuItemSprite::itemFromNormalSprite(noSprite, NULL, menu, menu_selector(Menu::okMenu));
-				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemNo->setPosition(*this->layoutRes<CCPoint>("menuNewNo"));
-				items->addObject(itemNo);
-				
-				mb->setItems(items);
-				
-				mBox =  mb;
+				mBox = new MenuBox();
+				mBox->initWithConf(conf);
+				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mBox->setTitle("New game");
 				
 				menu->pushNav(mBox);
 			}
+			mBox->setContentSize(*this->layoutRes<CCSize>("menuNewBoxSize"));
+			mBox->setPosition(center);
+			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
+			
+			CCLabelBMFont* itemTitle = dynamic_cast<CCLabelBMFont*>(mBox->getChildByTag(kMenuTagNewTitle));
+			if(!itemTitle)
+			{
+				itemTitle = CCLabelBMFont::labelWithString("Do you want start a new game?", conf->getFontPath("arial32.fnt").c_str());
+				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
+				mBox->addChild(itemTitle, 0, kMenuTagNewTitle);
+			}
+			itemTitle->setPosition(*this->layoutRes<CCPoint>("menuNewTitle"));
+			
+			CCMenuItemSprite* itemYes = dynamic_cast<CCMenuItemSprite*>(mBox->getChildByTag(kMenuTagNewYes));
+			if(!itemYes)
+			{
+				itemYes = new CCMenuItemSprite();
+				itemYes->initWithTarget(menu->getGameScene(), menu_selector(GameSceneCommon::newGame));
+				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemYes->autorelease();
+				mBox->addChild(itemYes, 1, kMenuTagNewYes);
+			}
+			itemYes->setNormalImage(yesSprite);
+			itemYes->setContentSize(yesSprite->getContentSize());
+			itemYes->setPosition(*this->layoutRes<CCPoint>("menuNewYes"));
+			
+			CCMenuItemSprite* itemNo = dynamic_cast<CCMenuItemSprite*>(mBox->getChildByTag(kMenuTagNewNo));
+			if(!itemNo)
+			{
+				itemNo = new CCMenuItemSprite();
+				itemNo->initWithTarget(menu, menu_selector(Menu::okMenu));
+				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemNo->autorelease();
+				mBox->addChild(itemNo, 2, kMenuTagNewNo);
+			}
+			itemNo->setNormalImage(noSprite);
+			itemNo->setContentSize(noSprite->getContentSize());
+			itemNo->setPosition(*this->layoutRes<CCPoint>("menuNewNo"));
 			
 			mBox->layout(anim);
-			break;
+		}
+		break;
 		case TypeRetryGame:
+		{
 			if(!mBox)
 			{
-				MenuBox* mb = new MenuBox();
-				mb->initWithConfAndContentSize(conf, *this->layoutRes<CCSize>("menuRetryBoxSize"));
-				mb->setPosition(center);
-				mb->setAnchorPoint(ccp(0.5f, 0.5f));
-				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("Retry game");
-				
-				CCArray* items = CCArray::array();
-				
-				CCLabelBMFont* itemTitle = CCLabelBMFont::labelWithString("Do you want retry the game?", conf->getFontPath("arial32.fnt").c_str());
-				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemTitle->setPosition(*this->layoutRes<CCPoint>("menuRetryTitle"));
-				items->addObject(itemTitle);
-				
-				CCMenuItemSprite* itemYes = CCMenuItemSprite::itemFromNormalSprite(yesSprite, NULL, menu->getGameScene(), menu_selector(GameSceneCommon::retryGame));
-				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemYes->setPosition(*this->layoutRes<CCPoint>("menuRetryYes"));
-				items->addObject(itemYes);
-				
-				CCMenuItemSprite* itemNo = CCMenuItemSprite::itemFromNormalSprite(noSprite, NULL, menu, menu_selector(Menu::okMenu));
-				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
-				itemNo->setPosition(*this->layoutRes<CCPoint>("menuRetryNo"));
-				items->addObject(itemNo);
-				
-				mb->setItems(items);
-				
-				mBox =  mb;
+				mBox = new MenuBox();
+				mBox->initWithConf(conf);
+				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
+				mBox->setTitle("Retry game");
 				
 				menu->pushNav(mBox);
 			}
 			
+			mBox->setContentSize(*this->layoutRes<CCSize>("menuRetryBoxSize"));
+			mBox->setPosition(center);
+			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
+			
+			CCLabelBMFont* itemTitle = dynamic_cast<CCLabelBMFont*>(mBox->getChildByTag(kMenuTagRetryTitle));
+			if(!itemTitle)
+			{
+				itemTitle = CCLabelBMFont::labelWithString("Do you want retry the game?", conf->getFontPath("arial32.fnt").c_str());
+				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
+				mBox->addChild(itemTitle, 0, kMenuTagRetryTitle);
+			}
+			itemTitle->setPosition(*this->layoutRes<CCPoint>("menuRetryTitle"));
+			
+			CCMenuItemSprite* itemYes = dynamic_cast<CCMenuItemSprite*>(mBox->getChildByTag(kMenuTagRetryYes));
+			if(!itemYes)
+			{
+				itemYes = new CCMenuItemSprite();
+				itemYes->initWithTarget(menu->getGameScene(), menu_selector(GameSceneCommon::retryGame));
+				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemYes->autorelease();
+				mBox->addChild(itemYes, 1, kMenuTagRetryYes);
+			}
+			itemYes->setNormalImage(yesSprite);
+			itemYes->setContentSize(yesSprite->getContentSize());
+			itemYes->setPosition(*this->layoutRes<CCPoint>("menuRetryYes"));
+			
+			CCMenuItemSprite* itemNo = dynamic_cast<CCMenuItemSprite*>(mBox->getChildByTag(kMenuTagRetryNo));
+			if(!itemNo)
+			{
+				itemNo = new CCMenuItemSprite();
+				itemNo->initWithTarget(menu, menu_selector(Menu::okMenu));
+				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
+				itemNo->autorelease();
+				mBox->addChild(itemNo, 2, kMenuTagRetryNo);
+			}
+			itemNo->setNormalImage(noSprite);
+			itemNo->setContentSize(noSprite->getContentSize());
+			itemNo->setPosition(*this->layoutRes<CCPoint>("menuRetryNo"));
+			
 			mBox->layout(anim);
-			break;
+		}
+		break;
 		case TypeHint:
+		{
 			if(!mBox)
 			{
 				MenuLabelContainer* mb = new MenuLabelContainer();
@@ -316,9 +368,14 @@ void MenuLayout::layout(bool anim)
 				menu->pushNav(mBox);
 			}
 			
+			mBox->setContentSize(*this->layoutRes<CCSize>("menuHintBoxSize"));
+			mBox->setPosition(center);
+			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
 			mBox->layout(anim);
-			break;
+		}
+		break;
 		case TypeTheme:
+		{
 			if(!themes)
 			{
 				std::map<std::string, std::string> themeNodes;
@@ -348,9 +405,7 @@ void MenuLayout::layout(bool anim)
 			if(!mBox)
 			{
 				MenuGridContainer* mb = new MenuGridContainer();
-				mb->initWithConfAndContentSize(conf, *this->layoutRes<CCSize>("menuThemeBoxSize"));
-				mb->setPosition(center);
-				mb->setAnchorPoint(ccp(0.5f, 0.5f));
+				mb->initWithConf(conf);
 				mb->setMargin(CCSizeMake(50, 50));
 				mb->setGridSize(ccg(2, 2));
 				mb->setPage(0);
@@ -374,9 +429,14 @@ void MenuLayout::layout(bool anim)
 				menu->pushNav(mBox);
 			}
 			
+			mBox->setContentSize(*this->layoutRes<CCSize>("menuThemeBoxSize"));
+			mBox->setPosition(center);
+			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
 			mBox->layout(anim);
-			break;
+		}
+		break;
 		case TypeNone:
+		{
 			if(!mBox)
 			{
 				MenuBox* mb = new MenuBox();
@@ -404,6 +464,7 @@ void MenuLayout::layout(bool anim)
 			}
 			
 			mBox->layout(anim);
+		}
 		break;
 	}
 }

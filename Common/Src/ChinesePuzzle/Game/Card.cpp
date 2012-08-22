@@ -37,5 +37,4 @@ Card::~Card()
 
 void Card::setConf(GameConfigCommon* conf)
 {
-
 }
