@@ -52,7 +52,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		std::string sRes;
 		
 		sRes = "480x320";
-		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
+		(*datas)[sRes + "font"] = new std::string("arial16.fnt");
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
 		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
@@ -219,6 +219,8 @@ bool MenuLayout::initWithType(Type type)
 	return true;
 }
 
+static std::string lastFontFile;
+
 void MenuLayout::layout(bool anim)
 {
 	GameConfigCommon* conf = menu->getGameScene()->getConf();
@@ -241,6 +243,8 @@ void MenuLayout::layout(bool anim)
 	conf->getNodeUiPath("menuItemNo", noNode);
 	CCSprite* noSprite = copyFirstSpriteBatchNode(noNode);
 	
+	std::string currentFontFile = *this->layoutRes<std::string>("font");
+	
 	switch (this->type)
 	{
 		case TypeNewGame:
@@ -259,9 +263,10 @@ void MenuLayout::layout(bool anim)
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
 			
 			CCLabelBMFont* itemTitle = dynamic_cast<CCLabelBMFont*>(mBox->getChildByTag(kMenuTagNewTitle));
-			if(!itemTitle)
+			if(!itemTitle || currentFontFile != lastFontFile)
 			{
-				itemTitle = CCLabelBMFont::labelWithString("Do you want start a new game?", conf->getFontPath("arial32.fnt").c_str());
+				mBox->removeChildByTag(kMenuTagNewTitle, true);
+				itemTitle = CCLabelBMFont::labelWithString("Do you want start a new game?", conf->getFontPath(currentFontFile.c_str()).c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
 				mBox->addChild(itemTitle, 0, kMenuTagNewTitle);
 			}
@@ -313,9 +318,10 @@ void MenuLayout::layout(bool anim)
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
 			
 			CCLabelBMFont* itemTitle = dynamic_cast<CCLabelBMFont*>(mBox->getChildByTag(kMenuTagRetryTitle));
-			if(!itemTitle)
+			if(!itemTitle || currentFontFile != lastFontFile)
 			{
-				itemTitle = CCLabelBMFont::labelWithString("Do you want retry the game?", conf->getFontPath("arial32.fnt").c_str());
+				mBox->removeChildByTag(kMenuTagRetryTitle, true);
+				itemTitle = CCLabelBMFont::labelWithString("Do you want retry the game?", conf->getFontPath(currentFontFile.c_str()).c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
 				mBox->addChild(itemTitle, 0, kMenuTagRetryTitle);
 			}
@@ -355,7 +361,7 @@ void MenuLayout::layout(bool anim)
 			if(!mBox)
 			{
 				MenuLabelContainer* mb = new MenuLabelContainer();
-				mb->initWithConfAndContentSizeAndFntFile(conf, *this->layoutRes<CCSize>("menuHintBoxSize"), conf->getFontPath("arial32.fnt").c_str());
+				mb->initWithConfAndContentSizeAndFntFile(conf, *this->layoutRes<CCSize>("menuHintBoxSize"), conf->getFontPath((*this->layoutRes<std::string>("font")).c_str()).c_str());
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setMargin(CCSizeMake(50, 50));
@@ -467,6 +473,8 @@ void MenuLayout::layout(bool anim)
 		}
 		break;
 	}
+	
+	lastFontFile = currentFontFile;
 }
 
 void MenuLayout::selectTheme(cocos2d::CCObject* themeNode)
