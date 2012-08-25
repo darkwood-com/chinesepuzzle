@@ -41,6 +41,8 @@ protected:
 	cocos2d::tCCMenuState m_eState;
 	cocos2d::CCMenuItem* itemForTouch(cocos2d::CCTouch* touch);
 	cocos2d::CCMenuItem* m_pSelectedItem;
+	
+	std::string m_sLayoutFontFile;
 public:
 	MenuBox();
 	virtual ~MenuBox();
@@ -48,8 +50,9 @@ public:
 	virtual bool initWithConf(GameConfigCommon* conf);
 	virtual bool initWithConfAndContentSize(GameConfigCommon* conf, const cocos2d::CCSize& size);
 	
-	virtual void setTitle(const char* title);
+	virtual void setTitle(const char* title, const std::string& fontFile);
 	virtual const char* getTitle(void);
+	CC_SYNTHESIZE(cocos2d::CCPoint, titlePosition, TitlePosition);
 	
 	virtual void setContentSize(const cocos2d::CCSize& size);
 	
@@ -63,6 +66,8 @@ public:
 	virtual void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 	
 	CC_PROPERTY(cocos2d::CCArray*, items, Items);
+	virtual void addItem(CCNode* pChild, int zOrder, int tag);
+	virtual void removeItemByTag(int tag, bool cleanup);
 };
 
 #endif // __MENU_BOX_H__

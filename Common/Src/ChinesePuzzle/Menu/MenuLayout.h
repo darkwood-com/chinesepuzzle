@@ -46,6 +46,8 @@ protected:
 	MenuBox* mBox;
 	cocos2d::CCMenuItemImage* miTheme;
 	
+	std::string m_sLayoutLastFontFile;
+	
 public:
 	typedef enum
 	{

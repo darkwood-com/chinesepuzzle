@@ -53,141 +53,161 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		
 		sRes = "480x320";
 		(*datas)[sRes + "font"] = new std::string("arial16.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(50,50);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(200,200);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(150,50);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(50,50);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(200,200);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(20, 20);
+		(*datas)[sRes + "margin"] = new CCSize(50, 50);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(300,200);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(150,100);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(200,50);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,50);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(300,200);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(150,100);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(200,50);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,50);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,250);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(300,300);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
 		
 		sRes = "960x640";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(200,200);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(150,50);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(50,50);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(200,200);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(150,50);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(50,50);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(200,200);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(200,200);
-		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(200,200);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(600,600);
+		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1024x768";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1280x800";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1280x1024";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1366x768";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1440x900";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1680x1050";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1920x1080";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1920x1200";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
-		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuNewTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuNewYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuNewNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(400,400);
-		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(200,200);
-		(*datas)[sRes + "menuRetryYes"] = new CCPoint(300,100);
-		(*datas)[sRes + "menuRetryNo"] = new CCPoint(100,100);
-		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(400,400);
+		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "margin"] = new CCSize(100, 100);
+		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuNewYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuNewNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuRetryBoxSize"] = new CCSize(600,400);
+		(*datas)[sRes + "menuRetryTitle"] = new CCPoint(300,200);
+		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
+		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
+		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
 		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 	}
@@ -218,8 +238,6 @@ bool MenuLayout::initWithType(Type type)
 	
 	return true;
 }
-
-static std::string lastFontFile;
 
 void MenuLayout::layout(bool anim)
 {
@@ -254,16 +272,17 @@ void MenuLayout::layout(bool anim)
 				mBox = new MenuBox();
 				mBox->initWithConf(conf);
 				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mBox->setTitle("New game");
 				
 				menu->pushNav(mBox);
 			}
+			mBox->setTitle("New game", currentFontFile);
+			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuNewBoxSize"));
 			mBox->setPosition(center);
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
 			
 			CCLabelBMFont* itemTitle = dynamic_cast<CCLabelBMFont*>(mBox->getChildByTag(kMenuTagNewTitle));
-			if(!itemTitle || currentFontFile != lastFontFile)
+			if(!itemTitle || currentFontFile != m_sLayoutLastFontFile)
 			{
 				mBox->removeChildByTag(kMenuTagNewTitle, true);
 				itemTitle = CCLabelBMFont::labelWithString("Do you want start a new game?", conf->getFontPath(currentFontFile.c_str()).c_str());
@@ -279,7 +298,7 @@ void MenuLayout::layout(bool anim)
 				itemYes->initWithTarget(menu->getGameScene(), menu_selector(GameSceneCommon::newGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemYes->autorelease();
-				mBox->addChild(itemYes, 1, kMenuTagNewYes);
+				mBox->addItem(itemYes, 1, kMenuTagNewYes);
 			}
 			itemYes->setNormalImage(yesSprite);
 			itemYes->setContentSize(yesSprite->getContentSize());
@@ -292,7 +311,7 @@ void MenuLayout::layout(bool anim)
 				itemNo->initWithTarget(menu, menu_selector(Menu::okMenu));
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemNo->autorelease();
-				mBox->addChild(itemNo, 2, kMenuTagNewNo);
+				mBox->addItem(itemNo, 2, kMenuTagNewNo);
 			}
 			itemNo->setNormalImage(noSprite);
 			itemNo->setContentSize(noSprite->getContentSize());
@@ -308,17 +327,18 @@ void MenuLayout::layout(bool anim)
 				mBox = new MenuBox();
 				mBox->initWithConf(conf);
 				mBox->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mBox->setTitle("Retry game");
 				
 				menu->pushNav(mBox);
 			}
 			
+			mBox->setTitle("Retry game", currentFontFile);
+			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuRetryBoxSize"));
 			mBox->setPosition(center);
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
 			
 			CCLabelBMFont* itemTitle = dynamic_cast<CCLabelBMFont*>(mBox->getChildByTag(kMenuTagRetryTitle));
-			if(!itemTitle || currentFontFile != lastFontFile)
+			if(!itemTitle || currentFontFile != m_sLayoutLastFontFile)
 			{
 				mBox->removeChildByTag(kMenuTagRetryTitle, true);
 				itemTitle = CCLabelBMFont::labelWithString("Do you want retry the game?", conf->getFontPath(currentFontFile.c_str()).c_str());
@@ -334,7 +354,7 @@ void MenuLayout::layout(bool anim)
 				itemYes->initWithTarget(menu->getGameScene(), menu_selector(GameSceneCommon::retryGame));
 				itemYes->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemYes->autorelease();
-				mBox->addChild(itemYes, 1, kMenuTagRetryYes);
+				mBox->addItem(itemYes, 1, kMenuTagRetryYes);
 			}
 			itemYes->setNormalImage(yesSprite);
 			itemYes->setContentSize(yesSprite->getContentSize());
@@ -347,7 +367,7 @@ void MenuLayout::layout(bool anim)
 				itemNo->initWithTarget(menu, menu_selector(Menu::okMenu));
 				itemNo->setAnchorPoint(ccp(0.5f, 0.5f));
 				itemNo->autorelease();
-				mBox->addChild(itemNo, 2, kMenuTagRetryNo);
+				mBox->addItem(itemNo, 2, kMenuTagRetryNo);
 			}
 			itemNo->setNormalImage(noSprite);
 			itemNo->setContentSize(noSprite->getContentSize());
@@ -358,15 +378,15 @@ void MenuLayout::layout(bool anim)
 		break;
 		case TypeHint:
 		{
-			if(!mBox)
+			MenuLabelContainer* mb = dynamic_cast<MenuLabelContainer*>(mBox);
+			
+			if(!mb)
 			{
-				MenuLabelContainer* mb = new MenuLabelContainer();
+				mb = new MenuLabelContainer();
 				mb->initWithConfAndContentSizeAndFntFile(conf, *this->layoutRes<CCSize>("menuHintBoxSize"), conf->getFontPath((*this->layoutRes<std::string>("font")).c_str()).c_str());
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
-				mb->setMargin(CCSizeMake(50, 50));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("Hint");
 				mb->setString("Chinese Puzzle is a two-deck solitaire card game in which your memory and familiarity with the rules are tested to the limit. The game laid out in a tableau of eight rows. The goal is to move cards around in vacant spaces, so that all rows end up in a same family-colored and sorted order from Ace to King. Ace cards can only be moved at the first column, then you can fill the vacant space by drag and dropping one of the two card from same family color and next rank to the left card. Not clear? Just make some moves and play the game, but be careful with Kings!");
 				
 				mBox =  mb;
@@ -374,10 +394,13 @@ void MenuLayout::layout(bool anim)
 				menu->pushNav(mBox);
 			}
 			
-			mBox->setContentSize(*this->layoutRes<CCSize>("menuHintBoxSize"));
-			mBox->setPosition(center);
-			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
-			mBox->layout(anim);
+			mb->setMargin(*this->layoutRes<CCSize>("margin"));
+			mb->setTitle("Hint", currentFontFile);
+			mb->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
+			mb->setContentSize(*this->layoutRes<CCSize>("menuHintBoxSize"));
+			mb->setPosition(center);
+			mb->setAnchorPoint(ccp(0.5f, 0.5f));
+			mb->layout(anim);
 		}
 		break;
 		case TypeTheme:
@@ -417,7 +440,6 @@ void MenuLayout::layout(bool anim)
 				mb->setPage(0);
 				mb->setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("Themes");
 				
 				CCArray* items = CCArray::array();
 				
@@ -435,6 +457,8 @@ void MenuLayout::layout(bool anim)
 				menu->pushNav(mBox);
 			}
 			
+			mBox->setTitle("Themes", currentFontFile);
+			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuThemeBoxSize"));
 			mBox->setPosition(center);
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
@@ -450,7 +474,6 @@ void MenuLayout::layout(bool anim)
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setTitle("None");
 				
 				CCArray* items = CCArray::array();
 				
@@ -469,12 +492,14 @@ void MenuLayout::layout(bool anim)
 				menu->pushNav(mBox);
 			}
 			
+			mBox->setTitle("None", currentFontFile);
+			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mBox->layout(anim);
 		}
 		break;
 	}
 	
-	lastFontFile = currentFontFile;
+	m_sLayoutLastFontFile = currentFontFile;
 }
 
 void MenuLayout::selectTheme(cocos2d::CCObject* themeNode)

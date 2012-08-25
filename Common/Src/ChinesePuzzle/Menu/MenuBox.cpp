@@ -29,6 +29,12 @@
 
 using namespace cocos2d;
 
+typedef enum
+{
+	kMenuTagTitle,
+} kMenuBoxTag;
+
+
 MenuBox::MenuBox() :
 items(NULL),
 validBtn(NULL),
@@ -86,15 +92,18 @@ bool MenuBox::initWithConfAndContentSize(GameConfigCommon* conf, const cocos2d::
 	return false;
 }
 
-void MenuBox::setTitle(const char* title)
+void MenuBox::setTitle(const char* title, const std::string& fontFile)
 {
-	if(titleLabel) titleLabel->setString(title);
+	if(titleLabel && m_sLayoutFontFile == fontFile) titleLabel->setString(title);
 	else
 	{
+		this->removeChildByTag(kMenuTagTitle, true);
 		titleLabel = new CCLabelBMFont();
-		titleLabel->initWithString(title, "fonts/arial32.fnt");
+		titleLabel->initWithString(title, (std::string("fonts/") + fontFile).c_str());
 		titleLabel->setAnchorPoint(ccp(0.0f, 1.0f));
-		this->addChild(titleLabel);
+		this->addChild(titleLabel, 0, kMenuTagTitle);
+		
+		m_sLayoutFontFile = fontFile;
 	}
 	
 	this->layout();
@@ -137,6 +146,30 @@ CCArray* MenuBox::getItems()
 	return this->items;
 }
 
+void MenuBox::addItem(CCNode* pChild, int zOrder, int tag)
+{
+	this->items->addObject(pChild);
+	this->addChild(pChild, zOrder, tag);
+}
+
+void MenuBox::removeItemByTag(int tag, bool cleanup)
+{
+	CCAssert( tag != kCCNodeTagInvalid, "Invalid tag");
+	
+	CCNode *child = this->getChildByTag(tag);
+	
+	if (child == NULL)
+	{
+		CCLOG("cocos2d: removeItemByTag: child not found!");
+	}
+	else
+	{
+		this->items->removeObject(child);
+	}
+	
+	this->removeChildByTag(tag, cleanup);
+}
+
 void MenuBox::setContentSize(const cocos2d::CCSize& size)
 {
 	CCNode::setContentSize(size);
@@ -148,7 +181,7 @@ void MenuBox::layout(bool anim)
 {
 	CCSize size = this->getContentSize();
 	
-	if(titleLabel) titleLabel->setPosition(ccp(30, size.height - 30));
+	if(titleLabel) titleLabel->setPosition(ccp(titlePosition.x, size.height - titlePosition.y));
 	if(validBtn) validBtn->setPosition(ccp(size.width - 10, size.height - 10));
 	if(bg)
 	{
