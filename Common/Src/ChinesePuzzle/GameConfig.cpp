@@ -99,7 +99,7 @@ GameConfigCommon::~GameConfigCommon()
 bool GameConfigCommon::init()
 {
 	this->resolution = std::string("480x320");
-	this->theme = std::string("classic");
+	this->theme = std::string("chinese");
 	this->isSoundOn = true;
 	
 	return true;

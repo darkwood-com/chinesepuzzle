@@ -453,7 +453,6 @@
 		C37944A014AA2DBF005A2045 /* CCUserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUserDefault.h; sourceTree = "<group>"; };
 		C37944A114AA2DBF005A2045 /* CCZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCZone.h; sourceTree = "<group>"; };
 		C37944A214AA2DBF005A2045 /* cocos2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cocos2d.h; sourceTree = "<group>"; };
-		C37944A314AA2DBF005A2045 /* selector_protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selector_protocol.h; sourceTree = "<group>"; };
 		C37944A514AA2DBF005A2045 /* CCKeypadDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCKeypadDelegate.cpp; sourceTree = "<group>"; };
 		C37944A614AA2DBF005A2045 /* CCKeypadDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCKeypadDispatcher.cpp; sourceTree = "<group>"; };
 		C37944A814AA2DBF005A2045 /* CCLabelAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLabelAtlas.cpp; sourceTree = "<group>"; };
@@ -1153,7 +1152,6 @@
 				C37944A014AA2DBF005A2045 /* CCUserDefault.h */,
 				C37944A114AA2DBF005A2045 /* CCZone.h */,
 				C37944A214AA2DBF005A2045 /* cocos2d.h */,
-				C37944A314AA2DBF005A2045 /* selector_protocol.h */,
 			);
 			path = include;
 			sourceTree = "<group>";

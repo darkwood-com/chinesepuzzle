@@ -96,7 +96,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
 		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
 		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(600,600);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1280x800";
@@ -112,7 +112,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
 		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
 		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(600,600);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1280x1024";
@@ -128,7 +128,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
 		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
 		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(600,600);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1366x768";
@@ -144,7 +144,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		(*datas)[sRes + "menuRetryYes"] = new CCPoint(400,100);
 		(*datas)[sRes + "menuRetryNo"] = new CCPoint(200,100);
 		(*datas)[sRes + "menuHintBoxSize"] = new CCSize(800,500);
-		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(800,800);
+		(*datas)[sRes + "menuThemeBoxSize"] = new CCSize(600,600);
 		(*datas)[sRes + "menuNoneBoxSize"] = new CCSize(400,400);
 		
 		sRes = "1440x900";
@@ -413,7 +413,7 @@ void MenuLayout::layout(bool anim)
                 themeNodes["circle"]        = "menuItemThemeCircle";
                 themeNodes["polkadots"]     = "menuItemThemePolkadots";
                 themeNodes["seamless"]      = "menuItemThemeSeamless";
-                themeNodes["skullshearts"]  = "menuItemThemeSkullshearts";
+                themeNodes["shullshearts"]  = "menuItemThemeSkullshearts";
                 themeNodes["splash"]        = "menuItemThemeSplash";
                 themeNodes["spring"]        = "menuItemThemeSpring";
                 themeNodes["stripes"]       = "menuItemThemeStripes";

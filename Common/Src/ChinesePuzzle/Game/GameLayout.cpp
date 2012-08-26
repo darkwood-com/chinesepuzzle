@@ -181,9 +181,9 @@ void GameLayout::actionBtn(cocos2d::CCNode* btn)
 		GameConfigCommon* conf = game->getGameScene()->getConf();
 		
 		if(conf->getIsSoundOn()) {
-			conf->getNodeThemePath("soundOnBtn", soundBtn);
-		} else {
 			conf->getNodeThemePath("soundOffBtn", soundBtn);
+		} else {
+			conf->getNodeThemePath("soundOnBtn", soundBtn);
 		}
 		
 		conf->setIsSoundOn(!conf->getIsSoundOn());
@@ -308,6 +308,7 @@ bool GameLayout::tapDownAt(CCPoint location)
 		CCPoint local = btn->convertToNodeSpace(location);
 		CCRect r = btn->boundingBox();
 		r.origin = CCPointZero;
+		r.size = CCSizeMake(r.size.width * 2.0f, r.size.height * 2.0f);
 		
 		if (CCRect::CCRectContainsPoint(r, local))
 		{
