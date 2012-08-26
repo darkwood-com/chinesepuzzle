@@ -182,7 +182,7 @@ void MenuBox::layout(bool anim)
 	CCSize size = this->getContentSize();
 	
 	if(titleLabel) titleLabel->setPosition(ccp(titlePosition.x, size.height - titlePosition.y));
-	if(validBtn) validBtn->setPosition(ccp(size.width - 10, size.height - 10));
+	if(validBtn) validBtn->setPosition(ccp(size.width - validPosition.x, size.height - validPosition.y));
 	if(bg)
 	{
 		bg->setPosition(ccp(size.width / 2, size.height / 2));

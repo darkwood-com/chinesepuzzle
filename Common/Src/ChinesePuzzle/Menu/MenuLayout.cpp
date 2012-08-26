@@ -54,6 +54,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "480x320";
 		(*datas)[sRes + "font"] = new std::string("arial16.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(20, 20);
+		(*datas)[sRes + "validPosition"] = new CCPoint(5, 5);
 		(*datas)[sRes + "margin"] = new CCSize(50, 50);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(300,200);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(150,100);
@@ -70,6 +71,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "960x640";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -86,6 +88,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1024x768";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -102,6 +105,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1280x800";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -118,6 +122,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1280x1024";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -134,6 +139,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1366x768";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -150,6 +156,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1440x900";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -166,6 +173,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1680x1050";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -182,6 +190,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1920x1080";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -198,6 +207,7 @@ template <class T> T* MenuLayout::layoutRes(const char* key)
 		sRes = "1920x1200";
 		(*datas)[sRes + "font"] = new std::string("arial32.fnt");
 		(*datas)[sRes + "titlePosition"] = new CCPoint(40, 40);
+		(*datas)[sRes + "validPosition"] = new CCPoint(10, 10);
 		(*datas)[sRes + "margin"] = new CCSize(100, 100);
 		(*datas)[sRes + "menuNewBoxSize"] = new CCSize(600,400);
 		(*datas)[sRes + "menuNewTitle"] = new CCPoint(300,200);
@@ -277,6 +287,7 @@ void MenuLayout::layout(bool anim)
 			}
 			mBox->setTitle("New game", currentFontFile);
 			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
+			mBox->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuNewBoxSize"));
 			mBox->setPosition(center);
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
@@ -333,6 +344,7 @@ void MenuLayout::layout(bool anim)
 			
 			mBox->setTitle("Retry game", currentFontFile);
 			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
+			mBox->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuRetryBoxSize"));
 			mBox->setPosition(center);
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
@@ -397,6 +409,7 @@ void MenuLayout::layout(bool anim)
 			mb->setMargin(*this->layoutRes<CCSize>("margin"));
 			mb->setTitle("Hint", currentFontFile);
 			mb->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
+			mb->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mb->setContentSize(*this->layoutRes<CCSize>("menuHintBoxSize"));
 			mb->setPosition(center);
 			mb->setAnchorPoint(ccp(0.5f, 0.5f));
@@ -459,6 +472,7 @@ void MenuLayout::layout(bool anim)
 			
 			mBox->setTitle("Themes", currentFontFile);
 			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
+			mBox->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuThemeBoxSize"));
 			mBox->setPosition(center);
 			mBox->setAnchorPoint(ccp(0.5f, 0.5f));
@@ -494,6 +508,7 @@ void MenuLayout::layout(bool anim)
 			
 			mBox->setTitle("None", currentFontFile);
 			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
+			mBox->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mBox->layout(anim);
 		}
 		break;

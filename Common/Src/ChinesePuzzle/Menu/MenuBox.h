@@ -53,6 +53,7 @@ public:
 	virtual void setTitle(const char* title, const std::string& fontFile);
 	virtual const char* getTitle(void);
 	CC_SYNTHESIZE(cocos2d::CCPoint, titlePosition, TitlePosition);
+	CC_SYNTHESIZE(cocos2d::CCPoint, validPosition, ValidPosition);
 	
 	virtual void setContentSize(const cocos2d::CCSize& size);
 	
