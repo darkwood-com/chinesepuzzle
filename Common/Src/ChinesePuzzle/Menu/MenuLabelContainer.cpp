@@ -102,6 +102,7 @@ void MenuLabelContainer::layout(bool anim)
 	{
 		container->setPosition(ccp(size.width / 2, size.height / 2));
 		container->setContentSize(CCSizeMake(size.width - 2 * margin.width, size.height - 2 * margin.height));
+		container->setWidth(size.width - 2 * margin.width);
 	}
 }
 

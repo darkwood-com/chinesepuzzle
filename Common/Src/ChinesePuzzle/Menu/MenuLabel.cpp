@@ -112,7 +112,6 @@ void MenuLabel::layout(bool anim)
 	
 	if(label)
 	{
-		label->setWidth(size.width);
 		label->setPosition(ccpAdd(ccp(size.width / 2, size.height), ccp(0, m_fOffsetScroll + m_fOffsetSwipe)));
 	}
 }
