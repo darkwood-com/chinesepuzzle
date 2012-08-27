@@ -25,6 +25,7 @@
 #include "AppDelegate.h"
 
 #include "CCReshapeDelegate.h"
+#include "CCLang.h"
 
 USING_NS_CC;
 
@@ -93,6 +94,11 @@ bool AppDelegate::initInstance()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
+	//set langage
+	CCLang* lang = CCLang::sharedLang();
+	lang->setLang(this->getCurrentLanguage());
+	lang->addLang("lang");
+	
 	// initialize director
 	CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(&CCEGLView::sharedOpenGLView());

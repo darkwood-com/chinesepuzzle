@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>menu.newgame.title</key>
+	<string>New game</string>
+	<key>menu.newgame.content</key>
+	<string>Do you want start a new game?</string>
+	<key>menu.retrygame.title</key>
+	<string>Retry game</string>
+	<key>menu.retrygame.content</key>
+	<string>Do you want retry the game?</string>
+	<key>menu.hintgame.title</key>
+	<string>Hint</string>
+	<key>menu.hintgame.content</key>
+	<string>Chinese Puzzle is a two-deck solitaire card game in which your memory and familiarity with the rules are tested to the limit. The game laid out in a tableau of eight rows. The goal is to move cards around in vacant spaces, so that all rows end up in a same family-colored and sorted order from Ace to King. Ace cards can only be moved at the first column, then you can fill the vacant space by drag and dropping one of the two card from same family color and next rank to the left card. Not clear? Just make some moves and play the game, but be careful with Kings!</string>
+	<key>menu.themegame.title</key>
+	<string>Themes</string>
+</dict>
+</plist>

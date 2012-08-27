@@ -27,6 +27,7 @@
 #include "MenuGridContainer.h"
 #include "MenuLabelContainer.h"
 #include "GameScene.h"
+#include "CCLang.h"
 
 using namespace cocos2d;
 
@@ -251,6 +252,8 @@ bool MenuLayout::initWithType(Type type)
 
 void MenuLayout::layout(bool anim)
 {
+	CCLang* lang = CCLang::sharedLang();
+	
 	GameConfigCommon* conf = menu->getGameScene()->getConf();
 	CCPoint center = ccpMult(ccp(conf->getResolutionSize().width, conf->getResolutionSize().height), 0.5);
 	
@@ -285,7 +288,7 @@ void MenuLayout::layout(bool anim)
 				
 				menu->pushNav(mBox);
 			}
-			mBox->setTitle("New game", currentFontFile);
+			mBox->setTitle(lang->get("menu.newgame.title"), currentFontFile);
 			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mBox->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuNewBoxSize"));
@@ -296,7 +299,7 @@ void MenuLayout::layout(bool anim)
 			if(!itemTitle || currentFontFile != m_sLayoutLastFontFile)
 			{
 				mBox->removeChildByTag(kMenuTagNewTitle, true);
-				itemTitle = CCLabelBMFont::labelWithString("Do you want start a new game?", conf->getFontPath(currentFontFile.c_str()).c_str());
+				itemTitle = CCLabelBMFont::labelWithString(lang->get("menu.newgame.content"), conf->getFontPath(currentFontFile.c_str()).c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
 				mBox->addChild(itemTitle, 0, kMenuTagNewTitle);
 			}
@@ -342,7 +345,7 @@ void MenuLayout::layout(bool anim)
 				menu->pushNav(mBox);
 			}
 			
-			mBox->setTitle("Retry game", currentFontFile);
+			mBox->setTitle(lang->get("menu.retrygame.title"), currentFontFile);
 			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mBox->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuRetryBoxSize"));
@@ -353,7 +356,7 @@ void MenuLayout::layout(bool anim)
 			if(!itemTitle || currentFontFile != m_sLayoutLastFontFile)
 			{
 				mBox->removeChildByTag(kMenuTagRetryTitle, true);
-				itemTitle = CCLabelBMFont::labelWithString("Do you want retry the game?", conf->getFontPath(currentFontFile.c_str()).c_str());
+				itemTitle = CCLabelBMFont::labelWithString(lang->get("menu.retrygame.content"), conf->getFontPath(currentFontFile.c_str()).c_str());
 				itemTitle->setAnchorPoint(ccp(0.5f, 0.5f));
 				mBox->addChild(itemTitle, 0, kMenuTagRetryTitle);
 			}
@@ -399,7 +402,7 @@ void MenuLayout::layout(bool anim)
 				mb->setPosition(center);
 				mb->setAnchorPoint(ccp(0.5f, 0.5f));
 				mb->setOkTarget(menu, menu_selector(Menu::okMenu));
-				mb->setString("Chinese Puzzle is a two-deck solitaire card game in which your memory and familiarity with the rules are tested to the limit. The game laid out in a tableau of eight rows. The goal is to move cards around in vacant spaces, so that all rows end up in a same family-colored and sorted order from Ace to King. Ace cards can only be moved at the first column, then you can fill the vacant space by drag and dropping one of the two card from same family color and next rank to the left card. Not clear? Just make some moves and play the game, but be careful with Kings!");
+				mb->setString(lang->get("menu.hintgame.content"));
 				
 				mBox =  mb;
 				
@@ -407,7 +410,7 @@ void MenuLayout::layout(bool anim)
 			}
 			
 			mb->setMargin(*this->layoutRes<CCSize>("margin"));
-			mb->setTitle("Hint", currentFontFile);
+			mb->setTitle(lang->get("menu.hintgame.title"), currentFontFile);
 			mb->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mb->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mb->setContentSize(*this->layoutRes<CCSize>("menuHintBoxSize"));
@@ -470,7 +473,7 @@ void MenuLayout::layout(bool anim)
 				menu->pushNav(mBox);
 			}
 			
-			mBox->setTitle("Themes", currentFontFile);
+			mBox->setTitle(lang->get("menu.themegame.title"), currentFontFile);
 			mBox->setTitlePosition(*this->layoutRes<CCPoint>("titlePosition"));
 			mBox->setValidPosition(*this->layoutRes<CCPoint>("validPosition"));
 			mBox->setContentSize(*this->layoutRes<CCSize>("menuThemeBoxSize"));

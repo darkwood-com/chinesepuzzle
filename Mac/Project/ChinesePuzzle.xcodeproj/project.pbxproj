@@ -39,6 +39,9 @@
 		C365A6B614D0161000139DD5 /* StreamReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A69414D0161000139DD5 /* StreamReader.cpp */; };
 		C365A6B714D0161000139DD5 /* StreamWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A69614D0161000139DD5 /* StreamWriter.cpp */; };
 		C365A6B814D0161000139DD5 /* Unknown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C365A69814D0161000139DD5 /* Unknown.cpp */; };
+		C36B443C15EBF2D8000CFDA7 /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C36B443915EBF2D8000CFDA7 /* lang-de.plist */; };
+		C36B443D15EBF2D8000CFDA7 /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C36B443A15EBF2D8000CFDA7 /* lang-en.plist */; };
+		C36B443E15EBF2D8000CFDA7 /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C36B443B15EBF2D8000CFDA7 /* lang-fr.plist */; };
 		C379409A14AA23A0005A2045 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C379409914AA23A0005A2045 /* Cocoa.framework */; };
 		C37940D214AA25A0005A2045 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C37940CD14AA25A0005A2045 /* Credits.rtf */; };
 		C37940D314AA25A0005A2045 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C37940CE14AA25A0005A2045 /* InfoPlist.strings */; };
@@ -177,6 +180,7 @@
 		C3795E7914AB4C17005A2045 /* CCImage_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5C14AB4C17005A2045 /* CCImage_mac.mm */; };
 		C3795E7A14AB4C17005A2045 /* CCLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3795E5D14AB4C17005A2045 /* CCLock.cpp */; };
 		C3795E7C14AB4C17005A2045 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3795E6114AB4C17005A2045 /* EAGLView.mm */; };
+		C3875D7415EB8790007401CF /* CCLang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3875D7215EB8790007401CF /* CCLang.cpp */; };
 		C39D80BC14B4B55200AA683C /* GameScene_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39D80BA14B4B55200AA683C /* GameScene_mac.cpp */; };
 		C39FE33814B34A4000F0EAF9 /* GameConfig_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C39FE33614B34A4000F0EAF9 /* GameConfig_mac.cpp */; };
 		C3A88C9714BED5B600416D62 /* 1920x1200 in Resources */ = {isa = PBXBuildFile; fileRef = C3A88C9614BED5B600416D62 /* 1920x1200 */; };
@@ -257,6 +261,9 @@
 		C365A69814D0161000139DD5 /* Unknown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Unknown.cpp; sourceTree = "<group>"; };
 		C365A69914D0161000139DD5 /* Unknown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unknown.h; sourceTree = "<group>"; };
 		C365A69A14D0161000139DD5 /* Visitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Visitor.h; sourceTree = "<group>"; };
+		C36B443915EBF2D8000CFDA7 /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../../Common/Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
+		C36B443A15EBF2D8000CFDA7 /* lang-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-en.plist"; path = "../../Common/Bin/Data/lang-en.plist"; sourceTree = "<group>"; };
+		C36B443B15EBF2D8000CFDA7 /* lang-fr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-fr.plist"; path = "../../Common/Bin/Data/lang-fr.plist"; sourceTree = "<group>"; };
 		C379409514AA23A0005A2045 /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C379409914AA23A0005A2045 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C379409C14AA23A0005A2045 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -570,6 +577,8 @@
 		C3795E6014AB4C17005A2045 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		C3795E6114AB4C17005A2045 /* EAGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAGLView.mm; sourceTree = "<group>"; };
 		C3795E7114AB4C17005A2045 /* OpenGL_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGL_Internal.h; sourceTree = "<group>"; };
+		C3875D7215EB8790007401CF /* CCLang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLang.cpp; sourceTree = "<group>"; };
+		C3875D7315EB8790007401CF /* CCLang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLang.h; sourceTree = "<group>"; };
 		C388374414E17079006876C7 /* constructors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constructors.h; sourceTree = "<group>"; };
 		C388374514E17079006876C7 /* javascript_end.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = javascript_end.h; sourceTree = "<group>"; };
 		C388374614E17079006876C7 /* javascript_start.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = javascript_start.h; sourceTree = "<group>"; };
@@ -673,6 +682,8 @@
 		C3638F1414E2760A0082777A /* Cocos2Dx */ = {
 			isa = PBXGroup;
 			children = (
+				C3875D7315EB8790007401CF /* CCLang.h */,
+				C3875D7215EB8790007401CF /* CCLang.cpp */,
 				C3638F1814E2760A0082777A /* CCReshapeDelegate.h */,
 				C3638F1714E2760A0082777A /* CCReshapeDelegate.cpp */,
 			);
@@ -798,6 +809,9 @@
 				C32DC57914D2F5890038FE44 /* 1920x1080 */,
 				C3A88C9614BED5B600416D62 /* 1920x1200 */,
 				C3E71DF114C583D300F6F1D9 /* fonts */,
+				C36B443915EBF2D8000CFDA7 /* lang-de.plist */,
+				C36B443A15EBF2D8000CFDA7 /* lang-en.plist */,
+				C36B443B15EBF2D8000CFDA7 /* lang-fr.plist */,
 				C31BB93014AECA210077D8FB /* fps_images-hd.png */,
 				C31BB93114AECA210077D8FB /* fps_images.png */,
 				C3E08E5714B5051900E3418B /* bgPattern.png */,
@@ -1533,6 +1547,9 @@
 				C320215314D820A000280090 /* 1366x768 in Resources */,
 				C320215514D8439A00280090 /* 1280x1024 in Resources */,
 				C3BC707C14D9777400BB1CCE /* 960x640 in Resources */,
+				C36B443C15EBF2D8000CFDA7 /* lang-de.plist in Resources */,
+				C36B443D15EBF2D8000CFDA7 /* lang-en.plist in Resources */,
+				C36B443E15EBF2D8000CFDA7 /* lang-fr.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1702,6 +1719,7 @@
 				C3BC708014D9947B00BB1CCE /* GameControlNode.cpp in Sources */,
 				C3638F1A14E2760A0082777A /* CCReshapeDelegate.cpp in Sources */,
 				C354C94315737732005AB3DC /* CCNotificationCenter.cpp in Sources */,
+				C3875D7415EB8790007401CF /* CCLang.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
