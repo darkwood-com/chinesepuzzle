@@ -443,7 +443,7 @@ void MenuLayout::layout(bool anim)
 					conf->getNodeUiPath(it->second.c_str(), themeNode);
 					conf->getNodeUiPath((it->second + "Select").c_str(), themeNodeSelected);
 					
-					themes->setObject(CCMenuItemSprite::itemFromNormalSprite(themeNode, themeNodeSelected, this, menu_selector(MenuLayout::selectTheme)), it->first.c_str());
+					themes->setObject(CCMenuItemSprite::itemFromNormalSprite(themeNode, NULL, this, menu_selector(MenuLayout::selectTheme)), it->first.c_str());
 				}
 			}
 			
@@ -528,6 +528,7 @@ void MenuLayout::selectTheme(cocos2d::CCObject* themeNode)
 		if(themes->objectForKey(*it) == themeNode)
 		{
 			menu->getGameScene()->setTheme(*it);
+			menu->getGameScene()->playSound("menu_select");
 		}
 	}
 }

@@ -142,6 +142,11 @@
 		C30BBC9A14A8D41100E69DA5 /* ChinesePuzzleApp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */; };
 		C30BBC9E14A8D67700E69DA5 /* ChinesePuzzleDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */; };
 		C30BBC9F14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */; };
+		C33ED90915F2549B00AD2E8B /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33ED90615F2549B00AD2E8B /* lang-de.plist */; };
+		C33ED90A15F2549B00AD2E8B /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33ED90715F2549B00AD2E8B /* lang-en.plist */; };
+		C33ED90B15F2549B00AD2E8B /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33ED90815F2549B00AD2E8B /* lang-fr.plist */; };
+		C33ED90F15F254F900AD2E8B /* CCLang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C33ED90D15F254B500AD2E8B /* CCLang.cpp */; };
+		C33ED91115F260AD00AD2E8B /* sound in Resources */ = {isa = PBXBuildFile; fileRef = C33ED91015F260AD00AD2E8B /* sound */; };
 		C354C9521573B368005AB3DC /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C354C9491573B368005AB3DC /* CDAudioManager.m */; };
 		C354C9531573B368005AB3DC /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C354C94C1573B368005AB3DC /* CDOpenALSupport.m */; };
 		C354C9541573B368005AB3DC /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = C354C94E1573B368005AB3DC /* CocosDenshion.m */; };
@@ -497,6 +502,12 @@
 		C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleApp@2x.png"; sourceTree = "<group>"; };
 		C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleDefault.png; sourceTree = "<group>"; };
 		C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault@2x.png"; sourceTree = "<group>"; };
+		C33ED90615F2549B00AD2E8B /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../../Common/Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
+		C33ED90715F2549B00AD2E8B /* lang-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-en.plist"; path = "../../Common/Bin/Data/lang-en.plist"; sourceTree = "<group>"; };
+		C33ED90815F2549B00AD2E8B /* lang-fr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-fr.plist"; path = "../../Common/Bin/Data/lang-fr.plist"; sourceTree = "<group>"; };
+		C33ED90D15F254B500AD2E8B /* CCLang.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CCLang.cpp; sourceTree = "<group>"; };
+		C33ED90E15F254B500AD2E8B /* CCLang.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLang.h; sourceTree = "<group>"; };
+		C33ED91015F260AD00AD2E8B /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = ../../Common/Bin/Data/sound; sourceTree = "<group>"; };
 		C354C9461573B2E5005AB3DC /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		C354C9481573B368005AB3DC /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
 		C354C9491573B368005AB3DC /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
@@ -1238,6 +1249,8 @@
 		C3638F2A14E2BEC90082777A /* Cocos2Dx */ = {
 			isa = PBXGroup;
 			children = (
+				C33ED90E15F254B500AD2E8B /* CCLang.h */,
+				C33ED90D15F254B500AD2E8B /* CCLang.cpp */,
 				C3638F2E14E2BEC90082777A /* CCReshapeDelegate.h */,
 				C3638F2D14E2BEC90082777A /* CCReshapeDelegate.cpp */,
 			);
@@ -1391,6 +1404,10 @@
 			children = (
 				C36390A614E2C0FE0082777A /* 480x320 */,
 				C36390A714E2C0FE0082777A /* fonts */,
+				C33ED91015F260AD00AD2E8B /* sound */,
+				C33ED90615F2549B00AD2E8B /* lang-de.plist */,
+				C33ED90715F2549B00AD2E8B /* lang-en.plist */,
+				C33ED90815F2549B00AD2E8B /* lang-fr.plist */,
 				C363904D14E2BF630082777A /* fps_images-hd.png */,
 				C363904E14E2BF630082777A /* fps_images.png */,
 				C30957981461A4F000924761 /* ChinesePuzzle-Info.plist */,
@@ -1558,6 +1575,10 @@
 				C363909914E2BF630082777A /* fps_images.png in Resources */,
 				C36390A814E2C0FE0082777A /* 480x320 in Resources */,
 				C36390A914E2C0FE0082777A /* fonts in Resources */,
+				C33ED90915F2549B00AD2E8B /* lang-de.plist in Resources */,
+				C33ED90A15F2549B00AD2E8B /* lang-en.plist in Resources */,
+				C33ED90B15F2549B00AD2E8B /* lang-fr.plist in Resources */,
+				C33ED91115F260AD00AD2E8B /* sound in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1738,6 +1759,7 @@
 				C354C9551573B368005AB3DC /* SimpleAudioEngine.mm in Sources */,
 				C354C9561573B368005AB3DC /* SimpleAudioEngine_objc.m in Sources */,
 				C354C95A1573B396005AB3DC /* CCNotificationCenter.cpp in Sources */,
+				C33ED90F15F254F900AD2E8B /* CCLang.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

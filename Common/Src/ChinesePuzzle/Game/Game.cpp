@@ -440,6 +440,7 @@ CheckMove Game::makeMoveCoord(const MoveCoord& move)
 		board[move.from.i][move.from.j] = cSwitch;
 		cFrom->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(move.to)),
 											 CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveEnd)),
+											 CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveSound)),
 											 NULL));
 		if(cSwitch)
 		{
@@ -495,6 +496,11 @@ void Game::makeMoveEnd()
 	this->hintMove();
 }
 
+void Game::makeMoveSound()
+{
+	getGameScene()->playSound("card_move");
+}
+
 void Game::hintMove()
 {
 	if(this->dragCard)
@@ -545,6 +551,7 @@ void Game::undoMove()
 	board[move.to.i][move.to.j] = cSwitch;
 	cTo->runAction(CCSequence::actions(CCMoveTo::actionWithDuration(0.5, gl->getPositionInBoardPoint(move.from)),
 									   CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveEnd)),
+									   CCCallFunc::actionWithTarget(this, callfunc_selector(Game::makeMoveUndoSound)),
 									   NULL));
 	if(cSwitch)
 	{
@@ -564,6 +571,11 @@ void Game::undoMove()
 	this->lockLine(move.to.i);
 	
 	gs->getConf()->getMoves()->pop_back();
+}
+
+void Game::makeMoveUndoSound()
+{
+	getGameScene()->playSound("card_undo");
 }
 
 int Game::lockLine(int i)

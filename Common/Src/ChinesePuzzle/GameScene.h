@@ -39,6 +39,9 @@ typedef enum {
 
 class CC_DLL GameSceneCommon : public cocos2d::CCScene
 {
+protected:
+	int bgMusicTheme;
+
 public:
 	GameSceneCommon();
 	virtual ~GameSceneCommon();
@@ -54,6 +57,9 @@ public:
 	void retryGame();
 	void setResolution(const std::string& resolution);
 	void setTheme(const std::string& theme);
+	
+	void playSound(const char* soundName);
+	void playBackgroundMusic(bool play);
 	
 	virtual void layout(bool anim = true);
 	

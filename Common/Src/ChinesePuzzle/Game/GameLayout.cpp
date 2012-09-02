@@ -179,15 +179,19 @@ void GameLayout::actionBtn(cocos2d::CCNode* btn)
 	else if(btn == soundBtn)
 	{
 		GameConfigCommon* conf = game->getGameScene()->getConf();
-		
-		if(conf->getIsSoundOn()) {
-			conf->getNodeThemePath("soundOffBtn", soundBtn);
-		} else {
-			conf->getNodeThemePath("soundOnBtn", soundBtn);
-		}
-		
 		conf->setIsSoundOn(!conf->getIsSoundOn());
 		conf->save();
+		
+		bool isSoundOn = conf->getIsSoundOn();
+		game->getGameScene()->playBackgroundMusic(isSoundOn);
+		if(isSoundOn)
+		{
+			conf->getNodeThemePath("soundOnBtn", soundBtn);
+		}
+		else
+		{
+			conf->getNodeThemePath("soundOffBtn", soundBtn);
+		}
 	}
 	else if(btn == themeBtn)
 	{

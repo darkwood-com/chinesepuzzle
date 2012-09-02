@@ -24,11 +24,21 @@
 
 
 #include "GameScene.h"
+#include "SimpleAudioEngine.h"
 
 using namespace cocos2d;
+using namespace CocosDenshion;
+
+typedef enum {
+	BGMusicThemeNone,
+	BGMusicTheme1,
+	BGMusicTheme2,
+	BGMusicTheme3,
+} BGMusicTheme;
 
 GameSceneCommon::GameSceneCommon() :
-conf(NULL)
+conf(NULL),
+bgMusicTheme(BGMusicThemeNone)
 {
 	
 }
@@ -50,6 +60,8 @@ bool GameSceneCommon::init()
 	this->conf = new GameConfig();
 	this->conf->init();
 	this->conf->load();
+	
+	playBackgroundMusic(this->conf->getIsSoundOn());
 	
 	pGame = NULL;
 	pMenu = NULL;
@@ -111,12 +123,16 @@ void GameSceneCommon::newGame()
 {
 	Game* aGame = this->game();
 	aGame->newGame();
+	
+	playSound("shuffle");
 }
 
 void GameSceneCommon::retryGame()
 {
 	Game* aGame = this->game();
 	aGame->retryGame();
+	
+	playSound("shuffle");
 }
 
 void GameSceneCommon::setResolution(const std::string& resolution)
@@ -134,6 +150,38 @@ void GameSceneCommon::setTheme(const std::string& theme)
 	this->layout();
 	
 	conf->save();
+}
+
+void GameSceneCommon::playSound(const char* soundName)
+{
+	SimpleAudioEngine* audio = SimpleAudioEngine::sharedEngine();
+	
+	if(conf->getIsSoundOn())
+	{
+		std::string soundPath = "sound/";
+		audio->playEffect((soundPath + soundName + ".caf").c_str());
+	}
+}
+
+void GameSceneCommon::playBackgroundMusic(bool play)
+{
+	SimpleAudioEngine* audio = SimpleAudioEngine::sharedEngine();
+	
+	if(play && conf->getIsSoundOn())
+	{
+		audio->setBackgroundMusicVolume(0.5f);
+		switch(bgMusicTheme)
+		{
+			case BGMusicThemeNone:
+			case BGMusicTheme3: audio->playBackgroundMusic("sound/bgm1.caf", true); bgMusicTheme = BGMusicTheme1; break;
+			case BGMusicTheme1: audio->playBackgroundMusic("sound/bgm2.caf", true); bgMusicTheme = BGMusicTheme2; break;
+			case BGMusicTheme2: audio->playBackgroundMusic("sound/bgm3.caf", true); bgMusicTheme = BGMusicTheme3; break;
+		}
+	}
+	else if(bgMusicTheme != BGMusicThemeNone)
+	{
+		audio->stopBackgroundMusic();
+	}
 }
 
 void GameSceneCommon::layout(bool anim)

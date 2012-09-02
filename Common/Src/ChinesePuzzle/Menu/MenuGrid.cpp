@@ -307,7 +307,9 @@ bool MenuGrid::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 
 					m_pSelectedItem = (CCMenuItem*)pChild;
 					m_pSelectedItem->selected();
-					m_pSelectedItem->activate();
+					m_pSelectedItem->runAction(CCSequence::actions(CCEaseIn::actionWithAction(CCScaleTo::actionWithDuration(0.1f, 0.75f), 2.0f),
+																   CCEaseOut::actionWithAction(CCScaleTo::actionWithDuration(0.1f, 1.0f), 2.0f),
+																   NULL));
 				}
 			}
 		}

@@ -82,6 +82,8 @@ void Menu::pushNav(MenuBox* mBox)
 	}
 	ccArrayAppendObjectWithResize(nav, mBox);
 	this->addChild(mBox);
+	
+	getGameScene()->playSound("menu_push");
 }
 
 MenuBox* Menu::popNav()
@@ -96,6 +98,11 @@ MenuBox* Menu::popNav()
 		{
 			this->addChild((MenuBox*) nav->arr[nav->num-1]);
 		}
+		else
+		{
+			getGameScene()->playSound("menu_pop");
+		}
+		
 		return mBox;
 	}
 	

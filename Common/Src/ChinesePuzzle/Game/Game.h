@@ -61,6 +61,8 @@ protected:
     CardBoard* switchBoardCard; //board card used for switch
 	
 	void makeMoveEnd(); //move end
+	void makeMoveSound(); //move sound
+	void makeMoveUndoSound(); //move undo sound
 	void hintMove(); //hint move
 	
 public:
