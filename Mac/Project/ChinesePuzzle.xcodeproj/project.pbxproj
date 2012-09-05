@@ -1521,7 +1521,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0440;
-				ORGANIZATIONNAME = "Les-Argonautes";
+				ORGANIZATIONNAME = Darkwood;
 			};
 			buildConfigurationList = C379408F14AA239F005A2045 /* Build configuration list for PBXProject "ChinesePuzzle" */;
 			compatibilityVersion = "Xcode 3.2";
