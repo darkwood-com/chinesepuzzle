@@ -10,8 +10,6 @@
 		C33D560015F6DE4C0039A184 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33D55FF15F6DE4C0039A184 /* UIKit.framework */; };
 		C33D560215F6DE4C0039A184 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33D560115F6DE4C0039A184 /* Foundation.framework */; };
 		C33D560415F6DE4C0039A184 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33D560315F6DE4C0039A184 /* CoreGraphics.framework */; };
-		C33D561E15F6DF5C0039A184 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C33D561D15F6DF5C0039A184 /* InfoPlist.strings */; };
-		C33D562B15F6E1C10039A184 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C33D562A15F6E1C10039A184 /* main.m */; };
 		C3CFDD5615F77C9900A14011 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3CFDD4E15F77C5E00A14011 /* AppController.mm */; };
 		C3CFDD5715F77C9900A14011 /* GameConfig_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3CFDD4F15F77C5E00A14011 /* GameConfig_ios.cpp */; };
 		C3CFDD5815F77C9900A14011 /* GameScene_ios.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3CFDD5115F77C5E00A14011 /* GameScene_ios.cpp */; };
@@ -191,6 +189,17 @@
 		C3CFF6AC15F78CAA00A14011 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF6AB15F78CAA00A14011 /* OpenAL.framework */; };
 		C3CFF6AE15F78CB000A14011 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF6AD15F78CB000A14011 /* OpenGLES.framework */; };
 		C3CFF6B015F78CB700A14011 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF6AF15F78CB700A14011 /* QuartzCore.framework */; };
+		C3CFF6FB15F7961A00A14011 /* ChinesePuzzle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF6F715F7960900A14011 /* ChinesePuzzle-Info.plist */; };
+		C3CFF6FC15F7961A00A14011 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF6F915F7960900A14011 /* InfoPlist.strings */; };
+		C3CFF6FD15F7961A00A14011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CFF6FA15F7960900A14011 /* main.m */; };
+		C3CFF70015F7963000A14011 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF6FE15F7963000A14011 /* fps_images-hd.png */; };
+		C3CFF70115F7963000A14011 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF6FF15F7963000A14011 /* fps_images.png */; };
+		C3CFF70515F7963F00A14011 /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF70215F7963F00A14011 /* lang-de.plist */; };
+		C3CFF70615F7963F00A14011 /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF70315F7963F00A14011 /* lang-en.plist */; };
+		C3CFF70715F7963F00A14011 /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF70415F7963F00A14011 /* lang-fr.plist */; };
+		C3CFF75615F7966500A14011 /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75315F7966500A14011 /* 480x320 */; };
+		C3CFF75715F7966500A14011 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75415F7966500A14011 /* fonts */; };
+		C3CFF75815F7966500A14011 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75515F7966500A14011 /* sound */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,10 +207,6 @@
 		C33D55FF15F6DE4C0039A184 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C33D560115F6DE4C0039A184 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C33D560315F6DE4C0039A184 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C33D560715F6DE4C0039A184 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
-		C33D560D15F6DE4C0039A184 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
-		C33D561D15F6DF5C0039A184 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		C33D562A15F6E1C10039A184 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		C3CFDD4D15F77C5E00A14011 /* AppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		C3CFDD4E15F77C5E00A14011 /* AppController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		C3CFDD4F15F77C5E00A14011 /* GameConfig_ios.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameConfig_ios.cpp; sourceTree = "<group>"; };
@@ -604,6 +609,18 @@
 		C3CFF6AB15F78CAA00A14011 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		C3CFF6AD15F78CB000A14011 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		C3CFF6AF15F78CB700A14011 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C3CFF6F715F7960900A14011 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
+		C3CFF6F815F7960900A14011 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
+		C3CFF6F915F7960900A14011 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		C3CFF6FA15F7960900A14011 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3CFF6FE15F7963000A14011 /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fps_images-hd.png"; path = "../../Common/Bin/Data/fps_images-hd.png"; sourceTree = "<group>"; };
+		C3CFF6FF15F7963000A14011 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fps_images.png; path = ../../Common/Bin/Data/fps_images.png; sourceTree = "<group>"; };
+		C3CFF70215F7963F00A14011 /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../../Common/Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
+		C3CFF70315F7963F00A14011 /* lang-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-en.plist"; path = "../../Common/Bin/Data/lang-en.plist"; sourceTree = "<group>"; };
+		C3CFF70415F7963F00A14011 /* lang-fr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-fr.plist"; path = "../../Common/Bin/Data/lang-fr.plist"; sourceTree = "<group>"; };
+		C3CFF75315F7966500A14011 /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../../Common/Bin/Data/480x320; sourceTree = "<group>"; };
+		C3CFF75415F7966500A14011 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../Common/Bin/Data/fonts; sourceTree = "<group>"; };
+		C3CFF75515F7966500A14011 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = ../../Common/Bin/Data/sound; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -630,7 +647,7 @@
 			children = (
 				C3CFDD5A15F77CB400A14011 /* Src - Common */,
 				C33D561F15F6DF910039A184 /* Src - Platform */,
-				C33D560515F6DE4C0039A184 /* Resources */,
+				C3CFF6F615F795FA00A14011 /* Resources */,
 				C33D55FE15F6DE4C0039A184 /* Frameworks */,
 				C33D55FC15F6DE4C0039A184 /* Products */,
 			);
@@ -657,18 +674,6 @@
 				C33D560315F6DE4C0039A184 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C33D560515F6DE4C0039A184 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C33D560715F6DE4C0039A184 /* ChinesePuzzle-Info.plist */,
-				C33D560D15F6DE4C0039A184 /* ChinesePuzzle-Prefix.pch */,
-				C33D561D15F6DF5C0039A184 /* InfoPlist.strings */,
-				C33D562A15F6E1C10039A184 /* main.m */,
-			);
-			name = Resources;
-			path = ChinesePuzzle;
 			sourceTree = "<group>";
 		};
 		C33D561F15F6DF910039A184 /* Src - Platform */ = {
@@ -1484,6 +1489,25 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		C3CFF6F615F795FA00A14011 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3CFF75315F7966500A14011 /* 480x320 */,
+				C3CFF75415F7966500A14011 /* fonts */,
+				C3CFF75515F7966500A14011 /* sound */,
+				C3CFF6FE15F7963000A14011 /* fps_images-hd.png */,
+				C3CFF6FF15F7963000A14011 /* fps_images.png */,
+				C3CFF70215F7963F00A14011 /* lang-de.plist */,
+				C3CFF70315F7963F00A14011 /* lang-en.plist */,
+				C3CFF70415F7963F00A14011 /* lang-fr.plist */,
+				C3CFF6F715F7960900A14011 /* ChinesePuzzle-Info.plist */,
+				C3CFF6F815F7960900A14011 /* ChinesePuzzle-Prefix.pch */,
+				C3CFF6F915F7960900A14011 /* InfoPlist.strings */,
+				C3CFF6FA15F7960900A14011 /* main.m */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1535,10 +1559,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C33D561E15F6DF5C0039A184 /* InfoPlist.strings in Resources */,
 				C3CFEE6D15F77CBA00A14011 /* Attributes.h.erb in Resources */,
 				C3CFEEC915F77CBA00A14011 /* LICENSE.txt in Resources */,
 				C3CFEEDF15F77CBA00A14011 /* README.txt in Resources */,
+				C3CFF6FB15F7961A00A14011 /* ChinesePuzzle-Info.plist in Resources */,
+				C3CFF6FC15F7961A00A14011 /* InfoPlist.strings in Resources */,
+				C3CFF70015F7963000A14011 /* fps_images-hd.png in Resources */,
+				C3CFF70115F7963000A14011 /* fps_images.png in Resources */,
+				C3CFF70515F7963F00A14011 /* lang-de.plist in Resources */,
+				C3CFF70615F7963F00A14011 /* lang-en.plist in Resources */,
+				C3CFF70715F7963F00A14011 /* lang-fr.plist in Resources */,
+				C3CFF75615F7966500A14011 /* 480x320 in Resources */,
+				C3CFF75715F7966500A14011 /* fonts in Resources */,
+				C3CFF75815F7966500A14011 /* sound in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1549,7 +1582,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C33D562B15F6E1C10039A184 /* main.m in Sources */,
 				C3CFDD5615F77C9900A14011 /* AppController.mm in Sources */,
 				C3CFDD5715F77C9900A14011 /* GameConfig_ios.cpp in Sources */,
 				C3CFDD5815F77C9900A14011 /* GameScene_ios.cpp in Sources */,
@@ -1721,6 +1753,7 @@
 				C3CFF2A615F77CBB00A14011 /* SimpleAudioEngine.mm in Sources */,
 				C3CFF2A715F77CBB00A14011 /* SimpleAudioEngine_objc.m in Sources */,
 				C3CFF66515F77CBC00A14011 /* DecoratedBox.cpp in Sources */,
+				C3CFF6FD15F7961A00A14011 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
