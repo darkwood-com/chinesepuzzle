@@ -98,11 +98,16 @@ GameConfigCommon::~GameConfigCommon()
 
 bool GameConfigCommon::init()
 {
-	this->resolution = std::string("480x320");
+	this->resolution = defaultResolution();
 	this->theme = std::string("chinese");
 	this->isSoundOn = true;
 	
 	return true;
+}
+
+std::string GameConfigCommon::defaultResolution()
+{
+	return std::string("480x320");
 }
 
 CCSize GameConfigCommon::getResolutionSize()

@@ -55,7 +55,7 @@ void GameScene::layout(bool anim)
 	GameSceneCommon::layout(anim);
 	
 	CCSize confsize = conf->getResolutionSize();
-	CCPoint confcenter = ccpMult(ccp(confsize.width, confsize.height), 0.5);
+	//CCPoint confcenter = ccpMult(ccp(confsize.width, confsize.height), 0.5);
 	
 	this->setContentSize(confsize);
 }

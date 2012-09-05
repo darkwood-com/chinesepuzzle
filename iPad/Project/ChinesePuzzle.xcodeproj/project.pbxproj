@@ -197,9 +197,9 @@
 		C3CFF70515F7963F00A14011 /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF70215F7963F00A14011 /* lang-de.plist */; };
 		C3CFF70615F7963F00A14011 /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF70315F7963F00A14011 /* lang-en.plist */; };
 		C3CFF70715F7963F00A14011 /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF70415F7963F00A14011 /* lang-fr.plist */; };
-		C3CFF75615F7966500A14011 /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75315F7966500A14011 /* 480x320 */; };
 		C3CFF75715F7966500A14011 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75415F7966500A14011 /* fonts */; };
 		C3CFF75815F7966500A14011 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75515F7966500A14011 /* sound */; };
+		C3CFF75A15F79E8100A14011 /* 1024x768 in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75915F79E8100A14011 /* 1024x768 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -618,9 +618,9 @@
 		C3CFF70215F7963F00A14011 /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../../Common/Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
 		C3CFF70315F7963F00A14011 /* lang-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-en.plist"; path = "../../Common/Bin/Data/lang-en.plist"; sourceTree = "<group>"; };
 		C3CFF70415F7963F00A14011 /* lang-fr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-fr.plist"; path = "../../Common/Bin/Data/lang-fr.plist"; sourceTree = "<group>"; };
-		C3CFF75315F7966500A14011 /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../../Common/Bin/Data/480x320; sourceTree = "<group>"; };
 		C3CFF75415F7966500A14011 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../Common/Bin/Data/fonts; sourceTree = "<group>"; };
 		C3CFF75515F7966500A14011 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = ../../Common/Bin/Data/sound; sourceTree = "<group>"; };
+		C3CFF75915F79E8100A14011 /* 1024x768 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1024x768; path = ../../Common/Bin/Data/1024x768; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1492,7 +1492,7 @@
 		C3CFF6F615F795FA00A14011 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C3CFF75315F7966500A14011 /* 480x320 */,
+				C3CFF75915F79E8100A14011 /* 1024x768 */,
 				C3CFF75415F7966500A14011 /* fonts */,
 				C3CFF75515F7966500A14011 /* sound */,
 				C3CFF6FE15F7963000A14011 /* fps_images-hd.png */,
@@ -1569,9 +1569,9 @@
 				C3CFF70515F7963F00A14011 /* lang-de.plist in Resources */,
 				C3CFF70615F7963F00A14011 /* lang-en.plist in Resources */,
 				C3CFF70715F7963F00A14011 /* lang-fr.plist in Resources */,
-				C3CFF75615F7966500A14011 /* 480x320 in Resources */,
 				C3CFF75715F7966500A14011 /* fonts in Resources */,
 				C3CFF75815F7966500A14011 /* sound in Resources */,
+				C3CFF75A15F79E8100A14011 /* 1024x768 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

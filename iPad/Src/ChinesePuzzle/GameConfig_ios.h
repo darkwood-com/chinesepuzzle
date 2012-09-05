@@ -32,6 +32,8 @@ class CC_DLL GameConfig : public GameConfigCommon
 public:
 	GameConfig();
 	virtual ~GameConfig();
+	
+	virtual std::string defaultResolution();
 };
  
 #endif // __GAME_CONFIG_H__

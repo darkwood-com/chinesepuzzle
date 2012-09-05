@@ -45,6 +45,7 @@ public:
 	virtual ~GameConfigCommon();
 	
 	virtual bool init();
+	virtual std::string defaultResolution();
 	std::string getRootPath(const char* file);
 	std::string getResolutionPath(const char* file);
 	std::string getUiPath(const char* file);

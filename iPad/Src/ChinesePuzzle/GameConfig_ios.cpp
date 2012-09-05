@@ -33,3 +33,8 @@ GameConfig::GameConfig()
 GameConfig::~GameConfig()
 {
 }
+
+std::string GameConfig::defaultResolution()
+{
+	return std::string("1024x768");
+}
