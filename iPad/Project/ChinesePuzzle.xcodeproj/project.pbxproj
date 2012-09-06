@@ -200,6 +200,12 @@
 		C3CFF75715F7966500A14011 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75415F7966500A14011 /* fonts */; };
 		C3CFF75815F7966500A14011 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75515F7966500A14011 /* sound */; };
 		C3CFF75A15F79E8100A14011 /* 1024x768 in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF75915F79E8100A14011 /* 1024x768 */; };
+		C3E0398915F946F5000622C4 /* ChinesePuzzleApp.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398315F946F5000622C4 /* ChinesePuzzleApp.png */; };
+		C3E0398A15F946F5000622C4 /* ChinesePuzzleApp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398415F946F5000622C4 /* ChinesePuzzleApp@2x.png */; };
+		C3E0398F15F9478D000622C4 /* ChinesePuzzleDefault-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398B15F9478C000622C4 /* ChinesePuzzleDefault-Landscape.png */; };
+		C3E0399015F9478D000622C4 /* ChinesePuzzleDefault-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */; };
+		C3E0399115F9478D000622C4 /* ChinesePuzzleDefault-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */; };
+		C3E0399215F9478D000622C4 /* ChinesePuzzleDefault-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -621,6 +627,12 @@
 		C3CFF75415F7966500A14011 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../../Common/Bin/Data/fonts; sourceTree = "<group>"; };
 		C3CFF75515F7966500A14011 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = ../../Common/Bin/Data/sound; sourceTree = "<group>"; };
 		C3CFF75915F79E8100A14011 /* 1024x768 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1024x768; path = ../../Common/Bin/Data/1024x768; sourceTree = "<group>"; };
+		C3E0398315F946F5000622C4 /* ChinesePuzzleApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleApp.png; sourceTree = "<group>"; };
+		C3E0398415F946F5000622C4 /* ChinesePuzzleApp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleApp@2x.png"; sourceTree = "<group>"; };
+		C3E0398B15F9478C000622C4 /* ChinesePuzzleDefault-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Landscape.png"; sourceTree = "<group>"; };
+		C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Landscape@2x.png"; sourceTree = "<group>"; };
+		C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Portrait.png"; sourceTree = "<group>"; };
+		C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Portrait@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1502,6 +1514,12 @@
 				C3CFF70415F7963F00A14011 /* lang-fr.plist */,
 				C3CFF6F715F7960900A14011 /* ChinesePuzzle-Info.plist */,
 				C3CFF6F815F7960900A14011 /* ChinesePuzzle-Prefix.pch */,
+				C3E0398315F946F5000622C4 /* ChinesePuzzleApp.png */,
+				C3E0398415F946F5000622C4 /* ChinesePuzzleApp@2x.png */,
+				C3E0398B15F9478C000622C4 /* ChinesePuzzleDefault-Landscape.png */,
+				C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */,
+				C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */,
+				C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */,
 				C3CFF6F915F7960900A14011 /* InfoPlist.strings */,
 				C3CFF6FA15F7960900A14011 /* main.m */,
 			);
@@ -1572,6 +1590,12 @@
 				C3CFF75715F7966500A14011 /* fonts in Resources */,
 				C3CFF75815F7966500A14011 /* sound in Resources */,
 				C3CFF75A15F79E8100A14011 /* 1024x768 in Resources */,
+				C3E0398915F946F5000622C4 /* ChinesePuzzleApp.png in Resources */,
+				C3E0398A15F946F5000622C4 /* ChinesePuzzleApp@2x.png in Resources */,
+				C3E0398F15F9478D000622C4 /* ChinesePuzzleDefault-Landscape.png in Resources */,
+				C3E0399015F9478D000622C4 /* ChinesePuzzleDefault-Landscape@2x.png in Resources */,
+				C3E0399115F9478D000622C4 /* ChinesePuzzleDefault-Portrait.png in Resources */,
+				C3E0399215F9478D000622C4 /* ChinesePuzzleDefault-Portrait@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
