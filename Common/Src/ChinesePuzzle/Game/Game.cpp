@@ -198,6 +198,7 @@ bool Game::init(GameSceneCommon* gs)
 				{
 					//card position
 					card->setPosition(gl->getPositionInBoardPoint(coord));
+					card->setRotation(1.0f);
 				}
 			}
 		}

@@ -79,6 +79,12 @@ var array(const varContainer& c)
 	return var(list);
 }
 
+var array()
+{
+	varContainer list;
+	return array(list);
+}
+
 #define _$(...) array((varContainer)__VA_ARGS__)
 
 using namespace cocos2d;
@@ -651,7 +657,7 @@ void GameConfigCommon::getNodePath(std::string mode, const char* file, CCSpriteB
 		spriteFrameCache->removeSpriteFramesFromFile(plistPath.c_str());
 		spriteFrameCache->addSpriteFramesWithFile(plistPath.c_str());
 		
-		var sprites = _$({});
+		var sprites = array();
 		if(mode == "ui")
 		{
 			sprites = _$({

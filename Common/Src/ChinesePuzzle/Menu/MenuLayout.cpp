@@ -426,7 +426,7 @@ void MenuLayout::layout(bool anim)
 				std::map<std::string, std::string> themeNodes;
                 themeNodes["classic"]       = "menuItemThemeClassic";
                 themeNodes["chinese"]       = "menuItemThemeChinese";
-                themeNodes["circle"]        = "menuItemThemeCircle";
+                //themeNodes["circle"]        = "menuItemThemeCircle";
                 themeNodes["polkadots"]     = "menuItemThemePolkadots";
                 themeNodes["seamless"]      = "menuItemThemeSeamless";
                 themeNodes["shullshearts"]  = "menuItemThemeSkullshearts";

@@ -16,7 +16,7 @@
 		<string>ChinesePuzzleApp@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>iphone.darkwood.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.darkwood.chinesepuzzle</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

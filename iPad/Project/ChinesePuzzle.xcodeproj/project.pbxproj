@@ -189,7 +189,6 @@
 		C3CFF6AC15F78CAA00A14011 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF6AB15F78CAA00A14011 /* OpenAL.framework */; };
 		C3CFF6AE15F78CB000A14011 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF6AD15F78CB000A14011 /* OpenGLES.framework */; };
 		C3CFF6B015F78CB700A14011 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3CFF6AF15F78CB700A14011 /* QuartzCore.framework */; };
-		C3CFF6FB15F7961A00A14011 /* ChinesePuzzle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF6F715F7960900A14011 /* ChinesePuzzle-Info.plist */; };
 		C3CFF6FC15F7961A00A14011 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF6F915F7960900A14011 /* InfoPlist.strings */; };
 		C3CFF6FD15F7961A00A14011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CFF6FA15F7960900A14011 /* main.m */; };
 		C3CFF70015F7963000A14011 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = C3CFF6FE15F7963000A14011 /* fps_images-hd.png */; };
@@ -1580,7 +1579,6 @@
 				C3CFEE6D15F77CBA00A14011 /* Attributes.h.erb in Resources */,
 				C3CFEEC915F77CBA00A14011 /* LICENSE.txt in Resources */,
 				C3CFEEDF15F77CBA00A14011 /* README.txt in Resources */,
-				C3CFF6FB15F7961A00A14011 /* ChinesePuzzle-Info.plist in Resources */,
 				C3CFF6FC15F7961A00A14011 /* InfoPlist.strings in Resources */,
 				C3CFF70015F7963000A14011 /* fps_images-hd.png in Resources */,
 				C3CFF70115F7963000A14011 /* fps_images.png in Resources */,
@@ -1791,7 +1789,8 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mathieu Ledru";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Ledru";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1808,6 +1807,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				PROVISIONING_PROFILE = "0041F9DD-6A69-464E-8679-E15188AD90D9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0041F9DD-6A69-464E-8679-E15188AD90D9";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -1820,7 +1821,8 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mathieu Ledru";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Ledru";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1834,6 +1836,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "0041F9DD-6A69-464E-8679-E15188AD90D9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0041F9DD-6A69-464E-8679-E15188AD90D9";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -1844,6 +1848,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mathieu Ledru";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Ledru";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1867,6 +1873,8 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0041F9DD-6A69-464E-8679-E15188AD90D9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0041F9DD-6A69-464E-8679-E15188AD90D9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1875,6 +1883,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mathieu Ledru";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Ledru";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1897,6 +1907,8 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0041F9DD-6A69-464E-8679-E15188AD90D9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0041F9DD-6A69-464E-8679-E15188AD90D9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

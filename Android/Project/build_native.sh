@@ -1,5 +1,5 @@
 # set params
-ANDROID_NDK_ROOT=/Applications/Programmation/android-ndk-r7
+ANDROID_NDK_ROOT=/Applications/Programmation/android-ndk-r8b
 COCOS2DX_ROOT=/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx
 GAME_ROOT=/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Android
 GAME_ANDROID_ROOT=$GAME_ROOT/Project
@@ -25,5 +25,6 @@ do
 done
 
 # build
-$ANDROID_NDK_ROOT/ndk-build -C $GAME_ANDROID_ROOT $*
+$ANDROID_NDK_ROOT/ndk-build -C $GAME_ANDROID_ROOT $* \
+	NDK_MODULE_PATH=${COCOS2DX_ROOT}:${COCOS2DX_ROOT}/cocos2dx/platform/third_party/android/prebuilt
 
