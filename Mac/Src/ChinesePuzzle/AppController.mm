@@ -159,6 +159,8 @@ static AppDelegate s_sharedApplication;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+	[window setFrame:[[NSScreen mainScreen] frame] display:YES];
+	
 	EAGLView* __glView = [[[EAGLView alloc] initWithFrame:NSZeroRect shareContext:nil] autorelease];
 	[NSOpenGLContext clearCurrentContext];
 	[__glView.context makeCurrentContext];
