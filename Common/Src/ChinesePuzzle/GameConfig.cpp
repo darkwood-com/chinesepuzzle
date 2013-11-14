@@ -705,24 +705,378 @@ void GameConfigCommon::getNodePath(std::string mode, const char* file, CCSpriteB
 			{
 				for (var rankIndex = 0; rankIndex < ranks["length"]; ++rankIndex)
 				{
-					sprites[var("card_") + colors[colorIndex] + ranks[rankIndex]] = _$({
-						_$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-						_$({
-							_["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
-							_["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-							_["anchor"] = _$({0.5, 0.5}),
-						}),
-						_$({
-							_["from"] = var("big_") + colors[colorIndex],
-							_["to"] = _$({2.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-							_["anchor"] = _$({0.5, 0.5}),
-						}),
-						_$({
-							_["from"] = var("small_") + colors[colorIndex],
-							_["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-							_["anchor"] = _$({0.5, 0.5}),
-						}),
-					});
+                    var cardName = var("card_") + colors[colorIndex] + ranks[rankIndex];
+                    var rank = ranks[rankIndex];
+                    
+                    if (rank == "A") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("big_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "2") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "3") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "4") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "5") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "6") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "7") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 4.0 * box.size.height / 6}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "8") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 2.0 * box.size.height / 6}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 4.0 * box.size.height / 6}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "9") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 1.5 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "10") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 1.5 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 3.5 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else if (rank == "J" || rank == "Q" || rank == "K") {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    } else {
+                        sprites[cardName] = _$({
+                            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
+                            _$({
+                                _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
+                                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("big_") + colors[colorIndex],
+                                _["to"] = _$({2.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                            _$({
+                                _["from"] = var("small_") + colors[colorIndex],
+                                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
+                                _["anchor"] = _$({0.5, 0.5}),
+                            }),
+                        });
+                    }
 				}
 			}
 		}
