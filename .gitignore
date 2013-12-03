@@ -35,3 +35,6 @@ xcuserdata/
 Android/Project/.classpath
 Android/Project/.project
 Android/Project/.settings
+
+# JetBrains
+.idea
