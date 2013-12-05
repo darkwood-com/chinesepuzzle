@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3FB9FB71850A46C0087DB1A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FB9FB61850A46C0087DB1A /* Cocoa.framework */; };
+		C3FB9FC11850A46C0087DB1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3FB9FBF1850A46C0087DB1A /* InfoPlist.strings */; };
+		C3FB9FC31850A46C0087DB1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB9FC21850A46C0087DB1A /* main.m */; };
+		C3FB9FC71850A46C0087DB1A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C3FB9FC51850A46C0087DB1A /* Credits.rtf */; };
+		C3FB9FCA1850A46C0087DB1A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB9FC91850A46C0087DB1A /* AppDelegate.m */; };
+		C3FB9FCD1850A46C0087DB1A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3FB9FCB1850A46C0087DB1A /* MainMenu.xib */; };
+		C3FB9FCF1850A46C0087DB1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3FB9FCE1850A46C0087DB1A /* Images.xcassets */; };
+		C3FB9FD61850A46D0087DB1A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FB9FD51850A46D0087DB1A /* XCTest.framework */; };
+		C3FB9FD71850A46D0087DB1A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FB9FB61850A46C0087DB1A /* Cocoa.framework */; };
+		C3FB9FDF1850A46D0087DB1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3FB9FDD1850A46D0087DB1A /* InfoPlist.strings */; };
+		C3FB9FE11850A46D0087DB1A /* ChinesePuzzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FB9FE01850A46D0087DB1A /* ChinesePuzzleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3FB9FD81850A46D0087DB1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3FB9FAB1850A46C0087DB1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3FB9FB21850A46C0087DB1A;
+			remoteInfo = ChinesePuzzle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3FB9FB31850A46C0087DB1A /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3FB9FB61850A46C0087DB1A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C3FB9FB91850A46C0087DB1A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C3FB9FBA1850A46C0087DB1A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C3FB9FBB1850A46C0087DB1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C3FB9FBE1850A46C0087DB1A /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
+		C3FB9FC01850A46C0087DB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3FB9FC21850A46C0087DB1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C3FB9FC41850A46C0087DB1A /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
+		C3FB9FC61850A46C0087DB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C3FB9FC81850A46C0087DB1A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C3FB9FC91850A46C0087DB1A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C3FB9FCC1850A46C0087DB1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C3FB9FCE1850A46C0087DB1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C3FB9FD41850A46D0087DB1A /* ChinesePuzzleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChinesePuzzleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3FB9FD51850A46D0087DB1A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C3FB9FDC1850A46D0087DB1A /* ChinesePuzzleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChinesePuzzleTests-Info.plist"; sourceTree = "<group>"; };
+		C3FB9FDE1850A46D0087DB1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C3FB9FE01850A46D0087DB1A /* ChinesePuzzleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChinesePuzzleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3FB9FB01850A46C0087DB1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB9FB71850A46C0087DB1A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3FB9FD11850A46D0087DB1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB9FD71850A46D0087DB1A /* Cocoa.framework in Frameworks */,
+				C3FB9FD61850A46D0087DB1A /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3FB9FAA1850A46C0087DB1A = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FBC1850A46C0087DB1A /* ChinesePuzzle */,
+				C3FB9FDA1850A46D0087DB1A /* ChinesePuzzleTests */,
+				C3FB9FB51850A46C0087DB1A /* Frameworks */,
+				C3FB9FB41850A46C0087DB1A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3FB9FB41850A46C0087DB1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FB31850A46C0087DB1A /* ChinesePuzzle.app */,
+				C3FB9FD41850A46D0087DB1A /* ChinesePuzzleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3FB9FB51850A46C0087DB1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FB61850A46C0087DB1A /* Cocoa.framework */,
+				C3FB9FD51850A46D0087DB1A /* XCTest.framework */,
+				C3FB9FB81850A46C0087DB1A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3FB9FB81850A46C0087DB1A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FB91850A46C0087DB1A /* AppKit.framework */,
+				C3FB9FBA1850A46C0087DB1A /* CoreData.framework */,
+				C3FB9FBB1850A46C0087DB1A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		C3FB9FBC1850A46C0087DB1A /* ChinesePuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FC81850A46C0087DB1A /* AppDelegate.h */,
+				C3FB9FC91850A46C0087DB1A /* AppDelegate.m */,
+				C3FB9FCB1850A46C0087DB1A /* MainMenu.xib */,
+				C3FB9FCE1850A46C0087DB1A /* Images.xcassets */,
+				C3FB9FBD1850A46C0087DB1A /* Supporting Files */,
+			);
+			path = ChinesePuzzle;
+			sourceTree = "<group>";
+		};
+		C3FB9FBD1850A46C0087DB1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FBE1850A46C0087DB1A /* ChinesePuzzle-Info.plist */,
+				C3FB9FBF1850A46C0087DB1A /* InfoPlist.strings */,
+				C3FB9FC21850A46C0087DB1A /* main.m */,
+				C3FB9FC41850A46C0087DB1A /* ChinesePuzzle-Prefix.pch */,
+				C3FB9FC51850A46C0087DB1A /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C3FB9FDA1850A46D0087DB1A /* ChinesePuzzleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FE01850A46D0087DB1A /* ChinesePuzzleTests.m */,
+				C3FB9FDB1850A46D0087DB1A /* Supporting Files */,
+			);
+			path = ChinesePuzzleTests;
+			sourceTree = "<group>";
+		};
+		C3FB9FDB1850A46D0087DB1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB9FDC1850A46D0087DB1A /* ChinesePuzzleTests-Info.plist */,
+				C3FB9FDD1850A46D0087DB1A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3FB9FB21850A46C0087DB1A /* ChinesePuzzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3FB9FE41850A46D0087DB1A /* Build configuration list for PBXNativeTarget "ChinesePuzzle" */;
+			buildPhases = (
+				C3FB9FAF1850A46C0087DB1A /* Sources */,
+				C3FB9FB01850A46C0087DB1A /* Frameworks */,
+				C3FB9FB11850A46C0087DB1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChinesePuzzle;
+			productName = ChinesePuzzle;
+			productReference = C3FB9FB31850A46C0087DB1A /* ChinesePuzzle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3FB9FD31850A46D0087DB1A /* ChinesePuzzleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3FB9FE71850A46D0087DB1A /* Build configuration list for PBXNativeTarget "ChinesePuzzleTests" */;
+			buildPhases = (
+				C3FB9FD01850A46D0087DB1A /* Sources */,
+				C3FB9FD11850A46D0087DB1A /* Frameworks */,
+				C3FB9FD21850A46D0087DB1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3FB9FD91850A46D0087DB1A /* PBXTargetDependency */,
+			);
+			name = ChinesePuzzleTests;
+			productName = ChinesePuzzleTests;
+			productReference = C3FB9FD41850A46D0087DB1A /* ChinesePuzzleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3FB9FAB1850A46C0087DB1A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Mathieu Ledru";
+				TargetAttributes = {
+					C3FB9FD31850A46D0087DB1A = {
+						TestTargetID = C3FB9FB21850A46C0087DB1A;
+					};
+				};
+			};
+			buildConfigurationList = C3FB9FAE1850A46C0087DB1A /* Build configuration list for PBXProject "ChinesePuzzle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3FB9FAA1850A46C0087DB1A;
+			productRefGroup = C3FB9FB41850A46C0087DB1A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3FB9FB21850A46C0087DB1A /* ChinesePuzzle */,
+				C3FB9FD31850A46D0087DB1A /* ChinesePuzzleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3FB9FB11850A46C0087DB1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB9FC11850A46C0087DB1A /* InfoPlist.strings in Resources */,
+				C3FB9FCF1850A46C0087DB1A /* Images.xcassets in Resources */,
+				C3FB9FC71850A46C0087DB1A /* Credits.rtf in Resources */,
+				C3FB9FCD1850A46C0087DB1A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3FB9FD21850A46D0087DB1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB9FDF1850A46D0087DB1A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3FB9FAF1850A46C0087DB1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB9FCA1850A46C0087DB1A /* AppDelegate.m in Sources */,
+				C3FB9FC31850A46C0087DB1A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3FB9FD01850A46D0087DB1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB9FE11850A46D0087DB1A /* ChinesePuzzleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3FB9FD91850A46D0087DB1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3FB9FB21850A46C0087DB1A /* ChinesePuzzle */;
+			targetProxy = C3FB9FD81850A46D0087DB1A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3FB9FBF1850A46C0087DB1A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3FB9FC01850A46C0087DB1A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C3FB9FC51850A46C0087DB1A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3FB9FC61850A46C0087DB1A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		C3FB9FCB1850A46C0087DB1A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3FB9FCC1850A46C0087DB1A /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		C3FB9FDD1850A46D0087DB1A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3FB9FDE1850A46D0087DB1A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3FB9FE21850A46D0087DB1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C3FB9FE31850A46D0087DB1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C3FB9FE51850A46D0087DB1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChinesePuzzle/ChinesePuzzle-Prefix.pch";
+				INFOPLIST_FILE = "ChinesePuzzle/ChinesePuzzle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C3FB9FE61850A46D0087DB1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChinesePuzzle/ChinesePuzzle-Prefix.pch";
+				INFOPLIST_FILE = "ChinesePuzzle/ChinesePuzzle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C3FB9FE81850A46D0087DB1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChinesePuzzle.app/Contents/MacOS/ChinesePuzzle";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChinesePuzzle/ChinesePuzzle-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChinesePuzzleTests/ChinesePuzzleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C3FB9FE91850A46D0087DB1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChinesePuzzle.app/Contents/MacOS/ChinesePuzzle";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChinesePuzzle/ChinesePuzzle-Prefix.pch";
+				INFOPLIST_FILE = "ChinesePuzzleTests/ChinesePuzzleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3FB9FAE1850A46C0087DB1A /* Build configuration list for PBXProject "ChinesePuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3FB9FE21850A46D0087DB1A /* Debug */,
+				C3FB9FE31850A46D0087DB1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3FB9FE41850A46D0087DB1A /* Build configuration list for PBXNativeTarget "ChinesePuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3FB9FE51850A46D0087DB1A /* Debug */,
+				C3FB9FE61850A46D0087DB1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C3FB9FE71850A46D0087DB1A /* Build configuration list for PBXNativeTarget "ChinesePuzzleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3FB9FE81850A46D0087DB1A /* Debug */,
+				C3FB9FE91850A46D0087DB1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3FB9FAB1850A46C0087DB1A /* Project object */;
+}
