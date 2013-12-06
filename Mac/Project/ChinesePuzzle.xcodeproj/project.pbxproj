@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C3232F581850C0BB00AABA84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3232F4D1850C0BB00AABA84 /* AppDelegate.m */; };
 		C3232F5A1850C0BB00AABA84 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */; };
 		C3232F5B1850C0BB00AABA84 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C3232F541850C0BB00AABA84 /* Credits.rtf */; };
 		C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3232F551850C0BB00AABA84 /* InfoPlist.strings */; };
 		C3232F5D1850C0BB00AABA84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3232F561850C0BB00AABA84 /* main.m */; };
 		C3232F5E1850C0BB00AABA84 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3232F571850C0BB00AABA84 /* MainMenu.xib */; };
+		C347E2C918520F9100968691 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C347E2C418520F9100968691 /* AppController.mm */; };
 		C3FB9FB71850A46C0087DB1A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FB9FB61850A46C0087DB1A /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C3232F4C1850C0BB00AABA84 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C3232F4D1850C0BB00AABA84 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C3232F4E1850C0BB00AABA84 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
 		C3232F4F1850C0BB00AABA84 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
 		C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
@@ -26,6 +24,8 @@
 		C3232F551850C0BB00AABA84 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C3232F561850C0BB00AABA84 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3232F571850C0BB00AABA84 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		C347E2C318520F9100968691 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		C347E2C418520F9100968691 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		C3FB9FB31850A46C0087DB1A /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FB9FB61850A46C0087DB1A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C3FB9FB91850A46C0087DB1A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -48,8 +48,6 @@
 		C3232F4B1850C0BB00AABA84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C3232F4C1850C0BB00AABA84 /* AppDelegate.h */,
-				C3232F4D1850C0BB00AABA84 /* AppDelegate.m */,
 				C3232F4E1850C0BB00AABA84 /* ChinesePuzzle-Info.plist */,
 				C3232F4F1850C0BB00AABA84 /* ChinesePuzzle-Prefix.pch */,
 				C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */,
@@ -61,9 +59,28 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		C347E2C118520F9100968691 /* Src - Platform */ = {
+			isa = PBXGroup;
+			children = (
+				C347E2C218520F9100968691 /* ChinesePuzzle */,
+			);
+			name = "Src - Platform";
+			path = ../Src;
+			sourceTree = "<group>";
+		};
+		C347E2C218520F9100968691 /* ChinesePuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				C347E2C318520F9100968691 /* AppController.h */,
+				C347E2C418520F9100968691 /* AppController.mm */,
+			);
+			path = ChinesePuzzle;
+			sourceTree = "<group>";
+		};
 		C3FB9FAA1850A46C0087DB1A = {
 			isa = PBXGroup;
 			children = (
+				C347E2C118520F9100968691 /* Src - Platform */,
 				C3232F4B1850C0BB00AABA84 /* Resources */,
 				C3FB9FB51850A46C0087DB1A /* Frameworks */,
 				C3FB9FB41850A46C0087DB1A /* Products */,
@@ -156,7 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3232F5D1850C0BB00AABA84 /* main.m in Sources */,
-				C3232F581850C0BB00AABA84 /* AppDelegate.m in Sources */,
+				C347E2C918520F9100968691 /* AppController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +231,7 @@
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external",
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external/chipmunk/include/chipmunk",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -269,7 +286,7 @@
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external",
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external/chipmunk/include/chipmunk",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = macosx;
 			};

@@ -26,23 +26,23 @@
 
 @interface AppController : NSObject <NSApplicationDelegate> {
 @private
-	NSWindow *window;
+	__unsafe_unretained NSWindow* window;
 	
 	NSDictionary* resolutions;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSWindow* window;
 
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution480x320;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution960x640;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1024x768;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1280x800;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1280x1024;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1366x768;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1440x900;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1680x1050;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1920x1080;
-@property (nonatomic, retain) IBOutlet NSMenuItem* resolution1920x1200;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution480x320;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution960x640;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1024x768;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1280x800;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1280x1024;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1366x768;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1440x900;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1680x1050;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1920x1080;
+@property (nonatomic, strong) IBOutlet NSMenuItem* resolution1920x1200;
 
 - (IBAction)changeResolution:(NSMenuItem*)sender;
 

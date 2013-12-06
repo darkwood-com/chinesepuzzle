@@ -24,27 +24,24 @@
 
 #import <AppKit/AppKit.h>
 #import "AppController.h"
-#include "cpMacro.h"
-#import "EAGLView.h"
-#import "AppDelegate.h"
-#include CP_PLATFORM(GameScene)
+//#include "cpMacro.h"
+//#import "EAGLView.h"
+//#import "AppDelegate.h"
+//#include CP_PLATFORM(GameScene)
 
 @implementation AppController
 @synthesize window;
 
-#pragma mark -
-#pragma mark Application lifecycle
-
-using namespace cocos2d;
+//using namespace cocos2d;
 
 // cocos2d application instance
-static AppDelegate s_sharedApplication;
+//static AppDelegate s_sharedApplication;
 
 - (id)init
 {
     if (self = [super init])
 	{
-		resolutions = [[NSMutableDictionary dictionary] retain];
+		resolutions = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -52,9 +49,6 @@ static AppDelegate s_sharedApplication;
 
 - (void)dealloc
 {
-	[resolutions release];
-	
-	[super dealloc];
 }
 
 - (NSMenuItem*) resolution480x320
@@ -161,25 +155,25 @@ static AppDelegate s_sharedApplication;
 {
 	[window setFrame:[[NSScreen mainScreen] frame] display:YES];
 	
-	EAGLView* __glView = [[[EAGLView alloc] initWithFrame:NSZeroRect shareContext:nil] autorelease];
-	[NSOpenGLContext clearCurrentContext];
-	[__glView.context makeCurrentContext];
-	
-	// Set RootViewController to window
-    [window setContentView:__glView];
-	
-	AppDelegate* app = &dynamic_cast<AppDelegate&>(cocos2d::CCApplication::sharedApplication());
-	app->run();
+//	EAGLView* __glView = [[[EAGLView alloc] initWithFrame:NSZeroRect shareContext:nil] autorelease];
+//	[NSOpenGLContext clearCurrentContext];
+//	[__glView.context makeCurrentContext];
+//	
+//	// Set RootViewController to window
+//    [window setContentView:__glView];
+//	
+//	AppDelegate* app = &dynamic_cast<AppDelegate&>(cocos2d::CCApplication::sharedApplication());
+//	app->run();
 	
 	for(NSString* menuItemKey in resolutions)
 	{
 		[[resolutions valueForKey:menuItemKey] setState:NSOffState];
 	}
-	NSString* sRes = [NSString stringWithCString:app->getGameScene()->getConf()->getResolution().c_str() encoding:NSUTF8StringEncoding];
-	if([resolutions valueForKey:sRes])
-	{
-		[[resolutions valueForKey:sRes] setState:NSOnState];
-	}
+//	NSString* sRes = [NSString stringWithCString:app->getGameScene()->getConf()->getResolution().c_str() encoding:NSUTF8StringEncoding];
+//	if([resolutions valueForKey:sRes])
+//	{
+//		[[resolutions valueForKey:sRes] setState:NSOnState];
+//	}
 }
 
 - (IBAction)changeResolution:(NSMenuItem*)sender
@@ -189,9 +183,9 @@ static AppDelegate s_sharedApplication;
 		NSMenuItem* menuItem = [resolutions valueForKey:menuItemKey];
 		if(menuItem == sender)
 		{
-			AppDelegate* app = &dynamic_cast<AppDelegate&>(cocos2d::CCApplication::sharedApplication());
-			std::string sRes = [menuItemKey cStringUsingEncoding:NSUTF8StringEncoding];
-			app->getGameScene()->setResolution(sRes);
+//			AppDelegate* app = &dynamic_cast<AppDelegate&>(cocos2d::CCApplication::sharedApplication());
+//			std::string sRes = [menuItemKey cStringUsingEncoding:NSUTF8StringEncoding];
+//			app->getGameScene()->setResolution(sRes);
 			[menuItem setState:NSOnState];
 		}
 		else
