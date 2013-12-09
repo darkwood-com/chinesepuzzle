@@ -24,6 +24,9 @@
 		C317FD511855C8E60088ACBC /* libcocos2dx-extensions Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C347258618521DFE00968691 /* libcocos2dx-extensions Mac.a */; };
 		C317FD521855C8E60088ACBC /* libCocosDenshion Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C347258C18521DFE00968691 /* libCocosDenshion Mac.a */; };
 		C317FD531855C8E60088ACBC /* libjsbindings Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C347258E18521DFE00968691 /* libjsbindings Mac.a */; };
+		C317FD571855F1560088ACBC /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C317FD551855F1560088ACBC /* AppDelegate.cpp */; };
+		C317FD681855F6330088ACBC /* res in Resources */ = {isa = PBXBuildFile; fileRef = C317FD661855F6330088ACBC /* res */; };
+		C317FD691855F6330088ACBC /* src in Resources */ = {isa = PBXBuildFile; fileRef = C317FD671855F6330088ACBC /* src */; };
 		C3232F5A1850C0BB00AABA84 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */; };
 		C3232F5B1850C0BB00AABA84 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C3232F541850C0BB00AABA84 /* Credits.rtf */; };
 		C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3232F551850C0BB00AABA84 /* InfoPlist.strings */; };
@@ -46,6 +49,7 @@
 		C36167C31852269000FA17D4 /* jsb_opengl.js in Resources */ = {isa = PBXBuildFile; fileRef = C36167B41852269000FA17D4 /* jsb_opengl.js */; };
 		C36167C41852269000FA17D4 /* jsb_sys.js in Resources */ = {isa = PBXBuildFile; fileRef = C36167B51852269000FA17D4 /* jsb_sys.js */; };
 		C36167C51852269000FA17D4 /* jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C36167B61852269000FA17D4 /* jsb.js */; };
+		C3883F151856000B0053F654 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C317FD581855F6250088ACBC /* cocos2d-jsb.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +165,11 @@
 		C317FD491855C8BD0088ACBC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C317FD4B1855C8C70088ACBC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C317FD4D1855C8D10088ACBC /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		C317FD551855F1560088ACBC /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		C317FD561855F1560088ACBC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C317FD581855F6250088ACBC /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "cocos2d-jsb.js"; path = "Resources/cocos2d-jsb.js"; sourceTree = "<group>"; };
+		C317FD661855F6330088ACBC /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = Resources/res; sourceTree = "<group>"; };
+		C317FD671855F6330088ACBC /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = Resources/src; sourceTree = "<group>"; };
 		C3232F4E1850C0BB00AABA84 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
 		C3232F4F1850C0BB00AABA84 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
 		C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
@@ -223,6 +232,8 @@
 		C3232F4B1850C0BB00AABA84 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C317FD551855F1560088ACBC /* AppDelegate.cpp */,
+				C317FD561855F1560088ACBC /* AppDelegate.h */,
 				C3232F4E1850C0BB00AABA84 /* ChinesePuzzle-Info.plist */,
 				C3232F4F1850C0BB00AABA84 /* ChinesePuzzle-Prefix.pch */,
 				C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */,
@@ -230,6 +241,9 @@
 				C3232F551850C0BB00AABA84 /* InfoPlist.strings */,
 				C3232F561850C0BB00AABA84 /* main.m */,
 				C3232F571850C0BB00AABA84 /* MainMenu.xib */,
+				C317FD581855F6250088ACBC /* cocos2d-jsb.js */,
+				C317FD661855F6330088ACBC /* res */,
+				C317FD671855F6330088ACBC /* src */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -607,6 +621,9 @@
 				C36167C01852269000FA17D4 /* jsb_debugger.js in Resources */,
 				C36167B91852269000FA17D4 /* jsb_chipmunk.js in Resources */,
 				C36167B71852269000FA17D4 /* debugger in Resources */,
+				C3883F151856000B0053F654 /* cocos2d-jsb.js in Resources */,
+				C317FD691855F6330088ACBC /* src in Resources */,
+				C317FD681855F6330088ACBC /* res in Resources */,
 				C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */,
 				C3232F5A1850C0BB00AABA84 /* ChinesePuzzleApp.icns in Resources */,
 				C3232F5B1850C0BB00AABA84 /* Credits.rtf in Resources */,
@@ -623,6 +640,7 @@
 			files = (
 				C3232F5D1850C0BB00AABA84 /* main.m in Sources */,
 				C347E2C918520F9100968691 /* AppController.mm in Sources */,
+				C317FD571855F1560088ACBC /* AppDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,86 +769,13 @@
 					CC_TARGET_OS_MAC,
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/glfw3/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/glfw3/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/sqlite3/libraries/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/win32,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/win32-specific/gles/prebuilt",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/win32-specific/icon/prebuilt",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/win32-specific/zlib/prebuilt",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/HelloWorld/android/obj/local/armeabi,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/admob/proj.ios/Admob,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/flurry/proj.ios/FlurryAds,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/flurry/proj.ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/umeng/proj.ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/tools/cocos2d-console/src/jsbcc_source/spidermonkey-ios/lib",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/tools/cocos2d-console/src/jsbcc_source/spidermonkey-win32/lib",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/cocos/2d/platform/mac",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external/spidermonkey/include/mac",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external/glfw3/include/mac",
 				);
+				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -846,86 +791,13 @@
 					CC_TARGET_OS_MAC,
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
+				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/curl/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/freetype2/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/glfw3/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/glfw3/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/jpeg/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/lua/luajit/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/png/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/spidermonkey/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/sqlite3/libraries/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/tiff/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/linux/32-bit",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/linux/64-bit",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/webp/prebuilt/win32,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/android/armeabi,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/android/armeabi-v7a",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/android/x86,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/mac,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/websockets/prebuilt/win32,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/win32-specific/gles/prebuilt",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/win32-specific/icon/prebuilt",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/external/win32-specific/zlib/prebuilt",
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/HelloWorld/android/obj/local/armeabi,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/admob/proj.ios/Admob,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/flurry/proj.ios/FlurryAds,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/flurry/proj.ios,
-					/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/plugin/plugins/umeng/proj.ios,
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/tools/cocos2d-console/src/jsbcc_source/spidermonkey-ios/lib",
-					"/Users/math/Mathieu/Programmation/Programmation/ChinesePuzzle/ChinesePuzzle/Common/Src/Externals/Cocos2Dx/tools/cocos2d-console/src/jsbcc_source/spidermonkey-win32/lib",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/cocos/2d/platform/mac",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external/spidermonkey/include/mac",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2Dx/external/glfw3/include/mac",
 				);
+				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

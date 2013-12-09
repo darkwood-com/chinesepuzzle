@@ -25,17 +25,15 @@
 #import <AppKit/AppKit.h>
 #import "AppController.h"
 //#include "cpMacro.h"
-//#import "EAGLView.h"
-//#import "AppDelegate.h"
+#import "EAGLView.h"
+#include "CCEGLView.h"
+#import "AppDelegate.h"
 //#include CP_PLATFORM(GameScene)
 
 @implementation AppController
 @synthesize window;
 
-//using namespace cocos2d;
-
-// cocos2d application instance
-//static AppDelegate s_sharedApplication;
+USING_NS_CC;
 
 - (id)init
 {
@@ -153,17 +151,21 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    AppDelegate app;
+    EGLView eglView;
+    //eglView.init("Hello World",900,640);
+
+    
 	[window setFrame:[[NSScreen mainScreen] frame] display:YES];
 	
-//	EAGLView* __glView = [[[EAGLView alloc] initWithFrame:NSZeroRect shareContext:nil] autorelease];
-//	[NSOpenGLContext clearCurrentContext];
-//	[__glView.context makeCurrentContext];
-//	
-//	// Set RootViewController to window
-//    [window setContentView:__glView];
-//	
-//	AppDelegate* app = &dynamic_cast<AppDelegate&>(cocos2d::CCApplication::sharedApplication());
-//	app->run();
+	CCEAGLView* __glView = [[CCEAGLView alloc] initWithFrame:NSZeroRect shareContext:nil];
+	[NSOpenGLContext clearCurrentContext];
+	[__glView.openGLContext makeCurrentContext];
+	
+	// Set RootViewController to window
+    [window setContentView:__glView];
+	
+	Application::getInstance()->run();
 	
 	for(NSString* menuItemKey in resolutions)
 	{
