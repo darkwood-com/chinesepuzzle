@@ -153,24 +153,35 @@ USING_NS_CC;
 {
     AppDelegate app;
     EGLView eglView;
-    //eglView.init("Hello World",900,640);
+    eglView.init("Hello World",900,640);
 
-    
-	[window setFrame:[[NSScreen mainScreen] frame] display:YES];
-	
-	CCEAGLView* __glView = [[CCEAGLView alloc] initWithFrame:NSZeroRect shareContext:nil];
-	[NSOpenGLContext clearCurrentContext];
-	[__glView.openGLContext makeCurrentContext];
-	
-	// Set RootViewController to window
-    [window setContentView:__glView];
+//    NSRect rect = NSMakeRect(0, 0, 1024, 768);
+//    
+//	[window setFrame:[[NSScreen mainScreen] frame] display:YES];
+//    
+//    NSOpenGLPixelFormatAttribute attributes[] = {
+//        NSOpenGLPFADoubleBuffer,
+//        NSOpenGLPFADepthSize, 24,
+//        NSOpenGLPFAStencilSize, 8,
+//        0
+//    };
+//    
+//    NSOpenGLPixelFormat* pixelFormat = [[NSOpenGLPixelFormat alloc] initWithAttributes:attributes];
+//	
+//	CCEAGLView* __glView = [[CCEAGLView alloc] initWithFrame:rect pixelFormat:pixelFormat];
+//	[NSOpenGLContext clearCurrentContext];
+//	[__glView.openGLContext makeCurrentContext];
+//	
+//	// Set RootViewController to window
+//    [window becomeFirstResponder];
+//    [window setContentView:__glView];
 	
 	Application::getInstance()->run();
 	
-	for(NSString* menuItemKey in resolutions)
-	{
-		[[resolutions valueForKey:menuItemKey] setState:NSOffState];
-	}
+//	for(NSString* menuItemKey in resolutions)
+//	{
+//		[[resolutions valueForKey:menuItemKey] setState:NSOffState];
+//	}
 //	NSString* sRes = [NSString stringWithCString:app->getGameScene()->getConf()->getResolution().c_str() encoding:NSUTF8StringEncoding];
 //	if([resolutions valueForKey:sRes])
 //	{
