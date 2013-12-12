@@ -151,6 +151,8 @@ USING_NS_CC;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [window close];
+    
     AppDelegate app;
     EGLView eglView;
     eglView.init("Hello World",900,640);
