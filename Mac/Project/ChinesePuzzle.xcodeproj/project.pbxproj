@@ -291,8 +291,8 @@
 		C347E2CE18521DBB00968691 /* ChinesePuzzle */ = {
 			isa = PBXGroup;
 			children = (
-				C38B4143185B6CC500245259 /* AppDelegate.cpp */,
 				C38B4144185B6CC500245259 /* AppDelegate.h */,
+				C38B4143185B6CC500245259 /* AppDelegate.cpp */,
 			);
 			path = ChinesePuzzle;
 			sourceTree = "<group>";
