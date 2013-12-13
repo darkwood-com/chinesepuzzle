@@ -155,7 +155,7 @@ USING_NS_CC;
     
     AppDelegate app;
     EGLView eglView;
-    eglView.init("Hello World",900,640);
+    eglView.init("Chinese Puzzle",900,640);
 
 //    NSRect rect = NSMakeRect(0, 0, 1024, 768);
 //    
