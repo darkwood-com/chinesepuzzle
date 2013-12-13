@@ -24,7 +24,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-var MyLayer = cc.Layer.extend({
+var GameLayer = cc.Layer.extend({
     isMouseDown:false,
     helloImg:null,
     helloLabel:null,
@@ -84,7 +84,7 @@ var MyLayer = cc.Layer.extend({
 
 });
 
-var MyScene = cc.Scene.extend({
+var GameScene = cc.Scene.extend({
     ctor:function() {
         this._super();
         cc.associateWithNative( this, cc.Scene );
@@ -92,7 +92,7 @@ var MyScene = cc.Scene.extend({
 
     onEnter:function () {
         this._super();
-        var layer = new MyLayer();
+        var layer = new GameLayer();
         this.addChild(layer);
         layer.init();
     }

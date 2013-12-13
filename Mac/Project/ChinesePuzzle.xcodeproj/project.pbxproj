@@ -25,7 +25,6 @@
 		C317FD521855C8E60088ACBC /* libCocosDenshion Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C347258C18521DFE00968691 /* libCocosDenshion Mac.a */; };
 		C317FD531855C8E60088ACBC /* libjsbindings Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C347258E18521DFE00968691 /* libjsbindings Mac.a */; };
 		C317FD681855F6330088ACBC /* res in Resources */ = {isa = PBXBuildFile; fileRef = C317FD661855F6330088ACBC /* res */; };
-		C317FD691855F6330088ACBC /* src in Resources */ = {isa = PBXBuildFile; fileRef = C317FD671855F6330088ACBC /* src */; };
 		C3232F5A1850C0BB00AABA84 /* ChinesePuzzleApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */; };
 		C3232F5B1850C0BB00AABA84 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C3232F541850C0BB00AABA84 /* Credits.rtf */; };
 		C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3232F551850C0BB00AABA84 /* InfoPlist.strings */; };
@@ -50,6 +49,7 @@
 		C36167C51852269000FA17D4 /* jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C36167B61852269000FA17D4 /* jsb.js */; };
 		C3883F151856000B0053F654 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C317FD581855F6250088ACBC /* cocos2d-jsb.js */; };
 		C38B4145185B6CC500245259 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38B4143185B6CC500245259 /* AppDelegate.cpp */; };
+		C38B415D185B773B00245259 /* js in Resources */ = {isa = PBXBuildFile; fileRef = C38B415C185B773B00245259 /* js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +167,6 @@
 		C317FD4D1855C8D10088ACBC /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		C317FD581855F6250088ACBC /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "cocos2d-jsb.js"; path = "Resources/cocos2d-jsb.js"; sourceTree = "<group>"; };
 		C317FD661855F6330088ACBC /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = res; path = Resources/res; sourceTree = "<group>"; };
-		C317FD671855F6330088ACBC /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = Resources/src; sourceTree = "<group>"; };
 		C3232F4E1850C0BB00AABA84 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
 		C3232F4F1850C0BB00AABA84 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
 		C3232F531850C0BB00AABA84 /* ChinesePuzzleApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ChinesePuzzleApp.icns; sourceTree = "<group>"; };
@@ -196,6 +195,7 @@
 		C36167B61852269000FA17D4 /* jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb.js; sourceTree = "<group>"; };
 		C38B4143185B6CC500245259 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C38B4144185B6CC500245259 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C38B415C185B773B00245259 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = ../../Common/Bin/Data/js; sourceTree = "<group>"; };
 		C3FB9FB31850A46C0087DB1A /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FB9FB61850A46C0087DB1A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -241,7 +241,7 @@
 				C3232F571850C0BB00AABA84 /* MainMenu.xib */,
 				C317FD581855F6250088ACBC /* cocos2d-jsb.js */,
 				C317FD661855F6330088ACBC /* res */,
-				C317FD671855F6330088ACBC /* src */,
+				C38B415C185B773B00245259 /* js */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -622,8 +622,8 @@
 				C36167B91852269000FA17D4 /* jsb_chipmunk.js in Resources */,
 				C36167B71852269000FA17D4 /* debugger in Resources */,
 				C3883F151856000B0053F654 /* cocos2d-jsb.js in Resources */,
-				C317FD691855F6330088ACBC /* src in Resources */,
 				C317FD681855F6330088ACBC /* res in Resources */,
+				C38B415D185B773B00245259 /* js in Resources */,
 				C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */,
 				C3232F5A1850C0BB00AABA84 /* ChinesePuzzleApp.icns in Resources */,
 				C3232F5B1850C0BB00AABA84 /* Credits.rtf in Resources */,

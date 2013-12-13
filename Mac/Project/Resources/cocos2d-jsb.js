@@ -29,8 +29,8 @@
 require("jsb.js");
 
 var appFiles = [
-    'src/resource.js',
-    'src/myApp.js'
+    'js/Resource.js',
+    'js/GameScene.js'
 ];
 
 cc.dumpConfig();
@@ -41,13 +41,9 @@ for( var i=0; i < appFiles.length; i++) {
 
 var director = cc.Director.getInstance();
 director.setDisplayStats(true);
-
-// set FPS. the default value is 1.0/60 if you don't call this
 director.setAnimationInterval(1.0 / 60);
 
-// create a scene. it's an autorelease object
-var myScene = new MyScene();
+var scene = new GameScene();
 
-// run
-director.runWithScene(myScene);
+director.runWithScene(scene);
 
