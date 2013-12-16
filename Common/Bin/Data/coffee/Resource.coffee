@@ -1,13 +1,23 @@
-g_ressources = []
+###
+This file is part of the ChinesePuzzle package.
 
-#image
+(c) Mathieu Ledru
 
-#plist
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+###
 
-#fnt
+g_ressources = [
+  #image
 
-#tmx
+  #plist
 
-#bgm
+  #fnt
 
-#effect
+  #tmx
+
+  #bgm
+
+  #effect
+
+]

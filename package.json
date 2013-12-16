@@ -2,7 +2,7 @@
     "name": "ChinesePuzzle",
     "description": "ChinesePuzzle",
     "author": "Mathieu Ledru",
-    "license": "GPL",
+    "license": "MIT",
     "readmeFilename": "README.md",
     "devDependencies": {
         "grunt-regarde": "~0.1.1",
