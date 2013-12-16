@@ -1,13 +1,3 @@
-var g_ressources = [
-    //image
+var g_ressources;
 
-    //plist
-
-    //fnt
-
-    //tmx
-
-    //bgm
-
-    //effect
-];
+g_ressources = [];

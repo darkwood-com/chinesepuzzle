@@ -1,4 +1,4 @@
-/*
+###
 Copyright (c) 2010-2012 cocos2d-x.org
 Copyright (c) 2008-2010 Ricardo Quesada
 Copyright (c) 2011      Zynga Inc.
@@ -22,41 +22,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-*/
+###
+GameLayer = cc.Layer.extend(
+  isMouseDown: false
+  helloImg: null
+  helloLabel: null
+  circle: null
+  sprite: null
+  ctor: ->
+    @_super()
+    cc.associateWithNative this, cc.Layer
 
-var GameLayer, GameScene;
+  init: ->
+    @_super()
+    size = cc.Director.getInstance().getWinSize()
+    @helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)
+    @helloLabel.setPosition cc.p(size.width / 2, size.height - 40)
+    @addChild @helloLabel, 5
+    true
+)
+GameScene = cc.Scene.extend(
+  ctor: ->
+    @_super()
+    cc.associateWithNative this, cc.Scene
 
-GameLayer = cc.Layer.extend({
-  isMouseDown: false,
-  helloImg: null,
-  helloLabel: null,
-  circle: null,
-  sprite: null,
-  ctor: function() {
-    this._super();
-    return cc.associateWithNative(this, cc.Layer);
-  },
-  init: function() {
-    var size;
-    this._super();
-    size = cc.Director.getInstance().getWinSize();
-    this.helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
-    this.helloLabel.setPosition(cc.p(size.width / 2, size.height - 40));
-    this.addChild(this.helloLabel, 5);
-    return true;
-  }
-});
-
-GameScene = cc.Scene.extend({
-  ctor: function() {
-    this._super();
-    return cc.associateWithNative(this, cc.Scene);
-  },
-  onEnter: function() {
-    var layer;
-    this._super();
-    layer = new GameLayer();
-    this.addChild(layer);
-    return layer.init();
-  }
-});
+  onEnter: ->
+    @_super()
+    layer = new GameLayer()
+    @addChild layer
+    layer.init()
+)
