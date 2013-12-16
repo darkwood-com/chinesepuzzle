@@ -1,6 +1,3 @@
-[submodule "Common/Src/Externals/Cocos2Dx"]
-	path = Common/Src/Externals/Cocos2Dx
-	url = git://matyo91@github.com/matyo91/cocos2d-x.git
 [submodule "Common/Src/Externals/Archivist"]
 	path = Common/Src/Externals/Archivist
 	url = git://github.com/pbhogan/Archivist.git
