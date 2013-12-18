@@ -40,7 +40,8 @@ var cpz = cpz || {};
         //SingleEngineFile:'',
         appFiles:[
             '../../../../Common/Bin/Data/js/Resource.js',
-            '../../../../Common/Bin/Data/js/GameScene.js'
+            '../../../../Common/Bin/Data/js/GameScene.js',
+            '../../../../Browser/Bin/Data/browser/GameScene.js'
             ]
     };
 

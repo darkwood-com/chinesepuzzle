@@ -32,7 +32,8 @@ var cpz = cpz || {};
 
 var appFiles = [
     'js/Resource.js',
-    'js/GameScene.js'
+    'js/GameScene.js',
+    'mac/GameScene.js'
 ];
 
 cc.dumpConfig();

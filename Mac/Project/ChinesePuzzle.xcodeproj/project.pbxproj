@@ -28,6 +28,7 @@
 		C347E2C918520F9100968691 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C347E2C418520F9100968691 /* AppController.mm */; };
 		C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C34FDCC91860649100238872 /* cocos2d-jsb.js */; };
 		C38B4145185B6CC500245259 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38B4143185B6CC500245259 /* AppDelegate.cpp */; };
+		C3F4E9261861E78900230ABA /* mac in Resources */ = {isa = PBXBuildFile; fileRef = C3F4E9251861E78900230ABA /* mac */; };
 		C3F6251318605C8B0055BBF0 /* jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009018605C7A0055BBF0 /* jsb.js */; };
 		C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */; };
 		C3F6251518605C8B0055BBF0 /* jsb_chipmunk_constants.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009218605C7A0055BBF0 /* jsb_chipmunk_constants.js */; };
@@ -177,6 +178,7 @@
 		C34FDCC91860649100238872 /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "cocos2d-jsb.js"; sourceTree = "<group>"; };
 		C38B4143185B6CC500245259 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C38B4144185B6CC500245259 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C3F4E9251861E78900230ABA /* mac */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mac; sourceTree = "<group>"; };
 		C3F6009018605C7A0055BBF0 /* jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb.js; sourceTree = "<group>"; };
 		C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb_chipmunk.js; sourceTree = "<group>"; };
 		C3F6009218605C7A0055BBF0 /* jsb_chipmunk_constants.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb_chipmunk_constants.js; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		C347E2C118520F9100968691 /* Src - Platform */ = {
 			isa = PBXGroup;
 			children = (
+				C3F4E9101861E77A00230ABA /* Bin */,
 				C347E2C218520F9100968691 /* ChinesePuzzle */,
 			);
 			name = "Src - Platform";
@@ -318,6 +321,23 @@
 			children = (
 			);
 			path = ChipmunkDraw;
+			sourceTree = "<group>";
+		};
+		C3F4E9101861E77A00230ABA /* Bin */ = {
+			isa = PBXGroup;
+			children = (
+				C3F4E9111861E77A00230ABA /* Data */,
+			);
+			name = Bin;
+			path = ../Bin;
+			sourceTree = "<group>";
+		};
+		C3F4E9111861E77A00230ABA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C3F4E9251861E78900230ABA /* mac */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		C3F6000E18605C7A0055BBF0 /* scripting */ = {
@@ -620,6 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3F63CBE18605FF00055BBF0 /* js in Resources */,
+				C3F4E9261861E78900230ABA /* mac in Resources */,
 				C3F63CAD18605D3B0055BBF0 /* debugger in Resources */,
 				C3F6251818605C8B0055BBF0 /* jsb_cocos2d_extension.js in Resources */,
 				C3F6251318605C8B0055BBF0 /* jsb.js in Resources */,

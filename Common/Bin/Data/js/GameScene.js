@@ -28,7 +28,7 @@ cpz.GameLayer = cc.Layer.extend({
   }
 });
 
-cpz.GameScene = cc.Scene.extend({
+cpz.GameSceneCommon = cc.Scene.extend({
   ctor: function() {
     this._super();
     return cc.associateWithNative(this, cc.Scene);
