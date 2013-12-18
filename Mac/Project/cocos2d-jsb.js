@@ -30,10 +30,15 @@ require("jsb.js");
 
 var cpz = cpz || {};
 
+var commonPath = 'js/';
+var platformPath = 'mac/';
+
 var appFiles = [
-    'js/Resource.js',
-    'js/GameScene.js',
-    'mac/GameScene.js'
+    commonPath + 'Cocos2Dx/CCLang.js',
+    commonPath + 'GameScene.js',
+    commonPath + 'Resource.js',
+
+    platformPath + 'GameScene.js'
 ];
 
 cc.dumpConfig();

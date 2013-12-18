@@ -27,6 +27,9 @@
 var cpz = cpz || {};
 
 (function () {
+    var commonPath = '../../../../Common/Bin/Data/js/';
+    var platformPath = '../../../../Browser/Bin/Data/browser/';
+
     var d = document;
     var c = {
         COCOS2D_DEBUG:2, //0 to turn debug off, 1 for basic debug, and 2 for full debug
@@ -39,9 +42,11 @@ var cpz = cpz || {};
         engineDir:'../../../../Common/Src/Externals/Cocos2D-html5/cocos2d/',
         //SingleEngineFile:'',
         appFiles:[
-            '../../../../Common/Bin/Data/js/Resource.js',
-            '../../../../Common/Bin/Data/js/GameScene.js',
-            '../../../../Browser/Bin/Data/browser/GameScene.js'
+            commonPath + 'Cocos2Dx/CCLang.js',
+            commonPath + 'GameScene.js',
+            commonPath + 'Resource.js',
+
+            platformPath + 'GameScene.js'
             ]
     };
 

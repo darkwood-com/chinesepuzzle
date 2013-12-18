@@ -25,10 +25,15 @@ cpz.GameLayer = cc.Layer.extend(
     @addChild @helloLabel, 5
     true
 )
-cpz.GameScene = cc.Scene.extend(
+cpz.GameSceneCommon = cc.Scene.extend(
   ctor: ->
     @_super()
     cc.associateWithNative this, cc.Scene
+
+    #set langage
+    lang = cpz.CCLang.getInstance()
+    #lang.setLang 'fr'
+    #lang.addLang 'lang'
 
   onEnter: ->
     @_super()

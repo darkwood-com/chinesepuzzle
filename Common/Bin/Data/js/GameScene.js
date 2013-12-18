@@ -30,8 +30,10 @@ cpz.GameLayer = cc.Layer.extend({
 
 cpz.GameSceneCommon = cc.Scene.extend({
   ctor: function() {
+    var lang;
     this._super();
-    return cc.associateWithNative(this, cc.Scene);
+    cc.associateWithNative(this, cc.Scene);
+    return lang = cpz.CCLang.getInstance();
   },
   onEnter: function() {
     var layer;
