@@ -28,6 +28,8 @@
 
 require("jsb.js");
 
+var cpz = cpz || {};
+
 var appFiles = [
     'js/Resource.js',
     'js/GameScene.js'
@@ -43,7 +45,7 @@ var director = cc.Director.getInstance();
 director.setDisplayStats(true);
 director.setAnimationInterval(1.0 / 60);
 
-var scene = new GameScene();
+var scene = new cpz.GameScene();
 
 director.runWithScene(scene);
 

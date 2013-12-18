@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
-GameLayer = cc.Layer.extend(
+cpz.GameLayer = cc.Layer.extend(
   isMouseDown: false
   helloImg: null
   helloLabel: null
@@ -25,14 +25,14 @@ GameLayer = cc.Layer.extend(
     @addChild @helloLabel, 5
     true
 )
-GameScene = cc.Scene.extend(
+cpz.GameScene = cc.Scene.extend(
   ctor: ->
     @_super()
     cc.associateWithNative this, cc.Scene
 
   onEnter: ->
     @_super()
-    layer = new GameLayer()
+    layer = new cpz.GameLayer()
     @addChild layer
     layer.init()
 )

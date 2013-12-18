@@ -7,9 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
-var GameLayer, GameScene;
-
-GameLayer = cc.Layer.extend({
+cpz.GameLayer = cc.Layer.extend({
   isMouseDown: false,
   helloImg: null,
   helloLabel: null,
@@ -30,7 +28,7 @@ GameLayer = cc.Layer.extend({
   }
 });
 
-GameScene = cc.Scene.extend({
+cpz.GameScene = cc.Scene.extend({
   ctor: function() {
     this._super();
     return cc.associateWithNative(this, cc.Scene);
@@ -38,7 +36,7 @@ GameScene = cc.Scene.extend({
   onEnter: function() {
     var layer;
     this._super();
-    layer = new GameLayer();
+    layer = new cpz.GameLayer();
     this.addChild(layer);
     return layer.init();
   }
