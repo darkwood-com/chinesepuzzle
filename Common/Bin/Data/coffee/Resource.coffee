@@ -11,6 +11,9 @@ cpz.Resources = [
   #image
 
   #plist
+  src: cpz.CommonPath + 'lang-de.plist',
+  src: cpz.CommonPath + 'lang-en.plist',
+  src: cpz.CommonPath + 'lang-fr.plist',
 
   #fnt
 

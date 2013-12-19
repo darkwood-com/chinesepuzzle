@@ -8,8 +8,41 @@ file that was distributed with this source code.
 ###
 
 cpz.CCLang = cc.Class.extend(
-  init: ->
-    true
+  _data: null
+  _lang: null
+
+  ctor: ->
+    @_data = {}
+
+  getLang: ->
+    @_lang
+
+  setLang: (lang) ->
+    @_lang = lang
+
+  get: (key) ->
+    @_data[key] || key
+
+  set: (key, value) ->
+    @_data[key] = value
+
+  addLang: (fileName) ->
+    fileUtils = cc.FileUtils.getInstance()
+    filePath = cpz.CommonPath + fileName
+
+    switch @_lang
+      when cc.LANGUAGE_FRENCH then filePath += '-fr'
+      when cc.LANGUAGE_GERMAN then filePath += '-de'
+      when cc.LANGUAGE_ENGLISH then filePath += '-en'
+      else filePath += '-en'
+
+    fullPath = fileUtils.fullPathForFilename filePath + '.plist'
+    dict = fileUtils.dictionaryWithContentsOfFile fullPath
+
+    for key, value of dict
+      @set key, value if value
+
+    cc.log @_data
 )
 
 cpz.CCLang.s_sharedLang = null
@@ -17,5 +50,4 @@ cpz.CCLang.s_sharedLang = null
 cpz.CCLang.getInstance = ->
   unless @s_sharedLang
     @s_sharedLang = new cpz.CCLang()
-    @s_sharedLang.init()
   @s_sharedLang

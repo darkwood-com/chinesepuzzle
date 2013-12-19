@@ -25,10 +25,12 @@
  THE SOFTWARE.
  ****************************************************************************/
 var cpz = cpz || {};
+cpz.CommonPath = '../../../../Common/Bin/Data/';
+cpz.PlatformPath = '../../../../Browser/Bin/Data/';
+cpz.CommonSrcPath = cpz.CommonPath + 'js/';
+cpz.PlatformSrcPath = cpz.PlatformPath + 'browser/';
 
 (function () {
-    var commonPath = '../../../../Common/Bin/Data/js/';
-    var platformPath = '../../../../Browser/Bin/Data/browser/';
 
     var d = document;
     var c = {
@@ -42,11 +44,11 @@ var cpz = cpz || {};
         engineDir:'../../../../Common/Src/Externals/Cocos2D-html5/cocos2d/',
         //SingleEngineFile:'',
         appFiles:[
-            commonPath + 'Cocos2Dx/CCLang.js',
-            commonPath + 'GameScene.js',
-            commonPath + 'Resource.js',
+            cpz.CommonSrcPath + 'Cocos2Dx/CCLang.js',
+            cpz.CommonSrcPath + 'GameScene.js',
+            cpz.CommonSrcPath + 'Resource.js',
 
-            platformPath + 'GameScene.js'
+            cpz.PlatformSrcPath + 'GameScene.js'
             ]
     };
 

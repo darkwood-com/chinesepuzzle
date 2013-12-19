@@ -28,6 +28,9 @@
 		C347E2C918520F9100968691 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C347E2C418520F9100968691 /* AppController.mm */; };
 		C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C34FDCC91860649100238872 /* cocos2d-jsb.js */; };
 		C38B4145185B6CC500245259 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38B4143185B6CC500245259 /* AppDelegate.cpp */; };
+		C38D11D118634E7B00F8159A /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CE18634E7B00F8159A /* lang-de.plist */; };
+		C38D11D218634E7B00F8159A /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CF18634E7B00F8159A /* lang-en.plist */; };
+		C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11D018634E7B00F8159A /* lang-fr.plist */; };
 		C3F4E9261861E78900230ABA /* mac in Resources */ = {isa = PBXBuildFile; fileRef = C3F4E9251861E78900230ABA /* mac */; };
 		C3F6251318605C8B0055BBF0 /* jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009018605C7A0055BBF0 /* jsb.js */; };
 		C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */; };
@@ -178,6 +181,9 @@
 		C34FDCC91860649100238872 /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "cocos2d-jsb.js"; sourceTree = "<group>"; };
 		C38B4143185B6CC500245259 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C38B4144185B6CC500245259 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C38D11CE18634E7B00F8159A /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
+		C38D11CF18634E7B00F8159A /* lang-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-en.plist"; path = "../Bin/Data/lang-en.plist"; sourceTree = "<group>"; };
+		C38D11D018634E7B00F8159A /* lang-fr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-fr.plist"; path = "../Bin/Data/lang-fr.plist"; sourceTree = "<group>"; };
 		C3F4E9251861E78900230ABA /* mac */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mac; sourceTree = "<group>"; };
 		C3F6009018605C7A0055BBF0 /* jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb.js; sourceTree = "<group>"; };
 		C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb_chipmunk.js; sourceTree = "<group>"; };
@@ -390,6 +396,9 @@
 			isa = PBXGroup;
 			children = (
 				C3F63CBD18605FF00055BBF0 /* js */,
+				C38D11CE18634E7B00F8159A /* lang-de.plist */,
+				C38D11CF18634E7B00F8159A /* lang-en.plist */,
+				C38D11D018634E7B00F8159A /* lang-fr.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -643,18 +652,21 @@
 				C3F4E9261861E78900230ABA /* mac in Resources */,
 				C3F63CAD18605D3B0055BBF0 /* debugger in Resources */,
 				C3F6251818605C8B0055BBF0 /* jsb_cocos2d_extension.js in Resources */,
+				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
 				C3F6251318605C8B0055BBF0 /* jsb.js in Resources */,
 				C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */,
 				C3F6251718605C8B0055BBF0 /* jsb_cocos2d_constants.js in Resources */,
 				C3F6251C18605C8B0055BBF0 /* jsb_debugger.js in Resources */,
 				C3F6251A18605C8B0055BBF0 /* jsb_cocos2d_studio.js in Resources */,
 				C3F6251D18605C8B0055BBF0 /* jsb_deprecated.js in Resources */,
+				C38D11D118634E7B00F8159A /* lang-de.plist in Resources */,
 				C3F6252018605C8B0055BBF0 /* jsb_sys.js in Resources */,
 				C3F6251E18605C8B0055BBF0 /* jsb_opengl.js in Resources */,
 				C3F6251B18605C8B0055BBF0 /* jsb_cocosbuilder.js in Resources */,
 				C3F6251518605C8B0055BBF0 /* jsb_chipmunk_constants.js in Resources */,
 				C3F6251918605C8B0055BBF0 /* jsb_cocos2d_gui.js in Resources */,
 				C3F6251F18605C8B0055BBF0 /* jsb_opengl_constants.js in Resources */,
+				C38D11D218634E7B00F8159A /* lang-en.plist in Resources */,
 				C3F6251618605C8B0055BBF0 /* jsb_cocos2d.js in Resources */,
 				C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */,
 				C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */,
