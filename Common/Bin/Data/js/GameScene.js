@@ -33,7 +33,7 @@ cpz.GameSceneCommon = cc.Scene.extend({
     var lang;
     this._super();
     cc.associateWithNative(this, cc.Scene);
-    lang = cpz.CCLang.getInstance();
+    lang = cc.CCLang.getInstance();
     lang.setLang(cc.LANGUAGE_FRENCH);
     return lang.addLang('lang');
   },

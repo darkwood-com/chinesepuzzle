@@ -31,7 +31,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
     cc.associateWithNative this, cc.Scene
 
     #set langage
-    lang = cpz.CCLang.getInstance()
+    lang = cc.CCLang.getInstance()
     lang.setLang cc.LANGUAGE_FRENCH
     lang.addLang 'lang'
 

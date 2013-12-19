@@ -48,6 +48,7 @@ cpz.PlatformSrcPath = cpz.PlatformPath + 'browser/';
             cpz.CommonSrcPath + 'GameScene.js',
             cpz.CommonSrcPath + 'Resource.js',
 
+            cpz.PlatformSrcPath + 'Cocos2Dx/CCFileUtils.js',
             cpz.PlatformSrcPath + 'GameScene.js'
             ]
     };

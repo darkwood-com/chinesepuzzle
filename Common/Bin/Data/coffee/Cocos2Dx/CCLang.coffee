@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
-cpz.CCLang = cc.Class.extend(
+cc.CCLang = cc.Class.extend(
   _data: null
   _lang: null
 
@@ -37,17 +37,17 @@ cpz.CCLang = cc.Class.extend(
       else filePath += '-en'
 
     fullPath = fileUtils.fullPathForFilename filePath + '.plist'
-    dict = fileUtils.dictionaryWithContentsOfFile fullPath
+    dict = fileUtils.getDataFromPlistFile fullPath
 
     for key, value of dict
       @set key, value if value
 
-    cc.log @_data
+    @
 )
 
-cpz.CCLang.s_sharedLang = null
+cc.CCLang.s_sharedLang = null
 
-cpz.CCLang.getInstance = ->
+cc.CCLang.getInstance = ->
   unless @s_sharedLang
-    @s_sharedLang = new cpz.CCLang()
+    @s_sharedLang = new cc.CCLang()
   @s_sharedLang
