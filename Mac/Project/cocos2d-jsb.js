@@ -35,11 +35,14 @@ cpz.CommonSrcPath = cpz.CommonPath + 'js/';
 cpz.PlatformSrcPath = cpz.PlatformPath + 'mac/';
 
 var appFiles = [
+    cpz.CommonSrcPath + 'Background/Background.js',
     cpz.CommonSrcPath + 'Cocos2Dx/CCLang.js',
+    cpz.CommonSrcPath + 'GameConfig.js',
     cpz.CommonSrcPath + 'GameScene.js',
     cpz.CommonSrcPath + 'Resource.js',
 
     cpz.PlatformSrcPath + 'Cocos2Dx/CCFileUtils.js',
+    cpz.PlatformSrcPath + 'GameConfig.js',
     cpz.PlatformSrcPath + 'GameScene.js'
 ];
 
@@ -53,7 +56,7 @@ var director = cc.Director.getInstance();
 director.setDisplayStats(true);
 director.setAnimationInterval(1.0 / 60);
 
-var scene = new cpz.GameScene();
+var scene = cpz.GameScene.create();
 
 director.runWithScene(scene);
 

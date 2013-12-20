@@ -25,15 +25,39 @@ cpz.GameLayer = cc.Layer.extend(
     @addChild @helloLabel, 5
     true
 )
+
+cpz.GameSceneZOrder =
+  BG: 0
+  Game: 1
+  Menu: 2
+
 cpz.GameSceneCommon = cc.Scene.extend(
-  ctor: ->
-    @_super()
-    cc.associateWithNative this, cc.Scene
+  _conf: null
+  _game: null
+  _menu: null
+
+  init: ->
+    return false unless @_super()
 
     #set langage
     lang = cc.CCLang.getInstance()
     lang.setLang cc.LANGUAGE_FRENCH
     lang.addLang 'lang'
+
+    @_conf = new cpz.GameConfig()
+    #@_conf.init()
+    #@_conf.load()
+
+    true
+
+  getConf: ->
+    @_conf
+
+  getGame: ->
+    @_game
+
+  getMenu: ->
+    @_menu
 
   onEnter: ->
     @_super()
@@ -41,3 +65,8 @@ cpz.GameSceneCommon = cc.Scene.extend(
     @addChild layer
     layer.init()
 )
+
+cpz.GameSceneCommon.create = ->
+  layer = new cpz.GameScene()
+  return layer if layer and layer.init()
+  null

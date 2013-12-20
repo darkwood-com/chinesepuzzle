@@ -9,5 +9,3 @@ file that was distributed with this source code.
 
 cpz.GameScene = cpz.GameSceneCommon.extend({
 });
-
-cpz.GameScene.create = cpz.GameSceneCommon.create;

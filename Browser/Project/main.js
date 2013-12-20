@@ -26,9 +26,8 @@
  ****************************************************************************/
 var cocos2dApp = cc.Application.extend({
     config:document['ccConfig'],
-    ctor:function (scene) {
+    ctor:function () {
         this._super();
-        this.startScene = scene;
         cc.COCOS2D_DEBUG = this.config['COCOS2D_DEBUG'];
         cc.initDebugSetting();
         cc.setup(this.config['tag']);
@@ -51,10 +50,10 @@ var cocos2dApp = cc.Application.extend({
 
         //load resources
         cc.LoaderScene.preload(cpz.Resources, function () {
-            director.replaceScene(new this.startScene());
+            director.replaceScene(cpz.GameScene.create());
         }, this);
 
         return true;
     }
 });
-var myApp = new cocos2dApp(cpz.GameScene);
+var myApp = new cocos2dApp();

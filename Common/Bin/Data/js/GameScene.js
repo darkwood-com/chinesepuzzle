@@ -28,14 +28,35 @@ cpz.GameLayer = cc.Layer.extend({
   }
 });
 
+cpz.GameSceneZOrder = {
+  BG: 0,
+  Game: 1,
+  Menu: 2
+};
+
 cpz.GameSceneCommon = cc.Scene.extend({
-  ctor: function() {
+  _conf: null,
+  _game: null,
+  _menu: null,
+  init: function() {
     var lang;
-    this._super();
-    cc.associateWithNative(this, cc.Scene);
+    if (!this._super()) {
+      return false;
+    }
     lang = cc.CCLang.getInstance();
     lang.setLang(cc.LANGUAGE_FRENCH);
-    return lang.addLang('lang');
+    lang.addLang('lang');
+    this._conf = new cpz.GameConfig();
+    return true;
+  },
+  getConf: function() {
+    return this._conf;
+  },
+  getGame: function() {
+    return this._game;
+  },
+  getMenu: function() {
+    return this._menu;
   },
   onEnter: function() {
     var layer;
@@ -45,3 +66,12 @@ cpz.GameSceneCommon = cc.Scene.extend({
     return layer.init();
   }
 });
+
+cpz.GameSceneCommon.create = function() {
+  var layer;
+  layer = new cpz.GameScene();
+  if (layer && layer.init()) {
+    return layer;
+  }
+  return null;
+};

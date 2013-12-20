@@ -44,11 +44,14 @@ cpz.PlatformSrcPath = cpz.PlatformPath + 'browser/';
         engineDir:'../../../../Common/Src/Externals/Cocos2D-html5/cocos2d/',
         //SingleEngineFile:'',
         appFiles:[
+            cpz.CommonSrcPath + 'Background/Background.js',
             cpz.CommonSrcPath + 'Cocos2Dx/CCLang.js',
+            cpz.CommonSrcPath + 'GameConfig.js',
             cpz.CommonSrcPath + 'GameScene.js',
             cpz.CommonSrcPath + 'Resource.js',
 
             cpz.PlatformSrcPath + 'Cocos2Dx/CCFileUtils.js',
+            cpz.PlatformSrcPath + 'GameConfig.js',
             cpz.PlatformSrcPath + 'GameScene.js'
             ]
     };
