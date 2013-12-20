@@ -35,6 +35,9 @@ cpz.Background = cc.Layer.extend({
       rect = cc.rect(0, 0, size.width, size.height);
       return this._bgPattern.setTextureRect(rect);
     }
+  },
+  getGameScene: function() {
+    return this._gs;
   }
 });
 

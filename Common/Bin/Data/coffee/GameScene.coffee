@@ -50,20 +50,15 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
     true
 
-  getConf: ->
-    @_conf
-
-  getGame: ->
-    @_game
-
-  getMenu: ->
-    @_menu
-
   onEnter: ->
     @_super()
     layer = new cpz.GameLayer()
     @addChild layer
     layer.init()
+
+  getConf: -> @_conf
+  getGame: -> @_game
+  getMenu: -> @_menu
 )
 
 cpz.GameSceneCommon.create = ->

@@ -9,3 +9,5 @@ file that was distributed with this source code.
 
 cpz.GameConfig = cpz.GameConfigCommon.extend({
 });
+
+cpz.GameConfig.XML_FILE_NAME = cpz.GameConfigCommon.XML_FILE_NAME;

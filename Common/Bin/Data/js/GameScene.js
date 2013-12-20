@@ -49,6 +49,13 @@ cpz.GameSceneCommon = cc.Scene.extend({
     this._conf = new cpz.GameConfig();
     return true;
   },
+  onEnter: function() {
+    var layer;
+    this._super();
+    layer = new cpz.GameLayer();
+    this.addChild(layer);
+    return layer.init();
+  },
   getConf: function() {
     return this._conf;
   },
@@ -57,13 +64,6 @@ cpz.GameSceneCommon = cc.Scene.extend({
   },
   getMenu: function() {
     return this._menu;
-  },
-  onEnter: function() {
-    var layer;
-    this._super();
-    layer = new cpz.GameLayer();
-    this.addChild(layer);
-    return layer.init();
   }
 });
 

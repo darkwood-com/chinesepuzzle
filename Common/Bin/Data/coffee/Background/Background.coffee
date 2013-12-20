@@ -31,6 +31,8 @@ cpz.Background = cc.Layer.extend(
     if @_bgPattern
       rect = cc.rect 0, 0, size.width, size.height
       @_bgPattern.setTextureRect rect
+
+  getGameScene: -> @_gs
 )
 
 cpz.Background.create = (gs) ->
