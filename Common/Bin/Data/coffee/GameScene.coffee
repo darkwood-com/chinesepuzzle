@@ -48,8 +48,12 @@ cpz.GameSceneCommon = cc.Scene.extend(
     @_conf.init()
     @_conf.load()
 
+    layer = new cpz.GameLayer()
+    @addChild layer
+    layer.init()
+
     true
-  
+
   game: ->
   menu: ->
   menuWithLayout: (ml) ->
@@ -63,12 +67,6 @@ cpz.GameSceneCommon = cc.Scene.extend(
   playBackgroundMusic: (play) ->
 
   layout: (anim = true) ->
-
-  onEnter: ->
-    @_super()
-    layer = new cpz.GameLayer()
-    @addChild layer
-    layer.init()
 
   getConf: -> @_conf
   getGame: -> @_game

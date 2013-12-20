@@ -39,7 +39,7 @@ cpz.GameSceneCommon = cc.Scene.extend({
   _game: null,
   _menu: null,
   init: function() {
-    var lang;
+    var lang, layer;
     if (!this._super()) {
       return false;
     }
@@ -49,6 +49,9 @@ cpz.GameSceneCommon = cc.Scene.extend({
     this._conf = new cpz.GameConfig();
     this._conf.init();
     this._conf.load();
+    layer = new cpz.GameLayer();
+    this.addChild(layer);
+    layer.init();
     return true;
   },
   game: function() {},
@@ -64,13 +67,6 @@ cpz.GameSceneCommon = cc.Scene.extend({
     if (anim == null) {
       anim = true;
     }
-  },
-  onEnter: function() {
-    var layer;
-    this._super();
-    layer = new cpz.GameLayer();
-    this.addChild(layer);
-    return layer.init();
   },
   getConf: function() {
     return this._conf;
