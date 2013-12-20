@@ -47,7 +47,23 @@ cpz.GameSceneCommon = cc.Scene.extend({
     lang.setLang(cc.LANGUAGE_FRENCH);
     lang.addLang('lang');
     this._conf = new cpz.GameConfig();
+    this._conf.init();
+    this._conf.load();
     return true;
+  },
+  game: function() {},
+  menu: function() {},
+  menuWithLayout: function(ml) {},
+  newGame: function() {},
+  retryGame: function() {},
+  setResolution: function(resolution) {},
+  setTheme: function(theme) {},
+  playSound: function(soundName) {},
+  playBackgroundMusic: function(play) {},
+  layout: function(anim) {
+    if (anim == null) {
+      anim = true;
+    }
   },
   onEnter: function() {
     var layer;

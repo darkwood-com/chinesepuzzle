@@ -45,10 +45,24 @@ cpz.GameSceneCommon = cc.Scene.extend(
     lang.addLang 'lang'
 
     @_conf = new cpz.GameConfig()
-    #@_conf.init()
-    #@_conf.load()
+    @_conf.init()
+    @_conf.load()
 
     true
+  
+  game: ->
+  menu: ->
+  menuWithLayout: (ml) ->
+
+  newGame: ->
+  retryGame: ->
+  setResolution: (resolution) ->
+  setTheme: (theme) ->
+
+  playSound: (soundName) ->
+  playBackgroundMusic: (play) ->
+
+  layout: (anim = true) ->
 
   onEnter: ->
     @_super()
