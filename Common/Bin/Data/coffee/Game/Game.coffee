@@ -17,7 +17,7 @@ cpz.CheckMove =
 cpz.Game = cc.Layer.extend(
   _deck: null
   _boardCards: null
-  _board: null
+  _board: {}
 
   _gs: null
   _gc: null
@@ -39,7 +39,17 @@ cpz.Game = cc.Layer.extend(
   ctor: ->
     @_super()
 
+    for i in [0..7]
+      @_board[i] = {}
+      for j in [0..13]
+        @_board[i][j] = null
+
   initWithGameScene: (gs) ->
+    return false unless @init()
+
+    @_gs = gs
+    @_gc = null
+
     size = cc.Director.getInstance().getWinSize()
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)
     helloLabel.setPosition cc.p(size.width / 2, size.height - 40)

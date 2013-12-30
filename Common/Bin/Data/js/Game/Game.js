@@ -18,7 +18,7 @@ cpz.CheckMove = {
 cpz.Game = cc.Layer.extend({
   _deck: null,
   _boardCards: null,
-  _board: null,
+  _board: {},
   _gs: null,
   _gc: null,
   _gl: null,
@@ -33,10 +33,29 @@ cpz.Game = cc.Layer.extend({
   _makeMoveUndoSound: function() {},
   _hintMove: function() {},
   ctor: function() {
-    return this._super();
+    var i, j, _i, _results;
+    this._super();
+    _results = [];
+    for (i = _i = 0; _i <= 7; i = ++_i) {
+      this._board[i] = {};
+      _results.push((function() {
+        var _j, _results1;
+        _results1 = [];
+        for (j = _j = 0; _j <= 13; j = ++_j) {
+          _results1.push(this._board[i][j] = null);
+        }
+        return _results1;
+      }).call(this));
+    }
+    return _results;
   },
   initWithGameScene: function(gs) {
     var helloLabel, size;
+    if (!this.init()) {
+      return false;
+    }
+    this._gs = gs;
+    this._gc = null;
     size = cc.Director.getInstance().getWinSize();
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
     helloLabel.setPosition(cc.p(size.width / 2, size.height - 40));
