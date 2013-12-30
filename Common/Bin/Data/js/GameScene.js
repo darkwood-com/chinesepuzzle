@@ -7,27 +7,6 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
-cpz.GameLayer = cc.Layer.extend({
-  isMouseDown: false,
-  helloImg: null,
-  helloLabel: null,
-  circle: null,
-  sprite: null,
-  ctor: function() {
-    this._super();
-    return cc.associateWithNative(this, cc.Layer);
-  },
-  init: function() {
-    var size;
-    this._super();
-    size = cc.Director.getInstance().getWinSize();
-    this.helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
-    this.helloLabel.setPosition(cc.p(size.width / 2, size.height - 40));
-    this.addChild(this.helloLabel, 5);
-    return true;
-  }
-});
-
 cpz.GameSceneZOrder = {
   BG: 0,
   Game: 1,
@@ -56,14 +35,17 @@ cpz.GameSceneCommon = cc.Scene.extend({
     return true;
   },
   game: function() {
-    var layer;
     if (this._menu) {
       this.removeChild(this._menu, true);
       this._menu = null;
     }
-    layer = new cpz.GameLayer();
-    this.addChild(layer);
-    return layer.init();
+    if (this._game === null) {
+      this._game = cpz.Game.create(this);
+    }
+    if (this._game.getParent() === null) {
+      this.addChild(this._game, cpz.GameSceneZOrder.Game);
+    }
+    return this._game;
   },
   menu: function() {},
   menuWithLayout: function(ml) {},
