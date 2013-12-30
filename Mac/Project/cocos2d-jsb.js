@@ -41,6 +41,7 @@ var appFiles = [
     cpz.CommonSrcPath + 'Game/GameControl.js',
     cpz.CommonSrcPath + 'Game/GameControlChipmunk.js',
     cpz.CommonSrcPath + 'Game/GameControlNode.js',
+    cpz.CommonSrcPath + 'Game/GameLayout.js',
     cpz.CommonSrcPath + 'GameConfig.js',
     cpz.CommonSrcPath + 'GameScene.js',
     cpz.CommonSrcPath + 'Resource.js',
