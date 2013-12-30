@@ -19,6 +19,7 @@ cpz.Game = cc.Layer.extend({
   _deck: null,
   _boardCards: null,
   _board: null,
+  _gs: null,
   _gc: null,
   _gl: null,
   _lastTouchLocation: null,
@@ -66,7 +67,10 @@ cpz.Game = cc.Layer.extend({
   ccTouchBegan: function(touch, event) {},
   ccTouchMoved: function(touch, event) {},
   ccTouchEnded: function(touch, event) {},
-  ccTouchCancelled: function(touch, event) {}
+  ccTouchCancelled: function(touch, event) {},
+  getGameScene: function() {
+    return this._gs;
+  }
 });
 
 cpz.Game.create = function(gs) {

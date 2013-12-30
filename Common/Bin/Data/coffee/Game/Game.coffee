@@ -19,6 +19,7 @@ cpz.Game = cc.Layer.extend(
   _boardCards: null
   _board: null
 
+  _gs: null
   _gc: null
   _gl: null
 
@@ -70,6 +71,8 @@ cpz.Game = cc.Layer.extend(
   ccTouchMoved: (touch, event) ->
   ccTouchEnded: (touch, event) ->
   ccTouchCancelled: (touch, event) ->
+
+  getGameScene: -> @_gs
 )
 
 cpz.Game.create = (gs) ->
