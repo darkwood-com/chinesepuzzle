@@ -10,7 +10,7 @@ file that was distributed with this source code.
 cpz.GameConfigCommon = cc.Class.extend({
   _resolution: '',
   _theme: '',
-  _isSoundOn: true,
+  _isSoundOn: false,
   _moves: null,
   _initBoard: null,
   init: function() {},

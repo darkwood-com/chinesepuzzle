@@ -28,7 +28,7 @@ cpz.CardPlayRank =
   Queen: 12
   King: 13
 
-cpz.CardPlayFlipAction = cc.FiniteTimeAction.extend(
+cpz.CardPlayFlipAction = cc.Class.extend(
   _cardPlay: null
   _isFaceUp: null
 
