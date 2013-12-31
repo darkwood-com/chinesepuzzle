@@ -20,8 +20,8 @@ cpz.Game = cc.Layer.extend({
   _boardCards: null,
   _board: {},
   _gs: null,
-  _gc: null,
   _gl: null,
+  _gc: null,
   _lastTouchLocation: null,
   _dragCard: null,
   _dragCardCoord: null,
@@ -55,6 +55,7 @@ cpz.Game = cc.Layer.extend({
       return false;
     }
     this._gs = gs;
+    this._gl = null;
     this._gc = null;
     size = cc.Director.getInstance().getWinSize();
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
@@ -89,6 +90,12 @@ cpz.Game = cc.Layer.extend({
   ccTouchCancelled: function(touch, event) {},
   getGameScene: function() {
     return this._gs;
+  },
+  getLayout: function() {
+    return this._gl;
+  },
+  getControl: function() {
+    return this._gc;
   }
 });
 

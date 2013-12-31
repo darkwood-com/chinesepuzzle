@@ -20,8 +20,8 @@ cpz.Game = cc.Layer.extend(
   _board: {}
 
   _gs: null
-  _gc: null
   _gl: null
+  _gc: null
 
   #input touches/mouse
   _lastTouchLocation: null
@@ -48,6 +48,7 @@ cpz.Game = cc.Layer.extend(
     return false unless @init()
 
     @_gs = gs
+    @_gl = null
     @_gc = null
 
     size = cc.Director.getInstance().getWinSize()
@@ -83,6 +84,8 @@ cpz.Game = cc.Layer.extend(
   ccTouchCancelled: (touch, event) ->
 
   getGameScene: -> @_gs
+  getLayout: -> @_gl
+  getControl: -> @_gc
 )
 
 cpz.Game.create = (gs) ->
