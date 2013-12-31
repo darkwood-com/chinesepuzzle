@@ -7,10 +7,15 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
-cpz.Resources = [
-  {
-    src: cpz.CommonPath + 'lang-de.plist',
-    src: cpz.CommonPath + 'lang-en.plist',
-    src: cpz.CommonPath + 'lang-fr.plist'
-  }
-];
+var r, res, _i, _len;
+
+res = [cpz.CommonPath + 'lang-de.plist', cpz.CommonPath + 'lang-en.plist', cpz.CommonPath + 'lang-fr.plist'];
+
+cpz.Resources = [];
+
+for (_i = 0, _len = res.length; _i < _len; _i++) {
+  r = res[_i];
+  cpz.Resources.push({
+    src: r
+  });
+}

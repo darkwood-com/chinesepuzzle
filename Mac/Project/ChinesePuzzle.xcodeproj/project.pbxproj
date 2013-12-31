@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C308BC351873267F0009A134 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = C308BC341873267F0009A134 /* sound */; };
 		C317FD271855C7900088ACBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3386FE11852349E002447BC /* CoreGraphics.framework */; };
 		C317FD3A1855C87D0088ACBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317FD391855C87D0088ACBC /* Foundation.framework */; };
 		C317FD3C1855C8880088ACBC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C317FD3B1855C8880088ACBC /* AVFoundation.framework */; };
@@ -157,6 +158,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C308BC341873267F0009A134 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = ../Bin/Data/sound; sourceTree = "<group>"; };
 		C317FD391855C87D0088ACBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C317FD3B1855C8880088ACBC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C317FD3D1855C88F0088ACBC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -399,6 +401,7 @@
 				C38D11CE18634E7B00F8159A /* lang-de.plist */,
 				C38D11CF18634E7B00F8159A /* lang-en.plist */,
 				C38D11D018634E7B00F8159A /* lang-fr.plist */,
+				C308BC341873267F0009A134 /* sound */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				C3F6251318605C8B0055BBF0 /* jsb.js in Resources */,
 				C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */,
 				C3F6251718605C8B0055BBF0 /* jsb_cocos2d_constants.js in Resources */,
+				C308BC351873267F0009A134 /* sound in Resources */,
 				C3F6251C18605C8B0055BBF0 /* jsb_debugger.js in Resources */,
 				C3F6251A18605C8B0055BBF0 /* jsb_cocos2d_studio.js in Resources */,
 				C3F6251D18605C8B0055BBF0 /* jsb_deprecated.js in Resources */,

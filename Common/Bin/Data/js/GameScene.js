@@ -13,10 +13,22 @@ cpz.GameSceneZOrder = {
   Menu: 2
 };
 
+cpz.GameSceneBGMusicTheme = {
+  ThemeNone: 0,
+  Theme1: 1,
+  Theme2: 2,
+  Theme3: 3
+};
+
 cpz.GameSceneCommon = cc.Scene.extend({
+  _bgMusicTheme: null,
   _conf: null,
   _game: null,
   _menu: null,
+  ctor: function() {
+    this._super();
+    return this._bgMusicTheme = cpz.GameSceneBGMusicTheme.ThemeNone;
+  },
   init: function() {
     var lang;
     if (!this._super()) {
@@ -47,18 +59,84 @@ cpz.GameSceneCommon = cc.Scene.extend({
     }
     return this._game;
   },
-  menu: function() {},
-  menuWithLayout: function(ml) {},
-  newGame: function() {},
-  retryGame: function() {},
-  setResolution: function(resolution) {},
-  setTheme: function(theme) {},
-  playSound: function(soundName) {},
-  playBackgroundMusic: function(play) {},
+  menu: function() {
+    return this.menuWithLayout(cpz.MenuLayoutType.None);
+  },
+  menuWithLayout: function(layout) {
+    if (this._menu === null) {
+      this._menu = cpz.Menu.create(this, layout);
+    }
+    if (this._menu.getParent() === null) {
+      this.addChild(this._menu, cpz.GameSceneZOrder.Menu);
+    }
+    return this._menu;
+  },
+  newGame: function() {
+    var game;
+    game = this.game();
+    game.newGame();
+    this.playSound('shuffle');
+    return this;
+  },
+  retryGame: function() {
+    var game;
+    game = this.game();
+    game.retryGame();
+    this.playSound('shuffle');
+    return this;
+  },
+  setResolution: function(resolution) {
+    this._conf.setResolution(resolution);
+    this.setContentSize(this._conf.getResolutionSize());
+    this.layout(false);
+    this._conf.save();
+    return this;
+  },
+  setTheme: function(theme) {
+    this._conf.setTheme(theme);
+    this.layout();
+    this._conf.save();
+    return this;
+  },
+  playSound: function(soundName) {
+    var audio;
+    audio = cc.AudioEngine.getInstance();
+    if (this._conf.getIsSoundOn()) {
+      audio.playEffect(cpz.CommonPath + 'sound/' + soundName + '.mp3');
+    }
+    return this;
+  },
+  playBackgroundMusic: function(play) {
+    var audio;
+    audio = cc.AudioEngine.getInstance();
+    if (play && this._conf.getIsSoundOn()) {
+      audio.setMusicVolume(0.5);
+      switch (this._bgMusicTheme) {
+        case cpz.GameSceneBGMusicTheme.Theme1:
+          audio.playMusic(cpz.CommonPath + 'sound/bgm2.mp3', true);
+          return this._bgMusicTheme = cpz.GameSceneBGMusicTheme.Theme2;
+        case cpz.GameSceneBGMusicTheme.Theme2:
+          audio.playMusic(cpz.CommonPath + 'sound/bgm3.mp3', true);
+          return this._bgMusicTheme = cpz.GameSceneBGMusicTheme.Theme3;
+        default:
+          audio.playMusic(cpz.CommonPath + 'sound/bgm1.mp3', true);
+          return this._bgMusicTheme = cpz.GameSceneBGMusicTheme.Theme1;
+      }
+    } else if (this._bgMusicTheme !== cpz.GameSceneBGMusicTheme.ThemeNone) {
+      return audio.stopMusic();
+    }
+  },
   layout: function(anim) {
     if (anim == null) {
       anim = true;
     }
+    if (this._game) {
+      this._game.layout(anim);
+    }
+    if (this._menu) {
+      this._menu.layout(anim);
+    }
+    return this;
   },
   getConf: function() {
     return this._conf;
