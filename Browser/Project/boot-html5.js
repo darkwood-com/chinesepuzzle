@@ -63,6 +63,7 @@ cpz.PlatformSrcPath = cpz.PlatformPath + 'browser/';
             cpz.CommonSrcPath + 'Menu/MenuLayout.js',
             cpz.CommonSrcPath + 'GameConfig.js',
             cpz.CommonSrcPath + 'GameScene.js',
+            cpz.CommonSrcPath + 'GameStruct.js',
             cpz.CommonSrcPath + 'Resource.js',
 
             cpz.PlatformSrcPath + 'Cocos2Dx/CCFileUtils.js',

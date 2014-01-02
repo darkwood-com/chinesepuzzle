@@ -31,9 +31,7 @@ cpz.GameLayout = cc.Class.extend({
   _gridCardSize: null,
   _gridSpaceSize: null,
   _gridPosition: null,
-  ctor: function(game) {
-    return this._super();
-  },
+  ctor: function(game) {},
   layout: function(anim) {
     if (anim == null) {
       anim = true;

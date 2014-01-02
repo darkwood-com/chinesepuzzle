@@ -141,6 +141,6 @@ cpz.GameSceneCommon = cc.Scene.extend(
 )
 
 cpz.GameSceneCommon.create = ->
-  layer = new cpz.GameScene()
-  return layer if layer and layer.init()
+  obj = new cpz.GameScene()
+  return obj if obj and obj.init()
   null

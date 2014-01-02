@@ -42,10 +42,10 @@ cpz.Background = cc.Layer.extend({
 });
 
 cpz.Background.create = function(gs) {
-  var layer;
-  layer = new cpz.Background();
-  if (layer && layer.initWithGameScene(gs)) {
-    return layer;
+  var obj;
+  obj = new cpz.Background();
+  if (obj && obj.initWithGameScene(gs)) {
+    return obj;
   }
   return null;
 };

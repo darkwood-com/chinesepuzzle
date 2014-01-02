@@ -18,11 +18,35 @@ cpz.CardBoard = cpz.Card.extend({
   _yesSprite: null,
   _noSprite: null,
   _state: null,
+  ctor: function() {
+    this._super();
+    return this._state = cpz.CardBoardState.Empty;
+  },
+  initWithConf: function(conf) {
+    return true;
+  },
   getState: function() {
     return this._state;
   },
-  setState: function(_state, force) {
-    this._state = _state;
+  setState: function(state, force) {
+    if (force == null) {
+      force = false;
+    }
+    if (this._state !== state || force) {
+      switch (state) {
+        case 0:
+          break;
+      }
+    }
   },
   setConf: function(conf) {}
 });
+
+cpz.CardBoard.createWithConf = function(conf) {
+  var obj;
+  obj = new cpz.CardBoard();
+  if (obj && obj.initWithConf(conf)) {
+    return obj;
+  }
+  return null;
+};

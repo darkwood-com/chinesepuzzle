@@ -31,7 +31,6 @@ cpz.MenuLayout = cc.Class.extend(
   _type: null
 
   ctor: (game) ->
-    @_super()
 
   initWithType: (type) ->
 

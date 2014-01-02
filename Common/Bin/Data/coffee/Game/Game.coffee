@@ -15,9 +15,9 @@ cpz.CheckMove =
   Ok: 4
 
 cpz.Game = cc.Layer.extend(
-  _deck: null
-  _boardCards: null
-  _board: {}
+  _deck: [] #deck cards
+  _boardCards: [] #board cards
+  _board: {} #board game that reference to the deck cards
 
   _gs: null
   _gl: null
@@ -48,8 +48,25 @@ cpz.Game = cc.Layer.extend(
     return false unless @init()
 
     @_gs = gs
-    @_gl = null
-    @_gc = null
+    @_gl = new cpz.GameLayout()
+    #@_gc = new cpz.GameControlChipmunk()
+    @_gc = new cpz.GameControlNode()
+    @setTouchEnabled true
+
+    #init cards
+    conf = @_gs.getConf()
+
+    #for l in [0..7]
+      #card = cpz.CardBoard.createWithConf conf
+      #@addChild card, cpz.GameZOrder.Card
+      #@_gc.addNode card
+      #@_boardCards.push card
+
+      #coord = cpz.gc l, 0
+      #@_board[coord.i][coord.j] = card
+      #card.setPosition @_gl.getPositionInBoardPoint(coord)
+
+    #@_gl.layout()
 
     size = cc.Director.getInstance().getWinSize()
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)
@@ -89,6 +106,6 @@ cpz.Game = cc.Layer.extend(
 )
 
 cpz.Game.create = (gs) ->
-  layer = new cpz.Game()
-  return layer if layer and layer.initWithGameScene(gs)
+  obj = new cpz.Game()
+  return obj if obj and obj.initWithGameScene(gs)
   null

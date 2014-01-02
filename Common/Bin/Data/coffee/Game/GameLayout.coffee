@@ -38,7 +38,6 @@ cpz.GameLayout = cc.Class.extend(
   _gridPosition: null
 
   ctor: (game) ->
-    @_super()
 
   layout: (anim = true) ->
 

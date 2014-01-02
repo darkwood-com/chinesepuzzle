@@ -43,6 +43,6 @@ cpz.Menu = cc.Layer.extend(
 )
 
 cpz.Menu.create = (gs, layout) ->
-  layer = new cpz.Menu()
-  return layer if layer and layer.initWithGameSceneAndLayout(gs, layout)
+  obj = new cpz.Menu()
+  return obj if obj and obj.initWithGameSceneAndLayout(gs, layout)
   null

@@ -16,8 +16,8 @@ cpz.CheckMove = {
 };
 
 cpz.Game = cc.Layer.extend({
-  _deck: null,
-  _boardCards: null,
+  _deck: [],
+  _boardCards: [],
   _board: {},
   _gs: null,
   _gl: null,
@@ -50,13 +50,15 @@ cpz.Game = cc.Layer.extend({
     return _results;
   },
   initWithGameScene: function(gs) {
-    var helloLabel, size;
+    var conf, helloLabel, size;
     if (!this.init()) {
       return false;
     }
     this._gs = gs;
-    this._gl = null;
-    this._gc = null;
+    this._gl = new cpz.GameLayout();
+    this._gc = new cpz.GameControlNode();
+    this.setTouchEnabled(true);
+    conf = this._gs.getConf();
     size = cc.Director.getInstance().getWinSize();
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
     helloLabel.setPosition(cc.p(size.width / 2, size.height - 40));
@@ -100,10 +102,10 @@ cpz.Game = cc.Layer.extend({
 });
 
 cpz.Game.create = function(gs) {
-  var layer;
-  layer = new cpz.Game();
-  if (layer && layer.initWithGameScene(gs)) {
-    return layer;
+  var obj;
+  obj = new cpz.Game();
+  if (obj && obj.initWithGameScene(gs)) {
+    return obj;
   }
   return null;
 };

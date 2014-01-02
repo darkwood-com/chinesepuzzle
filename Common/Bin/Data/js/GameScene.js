@@ -150,10 +150,10 @@ cpz.GameSceneCommon = cc.Scene.extend({
 });
 
 cpz.GameSceneCommon.create = function() {
-  var layer;
-  layer = new cpz.GameScene();
-  if (layer && layer.init()) {
-    return layer;
+  var obj;
+  obj = new cpz.GameScene();
+  if (obj && obj.init()) {
+    return obj;
   }
   return null;
 };

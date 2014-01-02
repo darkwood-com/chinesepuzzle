@@ -25,9 +25,7 @@ cpz.MenuLayout = cc.Class.extend({
   _miTheme: null,
   _layoutLastFontFile: null,
   _type: null,
-  ctor: function(game) {
-    return this._super();
-  },
+  ctor: function(game) {},
   initWithType: function(type) {},
   layout: function(anim) {
     if (anim == null) {

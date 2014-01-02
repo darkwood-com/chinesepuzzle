@@ -36,6 +36,6 @@ cpz.Background = cc.Layer.extend(
 )
 
 cpz.Background.create = (gs) ->
-  layer = new cpz.Background()
-  return layer if layer and layer.initWithGameScene(gs)
+  obj = new cpz.Background()
+  return obj if obj and obj.initWithGameScene(gs)
   null

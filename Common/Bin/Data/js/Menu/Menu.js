@@ -44,10 +44,10 @@ cpz.Menu = cc.Layer.extend({
 });
 
 cpz.Menu.create = function(gs, layout) {
-  var layer;
-  layer = new cpz.Menu();
-  if (layer && layer.initWithGameSceneAndLayout(gs, layout)) {
-    return layer;
+  var obj;
+  obj = new cpz.Menu();
+  if (obj && obj.initWithGameSceneAndLayout(gs, layout)) {
+    return obj;
   }
   return null;
 };
