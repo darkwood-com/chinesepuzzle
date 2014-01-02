@@ -56,8 +56,8 @@ cpz.Game = cc.Layer.extend(
     #init cards
     conf = @_gs.getConf()
 
-    #for l in [0..7]
-      #card = cpz.CardBoard.createWithConf conf
+    for l in [0..7]
+      card = cpz.CardBoard.createWithConf conf
       #@addChild card, cpz.GameZOrder.Card
       #@_gc.addNode card
       #@_boardCards.push card

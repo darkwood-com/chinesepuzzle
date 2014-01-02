@@ -25,6 +25,10 @@ cpz.CardBoard = cpz.Card.extend(
     @_state = cpz.CardBoardState.Empty
 
   initWithConf: (conf) ->
+    return false unless @initWithTexture cc.textureNull(), 1
+
+    @setConf conf
+
     true
 
   getState: -> @_state

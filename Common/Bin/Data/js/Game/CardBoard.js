@@ -23,6 +23,10 @@ cpz.CardBoard = cpz.Card.extend({
     return this._state = cpz.CardBoardState.Empty;
   },
   initWithConf: function(conf) {
+    if (!this.initWithTexture(cc.textureNull(), 1)) {
+      return false;
+    }
+    this.setConf(conf);
     return true;
   },
   getState: function() {

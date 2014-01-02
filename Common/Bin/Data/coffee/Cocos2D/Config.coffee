@@ -7,6 +7,6 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
-cpz.Card = cc.SpriteBatchNode.extend(
-  setConf: (conf) ->
-)
+cc.SpriteBatchNode.extend = cc.Class.extend unless cc.SpriteBatchNode.extend
+
+cc.textureNull = -> new cc.Texture2D()
