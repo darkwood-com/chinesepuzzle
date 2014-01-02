@@ -40,6 +40,10 @@ cpz.GameLayout = cc.Class.extend({
   tapDownAt: function(location) {},
   tapMoveAt: function(location) {},
   tapUpAt: function(location) {},
-  getPositionInBoardPoint: function(coord) {},
-  getPositionInGridCoord: function(point) {}
+  getPositionInBoardPoint: function(coord) {
+    return cc.p(0, 0);
+  },
+  getPositionInGridCoord: function(point) {
+    return cpz.gc(0, 0);
+  }
 });

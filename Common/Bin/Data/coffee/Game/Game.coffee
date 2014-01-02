@@ -56,15 +56,15 @@ cpz.Game = cc.Layer.extend(
     #init cards
     conf = @_gs.getConf()
 
-    #for l in [0..7]
-      #card = cpz.CardBoard.createWithConf conf
-      #@addChild card, cpz.GameZOrder.Card
-      #@_gc.addNode card
-      #@_boardCards.push card
+    for l in [0..7]
+      card = cpz.CardBoard.createWithConf conf
+      @addChild card, cpz.GameZOrder.Card
+      @_gc.addNode card
+      @_boardCards.push card
 
-      #coord = cpz.gc l, 0
-      #@_board[coord.i][coord.j] = card
-      #card.setPosition @_gl.getPositionInBoardPoint(coord)
+      coord = cpz.gc l, 0
+      @_board[coord.i][coord.j] = card
+      card.setPosition @_gl.getPositionInBoardPoint(coord)
 
     #@_gl.layout()
 

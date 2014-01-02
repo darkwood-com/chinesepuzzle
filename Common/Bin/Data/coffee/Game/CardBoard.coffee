@@ -25,7 +25,10 @@ cpz.CardBoard = cpz.Card.extend(
     @_state = cpz.CardBoardState.Empty
 
   initWithConf: (conf) ->
-    return false unless @initWithTexture cc.textureNull(), 1
+    @_batchNode = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+    return false unless @_batchNode
+
+    @addChild @_batchNode
 
     @setConf conf
 
@@ -35,11 +38,22 @@ cpz.CardBoard = cpz.Card.extend(
   setState: (state, force = false) ->
     if @_state isnt state or force
       switch state
-        when 0
-        else
+        when cpz.CardBoardState.Yes then cc.copySpriteBatchNode @_yesSprite, @_batchNode
+        when cpz.CardBoardState.No then cc.copySpriteBatchNode @_noSprite, @_batchNode
+        else cc.copySpriteBatchNode @_emptySprite, @_batchNode
 
+      @_state = state
 
   setConf: (conf) ->
+    if @_emptySprite is null then @_emptySprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+    if @_yesSprite is null then @_yesSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+    if @_noSprite is null then @_noSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+
+    conf.getNodeThemePath 'cardboardempty', @_emptySprite
+    conf.getNodeThemePath 'cardboardyes', @_yesSprite
+    conf.getNodeThemePath 'cardboardno', @_noSprite
+
+    @setState @getState, true
 )
 
 cpz.CardBoard.createWithConf = (conf) ->

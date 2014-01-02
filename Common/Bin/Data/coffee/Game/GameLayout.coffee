@@ -45,6 +45,6 @@ cpz.GameLayout = cc.Class.extend(
   tapMoveAt: (location) ->
   tapUpAt: (location) ->
 
-  getPositionInBoardPoint: (coord) ->
-  getPositionInGridCoord: (point) ->
+  getPositionInBoardPoint: (coord) -> cc.p 0, 0
+  getPositionInGridCoord: (point) -> cpz.gc 0, 0
 )

@@ -23,9 +23,11 @@ cpz.CardBoard = cpz.Card.extend({
     return this._state = cpz.CardBoardState.Empty;
   },
   initWithConf: function(conf) {
-    if (!this.initWithTexture(cc.textureNull(), 1)) {
+    this._batchNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
+    if (!this._batchNode) {
       return false;
     }
+    this.addChild(this._batchNode);
     this.setConf(conf);
     return true;
   },
@@ -38,12 +40,33 @@ cpz.CardBoard = cpz.Card.extend({
     }
     if (this._state !== state || force) {
       switch (state) {
-        case 0:
+        case cpz.CardBoardState.Yes:
+          cc.copySpriteBatchNode(this._yesSprite, this._batchNode);
           break;
+        case cpz.CardBoardState.No:
+          cc.copySpriteBatchNode(this._noSprite, this._batchNode);
+          break;
+        default:
+          cc.copySpriteBatchNode(this._emptySprite, this._batchNode);
       }
+      return this._state = state;
     }
   },
-  setConf: function(conf) {}
+  setConf: function(conf) {
+    if (this._emptySprite === null) {
+      this._emptySprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
+    }
+    if (this._yesSprite === null) {
+      this._yesSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
+    }
+    if (this._noSprite === null) {
+      this._noSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
+    }
+    conf.getNodeThemePath('cardboardempty', this._emptySprite);
+    conf.getNodeThemePath('cardboardyes', this._yesSprite);
+    conf.getNodeThemePath('cardboardno', this._noSprite);
+    return this.setState(this.getState, true);
+  }
 });
 
 cpz.CardBoard.createWithConf = function(conf) {

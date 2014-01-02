@@ -50,7 +50,7 @@ cpz.Game = cc.Layer.extend({
     return _results;
   },
   initWithGameScene: function(gs) {
-    var conf, helloLabel, size;
+    var card, conf, coord, helloLabel, l, size, _i;
     if (!this.init()) {
       return false;
     }
@@ -59,6 +59,15 @@ cpz.Game = cc.Layer.extend({
     this._gc = new cpz.GameControlNode();
     this.setTouchEnabled(true);
     conf = this._gs.getConf();
+    for (l = _i = 0; _i <= 7; l = ++_i) {
+      card = cpz.CardBoard.createWithConf(conf);
+      this.addChild(card, cpz.GameZOrder.Card);
+      this._gc.addNode(card);
+      this._boardCards.push(card);
+      coord = cpz.gc(l, 0);
+      this._board[coord.i][coord.j] = card;
+      card.setPosition(this._gl.getPositionInBoardPoint(coord));
+    }
     size = cc.Director.getInstance().getWinSize();
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
     helloLabel.setPosition(cc.p(size.width / 2, size.height - 40));
