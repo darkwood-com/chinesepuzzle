@@ -23,11 +23,9 @@ cpz.CardBoard = cpz.Card.extend({
     return this._state = cpz.CardBoardState.Empty;
   },
   initWithConf: function(conf) {
-    this._batchNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
-    if (!this._batchNode) {
+    if (!this.initWithTexture(cc.textureNull(), 1)) {
       return false;
     }
-    this.addChild(this._batchNode);
     this.setConf(conf);
     return true;
   },

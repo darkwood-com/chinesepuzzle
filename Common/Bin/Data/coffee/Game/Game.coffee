@@ -111,8 +111,8 @@ cpz.Game = cc.Layer.extend(
       for i in [0..7]
         for j in [1..13]
           coord = cpz.gc i, j
-          card = @getCard coord
 
+          card = @getCard coord
           if card
             card.setPosition @_gl.getPositionInBoardPoint(coord)
             card.setRotation 1.0
@@ -124,14 +124,116 @@ cpz.Game = cc.Layer.extend(
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)
     helloLabel.setPosition cc.p(size.width / 2, size.height - 40)
     @addChild helloLabel, 5
-    
+
     true
 
   newGame: ->
+    @_deck = cc.ArrayShuffle @_deck
+
+    k = 0
+    l = 0
+    for i in [0..7]
+      for j in [0..13]
+        coord = cpz.gc i, j
+
+        if j is 0
+          card = @_boardCards[l]
+
+          @_board[i][j] = card
+
+          card.setPosition @_gl.getPositionInBoardPoint(coord)
+
+          l++
+        else
+          card = @_deck[k]
+          card.setIsLocked false
+
+          @_board[i][j] = card
+
+          @_gs.getConf().getInitBoard().removeObject coord
+          @_gs.getConf().getInitBoard().setObject card, coord
+
+          k++
+    cc.ArrayClear(@_gs.getConf().getMoves())
+
+    @layout()
+
+    @_gs.getConf().save() #save conf state
+
   retryGame: ->
+    for i in [0..7]
+      @_board[i][0] = @_boardCards[i]
+
+    initBoard = @_gs.getConf().getInitBoard()
+    for coord in initBoard.allKeys()
+      card = initBoard.object(coord)
+
+      @_board[coord.i][coord.j] = card
+      card.setIsLocked false
+
+    @layout()
+
+    @_gs.getConf().save() #save conf state
+
   draw: ->
+    @_super()
+
+    #debug game control draw
+    #@_gc.draw()
+
   step: (dt) ->
+    #update game step
+    @_gc.step(dt)
+
   layout: (anim = true) ->
+    @_gl.layout anim
+
+    conf = @_gs.getConf()
+
+    unless @_touchLastCard
+      @_touchLastCard = new cpz.Card()
+      @_touchLastCard.initWithTexture cc.textureNull(), 4
+      @_touchLastCard.setVisible false
+      @addChild @_touchLastCard, cpz.GameZOrder.HintCard
+    conf.getNodeThemePath 'cardtouched', @_touchLastCard
+
+    unless @_switchBoardCard
+      @_switchBoardCard = new cpz.CardBoard()
+      @_switchBoardCard.initWithTexture cc.textureNull(), 4
+      @_switchBoardCard.setVisible false
+      @addChild @_switchBoardCard, cpz.GameZOrder.Board
+    @_switchBoardCard.setConf conf
+
+    for i in [0..7]
+      for j in [0..13]
+        coord = cpz.gc i, j
+
+        card = @getCard coord
+        if card
+          card.setConf conf
+
+          if card instanceof cpz.CardBoard
+            card.setPosition @_gl.getPositionInBoardPoint coord
+          else if card instanceof cpz.CardPlay
+            coordPos = @_gl.getPositionInBoardPoint coord
+            if anim
+              #card animation
+              actions = []
+              actions.push cc.DelayTime.create(0.05 * (7 - coord.i + coord.j - 1))
+              unless cc.pointEqualToPoint(card.getPosition(), coordPos)
+                actions.push cc.MoveTo.create(1.0, coordPos)
+              unless card.getIsFaceUp()
+                actions.push cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0)
+                actions.push cc.CardPlayFlipAction.create(card)
+                actions.push cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0)
+              card.runAction cc.Sequence.create(actions)
+
+            else
+              card.setPosition coordPos
+              unless card.getIsFaceUp()
+                card.setIsFaceUp true
+
+      @lockLine i
 
   isBusy: ->
   getCard: (coord) ->

@@ -39,6 +39,10 @@ cc.ArrayShuffle = (arr) ->
     arr[randomIndex] = temporaryValue
   arr
 
+cc.ArrayClear = (arr) ->
+  arr.splice(0, arr.length);
+  arr
+
 cc.ObjectHas = (obj, key) -> obj.hasOwnProperty key
 
 cc.ObjectKeys = (obj) ->

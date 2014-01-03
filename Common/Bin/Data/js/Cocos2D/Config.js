@@ -38,6 +38,11 @@ cc.ArrayShuffle = function(arr) {
   return arr;
 };
 
+cc.ArrayClear = function(arr) {
+  arr.splice(0, arr.length);
+  return arr;
+};
+
 cc.ObjectHas = function(obj, key) {
   return obj.hasOwnProperty(key);
 };

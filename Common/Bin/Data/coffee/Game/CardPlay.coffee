@@ -32,11 +32,13 @@ cpz.CardPlayFlipAction = cc.Class.extend(
   _cardPlay: null
   _isFaceUp: null
 
-  actionWithCardPlay: (cardPlay) ->
-  initWithCardPlay: (cardPlay) ->
+  initWithCardPlay: (card) ->
   update: (time) ->
   copyWithZone: (pZone) ->
 )
+
+cpz.CardPlayFlipAction.create = (card) ->
+  
 
 cpz.CardPlay = cpz.Card.extend(
   _faceSprite: null
@@ -48,6 +50,7 @@ cpz.CardPlay = cpz.Card.extend(
   _isFaceUp: null
 
   initWithConfAndColorAndRank: (conf, color, rank) ->
+    return false unless @initWithTexture cc.textureNull(), 1
     true
 
   isNextToCardPlay: (cardPlay) ->

@@ -136,14 +136,111 @@ cpz.Game = cc.Layer.extend({
     this.addChild(helloLabel, 5);
     return true;
   },
-  newGame: function() {},
-  retryGame: function() {},
-  draw: function() {},
-  step: function(dt) {},
+  newGame: function() {
+    var card, coord, i, j, k, l, _i, _j;
+    this._deck = cc.ArrayShuffle(this._deck);
+    k = 0;
+    l = 0;
+    for (i = _i = 0; _i <= 7; i = ++_i) {
+      for (j = _j = 0; _j <= 13; j = ++_j) {
+        coord = cpz.gc(i, j);
+        if (j === 0) {
+          card = this._boardCards[l];
+          this._board[i][j] = card;
+          card.setPosition(this._gl.getPositionInBoardPoint(coord));
+          l++;
+        } else {
+          card = this._deck[k];
+          card.setIsLocked(false);
+          this._board[i][j] = card;
+          this._gs.getConf().getInitBoard().removeObject(coord);
+          this._gs.getConf().getInitBoard().setObject(card, coord);
+          k++;
+        }
+      }
+    }
+    cc.ArrayClear(this._gs.getConf().getMoves());
+    this.layout();
+    return this._gs.getConf().save();
+  },
+  retryGame: function() {
+    var card, coord, i, initBoard, _i, _j, _len, _ref;
+    for (i = _i = 0; _i <= 7; i = ++_i) {
+      this._board[i][0] = this._boardCards[i];
+    }
+    initBoard = this._gs.getConf().getInitBoard();
+    _ref = initBoard.allKeys();
+    for (_j = 0, _len = _ref.length; _j < _len; _j++) {
+      coord = _ref[_j];
+      card = initBoard.object(coord);
+      this._board[coord.i][coord.j] = card;
+      card.setIsLocked(false);
+    }
+    this.layout();
+    return this._gs.getConf().save();
+  },
+  draw: function() {
+    return this._super();
+  },
+  step: function(dt) {
+    return this._gc.step(dt);
+  },
   layout: function(anim) {
+    var actions, card, conf, coord, coordPos, i, j, _i, _j, _results;
     if (anim == null) {
       anim = true;
     }
+    this._gl.layout(anim);
+    conf = this._gs.getConf();
+    if (!this._touchLastCard) {
+      this._touchLastCard = new cpz.Card();
+      this._touchLastCard.initWithTexture(cc.textureNull(), 4);
+      this._touchLastCard.setVisible(false);
+      this.addChild(this._touchLastCard, cpz.GameZOrder.HintCard);
+    }
+    conf.getNodeThemePath('cardtouched', this._touchLastCard);
+    if (!this._switchBoardCard) {
+      this._switchBoardCard = new cpz.CardBoard();
+      this._switchBoardCard.initWithTexture(cc.textureNull(), 4);
+      this._switchBoardCard.setVisible(false);
+      this.addChild(this._switchBoardCard, cpz.GameZOrder.Board);
+    }
+    this._switchBoardCard.setConf(conf);
+    _results = [];
+    for (i = _i = 0; _i <= 7; i = ++_i) {
+      for (j = _j = 0; _j <= 13; j = ++_j) {
+        coord = cpz.gc(i, j);
+        card = this.getCard(coord);
+        if (card) {
+          card.setConf(conf);
+          if (card instanceof cpz.CardBoard) {
+            card.setPosition(this._gl.getPositionInBoardPoint(coord));
+          } else if (card instanceof cpz.CardPlay) {
+            coordPos = this._gl.getPositionInBoardPoint(coord);
+            if (anim) {
+              actions = [];
+              actions.push(cc.DelayTime.create(0.05 * (7 - coord.i + coord.j - 1)));
+              if (!cc.pointEqualToPoint(card.getPosition(), coordPos)) {
+                actions.push(cc.MoveTo.create(1.0, coordPos));
+              }
+              if (!card.getIsFaceUp()) {
+                actions.push(cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0));
+                actions.push(cc.CardPlayFlipAction.create(card));
+                actions.push(cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0));
+              }
+              card.runAction(cc.Sequence.create(actions));
+            } else {
+              card.setPosition(coordPos);
+              if (!card.getIsFaceUp()) {
+                card.setIsFaceUp(true);
+              }
+            }
+          }
+        }
+      }
+      _results.push(this.lockLine(i));
+    }
+    return _results;
   },
   isBusy: function() {},
   getCard: function(coord) {},

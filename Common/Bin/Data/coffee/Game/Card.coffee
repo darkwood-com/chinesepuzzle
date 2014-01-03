@@ -10,5 +10,13 @@ file that was distributed with this source code.
 cpz.Card = cc.Node.extend(
   _batchNode: null
 
+  initWithTexture: (tex, capacity) ->
+    @_batchNode = cc.SpriteBatchNode.createWithTexture tex, capacity
+    return false unless @_batchNode
+
+    @addChild @_batchNode
+
+    true
+
   setConf: (conf) ->
 )

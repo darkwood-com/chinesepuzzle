@@ -25,10 +25,7 @@ cpz.CardBoard = cpz.Card.extend(
     @_state = cpz.CardBoardState.Empty
 
   initWithConf: (conf) ->
-    @_batchNode = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
-    return false unless @_batchNode
-
-    @addChild @_batchNode
+    return false unless @initWithTexture cc.textureNull(), 1
 
     @setConf conf
 
