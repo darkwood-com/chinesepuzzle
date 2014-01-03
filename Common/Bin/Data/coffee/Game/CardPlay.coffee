@@ -44,7 +44,7 @@ cpz.CardPlay = cpz.Card.extend(
 
   _color: null
   _rank: null
-  _isLocked: null
+  _isLocked: false
   _isFaceUp: null
 
   initWithConfAndColorAndRank: (conf, color, rank) ->
@@ -64,7 +64,7 @@ cpz.CardPlay = cpz.Card.extend(
 
 cpz.CardPlay.createWithConfAndColorAndRank = (conf, color, rank) ->
   obj = new cpz.CardPlay()
-  return obj if obj and obj.initWithConf(conf, color, rank)
+  return obj if obj and obj.initWithConfAndColorAndRank(conf, color, rank)
   null
 
 cpz.CardPlay.matchColor = (color) ->

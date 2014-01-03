@@ -69,28 +69,53 @@ cpz.Game = cc.Layer.extend(
     @_gl.layout()
     initBoard = @_gs.getConf().getInitBoard()
     if initBoard.count() is 0
-      for color in cpz.CardPlayColor
-        for rank in cpz.CardPlayRank
-          card = cpz.CardPlay.createWithConfAndColorAndRank conf, color, rank
-          @addChild card, cpz.GameZOrder.Card
-          @_gc.addNode card
-          @_deck.push card
+      for k in [1..2]
+        for color in cc.ObjectValues(cpz.CardPlayColor)
+          for rank in cc.ObjectValues(cpz.CardPlayRank)
+            card = cpz.CardPlay.createWithConfAndColorAndRank conf, color, rank
+            @addChild card, cpz.GameZOrder.Card
+            @_gc.addNode card
+            @_deck.push card
 
       @_deck = cc.ArrayShuffle @_deck
 
       k = 0
       for i in [0..7]
         for j in [1..13]
-          k = 1
-          #card = @_deck[k++]
-          #card.setIsLocked false
+          card = @_deck[k]
+          card.setIsLocked false
 
-          #coord = cpz.gc i, j
-          #@_board[i][j] = card
-          #card.setPosition @_gl.getPositionInBoardPoint(coord)
+          coord = cpz.gc i, j
+          @_board[i][j] = card
+          card.setPosition @_gl.getPositionInBoardPoint(coord)
 
-          #delete initBoard[coord]
-          #initBoard[coord] = card
+          initBoard.removeObject coord
+          initBoard.setObject card, coord
+
+          k++
+    else
+      for coord in initBoard.allKeys()
+        card = initBoard.object(coord)
+        @addChild card, cpz.GameZOrder.Card
+        @_gc.addNode card
+        @_deck.push card
+
+        card.setIsLocked false
+        @_board[coord.i][coord.j] = card
+
+      for move in @_gs.getConf().getMoves()
+        cSwitch = @getCard move.to
+        @_board[move.to.i][move.to.j] = @_board[move.from.i][move.from.j]
+        @_board[move.from.i][move.from.j] = cSwitch
+
+      for i in [0..7]
+        for j in [1..13]
+          coord = cpz.gc i, j
+          card = @getCard coord
+
+          if card
+            card.setPosition @_gl.getPositionInBoardPoint(coord)
+            card.setRotation 1.0
 
     size = cc.Director.getInstance().getWinSize()
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)

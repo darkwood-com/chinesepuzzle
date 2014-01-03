@@ -50,7 +50,7 @@ cpz.Game = cc.Layer.extend({
     return _results;
   },
   initWithGameScene: function(gs) {
-    var card, color, conf, coord, helloLabel, i, initBoard, j, k, l, rank, size, _i, _j, _k, _l, _len, _len1, _m, _ref, _ref1;
+    var cSwitch, card, color, conf, coord, helloLabel, i, initBoard, j, k, l, move, rank, size, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _n, _o, _p, _q, _r, _ref, _ref1, _ref2, _ref3;
     if (!this.init()) {
       return false;
     }
@@ -71,23 +71,60 @@ cpz.Game = cc.Layer.extend({
     this._gl.layout();
     initBoard = this._gs.getConf().getInitBoard();
     if (initBoard.count() === 0) {
-      _ref = cpz.CardPlayColor;
-      for (_j = 0, _len = _ref.length; _j < _len; _j++) {
-        color = _ref[_j];
-        _ref1 = cpz.CardPlayRank;
-        for (_k = 0, _len1 = _ref1.length; _k < _len1; _k++) {
-          rank = _ref1[_k];
-          card = cpz.CardPlay.createWithConfAndColorAndRank(conf, color, rank);
-          this.addChild(card, cpz.GameZOrder.Card);
-          this._gc.addNode(card);
-          this._deck.push(card);
+      for (k = _j = 1; _j <= 2; k = ++_j) {
+        _ref = cc.ObjectValues(cpz.CardPlayColor);
+        for (_k = 0, _len = _ref.length; _k < _len; _k++) {
+          color = _ref[_k];
+          _ref1 = cc.ObjectValues(cpz.CardPlayRank);
+          for (_l = 0, _len1 = _ref1.length; _l < _len1; _l++) {
+            rank = _ref1[_l];
+            card = cpz.CardPlay.createWithConfAndColorAndRank(conf, color, rank);
+            this.addChild(card, cpz.GameZOrder.Card);
+            this._gc.addNode(card);
+            this._deck.push(card);
+          }
         }
       }
       this._deck = cc.ArrayShuffle(this._deck);
       k = 0;
-      for (i = _l = 0; _l <= 7; i = ++_l) {
-        for (j = _m = 1; _m <= 13; j = ++_m) {
-          k = 1;
+      for (i = _m = 0; _m <= 7; i = ++_m) {
+        for (j = _n = 1; _n <= 13; j = ++_n) {
+          card = this._deck[k];
+          card.setIsLocked(false);
+          coord = cpz.gc(i, j);
+          this._board[i][j] = card;
+          card.setPosition(this._gl.getPositionInBoardPoint(coord));
+          initBoard.removeObject(coord);
+          initBoard.setObject(card, coord);
+          k++;
+        }
+      }
+    } else {
+      _ref2 = initBoard.allKeys();
+      for (_o = 0, _len2 = _ref2.length; _o < _len2; _o++) {
+        coord = _ref2[_o];
+        card = initBoard.object(coord);
+        this.addChild(card, cpz.GameZOrder.Card);
+        this._gc.addNode(card);
+        this._deck.push(card);
+        card.setIsLocked(false);
+        this._board[coord.i][coord.j] = card;
+      }
+      _ref3 = this._gs.getConf().getMoves();
+      for (_p = 0, _len3 = _ref3.length; _p < _len3; _p++) {
+        move = _ref3[_p];
+        cSwitch = this.getCard(move.to);
+        this._board[move.to.i][move.to.j] = this._board[move.from.i][move.from.j];
+        this._board[move.from.i][move.from.j] = cSwitch;
+      }
+      for (i = _q = 0; _q <= 7; i = ++_q) {
+        for (j = _r = 1; _r <= 13; j = ++_r) {
+          coord = cpz.gc(i, j);
+          card = this.getCard(coord);
+          if (card) {
+            card.setPosition(this._gl.getPositionInBoardPoint(coord));
+            card.setRotation(1.0);
+          }
         }
       }
     }

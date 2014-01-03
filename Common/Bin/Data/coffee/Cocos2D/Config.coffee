@@ -40,12 +40,23 @@ cc.ArrayShuffle = (arr) ->
   arr
 
 cc.ObjectHas = (obj, key) -> obj.hasOwnProperty key
+
 cc.ObjectKeys = (obj) ->
   throw new TypeError("Invalid object") if obj isnt Object(obj)
+
   keys = []
   for key of obj
-    keys.push key  if cc.ObjectHas(obj, key)
+    keys.push key if cc.ObjectHas(obj, key)
   keys
+
+cc.ObjectValues = (obj) ->
+  throw new TypeError("Invalid object") if obj isnt Object(obj)
+
+  values = []
+  for key, value of obj
+    values.push value if cc.ObjectHas(obj, key)
+  values
+
 cc.ObjectSize = (obj) ->
   return 0 unless obj?
   if (obj.length is +obj.length) then obj.length else cc.ObjectKeys(obj).length
@@ -70,17 +81,17 @@ cc.Dictionary = cc.Class.extend(
     @_keyMapTb[keyId] = key
     @_valueMapTb[keyId] = value
 
-  objectForKey: (key) ->
+  object: (key) ->
     return null  unless key?
     locKeyMapTb = @_keyMapTb
     for keyId of locKeyMapTb
       return @_valueMapTb[keyId]  if locKeyMapTb[keyId] is key
     null
 
-  valueForKey: (key) ->
-    @objectForKey key
+  value: (key) ->
+    @object key
 
-  removeObjectForKey: (key) ->
+  removeObject: (key) ->
     return  unless key?
     locKeyMapTb = @_keyMapTb
     for keyId of locKeyMapTb
@@ -91,12 +102,12 @@ cc.Dictionary = cc.Class.extend(
 
         return
 
-  removeObjectsForKeys: (keys) ->
+  removeObjects: (keys) ->
     return  unless keys?
     i = 0
 
     while i < keys.length
-      @removeObjectForKey keys[i]
+      @removeObject keys[i]
       i++
 
   allKeys: ->

@@ -44,7 +44,7 @@ cpz.CardPlay = cpz.Card.extend({
   _backSprite: null,
   _color: null,
   _rank: null,
-  _isLocked: null,
+  _isLocked: false,
   _isFaceUp: null,
   initWithConfAndColorAndRank: function(conf, color, rank) {
     return true;
@@ -76,7 +76,7 @@ cpz.CardPlay = cpz.Card.extend({
 cpz.CardPlay.createWithConfAndColorAndRank = function(conf, color, rank) {
   var obj;
   obj = new cpz.CardPlay();
-  if (obj && obj.initWithConf(conf, color, rank)) {
+  if (obj && obj.initWithConfAndColorAndRank(conf, color, rank)) {
     return obj;
   }
   return null;
