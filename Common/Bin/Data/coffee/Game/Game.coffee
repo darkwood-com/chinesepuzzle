@@ -117,10 +117,14 @@ cpz.Game = cc.Layer.extend(
             card.setPosition @_gl.getPositionInBoardPoint(coord)
             card.setRotation 1.0
 
+    @layout()
+    @schedule(@step)
+
     size = cc.Director.getInstance().getWinSize()
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)
     helloLabel.setPosition cc.p(size.width / 2, size.height - 40)
     @addChild helloLabel, 5
+    
     true
 
   newGame: ->

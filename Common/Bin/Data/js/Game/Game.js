@@ -128,6 +128,8 @@ cpz.Game = cc.Layer.extend({
         }
       }
     }
+    this.layout();
+    this.schedule(this.step);
     size = cc.Director.getInstance().getWinSize();
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
     helloLabel.setPosition(cc.p(size.width / 2, size.height - 40));
