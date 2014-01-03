@@ -38,7 +38,7 @@ cpz.CardPlayFlipAction = cc.Class.extend(
 )
 
 cpz.CardPlayFlipAction.create = (card) ->
-  
+
 
 cpz.CardPlay = cpz.Card.extend(
   _faceSprite: null
