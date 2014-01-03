@@ -66,7 +66,31 @@ cpz.Game = cc.Layer.extend(
       @_board[coord.i][coord.j] = card
       card.setPosition @_gl.getPositionInBoardPoint(coord)
 
-    #@_gl.layout()
+    @_gl.layout()
+    initBoard = @_gs.getConf().getInitBoard()
+    if initBoard.count() is 0
+      for color in cpz.CardPlayColor
+        for rank in cpz.CardPlayRank
+          card = cpz.CardPlay.createWithConfAndColorAndRank conf, color, rank
+          @addChild card, cpz.GameZOrder.Card
+          @_gc.addNode card
+          @_deck.push card
+
+      @_deck = cc.ArrayShuffle @_deck
+
+      k = 0
+      for i in [0..7]
+        for j in [1..13]
+          k = 1
+          #card = @_deck[k++]
+          #card.setIsLocked false
+
+          #coord = cpz.gc i, j
+          #@_board[i][j] = card
+          #card.setPosition @_gl.getPositionInBoardPoint(coord)
+
+          #delete initBoard[coord]
+          #initBoard[coord] = card
 
     size = cc.Director.getInstance().getWinSize()
     helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)

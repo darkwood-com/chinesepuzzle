@@ -46,8 +46,9 @@ cpz.CardPlay = cpz.Card.extend({
   _rank: null,
   _isLocked: null,
   _isFaceUp: null,
-  cardBoardWithConfAndColorAndRank: function(conf, color, rank) {},
-  initWithConfAndColorAndRank: function(conf, color, rank) {},
+  initWithConfAndColorAndRank: function(conf, color, rank) {
+    return true;
+  },
   isNextToCardPlay: function(cardPlay) {},
   setConf: function(conf) {},
   getColor: function() {
@@ -55,6 +56,13 @@ cpz.CardPlay = cpz.Card.extend({
   },
   getRank: function() {
     return this._rank;
+  },
+  getIsLocked: function() {
+    return this._isLocked;
+  },
+  setIsLocked: function(_isLocked) {
+    this._isLocked = _isLocked;
+    return this;
   },
   getIsFaceUp: function() {
     return this._isFaceUp;
@@ -64,6 +72,15 @@ cpz.CardPlay = cpz.Card.extend({
     return this;
   }
 });
+
+cpz.CardPlay.createWithConfAndColorAndRank = function(conf, color, rank) {
+  var obj;
+  obj = new cpz.CardPlay();
+  if (obj && obj.initWithConf(conf, color, rank)) {
+    return obj;
+  }
+  return null;
+};
 
 cpz.CardPlay.matchColor = function(color) {};
 

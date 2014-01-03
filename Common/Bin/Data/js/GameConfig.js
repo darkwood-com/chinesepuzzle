@@ -11,8 +11,11 @@ cpz.GameConfigCommon = cc.Class.extend({
   _resolution: '',
   _theme: '',
   _isSoundOn: false,
-  _moves: null,
+  _moves: [],
   _initBoard: null,
+  ctor: function() {
+    return this._initBoard = new cc.Dictionary();
+  },
   init: function() {},
   defaultResolution: function() {},
   getRootPath: function(file) {},
