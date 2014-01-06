@@ -48,7 +48,7 @@ cpz.Game = cc.Layer.extend(
     return false unless @init()
 
     @_gs = gs
-    @_gl = new cpz.GameLayout()
+    @_gl = new cpz.GameLayout(@)
     #@_gc = new cpz.GameControlChipmunk()
     @_gc = new cpz.GameControlNode()
     @setTouchEnabled true

@@ -47,10 +47,16 @@ cpz.CardPlay = cpz.Card.extend(
   _color: null
   _rank: null
   _isLocked: false
-  _isFaceUp: null
+  _isFaceUp: false
 
   initWithConfAndColorAndRank: (conf, color, rank) ->
     return false unless @initWithTexture cc.textureNull(), 1
+
+    @_color = color
+    @_rank = rank
+
+    @setConf conf
+
     true
 
   isNextToCardPlay: (cardPlay) ->

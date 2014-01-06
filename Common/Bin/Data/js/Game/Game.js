@@ -55,7 +55,7 @@ cpz.Game = cc.Layer.extend({
       return false;
     }
     this._gs = gs;
-    this._gl = new cpz.GameLayout();
+    this._gl = new cpz.GameLayout(this);
     this._gc = new cpz.GameControlNode();
     this.setTouchEnabled(true);
     conf = this._gs.getConf();

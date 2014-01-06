@@ -18,7 +18,14 @@ cpz.GameConfigCommon = cc.Class.extend(
     @_initBoard = new cc.Dictionary()
 
   init: ->
-  defaultResolution: ->
+    @_resolution = @defaultResolution()
+    @_theme = @defaultTheme()
+    @_isSoundOn = true
+
+    true
+
+  defaultResolution: -> '480x320'
+  defaultTheme: -> 'chinese'
   getRootPath: (file) ->
   getResolutionPath: (file) ->
   getUiPath: (file) ->

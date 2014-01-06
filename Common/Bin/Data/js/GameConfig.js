@@ -16,8 +16,18 @@ cpz.GameConfigCommon = cc.Class.extend({
   ctor: function() {
     return this._initBoard = new cc.Dictionary();
   },
-  init: function() {},
-  defaultResolution: function() {},
+  init: function() {
+    this._resolution = this.defaultResolution();
+    this._theme = this.defaultTheme();
+    this._isSoundOn = true;
+    return true;
+  },
+  defaultResolution: function() {
+    return '480x320';
+  },
+  defaultTheme: function() {
+    return 'chinese';
+  },
   getRootPath: function(file) {},
   getResolutionPath: function(file) {},
   getUiPath: function(file) {},

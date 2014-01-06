@@ -46,11 +46,14 @@ cpz.CardPlay = cpz.Card.extend({
   _color: null,
   _rank: null,
   _isLocked: false,
-  _isFaceUp: null,
+  _isFaceUp: false,
   initWithConfAndColorAndRank: function(conf, color, rank) {
     if (!this.initWithTexture(cc.textureNull(), 1)) {
       return false;
     }
+    this._color = color;
+    this._rank = rank;
+    this.setConf(conf);
     return true;
   },
   isNextToCardPlay: function(cardPlay) {},
