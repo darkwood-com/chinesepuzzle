@@ -35,6 +35,10 @@ res = [
   #cpz.CommonPath + 'sound/shuffle.mp3',
 ]
 
+for resolution in cpz.GameConfigCommon.getResolutions()
+  for theme in cpz.GameConfigCommon.getThemes()
+    res.push cpz.GameConfigCommon.getResolutionPath('themes/' + theme + '.plist', resolution)
+
 cpz.Resources = []
 for r in res
   cpz.Resources.push

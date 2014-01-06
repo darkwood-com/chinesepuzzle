@@ -12,8 +12,25 @@ file that was distributed with this source code.
 cc.textureNull = -> new cc.Texture2D()
 
 cc.copySpriteBatchNode = (from, to) ->
+  return unless to instanceof cc.SpriteBatchNode and from instanceof cc.SpriteBatchNode
+  
+  to.removeAllChildrenWithCleanup(true)
+  to.setTexture(from.getTexture())
+
+  for child in from.getChildren()
+    zoneSprite = cc.Sprite.createWithTexture to.getTexture(), child.getTextureRect()
+    zoneSprite.setAnchorPoint(child.getAnchorPoint())
+    zoneSprite.setPosition(child.getPosition())
+    to.addChild(zoneSprite)
+
+  to.setContentSize from.getContentSize()
+  to.setAnchorPoint cc.p(0.5, 0.5)
 
 cc.copyFirstSpriteBatchNode = (sprite) ->
+  for child in sprite.getChildren()
+    return cc.Sprite.createWithTexture(child.getTexture(), child.getTextureRect())
+
+  null
 
 ###
 Shuffle array

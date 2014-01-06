@@ -19,8 +19,8 @@ cpz.GameZOrder = {
 cpz.GameLayout = cc.Class.extend({
   _layoutRes: function(key) {
     var res;
-    if (cpz.GameLayout.res === null) {
-      cpz.GameLayout.res = {
+    if (cpz.GameLayout._res === null) {
+      cpz.GameLayout._res = {
         '480x320': {
           gridCardSize: cc.size(26, 36),
           gridSpaceSize: cc.size(4, 4),
@@ -134,7 +134,7 @@ cpz.GameLayout = cc.Class.extend({
       };
     }
     res = this._game.getGameScene().getConf().getResolution();
-    return cpz.GameLayout.res[res][key];
+    return cpz.GameLayout._res[res][key];
   },
   _actionBtn: function(btn) {
     var conf, isSoundOn;
@@ -255,7 +255,7 @@ cpz.GameLayout = cc.Class.extend({
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       btn = _ref[_i];
       local = btn.convertToNodeSpace(location);
-      rect = btn.boundingBox();
+      rect = btn.getBoundingBox();
       rect.origin = cc.PointZero();
       rect.size = cc.SizeMake(rect.size.width * 2, rect.size.height * 2);
       if (cc.rectContainsPoint(rect, local)) {
@@ -278,4 +278,4 @@ cpz.GameLayout = cc.Class.extend({
   }
 });
 
-cpz.GameLayout.res = null;
+cpz.GameLayout._res = null;

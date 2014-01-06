@@ -8,6 +8,113 @@ file that was distributed with this source code.
 */
 
 cpz.GameConfigCommon = cc.Class.extend({
+  _getNodePath: function(mode, file, sprite) {
+    var box, cardBGSprite, color, colors, k, node, nodePath, nodeSize, path, plistPath, rank, ranks, s, spriteFrameCache, sprites, texturePath, zone, zoneAnchor, zonePosition, zoneSprite, _i, _j, _k, _len, _len1, _len2;
+    path = cpz.CommonPath + this._resolution + '/' + (mode === 'theme' ? 'themes/' + this._theme : 'ui');
+    plistPath = path + '.plist';
+    texturePath = path + '.png';
+    nodePath = path + ':' + file;
+    node = cpz.GameConfigCommon._configPaths[nodePath];
+    if (!node) {
+      spriteFrameCache = cc.SpriteFrameCache.getInstance();
+      spriteFrameCache.removeSpriteFramesFromFile(plistPath);
+      spriteFrameCache.addSpriteFrames(plistPath);
+      sprites = {};
+      if (mode === 'ui') {
+        sprites['menuMask'] = 'auto';
+        sprites['menuContainer'] = 'auto';
+        sprites['menuItemYes'] = 'auto';
+        sprites['menuItemNo'] = 'auto';
+        sprites['menuItemOk'] = 'auto';
+        sprites['menuItemThemeClassic'] = 'auto';
+        sprites['menuItemThemeChinese'] = 'auto';
+        sprites['menuItemThemeCircle'] = 'auto';
+        sprites['menuItemThemePolkadots'] = 'auto';
+        sprites['menuItemThemeSeamless'] = 'auto';
+        sprites['menuItemThemeSkullshearts'] = 'auto';
+        sprites['menuItemThemeSplash'] = 'auto';
+        sprites['menuItemThemeSpring'] = 'auto';
+        sprites['menuItemThemeStripes'] = 'auto';
+        sprites['menuItemThemeVivid'] = 'auto';
+      } else if (mode === 'theme') {
+        sprites['bg'] = 'auto';
+        sprites['cardplaybg'] = 'auto';
+        sprites['cardboardempty'] = 'auto';
+        sprites['cardboardyes'] = 'auto';
+        sprites['cardboardno'] = 'auto';
+        sprites['cardtouched'] = 'auto';
+        sprites['newBtn'] = 'auto';
+        sprites['retryBtn'] = 'auto';
+        sprites['hintBtn'] = 'auto';
+        sprites['soundOnBtn'] = 'auto';
+        sprites['soundOffBtn'] = 'auto';
+        sprites['themeBtn'] = 'auto';
+        sprites['undoBtn'] = 'auto';
+        cardBGSprite = cc.Sprite.createWithSpriteFrameName('cardbg.png');
+        box = cardBGSprite.getBoundingBox();
+        colors = ['D', 'S', 'H', 'C'];
+        ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        for (_i = 0, _len = colors.length; _i < _len; _i++) {
+          color = colors[_i];
+          for (_j = 0, _len1 = ranks.length; _j < _len1; _j++) {
+            rank = ranks[_j];
+            sprites['card_' + color + rank] = [
+              {
+                from: 'cardbg',
+                to: [0, 0]
+              }, {
+                from: 'rank_' + color + rank,
+                to: [box.width / 4, 3 * box.height / 4],
+                anchor: [0.5, 0.5]
+              }, {
+                from: 'big_' + color,
+                to: [2 * box.width / 4, box.height / 4],
+                anchor: [0.5, 0.5]
+              }, {
+                from: 'small_' + color,
+                to: [3 * box.width / 4, 3 * box.height / 4],
+                anchor: [0.5, 0.5]
+              }
+            ];
+          }
+        }
+      }
+      for (k in sprites) {
+        s = sprites[k];
+        if (s === 'auto') {
+          s = [
+            {
+              from: k,
+              to: [0, 0]
+            }
+          ];
+          node = cc.SpriteBatchNode.create(texturePath);
+          nodeSize = cc.size();
+          for (_k = 0, _len2 = s.length; _k < _len2; _k++) {
+            zone = s[_k];
+            if (!zone['anchor']) {
+              zone['anchor'] = [0, 0];
+            }
+            zonePosition = cc.p(zone['to'][0], zone['to'][1]);
+            zoneAnchor = cc.p(zone['anchor'][0], zone['anchor'][1]);
+            zoneSprite = cc.Sprite.createWithSpriteFrameName(zone['from'] + '.png');
+            zoneSprite.setAnchorPoint(zoneAnchor);
+            zoneSprite.setPosition(zonePosition);
+            node.addChild(zoneSprite);
+            box = zoneSprite.getBoundingBox();
+            nodeSize.width = Math.max(box.x + box.width, nodeSize.width);
+            nodeSize.height = Math.max(box.y + box.height, nodeSize.height);
+          }
+          node.setContentSize(nodeSize);
+          cpz.GameConfigCommon._configPaths[path + ':' + k] = node;
+        }
+      }
+      node = cpz.GameConfigCommon._configPaths[nodePath];
+    }
+    if (node) {
+      return cc.copySpriteBatchNode(node, sprite);
+    }
+  },
   _resolution: '',
   _theme: '',
   _isSoundOn: false,
@@ -19,8 +126,23 @@ cpz.GameConfigCommon = cc.Class.extend({
   init: function() {
     this._resolution = this.defaultResolution();
     this._theme = this.defaultTheme();
-    this._isSoundOn = true;
+    this._isSoundOn = false;
     return true;
+  },
+  getNodeUiPath: function(file, sprite) {
+    return this._getNodePath('ui', file, sprite);
+  },
+  getNodeThemePath: function(file, sprite) {
+    return this._getNodePath('theme', file, sprite);
+  },
+  getResolutionSize: function() {
+    var m;
+    m = this._resolution.match(/([0-9]+)x([0-9]+)/);
+    if (m) {
+      return cc.size(m[0], m[1]);
+    } else {
+      return cc.sizeZero();
+    }
   },
   defaultResolution: function() {
     return '480x320';
@@ -28,14 +150,6 @@ cpz.GameConfigCommon = cc.Class.extend({
   defaultTheme: function() {
     return 'chinese';
   },
-  getRootPath: function(file) {},
-  getResolutionPath: function(file) {},
-  getUiPath: function(file) {},
-  getThemePath: function(file) {},
-  getFontPath: function(file) {},
-  getNodeUiPath: function(file, sprite) {},
-  getNodeThemePath: function(file, sprite) {},
-  getResolutionSize: function() {},
   getResolution: function() {
     return this._resolution;
   },
@@ -65,8 +179,42 @@ cpz.GameConfigCommon = cc.Class.extend({
   },
   encode: function() {},
   decode: function(data) {},
-  save: function() {},
-  load: function() {}
+  save: function() {
+    return true;
+  },
+  load: function() {
+    return false;
+  }
 });
 
+cpz.GameConfigCommon._configPaths = {};
+
 cpz.GameConfigCommon.XML_FILE_NAME = 'chinesePuzzleConf.plist';
+
+cpz.GameConfigCommon.getRootPath = function(file) {
+  return cpz.CommonPath + file;
+};
+
+cpz.GameConfigCommon.getResolutionPath = function(file, resolution) {
+  return cpz.CommonPath + resolution + '/' + file;
+};
+
+cpz.GameConfigCommon.getUiPath = function(file, resolution) {
+  return cpz.CommonPath + resolution + '/ui/' + file;
+};
+
+cpz.GameConfigCommon.getThemePath = function(file, resolution, theme) {
+  return cpz.CommonPath + resolution + '/themes/' + theme + '/' + file;
+};
+
+cpz.GameConfigCommon.getFontPath = function(file) {
+  return cpz.CommonPath + 'fonts/' + file;
+};
+
+cpz.GameConfigCommon.getResolutions = function() {
+  return ['480x320', '960x640', '1024x768', '1280x800', '1280x1024', '1366x768', '1440x900', '1680x1050', '1920x1080', '1920x1200'];
+};
+
+cpz.GameConfigCommon.getThemes = function() {
+  return ['chinese', 'circle', 'classic', 'polkadots', 'seamless', 'shullshearts', 'splash', 'spring', 'stripes', 'vivid'];
+};

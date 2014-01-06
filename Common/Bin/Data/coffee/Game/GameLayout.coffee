@@ -17,8 +17,8 @@ cpz.GameZOrder =
 
 cpz.GameLayout = cc.Class.extend(
   _layoutRes: (key) ->
-    if cpz.GameLayout.res is null
-      cpz.GameLayout.res =
+    if cpz.GameLayout._res is null
+      cpz.GameLayout._res =
         '480x320':
           gridCardSize: cc.size(26,36)
           gridSpaceSize: cc.size(4, 4)
@@ -121,7 +121,7 @@ cpz.GameLayout = cc.Class.extend(
           themeBtn: cc.p(1825,95)
 
     res = @_game.getGameScene().getConf().getResolution()
-    cpz.GameLayout.res[res][key]
+    cpz.GameLayout._res[res][key]
     
   _actionBtn: (btn) ->
     if btn is @_newBtn
@@ -239,7 +239,7 @@ cpz.GameLayout = cc.Class.extend(
   tapDownAt: (location) ->
     for btn in @_activesBtn
       local = btn.convertToNodeSpace location
-      rect = btn.boundingBox()
+      rect = btn.getBoundingBox()
       rect.origin = cc.PointZero()
       rect.size= cc.SizeMake(rect.size.width * 2, rect.size.height * 2)
 
@@ -264,4 +264,4 @@ cpz.GameLayout = cc.Class.extend(
            Math.floor((point.x - @_gridPosition.x - 0.5) / (@_gridCardSize.width + @_gridSpaceSize.width))
 )
 
-cpz.GameLayout.res = null
+cpz.GameLayout._res = null

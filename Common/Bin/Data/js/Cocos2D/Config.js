@@ -11,9 +11,34 @@ cc.textureNull = function() {
   return new cc.Texture2D();
 };
 
-cc.copySpriteBatchNode = function(from, to) {};
+cc.copySpriteBatchNode = function(from, to) {
+  var child, zoneSprite, _i, _len, _ref;
+  if (!(to instanceof cc.SpriteBatchNode && from instanceof cc.SpriteBatchNode)) {
+    return;
+  }
+  to.removeAllChildrenWithCleanup(true);
+  to.setTexture(from.getTexture());
+  _ref = from.getChildren();
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    child = _ref[_i];
+    zoneSprite = cc.Sprite.createWithTexture(to.getTexture(), child.getTextureRect());
+    zoneSprite.setAnchorPoint(child.getAnchorPoint());
+    zoneSprite.setPosition(child.getPosition());
+    to.addChild(zoneSprite);
+  }
+  to.setContentSize(from.getContentSize());
+  return to.setAnchorPoint(cc.p(0.5, 0.5));
+};
 
-cc.copyFirstSpriteBatchNode = function(sprite) {};
+cc.copyFirstSpriteBatchNode = function(sprite) {
+  var child, _i, _len, _ref;
+  _ref = sprite.getChildren();
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    child = _ref[_i];
+    return cc.Sprite.createWithTexture(child.getTexture(), child.getTextureRect());
+  }
+  return null;
+};
 
 /*
 Shuffle array
