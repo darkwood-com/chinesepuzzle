@@ -16,7 +16,7 @@ cc.copySpriteBatchNode = function(from, to) {
   if (!(to instanceof cc.SpriteBatchNode && from instanceof cc.SpriteBatchNode)) {
     return;
   }
-  to.removeAllChildrenWithCleanup(true);
+  to.removeAllChildren(true);
   to.setTexture(from.getTexture());
   _ref = from.getChildren();
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {

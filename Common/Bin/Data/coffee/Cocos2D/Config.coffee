@@ -13,8 +13,8 @@ cc.textureNull = -> new cc.Texture2D()
 
 cc.copySpriteBatchNode = (from, to) ->
   return unless to instanceof cc.SpriteBatchNode and from instanceof cc.SpriteBatchNode
-  
-  to.removeAllChildrenWithCleanup(true)
+
+  to.removeAllChildren(true)
   to.setTexture(from.getTexture())
 
   for child in from.getChildren()
