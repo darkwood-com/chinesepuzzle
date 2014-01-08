@@ -89,7 +89,7 @@ cpz.GameConfigCommon = cc.Class.extend({
             }
           ];
           node = cc.SpriteBatchNode.create(texturePath);
-          nodeSize = cc.size();
+          nodeSize = cc.SizeZero();
           for (_k = 0, _len2 = s.length; _k < _len2; _k++) {
             zone = s[_k];
             if (!zone['anchor']) {
@@ -109,7 +109,7 @@ cpz.GameConfigCommon = cc.Class.extend({
           cpz.GameConfigCommon._configPaths[path + ':' + k] = node;
         }
       }
-      node = cpz.GameConfigCommon._configPaths[nodePath];
+      this._getNodePath(mode, file, path);
     }
     if (node) {
       return cc.copySpriteBatchNode(node, sprite);
@@ -184,6 +184,24 @@ cpz.GameConfigCommon = cc.Class.extend({
   },
   load: function() {
     return false;
+  },
+  preload: function(selector, target) {
+    var plistThemePath, plistUIPath, textureThemePath, textureUIPath;
+    plistThemePath = cpz.CommonPath + this._resolution + '/themes/' + this._theme + '.plist';
+    textureThemePath = cpz.CommonPath + this._resolution + '/themes/' + this._theme + '.png';
+    plistUIPath = cpz.CommonPath + this._resolution + '/ui' + '.plist';
+    textureUIPath = cpz.CommonPath + this._resolution + '/ui' + '.png';
+    return cc.Loader.preload([
+      {
+        src: plistThemePath
+      }, {
+        src: textureThemePath
+      }, {
+        src: plistUIPath
+      }, {
+        src: textureUIPath
+      }
+    ], selector, target);
   }
 });
 

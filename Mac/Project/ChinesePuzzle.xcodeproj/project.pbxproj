@@ -32,6 +32,16 @@
 		C38D11D118634E7B00F8159A /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CE18634E7B00F8159A /* lang-de.plist */; };
 		C38D11D218634E7B00F8159A /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CF18634E7B00F8159A /* lang-en.plist */; };
 		C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11D018634E7B00F8159A /* lang-fr.plist */; };
+		C3D0ED31187C62BF00CDDB9C /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED27187C62BF00CDDB9C /* 480x320 */; };
+		C3D0ED32187C62BF00CDDB9C /* 960x640 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED28187C62BF00CDDB9C /* 960x640 */; };
+		C3D0ED33187C62BF00CDDB9C /* 1024x768 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED29187C62BF00CDDB9C /* 1024x768 */; };
+		C3D0ED34187C62BF00CDDB9C /* 1280x800 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2A187C62BF00CDDB9C /* 1280x800 */; };
+		C3D0ED35187C62BF00CDDB9C /* 1280x1024 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2B187C62BF00CDDB9C /* 1280x1024 */; };
+		C3D0ED36187C62BF00CDDB9C /* 1366x768 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2C187C62BF00CDDB9C /* 1366x768 */; };
+		C3D0ED37187C62BF00CDDB9C /* 1440x900 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2D187C62BF00CDDB9C /* 1440x900 */; };
+		C3D0ED38187C62BF00CDDB9C /* 1680x1050 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2E187C62BF00CDDB9C /* 1680x1050 */; };
+		C3D0ED39187C62BF00CDDB9C /* 1920x1080 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2F187C62BF00CDDB9C /* 1920x1080 */; };
+		C3D0ED3A187C62BF00CDDB9C /* 1920x1200 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED30187C62BF00CDDB9C /* 1920x1200 */; };
 		C3F4E9261861E78900230ABA /* mac in Resources */ = {isa = PBXBuildFile; fileRef = C3F4E9251861E78900230ABA /* mac */; };
 		C3F6251318605C8B0055BBF0 /* jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009018605C7A0055BBF0 /* jsb.js */; };
 		C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */; };
@@ -186,6 +196,16 @@
 		C38D11CE18634E7B00F8159A /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
 		C38D11CF18634E7B00F8159A /* lang-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-en.plist"; path = "../Bin/Data/lang-en.plist"; sourceTree = "<group>"; };
 		C38D11D018634E7B00F8159A /* lang-fr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-fr.plist"; path = "../Bin/Data/lang-fr.plist"; sourceTree = "<group>"; };
+		C3D0ED27187C62BF00CDDB9C /* 480x320 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 480x320; path = ../Bin/Data/480x320; sourceTree = "<group>"; };
+		C3D0ED28187C62BF00CDDB9C /* 960x640 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 960x640; path = ../Bin/Data/960x640; sourceTree = "<group>"; };
+		C3D0ED29187C62BF00CDDB9C /* 1024x768 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1024x768; path = ../Bin/Data/1024x768; sourceTree = "<group>"; };
+		C3D0ED2A187C62BF00CDDB9C /* 1280x800 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1280x800; path = ../Bin/Data/1280x800; sourceTree = "<group>"; };
+		C3D0ED2B187C62BF00CDDB9C /* 1280x1024 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1280x1024; path = ../Bin/Data/1280x1024; sourceTree = "<group>"; };
+		C3D0ED2C187C62BF00CDDB9C /* 1366x768 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1366x768; path = ../Bin/Data/1366x768; sourceTree = "<group>"; };
+		C3D0ED2D187C62BF00CDDB9C /* 1440x900 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1440x900; path = ../Bin/Data/1440x900; sourceTree = "<group>"; };
+		C3D0ED2E187C62BF00CDDB9C /* 1680x1050 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1680x1050; path = ../Bin/Data/1680x1050; sourceTree = "<group>"; };
+		C3D0ED2F187C62BF00CDDB9C /* 1920x1080 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1080; path = ../Bin/Data/1920x1080; sourceTree = "<group>"; };
+		C3D0ED30187C62BF00CDDB9C /* 1920x1200 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1200; path = ../Bin/Data/1920x1200; sourceTree = "<group>"; };
 		C3F4E9251861E78900230ABA /* mac */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mac; sourceTree = "<group>"; };
 		C3F6009018605C7A0055BBF0 /* jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb.js; sourceTree = "<group>"; };
 		C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb_chipmunk.js; sourceTree = "<group>"; };
@@ -397,6 +417,16 @@
 		C3F63CBC18605FE00055BBF0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C3D0ED27187C62BF00CDDB9C /* 480x320 */,
+				C3D0ED28187C62BF00CDDB9C /* 960x640 */,
+				C3D0ED29187C62BF00CDDB9C /* 1024x768 */,
+				C3D0ED2A187C62BF00CDDB9C /* 1280x800 */,
+				C3D0ED2B187C62BF00CDDB9C /* 1280x1024 */,
+				C3D0ED2C187C62BF00CDDB9C /* 1366x768 */,
+				C3D0ED2D187C62BF00CDDB9C /* 1440x900 */,
+				C3D0ED2E187C62BF00CDDB9C /* 1680x1050 */,
+				C3D0ED2F187C62BF00CDDB9C /* 1920x1080 */,
+				C3D0ED30187C62BF00CDDB9C /* 1920x1200 */,
 				C3F63CBD18605FF00055BBF0 /* js */,
 				C38D11CE18634E7B00F8159A /* lang-de.plist */,
 				C38D11CF18634E7B00F8159A /* lang-en.plist */,
@@ -651,28 +681,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D0ED31187C62BF00CDDB9C /* 480x320 in Resources */,
 				C3F63CBE18605FF00055BBF0 /* js in Resources */,
 				C3F4E9261861E78900230ABA /* mac in Resources */,
 				C3F63CAD18605D3B0055BBF0 /* debugger in Resources */,
 				C3F6251818605C8B0055BBF0 /* jsb_cocos2d_extension.js in Resources */,
 				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
+				C3D0ED39187C62BF00CDDB9C /* 1920x1080 in Resources */,
 				C3F6251318605C8B0055BBF0 /* jsb.js in Resources */,
 				C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */,
+				C3D0ED32187C62BF00CDDB9C /* 960x640 in Resources */,
 				C3F6251718605C8B0055BBF0 /* jsb_cocos2d_constants.js in Resources */,
 				C308BC351873267F0009A134 /* sound in Resources */,
 				C3F6251C18605C8B0055BBF0 /* jsb_debugger.js in Resources */,
+				C3D0ED38187C62BF00CDDB9C /* 1680x1050 in Resources */,
+				C3D0ED35187C62BF00CDDB9C /* 1280x1024 in Resources */,
 				C3F6251A18605C8B0055BBF0 /* jsb_cocos2d_studio.js in Resources */,
 				C3F6251D18605C8B0055BBF0 /* jsb_deprecated.js in Resources */,
 				C38D11D118634E7B00F8159A /* lang-de.plist in Resources */,
+				C3D0ED34187C62BF00CDDB9C /* 1280x800 in Resources */,
 				C3F6252018605C8B0055BBF0 /* jsb_sys.js in Resources */,
 				C3F6251E18605C8B0055BBF0 /* jsb_opengl.js in Resources */,
 				C3F6251B18605C8B0055BBF0 /* jsb_cocosbuilder.js in Resources */,
 				C3F6251518605C8B0055BBF0 /* jsb_chipmunk_constants.js in Resources */,
+				C3D0ED36187C62BF00CDDB9C /* 1366x768 in Resources */,
+				C3D0ED3A187C62BF00CDDB9C /* 1920x1200 in Resources */,
 				C3F6251918605C8B0055BBF0 /* jsb_cocos2d_gui.js in Resources */,
+				C3D0ED37187C62BF00CDDB9C /* 1440x900 in Resources */,
 				C3F6251F18605C8B0055BBF0 /* jsb_opengl_constants.js in Resources */,
 				C38D11D218634E7B00F8159A /* lang-en.plist in Resources */,
 				C3F6251618605C8B0055BBF0 /* jsb_cocos2d.js in Resources */,
 				C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */,
+				C3D0ED33187C62BF00CDDB9C /* 1024x768 in Resources */,
 				C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */,
 				C3232F5A1850C0BB00AABA84 /* ChinesePuzzleApp.icns in Resources */,
 				C3232F5B1850C0BB00AABA84 /* Credits.rtf in Resources */,

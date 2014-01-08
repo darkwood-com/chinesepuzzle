@@ -40,10 +40,12 @@ cpz.GameSceneCommon = cc.Scene.extend({
     this._conf = new cpz.GameConfig();
     this._conf.init();
     this._conf.load();
-    this.playBackgroundMusic(this._conf.getIsSoundOn());
-    this._game = null;
-    this._menu = null;
-    this.game();
+    this._conf.preload(function() {
+      this.playBackgroundMusic(this._conf.getIsSoundOn());
+      this._game = null;
+      this._menu = null;
+      return this.game();
+    }, this);
     return true;
   },
   game: function() {

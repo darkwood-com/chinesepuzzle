@@ -19,7 +19,7 @@ cpz.GameConfigCommon = cc.Class.extend(
       spriteFrameCache = cc.SpriteFrameCache.getInstance()
       spriteFrameCache.removeSpriteFramesFromFile(plistPath)
       spriteFrameCache.addSpriteFrames(plistPath)
-      
+
       sprites = {}
       if mode is 'ui'
         sprites['menuMask'] =                  'auto'
@@ -54,7 +54,7 @@ cpz.GameConfigCommon = cc.Class.extend(
 
         cardBGSprite = cc.Sprite.createWithSpriteFrameName 'cardbg.png'
         box = cardBGSprite.getBoundingBox()
-        
+
         colors = ['D', 'S', 'H', 'C']
         ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
         for color in colors
@@ -84,20 +84,20 @@ cpz.GameConfigCommon = cc.Class.extend(
           ]
 
           node = cc.SpriteBatchNode.create texturePath
-          
-          nodeSize = cc.size()
+
+          nodeSize = cc.SizeZero()
           for zone in s
             unless zone['anchor']
               zone['anchor'] = [0, 0]
 
             zonePosition = cc.p(zone['to'][0], zone['to'][1])
             zoneAnchor = cc.p(zone['anchor'][0], zone['anchor'][1])
-        
+
             zoneSprite = cc.Sprite.createWithSpriteFrameName(zone['from'] + '.png')
             zoneSprite.setAnchorPoint zoneAnchor
             zoneSprite.setPosition zonePosition
             node.addChild zoneSprite
-        
+
             box = zoneSprite.getBoundingBox()
             nodeSize.width = Math.max box.x + box.width, nodeSize.width
             nodeSize.height = Math.max box.y + box.height, nodeSize.height
@@ -106,7 +106,7 @@ cpz.GameConfigCommon = cc.Class.extend(
 
           cpz.GameConfigCommon._configPaths[path + ':' + k] = node
 
-      node = cpz.GameConfigCommon._configPaths[nodePath]
+      @_getNodePath(mode, file, path)
 
     cc.copySpriteBatchNode(node, sprite) if node
 
@@ -150,6 +150,22 @@ cpz.GameConfigCommon = cc.Class.extend(
 
   save: -> true
   load: -> false
+
+  preload: (selector, target) ->
+    plistThemePath = cpz.CommonPath + @_resolution + '/themes/' + @_theme  + '.plist'
+    textureThemePath = cpz.CommonPath + @_resolution + '/themes/' + @_theme + '.png'
+    plistUIPath = cpz.CommonPath + @_resolution + '/ui' + '.plist'
+    textureUIPath = cpz.CommonPath + @_resolution + '/ui' + '.png'
+
+    cc.Loader.preload [
+      src: plistThemePath
+    ,
+      src: textureThemePath
+    ,
+      src: plistUIPath
+    ,
+      src: textureUIPath
+    ], selector, target
 )
 
 cpz.GameConfigCommon._configPaths = {};

@@ -50,7 +50,9 @@ var cocos2dApp = cc.Application.extend({
 
         //load resources
         cc.LoaderScene.preload(cpz.Resources, function () {
-            director.replaceScene(cpz.GameScene.create());
+            setTimeout(function() {
+                director.replaceScene(cpz.GameScene.create());
+            }, 100);
         }, this);
 
         return true;
