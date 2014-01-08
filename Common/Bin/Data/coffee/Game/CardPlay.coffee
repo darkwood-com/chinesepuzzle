@@ -60,15 +60,32 @@ cpz.CardPlay = cpz.Card.extend(
     true
 
   isNextToCardPlay: (cardPlay) ->
+    cardPlay and @_color is cardPlay._color and @_rank is cardPlay._rank + 1
 
   setConf: (conf) ->
+    @_faceSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull() unless @_faceSprite
+    @_backSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull() unless @_backSprite
+
+    #conf.getNodeThemePath 'card_' + cpz.CardPlay.matchColor(@_color) + cpz.CardPlay.matchRank(@_rank), @_faceSprite
+    conf.getNodeThemePath 'cardplaybg', @_backSprite
+
+    @setIsFaceUp @getIsFaceUp(), true
 
   getColor: -> @_color
   getRank: -> @_rank
   getIsLocked: -> @_isLocked
   setIsLocked: (@_isLocked) -> @
   getIsFaceUp: -> @_isFaceUp
-  setIsFaceUp: (@_isFaceUp, force) -> @
+  setIsFaceUp: (isFaceUp, force) ->
+    if @_isFaceUp isnt isFaceUp or force
+      @_isFaceUp = isFaceUp
+
+      if @_isFaceUp
+        cc.copySpriteBatchNode(@_faceSprite, @)
+      else
+        cc.copySpriteBatchNode(@_backSprite, @)
+
+    @
 )
 
 cpz.CardPlay.createWithConfAndColorAndRank = (conf, color, rank) ->
@@ -77,6 +94,51 @@ cpz.CardPlay.createWithConfAndColorAndRank = (conf, color, rank) ->
   null
 
 cpz.CardPlay.matchColor = (color) ->
-cpz.CardPlay.matchColor = (color) ->
+  if typeof color is 'string'
+    switch color
+      when 'S' then cpz.CardPlayColor.Spade
+      when 'C' then cpz.CardPlayColor.Club
+      when 'H' then cpz.CardPlayColor.Heart
+      when 'D' then cpz.CardPlayColor.Diamond
+      else cpz.CardPlayColor.Spade
+  else
+    switch color
+      when cpz.CardPlayColor.Spade then 'S'
+      when cpz.CardPlayColor.Club then 'C'
+      when cpz.CardPlayColor.Heart then 'H'
+      when cpz.CardPlayColor.Diamond then 'D'
+      else 'D'
+
 cpz.CardPlay.matchRank = (rank) ->
-cpz.CardPlay.matchRank = (rank) ->
+  if typeof rank is 'string'
+    switch
+      when 'A' then cpz.CardPlayRank.Ace
+      when '2' then cpz.CardPlayRank.Two
+      when '3' then cpz.CardPlayRank.Three
+      when '4' then cpz.CardPlayRank.Four
+      when '5' then cpz.CardPlayRank.Five
+      when '6' then cpz.CardPlayRank.Six
+      when '7' then cpz.CardPlayRank.Seven
+      when '8' then cpz.CardPlayRank.Eight
+      when '9' then cpz.CardPlayRank.Nine
+      when '10' then cpz.CardPlayRank.Ten
+      when '11' then cpz.CardPlayRank.Jack
+      when '12' then cpz.CardPlayRank.Queen
+      when '13' then cpz.CardPlayRank.King
+      else cpz.CardPlayRank.Ace
+  else
+    switch
+      when cpz.CardPlayRank.Ace then 'A'
+      when cpz.CardPlayRank.Two then '2'
+      when cpz.CardPlayRank.Three then '3'
+      when cpz.CardPlayRank.Four then '4'
+      when cpz.CardPlayRank.Five then '5'
+      when cpz.CardPlayRank.Six then '6'
+      when cpz.CardPlayRank.Seven then '7'
+      when cpz.CardPlayRank.Eight then '8'
+      when cpz.CardPlayRank.Nine then '9'
+      when cpz.CardPlayRank.Ten then '10'
+      when cpz.CardPlayRank.Jack then '11'
+      when cpz.CardPlayRank.Queen then '12'
+      when cpz.CardPlayRank.King then '13'
+      else 'A'

@@ -56,8 +56,19 @@ cpz.CardPlay = cpz.Card.extend({
     this.setConf(conf);
     return true;
   },
-  isNextToCardPlay: function(cardPlay) {},
-  setConf: function(conf) {},
+  isNextToCardPlay: function(cardPlay) {
+    return cardPlay && this._color === cardPlay._color && this._rank === cardPlay._rank + 1;
+  },
+  setConf: function(conf) {
+    if (!this._faceSprite) {
+      this._faceSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+    }
+    if (!this._backSprite) {
+      this._backSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+    }
+    conf.getNodeThemePath('cardplaybg', this._backSprite);
+    return this.setIsFaceUp(this.getIsFaceUp(), true);
+  },
   getColor: function() {
     return this._color;
   },
@@ -74,8 +85,15 @@ cpz.CardPlay = cpz.Card.extend({
   getIsFaceUp: function() {
     return this._isFaceUp;
   },
-  setIsFaceUp: function(_isFaceUp, force) {
-    this._isFaceUp = _isFaceUp;
+  setIsFaceUp: function(isFaceUp, force) {
+    if (this._isFaceUp !== isFaceUp || force) {
+      this._isFaceUp = isFaceUp;
+      if (this._isFaceUp) {
+        cc.copySpriteBatchNode(this._faceSprite, this);
+      } else {
+        cc.copySpriteBatchNode(this._backSprite, this);
+      }
+    }
     return this;
   }
 });
@@ -89,10 +107,98 @@ cpz.CardPlay.createWithConfAndColorAndRank = function(conf, color, rank) {
   return null;
 };
 
-cpz.CardPlay.matchColor = function(color) {};
+cpz.CardPlay.matchColor = function(color) {
+  if (typeof color === 'string') {
+    switch (color) {
+      case 'S':
+        return cpz.CardPlayColor.Spade;
+      case 'C':
+        return cpz.CardPlayColor.Club;
+      case 'H':
+        return cpz.CardPlayColor.Heart;
+      case 'D':
+        return cpz.CardPlayColor.Diamond;
+      default:
+        return cpz.CardPlayColor.Spade;
+    }
+  } else {
+    switch (color) {
+      case cpz.CardPlayColor.Spade:
+        return 'S';
+      case cpz.CardPlayColor.Club:
+        return 'C';
+      case cpz.CardPlayColor.Heart:
+        return 'H';
+      case cpz.CardPlayColor.Diamond:
+        return 'D';
+      default:
+        return 'D';
+    }
+  }
+};
 
-cpz.CardPlay.matchColor = function(color) {};
-
-cpz.CardPlay.matchRank = function(rank) {};
-
-cpz.CardPlay.matchRank = function(rank) {};
+cpz.CardPlay.matchRank = function(rank) {
+  if (typeof rank === 'string') {
+    switch (false) {
+      case !'A':
+        return cpz.CardPlayRank.Ace;
+      case !'2':
+        return cpz.CardPlayRank.Two;
+      case !'3':
+        return cpz.CardPlayRank.Three;
+      case !'4':
+        return cpz.CardPlayRank.Four;
+      case !'5':
+        return cpz.CardPlayRank.Five;
+      case !'6':
+        return cpz.CardPlayRank.Six;
+      case !'7':
+        return cpz.CardPlayRank.Seven;
+      case !'8':
+        return cpz.CardPlayRank.Eight;
+      case !'9':
+        return cpz.CardPlayRank.Nine;
+      case !'10':
+        return cpz.CardPlayRank.Ten;
+      case !'11':
+        return cpz.CardPlayRank.Jack;
+      case !'12':
+        return cpz.CardPlayRank.Queen;
+      case !'13':
+        return cpz.CardPlayRank.King;
+      default:
+        return cpz.CardPlayRank.Ace;
+    }
+  } else {
+    switch (false) {
+      case !cpz.CardPlayRank.Ace:
+        return 'A';
+      case !cpz.CardPlayRank.Two:
+        return '2';
+      case !cpz.CardPlayRank.Three:
+        return '3';
+      case !cpz.CardPlayRank.Four:
+        return '4';
+      case !cpz.CardPlayRank.Five:
+        return '5';
+      case !cpz.CardPlayRank.Six:
+        return '6';
+      case !cpz.CardPlayRank.Seven:
+        return '7';
+      case !cpz.CardPlayRank.Eight:
+        return '8';
+      case !cpz.CardPlayRank.Nine:
+        return '9';
+      case !cpz.CardPlayRank.Ten:
+        return '10';
+      case !cpz.CardPlayRank.Jack:
+        return '11';
+      case !cpz.CardPlayRank.Queen:
+        return '12';
+      case !cpz.CardPlayRank.King:
+        return '13';
+      default:
+        return 'A';
+    }
+  }
+};
