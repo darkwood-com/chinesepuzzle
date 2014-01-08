@@ -83,30 +83,30 @@ cpz.GameConfigCommon = cc.Class.extend(
             to: [0, 0]
           ]
 
-          node = cc.SpriteBatchNode.create texturePath
+        node = cc.SpriteBatchNode.create texturePath
 
-          nodeSize = cc.SizeZero()
-          for zone in s
-            unless zone['anchor']
-              zone['anchor'] = [0, 0]
+        nodeSize = cc.SizeZero()
+        for zone in s
+          unless zone['anchor']
+            zone['anchor'] = [0, 0]
 
-            zonePosition = cc.p(zone['to'][0], zone['to'][1])
-            zoneAnchor = cc.p(zone['anchor'][0], zone['anchor'][1])
+          zonePosition = cc.p(zone['to'][0], zone['to'][1])
+          zoneAnchor = cc.p(zone['anchor'][0], zone['anchor'][1])
 
-            zoneSprite = cc.Sprite.createWithSpriteFrameName(zone['from'] + '.png')
-            zoneSprite.setAnchorPoint zoneAnchor
-            zoneSprite.setPosition zonePosition
-            node.addChild zoneSprite
+          zoneSprite = cc.Sprite.createWithSpriteFrameName(zone['from'] + '.png')
+          zoneSprite.setAnchorPoint zoneAnchor
+          zoneSprite.setPosition zonePosition
+          node.addChild zoneSprite
 
-            box = zoneSprite.getBoundingBox()
-            nodeSize.width = Math.max box.x + box.width, nodeSize.width
-            nodeSize.height = Math.max box.y + box.height, nodeSize.height
+          box = zoneSprite.getBoundingBox()
+          nodeSize.width = Math.max box.x + box.width, nodeSize.width
+          nodeSize.height = Math.max box.y + box.height, nodeSize.height
 
-          node.setContentSize(nodeSize)
+        node.setContentSize(nodeSize)
 
-          cpz.GameConfigCommon._configPaths[path + ':' + k] = node
+        cpz.GameConfigCommon._configPaths[path + ':' + k] = node
 
-      @_getNodePath(mode, file, path)
+      node = cpz.GameConfigCommon._configPaths[nodePath]
 
     cc.copySpriteBatchNode(node, sprite) if node
 

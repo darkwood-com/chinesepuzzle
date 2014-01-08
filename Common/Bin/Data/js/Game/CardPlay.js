@@ -66,6 +66,7 @@ cpz.CardPlay = cpz.Card.extend({
     if (!this._backSprite) {
       this._backSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
     }
+    conf.getNodeThemePath('card_' + cpz.CardPlay.matchColor(this._color) + cpz.CardPlay.matchRank(this._rank), this._faceSprite);
     conf.getNodeThemePath('cardplaybg', this._backSprite);
     return this.setIsFaceUp(this.getIsFaceUp(), true);
   },
@@ -89,9 +90,9 @@ cpz.CardPlay = cpz.Card.extend({
     if (this._isFaceUp !== isFaceUp || force) {
       this._isFaceUp = isFaceUp;
       if (this._isFaceUp) {
-        cc.copySpriteBatchNode(this._faceSprite, this);
+        cc.copySpriteBatchNode(this._faceSprite, this._batchNode);
       } else {
-        cc.copySpriteBatchNode(this._backSprite, this);
+        cc.copySpriteBatchNode(this._backSprite, this._batchNode);
       }
     }
     return this;
@@ -139,64 +140,64 @@ cpz.CardPlay.matchColor = function(color) {
 
 cpz.CardPlay.matchRank = function(rank) {
   if (typeof rank === 'string') {
-    switch (false) {
-      case !'A':
+    switch (rank) {
+      case 'A':
         return cpz.CardPlayRank.Ace;
-      case !'2':
+      case '2':
         return cpz.CardPlayRank.Two;
-      case !'3':
+      case '3':
         return cpz.CardPlayRank.Three;
-      case !'4':
+      case '4':
         return cpz.CardPlayRank.Four;
-      case !'5':
+      case '5':
         return cpz.CardPlayRank.Five;
-      case !'6':
+      case '6':
         return cpz.CardPlayRank.Six;
-      case !'7':
+      case '7':
         return cpz.CardPlayRank.Seven;
-      case !'8':
+      case '8':
         return cpz.CardPlayRank.Eight;
-      case !'9':
+      case '9':
         return cpz.CardPlayRank.Nine;
-      case !'10':
+      case '10':
         return cpz.CardPlayRank.Ten;
-      case !'11':
+      case 'J':
         return cpz.CardPlayRank.Jack;
-      case !'12':
+      case 'Q':
         return cpz.CardPlayRank.Queen;
-      case !'13':
+      case 'K':
         return cpz.CardPlayRank.King;
       default:
         return cpz.CardPlayRank.Ace;
     }
   } else {
-    switch (false) {
-      case !cpz.CardPlayRank.Ace:
+    switch (rank) {
+      case cpz.CardPlayRank.Ace:
         return 'A';
-      case !cpz.CardPlayRank.Two:
+      case cpz.CardPlayRank.Two:
         return '2';
-      case !cpz.CardPlayRank.Three:
+      case cpz.CardPlayRank.Three:
         return '3';
-      case !cpz.CardPlayRank.Four:
+      case cpz.CardPlayRank.Four:
         return '4';
-      case !cpz.CardPlayRank.Five:
+      case cpz.CardPlayRank.Five:
         return '5';
-      case !cpz.CardPlayRank.Six:
+      case cpz.CardPlayRank.Six:
         return '6';
-      case !cpz.CardPlayRank.Seven:
+      case cpz.CardPlayRank.Seven:
         return '7';
-      case !cpz.CardPlayRank.Eight:
+      case cpz.CardPlayRank.Eight:
         return '8';
-      case !cpz.CardPlayRank.Nine:
+      case cpz.CardPlayRank.Nine:
         return '9';
-      case !cpz.CardPlayRank.Ten:
+      case cpz.CardPlayRank.Ten:
         return '10';
-      case !cpz.CardPlayRank.Jack:
-        return '11';
-      case !cpz.CardPlayRank.Queen:
-        return '12';
-      case !cpz.CardPlayRank.King:
-        return '13';
+      case cpz.CardPlayRank.Jack:
+        return 'J';
+      case cpz.CardPlayRank.Queen:
+        return 'Q';
+      case cpz.CardPlayRank.King:
+        return 'K';
       default:
         return 'A';
     }

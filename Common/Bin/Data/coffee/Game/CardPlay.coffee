@@ -66,7 +66,7 @@ cpz.CardPlay = cpz.Card.extend(
     @_faceSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull() unless @_faceSprite
     @_backSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull() unless @_backSprite
 
-    #conf.getNodeThemePath 'card_' + cpz.CardPlay.matchColor(@_color) + cpz.CardPlay.matchRank(@_rank), @_faceSprite
+    conf.getNodeThemePath 'card_' + cpz.CardPlay.matchColor(@_color) + cpz.CardPlay.matchRank(@_rank), @_faceSprite
     conf.getNodeThemePath 'cardplaybg', @_backSprite
 
     @setIsFaceUp @getIsFaceUp(), true
@@ -81,9 +81,9 @@ cpz.CardPlay = cpz.Card.extend(
       @_isFaceUp = isFaceUp
 
       if @_isFaceUp
-        cc.copySpriteBatchNode(@_faceSprite, @)
+        cc.copySpriteBatchNode(@_faceSprite, @_batchNode)
       else
-        cc.copySpriteBatchNode(@_backSprite, @)
+        cc.copySpriteBatchNode(@_backSprite, @_batchNode)
 
     @
 )
@@ -111,7 +111,7 @@ cpz.CardPlay.matchColor = (color) ->
 
 cpz.CardPlay.matchRank = (rank) ->
   if typeof rank is 'string'
-    switch
+    switch rank
       when 'A' then cpz.CardPlayRank.Ace
       when '2' then cpz.CardPlayRank.Two
       when '3' then cpz.CardPlayRank.Three
@@ -122,12 +122,12 @@ cpz.CardPlay.matchRank = (rank) ->
       when '8' then cpz.CardPlayRank.Eight
       when '9' then cpz.CardPlayRank.Nine
       when '10' then cpz.CardPlayRank.Ten
-      when '11' then cpz.CardPlayRank.Jack
-      when '12' then cpz.CardPlayRank.Queen
-      when '13' then cpz.CardPlayRank.King
+      when 'J' then cpz.CardPlayRank.Jack
+      when 'Q' then cpz.CardPlayRank.Queen
+      when 'K' then cpz.CardPlayRank.King
       else cpz.CardPlayRank.Ace
   else
-    switch
+    switch rank
       when cpz.CardPlayRank.Ace then 'A'
       when cpz.CardPlayRank.Two then '2'
       when cpz.CardPlayRank.Three then '3'
@@ -138,7 +138,7 @@ cpz.CardPlay.matchRank = (rank) ->
       when cpz.CardPlayRank.Eight then '8'
       when cpz.CardPlayRank.Nine then '9'
       when cpz.CardPlayRank.Ten then '10'
-      when cpz.CardPlayRank.Jack then '11'
-      when cpz.CardPlayRank.Queen then '12'
-      when cpz.CardPlayRank.King then '13'
+      when cpz.CardPlayRank.Jack then 'J'
+      when cpz.CardPlayRank.Queen then 'Q'
+      when cpz.CardPlayRank.King then 'K'
       else 'A'
