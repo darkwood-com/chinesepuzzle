@@ -221,7 +221,6 @@ cpz.Game = cc.Layer.extend({
               }
               if (!card.getIsFaceUp()) {
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0));
-                actions.push(cpz.CardPlayFlipAction.create(card));
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0));
               }
               card.runAction(cc.Sequence.create(actions));

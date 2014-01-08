@@ -219,7 +219,7 @@ cpz.Game = cc.Layer.extend(
                 actions.push cc.MoveTo.create(1.0, coordPos)
               unless card.getIsFaceUp()
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0)
-                actions.push cpz.CardPlayFlipAction.create(card)
+                #actions.push cpz.CardPlayFlipAction.create(card)
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0)
               card.runAction cc.Sequence.create(actions)
             else
