@@ -50,7 +50,7 @@ cpz.Game = cc.Layer.extend({
     return _results;
   },
   initWithGameScene: function(gs) {
-    var cSwitch, card, color, conf, coord, helloLabel, i, initBoard, j, k, l, move, rank, size, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _n, _o, _p, _q, _r, _ref, _ref1, _ref2, _ref3;
+    var cSwitch, card, color, conf, coord, i, initBoard, j, k, l, move, rank, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _n, _o, _p, _q, _r, _ref, _ref1, _ref2, _ref3;
     if (!this.init()) {
       return false;
     }
@@ -130,10 +130,6 @@ cpz.Game = cc.Layer.extend({
     }
     this.layout();
     this.schedule(this.step);
-    size = cc.Director.getInstance().getWinSize();
-    helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38);
-    helloLabel.setPosition(cc.p(size.width / 2, size.height - 40));
-    this.addChild(helloLabel, 5);
     return true;
   },
   newGame: function() {
@@ -225,7 +221,7 @@ cpz.Game = cc.Layer.extend({
               }
               if (!card.getIsFaceUp()) {
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0));
-                actions.push(cc.CardPlayFlipAction.create(card));
+                actions.push(cpz.CardPlayFlipAction.create(card));
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0));
               }
               card.runAction(cc.Sequence.create(actions));
@@ -242,8 +238,24 @@ cpz.Game = cc.Layer.extend({
     }
     return _results;
   },
-  isBusy: function() {},
-  getCard: function(coord) {},
+  isBusy: function() {
+    var i, j, _i, _j;
+    for (i = _i = 0; _i <= 7; i = ++_i) {
+      for (j = _j = 0; _j <= 13; j = ++_j) {
+        if (this._board[i][j] && this._board[i][j].numberOfRunningActions()) {
+          return true;
+        }
+      }
+    }
+    return false;
+  },
+  getCard: function(coord) {
+    if (0 <= coord.i && coord.i < 8 && 0 <= coord.j && coord.j < 14) {
+      return this._board[coord.i][coord.j];
+    } else {
+      return null;
+    }
+  },
   checkMoveCoord: function(move) {},
   checkMoveCard: function(from, to) {},
   makeMoveCoord: function(move) {},

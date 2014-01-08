@@ -22,7 +22,7 @@ cpz.GameLayout = cc.Class.extend(
         '480x320':
           gridCardSize: cc.size(26,36)
           gridSpaceSize: cc.size(4, 4)
-          gridPosition: cc.size(4, 0)
+          gridPosition: cc.p(4, 0)
           newBtn: cc.p(451,290)
           retryBtn: cc.p(451,238)
           undoBtn: cc.p(451,186)
@@ -32,7 +32,7 @@ cpz.GameLayout = cc.Class.extend(
         '960x640':
           gridCardSize: cc.size(52,72)
           gridSpaceSize: cc.size(8, 8)
-          gridPosition: cc.size(8, 0)
+          gridPosition: cc.p(8, 0)
           newBtn: cc.p(902,580)
           retryBtn: cc.p(902,476)
           undoBtn: cc.p(902,372)
@@ -42,7 +42,7 @@ cpz.GameLayout = cc.Class.extend(
         '1024x768':
           gridCardSize: cc.size(56,78)
           gridSpaceSize: cc.size(10, 10)
-          gridPosition: cc.size(10, 32)
+          gridPosition: cc.p(10, 32)
           newBtn: cc.p(977,714)
           retryBtn: cc.p(977,582)
           undoBtn: cc.p(977,450)
@@ -52,7 +52,7 @@ cpz.GameLayout = cc.Class.extend(
         '1280x800':
           gridCardSize: cc.size(56,78)
           gridSpaceSize: cc.size(10, 10)
-          gridPosition: cc.size(118, 48)
+          gridPosition: cc.p(118, 48)
           newBtn: cc.p(1220,740)
           retryBtn: cc.p(1220,604)
           undoBtn: cc.p(1220,468)
@@ -62,7 +62,7 @@ cpz.GameLayout = cc.Class.extend(
         '1280x1024':
           gridCardSize: cc.size(66,92)
           gridSpaceSize: cc.size(12, 12)
-          gridPosition: cc.size(24, 96)
+          gridPosition: cc.p(24, 96)
           newBtn: cc.p(1210,952)
           retryBtn: cc.p(1210,776)
           undoBtn: cc.p(1210,600)
@@ -72,7 +72,7 @@ cpz.GameLayout = cc.Class.extend(
         '1366x768':
           gridCardSize: cc.size(56,78)
           gridSpaceSize: cc.size(10, 10)
-          gridPosition: cc.size(158, 32)
+          gridPosition: cc.p(158, 32)
           newBtn: cc.p(1303,714)
           retryBtn: cc.p(1303,582)
           undoBtn: cc.p(1303,450)
@@ -82,7 +82,7 @@ cpz.GameLayout = cc.Class.extend(
         '1440x900':
           gridCardSize: cc.size(66,92)
           gridSpaceSize: cc.size(12, 12)
-          gridPosition: cc.size(104, 34)
+          gridPosition: cc.p(104, 34)
           newBtn: cc.p(1370,830)
           retryBtn: cc.p(1370,678)
           undoBtn: cc.p(1370,526)
@@ -92,7 +92,7 @@ cpz.GameLayout = cc.Class.extend(
         '1680x1050':
           gridCardSize: cc.size(73,100)
           gridSpaceSize: cc.size(20, 20)
-          gridPosition: cc.size(99, 45)
+          gridPosition: cc.p(99, 45)
           newBtn: cc.p(1590,960)
           retryBtn: cc.p(1590,786)
           undoBtn: cc.p(1590,612)
@@ -102,7 +102,7 @@ cpz.GameLayout = cc.Class.extend(
         '1920x1080':
           gridCardSize: cc.size(73,100)
           gridSpaceSize: cc.size(20, 20)
-          gridPosition: cc.size(214, 60)
+          gridPosition: cc.p(214, 60)
           newBtn: cc.p(1825,985)
           retryBtn: cc.p(1825,807)
           undoBtn: cc.p(1825,629)
@@ -112,7 +112,7 @@ cpz.GameLayout = cc.Class.extend(
         '1920x1200':
           gridCardSize: cc.size(73,100)
           gridSpaceSize: cc.size(20, 20)
-          gridPosition: cc.size(214, 120)
+          gridPosition: cc.p(214, 120)
           newBtn: cc.p(1825,1105)
           retryBtn: cc.p(1825,903)
           undoBtn: cc.p(1825,701)

@@ -120,11 +120,6 @@ cpz.Game = cc.Layer.extend(
     @layout()
     @schedule(@step)
 
-    size = cc.Director.getInstance().getWinSize()
-    helloLabel = cc.LabelTTF.create("Hello World", "Arial", 38)
-    helloLabel.setPosition cc.p(size.width / 2, size.height - 40)
-    @addChild helloLabel, 5
-
     true
 
   newGame: ->
@@ -224,10 +219,9 @@ cpz.Game = cc.Layer.extend(
                 actions.push cc.MoveTo.create(1.0, coordPos)
               unless card.getIsFaceUp()
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0)
-                actions.push cc.CardPlayFlipAction.create(card)
+                actions.push cpz.CardPlayFlipAction.create(card)
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0)
               card.runAction cc.Sequence.create(actions)
-
             else
               card.setPosition coordPos
               unless card.getIsFaceUp()
@@ -236,7 +230,15 @@ cpz.Game = cc.Layer.extend(
       @lockLine i
 
   isBusy: ->
+    for i in [0..7]
+      for j in [0..13]
+        if @_board[i][j] and @_board[i][j].numberOfRunningActions()
+          return true
+    false
+
   getCard: (coord) ->
+    if 0 <= coord.i and coord.i < 8 and 0 <= coord.j and coord.j < 14 then @_board[coord.i][coord.j] else null
+
   checkMoveCoord: (move) ->
   checkMoveCard: (from, to) ->
   makeMoveCoord: (move) ->
