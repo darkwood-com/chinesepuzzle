@@ -30,16 +30,6 @@ cpz.CardPlayRank = {
   King: 13
 };
 
-cpz.CardPlayFlipAction = cc.Class.extend({
-  _cardPlay: null,
-  _isFaceUp: null,
-  initWithCardPlay: function(card) {},
-  update: function(time) {},
-  copyWithZone: function(pZone) {}
-});
-
-cpz.CardPlayFlipAction.create = function(card) {};
-
 cpz.CardPlay = cpz.Card.extend({
   _faceSprite: null,
   _backSprite: null,
@@ -48,7 +38,7 @@ cpz.CardPlay = cpz.Card.extend({
   _isLocked: false,
   _isFaceUp: false,
   initWithConfAndColorAndRank: function(conf, color, rank) {
-    if (!this.initWithTexture(cc.textureNull(), 1)) {
+    if (!this.initWithTexture(cc.textureNull(), 4)) {
       return false;
     }
     this._color = color;

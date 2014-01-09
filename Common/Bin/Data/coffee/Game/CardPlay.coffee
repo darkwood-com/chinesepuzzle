@@ -28,18 +28,6 @@ cpz.CardPlayRank =
   Queen: 12
   King: 13
 
-cpz.CardPlayFlipAction = cc.Class.extend(
-  _cardPlay: null
-  _isFaceUp: null
-
-  initWithCardPlay: (card) ->
-  update: (time) ->
-  copyWithZone: (pZone) ->
-)
-
-cpz.CardPlayFlipAction.create = (card) ->
-
-
 cpz.CardPlay = cpz.Card.extend(
   _faceSprite: null
   _backSprite: null
@@ -50,7 +38,7 @@ cpz.CardPlay = cpz.Card.extend(
   _isFaceUp: false
 
   initWithConfAndColorAndRank: (conf, color, rank) ->
-    return false unless @initWithTexture cc.textureNull(), 1
+    return false unless @initWithTexture cc.textureNull(), 4
 
     @_color = color
     @_rank = rank
