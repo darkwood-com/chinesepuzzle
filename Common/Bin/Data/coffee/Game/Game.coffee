@@ -251,12 +251,80 @@ cpz.Game = cc.Layer.extend(
   registerWithTouchDispatcher: ->
 
   tapDownAt: (location) ->
+    return if @_gl.tapDownAt(location)
+
+    if not @_dragCard and not @isBusy()
+      tapCard = @_gc.checkPoint(location)
+      if tapCard instanceof cpz.CardBoard and @_touchLastCard.getIsVisible() and @checkMoveCard(@_touchLastCard, tapCard) is cpz.CheckMove.Ok
+        @_switchBoardCard.setPosition @_touchLastCard.getPosition()
+        @_switchBoardCard.setIsVisible true
+        @makeMoveCard @_touchLastCard, tapCard
+
+      if tapCard instanceof cpz.CardBoard and not tapCard.getIsLocked()
+        @_dragCardCoord = @_gl.getPositionInGridCoord(tapCard.getPosition())
+        @_dragCard = tapCard
+        dragCardPos = @_gl.getPositionInBoardPoint(@_dragCardCoord)
+
+        @_switchBoardCard.setPosition dragCardPos
+        @_switchBoardCard.setIsVisible true
+        @_touchLastCard.setPosition dragCardPos
+
+        @reorderChild @_dragCard, cpz.GameZOrder.MoveCard
+
+      @_touchLastCard.setIsVisible false
+
+    @hintMove()
+    @_lastTouchLocation = location
+
   tapMoveAt: (location) ->
+    return if @_gl.tapMoveAt(location)
+
+    @_touchLastCard.setIsVisible false
+
+    movePos = cc.pAdd location, cc.pNeg(lastTouchLocation)
+    if(@_dragCard)
+      @_dragCard.setPosition cc.pAdd(dragCard.getPosition(), movePos)
+
+    @hintMove()
+    @_lastTouchLocation = location
+
   tapUpAt: (location) ->
-  ccTouchBegan: (touch, event) ->
-  ccTouchMoved: (touch, event) ->
-  ccTouchEnded: (touch, event) ->
-  ccTouchCancelled: (touch, event) ->
+    return if @_gl.tapUpAt(location)
+
+    if(@_dragCard)
+      #check drop
+      cToCard = @_gc.checkRectNode @_dragCard, cpz.Game.filterCardBoard
+      cToCard = @_dragCard unless cToCard
+      coord = @_gl.getPositionInGridCoord cToCard.getPosition()
+      move = cpz.mv dragCardCoord, coord
+      check = @makeMoveCoord move
+      if check isnt cpz.CheckMove.Ok && cc.pointEqualToPoint @_dragCard.getPosition(), @_touchLastCard.getPosition()
+        @_touchLastCard.setIsVisible true
+
+      @_dragCard = NULL
+
+    @_lastTouchLocation = location
+
+  onTouchBegan: (touch, event) ->
+    location = touch.getLocationInView()
+    location = cc.Director.getInstance().convertToGL(location)
+    @tapDownAt(location)
+    true
+
+  onTouchMoved: (touch, event) ->
+    location = touch.getLocationInView()
+    location = cc.Director.getInstance().convertToGL(location)
+    @tapMoveAt(location)
+
+  onTouchEnded: (touch, event) ->
+    location = touch.getLocationInView()
+    location = cc.Director.getInstance().convertToGL(location)
+    @tapUpAt(location)
+
+  onTouchCancelled: (touch, event) ->
+    location = touch.getLocationInView()
+    location = cc.Director.getInstance().convertToGL(location)
+    @tapUpAt(location)
 
   getGameScene: -> @_gs
   getLayout: -> @_gl
@@ -267,3 +335,6 @@ cpz.Game.create = (gs) ->
   obj = new cpz.Game()
   return obj if obj and obj.initWithGameScene(gs)
   null
+
+cpz.Game.filterCardBoard = (node) ->
+  return node instanceof cpz.CardBoard

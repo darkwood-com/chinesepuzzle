@@ -263,13 +263,90 @@ cpz.Game = cc.Layer.extend({
   undoMove: function() {},
   lockLine: function(i) {},
   registerWithTouchDispatcher: function() {},
-  tapDownAt: function(location) {},
-  tapMoveAt: function(location) {},
-  tapUpAt: function(location) {},
-  ccTouchBegan: function(touch, event) {},
-  ccTouchMoved: function(touch, event) {},
-  ccTouchEnded: function(touch, event) {},
-  ccTouchCancelled: function(touch, event) {},
+  tapDownAt: function(location) {
+    var dragCardPos, tapCard;
+    if (this._gl.tapDownAt(location)) {
+      return;
+    }
+    if (!this._dragCard && !this.isBusy()) {
+      tapCard = this._gc.checkPoint(location);
+      if (tapCard instanceof cpz.CardBoard && this._touchLastCard.getIsVisible() && this.checkMoveCard(this._touchLastCard, tapCard) === cpz.CheckMove.Ok) {
+        this._switchBoardCard.setPosition(this._touchLastCard.getPosition());
+        this._switchBoardCard.setIsVisible(true);
+        this.makeMoveCard(this._touchLastCard, tapCard);
+      }
+      if (tapCard instanceof cpz.CardBoard && !tapCard.getIsLocked()) {
+        this._dragCardCoord = this._gl.getPositionInGridCoord(tapCard.getPosition());
+        this._dragCard = tapCard;
+        dragCardPos = this._gl.getPositionInBoardPoint(this._dragCardCoord);
+        this._switchBoardCard.setPosition(dragCardPos);
+        this._switchBoardCard.setIsVisible(true);
+        this._touchLastCard.setPosition(dragCardPos);
+        this.reorderChild(this._dragCard, cpz.GameZOrder.MoveCard);
+      }
+      this._touchLastCard.setIsVisible(false);
+    }
+    this.hintMove();
+    return this._lastTouchLocation = location;
+  },
+  tapMoveAt: function(location) {
+    var movePos;
+    if (this._gl.tapMoveAt(location)) {
+      return;
+    }
+    this._touchLastCard.setIsVisible(false);
+    movePos = cc.pAdd(location, cc.pNeg(lastTouchLocation));
+    if (this._dragCard) {
+      this._dragCard.setPosition(cc.pAdd(dragCard.getPosition(), movePos));
+    }
+    this.hintMove();
+    return this._lastTouchLocation = location;
+  },
+  tapUpAt: function(location) {
+    var cToCard, check, coord, move;
+    if (this._gl.tapUpAt(location)) {
+      return;
+    }
+    if (this._dragCard) {
+      cToCard = this._gc.checkRectNode(this._dragCard, cpz.Game.filterCardBoard);
+      if (!cToCard) {
+        cToCard = this._dragCard;
+      }
+      coord = this._gl.getPositionInGridCoord(cToCard.getPosition());
+      move = cpz.mv(dragCardCoord, coord);
+      check = this.makeMoveCoord(move);
+      if (check !== cpz.CheckMove.Ok && cc.pointEqualToPoint(this._dragCard.getPosition(), this._touchLastCard.getPosition())) {
+        this._touchLastCard.setIsVisible(true);
+      }
+      this._dragCard = NULL;
+    }
+    return this._lastTouchLocation = location;
+  },
+  onTouchBegan: function(touch, event) {
+    var location;
+    location = touch.getLocationInView();
+    location = cc.Director.getInstance().convertToGL(location);
+    this.tapDownAt(location);
+    return true;
+  },
+  onTouchMoved: function(touch, event) {
+    var location;
+    location = touch.getLocationInView();
+    location = cc.Director.getInstance().convertToGL(location);
+    return this.tapMoveAt(location);
+  },
+  onTouchEnded: function(touch, event) {
+    var location;
+    location = touch.getLocationInView();
+    location = cc.Director.getInstance().convertToGL(location);
+    return this.tapUpAt(location);
+  },
+  onTouchCancelled: function(touch, event) {
+    var location;
+    location = touch.getLocationInView();
+    location = cc.Director.getInstance().convertToGL(location);
+    return this.tapUpAt(location);
+  },
   getGameScene: function() {
     return this._gs;
   },
@@ -288,4 +365,8 @@ cpz.Game.create = function(gs) {
     return obj;
   }
   return null;
+};
+
+cpz.Game.filterCardBoard = function(node) {
+  return node instanceof cpz.CardBoard;
 };
