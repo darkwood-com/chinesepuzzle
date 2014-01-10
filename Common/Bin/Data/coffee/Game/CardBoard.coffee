@@ -35,9 +35,9 @@ cpz.CardBoard = cpz.Card.extend(
   setState: (state, force = false) ->
     if @_state isnt state or force
       switch state
-        when cpz.CardBoardState.Yes then cc.copySpriteBatchNode @_yesSprite, @_batchNode
-        when cpz.CardBoardState.No then cc.copySpriteBatchNode @_noSprite, @_batchNode
-        else cc.copySpriteBatchNode @_emptySprite, @_batchNode
+        when cpz.CardBoardState.Yes then @setSpriteBatchNode @_yesSprite
+        when cpz.CardBoardState.No then @setSpriteBatchNode @_noSprite
+        else @setSpriteBatchNode @_emptySprite
 
       @_state = state
 

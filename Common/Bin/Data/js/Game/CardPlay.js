@@ -80,9 +80,9 @@ cpz.CardPlay = cpz.Card.extend({
     if (this._isFaceUp !== isFaceUp || force) {
       this._isFaceUp = isFaceUp;
       if (this._isFaceUp) {
-        cc.copySpriteBatchNode(this._faceSprite, this._batchNode);
+        this.setSpriteBatchNode(this._faceSprite);
       } else {
-        cc.copySpriteBatchNode(this._backSprite, this._batchNode);
+        this.setSpriteBatchNode(this._backSprite);
       }
     }
     return this;

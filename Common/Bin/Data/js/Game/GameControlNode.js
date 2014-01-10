@@ -37,7 +37,7 @@ cpz.GameControlNode = cpz.GameControl.extend({
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       n = _ref[_i];
       rectNode = n.getBoundingBox();
-      rectNode.origin = n.convertToWorldSpace(cc.PointZero());
+      rectNode._origin = n.convertToWorldSpace(cc.PointZero());
       if (cc.rectContainsPoint(rectNode, point)) {
         return n;
       }
@@ -71,9 +71,9 @@ cpz.GameControlNode = cpz.GameControl.extend({
         continue;
       }
       rectNode = n.getBoundingBox();
-      rectNode.origin = n.convertToWorldSpace(cc.PointZero());
+      rectNode._origin = n.convertToWorldSpace(cc.PointZero());
       if (cc.rectIntersectsRect(rectNode, rect)) {
-        vect = cc.pAdd(rect.origin, cc.pNeg(rectNode.origin));
+        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin));
         dist = vect.x * vect.x + vect.y * vect.y;
         if (minDist === -1 || dist < minDist) {
           minDist = dist;
@@ -96,7 +96,7 @@ cpz.GameControlNode = cpz.GameControl.extend({
       rect = node.getBoundingBox();
       rectNode = n.getBoundingBox();
       if (cc.rectIntersectsRect(rectNode, rect)) {
-        vect = cc.pAdd(rect.origin, cc.pNeg(rectNode.origin));
+        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin));
         dist = vect.x * vect.x + vect.y * vect.y;
         if (minDist === -1 || dist < minDist) {
           minDist = dist;

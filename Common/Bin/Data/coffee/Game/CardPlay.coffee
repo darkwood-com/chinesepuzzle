@@ -69,9 +69,9 @@ cpz.CardPlay = cpz.Card.extend(
       @_isFaceUp = isFaceUp
 
       if @_isFaceUp
-        cc.copySpriteBatchNode(@_faceSprite, @_batchNode)
+        @setSpriteBatchNode(@_faceSprite)
       else
-        cc.copySpriteBatchNode(@_backSprite, @_batchNode)
+        @setSpriteBatchNode(@_backSprite)
 
     @
 )

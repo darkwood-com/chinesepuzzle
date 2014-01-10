@@ -17,5 +17,8 @@ cpz.Card = cc.Node.extend({
     this.addChild(this._batchNode);
     return true;
   },
-  setConf: function(conf) {}
+  setSpriteBatchNode: function(node) {
+    cc.copySpriteBatchNode(node, this._batchNode);
+    return this.setContentSize(node.getContentSize());
+  }
 });

@@ -275,7 +275,7 @@ cpz.Game = cc.Layer.extend({
         this._switchBoardCard.setVisible(true);
         this.makeMoveCard(this._touchLastCard, tapCard);
       }
-      if (tapCard instanceof cpz.CardBoard && !tapCard.getIsLocked()) {
+      if (tapCard instanceof cpz.CardPlay && !tapCard.getIsLocked()) {
         this._dragCardCoord = this._gl.getPositionInGridCoord(tapCard.getPosition());
         this._dragCard = tapCard;
         dragCardPos = this._gl.getPositionInBoardPoint(this._dragCardCoord);
@@ -313,12 +313,12 @@ cpz.Game = cc.Layer.extend({
         cToCard = this._dragCard;
       }
       coord = this._gl.getPositionInGridCoord(cToCard.getPosition());
-      move = cpz.mv(dragCardCoord, coord);
+      move = cpz.mv(this._dragCardCoord, coord);
       check = this.makeMoveCoord(move);
       if (check !== cpz.CheckMove.Ok && cc.pointEqualToPoint(this._dragCard.getPosition(), this._touchLastCard.getPosition())) {
         this._touchLastCard.setVisible(true);
       }
-      this._dragCard = NULL;
+      this._dragCard = null;
     }
     return this._lastTouchLocation = location;
   },

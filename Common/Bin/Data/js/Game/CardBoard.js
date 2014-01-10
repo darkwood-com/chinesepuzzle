@@ -39,13 +39,13 @@ cpz.CardBoard = cpz.Card.extend({
     if (this._state !== state || force) {
       switch (state) {
         case cpz.CardBoardState.Yes:
-          cc.copySpriteBatchNode(this._yesSprite, this._batchNode);
+          this.setSpriteBatchNode(this._yesSprite);
           break;
         case cpz.CardBoardState.No:
-          cc.copySpriteBatchNode(this._noSprite, this._batchNode);
+          this.setSpriteBatchNode(this._noSprite);
           break;
         default:
-          cc.copySpriteBatchNode(this._emptySprite, this._batchNode);
+          this.setSpriteBatchNode(this._emptySprite);
       }
       return this._state = state;
     }

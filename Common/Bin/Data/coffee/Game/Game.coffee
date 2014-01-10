@@ -262,10 +262,10 @@ cpz.Game = cc.Layer.extend(
         @_switchBoardCard.setVisible true
         @makeMoveCard @_touchLastCard, tapCard
 
-      if tapCard instanceof cpz.CardBoard and not tapCard.getIsLocked()
-        @_dragCardCoord = @_gl.getPositionInGridCoord(tapCard.getPosition())
+      if tapCard instanceof cpz.CardPlay and not tapCard.getIsLocked()
+        @_dragCardCoord = @_gl.getPositionInGridCoord tapCard.getPosition()
         @_dragCard = tapCard
-        dragCardPos = @_gl.getPositionInBoardPoint(@_dragCardCoord)
+        dragCardPos = @_gl.getPositionInBoardPoint @_dragCardCoord
 
         @_switchBoardCard.setPosition dragCardPos
         @_switchBoardCard.setVisible true
@@ -298,12 +298,12 @@ cpz.Game = cc.Layer.extend(
       cToCard = @_gc.checkRectNode @_dragCard, cpz.Game.filterCardBoard
       cToCard = @_dragCard unless cToCard
       coord = @_gl.getPositionInGridCoord cToCard.getPosition()
-      move = cpz.mv dragCardCoord, coord
+      move = cpz.mv @_dragCardCoord, coord
       check = @makeMoveCoord move
       if check isnt cpz.CheckMove.Ok && cc.pointEqualToPoint @_dragCard.getPosition(), @_touchLastCard.getPosition()
         @_touchLastCard.setVisible true
 
-      @_dragCard = NULL
+      @_dragCard = null
 
     @_lastTouchLocation = location
 

@@ -18,5 +18,8 @@ cpz.Card = cc.Node.extend(
 
     true
 
-  setConf: (conf) ->
+  setSpriteBatchNode: (node) ->
+    cc.copySpriteBatchNode(node, @_batchNode)
+
+    @setContentSize(node.getContentSize())
 )

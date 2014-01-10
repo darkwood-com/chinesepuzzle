@@ -29,7 +29,7 @@ cpz.GameControlNode = cpz.GameControl.extend(
   checkPoint: (point) ->
     for n in @_nodes
       rectNode = n.getBoundingBox()
-      rectNode.origin = n.convertToWorldSpace(cc.PointZero())
+      rectNode._origin = n.convertToWorldSpace(cc.PointZero())
 
       if cc.rectContainsPoint rectNode, point then return n
 
@@ -54,10 +54,10 @@ cpz.GameControlNode = cpz.GameControl.extend(
       continue unless filter(n)
 
       rectNode = n.getBoundingBox()
-      rectNode.origin = n.convertToWorldSpace(cc.PointZero())
+      rectNode._origin = n.convertToWorldSpace(cc.PointZero())
 
       if cc.rectIntersectsRect rectNode, rect
-        vect = cc.pAdd(rect.origin, cc.pNeg(rectNode.origin))
+        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin))
         dist = vect.x * vect.x + vect.y * vect.y
         if minDist is -1 or dist < minDist
           minDist = dist
@@ -76,7 +76,7 @@ cpz.GameControlNode = cpz.GameControl.extend(
       rectNode = n.getBoundingBox()
 
       if cc.rectIntersectsRect rectNode, rect
-        vect = cc.pAdd(rect.origin, cc.pNeg(rectNode.origin))
+        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin))
         dist = vect.x * vect.x + vect.y * vect.y
         if minDist is -1 or dist < minDist
           minDist = dist
