@@ -240,8 +240,10 @@ cpz.GameLayout = cc.Class.extend(
     for btn in @_activesBtn
       local = btn.convertToNodeSpace location
       rect = btn.getBoundingBox()
-      rect.origin = cc.PointZero()
-      rect.size= cc.SizeMake(rect.size.width * 2, rect.size.height * 2)
+      rect.x = 0
+      rect.y = 0
+      rect.width = rect.width * 2
+      rect.height = rect.height * 2
 
       if cc.rectContainsPoint rect, local
         btn.runAction cc.Sequence.actions [

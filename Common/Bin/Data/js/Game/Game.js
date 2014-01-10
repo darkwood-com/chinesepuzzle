@@ -57,6 +57,7 @@ cpz.Game = cc.Layer.extend({
     this._gs = gs;
     this._gl = new cpz.GameLayout(this);
     this._gc = new cpz.GameControlNode();
+    this.setTouchMode(cc.TOUCH_ONE_BY_ONE);
     this.setTouchEnabled(true);
     conf = this._gs.getConf();
     for (l = _i = 0; _i <= 7; l = ++_i) {
@@ -242,7 +243,7 @@ cpz.Game = cc.Layer.extend({
     var i, j, _i, _j;
     for (i = _i = 0; _i <= 7; i = ++_i) {
       for (j = _j = 0; _j <= 13; j = ++_j) {
-        if (this._board[i][j] && this._board[i][j].numberOfRunningActions()) {
+        if (this._board[i][j] && this._board[i][j].getNumberOfRunningActions()) {
           return true;
         }
       }
@@ -262,7 +263,6 @@ cpz.Game = cc.Layer.extend({
   makeMoveCard: function(from, to) {},
   undoMove: function() {},
   lockLine: function(i) {},
-  registerWithTouchDispatcher: function() {},
   tapDownAt: function(location) {
     var dragCardPos, tapCard;
     if (this._gl.tapDownAt(location)) {
@@ -272,7 +272,7 @@ cpz.Game = cc.Layer.extend({
       tapCard = this._gc.checkPoint(location);
       if (tapCard instanceof cpz.CardBoard && this._touchLastCard.getIsVisible() && this.checkMoveCard(this._touchLastCard, tapCard) === cpz.CheckMove.Ok) {
         this._switchBoardCard.setPosition(this._touchLastCard.getPosition());
-        this._switchBoardCard.setIsVisible(true);
+        this._switchBoardCard.setVisible(true);
         this.makeMoveCard(this._touchLastCard, tapCard);
       }
       if (tapCard instanceof cpz.CardBoard && !tapCard.getIsLocked()) {
@@ -280,13 +280,13 @@ cpz.Game = cc.Layer.extend({
         this._dragCard = tapCard;
         dragCardPos = this._gl.getPositionInBoardPoint(this._dragCardCoord);
         this._switchBoardCard.setPosition(dragCardPos);
-        this._switchBoardCard.setIsVisible(true);
+        this._switchBoardCard.setVisible(true);
         this._touchLastCard.setPosition(dragCardPos);
         this.reorderChild(this._dragCard, cpz.GameZOrder.MoveCard);
       }
-      this._touchLastCard.setIsVisible(false);
+      this._touchLastCard.setVisible(false);
     }
-    this.hintMove();
+    this._hintMove();
     return this._lastTouchLocation = location;
   },
   tapMoveAt: function(location) {
@@ -294,12 +294,12 @@ cpz.Game = cc.Layer.extend({
     if (this._gl.tapMoveAt(location)) {
       return;
     }
-    this._touchLastCard.setIsVisible(false);
-    movePos = cc.pAdd(location, cc.pNeg(lastTouchLocation));
+    this._touchLastCard.setVisible(false);
+    movePos = cc.pAdd(location, cc.pNeg(this._lastTouchLocation));
     if (this._dragCard) {
-      this._dragCard.setPosition(cc.pAdd(dragCard.getPosition(), movePos));
+      this._dragCard.setPosition(cc.pAdd(this._dragCard.getPosition(), movePos));
     }
-    this.hintMove();
+    this._hintMove();
     return this._lastTouchLocation = location;
   },
   tapUpAt: function(location) {
@@ -316,7 +316,7 @@ cpz.Game = cc.Layer.extend({
       move = cpz.mv(dragCardCoord, coord);
       check = this.makeMoveCoord(move);
       if (check !== cpz.CheckMove.Ok && cc.pointEqualToPoint(this._dragCard.getPosition(), this._touchLastCard.getPosition())) {
-        this._touchLastCard.setIsVisible(true);
+        this._touchLastCard.setVisible(true);
       }
       this._dragCard = NULL;
     }
@@ -324,26 +324,26 @@ cpz.Game = cc.Layer.extend({
   },
   onTouchBegan: function(touch, event) {
     var location;
-    location = touch.getLocationInView();
+    location = touch.getLocation();
     location = cc.Director.getInstance().convertToGL(location);
     this.tapDownAt(location);
     return true;
   },
   onTouchMoved: function(touch, event) {
     var location;
-    location = touch.getLocationInView();
+    location = touch.getLocation();
     location = cc.Director.getInstance().convertToGL(location);
     return this.tapMoveAt(location);
   },
   onTouchEnded: function(touch, event) {
     var location;
-    location = touch.getLocationInView();
+    location = touch.getLocation();
     location = cc.Director.getInstance().convertToGL(location);
     return this.tapUpAt(location);
   },
   onTouchCancelled: function(touch, event) {
     var location;
-    location = touch.getLocationInView();
+    location = touch.getLocation();
     location = cc.Director.getInstance().convertToGL(location);
     return this.tapUpAt(location);
   },

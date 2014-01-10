@@ -256,8 +256,10 @@ cpz.GameLayout = cc.Class.extend({
       btn = _ref[_i];
       local = btn.convertToNodeSpace(location);
       rect = btn.getBoundingBox();
-      rect.origin = cc.PointZero();
-      rect.size = cc.SizeMake(rect.size.width * 2, rect.size.height * 2);
+      rect.x = 0;
+      rect.y = 0;
+      rect.width = rect.width * 2;
+      rect.height = rect.height * 2;
       if (cc.rectContainsPoint(rect, local)) {
         btn.runAction(cc.Sequence.actions([cc.EaseIn.create(cc.ScaleTo.create(0.1, 1.0), 2.0), cc.CallFunc.create(this._actionBtn, this), cc.EaseOut.create(cc.ScaleTo.create(0.1, 0.75), 2.0)]));
       }
