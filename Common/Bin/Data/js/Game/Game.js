@@ -213,9 +213,6 @@ cpz.Game = cc.Layer.extend({
     this.layout();
     return this._gs.getConf().save();
   },
-  draw: function() {
-    return this._super();
-  },
   step: function(dt) {
     return this._gc.step(dt);
   },

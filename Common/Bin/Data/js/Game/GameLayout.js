@@ -261,7 +261,7 @@ cpz.GameLayout = cc.Class.extend({
       rect.width = rect.width * 2;
       rect.height = rect.height * 2;
       if (cc.rectContainsPoint(rect, local)) {
-        btn.runAction(cc.Sequence.actions([cc.EaseIn.create(cc.ScaleTo.create(0.1, 1.0), 2.0), cc.CallFunc.create(this._actionBtn, this), cc.EaseOut.create(cc.ScaleTo.create(0.1, 0.75), 2.0)]));
+        btn.runAction(cc.Sequence.create([cc.EaseIn.create(cc.ScaleTo.create(0.1, 1.0), 2.0), cc.CallFunc.create(this._actionBtn, this, btn), cc.EaseOut.create(cc.ScaleTo.create(0.1, 0.75), 2.0)]));
       }
     }
     return false;

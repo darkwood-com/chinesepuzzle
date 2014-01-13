@@ -246,9 +246,9 @@ cpz.GameLayout = cc.Class.extend(
       rect.height = rect.height * 2
 
       if cc.rectContainsPoint rect, local
-        btn.runAction cc.Sequence.actions [
+        btn.runAction cc.Sequence.create [
           cc.EaseIn.create(cc.ScaleTo.create(0.1, 1.0), 2.0),
-          cc.CallFunc.create(@_actionBtn, @),
+          cc.CallFunc.create(@_actionBtn, @, btn),
           cc.EaseOut.create(cc.ScaleTo.create(0.1, 0.75), 2.0),
         ]
 
