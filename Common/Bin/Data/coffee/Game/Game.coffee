@@ -32,9 +32,40 @@ cpz.Game = cc.Layer.extend(
   _switchBoardCard: null #board card used for switch
 
   _makeMoveEnd: ->
+    @_switchBoardCard.setVisible false
+
+    if @_dragCard
+      @reorderChild @_dragCard, cpz.GameZOrder.Card
+      @_dragCard = null
+
+    @_hintMove()
+
   _makeMoveSound: ->
+    @getGameScene().playSound 'card_move'
+
   _makeMoveUndoSound: ->
+    @getGameScene().playSound 'card_undo'
+
   _hintMove: ->
+    if @_dragCard
+      cTo = @_gc.checkRectNode @_dragCard, cpz.Game.filterCardBoard
+      if cTo
+        if @_hintCard and @_hintCard isnt cTo
+          @_hintCard.setState cpz.CardBoardState.Empty
+        @_hintCard = cTo
+
+        coord = @_gl.getPositionInGridCoord cTo.getPosition()
+        move = cpz.mv @_dragCardCoord, coord
+        if @checkMoveCoord move is cpz.CheckMove.Ok
+          @_hintCard.setState cpz.CardBoard.Yes
+        else
+          @_hintCard.setState cpz.CardBoard.No
+      else if @_hintCard
+        @_hintCard.setState cpz.CardBoardState.Empty
+        @_hintCard = null
+    else if @_hintCard
+      @_hintCard.setState cpz.CardBoardState.Empty
+      @_hintCard = null
 
   ctor: ->
     @_super()
@@ -243,14 +274,115 @@ cpz.Game = cc.Layer.extend(
     if 0 <= coord.i and coord.i < 8 and 0 <= coord.j and coord.j < 14 then @_board[coord.i][coord.j] else null
 
   checkMoveCoord: (move) ->
-  checkMoveCard: (from, to) ->
-  makeMoveCoord: (move) ->
-  makeMoveCard: (from, to) ->
-  undoMove: ->
-  lockLine: (i) ->
+    cFrom = @getCard move.from
+    return cpz.CheckMove.From unless cFrom instanceof cpz.CardPlay
+    cTo = @getCard move.to
+    return cpz.CheckMove.From unless cTo instanceof cpz.CardBoard
+    
+    toBefore = move.to; toBefore.j--
+    
+    if toBefore is -1
+      return cpz.CheckMove.Ok if cFrom.getRank() is cpz.CardPlayRank.Ace
+    else
+      cToBefore = @getCard(toBefore)
+      return cpz.CheckMove.ToBefore unless cToBefore instanceof cpz.CardPlay
+      return cpz.CheckMove.Ok if cFrom.isNextToCardPlay(cToBefore)
 
-  #input touches/mouse
-  #registerWithTouchDispatcher: ->
+    cpz.CheckMove.Ko
+
+  checkMoveCard: (from, to) ->
+    @checkMoveCoord(cpz.mv(@_gl.getPositionInGridCoord(from), @_gl.getPositionInGridCoord(to)))
+
+  makeMoveCoord: (move) ->
+    check = @checkMoveCoord(move)
+    
+    cFrom = @getCard move.from
+    if check is cpz.CheckMove.Ok
+      #drop is valid : apply changes and switch
+      cSwitch = @getCard(move.to)
+      @_board[move.to.i][move.to.j] = @_board[move.from.i][move.from.j]
+      @_board[move.from.i][move.from.j] = cSwitch
+      cFrom.runAction cc.Sequence.create([
+        cc.MoveTo.create 0.5, @_gl.getPositionInBoardPoint(move.to),
+          cc.CallFunc.create(@_makeMoveEnd, @),
+          cc.CallFunc.create(@_makeMoveUndoSound, @)
+      ])
+
+      if(cSwitch)
+        cSwitch.setPosition @_gl.getPositionInBoardPoint(move.from)
+
+        if cSwitch instance of cpz.CardBoard
+          cSwitch.setState cpz.CardBoard.Empty
+
+      @_switchBoardCard.setPosition @_gl.getPositionInBoardPoint(move.to)
+  
+      #check and set lock for line cards
+      @lockLine(move.to.i)
+  
+      @_gs.getConf().getMoves().push(move)
+      @_gs.getConf().save() #save conf state
+    else if(cFrom)
+      #drop is invalid : undo changes
+      cFrom.runAction cc.Sequence.create([
+        cc.MoveTo.create 0.5, @_gl.getPositionInBoardPoint(move.from),
+          cc.CallFunc.create(@_makeMoveEnd, @)
+      ])
+    else
+      @makeMoveEnd()
+
+    check;
+
+  makeMoveCard: (from, to) ->
+    @makeMoveCoord(cpz.mv(@_gl.getPositionInGridCoord(from), @_gl.getPositionInGridCoord(to)))
+
+  undoMove: ->
+    return if @_gs.getConf().getMoves().length is 0 or @isBusy()
+    move = @_gs.getConf().getMoves().pop()
+
+    cTo = @getCard move.to
+    cSwitch = @getCard move.from
+
+    @_board[move.from.i][move.from.j] = @_board[move.to.i][move.to.j]
+    @_board[move.to.i][move.to.j] = cSwitch
+    cTo.runAction cc.Sequence.create([
+      cc.MoveTo.create 0.5, @_gl.getPositionInBoardPoint(move.from),
+      cc.CallFunc.create(@_makeMoveEnd, @),
+      cc.CallFunc.create(@_makeMoveUndoSound, @)
+    ])
+
+    if cSwitch
+      cSwitch.setPosition @_gl.getPositionInBoardPoint(move.to)
+
+      if cSwitch instanceof cpz.CardBoard
+        cSwitch.setState cpz.CardBoardState.Empty
+
+    @_switchBoardCard.setPosition @_gl.getPositionInBoardPoint(move.from)
+    @_switchBoardCard.setVisible true
+
+    #check and set lock for line cards
+    @lockLine(move.from.i);
+    @lockLine(move.to.i);
+
+    move
+
+  lockLine: (i) ->
+    return 0 if i not in [0..7]
+
+    nb = 0
+
+    for j in [0..13]
+      card = @_board[i][j]
+      continue unless card instanceof cpz.CardPlay
+
+      cBefore = if (j == 0) then null else @_board[i][j - 1]
+
+      if (j == 0 and card.getRank() is cpz.CardPlayRank.Ace) or (cBefore instanceof cpz.CardPlay and cBefore.getIsLocked() and card.isNextToCardPlay(cBefore))
+        card.setIsLocked true
+        nb++
+      else
+        card.setIsLocked false
+
+    nb
 
   tapDownAt: (location) ->
     return if @_gl.tapDownAt(location)

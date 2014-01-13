@@ -7,6 +7,8 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
+var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
 cpz.CheckMove = {
   From: 0,
   To: 1,
@@ -28,10 +30,45 @@ cpz.Game = cc.Layer.extend({
   _touchLastCard: null,
   _hintCard: null,
   _switchBoardCard: null,
-  _makeMoveEnd: function() {},
-  _makeMoveSound: function() {},
-  _makeMoveUndoSound: function() {},
-  _hintMove: function() {},
+  _makeMoveEnd: function() {
+    this._switchBoardCard.setVisible(false);
+    if (this._dragCard) {
+      this.reorderChild(this._dragCard, cpz.GameZOrder.Card);
+      this._dragCard = null;
+    }
+    return this._hintMove();
+  },
+  _makeMoveSound: function() {
+    return this.getGameScene().playSound('card_move');
+  },
+  _makeMoveUndoSound: function() {
+    return this.getGameScene().playSound('card_undo');
+  },
+  _hintMove: function() {
+    var cTo, coord, move;
+    if (this._dragCard) {
+      cTo = this._gc.checkRectNode(this._dragCard, cpz.Game.filterCardBoard);
+      if (cTo) {
+        if (this._hintCard && this._hintCard !== cTo) {
+          this._hintCard.setState(cpz.CardBoardState.Empty);
+        }
+        this._hintCard = cTo;
+        coord = this._gl.getPositionInGridCoord(cTo.getPosition());
+        move = cpz.mv(this._dragCardCoord, coord);
+        if (this.checkMoveCoord(move === cpz.CheckMove.Ok)) {
+          return this._hintCard.setState(cpz.CardBoard.Yes);
+        } else {
+          return this._hintCard.setState(cpz.CardBoard.No);
+        }
+      } else if (this._hintCard) {
+        this._hintCard.setState(cpz.CardBoardState.Empty);
+        return this._hintCard = null;
+      }
+    } else if (this._hintCard) {
+      this._hintCard.setState(cpz.CardBoardState.Empty);
+      return this._hintCard = null;
+    }
+  },
   ctor: function() {
     var i, j, _i, _results;
     this._super();
@@ -257,12 +294,109 @@ cpz.Game = cc.Layer.extend({
       return null;
     }
   },
-  checkMoveCoord: function(move) {},
-  checkMoveCard: function(from, to) {},
-  makeMoveCoord: function(move) {},
-  makeMoveCard: function(from, to) {},
-  undoMove: function() {},
-  lockLine: function(i) {},
+  checkMoveCoord: function(move) {
+    var cFrom, cTo, cToBefore, toBefore;
+    cFrom = this.getCard(move.from);
+    if (!(cFrom instanceof cpz.CardPlay)) {
+      return cpz.CheckMove.From;
+    }
+    cTo = this.getCard(move.to);
+    if (!(cTo instanceof cpz.CardBoard)) {
+      return cpz.CheckMove.From;
+    }
+    toBefore = move.to;
+    toBefore.j--;
+    if (toBefore === -1) {
+      if (cFrom.getRank() === cpz.CardPlayRank.Ace) {
+        return cpz.CheckMove.Ok;
+      }
+    } else {
+      cToBefore = this.getCard(toBefore);
+      if (!(cToBefore instanceof cpz.CardPlay)) {
+        return cpz.CheckMove.ToBefore;
+      }
+      if (cFrom.isNextToCardPlay(cToBefore)) {
+        return cpz.CheckMove.Ok;
+      }
+    }
+    return cpz.CheckMove.Ko;
+  },
+  checkMoveCard: function(from, to) {
+    return this.checkMoveCoord(cpz.mv(this._gl.getPositionInGridCoord(from), this._gl.getPositionInGridCoord(to)));
+  },
+  makeMoveCoord: function(move) {
+    var cFrom, cSwitch, check;
+    check = this.checkMoveCoord(move);
+    cFrom = this.getCard(move.from);
+    if (check === cpz.CheckMove.Ok) {
+      cSwitch = this.getCard(move.to);
+      this._board[move.to.i][move.to.j] = this._board[move.from.i][move.from.j];
+      this._board[move.from.i][move.from.j] = cSwitch;
+      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.to), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveUndoSound, this))]));
+      if (cSwitch) {
+        cSwitch.setPosition(this._gl.getPositionInBoardPoint(move.from));
+        if (cSwitch(instance in cpz.CardBoard)) {
+          cSwitch.setState(cpz.CardBoard.Empty);
+        }
+      }
+      this._switchBoardCard.setPosition(this._gl.getPositionInBoardPoint(move.to));
+      this.lockLine(move.to.i);
+      this._gs.getConf().getMoves().push(move);
+      this._gs.getConf().save();
+    } else if (cFrom) {
+      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.from), cc.CallFunc.create(this._makeMoveEnd, this))]));
+    } else {
+      this.makeMoveEnd();
+    }
+    return check;
+  },
+  makeMoveCard: function(from, to) {
+    return this.makeMoveCoord(cpz.mv(this._gl.getPositionInGridCoord(from), this._gl.getPositionInGridCoord(to)));
+  },
+  undoMove: function() {
+    var cSwitch, cTo, move;
+    if (this._gs.getConf().getMoves().length === 0 || this.isBusy()) {
+      return;
+    }
+    move = this._gs.getConf().getMoves().pop();
+    cTo = this.getCard(move.to);
+    cSwitch = this.getCard(move.from);
+    this._board[move.from.i][move.from.j] = this._board[move.to.i][move.to.j];
+    this._board[move.to.i][move.to.j] = cSwitch;
+    cTo.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.from), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveUndoSound, this))]));
+    if (cSwitch) {
+      cSwitch.setPosition(this._gl.getPositionInBoardPoint(move.to));
+      if (cSwitch instanceof cpz.CardBoard) {
+        cSwitch.setState(cpz.CardBoardState.Empty);
+      }
+    }
+    this._switchBoardCard.setPosition(this._gl.getPositionInBoardPoint(move.from));
+    this._switchBoardCard.setVisible(true);
+    this.lockLine(move.from.i);
+    this.lockLine(move.to.i);
+    return move;
+  },
+  lockLine: function(i) {
+    var cBefore, card, j, nb, _i;
+    if (__indexOf.call([0, 1, 2, 3, 4, 5, 6, 7], i) < 0) {
+      return 0;
+    }
+    nb = 0;
+    for (j = _i = 0; _i <= 13; j = ++_i) {
+      card = this._board[i][j];
+      if (!(card instanceof cpz.CardPlay)) {
+        continue;
+      }
+      cBefore = j === 0 ? null : this._board[i][j - 1];
+      if ((j === 0 && card.getRank() === cpz.CardPlayRank.Ace) || (cBefore instanceof cpz.CardPlay && cBefore.getIsLocked() && card.isNextToCardPlay(cBefore))) {
+        card.setIsLocked(true);
+        nb++;
+      } else {
+        card.setIsLocked(false);
+      }
+    }
+    return nb;
+  },
   tapDownAt: function(location) {
     var dragCardPos, tapCard;
     if (this._gl.tapDownAt(location)) {
