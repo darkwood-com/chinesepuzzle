@@ -56,9 +56,9 @@ cpz.Game = cc.Layer.extend({
         coord = this._gl.getPositionInGridCoord(cTo.getPosition());
         move = cpz.mv(this._dragCardCoord, coord);
         if (this.checkMoveCoord(move) === cpz.CheckMove.Ok) {
-          return this._hintCard.setState(cpz.CardBoard.Yes);
+          return this._hintCard.setState(cpz.CardBoardState.Yes);
         } else {
-          return this._hintCard.setState(cpz.CardBoard.No);
+          return this._hintCard.setState(cpz.CardBoardState.No);
         }
       } else if (this._hintCard) {
         this._hintCard.setState(cpz.CardBoardState.Empty);
@@ -306,7 +306,7 @@ cpz.Game = cc.Layer.extend({
     }
     toBefore = move.to;
     toBefore.j--;
-    if (toBefore === -1) {
+    if (toBefore.j === -1) {
       if (cFrom.getRank() === cpz.CardPlayRank.Ace) {
         return cpz.CheckMove.Ok;
       }

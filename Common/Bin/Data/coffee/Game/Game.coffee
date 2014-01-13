@@ -57,9 +57,9 @@ cpz.Game = cc.Layer.extend(
         coord = @_gl.getPositionInGridCoord cTo.getPosition()
         move = cpz.mv @_dragCardCoord, coord
         if @checkMoveCoord(move) is cpz.CheckMove.Ok
-          @_hintCard.setState cpz.CardBoard.Yes
+          @_hintCard.setState cpz.CardBoardState.Yes
         else
-          @_hintCard.setState cpz.CardBoard.No
+          @_hintCard.setState cpz.CardBoardState.No
       else if @_hintCard
         @_hintCard.setState cpz.CardBoardState.Empty
         @_hintCard = null
@@ -282,7 +282,7 @@ cpz.Game = cc.Layer.extend(
     toBefore = move.to
     toBefore.j--
     
-    if toBefore is -1
+    if toBefore.j is -1
       return cpz.CheckMove.Ok if cFrom.getRank() is cpz.CardPlayRank.Ace
     else
       cToBefore = @getCard(toBefore)
