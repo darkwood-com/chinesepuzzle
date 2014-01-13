@@ -459,26 +459,22 @@ cpz.Game = cc.Layer.extend({
   onTouchBegan: function(touch, event) {
     var location;
     location = touch.getLocation();
-    location = cc.Director.getInstance().convertToGL(location);
     this.tapDownAt(location);
     return true;
   },
   onTouchMoved: function(touch, event) {
     var location;
     location = touch.getLocation();
-    location = cc.Director.getInstance().convertToGL(location);
     return this.tapMoveAt(location);
   },
   onTouchEnded: function(touch, event) {
     var location;
     location = touch.getLocation();
-    location = cc.Director.getInstance().convertToGL(location);
     return this.tapUpAt(location);
   },
   onTouchCancelled: function(touch, event) {
     var location;
     location = touch.getLocation();
-    location = cc.Director.getInstance().convertToGL(location);
     return this.tapUpAt(location);
   },
   getGameScene: function() {

@@ -443,23 +443,19 @@ cpz.Game = cc.Layer.extend(
 
   onTouchBegan: (touch, event) ->
     location = touch.getLocation()
-    location = cc.Director.getInstance().convertToGL(location)
     @tapDownAt(location)
     true
 
   onTouchMoved: (touch, event) ->
     location = touch.getLocation()
-    location = cc.Director.getInstance().convertToGL(location)
     @tapMoveAt(location)
 
   onTouchEnded: (touch, event) ->
     location = touch.getLocation()
-    location = cc.Director.getInstance().convertToGL(location)
     @tapUpAt(location)
 
   onTouchCancelled: (touch, event) ->
     location = touch.getLocation()
-    location = cc.Director.getInstance().convertToGL(location)
     @tapUpAt(location)
 
   getGameScene: -> @_gs
