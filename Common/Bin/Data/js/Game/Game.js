@@ -260,7 +260,7 @@ cpz.Game = cc.Layer.extend({
               if (!card.getIsFaceUp()) {
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0));
                 actions.push(cc.CallFunc.create(function() {
-                  return this.setIsFaceUp(true);
+                  return card.setIsFaceUp;
                 }, card));
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0));
               }
@@ -280,7 +280,7 @@ cpz.Game = cc.Layer.extend({
     var i, j, _i, _j;
     for (i = _i = 0; _i <= 7; i = ++_i) {
       for (j = _j = 0; _j <= 13; j = ++_j) {
-        if (this._board[i][j] && this._board[i][j].getNumberOfRunningActions()) {
+        if (this._board[i][j] && this._board[i][j].getNumberOfRunningActions() > 0) {
           return true;
         }
       }

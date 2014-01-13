@@ -253,7 +253,7 @@ cpz.Game = cc.Layer.extend(
               unless card.getIsFaceUp()
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0)
                 actions.push cc.CallFunc.create(->
-                  @setIsFaceUp true
+                  card.setIsFaceUp
                 , card)
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0)
               card.runAction cc.Sequence.create(actions)
@@ -266,7 +266,7 @@ cpz.Game = cc.Layer.extend(
   isBusy: ->
     for i in [0..7]
       for j in [0..13]
-        if @_board[i][j] and @_board[i][j].getNumberOfRunningActions()
+        if @_board[i][j] and @_board[i][j].getNumberOfRunningActions() > 0
           return true
     false
 
@@ -279,7 +279,8 @@ cpz.Game = cc.Layer.extend(
     cTo = @getCard move.to
     return cpz.CheckMove.From unless cTo instanceof cpz.CardBoard
     
-    toBefore = move.to; toBefore.j--
+    toBefore = move.to
+    toBefore.j--
     
     if toBefore is -1
       return cpz.CheckMove.Ok if cFrom.getRank() is cpz.CardPlayRank.Ace
@@ -330,7 +331,7 @@ cpz.Game = cc.Layer.extend(
     else
       @makeMoveEnd()
 
-    check;
+    check
 
   makeMoveCard: (from, to) ->
     @makeMoveCoord(cpz.mv(@_gl.getPositionInGridCoord(from), @_gl.getPositionInGridCoord(to)))
@@ -360,8 +361,8 @@ cpz.Game = cc.Layer.extend(
     @_switchBoardCard.setVisible true
 
     #check and set lock for line cards
-    @lockLine(move.from.i);
-    @lockLine(move.to.i);
+    @lockLine(move.from.i)
+    @lockLine(move.to.i)
 
     move
 
@@ -389,6 +390,7 @@ cpz.Game = cc.Layer.extend(
 
     if not @_dragCard and not @isBusy()
       tapCard = @_gc.checkPoint(location)
+
       if tapCard instanceof cpz.CardBoard and @_touchLastCard.getIsVisible() and @checkMoveCard(@_touchLastCard, tapCard) is cpz.CheckMove.Ok
         @_switchBoardCard.setPosition @_touchLastCard.getPosition()
         @_switchBoardCard.setVisible true
