@@ -55,7 +55,7 @@ cpz.Game = cc.Layer.extend({
         this._hintCard = cTo;
         coord = this._gl.getPositionInGridCoord(cTo.getPosition());
         move = cpz.mv(this._dragCardCoord, coord);
-        if (this.checkMoveCoord(move === cpz.CheckMove.Ok)) {
+        if (this.checkMoveCoord(move) === cpz.CheckMove.Ok) {
           return this._hintCard.setState(cpz.CardBoard.Yes);
         } else {
           return this._hintCard.setState(cpz.CardBoard.No);

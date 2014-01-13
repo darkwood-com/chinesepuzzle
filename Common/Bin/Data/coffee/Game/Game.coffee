@@ -56,7 +56,7 @@ cpz.Game = cc.Layer.extend(
 
         coord = @_gl.getPositionInGridCoord cTo.getPosition()
         move = cpz.mv @_dragCardCoord, coord
-        if @checkMoveCoord move is cpz.CheckMove.Ok
+        if @checkMoveCoord(move) is cpz.CheckMove.Ok
           @_hintCard.setState cpz.CardBoard.Yes
         else
           @_hintCard.setState cpz.CardBoard.No
