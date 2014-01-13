@@ -304,9 +304,9 @@ cpz.Game = cc.Layer.extend(
       @_board[move.to.i][move.to.j] = @_board[move.from.i][move.from.j]
       @_board[move.from.i][move.from.j] = cSwitch
       cFrom.runAction cc.Sequence.create([
-        cc.MoveTo.create 0.5, @_gl.getPositionInBoardPoint(move.to),
-          cc.CallFunc.create(@_makeMoveEnd, @),
-          cc.CallFunc.create(@_makeMoveUndoSound, @)
+        cc.MoveTo.create(0.5, @_gl.getPositionInBoardPoint(move.to)),
+        cc.CallFunc.create(@_makeMoveEnd, @),
+         cc.CallFunc.create(@_makeMoveUndoSound, @)
       ])
 
       if(cSwitch)
@@ -325,8 +325,8 @@ cpz.Game = cc.Layer.extend(
     else if(cFrom)
       #drop is invalid : undo changes
       cFrom.runAction cc.Sequence.create([
-        cc.MoveTo.create 0.5, @_gl.getPositionInBoardPoint(move.from),
-          cc.CallFunc.create(@_makeMoveEnd, @)
+        cc.MoveTo.create(0.5, @_gl.getPositionInBoardPoint(move.from)),
+        cc.CallFunc.create(@_makeMoveEnd, @)
       ])
     else
       @makeMoveEnd()
@@ -346,7 +346,7 @@ cpz.Game = cc.Layer.extend(
     @_board[move.from.i][move.from.j] = @_board[move.to.i][move.to.j]
     @_board[move.to.i][move.to.j] = cSwitch
     cTo.runAction cc.Sequence.create([
-      cc.MoveTo.create 0.5, @_gl.getPositionInBoardPoint(move.from),
+      cc.MoveTo.create(0.5, @_gl.getPositionInBoardPoint(move.from)),
       cc.CallFunc.create(@_makeMoveEnd, @),
       cc.CallFunc.create(@_makeMoveUndoSound, @)
     ])
@@ -391,7 +391,7 @@ cpz.Game = cc.Layer.extend(
     if not @_dragCard and not @isBusy()
       tapCard = @_gc.checkPoint(location)
 
-      if tapCard instanceof cpz.CardBoard and @_touchLastCard.getIsVisible() and @checkMoveCard(@_touchLastCard, tapCard) is cpz.CheckMove.Ok
+      if tapCard instanceof cpz.CardBoard and @_touchLastCard.isVisible() and @checkMoveCard(@_touchLastCard, tapCard) is cpz.CheckMove.Ok
         @_switchBoardCard.setPosition @_touchLastCard.getPosition()
         @_switchBoardCard.setVisible true
         @makeMoveCard @_touchLastCard, tapCard

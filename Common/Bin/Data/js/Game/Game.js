@@ -332,7 +332,7 @@ cpz.Game = cc.Layer.extend({
       cSwitch = this.getCard(move.to);
       this._board[move.to.i][move.to.j] = this._board[move.from.i][move.from.j];
       this._board[move.from.i][move.from.j] = cSwitch;
-      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.to), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveUndoSound, this))]));
+      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.to)), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveUndoSound, this)]));
       if (cSwitch) {
         cSwitch.setPosition(this._gl.getPositionInBoardPoint(move.from));
         if (cSwitch(instance in cpz.CardBoard)) {
@@ -344,7 +344,7 @@ cpz.Game = cc.Layer.extend({
       this._gs.getConf().getMoves().push(move);
       this._gs.getConf().save();
     } else if (cFrom) {
-      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.from), cc.CallFunc.create(this._makeMoveEnd, this))]));
+      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.from)), cc.CallFunc.create(this._makeMoveEnd, this)]));
     } else {
       this.makeMoveEnd();
     }
@@ -363,7 +363,7 @@ cpz.Game = cc.Layer.extend({
     cSwitch = this.getCard(move.from);
     this._board[move.from.i][move.from.j] = this._board[move.to.i][move.to.j];
     this._board[move.to.i][move.to.j] = cSwitch;
-    cTo.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.from), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveUndoSound, this))]));
+    cTo.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.from)), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveUndoSound, this)]));
     if (cSwitch) {
       cSwitch.setPosition(this._gl.getPositionInBoardPoint(move.to));
       if (cSwitch instanceof cpz.CardBoard) {
@@ -404,7 +404,7 @@ cpz.Game = cc.Layer.extend({
     }
     if (!this._dragCard && !this.isBusy()) {
       tapCard = this._gc.checkPoint(location);
-      if (tapCard instanceof cpz.CardBoard && this._touchLastCard.getIsVisible() && this.checkMoveCard(this._touchLastCard, tapCard) === cpz.CheckMove.Ok) {
+      if (tapCard instanceof cpz.CardBoard && this._touchLastCard.isVisible() && this.checkMoveCard(this._touchLastCard, tapCard) === cpz.CheckMove.Ok) {
         this._switchBoardCard.setPosition(this._touchLastCard.getPosition());
         this._switchBoardCard.setVisible(true);
         this.makeMoveCard(this._touchLastCard, tapCard);

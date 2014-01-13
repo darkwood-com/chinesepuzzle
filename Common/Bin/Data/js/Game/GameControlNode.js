@@ -73,7 +73,7 @@ cpz.GameControlNode = cpz.GameControl.extend({
       rectNode = n.getBoundingBox();
       rectNode._origin = n.convertToWorldSpace(cc.PointZero());
       if (cc.rectIntersectsRect(rectNode, rect)) {
-        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin));
+        vect = rect._origin - rectNode._origin;
         dist = vect.x * vect.x + vect.y * vect.y;
         if (minDist === -1 || dist < minDist) {
           minDist = dist;
@@ -96,7 +96,7 @@ cpz.GameControlNode = cpz.GameControl.extend({
       rect = node.getBoundingBox();
       rectNode = n.getBoundingBox();
       if (cc.rectIntersectsRect(rectNode, rect)) {
-        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin));
+        vect = rect._origin - rectNode._origin;
         dist = vect.x * vect.x + vect.y * vect.y;
         if (minDist === -1 || dist < minDist) {
           minDist = dist;

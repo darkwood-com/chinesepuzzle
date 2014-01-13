@@ -57,7 +57,7 @@ cpz.GameControlNode = cpz.GameControl.extend(
       rectNode._origin = n.convertToWorldSpace(cc.PointZero())
 
       if cc.rectIntersectsRect rectNode, rect
-        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin))
+        vect = rect._origin - rectNode._origin
         dist = vect.x * vect.x + vect.y * vect.y
         if minDist is -1 or dist < minDist
           minDist = dist
@@ -76,7 +76,7 @@ cpz.GameControlNode = cpz.GameControl.extend(
       rectNode = n.getBoundingBox()
 
       if cc.rectIntersectsRect rectNode, rect
-        vect = cc.pAdd(rect._origin, cc.pNeg(rectNode._origin))
+        vect = rect._origin - rectNode._origin
         dist = vect.x * vect.x + vect.y * vect.y
         if minDist is -1 or dist < minDist
           minDist = dist
