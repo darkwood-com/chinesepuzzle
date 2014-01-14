@@ -38,8 +38,8 @@ cpz.MenuLabel = cc.Node.extend(
   layout: (anim = true) ->
   visit: ->
 
-  ccTouchBegan: (touch, event) ->
-  ccTouchMoved: (touch, event) ->
-  ccTouchEnded: (touch, event) ->
-  ccTouchCancelled: (touch, event) ->
+  onTouchBegan: (touch, event) ->
+  onTouchMoved: (touch, event) ->
+  onTouchEnded: (touch, event) ->
+  onTouchCancelled: (touch, event) ->
 )

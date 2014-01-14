@@ -19,24 +19,77 @@ cpz.Menu = cc.Layer.extend(
   initWithGameSceneAndLayout: (gs, layout) ->
     return false unless @init()
 
+    @_gs = gs
+    @_ml = new cpz.MenuLayout()
+    @_ml.initWithType layout
+
+    @setTouchMode cc.TOUCH_ONE_BY_ONE
+    @setTouchEnabled true
+
+    @layout()
+    @schedule(@step)
+
     true
 
-  draw: ->
   step: (dt) ->
+
   layout: (anim = true) ->
+    @_ml.layout anim
 
   pushNav: (mBox) ->
+    if @_nav.length > 0
+      @removeChild @_nav[@_nav.length - 1], true
+
+    @_nav.push mBox
+    @addChild mBox
+
+    @getGameScene().playSound 'menu_push'
+
   popNav: ->
+    if @_nav.length > 0
+      mBox = @_nav[@_nav.length - 1]
+      cc.ArrayRemoveObject @_nav, mBox
+      @removeChild mBox, true
+      
+      if @_nav.length > 0
+        @addChild @_nav[@_nav.length - 1]
+      else
+        @getGameScene().playSound 'menu_pop'
+
+      return mBox
+      
+    return null
 
   okMenu: (item) ->
+    @popNav()
 
-  #input touches/mouse
-  registerWithTouchDispatcher: ->
+    @_gs.game() if @_nav.length is 0
 
-  ccTouchBegan: (touch, event) ->
-  ccTouchMoved: (touch, event) ->
-  ccTouchEnded: (touch, event) ->
-  ccTouchCancelled: (touch, event) ->
+  onTouchBegan: (touch, event) ->
+    #last menu menu touch management
+    if nav.length > 0
+      mc = @_nav[@_nav.length - 1]
+      mc.onTouchBegan(touch, event)
+  
+    return true
+    
+  onTouchMoved: (touch, event) ->
+    #last menu menu touch management
+    if nav.length > 0
+      mc = @_nav[@_nav.length - 1]
+      mc.onTouchMoved(touch, event)
+    
+  onTouchEnded: (touch, event) ->
+    #last menu menu touch management
+    if nav.length > 0
+      mc = @_nav[@_nav.length - 1]
+      mc.onTouchEnded(touch, event)
+  
+  onTouchCancelled: (touch, event) ->
+    #last menu menu touch management
+    if nav.length > 0
+      mc = @_nav[@_nav.length - 1]
+      mc.onTouchCancelled(touch, event)
 
   getGameScene: -> @_gs
   getLayout: -> @_ml

@@ -18,23 +18,80 @@ cpz.Menu = cc.Layer.extend({
     if (!this.init()) {
       return false;
     }
+    this._gs = gs;
+    this._ml = new cpz.MenuLayout();
+    this._ml.initWithType(layout);
+    this.setTouchMode(cc.TOUCH_ONE_BY_ONE);
+    this.setTouchEnabled(true);
+    this.layout();
+    this.schedule(this.step);
     return true;
   },
-  draw: function() {},
   step: function(dt) {},
   layout: function(anim) {
     if (anim == null) {
       anim = true;
     }
+    return this._ml.layout(anim);
   },
-  pushNav: function(mBox) {},
-  popNav: function() {},
-  okMenu: function(item) {},
-  registerWithTouchDispatcher: function() {},
-  ccTouchBegan: function(touch, event) {},
-  ccTouchMoved: function(touch, event) {},
-  ccTouchEnded: function(touch, event) {},
-  ccTouchCancelled: function(touch, event) {},
+  pushNav: function(mBox) {
+    if (this._nav.length > 0) {
+      this.removeChild(this._nav[this._nav.length - 1], true);
+    }
+    this._nav.push(mBox);
+    this.addChild(mBox);
+    return this.getGameScene().playSound('menu_push');
+  },
+  popNav: function() {
+    var mBox;
+    if (this._nav.length > 0) {
+      mBox = this._nav[this._nav.length - 1];
+      cc.ArrayRemoveObject(this._nav, mBox);
+      this.removeChild(mBox, true);
+      if (this._nav.length > 0) {
+        this.addChild(this._nav[this._nav.length - 1]);
+      } else {
+        this.getGameScene().playSound('menu_pop');
+      }
+      return mBox;
+    }
+    return null;
+  },
+  okMenu: function(item) {
+    this.popNav();
+    if (this._nav.length === 0) {
+      return this._gs.game();
+    }
+  },
+  onTouchBegan: function(touch, event) {
+    var mc;
+    if (nav.length > 0) {
+      mc = this._nav[this._nav.length - 1];
+      mc.onTouchBegan(touch, event);
+    }
+    return true;
+  },
+  onTouchMoved: function(touch, event) {
+    var mc;
+    if (nav.length > 0) {
+      mc = this._nav[this._nav.length - 1];
+      return mc.onTouchMoved(touch, event);
+    }
+  },
+  onTouchEnded: function(touch, event) {
+    var mc;
+    if (nav.length > 0) {
+      mc = this._nav[this._nav.length - 1];
+      return mc.onTouchEnded(touch, event);
+    }
+  },
+  onTouchCancelled: function(touch, event) {
+    var mc;
+    if (nav.length > 0) {
+      mc = this._nav[this._nav.length - 1];
+      return mc.onTouchCancelled(touch, event);
+    }
+  },
   getGameScene: function() {
     return this._gs;
   },

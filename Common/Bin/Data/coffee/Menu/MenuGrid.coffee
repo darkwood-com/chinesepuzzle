@@ -42,10 +42,10 @@ cpz.MenuBox = cc.Node.extend(
 
   setOkTarget: (rec, selector) ->
 
-  ccTouchBegan: (touch, event) ->
-  ccTouchMoved: (touch, event) ->
-  ccTouchEnded: (touch, event) ->
-  ccTouchCancelled: (touch, event) ->
+  onTouchBegan: (touch, event) ->
+  onTouchMoved: (touch, event) ->
+  onTouchEnded: (touch, event) ->
+  onTouchCancelled: (touch, event) ->
 
   setItems: (@_items) -> @
   getItems: -> @_items

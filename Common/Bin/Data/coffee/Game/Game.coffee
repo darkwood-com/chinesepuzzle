@@ -203,12 +203,6 @@ cpz.Game = cc.Layer.extend(
 
     @_gs.getConf().save() #save conf state
 
-  #draw: ->
-  #  @_super()
-
-  #  debug game control draw
-  #  @_gc.draw()
-
   step: (dt) ->
     #update game step
     @_gc.step(dt)

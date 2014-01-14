@@ -45,8 +45,8 @@ cpz.MenuLabel = cc.Node.extend({
     }
   },
   visit: function() {},
-  ccTouchBegan: function(touch, event) {},
-  ccTouchMoved: function(touch, event) {},
-  ccTouchEnded: function(touch, event) {},
-  ccTouchCancelled: function(touch, event) {}
+  onTouchBegan: function(touch, event) {},
+  onTouchMoved: function(touch, event) {},
+  onTouchEnded: function(touch, event) {},
+  onTouchCancelled: function(touch, event) {}
 });

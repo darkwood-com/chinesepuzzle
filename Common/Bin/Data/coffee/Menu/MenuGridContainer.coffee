@@ -36,8 +36,8 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
 
   layout: (anim = true) ->
 
-  ccTouchBegan: (touch, event) ->
-  ccTouchMoved: (touch, event) ->
-  ccTouchEnded: (touch, event) ->
-  ccTouchCancelled: (touch, event) ->
+  onTouchBegan: (touch, event) ->
+  onTouchMoved: (touch, event) ->
+  onTouchEnded: (touch, event) ->
+  onTouchCancelled: (touch, event) ->
 )

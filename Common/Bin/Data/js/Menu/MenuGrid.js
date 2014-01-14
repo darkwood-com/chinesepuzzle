@@ -46,10 +46,10 @@ cpz.MenuBox = cc.Node.extend({
     }
   },
   setOkTarget: function(rec, selector) {},
-  ccTouchBegan: function(touch, event) {},
-  ccTouchMoved: function(touch, event) {},
-  ccTouchEnded: function(touch, event) {},
-  ccTouchCancelled: function(touch, event) {},
+  onTouchBegan: function(touch, event) {},
+  onTouchMoved: function(touch, event) {},
+  onTouchEnded: function(touch, event) {},
+  onTouchCancelled: function(touch, event) {},
   setItems: function(_items) {
     this._items = _items;
     return this;
