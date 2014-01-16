@@ -20,24 +20,75 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
     @_super()
 
   initWithConf: (conf) ->
+    return false unless @_super conf
 
-  getGridSize: -> @_gridSize
-  setGridSize: (@_gridSize) -> @
+    @_container = new MenuGrid()
+    @_container.init()
+    @_container.setAnchorPoint cc.p(0.5, 0.5)
+    @addChild @_container
+
+    @_margin = cc.size(0, 0)
+
+    true
+
+  getGridSize: -> @_container.getGridSize()
+  setGridSize: (gridSize) ->
+    @_container.setGridSize(gridSize)
+    @
+  
   getMargin: -> @_margin
-  setMargin: (@_margin) -> @
-  getPage: -> @_page
-  setPage: (@_page) -> @
-  getMinimumTouchLengthToSlide: -> @_minimumTouchLengthToSlide
-  setMinimumTouchLengthToSlide: (@_minimumTouchLengthToSlide) -> @
-  getMinimumTouchLengthToChangePage: -> @_minimumTouchLengthToChangePage
-  setMinimumTouchLengthToChangePage: (@_minimumTouchLengthToChangePage) -> @
-  getItems: -> @_items
-  setItems: (@_items) -> @
+  setMargin: (margin) ->
+    @_margin = margin
+
+    @layout()
+    @
+    
+  getPage: -> @_container.getPage()
+  setPage: (page) ->
+    @_container.setPage(page)
+    @
+    
+  getMinimumTouchLengthToSlide: -> @_container.getMinimumTouchLengthToSlide()
+  setMinimumTouchLengthToSlide: (length) ->
+    @_container.setMinimumTouchLengthToSlide(length)
+    @
+  
+  getMinimumTouchLengthToChangePage: -> @_container.getMinimumTouchLengthToChangePage()
+  setMinimumTouchLengthToChangePage: (length) ->
+    @_container.setMinimumTouchLengthToChangePage(length)
+    @
+    
+  getItems: -> @_container.getItems()
+  setItems: (items) ->
+    @_container.setItems(items)
+    @
 
   layout: (anim = true) ->
+    @_super anim
+    
+    size = @getContentSize()
+    
+    if @_container
+      @_container.setPosition(cc.p(size.width / 2, size.height / 2))
+      @_container.setContentSize(cc.size(size.width - 2 * @_margin.width, size.height - 2 * @_margin.height))
 
   onTouchBegan: (touch, event) ->
+    return false unless @_super(touch, event)
+
+    return @_container.ccTouchBegan(touch, event)
+    
   onTouchMoved: (touch, event) ->
+    @_super(touch, event)
+    
+    @_container.ccTouchMoved(touch, event)
+  
   onTouchEnded: (touch, event) ->
+    @_super(touch, event)
+    
+    @_container.ccTouchEnded(touch, event)
+    
   onTouchCancelled: (touch, event) ->
+    @_super(touch, event)
+    
+    @_container.ccTouchCancelled(touch, event)
 )
