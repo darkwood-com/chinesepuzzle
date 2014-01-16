@@ -425,6 +425,7 @@ cpz.MenuLayout = cc.Class.extend({
         this._mBox.setTitlePosition(this._layoutRes('titlePosition'));
         this._mBox.setValidPosition(this._layoutRes('validPosition'));
         this._mBox.layout(anim);
+        break;
     }
     return this._layoutLastFontFile = currentFontFile;
   },

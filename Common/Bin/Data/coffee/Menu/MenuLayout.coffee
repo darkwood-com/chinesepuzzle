@@ -430,7 +430,7 @@ cpz.MenuLayout = cc.Class.extend(
           item.setAnchorPoint(cc.p(0.5, 0.5))
           item.setPosition(cc.p(0, 0))
           items.addObject(item)
-          
+
           @_mBox.setItems(items)
           @_mBox.layout(anim)
           
@@ -440,6 +440,8 @@ cpz.MenuLayout = cc.Class.extend(
         @_mBox.setTitlePosition(@_layoutRes('titlePosition'))
         @_mBox.setValidPosition(@_layoutRes('validPosition'))
         @_mBox.layout(anim)
+
+      else
     
     @_layoutLastFontFile = currentFontFile
 
