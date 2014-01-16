@@ -417,7 +417,6 @@ cpz.MenuLayout = cc.Class.extend({
           item.setAnchorPoint(cc.p(0.5, 0.5));
           item.setPosition(cc.p(0, 0));
           items.addObject(item);
-          item.release();
           this._mBox.setItems(items);
           this._mBox.layout(anim);
           this._menu.pushNav(this._mBox);
