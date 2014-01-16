@@ -7,6 +7,11 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
+cpz.MenuGridScrollLayerState = {
+  Idle: 0,
+  Sliding: 1
+};
+
 cpz.MenuGrid = cc.Node.extend({
   _itemsGrid: null,
   _resetGrid: function() {
@@ -254,8 +259,3 @@ cpz.MenuGrid = cc.Node.extend({
     }
   }
 });
-
-cpz.MenuGridScrollLayerState = {
-  Idle: 0,
-  Sliding: 1
-};

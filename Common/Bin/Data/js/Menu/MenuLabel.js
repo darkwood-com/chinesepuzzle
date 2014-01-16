@@ -7,6 +7,11 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
+cpz.MenuLabelScrollLayerState = {
+  Idle: 0,
+  Sliding: 1
+};
+
 cpz.MenuLabel = cc.Node.extend({
   _label: null,
   _startSwipe: null,
@@ -127,8 +132,3 @@ cpz.MenuLabel = cc.Node.extend({
     }
   }
 });
-
-cpz.MenuLabelScrollLayerState = {
-  Idle: 0,
-  Sliding: 1
-};

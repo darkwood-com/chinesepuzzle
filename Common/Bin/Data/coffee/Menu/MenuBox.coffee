@@ -7,6 +7,9 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
+cpz.MenuBoxTag =
+  Title: 0
+
 cpz.MenuBox = cc.Node.extend(
   _bg: null
   _validBtn: null
@@ -189,6 +192,3 @@ cpz.MenuBox = cc.Node.extend(
     @_selectedItem.unselected()  if @_selectedItem
     @_state = cc.MENU_STATE_WAITING
 )
-
-cpz.MenuBoxTag =
-  Title: 0

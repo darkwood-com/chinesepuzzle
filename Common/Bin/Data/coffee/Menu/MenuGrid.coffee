@@ -7,6 +7,10 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
+cpz.MenuGridScrollLayerState =
+  Idle: 0
+  Sliding: 1
+
 cpz.MenuGrid = cc.Node.extend(
   _itemsGrid: null #items (=3x gridSize)
 
@@ -239,7 +243,3 @@ cpz.MenuGrid = cc.Node.extend(
       @_scrollTouch = null
       @setPage(@_page)
 )
-
-cpz.MenuGridScrollLayerState =
-  Idle: 0
-  Sliding: 1
