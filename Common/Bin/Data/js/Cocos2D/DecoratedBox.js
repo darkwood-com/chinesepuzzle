@@ -8,6 +8,7 @@ file that was distributed with this source code.
 */
 
 cpz.DecoratedBox = cc.Node.extend({
+  _batchNode: null,
   _cell: null,
   _boxWidth: null,
   _boxHeight: null,
@@ -21,9 +22,11 @@ cpz.DecoratedBox = cc.Node.extend({
     return this._boxHeight;
   },
   initWithTexture: function(texture, rect, size) {
-    if (!this._super(texture, 9)) {
+    this._batchNode = cc.SpriteBatchNode.createWithTexture(texture, 9);
+    if (!this._batchNode) {
       return false;
     }
+    this.addChild(this._batchNode);
     this._cell.origin = rect.origin;
     this._cell = cc.size(rect.width / 3, rect.height / 3);
     this.setAnchorPoint(cc.p(0.5, 0.5));
@@ -32,10 +35,12 @@ cpz.DecoratedBox = cc.Node.extend({
   },
   initWithFile: function(filename, size) {
     var textureSize;
-    if (!this._super(filename, 9)) {
+    this._batchNode = cc.SpriteBatchNode.createWithFile(filename, 9);
+    if (!this._batchNode) {
       return false;
     }
-    textureSize = this.getTextureAtlas().getTexture().getContentSize();
+    this.addChild(this._batchNode);
+    textureSize = this._batchNode.getTextureAtlas().getTexture().getContentSize();
     this._cell.origin = cc.p(0, 0);
     this._cell = cc.size(textureSize.width / 3, textureSize.height / 3);
     this.setAnchorPoint(cc.p(0.5, 0.5));
@@ -44,7 +49,7 @@ cpz.DecoratedBox = cc.Node.extend({
   },
   setContentSize: function(size) {
     var b, i, j, offh, offw, rect, uh, uw, _i, _ref, _results;
-    this.removeAllChildrenWithCleanup(true);
+    this._batchNode.removeAllChildrenWithCleanup(true);
     this._super(size);
     uw = Math.ceil(size.width / this._cell.width);
     uh = Math.ceil(size.height / this._cell.height);
@@ -99,7 +104,7 @@ cpz.DecoratedBox = cc.Node.extend({
             rect = cc.rect(this._cell.width, this._cell.height, this._cell.width, this._cell.height);
           }
           rect.origin = cc.pAdd(rect.origin, this._cell.origin);
-          b = cc.Sprite.createWithTexture(this.getTexture(), rect);
+          b = cc.Sprite.createWithTexture(this._batchNode.getTexture(), rect);
           b.setAnchorPoint(cc.p(0, 0));
           if (j === (uh - 1) && i === (uw - 1)) {
             b.setPosition(cc.p((i - 1) * this._cell.width + offw, (j - 1) * this._cell.height + offh));
@@ -111,7 +116,7 @@ cpz.DecoratedBox = cc.Node.extend({
             b.setPosition(cc.p(i * this._cell.width, j * this._cell.height));
           }
           b.setTag(j * this._cell.height + i);
-          _results1.push(this.addChild(b));
+          _results1.push(this._batchNode.addChild(b));
         }
         return _results1;
       }).call(this));

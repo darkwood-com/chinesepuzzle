@@ -8,6 +8,8 @@ file that was distributed with this source code.
 ###
 
 cpz.DecoratedBox = cc.Node.extend(
+  _batchNode: null
+
   _cell: null
   
   _boxWidth: null
@@ -18,8 +20,11 @@ cpz.DecoratedBox = cc.Node.extend(
   getBoxHeight: -> @_boxHeight
 
   initWithTexture: (texture, rect, size) ->
-    return false unless @_super(texture, 9)
-    
+    @_batchNode = cc.SpriteBatchNode.createWithTexture texture, 9
+    return false unless @_batchNode
+
+    @addChild @_batchNode
+
     @_cell.origin = rect.origin
     @_cell = cc.size(rect.width / 3, rect.height / 3)
     @setAnchorPoint cc.p(0.5, 0.5)
@@ -28,9 +33,12 @@ cpz.DecoratedBox = cc.Node.extend(
     return true
     
   initWithFile: (filename, size) ->
-    return false unless @_super(filename, 9)
-    
-    textureSize = @getTextureAtlas().getTexture().getContentSize()
+    @_batchNode = cc.SpriteBatchNode.createWithFile filename, 9
+    return false unless @_batchNode
+
+    @addChild @_batchNode
+
+    textureSize = @_batchNode.getTextureAtlas().getTexture().getContentSize()
     
     @_cell.origin = cc.p(0, 0)
     @_cell = cc.size(textureSize.width / 3, textureSize.height / 3)
@@ -40,7 +48,7 @@ cpz.DecoratedBox = cc.Node.extend(
     return true
 
   setContentSize: (size) ->
-    @removeAllChildrenWithCleanup(true)
+    @_batchNode.removeAllChildrenWithCleanup(true)
 
     @_super size
 
@@ -108,7 +116,7 @@ cpz.DecoratedBox = cc.Node.extend(
       
         rect.origin = cc.pAdd(rect.origin, @_cell.origin)
         
-        b = cc.Sprite.createWithTexture(@getTexture(), rect)
+        b = cc.Sprite.createWithTexture(@_batchNode.getTexture(), rect)
         b.setAnchorPoint(cc.p(0, 0))
         if j is (uh - 1) and i is (uw - 1)
           b.setPosition(cc.p((i - 1) * @_cell.width + offw, (j - 1) * @_cell.height + offh))
@@ -119,8 +127,8 @@ cpz.DecoratedBox = cc.Node.extend(
         else
           b.setPosition(cc.p(i * @_cell.width, j * @_cell.height))
         b.setTag(j * @_cell.height + i)
-        
-        @addChild(b)
+
+        @_batchNode.addChild(b)
     
 )
 
