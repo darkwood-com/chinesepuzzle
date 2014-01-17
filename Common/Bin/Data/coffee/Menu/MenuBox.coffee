@@ -25,7 +25,7 @@ cpz.MenuBox = cc.Node.extend(
       for child in menuItems
         if child instanceof cc.MenuItem and child.isVisible() and child.isEnabled()
           local = child.convertToNodeSpace(touchLocation)
-          CCRect r = child.rect()
+          r = child.rect()
           r.x = 0
           r.y = 0
 
@@ -146,11 +146,11 @@ cpz.MenuBox = cc.Node.extend(
       @_bg.setPosition(cc.p(size.width / 2, size.height / 2))
       @_bg.setContentSize(cc.size(size.width, size.height))
 
-  setOkTarget: (rec, selector) ->
-    @_validBtn.setTarget(rec, selector)
+  setOkTarget: (selector, rec) ->
+    @_validBtn.setTarget(selector, rec)
 
   onTouchBegan: (touch, event) ->
-    return false if @_state isnt cc.MENU_STATE_WAITING or not @_visible or not @_enabled
+    return false if @_state isnt cc.MENU_STATE_WAITING or not @_visible
 
     c = @_parent
     while c?

@@ -26,7 +26,7 @@ cpz.MenuBox = cc.Node.extend({
         child = menuItems[_i];
         if (child instanceof cc.MenuItem && child.isVisible() && child.isEnabled()) {
           local = child.convertToNodeSpace(touchLocation);
-          CCRect(r = child.rect());
+          r = child.rect();
           r.x = 0;
           r.y = 0;
           if (cc.rectContainsPoint(r, local)) {
@@ -168,12 +168,12 @@ cpz.MenuBox = cc.Node.extend({
       return this._bg.setContentSize(cc.size(size.width, size.height));
     }
   },
-  setOkTarget: function(rec, selector) {
-    return this._validBtn.setTarget(rec, selector);
+  setOkTarget: function(selector, rec) {
+    return this._validBtn.setTarget(selector, rec);
   },
   onTouchBegan: function(touch, event) {
     var c;
-    if (this._state !== cc.MENU_STATE_WAITING || !this._visible || !this._enabled) {
+    if (this._state !== cc.MENU_STATE_WAITING || !this._visible) {
       return false;
     }
     c = this._parent;

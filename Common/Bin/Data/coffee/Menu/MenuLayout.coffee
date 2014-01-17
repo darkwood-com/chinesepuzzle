@@ -249,7 +249,7 @@ cpz.MenuLayout = cc.Class.extend(
         unless @_mBox
           @_mBox = new cpz.MenuBox()
           @_mBox.initWithConf(conf)
-          @_mBox.setOkTarget(@_menu, cpz.Menu.okMenu)
+          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
           
           @_menu.pushNav(@_mBox)
         
@@ -292,7 +292,7 @@ cpz.MenuLayout = cc.Class.extend(
         unless @_mBox
           @_mBox = new cpz.MenuBox()
           @_mBox.initWithConf(conf)
-          @_mBox.setOkTarget(@_menu, cpz.Menu.okMenu)
+          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
           
           @_menu.pushNav(@_mBox)
         
@@ -337,7 +337,7 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath((@_layoutRes('font'))))
           @_mBox.setPosition(center)
           @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
-          @_mBox.setOkTarget(@_menu, cpz.Menu.okMenu)
+          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
           @_mBox.setString(lang.get('menu.hintgame.content'))
           
           @_menu.pushNav(@_mBox)
@@ -381,7 +381,7 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.setGridSize(cc.size(2, 2))
           @_mBox.setPage(0)
           @_mBox.setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8)
-          @_mBox.setOkTarget(@_menu, cpz.Menu.okMenu)
+          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
           
           items = []
           for theme in @_themes
@@ -405,12 +405,12 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.initWithConfAndContentSize(conf, @_layoutRes('menuNoneBoxSize'))
           @_mBox.setPosition(center)
           @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
-          @_mBox.setOkTarget(@_menu, cpz.Menu.okMenu)
+          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
 
           items = []
           
           item = new cc.MenuItemFont()
-          item.initFromString('Exit menu', @_menu, cpz.Menu.okMenu)
+          item.initFromString('Exit menu', cpz.Menu.okMenu, @_menu)
           item.setAnchorPoint(cc.p(0.5, 0.5))
           item.setPosition(cc.p(0, 0))
           items.addObject(item)
