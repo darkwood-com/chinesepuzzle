@@ -270,8 +270,7 @@ cpz.MenuLayout = cc.Class.extend(
         
         itemYes = @_mBox.getChildByTag(cpz.MenuTag.NewYes)
         unless itemYes
-          itemYes = new cc.MenuItemSprite()
-          itemYes.initWithTarget(@_menu.getGameScene(), cpz.GameSceneCommon.newGame)
+          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, cpz.GameSceneCommon.newGame, @_menu.getGameScene())
           itemYes.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemYes, 1, cpz.MenuTag.NewYes)
         itemYes.setNormalImage(yesSprite)
@@ -280,8 +279,7 @@ cpz.MenuLayout = cc.Class.extend(
         
         itemNo = @_mBox.getChildByTag(cpz.MenuTag.NewNo)
         unless itemNo
-          itemNo = new cc.MenuItemSprite()
-          itemNo.initWithTarget(@_menu, cpz.Menu.okMenu)
+          itemNo = cc.MenuItemSprite.create(noSprite, null, null, cpz.Menu.okMenu, @_menu)
           itemNo.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemNo, 2, cpz.MenuTag.NewNo)
         itemNo.setNormalImage(noSprite)
@@ -315,8 +313,7 @@ cpz.MenuLayout = cc.Class.extend(
         
         itemYes = @_mBox.getChildByTag(cpz.MenuTag.RetryYes)
         unless itemYes
-          itemYes = new cc.MenuItemSprite()
-          itemYes.initWithTarget(@_menu.getGameScene(), cpz.GameSceneCommon.retryGame)
+          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, cpz.GameSceneCommon.retryGame, @_menu.getGameScene())
           itemYes.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemYes, 1, cpz.MenuTag.RetryYes)
         itemYes.setNormalImage(yesSprite)
@@ -325,7 +322,7 @@ cpz.MenuLayout = cc.Class.extend(
         
         itemNo = @_mBox.getChildByTag(cpz.MenuTag.RetryNo)
         unless itemNo
-          itemNo = new cc.MenuItemSprite()
+          itemNo = cc.MenuItemSprite.create(noSprite, null, null, cpz.Menu.okMenu, @_menu)
           itemNo.initWithTarget(@_menu, cpz.Menu.okMenu)
           itemNo.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemNo, 2, cpz.MenuTag.RetryNo)
@@ -376,7 +373,7 @@ cpz.MenuLayout = cc.Class.extend(
             conf.getNodeUiPath(theme, themeNode)
             conf.getNodeUiPath(theme + 'Select', themeNodeSelected)
             
-            @_themes[key] = cc.MenuItemSprite.create(themeNode, null, @, cpz.MenuLayout._selectTheme)
+            @_themes[key] = cc.MenuItemSprite.create(themeNode, null, null, cpz.MenuLayout._selectTheme, @)
         
         unless @_mBox
           @_mBox = new cpz.MenuGridContainer()

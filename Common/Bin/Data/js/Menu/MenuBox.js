@@ -112,7 +112,7 @@ cpz.MenuBox = cc.Node.extend({
   },
   setItems: function(items) {
     var child, _i, _j, _len, _len1, _ref, _ref1;
-    if (this._items && this._items.count() > 0) {
+    if (this._items && this._items.length > 0) {
       _ref = this._items;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         child = _ref[_i];
@@ -120,7 +120,7 @@ cpz.MenuBox = cc.Node.extend({
       }
     }
     this._items = items;
-    if (this._items.count() > 0) {
+    if (this._items.length > 0) {
       _ref1 = this._items;
       for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
         child = _ref1[_j];
@@ -133,8 +133,8 @@ cpz.MenuBox = cc.Node.extend({
     return this._items;
   },
   addItem: function(child, zOrder, tag) {
-    this._items.addObject(pChild);
-    return this.addChild(pChild, zOrder, tag);
+    this._items.push(child);
+    return this.addChild(child, zOrder, tag);
   },
   removeItemByTag: function(tag, cleanup) {
     var child;
@@ -145,7 +145,7 @@ cpz.MenuBox = cc.Node.extend({
     if (child === null) {
       CCLOG('cocos2d: removeItemByTag: child not found!');
     } else {
-      this._items.removeObject(child);
+      cc.ArrayRemoveObject(this._items, child);
     }
     return this.removeChildByTag(tag, cleanup);
   },

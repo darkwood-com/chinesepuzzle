@@ -104,13 +104,13 @@ cpz.MenuBox = cc.Node.extend(
   setValidPosition: (@_validPosition) -> @
 
   setItems: (items) ->
-    if(@_items && @_items.count() > 0)
+    if(@_items && @_items.length > 0)
       for child in @_items
         @removeChild child, true
 
     @_items = items
 
-    if(@_items.count() > 0)
+    if(@_items.length > 0)
       for child in @_items
         @addChild child
 
@@ -118,8 +118,8 @@ cpz.MenuBox = cc.Node.extend(
 
   getItems: -> @_items
   addItem: (child, zOrder, tag) ->
-    @_items.addObject(pChild)
-    @addChild(pChild, zOrder, tag)
+    @_items.push(child)
+    @addChild(child, zOrder, tag)
 
   removeItemByTag: (tag, cleanup) ->
     if tag is cc.NODE_TAG_INVALID
@@ -130,7 +130,7 @@ cpz.MenuBox = cc.Node.extend(
     if child is null
       CCLOG('cocos2d: removeItemByTag: child not found!')
     else
-      @_items.removeObject child
+      cc.ArrayRemoveObject @_items, child
 
     @removeChildByTag tag, cleanup
 
