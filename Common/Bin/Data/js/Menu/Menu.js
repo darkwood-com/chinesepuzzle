@@ -19,7 +19,7 @@ cpz.Menu = cc.Layer.extend({
       return false;
     }
     this._gs = gs;
-    this._ml = new cpz.MenuLayout();
+    this._ml = new cpz.MenuLayout(this);
     this._ml.initWithType(layout);
     this.setTouchMode(cc.TOUCH_ONE_BY_ONE);
     this.setTouchEnabled(true);

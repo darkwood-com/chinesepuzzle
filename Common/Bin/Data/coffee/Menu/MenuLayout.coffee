@@ -221,9 +221,9 @@ cpz.MenuLayout = cc.Class.extend(
   _type: null
 
   ctor: (menu) ->
-    @_bg = null
     @_menu = menu
     @_themes = null
+    @_bg = null
     @_mBox = null
     @_miTheme = null
 

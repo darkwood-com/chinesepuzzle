@@ -218,9 +218,9 @@ cpz.MenuLayout = cc.Class.extend({
   _layoutLastFontFile: null,
   _type: null,
   ctor: function(menu) {
-    this._bg = null;
     this._menu = menu;
     this._themes = null;
+    this._bg = null;
     this._mBox = null;
     return this._miTheme = null;
   },

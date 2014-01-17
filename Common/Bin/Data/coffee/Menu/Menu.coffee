@@ -20,7 +20,7 @@ cpz.Menu = cc.Layer.extend(
     return false unless @init()
 
     @_gs = gs
-    @_ml = new cpz.MenuLayout()
+    @_ml = new cpz.MenuLayout(@)
     @_ml.initWithType layout
 
     @setTouchMode cc.TOUCH_ONE_BY_ONE
