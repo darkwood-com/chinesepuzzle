@@ -34,7 +34,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
     return false unless @_super()
 
     #set langage
-    lang = cc.CCLang.getInstance()
+    lang = cc.Lang.getInstance()
     lang.setLang cc.Application.getInstance().getCurrentLanguage()
     lang.addLang 'lang'
 

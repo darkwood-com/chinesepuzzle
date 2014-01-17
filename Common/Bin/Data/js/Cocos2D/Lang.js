@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
-cc.CCLang = cc.Class.extend({
+cc.Lang = cc.Class.extend({
   _data: null,
   _lang: null,
   ctor: function() {
@@ -54,11 +54,11 @@ cc.CCLang = cc.Class.extend({
   }
 });
 
-cc.CCLang.s_sharedLang = null;
+cc.Lang.s_sharedLang = null;
 
-cc.CCLang.getInstance = function() {
+cc.Lang.getInstance = function() {
   if (!this.s_sharedLang) {
-    this.s_sharedLang = new cc.CCLang();
+    this.s_sharedLang = new cc.Lang();
   }
   return this.s_sharedLang;
 };

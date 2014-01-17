@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
-cc.CCLang = cc.Class.extend(
+cc.Lang = cc.Class.extend(
   _data: null
   _lang: null
 
@@ -45,9 +45,9 @@ cc.CCLang = cc.Class.extend(
     @
 )
 
-cc.CCLang.s_sharedLang = null
+cc.Lang.s_sharedLang = null
 
-cc.CCLang.getInstance = ->
+cc.Lang.getInstance = ->
   unless @s_sharedLang
-    @s_sharedLang = new cc.CCLang()
+    @s_sharedLang = new cc.Lang()
   @s_sharedLang

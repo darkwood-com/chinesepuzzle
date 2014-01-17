@@ -34,7 +34,7 @@ cpz.GameSceneCommon = cc.Scene.extend({
     if (!this._super()) {
       return false;
     }
-    lang = cc.CCLang.getInstance();
+    lang = cc.Lang.getInstance();
     lang.setLang(cc.Application.getInstance().getCurrentLanguage());
     lang.addLang('lang');
     this._conf = new cpz.GameConfig();
