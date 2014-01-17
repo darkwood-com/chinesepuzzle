@@ -89,7 +89,7 @@ cpz.MenuBox = cc.Node.extend({
     } else {
       this.removeChildByTag(cpz.MenuBoxTag.Title, true);
       this._titleLabel = new cc.LabelBMFont();
-      this._titleLabel.initWithString(title, 'fonts/' + fontFile);
+      this._titleLabel.initWithString(title, cpz.GameConfigCommon.getFontPath(fontFile));
       this._titleLabel.setAnchorPoint(cc.p(0.0, 1.0));
       this.addChild(this._titleLabel, 0, cpz.MenuBoxTag.Title);
       this._layoutFontFile = fontFile;

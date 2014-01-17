@@ -53,7 +53,7 @@ cc.DecoratedBox = cc.Node.extend(
     return true
 
   setContentSize: (size) ->
-    @_batchNode.removeAllChildrenWithCleanup(true)
+    @_batchNode.removeAllChildren true
 
     @_super size
 

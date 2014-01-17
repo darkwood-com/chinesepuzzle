@@ -17,7 +17,9 @@ res = [
 
   #fnt
   cpz.GameConfigCommon.getFontPath('arial16.fnt'),
+  #cpz.GameConfigCommon.getFontPath('arial16.png'),
   cpz.GameConfigCommon.getFontPath('arial32.fnt'),
+  #cpz.GameConfigCommon.getFontPath('arial32.png'),
 
   #tmx
 
