@@ -21,10 +21,10 @@ cpz.MenuGrid = cc.Node.extend(
     @_itemsGrid.removeAllObjects()
 
     a = @_gridSize.width * @_gridSize.height
-    pageMin = a * (page - 1)
-    pageMax = a * (page + 2) -1
+    pageMin = a * (@_page - 1)
+    pageMax = a * (@_page + 2) - 1
     for k in [pageMin..pageMax]
-      if(k >= 0 and k < @_items.count())
+      if(k >= 0 and k < @_items.length)
         item = @_items[k]
         item.setAnchorPoint cc.p(0.5, 0.5)
         @addChild(item)
@@ -119,7 +119,7 @@ cpz.MenuGrid = cc.Node.extend(
 
     if(@_gridSize.width > 0 and @_gridSize.height > 0)
       pad = cc.size(size.width / @_gridSize.width, size.height / @_gridSize.height)
-      origin = cc.p(size.width / (2 * @_gridSize.width) - page * size.width, size.height / (2 * @_gridSize.height))
+      origin = cc.p(size.width / (2 * @_gridSize.width) - @_page * size.width, size.height / (2 * @_gridSize.height))
 
       for coord in @_itemsGrid.allKeys()
         item = @_itemsGrid.object(coord)
@@ -141,7 +141,7 @@ cpz.MenuGrid = cc.Node.extend(
 
   getPage: -> @_page
   setPage: (page) ->
-    if(page >= 0 and page < @getMaxPage())
+    if(page >= 0 and page < @_getMaxPage())
       @_page = page
   
       @setSwipe(0)
@@ -153,7 +153,7 @@ cpz.MenuGrid = cc.Node.extend(
   # method scrollLayer:scrolledToPageNumber: at the end of CCMoveTo action.
   # Does nothing if number >= totalScreens or < 0.
   swipeToPage: (page) ->
-    if(page >= 0 and page < @getMaxPage())
+    if(page >= 0 and page < @_getMaxPage())
       @runAction(cc.Sequence.create([
         #MenuGridSwipeTo::actionWithDuration(0.3, (@_page - page) * @getContentSize().width),
         #CCCallFunc::actionWithTarget(@, callfunc_selector(MenuGrid::swipeToPageEnded))
@@ -232,7 +232,7 @@ cpz.MenuGrid = cc.Node.extend(
     else if(swipe < 0 and swipe <= -@_minimumTouchLengthToChangePage)
       selectedPage += - ((@getSwipe() + @_minimumTouchLengthToChangePage) / @getContentSize().width) + 1
     if selectedPage < 0 then selectedPage = 0
-    if selectedPage >= @getMaxPage() then selectedPage = @getMaxPage() - 1
+    if selectedPage >= @_getMaxPage() then selectedPage = @_getMaxPage() - 1
     
     @swipeToPage(selectedPage)
 

@@ -18,7 +18,7 @@ cpz.MenuLabelContainer = cpz.MenuBox.extend(
     @_container = null
 
   initWithConfAndContentSizeAndFntFile: (conf, size, fntFile) ->
-    return false unless @_super(conf, size)
+    return false unless @initWithConfAndContentSize(conf, size)
     
     @_container = new cpz.MenuLabel()
     @_container.initWithContentSizeAndFntFile(size, fntFile)
@@ -44,7 +44,7 @@ cpz.MenuLabelContainer = cpz.MenuBox.extend(
     @
 
   getMargin: -> @_margin
-  setMargin: (@_margin) ->
+  setMargin: (margin) ->
     @_margin = margin
     
     @layout()
@@ -57,8 +57,8 @@ cpz.MenuLabelContainer = cpz.MenuBox.extend(
     
     if(@_container)
       @_container.setPosition(cc.p(size.width / 2, size.height / 2))
-      @_container.setContentSize(cc.size(size.width - 2 * margin.width, size.height - 2 * margin.height))
-      @_container.setWidth(size.width - 2 * margin.width)
+      @_container.setContentSize(cc.size(size.width - 2 * @_margin.width, size.height - 2 * @_margin.height))
+      @_container.setWidth(size.width - 2 * @_margin.width)
 
   onTouchBegan: (touch, event) ->
     return false unless @_super(touch, event)

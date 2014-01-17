@@ -24,10 +24,10 @@ cpz.MenuGrid = cc.Node.extend({
     }
     this._itemsGrid.removeAllObjects();
     a = this._gridSize.width * this._gridSize.height;
-    pageMin = a * (page - 1);
-    pageMax = a * (page + 2)(-1);
+    pageMin = a * (this._page - 1);
+    pageMax = a * (this._page + 2) - 1;
     for (k = _j = pageMin; pageMin <= pageMax ? _j <= pageMax : _j >= pageMax; k = pageMin <= pageMax ? ++_j : --_j) {
-      if (k >= 0 && k < this._items.count()) {
+      if (k >= 0 && k < this._items.length) {
         item = this._items[k];
         item.setAnchorPoint(cc.p(0.5, 0.5));
         this.addChild(item);
@@ -122,7 +122,7 @@ cpz.MenuGrid = cc.Node.extend({
     size = this.getContentSize();
     if (this._gridSize.width > 0 && this._gridSize.height > 0) {
       pad = cc.size(size.width / this._gridSize.width, size.height / this._gridSize.height);
-      origin = cc.p(size.width / (2 * this._gridSize.width) - page * size.width, size.height / (2 * this._gridSize.height));
+      origin = cc.p(size.width / (2 * this._gridSize.width) - this._page * size.width, size.height / (2 * this._gridSize.height));
       _ref = this._itemsGrid.allKeys();
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -145,7 +145,7 @@ cpz.MenuGrid = cc.Node.extend({
     return this._page;
   },
   setPage: function(page) {
-    if (page >= 0 && page < this.getMaxPage()) {
+    if (page >= 0 && page < this._getMaxPage()) {
       this._page = page;
       this.setSwipe(0);
       this._resetGrid();
@@ -153,7 +153,7 @@ cpz.MenuGrid = cc.Node.extend({
     return this;
   },
   swipeToPage: function(page) {
-    if (page >= 0 && page < this.getMaxPage()) {
+    if (page >= 0 && page < this._getMaxPage()) {
       return this.runAction(cc.Sequence.create([]));
     }
   },
@@ -245,8 +245,8 @@ cpz.MenuGrid = cc.Node.extend({
     if (selectedPage < 0) {
       selectedPage = 0;
     }
-    if (selectedPage >= this.getMaxPage()) {
-      selectedPage = this.getMaxPage() - 1;
+    if (selectedPage >= this._getMaxPage()) {
+      selectedPage = this._getMaxPage() - 1;
     }
     return this.swipeToPage(selectedPage);
   },

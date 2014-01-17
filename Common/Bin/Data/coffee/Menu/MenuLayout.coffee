@@ -323,7 +323,6 @@ cpz.MenuLayout = cc.Class.extend(
         itemNo = @_mBox.getChildByTag(cpz.MenuTag.RetryNo)
         unless itemNo
           itemNo = cc.MenuItemSprite.create(noSprite, null, null, cpz.Menu.okMenu, @_menu)
-          itemNo.initWithTarget(@_menu, cpz.Menu.okMenu)
           itemNo.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemNo, 2, cpz.MenuTag.RetryNo)
         itemNo.setNormalImage(noSprite)
@@ -333,7 +332,7 @@ cpz.MenuLayout = cc.Class.extend(
         @_mBox.layout(anim)
       
       when cpz.MenuLayoutType.Hint
-        unless !@_mBox
+        unless @_mBox
           @_mBox = new cpz.MenuLabelContainer()
           @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath((@_layoutRes('font'))))
           @_mBox.setPosition(center)
@@ -379,7 +378,7 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox = new cpz.MenuGridContainer()
           @_mBox.initWithConf(conf)
           @_mBox.setMargin(cc.size(50, 50))
-          @_mBox.setGridSize(ccg(2, 2))
+          @_mBox.setGridSize(cc.size(2, 2))
           @_mBox.setPage(0)
           @_mBox.setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8)
           @_mBox.setOkTarget(@_menu, cpz.Menu.okMenu)

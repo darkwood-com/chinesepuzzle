@@ -335,7 +335,6 @@ cpz.MenuLayout = cc.Class.extend({
         itemNo = this._mBox.getChildByTag(cpz.MenuTag.RetryNo);
         if (!itemNo) {
           itemNo = cc.MenuItemSprite.create(noSprite, null, null, cpz.Menu.okMenu, this._menu);
-          itemNo.initWithTarget(this._menu, cpz.Menu.okMenu);
           itemNo.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.addItem(itemNo, 2, cpz.MenuTag.RetryNo);
         }
@@ -345,7 +344,7 @@ cpz.MenuLayout = cc.Class.extend({
         this._mBox.layout(anim);
         break;
       case cpz.MenuLayoutType.Hint:
-        if (!!this._mBox) {
+        if (!this._mBox) {
           this._mBox = new cpz.MenuLabelContainer();
           this._mBox.initWithConfAndContentSizeAndFntFile(conf, this._layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath(this._layoutRes('font')));
           this._mBox.setPosition(center);
@@ -390,7 +389,7 @@ cpz.MenuLayout = cc.Class.extend({
           this._mBox = new cpz.MenuGridContainer();
           this._mBox.initWithConf(conf);
           this._mBox.setMargin(cc.size(50, 50));
-          this._mBox.setGridSize(ccg(2, 2));
+          this._mBox.setGridSize(cc.size(2, 2));
           this._mBox.setPage(0);
           this._mBox.setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
           this._mBox.setOkTarget(this._menu, cpz.Menu.okMenu);

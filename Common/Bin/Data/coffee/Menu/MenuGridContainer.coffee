@@ -22,7 +22,7 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
   initWithConf: (conf) ->
     return false unless @_super conf
 
-    @_container = new MenuGrid()
+    @_container = new cpz.MenuGrid()
     @_container.init()
     @_container.setAnchorPoint cc.p(0.5, 0.5)
     @addChild @_container

@@ -15,7 +15,7 @@ cpz.MenuLabelContainer = cpz.MenuBox.extend({
     return this._container = null;
   },
   initWithConfAndContentSizeAndFntFile: function(conf, size, fntFile) {
-    if (!this._super(conf, size)) {
+    if (!this.initWithConfAndContentSize(conf, size)) {
       return false;
     }
     this._container = new cpz.MenuLabel();
@@ -46,8 +46,7 @@ cpz.MenuLabelContainer = cpz.MenuBox.extend({
   getMargin: function() {
     return this._margin;
   },
-  setMargin: function(_margin) {
-    this._margin = _margin;
+  setMargin: function(margin) {
     this._margin = margin;
     this.layout();
     return this;
@@ -61,8 +60,8 @@ cpz.MenuLabelContainer = cpz.MenuBox.extend({
     size = this.getContentSize();
     if (this._container) {
       this._container.setPosition(cc.p(size.width / 2, size.height / 2));
-      this._container.setContentSize(cc.size(size.width - 2 * margin.width, size.height - 2 * margin.height));
-      return this._container.setWidth(size.width - 2 * margin.width);
+      this._container.setContentSize(cc.size(size.width - 2 * this._margin.width, size.height - 2 * this._margin.height));
+      return this._container.setWidth(size.width - 2 * this._margin.width);
     }
   },
   onTouchBegan: function(touch, event) {

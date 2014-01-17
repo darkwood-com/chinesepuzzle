@@ -21,7 +21,7 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
     if (!this._super(conf)) {
       return false;
     }
-    this._container = new MenuGrid();
+    this._container = new cpz.MenuGrid();
     this._container.init();
     this._container.setAnchorPoint(cc.p(0.5, 0.5));
     this.addChild(this._container);
