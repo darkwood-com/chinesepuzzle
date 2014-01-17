@@ -43,7 +43,9 @@ cpz.MenuBox = cc.Node.extend({
   _validPosition: null,
   _items: [],
   ctor: function() {
-    return this._super();
+    this._super();
+    this._titlePosition = cc.p(0, 0);
+    return this._validPosition = cc.p(0, 0);
   },
   initWithConf: function(conf) {
     var spriteBg, spriteNodeBg, spriteNodeValidBtn, spriteValidBtn;
@@ -82,8 +84,8 @@ cpz.MenuBox = cc.Node.extend({
     }
   },
   setTitle: function(title, fontFile) {
-    if ((this._titleLabel && this._layoutFontFile === fontFile)(this._titleLabel.setString(title))) {
-
+    if (this._titleLabel !== null && this._layoutFontFile === fontFile) {
+      this._titleLabel.setString(title);
     } else {
       this.removeChildByTag(cpz.MenuBoxTag.Title, true);
       this._titleLabel = new cc.LabelBMFont();
@@ -163,9 +165,9 @@ cpz.MenuBox = cc.Node.extend({
     if (this._validBtn) {
       this._validBtn.setPosition(cc.p(size.width - this._validPosition.x, size.height - this._validPosition.y));
     }
-    if (this._bg) {
+    if (this._bg !== null) {
       this._bg.setPosition(cc.p(size.width / 2, size.height / 2));
-      return this._bg.setContentSize(CCSizeMake(size.width, size.height));
+      return this._bg.setContentSize(cc.size(size.width, size.height));
     }
   },
   setOkTarget: function(rec, selector) {

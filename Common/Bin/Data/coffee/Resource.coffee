@@ -16,6 +16,8 @@ res = [
   cpz.CommonPath + 'lang-fr.plist',
 
   #fnt
+  cpz.GameConfigCommon.getFontPath('arial16.fnt'),
+  cpz.GameConfigCommon.getFontPath('arial32.fnt'),
 
   #tmx
 

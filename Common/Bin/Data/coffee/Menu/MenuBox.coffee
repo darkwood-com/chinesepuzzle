@@ -46,6 +46,9 @@ cpz.MenuBox = cc.Node.extend(
   ctor: ->
     @_super()
 
+    @_titlePosition = cc.p(0, 0)
+    @_validPosition = cc.p(0, 0)
+
   initWithConf: (conf) ->
     @_items = []
 
@@ -83,7 +86,7 @@ cpz.MenuBox = cc.Node.extend(
 
   getTitle: -> return if @_titleLabel then @_titleLabel.getString() else null
   setTitle: (title, fontFile) ->
-    if(@_titleLabel && @_layoutFontFile is fontFile) @_titleLabel.setString(title)
+    if @_titleLabel isnt null && @_layoutFontFile is fontFile then @_titleLabel.setString(title)
     else
       @removeChildByTag cpz.MenuBoxTag.Title, true
       @_titleLabel = new cc.LabelBMFont()
@@ -141,15 +144,15 @@ cpz.MenuBox = cc.Node.extend(
 
     if @_titleLabel then @_titleLabel.setPosition cc.p(@_titlePosition.x, size.height - @_titlePosition.y)
     if @_validBtn then @_validBtn.setPosition cc.p(size.width - @_validPosition.x, size.height - @_validPosition.y)
-    if @_bg
+    if @_bg isnt null
       @_bg.setPosition(cc.p(size.width / 2, size.height / 2))
-      @_bg.setContentSize(CCSizeMake(size.width, size.height))
+      @_bg.setContentSize(cc.size(size.width, size.height))
 
   setOkTarget: (rec, selector) ->
     @_validBtn.setTarget(rec, selector)
 
   onTouchBegan: (touch, event) ->
-    return false  if @_state isnt cc.MENU_STATE_WAITING or not @_visible or not @_enabled
+    return false if @_state isnt cc.MENU_STATE_WAITING or not @_visible or not @_enabled
 
     c = @_parent
     while c?

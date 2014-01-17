@@ -26,182 +26,170 @@ cpz.MenuTag =
 cpz.MenuLayout = cc.Class.extend(
   _layoutRes: (key) ->
     unless cpz.MenuLayout.datas
-      datas = {}
-    
-      sRes = '480x320'
-      datas[sRes + 'font'] = 'arial16.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(20, 20)
-      datas[sRes + 'validPosition'] = cc.p(5, 5)
-      datas[sRes + 'margin'] = cc.size(50, 50)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(300,200)
-      datas[sRes + 'menuNewTitle'] = cc.p(150,100)
-      datas[sRes + 'menuNewYes'] = cc.p(200,50)
-      datas[sRes + 'menuNewNo'] = cc.p(100,50)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(300,200)
-      datas[sRes + 'menuRetryTitle'] = cc.p(150,100)
-      datas[sRes + 'menuRetryYes'] = cc.p(200,50)
-      datas[sRes + 'menuRetryNo'] = cc.p(100,50)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(400,250)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(300,300)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(200,200)
-    
-      sRes = '960x640'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(600,600)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1024x768'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(600,600)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1280x800'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(600,600)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1280x1024'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(600,600)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1366x768'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(600,600)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1440x900'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(800,800)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1680x1050'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(800,800)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1920x1080'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(800,800)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-    
-      sRes = '1920x1200'
-      datas[sRes + 'font'] = 'arial32.fnt'
-      datas[sRes + 'titlePosition'] = cc.p(40, 40)
-      datas[sRes + 'validPosition'] = cc.p(10, 10)
-      datas[sRes + 'margin'] = cc.size(100, 100)
-      datas[sRes + 'menuNewBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuNewTitle'] = cc.p(300,200)
-      datas[sRes + 'menuNewYes'] = cc.p(400,100)
-      datas[sRes + 'menuNewNo'] = cc.p(200,100)
-      datas[sRes + 'menuRetryBoxSize'] = cc.size(600,400)
-      datas[sRes + 'menuRetryTitle'] = cc.p(300,200)
-      datas[sRes + 'menuRetryYes'] = cc.p(400,100)
-      datas[sRes + 'menuRetryNo'] = cc.p(200,100)
-      datas[sRes + 'menuHintBoxSize'] = cc.size(800,500)
-      datas[sRes + 'menuThemeBoxSize'] = cc.size(800,800)
-      datas[sRes + 'menuNoneBoxSize'] = cc.size(400,400)
-
-      cpz.MenuLayout.datas = datas
+      cpz.MenuLayout.datas =
+        '480x320':
+          font: 'arial16.fnt'
+          titlePosition: cc.p(20, 20)
+          validPosition: cc.p(5, 5)
+          margin: cc.size(50, 50)
+          menuNewBoxSize: cc.size(300,200)
+          menuNewTitle: cc.p(150,100)
+          menuNewYes: cc.p(200,50)
+          menuNewNo: cc.p(100,50)
+          menuRetryBoxSize: cc.size(300,200)
+          menuRetryTitle: cc.p(150,100)
+          menuRetryYes: cc.p(200,50)
+          menuRetryNo: cc.p(100,50)
+          menuHintBoxSize: cc.size(400,250)
+          menuThemeBoxSize: cc.size(300,300)
+          menuNoneBoxSize: cc.size(200,200)
+        '960x640':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(600,600)
+          menuNoneBoxSize: cc.size(400,400)
+        '1024x768':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(600,600)
+          menuNoneBoxSize: cc.size(400,400)
+        '1280x800':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(600,600)
+          menuNoneBoxSize: cc.size(400,400)
+        '1280x1024':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(600,600)
+          menuNoneBoxSize: cc.size(400,400)
+        '1366x768':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(600,600)
+          menuNoneBoxSize: cc.size(400,400)
+        '1440x900':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(800,800)
+          menuNoneBoxSize: cc.size(400,400)
+        '1680x1050':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(800,800)
+          menuNoneBoxSize: cc.size(400,400)
+        '1920x1080':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(800,800)
+          menuNoneBoxSize: cc.size(400,400)
+        '1920x1200':
+          font: 'arial32.fnt'
+          titlePosition: cc.p(40, 40)
+          validPosition: cc.p(10, 10)
+          margin: cc.size(100, 100)
+          menuNewBoxSize: cc.size(600,400)
+          menuNewTitle: cc.p(300,200)
+          menuNewYes: cc.p(400,100)
+          menuNewNo: cc.p(200,100)
+          menuRetryBoxSize: cc.size(600,400)
+          menuRetryTitle: cc.p(300,200)
+          menuRetryYes: cc.p(400,100)
+          menuRetryNo: cc.p(200,100)
+          menuHintBoxSize: cc.size(800,500)
+          menuThemeBoxSize: cc.size(800,800)
+          menuNoneBoxSize: cc.size(400,400)
     
     sRes = @_menu.getGameScene().getConf().getResolution()
-    return datas[sRes + key]
+    return cpz.MenuLayout.datas[sRes][key]
 
   _menu: null
   _themes: null
@@ -273,9 +261,9 @@ cpz.MenuLayout = cc.Class.extend(
         @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
         
         itemTitle = @_mBox.getChildByTag(cpz.MenuTag.NewTitle)
-        if(!itemTitle or currentFontFile isnt @_layoutLastFontFile)
+        if not itemTitle or currentFontFile isnt @_layoutLastFontFile
           @_mBox.removeChildByTag(cpz.MenuTag.NewTitle, true)
-          itemTitle = cc.LabelBMFont.create(lang.get('menu.newgame.content'), conf.getFontPath(currentFontFile))
+          itemTitle = cc.LabelBMFont.create(lang.get('menu.newgame.content'), cpz.GameConfigCommon.getFontPath(currentFontFile))
           itemTitle.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addChild(itemTitle, 0, cpz.MenuTag.NewTitle)
         itemTitle.setPosition(@_layoutRes('menuNewTitle'))
@@ -320,7 +308,7 @@ cpz.MenuLayout = cc.Class.extend(
         itemTitle = @_mBox.getChildByTag(cpz.MenuTag.RetryTitle)
         if(!itemTitle or currentFontFile isnt @_layoutLastFontFile)
           @_mBox.removeChildByTag(cpz.MenuTag.RetryTitle, true)
-          itemTitle = cc.LabelBMFont.create(lang.get('menu.retrygame.content'), conf.getFontPath(currentFontFile))
+          itemTitle = cc.LabelBMFont.create(lang.get('menu.retrygame.content'), cpz.GameConfigCommon.getFontPath(currentFontFile))
           itemTitle.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addChild(itemTitle, 0, cpz.MenuTag.RetryTitle)
         itemTitle.setPosition(@_layoutRes('menuRetryTitle'))
@@ -350,7 +338,7 @@ cpz.MenuLayout = cc.Class.extend(
       when cpz.MenuLayoutType.Hint
         unless !@_mBox
           @_mBox = new MenuLabelContainer()
-          @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), conf.getFontPath((@_layoutRes('font'))))
+          @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath((@_layoutRes('font'))))
           @_mBox.setPosition(center)
           @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.setOkTarget(@_menu, cpz.Menu.okMenu)
@@ -370,16 +358,16 @@ cpz.MenuLayout = cc.Class.extend(
       when cpz.MenuLayoutType.Theme
         unless @_themes
           themeNodes =
-            classic       : 'menuItemThemeClassic'
-            chinese       : 'menuItemThemeChinese'
-          # circle        : 'menuItemThemeCircle'
-            polkadots     : 'menuItemThemePolkadots'
-            seamless      : 'menuItemThemeSeamless'
-            shullshearts  : 'menuItemThemeSkullshearts'
-            splash        : 'menuItemThemeSplash'
-            spring        : 'menuItemThemeSpring'
-            stripes       : 'menuItemThemeStripes'
-            vivid         : 'menuItemThemeVivid'
+            classic     : 'menuItemThemeClassic'
+            chinese     : 'menuItemThemeChinese'
+          # circle      : 'menuItemThemeCircle'
+            polkadots   : 'menuItemThemePolkadots'
+            seamless    : 'menuItemThemeSeamless'
+            shullshearts: 'menuItemThemeSkullshearts'
+            splash      : 'menuItemThemeSplash'
+            spring      : 'menuItemThemeSpring'
+            stripes     : 'menuItemThemeStripes'
+            vivid       : 'menuItemThemeVivid'
 
           @_themes = {}
           for key, theme of themeNodes
@@ -393,7 +381,7 @@ cpz.MenuLayout = cc.Class.extend(
         unless @_mBox
           @_mBox = new cpz.MenuGridContainer()
           @_mBox.initWithConf(conf)
-          @_mBox.setMargin(CCSizeMake(50, 50))
+          @_mBox.setMargin(cc.size(50, 50))
           @_mBox.setGridSize(ccg(2, 2))
           @_mBox.setPage(0)
           @_mBox.setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8)
