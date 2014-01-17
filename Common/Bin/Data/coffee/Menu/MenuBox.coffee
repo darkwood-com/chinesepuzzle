@@ -66,7 +66,7 @@ cpz.MenuBox = cc.Node.extend(
     spriteValidBtn = cc.copyFirstSpriteBatchNode spriteNodeValidBtn
 
     @_validBtn = new cc.MenuItemSprite()
-    @_validBtn.initFromNormalSprite spriteValidBtn, null, null, null, null
+    @_validBtn.initWithNormalSprite spriteValidBtn, null, null, null, null
     @_validBtn.setAnchorPoint cc.p(0.5, 0.5)
     @_validBtn.setScale 0.75
     @addChild @_validBtn

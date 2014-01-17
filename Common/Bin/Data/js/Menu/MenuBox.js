@@ -61,7 +61,7 @@ cpz.MenuBox = cc.Node.extend({
     conf.getNodeUiPath('menuItemOk', spriteNodeValidBtn);
     spriteValidBtn = cc.copyFirstSpriteBatchNode(spriteNodeValidBtn);
     this._validBtn = new cc.MenuItemSprite();
-    this._validBtn.initFromNormalSprite(spriteValidBtn, null, null, null, null);
+    this._validBtn.initWithNormalSprite(spriteValidBtn, null, null, null, null);
     this._validBtn.setAnchorPoint(cc.p(0.5, 0.5));
     this._validBtn.setScale(0.75);
     this.addChild(this._validBtn);

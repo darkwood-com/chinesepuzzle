@@ -21,6 +21,10 @@ cc.DecoratedBox = cc.Node.extend({
   getBoxHeight: function() {
     return this._boxHeight;
   },
+  ctor: function() {
+    this._super();
+    return this._cell = cc.rect();
+  },
   initWithTexture: function(texture, rect, size) {
     this._batchNode = cc.SpriteBatchNode.createWithTexture(texture, 9);
     if (!this._batchNode) {
@@ -103,7 +107,8 @@ cc.DecoratedBox = cc.Node.extend({
           } else {
             rect = cc.rect(this._cell.width, this._cell.height, this._cell.width, this._cell.height);
           }
-          rect.origin = cc.pAdd(rect.origin, this._cell.origin);
+          rect.x += this._cell.x;
+          rect.y += this._cell.y;
           b = cc.Sprite.createWithTexture(this._batchNode.getTexture(), rect);
           b.setAnchorPoint(cc.p(0, 0));
           if (j === (uh - 1) && i === (uw - 1)) {

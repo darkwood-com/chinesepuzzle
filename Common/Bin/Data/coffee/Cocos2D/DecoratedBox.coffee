@@ -19,6 +19,11 @@ cc.DecoratedBox = cc.Node.extend(
   getBoxWidth: -> @_boxWidth
   getBoxHeight: -> @_boxHeight
 
+  ctor: ->
+    @_super()
+
+    @_cell = cc.rect()
+
   initWithTexture: (texture, rect, size) ->
     @_batchNode = cc.SpriteBatchNode.createWithTexture texture, 9
     return false unless @_batchNode
@@ -114,7 +119,8 @@ cc.DecoratedBox = cc.Node.extend(
           # Middle
           rect = cc.rect(@_cell.width, @_cell.height, @_cell.width, @_cell.height)
       
-        rect.origin = cc.pAdd(rect.origin, @_cell.origin)
+        rect.x += @_cell.x
+        rect.y += @_cell.y
         
         b = cc.Sprite.createWithTexture(@_batchNode.getTexture(), rect)
         b.setAnchorPoint(cc.p(0, 0))
