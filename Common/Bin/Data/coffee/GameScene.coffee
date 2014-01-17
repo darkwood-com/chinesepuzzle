@@ -35,7 +35,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
     #set langage
     lang = cc.CCLang.getInstance()
-    lang.setLang cc.Application.getCurrentLanguage()
+    lang.setLang cc.Application.getInstance().getCurrentLanguage()
     lang.addLang 'lang'
 
     @_conf = new cpz.GameConfig()

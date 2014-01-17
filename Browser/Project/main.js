@@ -56,6 +56,9 @@ var cocos2dApp = cc.Application.extend({
         }, this);
 
         return true;
+    },
+    getCurrentLanguage: function() {
+        return cc.Application.getCurrentLanguage();
     }
 });
 var myApp = new cocos2dApp();
