@@ -21,7 +21,7 @@ cc.Lang = cc.Class.extend(
     @_lang = lang
 
   get: (key) ->
-    @_data[key] || key
+    @_data[key] or key
 
   set: (key, value) ->
     @_data[key] = value

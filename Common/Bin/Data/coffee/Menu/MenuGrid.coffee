@@ -167,16 +167,16 @@ cpz.MenuGrid = cc.Node.extend(
   setMinimumTouchLengthToChangePage: (@_minimumTouchLengthToChangePage) -> @
 
   onTouchBegan: (touch, event) ->
-    touchPoint = touch.locationInView()
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint)
+    touchPoint = touch.getLocation()
     
     if (@_items and @_items.count() > 0)
       for child in @_items
         if child instanceof cc.MenuItem and child.isVisible() and child.isEnabled()
           local = child.convertToNodeSpace(touchPoint)
           r = child.rect()
-          r.origin = cc.PointZero()
-          
+          r.x = 0
+          r.y = 0
+
           if cc.rectContainsPoint(r, local)
             if (@_selectedItem)
               @_selectedItem.unselected()
@@ -201,8 +201,7 @@ cpz.MenuGrid = cc.Node.extend(
   onTouchMoved: (touch, event) ->
     return if(@_scrollTouch isnt touch)
     
-    touchPoint = touch.locationInView()
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint)
+    touchPoint = touch.getLocation()
     
     # If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
     # Of course only if we not already in sliding mode
@@ -222,8 +221,7 @@ cpz.MenuGrid = cc.Node.extend(
     
     @_scrollTouch = null
     
-    touchPoint = touch.locationInView()
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint)
+    touchPoint = touch.getLocation()
     
     selectedPage = @getPage()
     swipe = touchPoint.x - @_startSwipe

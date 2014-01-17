@@ -95,8 +95,7 @@ cpz.MenuLabel = cc.Node.extend(
     else
       return false
     
-    touchPoint = touch.locationInView()
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint)
+    touchPoint = touch.getLocation()
     
     @_startSwipe = touchPoint.y
     @_state = cpz.MenuLabelScrollLayerState.Idle
@@ -106,8 +105,7 @@ cpz.MenuLabel = cc.Node.extend(
   onTouchMoved: (touch, event) ->
     return if @_scrollTouch isnt touch
     
-    touchPoint = touch.locationInView()
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint)
+    touchPoint = touch.getLocation()
     
     # If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
     # Of course only if we not already in sliding mode
@@ -125,8 +123,7 @@ cpz.MenuLabel = cc.Node.extend(
     
     @_scrollTouch = null
     
-    touchPoint = touch.locationInView()
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint)
+    touchPoint = touch.getLocation()
     
     @setScroll(@getScroll() + touchPoint.y - @_startSwipe)
     @setSwipe(0)

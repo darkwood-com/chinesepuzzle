@@ -94,8 +94,7 @@ cpz.MenuLabel = cc.Node.extend({
     } else {
       return false;
     }
-    touchPoint = touch.locationInView();
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint);
+    touchPoint = touch.getLocation();
     this._startSwipe = touchPoint.y;
     this._state = cpz.MenuLabelScrollLayerState.Idle;
     return true;
@@ -105,8 +104,7 @@ cpz.MenuLabel = cc.Node.extend({
     if (this._scrollTouch !== touch) {
       return;
     }
-    touchPoint = touch.locationInView();
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint);
+    touchPoint = touch.getLocation();
     if (this._state !== cpz.MenuLabelScrollLayerState.Sliding) {
       this._state = cpz.MenuLabelScrollLayerState.Sliding;
       this._startSwipe = touchPoint.y;
@@ -121,8 +119,7 @@ cpz.MenuLabel = cc.Node.extend({
       return;
     }
     this._scrollTouch = null;
-    touchPoint = touch.locationInView();
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint);
+    touchPoint = touch.getLocation();
     this.setScroll(this.getScroll() + touchPoint.y - this._startSwipe);
     return this.setSwipe(0);
   },

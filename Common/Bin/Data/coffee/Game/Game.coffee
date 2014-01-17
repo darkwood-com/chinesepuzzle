@@ -428,7 +428,7 @@ cpz.Game = cc.Layer.extend(
       coord = @_gl.getPositionInGridCoord cToCard.getPosition()
       move = cpz.mv @_dragCardCoord, coord
       check = @makeMoveCoord move
-      if check isnt cpz.CheckMove.Ok && cc.pointEqualToPoint @_dragCard.getPosition(), @_touchLastCard.getPosition()
+      if check isnt cpz.CheckMove.Ok and cc.pointEqualToPoint @_dragCard.getPosition(), @_touchLastCard.getPosition()
         @_touchLastCard.setVisible true
 
       @_dragCard = null

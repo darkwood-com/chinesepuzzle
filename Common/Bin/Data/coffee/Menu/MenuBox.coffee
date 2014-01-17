@@ -17,18 +17,18 @@ cpz.MenuBox = cc.Node.extend(
 
   _state: null
   _itemForTouch: (touch) ->
-    touchLocation = touch.locationInView()
-    touchLocation = cc.Director.getInstance().convertToGL touchLocation
+    touchLocation = touch.getLocation()
 
     menuItems = @getItems()
-    menuItems.addObject @_validBtn
-    if (menuItems && menuItems.count() > 0)
+    menuItems.push @_validBtn
+    if (menuItems and menuItems.length > 0)
       for child in menuItems
-        if (child instanceof cc.MenuItem && child.isVisible() && child.isEnabled())
+        if (child instanceof cc.MenuItem and child.isVisible() and child.isEnabled())
           local = child.convertToNodeSpace(touchLocation)
           CCRect r = child.rect()
-          r.origin = cc.PointZero()
-  
+          r.x = 0
+          r.y = 0
+
           if cc.rectContainsPoint(r, local)
             return child
 
@@ -86,7 +86,7 @@ cpz.MenuBox = cc.Node.extend(
 
   getTitle: -> return if @_titleLabel then @_titleLabel.getString() else null
   setTitle: (title, fontFile) ->
-    if @_titleLabel isnt null && @_layoutFontFile is fontFile then @_titleLabel.setString(title)
+    if @_titleLabel isnt null and @_layoutFontFile is fontFile then @_titleLabel.setString(title)
     else
       @removeChildByTag cpz.MenuBoxTag.Title, true
       @_titleLabel = new cc.LabelBMFont()
@@ -104,7 +104,7 @@ cpz.MenuBox = cc.Node.extend(
   setValidPosition: (@_validPosition) -> @
 
   setItems: (items) ->
-    if(@_items && @_items.length > 0)
+    if(@_items and @_items.length > 0)
       for child in @_items
         @removeChild child, true
 

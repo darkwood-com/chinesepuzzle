@@ -180,8 +180,7 @@ cpz.MenuGrid = cc.Node.extend({
   },
   onTouchBegan: function(touch, event) {
     var child, local, r, touchPoint, _i, _len, _ref;
-    touchPoint = touch.locationInView();
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint);
+    touchPoint = touch.getLocation();
     if (this._items && this._items.count() > 0) {
       _ref = this._items;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -189,7 +188,8 @@ cpz.MenuGrid = cc.Node.extend({
         if (child instanceof cc.MenuItem && child.isVisible() && child.isEnabled()) {
           local = child.convertToNodeSpace(touchPoint);
           r = child.rect();
-          r.origin = cc.PointZero();
+          r.x = 0;
+          r.y = 0;
           if (cc.rectContainsPoint(r, local)) {
             if (this._selectedItem) {
               this._selectedItem.unselected();
@@ -215,8 +215,7 @@ cpz.MenuGrid = cc.Node.extend({
     if (this._scrollTouch !== touch) {
       return;
     }
-    touchPoint = touch.locationInView();
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint);
+    touchPoint = touch.getLocation();
     if ((this._state !== cpz.MenuGridScrollLayerState.Sliding) && (fabsf(touchPoint.x - this._startSwipe) >= this._minimumTouchLengthToSlide)) {
       this._state = cpz.MenuGridScrollLayerState.Sliding;
       this._startSwipe = touchPoint.x;
@@ -234,8 +233,7 @@ cpz.MenuGrid = cc.Node.extend({
       return;
     }
     this._scrollTouch = null;
-    touchPoint = touch.locationInView();
-    touchPoint = cc.Director.getInstance().convertToGL(touchPoint);
+    touchPoint = touch.getLocation();
     selectedPage = this.getPage();
     swipe = touchPoint.x - this._startSwipe;
     this.setSwipe(swipe);

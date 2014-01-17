@@ -18,17 +18,17 @@ cpz.MenuBox = cc.Node.extend({
   _state: null,
   _itemForTouch: function(touch) {
     var child, local, menuItems, r, touchLocation, _i, _len;
-    touchLocation = touch.locationInView();
-    touchLocation = cc.Director.getInstance().convertToGL(touchLocation);
+    touchLocation = touch.getLocation();
     menuItems = this.getItems();
-    menuItems.addObject(this._validBtn);
-    if (menuItems && menuItems.count() > 0) {
+    menuItems.push(this._validBtn);
+    if (menuItems && menuItems.length > 0) {
       for (_i = 0, _len = menuItems.length; _i < _len; _i++) {
         child = menuItems[_i];
         if (child instanceof cc.MenuItem && child.isVisible() && child.isEnabled()) {
           local = child.convertToNodeSpace(touchLocation);
           CCRect(r = child.rect());
-          r.origin = cc.PointZero();
+          r.x = 0;
+          r.y = 0;
           if (cc.rectContainsPoint(r, local)) {
             return child;
           }
