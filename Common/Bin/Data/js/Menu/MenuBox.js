@@ -62,8 +62,7 @@ cpz.MenuBox = cc.Node.extend({
     spriteNodeValidBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
     conf.getNodeUiPath('menuItemOk', spriteNodeValidBtn);
     spriteValidBtn = cc.copyFirstSpriteBatchNode(spriteNodeValidBtn);
-    this._validBtn = new cc.MenuItemSprite();
-    this._validBtn.initWithNormalSprite(spriteValidBtn, null, null, null, null);
+    this._validBtn = cc.MenuItemSprite.create(spriteValidBtn, null);
     this._validBtn.setAnchorPoint(cc.p(0.5, 0.5));
     this._validBtn.setScale(0.75);
     this.addChild(this._validBtn);
@@ -88,8 +87,7 @@ cpz.MenuBox = cc.Node.extend({
       this._titleLabel.setString(title);
     } else {
       this.removeChildByTag(cpz.MenuBoxTag.Title, true);
-      this._titleLabel = new cc.LabelBMFont();
-      this._titleLabel.initWithString(title, cpz.GameConfigCommon.getFontPath(fontFile));
+      this._titleLabel = cc.LabelBMFont.create(title, cpz.GameConfigCommon.getFontPath(fontFile));
       this._titleLabel.setAnchorPoint(cc.p(0.0, 1.0));
       this.addChild(this._titleLabel, 0, cpz.MenuBoxTag.Title);
       this._layoutFontFile = fontFile;

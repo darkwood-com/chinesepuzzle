@@ -68,8 +68,7 @@ cpz.MenuBox = cc.Node.extend(
     conf.getNodeUiPath 'menuItemOk', spriteNodeValidBtn
     spriteValidBtn = cc.copyFirstSpriteBatchNode spriteNodeValidBtn
 
-    @_validBtn = new cc.MenuItemSprite()
-    @_validBtn.initWithNormalSprite spriteValidBtn, null, null, null, null
+    @_validBtn = cc.MenuItemSprite.create spriteValidBtn, null
     @_validBtn.setAnchorPoint cc.p(0.5, 0.5)
     @_validBtn.setScale 0.75
     @addChild @_validBtn
@@ -89,8 +88,7 @@ cpz.MenuBox = cc.Node.extend(
     if @_titleLabel isnt null and @_layoutFontFile is fontFile then @_titleLabel.setString(title)
     else
       @removeChildByTag cpz.MenuBoxTag.Title, true
-      @_titleLabel = new cc.LabelBMFont()
-      @_titleLabel.initWithString title, cpz.GameConfigCommon.getFontPath(fontFile)
+      @_titleLabel = cc.LabelBMFont.create title, cpz.GameConfigCommon.getFontPath(fontFile)
       @_titleLabel.setAnchorPoint cc.p(0.0, 1.0)
       @addChild @_titleLabel, 0, cpz.MenuBoxTag.Title
   

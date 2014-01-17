@@ -346,7 +346,7 @@ cpz.MenuLayout = cc.Class.extend({
         break;
       case cpz.MenuLayoutType.Hint:
         if (!!this._mBox) {
-          this._mBox = new MenuLabelContainer();
+          this._mBox = new cpz.MenuLabelContainer();
           this._mBox.initWithConfAndContentSizeAndFntFile(conf, this._layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath(this._layoutRes('font')));
           this._mBox.setPosition(center);
           this._mBox.setAnchorPoint(cc.p(0.5, 0.5));

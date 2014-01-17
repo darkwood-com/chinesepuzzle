@@ -334,7 +334,7 @@ cpz.MenuLayout = cc.Class.extend(
       
       when cpz.MenuLayoutType.Hint
         unless !@_mBox
-          @_mBox = new MenuLabelContainer()
+          @_mBox = new cpz.MenuLabelContainer()
           @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath((@_layoutRes('font'))))
           @_mBox.setPosition(center)
           @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
