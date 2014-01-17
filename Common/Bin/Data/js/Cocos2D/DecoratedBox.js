@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
-cpz.DecoratedBox = cc.Node.extend({
+cc.DecoratedBox = cc.Node.extend({
   _batchNode: null,
   _cell: null,
   _boxWidth: null,
@@ -125,18 +125,18 @@ cpz.DecoratedBox = cc.Node.extend({
   }
 });
 
-cpz.DecoratedBox.createWithTexture = function(texture, rect, size) {
+cc.DecoratedBox.createWithTexture = function(texture, rect, size) {
   var box;
-  box = new DecoratedBox();
+  box = new cc.DecoratedBox();
   if (box && box.initWithTexture(texture, rect, size)) {
     return box;
   }
   return null;
 };
 
-cpz.DecoratedBox.createWithFile = function(filename, size) {
+cc.DecoratedBox.createWithFile = function(filename, size) {
   var box;
-  box = new DecoratedBox();
+  box = new cc.DecoratedBox();
   if (box && box.initWithFile(filename, size)) {
     return box;
   }

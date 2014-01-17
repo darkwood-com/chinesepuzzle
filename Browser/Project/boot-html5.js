@@ -46,6 +46,7 @@ cpz.PlatformSrcPath = cpz.PlatformPath + 'browser/';
         appFiles:[
             cpz.CommonSrcPath + 'Background/Background.js',
             cpz.CommonSrcPath + 'Cocos2D/Config.js',
+            cpz.CommonSrcPath + 'Cocos2D/DecoratedBox.js',
             cpz.CommonSrcPath + 'Cocos2D/Lang.js',
             cpz.CommonSrcPath + 'Game/Card.js',
             cpz.CommonSrcPath + 'Game/CardBoard.js',

@@ -248,11 +248,11 @@ cpz.MenuLayout = cc.Class.extend(
     
     yesNode = cc.SpriteBatchNode.createWithTexture cc.textureNull()
     conf.getNodeUiPath('menuItemYes', yesNode)
-    yesSprite = copyFirstSpriteBatchNode(yesNode)
+    yesSprite = cc.copyFirstSpriteBatchNode(yesNode)
     
     noNode = cc.SpriteBatchNode.createWithTexture cc.textureNull()
     conf.getNodeUiPath('menuItemNo', noNode)
-    noSprite = copyFirstSpriteBatchNode(noNode)
+    noSprite = cc.copyFirstSpriteBatchNode(noNode)
     
     currentFontFile = @_layoutRes('font')
     

@@ -245,10 +245,10 @@ cpz.MenuLayout = cc.Class.extend({
     this._bg.setAnchorPoint(cc.p(0, 0));
     yesNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
     conf.getNodeUiPath('menuItemYes', yesNode);
-    yesSprite = copyFirstSpriteBatchNode(yesNode);
+    yesSprite = cc.copyFirstSpriteBatchNode(yesNode);
     noNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
     conf.getNodeUiPath('menuItemNo', noNode);
-    noSprite = copyFirstSpriteBatchNode(noNode);
+    noSprite = cc.copyFirstSpriteBatchNode(noNode);
     currentFontFile = this._layoutRes('font');
     switch (this._type) {
       case cpz.MenuLayoutType.NewGame:

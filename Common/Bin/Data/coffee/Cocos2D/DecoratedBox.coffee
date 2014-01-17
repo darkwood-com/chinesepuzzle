@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
-cpz.DecoratedBox = cc.Node.extend(
+cc.DecoratedBox = cc.Node.extend(
   _batchNode: null
 
   _cell: null
@@ -132,12 +132,12 @@ cpz.DecoratedBox = cc.Node.extend(
     
 )
 
-cpz.DecoratedBox.createWithTexture = (texture, rect, size) ->
-  box = new DecoratedBox()
+cc.DecoratedBox.createWithTexture = (texture, rect, size) ->
+  box = new cc.DecoratedBox()
   return box if box and box.initWithTexture(texture, rect, size)
   null
 
-cpz.DecoratedBox.createWithFile = (filename, size) ->
-  box = new DecoratedBox()
+cc.DecoratedBox.createWithFile = (filename, size) ->
+  box = new cc.DecoratedBox()
   return box if box and box.initWithFile(filename, size)
   null

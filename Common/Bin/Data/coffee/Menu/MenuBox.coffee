@@ -63,7 +63,7 @@ cpz.MenuBox = cc.Node.extend(
 
     spriteNodeValidBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
     conf.getNodeUiPath 'menuItemOk', spriteNodeValidBtn
-    spriteValidBtn = copyFirstSpriteBatchNode spriteNodeValidBtn
+    spriteValidBtn = cc.copyFirstSpriteBatchNode spriteNodeValidBtn
 
     @_validBtn = new cc.MenuItemSprite()
     @_validBtn.initFromNormalSprite spriteValidBtn, null, null, null, null
