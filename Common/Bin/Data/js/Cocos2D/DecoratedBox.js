@@ -31,8 +31,10 @@ cc.DecoratedBox = cc.Node.extend({
       return false;
     }
     this.addChild(this._batchNode);
-    this._cell.origin = rect.origin;
-    this._cell = cc.size(rect.width / 3, rect.height / 3);
+    this._cell.x = rect.x;
+    this._cell.y = rect.y;
+    this._cell.width = rect.width / 3;
+    this._cell.height = rect.height / 3;
     this.setAnchorPoint(cc.p(0.5, 0.5));
     this.setContentSize(size);
     return true;
@@ -45,8 +47,10 @@ cc.DecoratedBox = cc.Node.extend({
     }
     this.addChild(this._batchNode);
     textureSize = this._batchNode.getTextureAtlas().getTexture().getContentSize();
-    this._cell.origin = cc.p(0, 0);
-    this._cell = cc.size(textureSize.width / 3, textureSize.height / 3);
+    this._cell.x = 0;
+    this._cell.y = 0;
+    this._cell.width = textureSize.width / 3;
+    this._cell.height = textureSize.height / 3;
     this.setAnchorPoint(cc.p(0.5, 0.5));
     this.setContentSize(size);
     return true;

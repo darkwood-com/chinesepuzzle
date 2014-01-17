@@ -30,8 +30,10 @@ cc.DecoratedBox = cc.Node.extend(
 
     @addChild @_batchNode
 
-    @_cell.origin = rect.origin
-    @_cell = cc.size(rect.width / 3, rect.height / 3)
+    @_cell.x = rect.x
+    @_cell.y = rect.y
+    @_cell.width = rect.width / 3
+    @_cell.height = rect.height / 3
     @setAnchorPoint cc.p(0.5, 0.5)
     @setContentSize size
     
@@ -45,8 +47,10 @@ cc.DecoratedBox = cc.Node.extend(
 
     textureSize = @_batchNode.getTextureAtlas().getTexture().getContentSize()
     
-    @_cell.origin = cc.p(0, 0)
-    @_cell = cc.size(textureSize.width / 3, textureSize.height / 3)
+    @_cell.x = 0
+    @_cell.y = 0
+    @_cell.width = textureSize.width / 3
+    @_cell.height = textureSize.height / 3
     @setAnchorPoint(cc.p(0.5, 0.5))
     @setContentSize(size)
     
