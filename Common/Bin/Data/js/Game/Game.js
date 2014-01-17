@@ -385,7 +385,7 @@ cpz.Game = cc.Layer.extend({
         continue;
       }
       cBefore = j === 0 ? null : this._board[i][j - 1];
-      if ((j === 0 && card.getRank() === cpz.CardPlayRank.Ace) || (cBefore instanceof cpz.CardPlay && cBefore.getIsLocked() && card.isNextToCardPlay(cBefore))) {
+      if (j === 0 && card.getRank() === cpz.CardPlayRank.Ace || cBefore instanceof cpz.CardPlay && cBefore.getIsLocked() && card.isNextToCardPlay(cBefore)) {
         card.setIsLocked(true);
         nb++;
       } else {

@@ -80,7 +80,7 @@ cc.ObjectValues = (obj) ->
 
 cc.ObjectSize = (obj) ->
   return 0 unless obj?
-  if (obj.length is +obj.length) then obj.length else cc.ObjectKeys(obj).length
+  if obj.length is +obj.length then obj.length else cc.ObjectKeys(obj).length
 
 cc.Dictionary = cc.Class.extend(
   _keyMapTb: null

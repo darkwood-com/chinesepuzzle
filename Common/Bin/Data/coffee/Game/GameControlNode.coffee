@@ -18,9 +18,9 @@ cpz.GameControlNode = cpz.GameControl.extend(
       @_nodes.push node
 
   removeNode: (node) ->
-    if (@_nodes.indexOf(node) > -1)
+    if @_nodes.indexOf(node) > -1
       for i in [0..@_nodes.length]
-        if (@_nodes[i] == node)
+        if @_nodes[i] is node
           @_nodes.splice(i, 1)
 
   updateNode: (node) ->

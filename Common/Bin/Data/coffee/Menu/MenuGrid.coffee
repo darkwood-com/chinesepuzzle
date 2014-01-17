@@ -169,7 +169,7 @@ cpz.MenuGrid = cc.Node.extend(
   onTouchBegan: (touch, event) ->
     touchPoint = touch.getLocation()
     
-    if (@_items and @_items.count() > 0)
+    if @_items and @_items.count() > 0
       for child in @_items
         if child instanceof cc.MenuItem and child.isVisible() and child.isEnabled()
           local = child.convertToNodeSpace(touchPoint)
@@ -178,7 +178,7 @@ cpz.MenuGrid = cc.Node.extend(
           r.y = 0
 
           if cc.rectContainsPoint(r, local)
-            if (@_selectedItem)
+            if @_selectedItem
               @_selectedItem.unselected()
             
             @_selectedItem = child
@@ -188,7 +188,7 @@ cpz.MenuGrid = cc.Node.extend(
               #CCEaseOut::actionWithAction(CCScaleTo::actionWithDuration(0.1, 1.5), 2.5),
             ]))
     
-    if (!@_scrollTouch)
+    if !@_scrollTouch
       @_scrollTouch = touch
     else
       return false
@@ -205,7 +205,7 @@ cpz.MenuGrid = cc.Node.extend(
     
     # If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
     # Of course only if we not already in sliding mode
-    if (@_state isnt cpz.MenuGridScrollLayerState.Sliding) and (fabsf(touchPoint.x - @_startSwipe) >= @_minimumTouchLengthToSlide)
+    if @_state isnt cpz.MenuGridScrollLayerState.Sliding and fabsf(touchPoint.x - @_startSwipe) >= @_minimumTouchLengthToSlide
       @_state = cpz.MenuGridScrollLayerState.Sliding
       
       # Avoid jerk after state change.
@@ -227,15 +227,15 @@ cpz.MenuGrid = cc.Node.extend(
     swipe = touchPoint.x - @_startSwipe
     
     @setSwipe(swipe)
-    if (swipe > 0 and swipe >= @_minimumTouchLengthToChangePage)
+    if swipe > 0 and swipe >= @_minimumTouchLengthToChangePage
       selectedPage -= ((@getSwipe() - @_minimumTouchLengthToChangePage) / @getContentSize().width) + 1
     else if(swipe < 0 and swipe <= -@_minimumTouchLengthToChangePage)
       selectedPage += - ((@getSwipe() + @_minimumTouchLengthToChangePage) / @getContentSize().width) + 1
-    if(selectedPage < 0) then selectedPage = 0
-    if(selectedPage >= @getMaxPage()) then selectedPage = @getMaxPage() - 1
+    if selectedPage < 0 then selectedPage = 0
+    if selectedPage >= @getMaxPage() then selectedPage = @getMaxPage() - 1
     
     @swipeToPage(selectedPage)
-    
+
   onTouchCancelled: (touch, event) ->
     if @_scrollTouch is touch
       @_scrollTouch = null

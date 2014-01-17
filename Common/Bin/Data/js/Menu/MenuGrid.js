@@ -216,7 +216,7 @@ cpz.MenuGrid = cc.Node.extend({
       return;
     }
     touchPoint = touch.getLocation();
-    if ((this._state !== cpz.MenuGridScrollLayerState.Sliding) && (fabsf(touchPoint.x - this._startSwipe) >= this._minimumTouchLengthToSlide)) {
+    if (this._state !== cpz.MenuGridScrollLayerState.Sliding && fabsf(touchPoint.x - this._startSwipe) >= this._minimumTouchLengthToSlide) {
       this._state = cpz.MenuGridScrollLayerState.Sliding;
       this._startSwipe = touchPoint.x;
       if (this._delegate) {

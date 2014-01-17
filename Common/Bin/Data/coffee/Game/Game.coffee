@@ -369,9 +369,9 @@ cpz.Game = cc.Layer.extend(
       card = @_board[i][j]
       continue unless card instanceof cpz.CardPlay
 
-      cBefore = if (j == 0) then null else @_board[i][j - 1]
+      cBefore = if j is 0 then null else @_board[i][j - 1]
 
-      if (j == 0 and card.getRank() is cpz.CardPlayRank.Ace) or (cBefore instanceof cpz.CardPlay and cBefore.getIsLocked() and card.isNextToCardPlay(cBefore))
+      if j is 0 and card.getRank() is cpz.CardPlayRank.Ace or cBefore instanceof cpz.CardPlay and cBefore.getIsLocked() and card.isNextToCardPlay(cBefore)
         card.setIsLocked true
         nb++
       else

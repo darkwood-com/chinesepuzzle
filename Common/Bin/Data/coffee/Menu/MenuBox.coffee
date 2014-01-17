@@ -21,9 +21,9 @@ cpz.MenuBox = cc.Node.extend(
 
     menuItems = @getItems()
     menuItems.push @_validBtn
-    if (menuItems and menuItems.length > 0)
+    if menuItems and menuItems.length > 0
       for child in menuItems
-        if (child instanceof cc.MenuItem and child.isVisible() and child.isEnabled())
+        if child instanceof cc.MenuItem and child.isVisible() and child.isEnabled()
           local = child.convertToNodeSpace(touchLocation)
           CCRect r = child.rect()
           r.x = 0
@@ -156,7 +156,7 @@ cpz.MenuBox = cc.Node.extend(
 
     c = @_parent
     while c?
-      return false  unless c.isVisible()
+      return false unless c.isVisible()
       c = c.getParent()
 
     @_selectedItem = @_itemForTouch(touch)
