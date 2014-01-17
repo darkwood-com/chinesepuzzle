@@ -25,8 +25,8 @@ cpz.MenuTag =
 
 cpz.MenuLayout = cc.Class.extend(
   _layoutRes: (key) ->
-    unless cpz.MenuLayout.datas
-      cpz.MenuLayout.datas =
+    if cpz.MenuLayout._res is null
+      cpz.MenuLayout._res =
         '480x320':
           font: 'arial16.fnt'
           titlePosition: cc.p(20, 20)
@@ -189,7 +189,7 @@ cpz.MenuLayout = cc.Class.extend(
           menuNoneBoxSize: cc.size(400,400)
     
     sRes = @_menu.getGameScene().getConf().getResolution()
-    return cpz.MenuLayout.datas[sRes][key]
+    return cpz.MenuLayout._res[sRes][key]
 
   _menu: null
   _themes: null
@@ -259,7 +259,7 @@ cpz.MenuLayout = cc.Class.extend(
         @_mBox.setContentSize(@_layoutRes('menuNewBoxSize'))
         @_mBox.setPosition(center)
         @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
-        
+
         itemTitle = @_mBox.getChildByTag(cpz.MenuTag.NewTitle)
         if not itemTitle or currentFontFile isnt @_layoutLastFontFile
           @_mBox.removeChildByTag(cpz.MenuTag.NewTitle, true)
@@ -267,7 +267,7 @@ cpz.MenuLayout = cc.Class.extend(
           itemTitle.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addChild(itemTitle, 0, cpz.MenuTag.NewTitle)
         itemTitle.setPosition(@_layoutRes('menuNewTitle'))
-        
+
         itemYes = @_mBox.getChildByTag(cpz.MenuTag.NewYes)
         unless itemYes
           itemYes = cc.MenuItemSprite.create(yesSprite, null, null, cpz.GameSceneCommon.newGame, @_menu.getGameScene())
@@ -276,7 +276,7 @@ cpz.MenuLayout = cc.Class.extend(
         itemYes.setNormalImage(yesSprite)
         itemYes.setContentSize(yesSprite.getContentSize())
         itemYes.setPosition(@_layoutRes('menuNewYes'))
-        
+
         itemNo = @_mBox.getChildByTag(cpz.MenuTag.NewNo)
         unless itemNo
           itemNo = cc.MenuItemSprite.create(noSprite, null, null, cpz.Menu.okMenu, @_menu)
@@ -434,4 +434,4 @@ cpz.MenuLayout = cc.Class.extend(
   setType: (@_type) -> @
 )
 
-cpz.MenuLayout.datas = null
+cpz.MenuLayout._res = null

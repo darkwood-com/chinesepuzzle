@@ -139,7 +139,7 @@ cpz.GameConfigCommon = cc.Class.extend({
     var m;
     m = this._resolution.match(/([0-9]+)x([0-9]+)/);
     if (m) {
-      return cc.size(m[0], m[1]);
+      return cc.size(m[1], m[2]);
     } else {
       return cc.sizeZero();
     }

@@ -65,7 +65,7 @@ cpz.Menu = cc.Layer.extend({
   },
   onTouchBegan: function(touch, event) {
     var mc;
-    if (nav.length > 0) {
+    if (this._nav.length > 0) {
       mc = this._nav[this._nav.length - 1];
       mc.onTouchBegan(touch, event);
     }
@@ -73,21 +73,21 @@ cpz.Menu = cc.Layer.extend({
   },
   onTouchMoved: function(touch, event) {
     var mc;
-    if (nav.length > 0) {
+    if (this._nav.length > 0) {
       mc = this._nav[this._nav.length - 1];
       return mc.onTouchMoved(touch, event);
     }
   },
   onTouchEnded: function(touch, event) {
     var mc;
-    if (nav.length > 0) {
+    if (this._nav.length > 0) {
       mc = this._nav[this._nav.length - 1];
       return mc.onTouchEnded(touch, event);
     }
   },
   onTouchCancelled: function(touch, event) {
     var mc;
-    if (nav.length > 0) {
+    if (this._nav.length > 0) {
       mc = this._nav[this._nav.length - 1];
       return mc.onTouchCancelled(touch, event);
     }

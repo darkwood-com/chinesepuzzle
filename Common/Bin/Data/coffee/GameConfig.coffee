@@ -131,7 +131,7 @@ cpz.GameConfigCommon = cc.Class.extend(
 
   getResolutionSize: ->
     m = @_resolution.match /([0-9]+)x([0-9]+)/
-    if m then cc.size(m[0], m[1]) else cc.sizeZero()
+    if m then cc.size(m[1], m[2]) else cc.sizeZero()
 
   defaultResolution: -> '480x320'
   defaultTheme: -> 'chinese'

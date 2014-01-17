@@ -67,7 +67,7 @@ cpz.Menu = cc.Layer.extend(
 
   onTouchBegan: (touch, event) ->
     #last menu menu touch management
-    if nav.length > 0
+    if @_nav.length > 0
       mc = @_nav[@_nav.length - 1]
       mc.onTouchBegan(touch, event)
   
@@ -75,19 +75,19 @@ cpz.Menu = cc.Layer.extend(
     
   onTouchMoved: (touch, event) ->
     #last menu menu touch management
-    if nav.length > 0
+    if @_nav.length > 0
       mc = @_nav[@_nav.length - 1]
       mc.onTouchMoved(touch, event)
     
   onTouchEnded: (touch, event) ->
     #last menu menu touch management
-    if nav.length > 0
+    if @_nav.length > 0
       mc = @_nav[@_nav.length - 1]
       mc.onTouchEnded(touch, event)
   
   onTouchCancelled: (touch, event) ->
     #last menu menu touch management
-    if nav.length > 0
+    if @_nav.length > 0
       mc = @_nav[@_nav.length - 1]
       mc.onTouchCancelled(touch, event)
 

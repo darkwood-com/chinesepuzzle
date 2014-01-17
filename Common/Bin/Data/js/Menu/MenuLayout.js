@@ -28,8 +28,8 @@ cpz.MenuTag = {
 cpz.MenuLayout = cc.Class.extend({
   _layoutRes: function(key) {
     var sRes;
-    if (!cpz.MenuLayout.datas) {
-      cpz.MenuLayout.datas = {
+    if (cpz.MenuLayout._res === null) {
+      cpz.MenuLayout._res = {
         '480x320': {
           font: 'arial16.fnt',
           titlePosition: cc.p(20, 20),
@@ -203,7 +203,7 @@ cpz.MenuLayout = cc.Class.extend({
       };
     }
     sRes = this._menu.getGameScene().getConf().getResolution();
-    return cpz.MenuLayout.datas[sRes][key];
+    return cpz.MenuLayout._res[sRes][key];
   },
   _menu: null,
   _themes: null,
@@ -445,4 +445,4 @@ cpz.MenuLayout = cc.Class.extend({
   }
 });
 
-cpz.MenuLayout.datas = null;
+cpz.MenuLayout._res = null;
