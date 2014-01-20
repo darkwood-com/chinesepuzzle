@@ -25,6 +25,7 @@
 		C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C3232F551850C0BB00AABA84 /* InfoPlist.strings */; };
 		C3232F5D1850C0BB00AABA84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3232F561850C0BB00AABA84 /* main.m */; };
 		C3232F5E1850C0BB00AABA84 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3232F571850C0BB00AABA84 /* MainMenu.xib */; };
+		C32A0002188D1ECE00C06654 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C32A0001188D1ECE00C06654 /* fonts */; };
 		C3386FE3185234B4002447BC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FB9FB61850A46C0087DB1A /* Cocoa.framework */; };
 		C347E2C918520F9100968691 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C347E2C418520F9100968691 /* AppController.mm */; };
 		C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C34FDCC91860649100238872 /* cocos2d-jsb.js */; };
@@ -187,6 +188,7 @@
 		C3232F551850C0BB00AABA84 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C3232F561850C0BB00AABA84 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3232F571850C0BB00AABA84 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		C32A0001188D1ECE00C06654 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Bin/Data/fonts; sourceTree = "<group>"; };
 		C3386FE11852349E002447BC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C347E2C318520F9100968691 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		C347E2C418520F9100968691 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				C3D0ED2E187C62BF00CDDB9C /* 1680x1050 */,
 				C3D0ED2F187C62BF00CDDB9C /* 1920x1080 */,
 				C3D0ED30187C62BF00CDDB9C /* 1920x1200 */,
+				C32A0001188D1ECE00C06654 /* fonts */,
 				C3F63CBD18605FF00055BBF0 /* js */,
 				C38D11CE18634E7B00F8159A /* lang-de.plist */,
 				C38D11CF18634E7B00F8159A /* lang-en.plist */,
@@ -695,6 +698,7 @@
 				C308BC351873267F0009A134 /* sound in Resources */,
 				C3F6251C18605C8B0055BBF0 /* jsb_debugger.js in Resources */,
 				C3D0ED38187C62BF00CDDB9C /* 1680x1050 in Resources */,
+				C32A0002188D1ECE00C06654 /* fonts in Resources */,
 				C3D0ED35187C62BF00CDDB9C /* 1280x1024 in Resources */,
 				C3F6251A18605C8B0055BBF0 /* jsb_cocos2d_studio.js in Resources */,
 				C3F6251D18605C8B0055BBF0 /* jsb_deprecated.js in Resources */,
