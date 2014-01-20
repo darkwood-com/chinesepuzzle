@@ -249,7 +249,7 @@ cpz.MenuLayout = cc.Class.extend(
         unless @_mBox
           @_mBox = new cpz.MenuBox()
           @_mBox.initWithConf(conf)
-          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
+          @_mBox.setOkTarget(@_menu.okMenu, @_menu)
           
           @_menu.pushNav(@_mBox)
         
@@ -270,7 +270,7 @@ cpz.MenuLayout = cc.Class.extend(
 
         itemYes = @_mBox.getChildByTag(cpz.MenuTag.NewYes)
         unless itemYes
-          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, cpz.GameSceneCommon.newGame, @_menu.getGameScene())
+          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, @_menu.getGameScene().newGame, @_menu.getGameScene())
           itemYes.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemYes, 1, cpz.MenuTag.NewYes)
         itemYes.setNormalImage(yesSprite)
@@ -279,7 +279,7 @@ cpz.MenuLayout = cc.Class.extend(
 
         itemNo = @_mBox.getChildByTag(cpz.MenuTag.NewNo)
         unless itemNo
-          itemNo = cc.MenuItemSprite.create(noSprite, null, null, cpz.Menu.okMenu, @_menu)
+          itemNo = cc.MenuItemSprite.create(noSprite, null, null, @_menu.okMenu, @_menu)
           itemNo.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemNo, 2, cpz.MenuTag.NewNo)
         itemNo.setNormalImage(noSprite)
@@ -292,7 +292,7 @@ cpz.MenuLayout = cc.Class.extend(
         unless @_mBox
           @_mBox = new cpz.MenuBox()
           @_mBox.initWithConf(conf)
-          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
+          @_mBox.setOkTarget(@_menu.okMenu, @_menu)
           
           @_menu.pushNav(@_mBox)
         
@@ -313,7 +313,7 @@ cpz.MenuLayout = cc.Class.extend(
         
         itemYes = @_mBox.getChildByTag(cpz.MenuTag.RetryYes)
         unless itemYes
-          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, cpz.GameSceneCommon.retryGame, @_menu.getGameScene())
+          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, @_menu.getGameScene().retryGame, @_menu.getGameScene())
           itemYes.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemYes, 1, cpz.MenuTag.RetryYes)
         itemYes.setNormalImage(yesSprite)
@@ -322,7 +322,7 @@ cpz.MenuLayout = cc.Class.extend(
         
         itemNo = @_mBox.getChildByTag(cpz.MenuTag.RetryNo)
         unless itemNo
-          itemNo = cc.MenuItemSprite.create(noSprite, null, null, cpz.Menu.okMenu, @_menu)
+          itemNo = cc.MenuItemSprite.create(noSprite, null, null, @_menu.okMenu, @_menu)
           itemNo.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addItem(itemNo, 2, cpz.MenuTag.RetryNo)
         itemNo.setNormalImage(noSprite)
@@ -337,7 +337,7 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath((@_layoutRes('font'))))
           @_mBox.setPosition(center)
           @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
-          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
+          @_mBox.setOkTarget(@_menu.okMenu, @_menu)
           @_mBox.setString(lang.get('menu.hintgame.content'))
           
           @_menu.pushNav(@_mBox)
@@ -372,7 +372,7 @@ cpz.MenuLayout = cc.Class.extend(
             conf.getNodeUiPath(theme, themeNode)
             conf.getNodeUiPath(theme + 'Select', themeNodeSelected)
             
-            @_themes[key] = cc.MenuItemSprite.create(themeNode, null, null, cpz.MenuLayout._selectTheme, @)
+            @_themes[key] = cc.MenuItemSprite.create(themeNode, null, null, @._selectTheme, @)
         
         unless @_mBox
           @_mBox = new cpz.MenuGridContainer()
@@ -381,7 +381,7 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.setGridSize(cc.size(2, 2))
           @_mBox.setPage(0)
           @_mBox.setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8)
-          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
+          @_mBox.setOkTarget(@_menu.okMenu, @_menu)
           
           items = []
           for theme in @_themes
@@ -405,12 +405,12 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.initWithConfAndContentSize(conf, @_layoutRes('menuNoneBoxSize'))
           @_mBox.setPosition(center)
           @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
-          @_mBox.setOkTarget(cpz.Menu.okMenu, @_menu)
+          @_mBox.setOkTarget(@_menu.okMenu, @_menu)
 
           items = []
           
           item = new cc.MenuItemFont()
-          item.initFromString('Exit menu', cpz.Menu.okMenu, @_menu)
+          item.initFromString('Exit menu', @_menu.okMenu, @_menu)
           item.setAnchorPoint(cc.p(0.5, 0.5))
           item.setPosition(cc.p(0, 0))
           items.addObject(item)
