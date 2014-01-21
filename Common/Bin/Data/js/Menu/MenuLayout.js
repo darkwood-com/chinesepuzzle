@@ -284,7 +284,7 @@ cpz.MenuLayout = cc.Class.extend({
         itemTitle.setPosition(this._layoutRes('menuNewTitle'));
         itemYes = this._mBox.getChildByTag(cpz.MenuTag.NewYes);
         if (!itemYes) {
-          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, this._menu.getGameScene().newGame, this._menu.getGameScene());
+          itemYes = cc.MenuItemSprite.createWithSpriteAndCallback(yesSprite, this._menu.getGameScene().newGame, this._menu.getGameScene());
           itemYes.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.addItem(itemYes, 1, cpz.MenuTag.NewYes);
         }
@@ -293,7 +293,7 @@ cpz.MenuLayout = cc.Class.extend({
         itemYes.setPosition(this._layoutRes('menuNewYes'));
         itemNo = this._mBox.getChildByTag(cpz.MenuTag.NewNo);
         if (!itemNo) {
-          itemNo = cc.MenuItemSprite.create(noSprite, null, null, this._menu.okMenu, this._menu);
+          itemNo = cc.MenuItemSprite.createWithSpriteAndCallback(noSprite, this._menu.okMenu, this._menu);
           itemNo.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.addItem(itemNo, 2, cpz.MenuTag.NewNo);
         }
@@ -325,7 +325,7 @@ cpz.MenuLayout = cc.Class.extend({
         itemTitle.setPosition(this._layoutRes('menuRetryTitle'));
         itemYes = this._mBox.getChildByTag(cpz.MenuTag.RetryYes);
         if (!itemYes) {
-          itemYes = cc.MenuItemSprite.create(yesSprite, null, null, this._menu.getGameScene().retryGame, this._menu.getGameScene());
+          itemYes = cc.MenuItemSprite.createWithSpriteAndCallback(yesSprite, this._menu.getGameScene().retryGame, this._menu.getGameScene());
           itemYes.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.addItem(itemYes, 1, cpz.MenuTag.RetryYes);
         }
@@ -334,7 +334,7 @@ cpz.MenuLayout = cc.Class.extend({
         itemYes.setPosition(this._layoutRes('menuRetryYes'));
         itemNo = this._mBox.getChildByTag(cpz.MenuTag.RetryNo);
         if (!itemNo) {
-          itemNo = cc.MenuItemSprite.create(noSprite, null, null, this._menu.okMenu, this._menu);
+          itemNo = cc.MenuItemSprite.createWithSpriteAndCallback(noSprite, this._menu.okMenu, this._menu);
           itemNo.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.addItem(itemNo, 2, cpz.MenuTag.RetryNo);
         }
@@ -382,7 +382,7 @@ cpz.MenuLayout = cc.Class.extend({
             themeNodeSelected = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
             conf.getNodeUiPath(theme, themeNode);
             conf.getNodeUiPath(theme + 'Select', themeNodeSelected);
-            this._themes[key] = cc.MenuItemSprite.create(themeNode, null, null, this._selectTheme, this);
+            this._themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, this._selectTheme, this);
           }
         }
         if (!this._mBox) {

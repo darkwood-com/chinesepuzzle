@@ -26,6 +26,10 @@ cc.copySpriteBatchNode = (from, to) ->
   to.setContentSize from.getContentSize()
   to.setAnchorPoint cc.p(0.5, 0.5)
 
+cc.copySprite = (sprite) ->
+  return cc.Sprite.createWithTexture(sprite.getTexture(), sprite.getTextureRect())
+
+
 cc.copyFirstSpriteBatchNode = (sprite) ->
   for child in sprite.getChildren()
     return cc.Sprite.createWithTexture(child.getTexture(), child.getTextureRect())
@@ -145,3 +149,14 @@ cc.Dictionary = cc.Class.extend(
   count: ->
     @allKeys().length
 )
+
+cc.MenuItemSprite.createWithSprite = (sprite) ->
+  normalSprite = cc.copySprite sprite
+  selectedSprite = cc.copySprite sprite
+
+  cc.MenuItemSprite.create normalSprite, selectedSprite
+
+cc.MenuItemSprite.createWithSpriteAndCallback = (sprite, callback, target) ->
+  ret = cc.MenuItemSprite.createWithSprite sprite
+  ret.setCallback callback, target
+  ret

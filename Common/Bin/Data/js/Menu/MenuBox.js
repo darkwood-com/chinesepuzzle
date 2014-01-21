@@ -62,7 +62,7 @@ cpz.MenuBox = cc.Node.extend({
     spriteNodeValidBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
     conf.getNodeUiPath('menuItemOk', spriteNodeValidBtn);
     spriteValidBtn = cc.copyFirstSpriteBatchNode(spriteNodeValidBtn);
-    this._validBtn = cc.MenuItemSprite.create(spriteValidBtn, null);
+    this._validBtn = cc.MenuItemSprite.createWithSprite(spriteValidBtn);
     this._validBtn.setAnchorPoint(cc.p(0.5, 0.5));
     this._validBtn.setScale(0.75);
     this.addChild(this._validBtn);
@@ -169,7 +169,7 @@ cpz.MenuBox = cc.Node.extend({
     }
   },
   setOkTarget: function(selector, rec) {
-    return this._validBtn.setTarget(selector, rec);
+    return this._validBtn.setCallback(selector, rec);
   },
   onTouchBegan: function(touch, event) {
     var c;

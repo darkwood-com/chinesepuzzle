@@ -68,7 +68,7 @@ cpz.MenuBox = cc.Node.extend(
     conf.getNodeUiPath 'menuItemOk', spriteNodeValidBtn
     spriteValidBtn = cc.copyFirstSpriteBatchNode spriteNodeValidBtn
 
-    @_validBtn = cc.MenuItemSprite.create spriteValidBtn, null
+    @_validBtn = cc.MenuItemSprite.createWithSprite spriteValidBtn
     @_validBtn.setAnchorPoint cc.p(0.5, 0.5)
     @_validBtn.setScale 0.75
     @addChild @_validBtn
@@ -147,7 +147,7 @@ cpz.MenuBox = cc.Node.extend(
       @_bg.setContentSize(cc.size(size.width, size.height))
 
   setOkTarget: (selector, rec) ->
-    @_validBtn.setTarget(selector, rec)
+    @_validBtn.setCallback(selector, rec)
 
   onTouchBegan: (touch, event) ->
     return false if @_state isnt cc.MENU_STATE_WAITING or not @_visible

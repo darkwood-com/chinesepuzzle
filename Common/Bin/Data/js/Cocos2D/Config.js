@@ -30,6 +30,10 @@ cc.copySpriteBatchNode = function(from, to) {
   return to.setAnchorPoint(cc.p(0.5, 0.5));
 };
 
+cc.copySprite = function(sprite) {
+  return cc.Sprite.createWithTexture(sprite.getTexture(), sprite.getTextureRect());
+};
+
 cc.copyFirstSpriteBatchNode = function(sprite) {
   var child, _i, _len, _ref;
   _ref = sprite.getChildren();
@@ -194,3 +198,17 @@ cc.Dictionary = cc.Class.extend({
     return this.allKeys().length;
   }
 });
+
+cc.MenuItemSprite.createWithSprite = function(sprite) {
+  var normalSprite, selectedSprite;
+  normalSprite = cc.copySprite(sprite);
+  selectedSprite = cc.copySprite(sprite);
+  return cc.MenuItemSprite.create(normalSprite, selectedSprite);
+};
+
+cc.MenuItemSprite.createWithSpriteAndCallback = function(sprite, callback, target) {
+  var ret;
+  ret = cc.MenuItemSprite.createWithSprite(sprite);
+  ret.setCallback(callback, target);
+  return ret;
+};
