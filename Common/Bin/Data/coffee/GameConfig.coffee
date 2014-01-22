@@ -104,7 +104,7 @@ cpz.GameConfigCommon = cc.Class.extend(
 
         node.setContentSize(nodeSize)
 
-        cpz.GameConfigCommon._configPaths[path + ':' + k] = node
+        cpz.GameConfigCommon._configPathsSet(path + ':' + k, node)
 
       node = cpz.GameConfigCommon._configPaths[nodePath]
 
@@ -169,6 +169,12 @@ cpz.GameConfigCommon = cc.Class.extend(
 )
 
 cpz.GameConfigCommon._configPaths = {};
+
+cpz.GameConfigCommon._configPathsSet = (key, node) ->
+  if cpz.GameConfigCommon._configPaths[key]
+    cpz.GameConfigCommon._configPaths[key].release()
+  cpz.GameConfigCommon._configPaths[key] = node
+  node.retain()
 
 cpz.GameConfigCommon.XML_FILE_NAME = 'chinesePuzzleConf.plist'
 

@@ -107,7 +107,7 @@ cpz.GameConfigCommon = cc.Class.extend({
           nodeSize.height = Math.max(box.y + box.height, nodeSize.height);
         }
         node.setContentSize(nodeSize);
-        cpz.GameConfigCommon._configPaths[path + ':' + k] = node;
+        cpz.GameConfigCommon._configPathsSet(path + ':' + k, node);
       }
       node = cpz.GameConfigCommon._configPaths[nodePath];
     }
@@ -206,6 +206,14 @@ cpz.GameConfigCommon = cc.Class.extend({
 });
 
 cpz.GameConfigCommon._configPaths = {};
+
+cpz.GameConfigCommon._configPathsSet = function(key, node) {
+  if (cpz.GameConfigCommon._configPaths[key]) {
+    cpz.GameConfigCommon._configPaths[key].release();
+  }
+  cpz.GameConfigCommon._configPaths[key] = node;
+  return node.retain();
+};
 
 cpz.GameConfigCommon.XML_FILE_NAME = 'chinesePuzzleConf.plist';
 
