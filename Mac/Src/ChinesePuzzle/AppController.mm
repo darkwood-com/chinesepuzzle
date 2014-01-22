@@ -25,7 +25,7 @@
 #import <AppKit/AppKit.h>
 #import "AppController.h"
 //#include "cpMacro.h"
-#import "EAGLView.h"
+//#import "EAGLView.h"
 #include "CCEGLView.h"
 #import "AppDelegate.h"
 //#include CP_PLATFORM(GameScene)
