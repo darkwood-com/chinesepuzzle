@@ -533,6 +533,7 @@
 			buildPhases = (
 				C3FB9FAF1850A46C0087DB1A /* Sources */,
 				C3FB9FB01850A46C0087DB1A /* Frameworks */,
+				C30D4671189026C500F45BD6 /* ShellScript */,
 				C3FB9FB11850A46C0087DB1A /* Resources */,
 			);
 			buildRules = (
@@ -685,38 +686,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3D0ED31187C62BF00CDDB9C /* 480x320 in Resources */,
+				C3D0ED32187C62BF00CDDB9C /* 960x640 in Resources */,
+				C3D0ED33187C62BF00CDDB9C /* 1024x768 in Resources */,
+				C3D0ED34187C62BF00CDDB9C /* 1280x800 in Resources */,
+				C3D0ED35187C62BF00CDDB9C /* 1280x1024 in Resources */,
+				C3D0ED36187C62BF00CDDB9C /* 1366x768 in Resources */,
+				C3D0ED37187C62BF00CDDB9C /* 1440x900 in Resources */,
+				C3D0ED38187C62BF00CDDB9C /* 1680x1050 in Resources */,
+				C3D0ED39187C62BF00CDDB9C /* 1920x1080 in Resources */,
+				C3D0ED3A187C62BF00CDDB9C /* 1920x1200 in Resources */,
+				C32A0002188D1ECE00C06654 /* fonts in Resources */,
 				C3F63CBE18605FF00055BBF0 /* js in Resources */,
+				C38D11D118634E7B00F8159A /* lang-de.plist in Resources */,
+				C38D11D218634E7B00F8159A /* lang-en.plist in Resources */,
+				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
+				C308BC351873267F0009A134 /* sound in Resources */,
 				C3F4E9261861E78900230ABA /* mac in Resources */,
 				C3F63CAD18605D3B0055BBF0 /* debugger in Resources */,
 				C3F6251818605C8B0055BBF0 /* jsb_cocos2d_extension.js in Resources */,
-				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
-				C3D0ED39187C62BF00CDDB9C /* 1920x1080 in Resources */,
 				C3F6251318605C8B0055BBF0 /* jsb.js in Resources */,
 				C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */,
-				C3D0ED32187C62BF00CDDB9C /* 960x640 in Resources */,
 				C3F6251718605C8B0055BBF0 /* jsb_cocos2d_constants.js in Resources */,
-				C308BC351873267F0009A134 /* sound in Resources */,
 				C3F6251C18605C8B0055BBF0 /* jsb_debugger.js in Resources */,
-				C3D0ED38187C62BF00CDDB9C /* 1680x1050 in Resources */,
-				C32A0002188D1ECE00C06654 /* fonts in Resources */,
-				C3D0ED35187C62BF00CDDB9C /* 1280x1024 in Resources */,
 				C3F6251A18605C8B0055BBF0 /* jsb_cocos2d_studio.js in Resources */,
 				C3F6251D18605C8B0055BBF0 /* jsb_deprecated.js in Resources */,
-				C38D11D118634E7B00F8159A /* lang-de.plist in Resources */,
-				C3D0ED34187C62BF00CDDB9C /* 1280x800 in Resources */,
 				C3F6252018605C8B0055BBF0 /* jsb_sys.js in Resources */,
 				C3F6251E18605C8B0055BBF0 /* jsb_opengl.js in Resources */,
 				C3F6251B18605C8B0055BBF0 /* jsb_cocosbuilder.js in Resources */,
 				C3F6251518605C8B0055BBF0 /* jsb_chipmunk_constants.js in Resources */,
-				C3D0ED36187C62BF00CDDB9C /* 1366x768 in Resources */,
-				C3D0ED3A187C62BF00CDDB9C /* 1920x1200 in Resources */,
 				C3F6251918605C8B0055BBF0 /* jsb_cocos2d_gui.js in Resources */,
-				C3D0ED37187C62BF00CDDB9C /* 1440x900 in Resources */,
 				C3F6251F18605C8B0055BBF0 /* jsb_opengl_constants.js in Resources */,
-				C38D11D218634E7B00F8159A /* lang-en.plist in Resources */,
 				C3F6251618605C8B0055BBF0 /* jsb_cocos2d.js in Resources */,
 				C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */,
-				C3D0ED33187C62BF00CDDB9C /* 1024x768 in Resources */,
 				C3232F5C1850C0BB00AABA84 /* InfoPlist.strings in Resources */,
 				C3232F5A1850C0BB00AABA84 /* ChinesePuzzleApp.icns in Resources */,
 				C3232F5B1850C0BB00AABA84 /* Credits.rtf in Resources */,
@@ -725,6 +726,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C30D4671189026C500F45BD6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#script that remove deeply sources\nrm -rf ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/js";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C3FB9FAF1850A46C0087DB1A /* Sources */ = {
