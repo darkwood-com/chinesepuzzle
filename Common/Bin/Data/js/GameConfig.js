@@ -210,6 +210,7 @@ cpz.GameConfigCommon._configPaths = {};
 cpz.GameConfigCommon._configPathsSet = function(key, node) {
   if (cpz.GameConfigCommon._configPaths[key]) {
     cpz.GameConfigCommon._configPaths[key].release();
+    cpz.GameConfigCommon._configPaths[key] = null;
   }
   cpz.GameConfigCommon._configPaths[key] = node;
   return node.retain();

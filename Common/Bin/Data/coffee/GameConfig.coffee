@@ -173,6 +173,7 @@ cpz.GameConfigCommon._configPaths = {};
 cpz.GameConfigCommon._configPathsSet = (key, node) ->
   if cpz.GameConfigCommon._configPaths[key]
     cpz.GameConfigCommon._configPaths[key].release()
+    cpz.GameConfigCommon._configPaths[key] = null
   cpz.GameConfigCommon._configPaths[key] = node
   node.retain()
 
