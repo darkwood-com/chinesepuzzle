@@ -739,7 +739,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#script that remove deeply sources\nrm -rf ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/js";
+			shellScript = "#script that remove deeply bundle resources\nrm -rf ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/js";
 		};
 /* End PBXShellScriptBuildPhase section */
 
