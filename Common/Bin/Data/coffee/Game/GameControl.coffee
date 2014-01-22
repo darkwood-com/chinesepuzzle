@@ -8,6 +8,8 @@ file that was distributed with this source code.
 ###
 
 cpz.GameControl = cc.Class.extend(
+  ctor: ->
+
   step: (dt) ->
   draw: ->
 

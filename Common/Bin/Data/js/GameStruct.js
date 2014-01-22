@@ -9,7 +9,8 @@ file that was distributed with this source code.
 
 cpz.GridCoord = cc.Class.extend({
   i: 0,
-  j: 0
+  j: 0,
+  ctor: function() {}
 });
 
 cpz.gc = function(i, j) {
@@ -22,7 +23,8 @@ cpz.gc = function(i, j) {
 
 cpz.MoveCoord = cc.Class.extend({
   from: null,
-  to: null
+  to: null,
+  ctor: function() {}
 });
 
 cpz.mv = function(from, to) {

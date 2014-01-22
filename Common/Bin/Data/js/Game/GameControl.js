@@ -8,6 +8,7 @@ file that was distributed with this source code.
 */
 
 cpz.GameControl = cc.Class.extend({
+  ctor: function() {},
   step: function(dt) {},
   draw: function() {},
   addNode: function(node) {},
