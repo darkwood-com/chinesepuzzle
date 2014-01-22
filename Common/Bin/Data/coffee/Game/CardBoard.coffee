@@ -24,6 +24,12 @@ cpz.CardBoard = cpz.Card.extend(
 
     @_state = cpz.CardBoardState.Empty
 
+  onExit: ->
+    cc.SafeRelease @_emptySprite
+    cc.SafeRelease @_yesSprite
+    cc.SafeRelease @_noSprite
+    @_super()
+
   initWithConf: (conf) ->
     return false unless @initWithTexture cc.textureNull(), 1
 
@@ -42,9 +48,15 @@ cpz.CardBoard = cpz.Card.extend(
       @_state = state
 
   setConf: (conf) ->
-    if @_emptySprite is null then @_emptySprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
-    if @_yesSprite is null then @_yesSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
-    if @_noSprite is null then @_noSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+    unless @_emptySprite
+      @_emptySprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+      @_emptySprite.retain()
+    unless @_yesSprite
+      @_yesSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+      @_yesSprite.retain()
+    unless @_noSprite
+      @_noSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+      @_noSprite.retain()
 
     conf.getNodeThemePath 'cardboardempty', @_emptySprite
     conf.getNodeThemePath 'cardboardyes', @_yesSprite

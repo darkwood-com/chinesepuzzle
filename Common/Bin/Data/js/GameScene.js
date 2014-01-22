@@ -29,6 +29,11 @@ cpz.GameSceneCommon = cc.Scene.extend({
     this._super();
     return this._bgMusicTheme = cpz.GameSceneBGMusicTheme.ThemeNone;
   },
+  onExit: function() {
+    cc.SafeRelease(this._game);
+    cc.SafeRelease(this._menu);
+    return this._super();
+  },
   init: function() {
     var lang;
     if (!this._super()) {
@@ -51,10 +56,12 @@ cpz.GameSceneCommon = cc.Scene.extend({
   game: function() {
     if (this._menu) {
       this.removeChild(this._menu, true);
+      cc.SafeRelease(this._menu);
       this._menu = null;
     }
     if (this._game === null) {
       this._game = cpz.Game.create(this);
+      this._game.retain();
     }
     if (this._game.getParent() === null) {
       this.addChild(this._game, cpz.GameSceneZOrder.Game);
@@ -67,6 +74,7 @@ cpz.GameSceneCommon = cc.Scene.extend({
   menuWithLayout: function(layout) {
     if (this._menu === null) {
       this._menu = cpz.Menu.create(this, layout);
+      this._menu.retain();
     }
     if (this._menu.getParent() === null) {
       this.addChild(this._menu, cpz.GameSceneZOrder.Menu);

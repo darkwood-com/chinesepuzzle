@@ -30,6 +30,11 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
     @_bgMusicTheme = cpz.GameSceneBGMusicTheme.ThemeNone
 
+  onExit: ->
+    cc.SafeRelease @_game
+    cc.SafeRelease @_menu
+    @_super()
+
   init: ->
     return false unless @_super()
 
@@ -55,10 +60,12 @@ cpz.GameSceneCommon = cc.Scene.extend(
   game: ->
     if @_menu
       @removeChild @_menu, true
+      cc.SafeRelease(@_menu)
       @_menu = null
 
     if @_game is null
       @_game = cpz.Game.create @
+      @_game.retain()
 
     if @_game.getParent() is null
       @addChild @_game, cpz.GameSceneZOrder.Game
@@ -70,6 +77,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
   menuWithLayout: (layout) ->
     if @_menu is null
       @_menu = cpz.Menu.create @, layout
+      @_menu.retain()
 
     if @_menu.getParent() is null
       @addChild @_menu, cpz.GameSceneZOrder.Menu
