@@ -9,6 +9,9 @@ file that was distributed with this source code.
 
 #cc.SpriteBatchNode.extend = cc.Class.extend unless cc.SpriteBatchNode.extend
 
+cc.SafeRelease = (p) ->
+  p.release() if p
+
 cc.textureNull = -> new cc.Texture2D()
 
 cc.copySpriteBatchNode = (from, to) ->

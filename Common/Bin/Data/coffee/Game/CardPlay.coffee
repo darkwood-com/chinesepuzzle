@@ -37,6 +37,11 @@ cpz.CardPlay = cpz.Card.extend(
   _isLocked: false
   _isFaceUp: false
 
+  onExit: ->
+    cc.SafeRelease @_faceSprite
+    cc.SafeRelease @_backSprite
+    @_super()
+
   initWithConfAndColorAndRank: (conf, color, rank) ->
     return false unless @initWithTexture cc.textureNull(), 4
 
@@ -51,8 +56,12 @@ cpz.CardPlay = cpz.Card.extend(
     cardPlay and @_color is cardPlay._color and @_rank is cardPlay._rank + 1
 
   setConf: (conf) ->
-    @_faceSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull() unless @_faceSprite
-    @_backSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull() unless @_backSprite
+    unless @_faceSprite
+      @_faceSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_faceSprite.retain()
+    unless @_backSprite
+      @_backSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_backSprite.retain()
 
     conf.getNodeThemePath 'card_' + cpz.CardPlay.matchColor(@_color) + cpz.CardPlay.matchRank(@_rank), @_faceSprite
     conf.getNodeThemePath 'cardplaybg', @_backSprite

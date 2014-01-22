@@ -248,7 +248,7 @@ cpz.Game = cc.Layer.extend({
             card.setPosition(this._gl.getPositionInBoardPoint(coord));
           } else if (card instanceof cpz.CardPlay) {
             coordPos = this._gl.getPositionInBoardPoint(coord);
-            if (false) {
+            if (anim) {
               actions = [];
               actions.push(cc.DelayTime.create(0.05 * (7 - coord.i + coord.j - 1)));
               if (!cc.pointEqualToPoint(card.getPosition(), coordPos)) {
@@ -256,9 +256,7 @@ cpz.Game = cc.Layer.extend({
               }
               if (!card.getIsFaceUp()) {
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0));
-                actions.push(cc.CallFunc.create(function() {
-                  return card.setIsFaceUp;
-                }, card));
+                actions.push(cc.CallFunc.create(card.setIsFaceUp, card, true));
                 actions.push(cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0));
               }
               card.runAction(cc.Sequence.create(actions));

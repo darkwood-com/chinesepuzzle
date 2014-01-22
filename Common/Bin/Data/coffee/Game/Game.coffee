@@ -238,7 +238,7 @@ cpz.Game = cc.Layer.extend(
             card.setPosition @_gl.getPositionInBoardPoint coord
           else if card instanceof cpz.CardPlay
             coordPos = @_gl.getPositionInBoardPoint coord
-            if false #anim
+            if anim
               #card animation
               actions = []
               actions.push cc.DelayTime.create(0.05 * (7 - coord.i + coord.j - 1))
@@ -246,9 +246,7 @@ cpz.Game = cc.Layer.extend(
                 actions.push cc.MoveTo.create(1.0, coordPos)
               unless card.getIsFaceUp()
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 0, 90, 0, 0)
-                actions.push cc.CallFunc.create(->
-                  card.setIsFaceUp
-                , card)
+                actions.push cc.CallFunc.create card.setIsFaceUp, card, true
                 actions.push cc.OrbitCamera.create(0.1, 1, 0, 270, 90, 0, 0)
               card.runAction cc.Sequence.create(actions)
             else

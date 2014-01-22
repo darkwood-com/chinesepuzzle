@@ -37,6 +37,11 @@ cpz.CardPlay = cpz.Card.extend({
   _rank: null,
   _isLocked: false,
   _isFaceUp: false,
+  onExit: function() {
+    cc.SafeRelease(this._faceSprite);
+    cc.SafeRelease(this._backSprite);
+    return this._super();
+  },
   initWithConfAndColorAndRank: function(conf, color, rank) {
     if (!this.initWithTexture(cc.textureNull(), 4)) {
       return false;
@@ -52,9 +57,11 @@ cpz.CardPlay = cpz.Card.extend({
   setConf: function(conf) {
     if (!this._faceSprite) {
       this._faceSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._faceSprite.retain();
     }
     if (!this._backSprite) {
       this._backSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._backSprite.retain();
     }
     conf.getNodeThemePath('card_' + cpz.CardPlay.matchColor(this._color) + cpz.CardPlay.matchRank(this._rank), this._faceSprite);
     conf.getNodeThemePath('cardplaybg', this._backSprite);
