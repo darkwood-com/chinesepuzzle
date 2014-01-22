@@ -173,7 +173,7 @@ cpz.MenuBox = cc.Node.extend({
   },
   onTouchBegan: function(touch, event) {
     var c;
-    if (this._state !== cc.MENU_STATE_WAITING || !this._visible) {
+    if (this._state !== cc.MENU_STATE_WAITING || !this.isVisible()) {
       return false;
     }
     c = this._parent;

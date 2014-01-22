@@ -150,7 +150,7 @@ cpz.MenuBox = cc.Node.extend(
     @_validBtn.setCallback(selector, rec)
 
   onTouchBegan: (touch, event) ->
-    return false if @_state isnt cc.MENU_STATE_WAITING or not @_visible
+    return false if @_state isnt cc.MENU_STATE_WAITING or not @isVisible()
 
     c = @_parent
     while c?
