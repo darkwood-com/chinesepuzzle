@@ -87,18 +87,18 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
     if (!this._super(touch, event)) {
       return false;
     }
-    return this._container.ccTouchBegan(touch, event);
+    return this._container.onTouchBegan(touch, event);
   },
   onTouchMoved: function(touch, event) {
     this._super(touch, event);
-    return this._container.ccTouchMoved(touch, event);
+    return this._container.onTouchMoved(touch, event);
   },
   onTouchEnded: function(touch, event) {
     this._super(touch, event);
-    return this._container.ccTouchEnded(touch, event);
+    return this._container.onTouchEnded(touch, event);
   },
   onTouchCancelled: function(touch, event) {
     this._super(touch, event);
-    return this._container.ccTouchCancelled(touch, event);
+    return this._container.onTouchCancelled(touch, event);
   }
 });
