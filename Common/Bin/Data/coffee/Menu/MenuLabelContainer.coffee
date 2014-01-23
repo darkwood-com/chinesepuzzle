@@ -61,7 +61,7 @@ cpz.MenuLabelContainer = cpz.MenuBox.extend(
       @_container.setWidth(size.width - 2 * @_margin.width)
 
   onTouchBegan: (touch, event) ->
-    return false unless @_super(touch, event)
+    return true if @_super(touch, event)
     
     return @_container.onTouchBegan(touch, event)
   

@@ -55,15 +55,15 @@ cpz.MenuLabel = cc.Node.extend(
     @_label.setAlignment(alignment)
     @
     
-  getOffsetSwipe: -> @_offsetSwipe
-  setOffsetSwipe: (offsetSwipe) ->
+  getSwipe: -> @_offsetSwipe
+  setSwipe: (offsetSwipe) ->
     @_offsetSwipe = offsetSwipe
     
     @layout()
     @
     
-  getOffsetScroll: -> @_offsetScroll
-  setOffsetScroll: (@_offsetScroll) -> @
+  getScroll: -> @_offsetScroll
+  setScroll: (@_offsetScroll) -> @
   
   setContentSize: (size) ->
     @_super(size)

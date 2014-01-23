@@ -73,7 +73,7 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
       @_container.setContentSize(cc.size(size.width - 2 * @_margin.width, size.height - 2 * @_margin.height))
 
   onTouchBegan: (touch, event) ->
-    return false unless @_super(touch, event)
+    return true if @_super(touch, event)
 
     return @_container.onTouchBegan(touch, event)
     

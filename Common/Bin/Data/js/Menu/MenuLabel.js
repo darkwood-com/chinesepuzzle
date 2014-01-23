@@ -54,18 +54,18 @@ cpz.MenuLabel = cc.Node.extend({
     this._label.setAlignment(alignment);
     return this;
   },
-  getOffsetSwipe: function() {
+  getSwipe: function() {
     return this._offsetSwipe;
   },
-  setOffsetSwipe: function(offsetSwipe) {
+  setSwipe: function(offsetSwipe) {
     this._offsetSwipe = offsetSwipe;
     this.layout();
     return this;
   },
-  getOffsetScroll: function() {
+  getScroll: function() {
     return this._offsetScroll;
   },
-  setOffsetScroll: function(_offsetScroll) {
+  setScroll: function(_offsetScroll) {
     this._offsetScroll = _offsetScroll;
     return this;
   },

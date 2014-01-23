@@ -84,8 +84,8 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
     }
   },
   onTouchBegan: function(touch, event) {
-    if (!this._super(touch, event)) {
-      return false;
+    if (this._super(touch, event)) {
+      return true;
     }
     return this._container.onTouchBegan(touch, event);
   },
