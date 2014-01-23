@@ -14,6 +14,10 @@ cpz.Menu = cc.Layer.extend({
   ctor: function() {
     return this._super();
   },
+  onExit: function() {
+    while (this.popNav()) {}
+    return this._super();
+  },
   initWithGameSceneAndLayout: function(gs, layout) {
     if (!this.init()) {
       return false;

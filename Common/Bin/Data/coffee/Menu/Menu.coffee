@@ -16,6 +16,11 @@ cpz.Menu = cc.Layer.extend(
   ctor: ->
     @_super()
 
+  onExit: ->
+    while @popNav() then
+
+    @_super()
+
   initWithGameSceneAndLayout: (gs, layout) ->
     return false unless @init()
 
