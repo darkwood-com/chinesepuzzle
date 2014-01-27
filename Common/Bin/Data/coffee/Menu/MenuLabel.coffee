@@ -86,7 +86,7 @@ cpz.MenuLabel = cc.Node.extend(
     #cc.Director.getInstance().getOpenGLView().setScissorInPoints(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
     
     @_super()
-    
+
     #glDisable(GL_SCISSOR_TEST)
 
   onTouchBegan: (touch, event) ->
@@ -103,8 +103,8 @@ cpz.MenuLabel = cc.Node.extend(
     true
     
   onTouchMoved: (touch, event) ->
-    return if @_scrollTouch isnt touch
-    
+    return unless @_scrollTouch
+
     touchPoint = touch.getLocation()
     
     # If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
@@ -119,16 +119,14 @@ cpz.MenuLabel = cc.Node.extend(
       @setSwipe(touchPoint.y - @_startSwipe)
     
   onTouchEnded: (touch, event) ->
-    return if @_scrollTouch isnt touch
+    return unless @_scrollTouch
     
     @_scrollTouch = null
     
     touchPoint = touch.getLocation()
-    
     @setScroll(@getScroll() + touchPoint.y - @_startSwipe)
     @setSwipe(0)
     
   onTouchCancelled: (touch, event) ->
-    if @_scrollTouch is touch
-      @_scrollTouch = null
+    @_scrollTouch = null
 )

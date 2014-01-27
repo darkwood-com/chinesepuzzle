@@ -85,7 +85,8 @@ cpz.MenuLabel = cc.Node.extend({
     }
   },
   visit: function() {
-    return this._super();
+    this._super();
+    return cc.log('deed');
   },
   onTouchBegan: function(touch, event) {
     var touchPoint;
@@ -101,7 +102,7 @@ cpz.MenuLabel = cc.Node.extend({
   },
   onTouchMoved: function(touch, event) {
     var touchPoint;
-    if (this._scrollTouch !== touch) {
+    if (!this._scrollTouch) {
       return;
     }
     touchPoint = touch.getLocation();
@@ -115,7 +116,7 @@ cpz.MenuLabel = cc.Node.extend({
   },
   onTouchEnded: function(touch, event) {
     var touchPoint;
-    if (this._scrollTouch !== touch) {
+    if (!this._scrollTouch) {
       return;
     }
     this._scrollTouch = null;
@@ -124,8 +125,6 @@ cpz.MenuLabel = cc.Node.extend({
     return this.setSwipe(0);
   },
   onTouchCancelled: function(touch, event) {
-    if (this._scrollTouch === touch) {
-      return this._scrollTouch = null;
-    }
+    return this._scrollTouch = null;
   }
 });
