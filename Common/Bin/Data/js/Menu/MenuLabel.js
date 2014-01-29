@@ -14,6 +14,15 @@ cpz.MenuLabelScrollLayerState = {
 
 cpz.MenuLabel = cc.Node.extend({
   _label: null,
+  _clip: null,
+  _getStencil: function(size) {
+    var rectangle, stencil, white;
+    stencil = cc.DrawNode.create();
+    rectangle = [cc.p(0, 0), cc.p(size.width, 0), cc.p(size.width, size.height), cc.p(0, size.height)];
+    white = cc.c4f(1, 1, 1, 1);
+    stencil.drawPoly(rectangle, white, 1, white);
+    return stencil;
+  },
   _startSwipe: null,
   _state: null,
   _scrollTouch: null,
@@ -30,10 +39,13 @@ cpz.MenuLabel = cc.Node.extend({
   },
   initWithContentSizeAndFntFile: function(size, fntFile) {
     this.setContentSize(size);
+    this._clip = cc.ClippingNode.create();
+    this._clip.setStencil(this._getStencil(size));
     this._label = new cc.LabelBMFont();
     this._label.initWithString("", fntFile, 0, cc.TEXT_ALIGNMENT_LEFT);
     this._label.setAnchorPoint(cc.p(0.5, 1.0));
-    this.addChild(this._label);
+    this._clip.addChild(this._label);
+    this.addChild(this._clip);
     return true;
   },
   getString: function() {
@@ -47,7 +59,7 @@ cpz.MenuLabel = cc.Node.extend({
     return this._label.getContentSize().width;
   },
   setWidth: function(width) {
-    this._label.setWidth(width);
+    this._label.setWidth(width - 20);
     return this;
   },
   setAlignment: function(alignment) {
@@ -80,13 +92,12 @@ cpz.MenuLabel = cc.Node.extend({
       anim = true;
     }
     size = this.getContentSize();
+    if (this._clip) {
+      this._clip.setStencil(this._getStencil(size));
+    }
     if (this._label) {
       return this._label.setPosition(cc.pAdd(cc.p(size.width / 2, size.height), cc.p(0, this._offsetScroll + this._offsetSwipe)));
     }
-  },
-  visit: function() {
-    this._super();
-    return cc.log('deed');
   },
   onTouchBegan: function(touch, event) {
     var touchPoint;

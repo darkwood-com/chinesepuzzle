@@ -14,6 +14,17 @@ cpz.MenuLabelScrollLayerState =
 cpz.MenuLabel = cc.Node.extend(
   _label: null
 
+  _clip: null
+  _getStencil: (size) ->
+    stencil = cc.DrawNode.create()
+    rectangle = [cc.p(0, 0),cc.p(size.width, 0),
+                 cc.p(size.width, size.height),
+                 cc.p(0, size.height)]
+
+    white = cc.c4f(1, 1, 1, 1)
+    stencil.drawPoly(rectangle, white, 1, white)
+    stencil
+
   _startSwipe: null
   _state: null
   _scrollTouch: null
@@ -33,11 +44,16 @@ cpz.MenuLabel = cc.Node.extend(
 
   initWithContentSizeAndFntFile: (size, fntFile) ->
     @setContentSize size
-    
+
+    @_clip = cc.ClippingNode.create()
+    @_clip.setStencil(@_getStencil(size))
+
     @_label = new cc.LabelBMFont()
     @_label.initWithString("", fntFile, 0, cc.TEXT_ALIGNMENT_LEFT)
     @_label.setAnchorPoint(cc.p(0.5, 1.0))
-    @addChild(@_label)
+
+    @_clip.addChild(@_label)
+    @addChild @_clip
     
     return true
 
@@ -48,7 +64,7 @@ cpz.MenuLabel = cc.Node.extend(
 
   getWidth: -> @_label.getContentSize().width
   setWidth: (width) ->
-    @_label.setWidth(width)
+    @_label.setWidth(width - 20)
     @
     
   setAlignment: (alignment) ->
@@ -73,21 +89,12 @@ cpz.MenuLabel = cc.Node.extend(
 
   layout: (anim = true) ->
     size = @getContentSize()
-    
-    if(@_label)
-      @_label.setPosition(cc.pAdd(cc.p(size.width / 2, size.height), cc.p(0, @_offsetScroll + @_offsetSwipe)))
-    
-  visit: ->
-    #glEnable(GL_SCISSOR_TEST)
-    
-    #CCSize size = @getContentSize()
-    #CCRect rect = CCRectMake(0, 0, size.width, size.height)
-    #rect.origin = @convertToWorldSpace(rect.origin)
-    #cc.Director.getInstance().getOpenGLView().setScissorInPoints(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
-    
-    @_super()
 
-    #glDisable(GL_SCISSOR_TEST)
+    if @_clip
+      @_clip.setStencil(@_getStencil(size))
+    
+    if @_label
+      @_label.setPosition(cc.pAdd(cc.p(size.width / 2, size.height), cc.p(0, @_offsetScroll + @_offsetSwipe)))
 
   onTouchBegan: (touch, event) ->
     if not @_scrollTouch
