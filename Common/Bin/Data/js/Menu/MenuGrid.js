@@ -133,14 +133,6 @@ cpz.MenuGrid = cc.Node.extend({
       return _results;
     }
   },
-  visit: function() {
-    var rect, size;
-    size = this.getContentSize();
-    rect = cc.rect(0, 0, size.width, size.height);
-    rect.origin = this.convertToWorldSpace(rect.origin);
-    cc.Director.getInstance().getOpenGLView().setScissorInPoints(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
-    return this._super();
-  },
   getPage: function() {
     return this._page;
   },

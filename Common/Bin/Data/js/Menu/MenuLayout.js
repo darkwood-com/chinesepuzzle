@@ -382,7 +382,9 @@ cpz.MenuLayout = cc.Class.extend({
             themeNodeSelected = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
             conf.getNodeUiPath(theme, themeNode);
             conf.getNodeUiPath(theme + 'Select', themeNodeSelected);
-            this._themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, this._selectTheme, this);
+            themeNode = cc.copyFirstSpriteBatchNode(themeNode);
+            themeNodeSelected = cc.copyFirstSpriteBatchNode(themeNodeSelected);
+            this._themes[key] = cc.MenuItemSprite.create(themeNode, themeNodeSelected, this._selectTheme, this);
           }
         }
         if (!this._mBox) {

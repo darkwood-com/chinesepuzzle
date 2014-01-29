@@ -125,20 +125,6 @@ cpz.MenuGrid = cc.Node.extend(
         item = @_itemsGrid.object(coord)
         item.setPosition(cc.pAdd(origin, cc.p(coord.x * pad.width + @_offsetSwipe, coord.y * pad.height)))
 
-  visit: ->
-    #glEnable(GL_SCISSOR_TEST)
-
-    size = @getContentSize()
-    rect = cc.rect(0, 0, size.width, size.height)
-    rect.origin = @convertToWorldSpace(rect.origin)
-    cc.Director.getInstance()
-      .getOpenGLView()
-      .setScissorInPoints(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height)
-
-    @_super()
-
-    #glDisable(GL_SCISSOR_TEST)
-
   getPage: -> @_page
   setPage: (page) ->
     if(page >= 0 and page < @_getMaxPage())

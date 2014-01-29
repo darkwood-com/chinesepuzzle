@@ -371,9 +371,11 @@ cpz.MenuLayout = cc.Class.extend(
             themeNodeSelected = cc.SpriteBatchNode.createWithTexture cc.textureNull()
             conf.getNodeUiPath(theme, themeNode)
             conf.getNodeUiPath(theme + 'Select', themeNodeSelected)
-            
-            @_themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, @._selectTheme, @)
-        
+            themeNode = cc.copyFirstSpriteBatchNode themeNode
+            themeNodeSelected = cc.copyFirstSpriteBatchNode themeNodeSelected
+
+            @_themes[key] = cc.MenuItemSprite.create(themeNode, themeNodeSelected, @._selectTheme, @)
+
         unless @_mBox
           @_mBox = new cpz.MenuGridContainer()
           @_mBox.initWithConf(conf)
