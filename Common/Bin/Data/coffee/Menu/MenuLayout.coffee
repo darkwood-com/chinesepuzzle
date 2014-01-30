@@ -368,13 +368,10 @@ cpz.MenuLayout = cc.Class.extend(
           @_themes = {}
           for key, theme of themeNodes
             themeNode = cc.SpriteBatchNode.createWithTexture cc.textureNull()
-            themeNodeSelected = cc.SpriteBatchNode.createWithTexture cc.textureNull()
             conf.getNodeUiPath(theme, themeNode)
-            conf.getNodeUiPath(theme + 'Select', themeNodeSelected)
             themeNode = cc.copyFirstSpriteBatchNode themeNode
-            themeNodeSelected = cc.copyFirstSpriteBatchNode themeNodeSelected
 
-            @_themes[key] = cc.MenuItemSprite.create(themeNode, themeNodeSelected, @._selectTheme, @)
+            @_themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, @._selectTheme, @)
 
         unless @_mBox
           @_mBox = new cpz.MenuGridContainer()
@@ -386,7 +383,7 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.setOkTarget(@_menu.okMenu, @_menu)
           
           items = []
-          for theme in @_themes
+          for key, theme of @_themes
             items.push theme
           
           @_mBox.setItems(items)

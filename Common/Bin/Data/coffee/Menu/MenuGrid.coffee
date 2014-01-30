@@ -29,8 +29,8 @@ cpz.MenuGrid = cc.Node.extend(
         item.setAnchorPoint cc.p(0.5, 0.5)
         @addChild(item)
 
-        p = k / a
-        coord = cc.p(p * @_gridSize.width + k % @_gridSize.width, @_gridSize.height - 1 - (k - p * a) / @_gridSize.width)
+        p = Math.floor(k / a)
+        coord = cc.p(p * @_gridSize.width + k % @_gridSize.width, @_gridSize.height - 1 - Math.floor((k - p * a) / @_gridSize.width))
         @_itemsGrid.setObject item, coord
 
     @layout()
@@ -45,7 +45,7 @@ cpz.MenuGrid = cc.Node.extend(
   _scrollTouch: null
 
   _swipeToPageEnded: ->
-    @setPage @getPage() - Math.round(@getSwipe() / @getContentSize().width)
+    @setPage(@getPage() - Math.round(@getSwipe() / @getContentSize().width))
 
     @_delegate.scrollLayerScrolledToPageNumber(@, @_page) if @_delegate
     
@@ -117,7 +117,7 @@ cpz.MenuGrid = cc.Node.extend(
   layout: (anim = true) ->
     size = @getContentSize()
 
-    if(@_gridSize.width > 0 and @_gridSize.height > 0)
+    if @_gridSize.width > 0 and @_gridSize.height > 0
       pad = cc.size(size.width / @_gridSize.width, size.height / @_gridSize.height)
       origin = cc.p(size.width / (2 * @_gridSize.width) - @_page * size.width, size.height / (2 * @_gridSize.height))
 
@@ -127,7 +127,7 @@ cpz.MenuGrid = cc.Node.extend(
 
   getPage: -> @_page
   setPage: (page) ->
-    if(page >= 0 and page < @_getMaxPage())
+    if page >= 0 and page < @_getMaxPage()
       @_page = page
   
       @setSwipe(0)
@@ -135,14 +135,18 @@ cpz.MenuGrid = cc.Node.extend(
 
     @
 
+  updateTweenAction: (value, key) ->
+    if key is 'swipe'
+      @setSwipe(value)
+
   # Moves scrollLayer to page with given number & invokes delegate
   # method scrollLayer:scrolledToPageNumber: at the end of CCMoveTo action.
   # Does nothing if number >= totalScreens or < 0.
   swipeToPage: (page) ->
-    if(page >= 0 and page < @_getMaxPage())
+    if page >= 0 and page < @_getMaxPage()
       @runAction(cc.Sequence.create([
-        #MenuGridSwipeTo::actionWithDuration(0.3, (@_page - page) * @getContentSize().width),
-        #CCCallFunc::actionWithTarget(@, callfunc_selector(MenuGrid::swipeToPageEnded))
+        cc.ActionTween.create(0.3, 'swipe', @getSwipe(), (@_page - page) * @getContentSize().width)
+        cc.CallFunc.create @._swipeToPageEnded, @
       ]))
 
   getDelegate: -> @_delegate
@@ -155,7 +159,7 @@ cpz.MenuGrid = cc.Node.extend(
   onTouchBegan: (touch, event) ->
     touchPoint = touch.getLocation()
     
-    if @_items and @_items.count() > 0
+    if @_items and @_items.length > 0
       for child in @_items
         if child instanceof cc.MenuItem and child.isVisible() and child.isEnabled()
           local = child.convertToNodeSpace(touchPoint)
@@ -185,13 +189,13 @@ cpz.MenuGrid = cc.Node.extend(
     return true
     
   onTouchMoved: (touch, event) ->
-    return if(@_scrollTouch isnt touch)
+    return if @_scrollTouch isnt touch
     
     touchPoint = touch.getLocation()
     
     # If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
     # Of course only if we not already in sliding mode
-    if @_state isnt cpz.MenuGridScrollLayerState.Sliding and fabsf(touchPoint.x - @_startSwipe) >= @_minimumTouchLengthToSlide
+    if @_state isnt cpz.MenuGridScrollLayerState.Sliding and Math.abs(touchPoint.x - @_startSwipe) >= @_minimumTouchLengthToSlide
       @_state = cpz.MenuGridScrollLayerState.Sliding
       
       # Avoid jerk after state change.
@@ -203,7 +207,7 @@ cpz.MenuGrid = cc.Node.extend(
       @setSwipe(touchPoint.x - @_startSwipe)
     
   onTouchEnded: (touch, event) ->
-    return if(@_scrollTouch isnt touch)
+    return if @_scrollTouch isnt touch
     
     @_scrollTouch = null
     
@@ -219,7 +223,7 @@ cpz.MenuGrid = cc.Node.extend(
       selectedPage += - ((@getSwipe() + @_minimumTouchLengthToChangePage) / @getContentSize().width) + 1
     if selectedPage < 0 then selectedPage = 0
     if selectedPage >= @_getMaxPage() then selectedPage = @_getMaxPage() - 1
-    
+
     @swipeToPage(selectedPage)
 
   onTouchCancelled: (touch, event) ->

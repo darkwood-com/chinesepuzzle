@@ -31,8 +31,8 @@ cpz.MenuGrid = cc.Node.extend({
         item = this._items[k];
         item.setAnchorPoint(cc.p(0.5, 0.5));
         this.addChild(item);
-        p = k / a;
-        coord = cc.p(p * this._gridSize.width + k % this._gridSize.width, this._gridSize.height - 1 - (k - p * a) / this._gridSize.width);
+        p = Math.floor(k / a);
+        coord = cc.p(p * this._gridSize.width + k % this._gridSize.width, this._gridSize.height - 1 - Math.floor((k - p * a) / this._gridSize.width));
         this._itemsGrid.setObject(item, coord);
       }
     }
@@ -144,9 +144,14 @@ cpz.MenuGrid = cc.Node.extend({
     }
     return this;
   },
+  updateTweenAction: function(value, key) {
+    if (key === 'swipe') {
+      return this.setSwipe(value);
+    }
+  },
   swipeToPage: function(page) {
     if (page >= 0 && page < this._getMaxPage()) {
-      return this.runAction(cc.Sequence.create([]));
+      return this.runAction(cc.Sequence.create([cc.ActionTween.create(0.3, 'swipe', this.getSwipe(), (this._page - page) * this.getContentSize().width), cc.CallFunc.create(this._swipeToPageEnded, this)]));
     }
   },
   getDelegate: function() {
@@ -173,7 +178,7 @@ cpz.MenuGrid = cc.Node.extend({
   onTouchBegan: function(touch, event) {
     var child, local, r, touchPoint, _i, _len, _ref;
     touchPoint = touch.getLocation();
-    if (this._items && this._items.count() > 0) {
+    if (this._items && this._items.length > 0) {
       _ref = this._items;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         child = _ref[_i];
@@ -208,7 +213,7 @@ cpz.MenuGrid = cc.Node.extend({
       return;
     }
     touchPoint = touch.getLocation();
-    if (this._state !== cpz.MenuGridScrollLayerState.Sliding && fabsf(touchPoint.x - this._startSwipe) >= this._minimumTouchLengthToSlide) {
+    if (this._state !== cpz.MenuGridScrollLayerState.Sliding && Math.abs(touchPoint.x - this._startSwipe) >= this._minimumTouchLengthToSlide) {
       this._state = cpz.MenuGridScrollLayerState.Sliding;
       this._startSwipe = touchPoint.x;
       if (this._delegate) {

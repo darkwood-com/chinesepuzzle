@@ -239,7 +239,7 @@ cpz.MenuLayout = cc.Class.extend({
     return true;
   },
   layout: function(anim) {
-    var center, conf, currentFontFile, item, itemNo, itemTitle, itemYes, items, key, lang, noNode, noSprite, theme, themeNode, themeNodeSelected, themeNodes, yesNode, yesSprite, _i, _len, _ref;
+    var center, conf, currentFontFile, item, itemNo, itemTitle, itemYes, items, key, lang, noNode, noSprite, theme, themeNode, themeNodes, yesNode, yesSprite, _ref;
     if (anim == null) {
       anim = true;
     }
@@ -379,12 +379,9 @@ cpz.MenuLayout = cc.Class.extend({
           for (key in themeNodes) {
             theme = themeNodes[key];
             themeNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
-            themeNodeSelected = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
             conf.getNodeUiPath(theme, themeNode);
-            conf.getNodeUiPath(theme + 'Select', themeNodeSelected);
             themeNode = cc.copyFirstSpriteBatchNode(themeNode);
-            themeNodeSelected = cc.copyFirstSpriteBatchNode(themeNodeSelected);
-            this._themes[key] = cc.MenuItemSprite.create(themeNode, themeNodeSelected, this._selectTheme, this);
+            this._themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, this._selectTheme, this);
           }
         }
         if (!this._mBox) {
@@ -397,8 +394,8 @@ cpz.MenuLayout = cc.Class.extend({
           this._mBox.setOkTarget(this._menu.okMenu, this._menu);
           items = [];
           _ref = this._themes;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            theme = _ref[_i];
+          for (key in _ref) {
+            theme = _ref[key];
             items.push(theme);
           }
           this._mBox.setItems(items);
