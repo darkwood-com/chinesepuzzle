@@ -371,7 +371,7 @@ cpz.MenuLayout = cc.Class.extend(
             conf.getNodeUiPath(theme, themeNode)
             themeNode = cc.copyFirstSpriteBatchNode themeNode
 
-            @_themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, @._selectTheme, @)
+            @_themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, @_selectTheme, @)
 
         unless @_mBox
           @_mBox = new cpz.MenuGridContainer()
@@ -382,12 +382,9 @@ cpz.MenuLayout = cc.Class.extend(
           @_mBox.setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8)
           @_mBox.setOkTarget(@_menu.okMenu, @_menu)
           
-          items = []
           for key, theme of @_themes
-            items.push theme
-          
-          @_mBox.setItems(items)
-          
+            @_mBox.addTheme(theme)
+
           @_menu.pushNav(@_mBox)
         
         @_mBox.setTitle(lang.get('menu.themegame.title'), currentFontFile)

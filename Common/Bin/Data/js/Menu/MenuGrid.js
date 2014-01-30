@@ -13,27 +13,27 @@ cpz.MenuGridScrollLayerState = {
 };
 
 cpz.MenuGrid = cc.Node.extend({
-  _itemsGrid: null,
+  _themesGrid: null,
   _resetGrid: function() {
-    var a, coord, item, k, p, pageMax, pageMin, _i, _j, _len, _ref;
-    _ref = this._itemsGrid.allKeys();
+    var a, coord, k, p, pageMax, pageMin, theme, _i, _j, _len, _ref;
+    _ref = this._themesGrid.allKeys();
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       coord = _ref[_i];
-      item = this._itemsGrid.object(coord);
-      this.removeChild(item, true);
+      theme = this._themesGrid.object(coord);
+      this.removeChild(theme, true);
     }
-    this._itemsGrid.removeAllObjects();
+    this._themesGrid.removeAllObjects();
     a = this._gridSize.width * this._gridSize.height;
     pageMin = a * (this._page - 1);
     pageMax = a * (this._page + 2) - 1;
     for (k = _j = pageMin; pageMin <= pageMax ? _j <= pageMax : _j >= pageMax; k = pageMin <= pageMax ? ++_j : --_j) {
-      if (k >= 0 && k < this._items.length) {
-        item = this._items[k];
-        item.setAnchorPoint(cc.p(0.5, 0.5));
-        this.addChild(item);
+      if (k >= 0 && k < this._themes.length) {
+        theme = this._themes[k];
+        theme.setAnchorPoint(cc.p(0.5, 0.5));
+        this.addChild(theme);
         p = Math.floor(k / a);
         coord = cc.p(p * this._gridSize.width + k % this._gridSize.width, this._gridSize.height - 1 - Math.floor((k - p * a) / this._gridSize.width));
-        this._itemsGrid.setObject(item, coord);
+        this._themesGrid.setObject(theme, coord);
       }
     }
     return this.layout();
@@ -48,10 +48,10 @@ cpz.MenuGrid = cc.Node.extend({
     }
   },
   _getMaxPage: function() {
-    return Math.ceil(this._items.length / (this._gridSize.width * this._gridSize.height));
+    return Math.ceil(this._themes.length / (this._gridSize.width * this._gridSize.height));
   },
   _selectedItem: null,
-  _items: [],
+  _themes: [],
   _gridSize: null,
   _offsetSwipe: null,
   _size: null,
@@ -61,7 +61,7 @@ cpz.MenuGrid = cc.Node.extend({
   _minimumTouchLengthToChangePage: null,
   ctor: function() {
     this._super();
-    this._itemsGrid = new cc.Dictionary();
+    this._themesGrid = new cc.Dictionary();
     this._gridSize = cc.size(0, 0);
     this._page = 0;
     this._delegate = null;
@@ -72,7 +72,7 @@ cpz.MenuGrid = cc.Node.extend({
     return this._state = cpz.MenuGridScrollLayerState.Idle;
   },
   init: function() {
-    this._items = [];
+    this._themes = [];
     this._minimumTouchLengthToSlide = 10.5;
     this._minimumTouchLengthToChangePage = 100.5;
     return true;
@@ -85,11 +85,18 @@ cpz.MenuGrid = cc.Node.extend({
     }
     return false;
   },
-  getItems: function() {
-    return this._items;
+  onExit: function() {
+    var theme, _i, _len, _ref;
+    _ref = this._themes;
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      theme = _ref[_i];
+      theme.release();
+    }
+    return this._super();
   },
-  setItems: function(_items) {
-    this._items = _items;
+  addTheme: function(theme) {
+    theme.retain();
+    this._themes.push(theme);
     this._resetGrid();
     return this;
   },
@@ -115,7 +122,7 @@ cpz.MenuGrid = cc.Node.extend({
     return this;
   },
   layout: function(anim) {
-    var coord, item, origin, pad, size, _i, _len, _ref, _results;
+    var coord, origin, pad, size, theme, _i, _len, _ref, _results;
     if (anim == null) {
       anim = true;
     }
@@ -123,12 +130,12 @@ cpz.MenuGrid = cc.Node.extend({
     if (this._gridSize.width > 0 && this._gridSize.height > 0) {
       pad = cc.size(size.width / this._gridSize.width, size.height / this._gridSize.height);
       origin = cc.p(size.width / (2 * this._gridSize.width) - this._page * size.width, size.height / (2 * this._gridSize.height));
-      _ref = this._itemsGrid.allKeys();
+      _ref = this._themesGrid.allKeys();
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         coord = _ref[_i];
-        item = this._itemsGrid.object(coord);
-        _results.push(item.setPosition(cc.pAdd(origin, cc.p(coord.x * pad.width + this._offsetSwipe, coord.y * pad.height))));
+        theme = this._themesGrid.object(coord);
+        _results.push(theme.setPosition(cc.pAdd(origin, cc.p(coord.x * pad.width + this._offsetSwipe, coord.y * pad.height))));
       }
       return _results;
     }
@@ -178,8 +185,8 @@ cpz.MenuGrid = cc.Node.extend({
   onTouchBegan: function(touch, event) {
     var child, local, r, touchPoint, _i, _len, _ref;
     touchPoint = touch.getLocation();
-    if (this._items && this._items.length > 0) {
-      _ref = this._items;
+    if (this._themes && this._themes.length > 0) {
+      _ref = this._themes;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         child = _ref[_i];
         if (child instanceof cc.MenuItem && child.isVisible() && child.isEnabled()) {
@@ -193,7 +200,6 @@ cpz.MenuGrid = cc.Node.extend({
             }
             this._selectedItem = child;
             this._selectedItem.selected();
-            this._selectedItem.runAction(cc.Sequence.create([]));
           }
         }
       }
@@ -209,7 +215,7 @@ cpz.MenuGrid = cc.Node.extend({
   },
   onTouchMoved: function(touch, event) {
     var touchPoint;
-    if (this._scrollTouch !== touch) {
+    if (!this._scrollTouch) {
       return;
     }
     touchPoint = touch.getLocation();
@@ -226,7 +232,7 @@ cpz.MenuGrid = cc.Node.extend({
   },
   onTouchEnded: function(touch, event) {
     var selectedPage, swipe, touchPoint;
-    if (this._scrollTouch !== touch) {
+    if (!this._scrollTouch) {
       return;
     }
     this._scrollTouch = null;
@@ -248,9 +254,7 @@ cpz.MenuGrid = cc.Node.extend({
     return this.swipeToPage(selectedPage);
   },
   onTouchCancelled: function(touch, event) {
-    if (this._scrollTouch === touch) {
-      this._scrollTouch = null;
-      return this.setPage(this._page);
-    }
+    this._scrollTouch = null;
+    return this.setPage(this._page);
   }
 });

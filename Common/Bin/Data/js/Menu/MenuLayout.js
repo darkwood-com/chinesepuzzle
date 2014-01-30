@@ -392,13 +392,11 @@ cpz.MenuLayout = cc.Class.extend({
           this._mBox.setPage(0);
           this._mBox.setMinimumTouchLengthToChangePage((200 - 50 * 2) / 8);
           this._mBox.setOkTarget(this._menu.okMenu, this._menu);
-          items = [];
           _ref = this._themes;
           for (key in _ref) {
             theme = _ref[key];
-            items.push(theme);
+            this._mBox.addTheme(theme);
           }
-          this._mBox.setItems(items);
           this._menu.pushNav(this._mBox);
         }
         this._mBox.setTitle(lang.get('menu.themegame.title'), currentFontFile);

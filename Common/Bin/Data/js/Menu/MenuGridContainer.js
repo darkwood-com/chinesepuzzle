@@ -64,11 +64,8 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
     this._container.setMinimumTouchLengthToChangePage(length);
     return this;
   },
-  getItems: function() {
-    return this._container.getItems();
-  },
-  setItems: function(items) {
-    this._container.setItems(items);
+  addTheme: function(theme) {
+    this._container.addTheme(theme);
     return this;
   },
   layout: function(anim) {

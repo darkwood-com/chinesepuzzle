@@ -58,9 +58,8 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
     @_container.setMinimumTouchLengthToChangePage(length)
     @
     
-  getItems: -> @_container.getItems()
-  setItems: (items) ->
-    @_container.setItems(items)
+  addTheme: (theme) ->
+    @_container.addTheme(theme)
     @
 
   layout: (anim = true) ->
