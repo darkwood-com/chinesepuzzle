@@ -79,16 +79,16 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
     
   onTouchMoved: (touch, event) ->
     @_super(touch, event)
-    
+
     @_container.onTouchMoved(touch, event)
   
   onTouchEnded: (touch, event) ->
     @_super(touch, event)
-    
+
     @_container.onTouchEnded(touch, event)
     
   onTouchCancelled: (touch, event) ->
     @_super(touch, event)
-    
+
     @_container.onTouchCancelled(touch, event)
 )

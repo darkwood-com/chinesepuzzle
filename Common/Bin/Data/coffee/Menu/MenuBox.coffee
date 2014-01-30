@@ -19,7 +19,7 @@ cpz.MenuBox = cc.Node.extend(
   _itemForTouch: (touch) ->
     touchLocation = touch.getLocation()
 
-    menuItems = @getItems()
+    menuItems = @getItems().slice()
     menuItems.push @_validBtn
     if menuItems and menuItems.length > 0
       for child in menuItems

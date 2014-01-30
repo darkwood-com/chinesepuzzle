@@ -19,7 +19,7 @@ cpz.MenuBox = cc.Node.extend({
   _itemForTouch: function(touch) {
     var child, local, menuItems, r, touchLocation, _i, _len;
     touchLocation = touch.getLocation();
-    menuItems = this.getItems();
+    menuItems = this.getItems().slice();
     menuItems.push(this._validBtn);
     if (menuItems && menuItems.length > 0) {
       for (_i = 0, _len = menuItems.length; _i < _len; _i++) {
