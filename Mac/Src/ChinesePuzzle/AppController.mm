@@ -26,7 +26,10 @@
 #import "AppController.h"
 //#include "cpMacro.h"
 //#import "EAGLView.h"
-#include "CCEGLView.h"
+//#include "CCEGLView.h"
+#include "platform/desktop/CCGLView.h"
+#include "CCDirector.h"
+#include "CCGeometry.h"
 #import "AppDelegate.h"
 //#include CP_PLATFORM(GameScene)
 
@@ -154,8 +157,13 @@ USING_NS_CC;
     [window close];
     
     AppDelegate app;
-    EGLView eglView;
-    eglView.init("Chinese Puzzle",900,640);
+    
+    Director *director = Director::getInstance();
+    GLView* glview = director->getOpenGLView();
+    if(!glview) {
+        glview = GLView::createWithRect("Chinese Puzzle", cocos2d::Rect(0, 0, 900, 640));
+        director->setOpenGLView(glview);
+    }
 
 //    NSRect rect = NSMakeRect(0, 0, 1024, 768);
 //    

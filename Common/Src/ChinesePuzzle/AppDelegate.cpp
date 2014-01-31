@@ -56,7 +56,11 @@ bool AppDelegate::applicationDidFinishLaunching()
 
     // initialize director
     Director *director = Director::getInstance();
-    director->setOpenGLView(EGLView::getInstance());
+    GLView* glview = director->getOpenGLView();
+    if(!glview) {
+        glview = GLView::create("My Game");
+        director->setOpenGLView(glview);
+    }
     
 	// turn on display FPS
 #if defined(COCOS2D_DEBUG)
