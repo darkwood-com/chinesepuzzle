@@ -194,9 +194,9 @@ cpz.MenuLayout = cc.Class.extend(
   _menu: null
   _themes: null
   _selectTheme: (themeNode) ->
-    for theme in @_themes
+    for key, theme of @_themes
       if(theme is themeNode)
-        @_menu.getGameScene().setTheme(theme)
+        @_menu.getGameScene().setTheme(key)
         @_menu.getGameScene().playSound('menu_select')
 
   _bg: null

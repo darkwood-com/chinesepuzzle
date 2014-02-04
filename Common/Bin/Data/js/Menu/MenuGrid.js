@@ -231,6 +231,8 @@ cpz.MenuGrid = cc.Node.extend({
             }
             this._selectedItem = child;
             this._selectedItem.selected();
+            this._selectedItem.activate();
+            this._selectedItem.runAction(cc.Sequence.create([cc.EaseIn.create(cc.ScaleTo.create(0.1, 0.75), 2.5), cc.EaseOut.create(cc.ScaleTo.create(0.1, 1.0), 2.5)]));
           }
         }
       }

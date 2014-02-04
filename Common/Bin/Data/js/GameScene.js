@@ -104,8 +104,10 @@ cpz.GameSceneCommon = cc.Scene.extend({
   },
   setTheme: function(theme) {
     this._conf.setTheme(theme);
-    this.layout();
-    this._conf.save();
+    this._conf.preload(function() {
+      this.layout();
+      return this._conf.save();
+    }, this);
     return this;
   },
   playSound: function(soundName) {

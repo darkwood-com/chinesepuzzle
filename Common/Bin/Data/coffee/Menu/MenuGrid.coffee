@@ -219,10 +219,11 @@ cpz.MenuGrid = cc.Node.extend(
             
             @_selectedItem = child
             @_selectedItem.selected()
-            #@_selectedItem.runAction(cc.Sequence.create([
-              #CCEaseIn::actionWithAction(CCScaleTo::actionWithDuration(0.1, 0.75), 2.5),
-              #CCEaseOut::actionWithAction(CCScaleTo::actionWithDuration(0.1, 1.5), 2.5),
-            #]))
+            @_selectedItem.activate()
+            @_selectedItem.runAction(cc.Sequence.create([
+              cc.EaseIn.create(cc.ScaleTo.create(0.1, 0.75), 2.5),
+              cc.EaseOut.create(cc.ScaleTo.create(0.1, 1.0), 2.5),
+            ]))
     
     unless @_scrollTouch
       @_scrollTouch = touch

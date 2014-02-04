@@ -208,13 +208,13 @@ cpz.MenuLayout = cc.Class.extend({
   _menu: null,
   _themes: null,
   _selectTheme: function(themeNode) {
-    var theme, _i, _len, _ref, _results;
+    var key, theme, _ref, _results;
     _ref = this._themes;
     _results = [];
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      theme = _ref[_i];
+    for (key in _ref) {
+      theme = _ref[key];
       if (theme === themeNode) {
-        this._menu.getGameScene().setTheme(theme);
+        this._menu.getGameScene().setTheme(key);
         _results.push(this._menu.getGameScene().playSound('menu_select'));
       } else {
         _results.push(void 0);

@@ -108,9 +108,11 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
   setTheme: (theme) ->
     @_conf.setTheme theme
-
-    @layout()
-    @_conf.save()
+    @_conf.preload ->
+      @layout()
+      @_conf.save()
+    , @
+    
     @
 
   playSound: (soundName) ->
