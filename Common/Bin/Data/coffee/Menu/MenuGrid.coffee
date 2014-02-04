@@ -44,10 +44,22 @@ cpz.MenuGrid = cc.Node.extend(
   #Holds the touch that started the scroll
   _scrollTouch: null
 
-  _swipeToPageEnded: ->
-    @setPage(@getPage() - Math.round(@getSwipe() / @getContentSize().width))
+  _swipeToPage_dt: 0
+  _swipeToPage_start: 0
+  _swipeToPage_end: 0
+  _swipeToPage: (dt) ->
 
-    @_delegate.scrollLayerScrolledToPageNumber(@, @_page) if @_delegate
+    @_swipeToPage_dt += dt
+    duration = 0.3
+    delta = (@_swipeToPage_end - @_swipeToPage_start)
+    swipe = @_swipeToPage_end - delta * (1 - @_swipeToPage_dt / duration)
+    @setSwipe(swipe)
+
+    if(@_swipeToPage_dt >= duration)
+      @setPage(@getPage() - Math.round(@getSwipe() / @getContentSize().width))
+
+      @_delegate.scrollLayerScrolledToPageNumber(@, @_page) if @_delegate
+      @unschedule @_swipeToPage
     
   _getMaxPage: ->
     return Math.ceil(@_themes.length / (@_gridSize.width * @_gridSize.height))
@@ -152,10 +164,14 @@ cpz.MenuGrid = cc.Node.extend(
   # Does nothing if number >= totalScreens or < 0.
   swipeToPage: (page) ->
     if page >= 0 and page < @_getMaxPage()
-      @runAction(cc.Sequence.create([
-        cc.ActionTween.create(0.3, 'swipe', @getSwipe(), (@_page - page) * @getContentSize().width)
-        cc.CallFunc.create @._swipeToPageEnded, @
-      ]))
+      @_swipeToPage_dt = 0
+      @_swipeToPage_start = @getSwipe()
+      @_swipeToPage_end = (@_page - page) * @getContentSize().width
+      @schedule @_swipeToPage
+      #@runAction(cc.Sequence.create([
+      #  cc.ActionTween.create(0.3, 'swipe', @getSwipe(), (@_page - page) * @getContentSize().width)
+      #  cc.CallFunc.create @._swipeToPageEnded, @
+      #]))
 
   getDelegate: -> @_delegate
   setDelegate: (@_delegate) -> @

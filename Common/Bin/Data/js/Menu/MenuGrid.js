@@ -41,10 +41,22 @@ cpz.MenuGrid = cc.Node.extend({
   _startSwipe: 0,
   _state: cpz.MenuGridScrollLayerState.Idle,
   _scrollTouch: null,
-  _swipeToPageEnded: function() {
-    this.setPage(this.getPage() - Math.round(this.getSwipe() / this.getContentSize().width));
-    if (this._delegate) {
-      return this._delegate.scrollLayerScrolledToPageNumber(this, this._page);
+  _swipeToPage_dt: 0,
+  _swipeToPage_start: 0,
+  _swipeToPage_end: 0,
+  _swipeToPage: function(dt) {
+    var delta, duration, swipe;
+    this._swipeToPage_dt += dt;
+    duration = 0.3;
+    delta = this._swipeToPage_end - this._swipeToPage_start;
+    swipe = this._swipeToPage_end - delta * (1 - this._swipeToPage_dt / duration);
+    this.setSwipe(swipe);
+    if (this._swipeToPage_dt >= duration) {
+      this.setPage(this.getPage() - Math.round(this.getSwipe() / this.getContentSize().width));
+      if (this._delegate) {
+        this._delegate.scrollLayerScrolledToPageNumber(this, this._page);
+      }
+      return this.unschedule(this._swipeToPage);
     }
   },
   _getMaxPage: function() {
@@ -158,7 +170,10 @@ cpz.MenuGrid = cc.Node.extend({
   },
   swipeToPage: function(page) {
     if (page >= 0 && page < this._getMaxPage()) {
-      return this.runAction(cc.Sequence.create([cc.ActionTween.create(0.3, 'swipe', this.getSwipe(), (this._page - page) * this.getContentSize().width), cc.CallFunc.create(this._swipeToPageEnded, this)]));
+      this._swipeToPage_dt = 0;
+      this._swipeToPage_start = this.getSwipe();
+      this._swipeToPage_end = (this._page - page) * this.getContentSize().width;
+      return this.schedule(this._swipeToPage);
     }
   },
   getDelegate: function() {
