@@ -20,7 +20,7 @@ cpz.MenuGrid = cc.Node.extend({
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       coord = _ref[_i];
       theme = this._themesGrid.object(coord);
-      this.removeChild(theme, true);
+      this._clip.removeChild(theme, true);
     }
     this._themesGrid.removeAllObjects();
     a = this._gridSize.width * this._gridSize.height;
@@ -30,7 +30,7 @@ cpz.MenuGrid = cc.Node.extend({
       if (k >= 0 && k < this._themes.length) {
         theme = this._themes[k];
         theme.setAnchorPoint(cc.p(0.5, 0.5));
-        this.addChild(theme);
+        this._clip.addChild(theme);
         p = Math.floor(k / a);
         coord = cc.p(p * this._gridSize.width + k % this._gridSize.width, this._gridSize.height - 1 - Math.floor((k - p * a) / this._gridSize.width));
         this._themesGrid.setObject(theme, coord);
@@ -71,6 +71,15 @@ cpz.MenuGrid = cc.Node.extend({
   _delegate: null,
   _minimumTouchLengthToSlide: null,
   _minimumTouchLengthToChangePage: null,
+  _clip: null,
+  _getStencil: function(size) {
+    var rectangle, stencil, white;
+    stencil = cc.DrawNode.create();
+    rectangle = [cc.p(0, 0), cc.p(size.width, 0), cc.p(size.width, size.height), cc.p(0, size.height)];
+    white = cc.c4f(1, 1, 1, 1);
+    stencil.drawPoly(rectangle, white, 1, white);
+    return stencil;
+  },
   ctor: function() {
     this._super();
     this._themesGrid = new cc.Dictionary();
@@ -87,12 +96,15 @@ cpz.MenuGrid = cc.Node.extend({
     this._themes = [];
     this._minimumTouchLengthToSlide = 10.5;
     this._minimumTouchLengthToChangePage = 100.5;
+    this._clip = cc.ClippingNode.create();
+    this.addChild(this._clip);
     return true;
   },
   initWithContentSize: function(size) {
     if (this.init()) {
       this.setContentSize(size);
       this._minimumTouchLengthToChangePage = size.width / 8;
+      this._clip.setStencil(this._getStencil(size));
       return true;
     }
     return false;
@@ -104,6 +116,7 @@ cpz.MenuGrid = cc.Node.extend({
       theme = _ref[_i];
       theme.release();
     }
+    this.removeChild(this._clip);
     return this._super();
   },
   addTheme: function(theme) {
@@ -139,6 +152,9 @@ cpz.MenuGrid = cc.Node.extend({
       anim = true;
     }
     size = this.getContentSize();
+    if (this._clip) {
+      this._clip.setStencil(this._getStencil(size));
+    }
     if (this._gridSize.width > 0 && this._gridSize.height > 0) {
       pad = cc.size(size.width / this._gridSize.width, size.height / this._gridSize.height);
       origin = cc.p(size.width / (2 * this._gridSize.width) - this._page * size.width, size.height / (2 * this._gridSize.height));

@@ -48,6 +48,10 @@ cpz.MenuLabel = cc.Node.extend({
     this.addChild(this._clip);
     return true;
   },
+  onExit: function() {
+    this.removeChild(this._clip);
+    return this._super();
+  },
   getString: function() {
     return this._label.getString();
   },

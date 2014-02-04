@@ -17,7 +17,7 @@ cpz.MenuGrid = cc.Node.extend(
   _resetGrid: ->
     for coord in @_themesGrid.allKeys()
       theme = @_themesGrid.object(coord)
-      @removeChild(theme, true)
+      @_clip.removeChild(theme, true)
     @_themesGrid.removeAllObjects()
 
     a = @_gridSize.width * @_gridSize.height
@@ -27,7 +27,7 @@ cpz.MenuGrid = cc.Node.extend(
       if(k >= 0 and k < @_themes.length)
         theme = @_themes[k]
         theme.setAnchorPoint cc.p(0.5, 0.5)
-        @addChild(theme)
+        @_clip.addChild(theme)
 
         p = Math.floor(k / a)
         coord = cc.p(p * @_gridSize.width + k % @_gridSize.width, @_gridSize.height - 1 - Math.floor((k - p * a) / @_gridSize.width))
@@ -76,6 +76,18 @@ cpz.MenuGrid = cc.Node.extend(
   _minimumTouchLengthToSlide: null
   _minimumTouchLengthToChangePage: null
 
+  #clip
+  _clip: null
+  _getStencil: (size) ->
+    stencil = cc.DrawNode.create()
+    rectangle = [cc.p(0, 0),cc.p(size.width, 0),
+                 cc.p(size.width, size.height),
+                 cc.p(0, size.height)]
+
+    white = cc.c4f(1, 1, 1, 1)
+    stencil.drawPoly(rectangle, white, 1, white)
+    stencil
+
   ctor: ->
     @_super()
 
@@ -96,6 +108,9 @@ cpz.MenuGrid = cc.Node.extend(
     @_minimumTouchLengthToSlide = 10.5
     @_minimumTouchLengthToChangePage = 100.5
 
+    @_clip = cc.ClippingNode.create()
+    @addChild @_clip
+
     true
 
   initWithContentSize: (size) ->
@@ -104,7 +119,9 @@ cpz.MenuGrid = cc.Node.extend(
   
       # Set default minimum touch length to scroll.
       @_minimumTouchLengthToChangePage = size.width / 8
-  
+
+      @_clip.setStencil(@_getStencil(size))
+
       return true
 
     false
@@ -112,6 +129,8 @@ cpz.MenuGrid = cc.Node.extend(
   onExit: ->
     for theme in @_themes
       theme.release()
+
+    @removeChild @_clip
 
     @_super()
 
@@ -136,6 +155,9 @@ cpz.MenuGrid = cc.Node.extend(
 
   layout: (anim = true) ->
     size = @getContentSize()
+
+    if @_clip
+      @_clip.setStencil(@_getStencil(size))
 
     if @_gridSize.width > 0 and @_gridSize.height > 0
       pad = cc.size(size.width / @_gridSize.width, size.height / @_gridSize.height)

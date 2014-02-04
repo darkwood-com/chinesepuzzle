@@ -57,6 +57,11 @@ cpz.MenuLabel = cc.Node.extend(
     
     return true
 
+  onExit: ->
+    @removeChild @_clip
+
+    @_super()
+
   getString: -> @_label.getString()
   setString: (str) ->
     @_label.setString(str)
