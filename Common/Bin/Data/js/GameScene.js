@@ -97,9 +97,11 @@ cpz.GameSceneCommon = cc.Scene.extend({
   },
   setResolution: function(resolution) {
     this._conf.setResolution(resolution);
-    this.setContentSize(this._conf.getResolutionSize());
-    this.layout(false);
-    this._conf.save();
+    this._conf.preload(function() {
+      this.setContentSize(this._conf.getResolutionSize());
+      this.layout(false);
+      return this._conf.save();
+    }, this);
     return this;
   },
   setTheme: function(theme) {

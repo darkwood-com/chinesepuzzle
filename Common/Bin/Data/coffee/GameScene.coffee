@@ -100,10 +100,13 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
   setResolution: (resolution) ->
     @_conf.setResolution resolution
-    @setContentSize @_conf.getResolutionSize()
+    @_conf.preload ->
+      @setContentSize @_conf.getResolutionSize()
 
-    @layout(false)
-    @_conf.save()
+      @layout(false)
+      @_conf.save()
+    , @
+
     @
 
   setTheme: (theme) ->
@@ -112,7 +115,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
       @layout()
       @_conf.save()
     , @
-    
+
     @
 
   playSound: (soundName) ->
