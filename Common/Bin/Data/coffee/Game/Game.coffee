@@ -298,7 +298,7 @@ cpz.Game = cc.Layer.extend(
       cFrom.runAction cc.Sequence.create([
         cc.MoveTo.create(0.5, @_gl.getPositionInBoardPoint(move.to)),
         cc.CallFunc.create(@_makeMoveEnd, @),
-         cc.CallFunc.create(@_makeMoveUndoSound, @)
+        cc.CallFunc.create(@_makeMoveSound, @)
       ])
 
       if(cSwitch)

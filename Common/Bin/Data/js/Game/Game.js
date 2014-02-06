@@ -327,7 +327,7 @@ cpz.Game = cc.Layer.extend({
       cSwitch = this.getCard(move.to);
       this._board[move.to.i][move.to.j] = this._board[move.from.i][move.from.j];
       this._board[move.from.i][move.from.j] = cSwitch;
-      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.to)), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveUndoSound, this)]));
+      cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.to)), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveSound, this)]));
       if (cSwitch) {
         cSwitch.setPosition(this._gl.getPositionInBoardPoint(move.from));
         if (cSwitch(instance in cpz.CardBoard)) {
