@@ -250,16 +250,17 @@ cpz.GameLayout = cc.Class.extend({
     return this._themeBtn.setScale(0.75);
   },
   tapDownAt: function(location) {
-    var btn, local, rect, _i, _len, _ref;
+    var btn, local, rect, size, _i, _len, _ref;
+    size = 2;
     _ref = this._activesBtn;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       btn = _ref[_i];
       local = btn.convertToNodeSpace(location);
       rect = btn.getBoundingBox();
-      rect.x = 0;
-      rect.y = 0;
-      rect.width = rect.width * 2;
-      rect.height = rect.height * 2;
+      rect.x = rect.width * (1 - size) / 2;
+      rect.y = rect.height * (1 - size) / 2;
+      rect.width = rect.width * size;
+      rect.height = rect.height * size;
       if (cc.rectContainsPoint(rect, local)) {
         btn.runAction(cc.Sequence.create([cc.EaseIn.create(cc.ScaleTo.create(0.1, 1.0), 2.0), cc.CallFunc.create(this._actionBtn, this, btn), cc.EaseOut.create(cc.ScaleTo.create(0.1, 0.75), 2.0)]));
       }

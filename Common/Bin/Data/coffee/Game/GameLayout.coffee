@@ -237,13 +237,15 @@ cpz.GameLayout = cc.Class.extend(
     @_themeBtn.setScale 0.75
 
   tapDownAt: (location) ->
+    size = 2
+
     for btn in @_activesBtn
       local = btn.convertToNodeSpace location
       rect = btn.getBoundingBox()
-      rect.x = 0
-      rect.y = 0
-      rect.width = rect.width * 2
-      rect.height = rect.height * 2
+      rect.x = rect.width * (1 - size) / 2
+      rect.y = rect.height * (1 - size) / 2
+      rect.width = rect.width * size
+      rect.height = rect.height * size
 
       if cc.rectContainsPoint rect, local
         btn.runAction cc.Sequence.create [
