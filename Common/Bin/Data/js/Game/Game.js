@@ -299,7 +299,7 @@ cpz.Game = cc.Layer.extend({
     if (!(cTo instanceof cpz.CardBoard)) {
       return cpz.CheckMove.From;
     }
-    toBefore = move.to;
+    toBefore = cpz.gc(move.to.i, move.to.j);
     toBefore.j--;
     if (toBefore.j === -1) {
       if (cFrom.getRank() === cpz.CardPlayRank.Ace) {
@@ -330,7 +330,7 @@ cpz.Game = cc.Layer.extend({
       cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.to)), cc.CallFunc.create(this._makeMoveEnd, this), cc.CallFunc.create(this._makeMoveSound, this)]));
       if (cSwitch) {
         cSwitch.setPosition(this._gl.getPositionInBoardPoint(move.from));
-        if (cSwitch(instance in cpz.CardBoard)) {
+        if (cSwitch instanceof cpz.CardBoard) {
           cSwitch.setState(cpz.CardBoard.Empty);
         }
       }

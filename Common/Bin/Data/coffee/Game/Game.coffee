@@ -271,7 +271,7 @@ cpz.Game = cc.Layer.extend(
     cTo = @getCard move.to
     return cpz.CheckMove.From unless cTo instanceof cpz.CardBoard
     
-    toBefore = move.to
+    toBefore = cpz.gc move.to.i, move.to.j
     toBefore.j--
     
     if toBefore.j is -1
@@ -304,7 +304,7 @@ cpz.Game = cc.Layer.extend(
       if(cSwitch)
         cSwitch.setPosition @_gl.getPositionInBoardPoint(move.from)
 
-        if cSwitch instance of cpz.CardBoard
+        if cSwitch instanceof cpz.CardBoard
           cSwitch.setState cpz.CardBoard.Empty
 
       @_switchBoardCard.setPosition @_gl.getPositionInBoardPoint(move.to)
