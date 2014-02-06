@@ -28,10 +28,12 @@ cpz.GameControlNode = cpz.GameControl.extend(
 
   checkPoint: (point) ->
     for n in @_nodes
-      rectNode = n.getBoundingBox()
-      rectNode._origin = n.convertToWorldSpace(cc.PointZero())
+      local = n.convertToNodeSpace point
+      rect = n.getBoundingBox()
+      rect.x = 0
+      rect.y = 0
 
-      if cc.rectContainsPoint rectNode, point then return n
+      if cc.rectContainsPoint rect, local then return n
 
     null
 
@@ -53,8 +55,10 @@ cpz.GameControlNode = cpz.GameControl.extend(
     for n in @_nodes
       continue unless filter(n)
 
+      local = n.convertToWorldSpace(cc.PointZero())
       rectNode = n.getBoundingBox()
-      rectNode._origin = n.convertToWorldSpace(cc.PointZero())
+      rectNode.x = local.x
+      rectNode.y = local.y
 
       if cc.rectIntersectsRect rectNode, rect
         vect = rect._origin - rectNode._origin

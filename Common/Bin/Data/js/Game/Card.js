@@ -14,11 +14,13 @@ cpz.Card = cc.Node.extend({
     if (!this._batchNode) {
       return false;
     }
+    this.setAnchorPoint(cc.p(0.5, 0.5));
     this.addChild(this._batchNode);
     return true;
   },
   setSpriteBatchNode: function(node) {
     cc.copySpriteBatchNode(node, this._batchNode);
+    this._batchNode.setAnchorPoint(cc.p(0, 0));
     return this.setContentSize(node.getContentSize());
   }
 });

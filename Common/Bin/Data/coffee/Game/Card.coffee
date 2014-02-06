@@ -14,12 +14,14 @@ cpz.Card = cc.Node.extend(
     @_batchNode = cc.SpriteBatchNode.createWithTexture tex, capacity
     return false unless @_batchNode
 
+    @setAnchorPoint cc.p(0.5, 0.5)
     @addChild @_batchNode
 
     true
 
   setSpriteBatchNode: (node) ->
     cc.copySpriteBatchNode(node, @_batchNode)
+    @_batchNode.setAnchorPoint cc.p(0, 0)
 
     @setContentSize(node.getContentSize())
 )

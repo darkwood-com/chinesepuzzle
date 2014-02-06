@@ -32,13 +32,15 @@ cpz.GameControlNode = cpz.GameControl.extend({
   },
   updateNode: function(node) {},
   checkPoint: function(point) {
-    var n, rectNode, _i, _len, _ref;
+    var local, n, rect, _i, _len, _ref;
     _ref = this._nodes;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       n = _ref[_i];
-      rectNode = n.getBoundingBox();
-      rectNode._origin = n.convertToWorldSpace(cc.PointZero());
-      if (cc.rectContainsPoint(rectNode, point)) {
+      local = n.convertToNodeSpace(point);
+      rect = n.getBoundingBox();
+      rect.x = 0;
+      rect.y = 0;
+      if (cc.rectContainsPoint(rect, local)) {
         return n;
       }
     }
@@ -61,7 +63,7 @@ cpz.GameControlNode = cpz.GameControl.extend({
     return null;
   },
   checkRect: function(rect, filter) {
-    var dist, minDist, n, nodeRes, rectNode, vect, _i, _len, _ref;
+    var dist, local, minDist, n, nodeRes, rectNode, vect, _i, _len, _ref;
     nodeRes = null;
     minDist = -1;
     _ref = this._nodes;
@@ -70,8 +72,10 @@ cpz.GameControlNode = cpz.GameControl.extend({
       if (!filter(n)) {
         continue;
       }
+      local = n.convertToWorldSpace(cc.PointZero());
       rectNode = n.getBoundingBox();
-      rectNode._origin = n.convertToWorldSpace(cc.PointZero());
+      rectNode.x = local.x;
+      rectNode.y = local.y;
       if (cc.rectIntersectsRect(rectNode, rect)) {
         vect = rect._origin - rectNode._origin;
         dist = vect.x * vect.x + vect.y * vect.y;
