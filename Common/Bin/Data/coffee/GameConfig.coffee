@@ -7,6 +7,8 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
+cpz.XML_FILE_NAME = "chinesePuzzleConf.plist"
+
 cpz.GameConfigCommon = cc.Class.extend(
   _getNodePath: (mode, file, sprite) ->
     path = cpz.CommonPath + @_resolution + '/' + (if mode is 'theme' then 'themes/' + @_theme else 'ui')
@@ -38,19 +40,19 @@ cpz.GameConfigCommon = cc.Class.extend(
         sprites['menuItemThemeStripes'] =      'auto'
         sprites['menuItemThemeVivid'] =        'auto'
       else if mode is 'theme'
-        sprites['bg'] =					              'auto'
-        sprites['cardplaybg'] =			          'auto'
-        sprites['cardboardempty'] =		        'auto'
-        sprites['cardboardyes'] =  			      'auto'
-        sprites['cardboardno'] =		  	      'auto'
-        sprites['cardtouched'] =			        'auto'
-        sprites['newBtn'] =				            'auto'
-        sprites['retryBtn'] =				          'auto'
-        sprites['hintBtn'] =				          'auto'
-        sprites['soundOnBtn'] =			          'auto'
-        sprites['soundOffBtn'] =  			      'auto'
-        sprites['themeBtn'] =		  		        'auto'
-        sprites['undoBtn'] =				          'auto'
+        sprites['bg'] =					               'auto'
+        sprites['cardplaybg'] =			           'auto'
+        sprites['cardboardempty'] =		         'auto'
+        sprites['cardboardyes'] =  			       'auto'
+        sprites['cardboardno'] =		  	       'auto'
+        sprites['cardtouched'] =			         'auto'
+        sprites['newBtn'] =				             'auto'
+        sprites['retryBtn'] =				           'auto'
+        sprites['hintBtn'] =				           'auto'
+        sprites['soundOnBtn'] =			           'auto'
+        sprites['soundOffBtn'] =  			       'auto'
+        sprites['themeBtn'] =		  		         'auto'
+        sprites['undoBtn'] =				           'auto'
 
         cardBGSprite = cc.Sprite.createWithSpriteFrameName 'cardbg.png'
         box = cardBGSprite.getBoundingBox()
@@ -143,13 +145,66 @@ cpz.GameConfigCommon = cc.Class.extend(
   getIsSoundOn: -> @_isSoundOn
   setIsSoundOn: (@_isSoundOn) -> @
   getMoves: -> @_moves
+  clearMoves: ->
+    cc.ArrayClear(@_moves)
+    @
+  pushMove: (move) ->
+    @_moves.push move
+    @
+  popMove: ->
+    @_moves.pop()
   getInitBoard: -> @_initBoard
 
   encode: ->
-  decode: (data) ->
+    data =
+      resolution: @_resolution
+      theme: @_theme
+      isSoundOn: @_isSoundOn
+      moves: []
+      board: []
 
-  save: -> true
-  load: -> false
+    for move in @_moves
+      data['moves'].push(move.encode())
+
+    for coord in @_initBoard.allKeys()
+      card = @_initBoard.object(coord)
+
+      data['board'].push
+        coord: coord.encode()
+        card:
+          color: card.getColor()
+          rank: card.getRank()
+
+    data
+
+  decode: (data) ->
+    @clearMoves()
+    @_initBoard.removeAllObjects()
+
+    @_resolution = data['resolution']
+    @_theme = data['theme']
+    @_isSoundOn = data['isSoundOn']
+
+    for move in data['moves']
+      @_moves.push(cpz.MoveCoord.decode(move))
+
+    for board in data['board']
+      card = cpz.CardPlay.createWithConfAndColorAndRank(@, board.card.color, board.card.rank)
+      coord = cpz.GridCoord.decode(board.coord)
+      @_initBoard.setObject card, coord
+
+  save: (selector, target) ->
+    data = @encode()
+    console.log data
+    
+    true
+    
+  load: (selector, target) ->
+    #data = {}
+    #@decode(data)
+    
+    #@
+    false
 
   preload: (selector, target) ->
     plistThemePath = cpz.CommonPath + @_resolution + '/themes/' + @_theme  + '.plist'

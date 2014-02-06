@@ -193,8 +193,8 @@ cpz.Game = cc.Layer.extend({
         }
       }
     }
-    cc.ArrayClear(this._gs.getConf().getMoves());
     this.layout();
+    this._gs.getConf().clearMoves();
     return this._gs.getConf().save();
   },
   retryGame: function() {
@@ -336,7 +336,7 @@ cpz.Game = cc.Layer.extend({
       }
       this._switchBoardCard.setPosition(this._gl.getPositionInBoardPoint(move.to));
       this.lockLine(move.to.i);
-      this._gs.getConf().getMoves().push(move);
+      this._gs.getConf().pushMove(move);
       this._gs.getConf().save();
     } else if (cFrom) {
       cFrom.runAction(cc.Sequence.create([cc.MoveTo.create(0.5, this._gl.getPositionInBoardPoint(move.from)), cc.CallFunc.create(this._makeMoveEnd, this)]));
@@ -353,7 +353,7 @@ cpz.Game = cc.Layer.extend({
     if (this._gs.getConf().getMoves().length === 0 || this.isBusy()) {
       return;
     }
-    move = this._gs.getConf().getMoves().pop();
+    move = this._gs.getConf().popMove();
     cTo = this.getCard(move.to);
     cSwitch = this.getCard(move.from);
     this._board[move.from.i][move.from.j] = this._board[move.to.i][move.to.j];

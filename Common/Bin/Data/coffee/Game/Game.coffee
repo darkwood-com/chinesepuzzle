@@ -182,10 +182,10 @@ cpz.Game = cc.Layer.extend(
           @_gs.getConf().getInitBoard().setObject card, coord
 
           k++
-    cc.ArrayClear(@_gs.getConf().getMoves())
 
     @layout()
 
+    @_gs.getConf().clearMoves()
     @_gs.getConf().save() #save conf state
 
   retryGame: ->
@@ -312,7 +312,7 @@ cpz.Game = cc.Layer.extend(
       #check and set lock for line cards
       @lockLine(move.to.i)
   
-      @_gs.getConf().getMoves().push(move)
+      @_gs.getConf().pushMove(move)
       @_gs.getConf().save() #save conf state
     else if(cFrom)
       #drop is invalid : undo changes
@@ -330,7 +330,7 @@ cpz.Game = cc.Layer.extend(
 
   undoMove: ->
     return if @_gs.getConf().getMoves().length is 0 or @isBusy()
-    move = @_gs.getConf().getMoves().pop()
+    move = @_gs.getConf().popMove()
 
     cTo = @getCard move.to
     cSwitch = @getCard move.from

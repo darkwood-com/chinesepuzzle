@@ -7,6 +7,8 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
+cpz.XML_FILE_NAME = "chinesePuzzleConf.plist";
+
 cpz.GameConfigCommon = cc.Class.extend({
   _getNodePath: function(mode, file, sprite) {
     var box, cardBGSprite, color, colors, k, node, nodePath, nodeSize, path, plistPath, rank, ranks, s, spriteFrameCache, sprites, texturePath, zone, zoneAnchor, zonePosition, zoneSprite, _i, _j, _k, _len, _len1, _len2;
@@ -174,15 +176,77 @@ cpz.GameConfigCommon = cc.Class.extend({
   getMoves: function() {
     return this._moves;
   },
+  clearMoves: function() {
+    cc.ArrayClear(this._moves);
+    return this;
+  },
+  pushMove: function(move) {
+    this._moves.push(move);
+    return this;
+  },
+  popMove: function() {
+    return this._moves.pop();
+  },
   getInitBoard: function() {
     return this._initBoard;
   },
-  encode: function() {},
-  decode: function(data) {},
-  save: function() {
+  encode: function() {
+    var card, coord, data, move, _i, _j, _len, _len1, _ref, _ref1;
+    data = {
+      resolution: this._resolution,
+      theme: this._theme,
+      isSoundOn: this._isSoundOn,
+      moves: [],
+      board: []
+    };
+    _ref = this._moves;
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      move = _ref[_i];
+      data['moves'].push(move.encode());
+    }
+    _ref1 = this._initBoard.allKeys();
+    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+      coord = _ref1[_j];
+      card = this._initBoard.object(coord);
+      data['board'].push({
+        coord: coord.encode(),
+        card: {
+          color: card.getColor(),
+          rank: card.getRank()
+        }
+      });
+    }
+    return data;
+  },
+  decode: function(data) {
+    var board, card, coord, move, _i, _j, _len, _len1, _ref, _ref1, _results;
+    this.clearMoves();
+    this._initBoard.removeAllObjects();
+    this._resolution = data['resolution'];
+    this._theme = data['theme'];
+    this._isSoundOn = data['isSoundOn'];
+    _ref = data['moves'];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      move = _ref[_i];
+      this._moves.push(cpz.MoveCoord.decode(move));
+    }
+    _ref1 = data['board'];
+    _results = [];
+    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+      board = _ref1[_j];
+      card = cpz.CardPlay.createWithConfAndColorAndRank(this, board.card.color, board.card.rank);
+      coord = cpz.GridCoord.decode(board.coord);
+      _results.push(this._initBoard.setObject(card, coord));
+    }
+    return _results;
+  },
+  save: function(selector, target) {
+    var data;
+    data = this.encode();
+    console.log(data);
     return true;
   },
-  load: function() {
+  load: function(selector, target) {
     return false;
   },
   preload: function(selector, target) {
