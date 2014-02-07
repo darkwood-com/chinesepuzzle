@@ -40,12 +40,12 @@ cpz.MoveCoord = cc.Class.extend(
   ctor: ->
 
   encode: ->
-    from: @_from.encode()
-    to: @_to.encode()
+    from: @from.encode()
+    to: @to.encode()
 
   decode: (data) ->
-    @_from = cpz.GridCoord.decode(data['from'])
-    @_to = cpz.GridCoord.decode(data['to'])
+    @from = cpz.GridCoord.decode(data['from'])
+    @to = cpz.GridCoord.decode(data['to'])
 )
 
 cpz.MoveCoord.decode = (data) ->

@@ -46,13 +46,13 @@ cpz.MoveCoord = cc.Class.extend({
   ctor: function() {},
   encode: function() {
     return {
-      from: this._from.encode(),
-      to: this._to.encode()
+      from: this.from.encode(),
+      to: this.to.encode()
     };
   },
   decode: function(data) {
-    this._from = cpz.GridCoord.decode(data['from']);
-    return this._to = cpz.GridCoord.decode(data['to']);
+    this.from = cpz.GridCoord.decode(data['from']);
+    return this.to = cpz.GridCoord.decode(data['to']);
   }
 });
 
