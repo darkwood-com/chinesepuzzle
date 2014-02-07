@@ -47,6 +47,8 @@ var appFiles = [
     cpz.CommonSrcPath + 'Game/GameControlChipmunk.js',
     cpz.CommonSrcPath + 'Game/GameControlNode.js',
     cpz.CommonSrcPath + 'Game/GameLayout.js',
+    cpz.CommonSrcPath + 'Libs/base64.js',
+    cpz.CommonSrcPath + 'Libs/json2.js',
     cpz.CommonSrcPath + 'Menu/Menu.js',
     cpz.CommonSrcPath + 'Menu/MenuBox.js',
     cpz.CommonSrcPath + 'Menu/MenuGrid.js',
