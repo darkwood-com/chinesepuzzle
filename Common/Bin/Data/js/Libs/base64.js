@@ -85,7 +85,7 @@ base64.getbyte = function(s, i) {
 
 base64.encode = function(s) {
   var alpha, b10, getbyte, i, imax, padchar, x;
-  if (arguments_.length !== 1) {
+  if (arguments.length !== 1) {
     throw new SyntaxError("Not enough arguments");
   }
   padchar = base64.PADCHAR;

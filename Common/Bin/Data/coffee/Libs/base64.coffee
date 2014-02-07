@@ -121,7 +121,7 @@ base64.getbyte = (s, i) ->
   x
 
 base64.encode = (s) ->
-  throw new SyntaxError("Not enough arguments")  if arguments_.length isnt 1
+  throw new SyntaxError("Not enough arguments")  if arguments.length isnt 1
   padchar = base64.PADCHAR
   alpha = base64.ALPHA
   getbyte = base64.getbyte

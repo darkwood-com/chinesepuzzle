@@ -241,13 +241,17 @@ cpz.GameConfigCommon = cc.Class.extend({
     return _results;
   },
   save: function() {
-    sys.localStorage.setItem(cpz.XML_FILE_NAME, this.encode());
+    var data;
+    data = this.encode();
+    data = base64.encode(JSON.stringify(data));
+    sys.localStorage.setItem(cpz.XML_FILE_NAME, data);
     return this;
   },
   load: function() {
     var data;
     data = sys.localStorage.getItem(cpz.XML_FILE_NAME);
     if (data) {
+      data = JSON.parse(base64.decode(data));
       this.decode(data);
     }
     return this;

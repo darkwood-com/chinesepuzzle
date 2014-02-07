@@ -194,13 +194,17 @@ cpz.GameConfigCommon = cc.Class.extend(
       @_initBoard.setObject card, coord
 
   save: ->
-    sys.localStorage.setItem(cpz.XML_FILE_NAME, @encode());
+    data = @encode()
+    data = base64.encode(JSON.stringify(data))
+    sys.localStorage.setItem(cpz.XML_FILE_NAME, data);
 
     @
     
   load: ->
     data = sys.localStorage.getItem(cpz.XML_FILE_NAME);
-    if data then @decode(data)
+    if data
+      data = JSON.parse(base64.decode(data))
+      @decode(data)
 
     @
 
