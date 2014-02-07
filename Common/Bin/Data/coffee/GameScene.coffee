@@ -45,15 +45,14 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
     @_conf = new cpz.GameConfig()
     @_conf.init()
-    @_conf.load ->
-      @_conf.preload ->
-        @playBackgroundMusic @_conf.getIsSoundOn()
+    @_conf.load()
+    @_conf.preload ->
+      @playBackgroundMusic @_conf.getIsSoundOn()
 
-        @_game = null
-        @_menu = null
+      @_game = null
+      @_menu = null
 
-        @game()
-      , @
+      @game()
     , @
 
     true

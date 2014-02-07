@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
-cpz.XML_FILE_NAME = "chinesePuzzleConf.plist"
+cpz.XML_FILE_NAME = "chinesepuzzle.data"
 
 cpz.GameConfigCommon = cc.Class.extend(
   _getNodePath: (mode, file, sprite) ->
@@ -193,15 +193,14 @@ cpz.GameConfigCommon = cc.Class.extend(
       coord = cpz.GridCoord.decode(board.coord)
       @_initBoard.setObject card, coord
 
-  save: (selector = null, target = null) ->
-    if selector and target
-      selector.call(target)
+  save: ->
+    sys.localStorage.setItem(cpz.XML_FILE_NAME, @encode());
 
     @
     
-  load: (selector = null, target = null) ->
-    if selector and target
-      selector.call(target)
+  load: ->
+    data = sys.localStorage.getItem(cpz.XML_FILE_NAME);
+    if data then @decode(data)
 
     @
 

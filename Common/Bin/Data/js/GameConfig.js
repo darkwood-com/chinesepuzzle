@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
-cpz.XML_FILE_NAME = "chinesePuzzleConf.plist";
+cpz.XML_FILE_NAME = "chinesepuzzle.data";
 
 cpz.GameConfigCommon = cc.Class.extend({
   _getNodePath: function(mode, file, sprite) {
@@ -240,27 +240,15 @@ cpz.GameConfigCommon = cc.Class.extend({
     }
     return _results;
   },
-  save: function(selector, target) {
-    if (selector == null) {
-      selector = null;
-    }
-    if (target == null) {
-      target = null;
-    }
-    if (selector && target) {
-      selector.call(target);
-    }
+  save: function() {
+    sys.localStorage.setItem(cpz.XML_FILE_NAME, this.encode());
     return this;
   },
-  load: function(selector, target) {
-    if (selector == null) {
-      selector = null;
-    }
-    if (target == null) {
-      target = null;
-    }
-    if (selector && target) {
-      selector.call(target);
+  load: function() {
+    var data;
+    data = sys.localStorage.getItem(cpz.XML_FILE_NAME);
+    if (data) {
+      this.decode(data);
     }
     return this;
   },

@@ -44,13 +44,12 @@ cpz.GameSceneCommon = cc.Scene.extend({
     lang.addLang('lang');
     this._conf = new cpz.GameConfig();
     this._conf.init();
-    this._conf.load(function() {
-      return this._conf.preload(function() {
-        this.playBackgroundMusic(this._conf.getIsSoundOn());
-        this._game = null;
-        this._menu = null;
-        return this.game();
-      }, this);
+    this._conf.load();
+    this._conf.preload(function() {
+      this.playBackgroundMusic(this._conf.getIsSoundOn());
+      this._game = null;
+      this._menu = null;
+      return this.game();
     }, this);
     return true;
   },
