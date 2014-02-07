@@ -241,13 +241,28 @@ cpz.GameConfigCommon = cc.Class.extend({
     return _results;
   },
   save: function(selector, target) {
-    var data;
-    data = this.encode();
-    console.log(data);
-    return true;
+    if (selector == null) {
+      selector = null;
+    }
+    if (target == null) {
+      target = null;
+    }
+    if (selector && target) {
+      selector.call(target);
+    }
+    return this;
   },
   load: function(selector, target) {
-    return false;
+    if (selector == null) {
+      selector = null;
+    }
+    if (target == null) {
+      target = null;
+    }
+    if (selector && target) {
+      selector.call(target);
+    }
+    return this;
   },
   preload: function(selector, target) {
     var plistThemePath, plistUIPath, textureThemePath, textureUIPath;
@@ -279,8 +294,6 @@ cpz.GameConfigCommon._configPathsSet = function(key, node) {
   cpz.GameConfigCommon._configPaths[key] = node;
   return node.retain();
 };
-
-cpz.GameConfigCommon.XML_FILE_NAME = 'chinesePuzzleConf.plist';
 
 cpz.GameConfigCommon.getRootPath = function(file) {
   return cpz.CommonPath + file;

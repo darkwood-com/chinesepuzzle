@@ -193,18 +193,17 @@ cpz.GameConfigCommon = cc.Class.extend(
       coord = cpz.GridCoord.decode(board.coord)
       @_initBoard.setObject card, coord
 
-  save: (selector, target) ->
-    data = @encode()
-    console.log data
+  save: (selector = null, target = null) ->
+    if selector and target
+      selector.call(target)
+
+    @
     
-    true
-    
-  load: (selector, target) ->
-    #data = {}
-    #@decode(data)
-    
-    #@
-    false
+  load: (selector = null, target = null) ->
+    if selector and target
+      selector.call(target)
+
+    @
 
   preload: (selector, target) ->
     plistThemePath = cpz.CommonPath + @_resolution + '/themes/' + @_theme  + '.plist'
@@ -231,8 +230,6 @@ cpz.GameConfigCommon._configPathsSet = (key, node) ->
     cpz.GameConfigCommon._configPaths[key] = null
   cpz.GameConfigCommon._configPaths[key] = node
   node.retain()
-
-cpz.GameConfigCommon.XML_FILE_NAME = 'chinesePuzzleConf.plist'
 
 cpz.GameConfigCommon.getRootPath = (file) -> cpz.CommonPath + file
 cpz.GameConfigCommon.getResolutionPath = (file, resolution) -> cpz.CommonPath + resolution + '/' + file
