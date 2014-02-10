@@ -124,7 +124,7 @@ cpz.GameConfigCommon = cc.Class.extend(
   init: ->
     @_resolution = @defaultResolution()
     @_theme = @defaultTheme()
-    @_isSoundOn = false
+    @_isSoundOn = true
 
     true
 
@@ -163,17 +163,15 @@ cpz.GameConfigCommon = cc.Class.extend(
       moves: []
       board: []
 
-    for move in @_moves
-      data['moves'].push(move.encode())
-
     for coord in @_initBoard.allKeys()
       card = @_initBoard.object(coord)
 
       data['board'].push
         coord: coord.encode()
-        card:
-          color: card.getColor()
-          rank: card.getRank()
+        card: card
+
+    for move in @_moves
+      data['moves'].push(move.encode())
 
     data
 
@@ -185,13 +183,14 @@ cpz.GameConfigCommon = cc.Class.extend(
     @_theme = data['theme']
     @_isSoundOn = data['isSoundOn']
 
-    for move in data['moves']
-      @_moves.push(cpz.MoveCoord.decode(move))
-
     for board in data['board']
-      card = cpz.CardPlay.createWithConfAndColorAndRank(@, board.card.color, board.card.rank)
+      card = board.card
       coord = cpz.GridCoord.decode(board.coord)
       @_initBoard.setObject card, coord
+
+    for move in data['moves']
+      @_moves.push(cpz.MoveCoord.decode(move))
+    @
 
   save: ->
     data = @encode()

@@ -128,7 +128,7 @@ cpz.GameConfigCommon = cc.Class.extend({
   init: function() {
     this._resolution = this.defaultResolution();
     this._theme = this.defaultTheme();
-    this._isSoundOn = false;
+    this._isSoundOn = true;
     return true;
   },
   getNodeUiPath: function(file, sprite) {
@@ -199,46 +199,42 @@ cpz.GameConfigCommon = cc.Class.extend({
       moves: [],
       board: []
     };
-    _ref = this._moves;
+    _ref = this._initBoard.allKeys();
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      move = _ref[_i];
-      data['moves'].push(move.encode());
-    }
-    _ref1 = this._initBoard.allKeys();
-    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-      coord = _ref1[_j];
+      coord = _ref[_i];
       card = this._initBoard.object(coord);
       data['board'].push({
         coord: coord.encode(),
-        card: {
-          color: card.getColor(),
-          rank: card.getRank()
-        }
+        card: card
       });
+    }
+    _ref1 = this._moves;
+    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+      move = _ref1[_j];
+      data['moves'].push(move.encode());
     }
     return data;
   },
   decode: function(data) {
-    var board, card, coord, move, _i, _j, _len, _len1, _ref, _ref1, _results;
+    var board, card, coord, move, _i, _j, _len, _len1, _ref, _ref1;
     this.clearMoves();
     this._initBoard.removeAllObjects();
     this._resolution = data['resolution'];
     this._theme = data['theme'];
     this._isSoundOn = data['isSoundOn'];
-    _ref = data['moves'];
+    _ref = data['board'];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      move = _ref[_i];
+      board = _ref[_i];
+      card = board.card;
+      coord = cpz.GridCoord.decode(board.coord);
+      this._initBoard.setObject(card, coord);
+    }
+    _ref1 = data['moves'];
+    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+      move = _ref1[_j];
       this._moves.push(cpz.MoveCoord.decode(move));
     }
-    _ref1 = data['board'];
-    _results = [];
-    for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-      board = _ref1[_j];
-      card = cpz.CardPlay.createWithConfAndColorAndRank(this, board.card.color, board.card.rank);
-      coord = cpz.GridCoord.decode(board.coord);
-      _results.push(this._initBoard.setObject(card, coord));
-    }
-    return _results;
+    return this;
   },
   save: function() {
     var data;

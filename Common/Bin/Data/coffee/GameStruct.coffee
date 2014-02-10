@@ -20,12 +20,13 @@ cpz.GridCoord = cc.Class.extend(
   decode: (data) ->
     @i = data['i']
     @j = data['j']
+    @
 )
 
 cpz.GridCoord.decode = (data) ->
   obj = new cpz.GridCoord()
-  return obj if obj and obj.decode(data)
-  null
+  obj.decode(data)
+  return obj
 
 cpz.gc = (i, j) ->
   coord = new cpz.GridCoord()
@@ -46,12 +47,13 @@ cpz.MoveCoord = cc.Class.extend(
   decode: (data) ->
     @from = cpz.GridCoord.decode(data['from'])
     @to = cpz.GridCoord.decode(data['to'])
+    @
 )
 
 cpz.MoveCoord.decode = (data) ->
   obj = new cpz.MoveCoord()
-  return obj if obj and obj.decode(data)
-  null
+  obj.decode(data)
+  return obj
 
 cpz.mv = (from, to) ->
   coord = new cpz.MoveCoord()

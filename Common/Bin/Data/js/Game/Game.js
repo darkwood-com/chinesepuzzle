@@ -133,7 +133,7 @@ cpz.Game = cc.Layer.extend({
           this._board[i][j] = card;
           card.setPosition(this._gl.getPositionInBoardPoint(coord));
           initBoard.removeObject(coord);
-          initBoard.setObject(card, coord);
+          initBoard.setObject(card.encode(), coord);
           k++;
         }
       }
@@ -142,6 +142,7 @@ cpz.Game = cc.Layer.extend({
       for (_o = 0, _len2 = _ref2.length; _o < _len2; _o++) {
         coord = _ref2[_o];
         card = initBoard.object(coord);
+        card = cpz.CardPlay.decode(this._gs.getConf(), card);
         this.addChild(card, cpz.GameZOrder.Card);
         this._gc.addNode(card);
         this._deck.push(card);
@@ -188,7 +189,7 @@ cpz.Game = cc.Layer.extend({
           card.setIsLocked(false);
           this._board[i][j] = card;
           this._gs.getConf().getInitBoard().removeObject(coord);
-          this._gs.getConf().getInitBoard().setObject(card, coord);
+          this._gs.getConf().getInitBoard().setObject(card.encode(), coord);
           k++;
         }
       }
@@ -207,6 +208,7 @@ cpz.Game = cc.Layer.extend({
     for (_j = 0, _len = _ref.length; _j < _len; _j++) {
       coord = _ref[_j];
       card = initBoard.object(coord);
+      card = cpz.CardPlay.decode(this._gs.getConf(), card);
       this._board[coord.i][coord.j] = card;
       card.setIsLocked(false);
     }

@@ -19,17 +19,16 @@ cpz.GridCoord = cc.Class.extend({
   },
   decode: function(data) {
     this.i = data['i'];
-    return this.j = data['j'];
+    this.j = data['j'];
+    return this;
   }
 });
 
 cpz.GridCoord.decode = function(data) {
   var obj;
   obj = new cpz.GridCoord();
-  if (obj && obj.decode(data)) {
-    return obj;
-  }
-  return null;
+  obj.decode(data);
+  return obj;
 };
 
 cpz.gc = function(i, j) {
@@ -52,17 +51,16 @@ cpz.MoveCoord = cc.Class.extend({
   },
   decode: function(data) {
     this.from = cpz.GridCoord.decode(data['from']);
-    return this.to = cpz.GridCoord.decode(data['to']);
+    this.to = cpz.GridCoord.decode(data['to']);
+    return this;
   }
 });
 
 cpz.MoveCoord.decode = function(data) {
   var obj;
   obj = new cpz.MoveCoord();
-  if (obj && obj.decode(data)) {
-    return obj;
-  }
-  return null;
+  obj.decode(data);
+  return obj;
 };
 
 cpz.mv = function(from, to) {

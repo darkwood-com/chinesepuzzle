@@ -42,14 +42,31 @@ cpz.CardPlay = cpz.Card.extend({
     cc.SafeRelease(this._backSprite);
     return this._super();
   },
-  initWithConfAndColorAndRank: function(conf, color, rank) {
+  initWithConf: function(conf) {
     if (!this.initWithTexture(cc.textureNull(), 4)) {
+      return false;
+    }
+    this.setConf(conf);
+    return true;
+  },
+  initWithConfAndColorAndRank: function(conf, color, rank) {
+    if (!this.initWithConf(conf)) {
       return false;
     }
     this._color = color;
     this._rank = rank;
-    this.setConf(conf);
     return true;
+  },
+  encode: function() {
+    return {
+      color: this._color,
+      rank: this._rank
+    };
+  },
+  decode: function(data) {
+    this._color = data['color'];
+    this._rank = data['rank'];
+    return this;
   },
   isNextToCardPlay: function(cardPlay) {
     return cardPlay && this._color === cardPlay._color && this._rank === cardPlay._rank + 1;
@@ -100,6 +117,16 @@ cpz.CardPlay.createWithConfAndColorAndRank = function(conf, color, rank) {
   var obj;
   obj = new cpz.CardPlay();
   if (obj && obj.initWithConfAndColorAndRank(conf, color, rank)) {
+    return obj;
+  }
+  return null;
+};
+
+cpz.CardPlay.decode = function(conf, data) {
+  var obj;
+  obj = new cpz.CardPlay();
+  obj.decode(data);
+  if (obj && obj.initWithConf(conf)) {
     return obj;
   }
   return null;

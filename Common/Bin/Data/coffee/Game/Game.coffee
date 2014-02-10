@@ -123,12 +123,13 @@ cpz.Game = cc.Layer.extend(
           card.setPosition @_gl.getPositionInBoardPoint(coord)
 
           initBoard.removeObject coord
-          initBoard.setObject card, coord
+          initBoard.setObject card.encode(), coord
 
           k++
     else
       for coord in initBoard.allKeys()
         card = initBoard.object(coord)
+        card = cpz.CardPlay.decode(@_gs.getConf(), card)
         @addChild card, cpz.GameZOrder.Card
         @_gc.addNode card
         @_deck.push card
@@ -179,7 +180,7 @@ cpz.Game = cc.Layer.extend(
           @_board[i][j] = card
 
           @_gs.getConf().getInitBoard().removeObject coord
-          @_gs.getConf().getInitBoard().setObject card, coord
+          @_gs.getConf().getInitBoard().setObject card.encode(), coord
 
           k++
 
@@ -195,6 +196,7 @@ cpz.Game = cc.Layer.extend(
     initBoard = @_gs.getConf().getInitBoard()
     for coord in initBoard.allKeys()
       card = initBoard.object(coord)
+      card = cpz.CardPlay.decode(@_gs.getConf(), card)
 
       @_board[coord.i][coord.j] = card
       card.setIsLocked false

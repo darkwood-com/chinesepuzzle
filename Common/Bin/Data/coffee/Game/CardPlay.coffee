@@ -42,15 +42,29 @@ cpz.CardPlay = cpz.Card.extend(
     cc.SafeRelease @_backSprite
     @_super()
 
-  initWithConfAndColorAndRank: (conf, color, rank) ->
+  initWithConf: (conf) ->
     return false unless @initWithTexture cc.textureNull(), 4
-
-    @_color = color
-    @_rank = rank
 
     @setConf conf
 
     true
+
+  initWithConfAndColorAndRank: (conf, color, rank) ->
+    return false unless @initWithConf conf
+
+    @_color = color
+    @_rank = rank
+
+    true
+
+  encode: ->
+    color: @_color
+    rank: @_rank
+
+  decode: (data) ->
+    @_color = data['color']
+    @_rank = data['rank']
+    @
 
   isNextToCardPlay: (cardPlay) ->
     cardPlay and @_color is cardPlay._color and @_rank is cardPlay._rank + 1
@@ -88,6 +102,12 @@ cpz.CardPlay = cpz.Card.extend(
 cpz.CardPlay.createWithConfAndColorAndRank = (conf, color, rank) ->
   obj = new cpz.CardPlay()
   return obj if obj and obj.initWithConfAndColorAndRank(conf, color, rank)
+  null
+
+cpz.CardPlay.decode = (conf, data) ->
+  obj = new cpz.CardPlay()
+  obj.decode(data)
+  return obj if obj and obj.initWithConf(conf)
   null
 
 cpz.CardPlay.matchColor = (color) ->
