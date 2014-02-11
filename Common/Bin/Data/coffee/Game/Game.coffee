@@ -15,8 +15,6 @@ cpz.CheckMove =
   Ok: 4
 
 cpz.Game = cc.Layer.extend(
-  _deck: [] #deck cards
-  _boardCards: [] #board cards
   _board: {} #board game that reference to the deck cards
 
   _gs: null
@@ -67,6 +65,86 @@ cpz.Game = cc.Layer.extend(
       @_hintCard.setState cpz.CardBoardState.Empty
       @_hintCard = null
 
+  _randInitBoard: ->
+    deck = []
+
+    for k in [1..2]
+      for color in cc.ObjectValues(cpz.CardPlayColor)
+        for rank in cc.ObjectValues(cpz.CardPlayRank)
+          deck.push
+            color: color
+            rank: rank
+
+    deck = cc.ArrayShuffle deck
+
+    initBoard = @_gs.getConf().getInitBoard()
+    initBoard.removeAllObjects()
+
+    k = 0
+    for i in [0..7]
+      for j in [1..13]
+        coord = cpz.gc i, j
+
+        initBoard.setObject deck[k], coord
+        k++
+
+  _loadBoard: ->
+    conf = @_gs.getConf()
+
+    cardBoards = []
+    cardPlays = []
+    for i in [0..7]
+      for j in [0..13]
+        card = @_board[i][j]
+
+        if card instanceof cpz.CardPlay
+          cardPlays.push card
+        else if card instanceof cpz.CardBoard
+          cardBoards.push card
+
+    for i in [0..7]
+      card = null
+      for c in cardBoards
+        card = c
+        cc.ArrayRemoveObject(cardBoards, c)
+        break;
+      unless card
+        card = cpz.CardBoard.createWithConf conf
+
+      coord = cpz.gc i, 0
+      @_board[coord.i][coord.j] = card
+
+    initBoard = @_gs.getConf().getInitBoard()
+    for coord in initBoard.allKeys()
+      data = initBoard.object(coord)
+
+      card = null
+      for c in cardPlays
+        if data.color is c.getColor() and data.rank is c.getRank()
+          card = c
+          cc.ArrayRemoveObject(cardPlays, c)
+          break;
+      unless card
+        card = cpz.CardPlay.decode(conf, data)
+
+      card.setIsLocked false
+      @_board[coord.i][coord.j] = card
+
+    for move in @_gs.getConf().getMoves()
+      cSwitch = @getCard move.to
+      @_board[move.to.i][move.to.j] = @_board[move.from.i][move.from.j]
+      @_board[move.from.i][move.from.j] = cSwitch
+
+    for i in [0..7]
+      for j in [0..13]
+        coord = cpz.gc i, j
+        card = @getCard coord
+
+        unless card.getParent()
+          @_gc.addNode card
+          @addChild card, cpz.GameZOrder.Card
+          card.setPosition @_gl.getPositionInBoardPoint(coord)
+
   ctor: ->
     @_super()
 
@@ -86,70 +164,13 @@ cpz.Game = cc.Layer.extend(
     @setTouchMode cc.TOUCH_ONE_BY_ONE
     @setTouchEnabled true
 
-    #init cards
-    conf = @_gs.getConf()
+    @layout()
 
-    for l in [0..7]
-      card = cpz.CardBoard.createWithConf conf
-      @addChild card, cpz.GameZOrder.Card
-      @_gc.addNode card
-      @_boardCards.push card
-
-      coord = cpz.gc l, 0
-      @_board[coord.i][coord.j] = card
-      card.setPosition @_gl.getPositionInBoardPoint(coord)
-
-    @_gl.layout()
     initBoard = @_gs.getConf().getInitBoard()
     if initBoard.count() is 0
-      for k in [1..2]
-        for color in cc.ObjectValues(cpz.CardPlayColor)
-          for rank in cc.ObjectValues(cpz.CardPlayRank)
-            card = cpz.CardPlay.createWithConfAndColorAndRank conf, color, rank
-            @addChild card, cpz.GameZOrder.Card
-            @_gc.addNode card
-            @_deck.push card
+      @_randInitBoard()
 
-      @_deck = cc.ArrayShuffle @_deck
-
-      k = 0
-      for i in [0..7]
-        for j in [1..13]
-          card = @_deck[k]
-          card.setIsLocked false
-
-          coord = cpz.gc i, j
-          @_board[i][j] = card
-          card.setPosition @_gl.getPositionInBoardPoint(coord)
-
-          initBoard.removeObject coord
-          initBoard.setObject card.encode(), coord
-
-          k++
-    else
-      for coord in initBoard.allKeys()
-        card = initBoard.object(coord)
-        card = cpz.CardPlay.decode(@_gs.getConf(), card)
-        @addChild card, cpz.GameZOrder.Card
-        @_gc.addNode card
-        @_deck.push card
-
-        card.setIsLocked false
-        @_board[coord.i][coord.j] = card
-
-      for move in @_gs.getConf().getMoves()
-        cSwitch = @getCard move.to
-        @_board[move.to.i][move.to.j] = @_board[move.from.i][move.from.j]
-        @_board[move.from.i][move.from.j] = cSwitch
-
-      for i in [0..7]
-        for j in [1..13]
-          coord = cpz.gc i, j
-
-          card = @getCard coord
-          if card
-            card.setPosition @_gl.getPositionInBoardPoint(coord)
-            card.setRotation 1.0
+    @_loadBoard()
 
     @layout()
     @schedule(@step)
@@ -157,49 +178,13 @@ cpz.Game = cc.Layer.extend(
     true
 
   newGame: ->
-    @_deck = cc.ArrayShuffle @_deck
-
-    k = 0
-    l = 0
-    for i in [0..7]
-      for j in [0..13]
-        coord = cpz.gc i, j
-
-        if j is 0
-          card = @_boardCards[l]
-
-          @_board[i][j] = card
-
-          card.setPosition @_gl.getPositionInBoardPoint(coord)
-
-          l++
-        else
-          card = @_deck[k]
-          card.setIsLocked false
-
-          @_board[i][j] = card
-
-          @_gs.getConf().getInitBoard().removeObject coord
-          @_gs.getConf().getInitBoard().setObject card.encode(), coord
-
-          k++
-
-    @layout()
-
-    @_gs.getConf().clearMoves()
-    @_gs.getConf().save() #save conf state
+    @_randInitBoard()
+    @retryGame()
 
   retryGame: ->
-    for i in [0..7]
-      @_board[i][0] = @_boardCards[i]
+    @_gs.getConf().clearMoves()
 
-    initBoard = @_gs.getConf().getInitBoard()
-    for coord in initBoard.allKeys()
-      card = initBoard.object(coord)
-      card = cpz.CardPlay.decode(@_gs.getConf(), card)
-
-      @_board[coord.i][coord.j] = card
-      card.setIsLocked false
+    @_loadBoard()
 
     @layout()
 
