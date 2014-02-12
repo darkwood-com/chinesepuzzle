@@ -23,7 +23,8 @@ res = [
 
   #tmx
 
-  #bgm
+  #png
+  cpz.GameConfigCommon.getRootPath('bgPattern.png')
 
   #effect
 

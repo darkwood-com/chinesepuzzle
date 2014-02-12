@@ -9,7 +9,7 @@ file that was distributed with this source code.
 
 var r, res, _i, _len;
 
-res = [cpz.CommonPath + 'lang-de.plist', cpz.CommonPath + 'lang-en.plist', cpz.CommonPath + 'lang-fr.plist', cpz.GameConfigCommon.getFontPath('arial16.fnt'), cpz.GameConfigCommon.getFontPath('arial32.fnt')];
+res = [cpz.CommonPath + 'lang-de.plist', cpz.CommonPath + 'lang-en.plist', cpz.CommonPath + 'lang-fr.plist', cpz.GameConfigCommon.getFontPath('arial16.fnt'), cpz.GameConfigCommon.getFontPath('arial32.fnt'), cpz.GameConfigCommon.getRootPath('bgPattern.png')];
 
 cpz.Resources = [];
 

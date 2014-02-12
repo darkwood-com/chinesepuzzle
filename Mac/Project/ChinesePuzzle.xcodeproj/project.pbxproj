@@ -29,6 +29,7 @@
 		C3386FE3185234B4002447BC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3FB9FB61850A46C0087DB1A /* Cocoa.framework */; };
 		C347E2C918520F9100968691 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C347E2C418520F9100968691 /* AppController.mm */; };
 		C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C34FDCC91860649100238872 /* cocos2d-jsb.js */; };
+		C35A931518ABD3FC00771B07 /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C35A931418ABD3FC00771B07 /* bgPattern.png */; };
 		C38B4145185B6CC500245259 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38B4143185B6CC500245259 /* AppDelegate.cpp */; };
 		C38D11D118634E7B00F8159A /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CE18634E7B00F8159A /* lang-de.plist */; };
 		C38D11D218634E7B00F8159A /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CF18634E7B00F8159A /* lang-en.plist */; };
@@ -193,6 +194,7 @@
 		C347E2C318520F9100968691 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		C347E2C418520F9100968691 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		C34FDCC91860649100238872 /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "cocos2d-jsb.js"; sourceTree = "<group>"; };
+		C35A931418ABD3FC00771B07 /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../Bin/Data/bgPattern.png; sourceTree = "<group>"; };
 		C38B4143185B6CC500245259 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C38B4144185B6CC500245259 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C38D11CE18634E7B00F8159A /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				C3D0ED2E187C62BF00CDDB9C /* 1680x1050 */,
 				C3D0ED2F187C62BF00CDDB9C /* 1920x1080 */,
 				C3D0ED30187C62BF00CDDB9C /* 1920x1200 */,
+				C35A931418ABD3FC00771B07 /* bgPattern.png */,
 				C32A0001188D1ECE00C06654 /* fonts */,
 				C3F63CBD18605FF00055BBF0 /* js */,
 				C38D11CE18634E7B00F8159A /* lang-de.plist */,
@@ -698,6 +701,7 @@
 				C32A0002188D1ECE00C06654 /* fonts in Resources */,
 				C3F63CBE18605FF00055BBF0 /* js in Resources */,
 				C38D11D118634E7B00F8159A /* lang-de.plist in Resources */,
+				C35A931518ABD3FC00771B07 /* bgPattern.png in Resources */,
 				C38D11D218634E7B00F8159A /* lang-en.plist in Resources */,
 				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
 				C308BC351873267F0009A134 /* sound in Resources */,

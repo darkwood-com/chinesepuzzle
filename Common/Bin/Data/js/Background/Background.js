@@ -11,18 +11,20 @@ cpz.Background = cc.Layer.extend({
   _bgPattern: null,
   _gs: null,
   initWithGameScene: function(gs) {
-    var texParams;
-    if (!this._super()) {
+    var texParams, texture;
+    if (!this.init()) {
       return false;
     }
-    ccTexParams(texParams = {
-      GL_LINEAR: GL_LINEAR,
-      GL_LINEAR: GL_LINEAR,
-      GL_REPEAT: GL_REPEAT,
-      GL_REPEAT: GL_REPEAT
-    });
-    this._bgPattern = cc.Sprite.create(gs.getConf().getRootPath('bgPattern.png'));
-    this._bgPattern.setAnchorPoint(cc.p(0, 0));
+    texParams = {
+      minFilter: gl.LINEAR,
+      magFilter: gl.LINEAR,
+      wrapS: gl.REPEAT,
+      wrapT: gl.REPEAT
+    };
+    this._bgPattern = cc.Sprite.create(cpz.GameConfigCommon.getRootPath('bgPattern.png'));
+    texture = this._bgPattern.getTexture();
+    cc.textureParameters(texture, texParams);
+    this._bgPattern.setAnchorPoint(cc.p(0.5, 0.5));
     this.addChild(this._bgPattern, cpz.GameSceneZOrder.BG);
     this._gs = gs;
     this.setContentSize(this._gs.getConf().getResolutionSize());

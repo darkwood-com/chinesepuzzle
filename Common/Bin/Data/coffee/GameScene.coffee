@@ -22,6 +22,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
   _bgMusicTheme: null
 
   _conf: null
+  _background : null
   _game: null
   _menu: null
 
@@ -43,6 +44,8 @@ cpz.GameSceneCommon = cc.Scene.extend(
     lang.setLang cc.Application.getInstance().getCurrentLanguage()
     lang.addLang 'lang'
 
+    @ignoreAnchorPointForPosition(false)
+
     @_conf = new cpz.GameConfig()
     @_conf.init()
     @_conf.load()
@@ -52,7 +55,14 @@ cpz.GameSceneCommon = cc.Scene.extend(
       @_game = null
       @_menu = null
 
+      @_background = cpz.Background.create(@)
+      @addChild(@_background, cpz.GameSceneZOrder.BG)
+      
       @game()
+
+      @layout()
+      @reshape()
+
     , @
 
     true
@@ -145,9 +155,23 @@ cpz.GameSceneCommon = cc.Scene.extend(
     else if @_bgMusicTheme isnt cpz.GameSceneBGMusicTheme.ThemeNone
       audio.stopMusic()
 
+  reshape: ->
+    winsize = cc.Director.getInstance().getWinSize()
+    wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5)
+
+    @setPosition(wincenter)
+    @_background.setContentSize(winsize) if @_background
+
   layout: (anim = true) ->
     if @_game then @_game.layout(anim)
     if @_menu then @_menu.layout(anim)
+
+    confsize = @_conf.getResolutionSize()
+    confcenter = cc.pMult(cc.p(confsize.width, confsize.height), 0.5)
+
+    @setContentSize(confsize)
+    @_background.setPosition(confcenter) if @_background
+    
     @
 
   getConf: -> @_conf

@@ -23,6 +23,7 @@ cpz.GameSceneBGMusicTheme = {
 cpz.GameSceneCommon = cc.Scene.extend({
   _bgMusicTheme: null,
   _conf: null,
+  _background: null,
   _game: null,
   _menu: null,
   ctor: function() {
@@ -42,6 +43,7 @@ cpz.GameSceneCommon = cc.Scene.extend({
     lang = cc.Lang.getInstance();
     lang.setLang(cc.Application.getInstance().getCurrentLanguage());
     lang.addLang('lang');
+    this.ignoreAnchorPointForPosition(false);
     this._conf = new cpz.GameConfig();
     this._conf.init();
     this._conf.load();
@@ -49,7 +51,11 @@ cpz.GameSceneCommon = cc.Scene.extend({
       this.playBackgroundMusic(this._conf.getIsSoundOn());
       this._game = null;
       this._menu = null;
-      return this.game();
+      this._background = cpz.Background.create(this);
+      this.addChild(this._background, cpz.GameSceneZOrder.BG);
+      this.game();
+      this.layout();
+      return this.reshape();
     }, this);
     return true;
   },
@@ -140,7 +146,17 @@ cpz.GameSceneCommon = cc.Scene.extend({
       return audio.stopMusic();
     }
   },
+  reshape: function() {
+    var wincenter, winsize;
+    winsize = cc.Director.getInstance().getWinSize();
+    wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5);
+    this.setPosition(wincenter);
+    if (this._background) {
+      return this._background.setContentSize(winsize);
+    }
+  },
   layout: function(anim) {
+    var confcenter, confsize;
     if (anim == null) {
       anim = true;
     }
@@ -149,6 +165,12 @@ cpz.GameSceneCommon = cc.Scene.extend({
     }
     if (this._menu) {
       this._menu.layout(anim);
+    }
+    confsize = this._conf.getResolutionSize();
+    confcenter = cc.pMult(cc.p(confsize.width, confsize.height), 0.5);
+    this.setContentSize(confsize);
+    if (this._background) {
+      this._background.setPosition(confcenter);
     }
     return this;
   },

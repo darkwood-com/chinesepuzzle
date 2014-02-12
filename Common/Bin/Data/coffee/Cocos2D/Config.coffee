@@ -14,6 +14,12 @@ cc.SafeRelease = (p) ->
 
 cc.textureNull = -> new cc.Texture2D()
 
+cc.textureParameters = (texture, params) ->
+  if sys.platform is 'browser'
+    texture.setTexParameters(params)
+  else
+    texture.setTexParameters(params['minFilter'], params['magFilter'], params['wrapS'], params['wrapT'])
+
 cc.copySpriteBatchNode = (from, to) ->
   return unless to instanceof cc.SpriteBatchNode and from instanceof cc.SpriteBatchNode
 

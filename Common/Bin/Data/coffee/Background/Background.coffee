@@ -12,12 +12,19 @@ cpz.Background = cc.Layer.extend(
   _gs: null
 
   initWithGameScene: (gs) ->
-    return false unless @_super()
+    return false unless @init()
 
-    ccTexParams texParams = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT}
-    @_bgPattern = cc.Sprite.create gs.getConf().getRootPath('bgPattern.png')
-    #@_bgPattern.getTexture().setTexParameters(&texParams)
-    @_bgPattern.setAnchorPoint cc.p(0, 0)
+    texParams =
+      minFilter: gl.LINEAR
+      magFilter: gl.LINEAR
+      wrapS: gl.REPEAT
+      wrapT: gl.REPEAT
+
+    @_bgPattern = cc.Sprite.create cpz.GameConfigCommon.getRootPath('bgPattern.png')
+    texture = @_bgPattern.getTexture()
+    cc.textureParameters(texture, texParams)
+
+    @_bgPattern.setAnchorPoint cc.p(0.5, 0.5)
     @addChild @_bgPattern, cpz.GameSceneZOrder.BG
 
     @_gs = gs
