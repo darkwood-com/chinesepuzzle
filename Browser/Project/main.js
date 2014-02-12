@@ -24,6 +24,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
+
 var cocos2dApp = cc.Application.extend({
     config:document['ccConfig'],
     ctor:function () {
@@ -36,8 +37,24 @@ var cocos2dApp = cc.Application.extend({
     applicationDidFinishLaunching:function () {
         // initialize director
         var director = cc.Director.getInstance();
-        cc.EGLView.getInstance()._adjustSizeToBrowser();
-        cc.EGLView.getInstance().setDesignResolutionSize(800,450,cc.RESOLUTION_POLICY.SHOW_ALL);
+
+        //view resize
+        var view = cc.EGLView.getInstance();
+        var callback = function() {
+            var w = window,
+                d = document,
+                e = d.documentElement,
+                g = d.getElementsByTagName('body')[0],
+                x = w.innerWidth || e.clientWidth || g.clientWidth,
+                y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+            view.setDesignResolutionSize(x, y, cc.RESOLUTION_POLICY.NO_BORDER);
+        }
+        view.resizeWithBrowserSize(true);
+        view.setResizeCallback(callback);
+        callback.call();
+
+        //cc.EGLView.getInstance().setDesignResolutionSize(800,450,cc.RESOLUTION_POLICY.SHOW_ALL);
 
         // enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
         //director.enableRetinaDisplay(true);
