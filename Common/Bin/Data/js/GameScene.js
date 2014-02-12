@@ -102,20 +102,20 @@ cpz.GameSceneCommon = cc.Scene.extend({
     return this;
   },
   setResolution: function(resolution) {
-    this._conf.setResolution(resolution);
     this._conf.preload(function() {
+      this._conf.setResolution(resolution);
       this.setContentSize(this._conf.getResolutionSize());
       this.layout(false);
       return this._conf.save();
-    }, this);
+    }, this, resolution);
     return this;
   },
   setTheme: function(theme) {
-    this._conf.setTheme(theme);
     this._conf.preload(function() {
+      this._conf.setTheme(theme);
       this.layout();
       return this._conf.save();
-    }, this);
+    }, this, null, theme);
     return this;
   },
   playSound: function(soundName) {
@@ -147,12 +147,25 @@ cpz.GameSceneCommon = cc.Scene.extend({
     }
   },
   reshape: function() {
-    var wincenter, winsize;
+    var autoRes, newRes, oldRes, res, wincenter, winsize, _i, _len, _ref;
     winsize = cc.Director.getInstance().getWinSize();
     wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5);
     this.setPosition(wincenter);
     if (this._background) {
-      return this._background.setContentSize(winsize);
+      this._background.setContentSize(winsize);
+    }
+    autoRes = null;
+    _ref = cpz.GameConfigCommon.getResolutions();
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      res = _ref[_i];
+      newRes = cpz.GameConfigCommon.parseResolution(res);
+      oldRes = cpz.GameConfigCommon.parseResolution(autoRes);
+      if (autoRes === null || ((oldRes.width < newRes.width && oldRes.height < newRes.height) && (newRes.width < winsize.width && newRes.height < winsize.height))) {
+        autoRes = res;
+      }
+    }
+    if (autoRes) {
+      return this.setResolution(autoRes);
     }
   },
   layout: function(anim) {

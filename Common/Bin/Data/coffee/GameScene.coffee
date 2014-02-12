@@ -109,22 +109,22 @@ cpz.GameSceneCommon = cc.Scene.extend(
     @
 
   setResolution: (resolution) ->
-    @_conf.setResolution resolution
     @_conf.preload ->
+      @_conf.setResolution resolution
       @setContentSize @_conf.getResolutionSize()
 
       @layout(false)
       @_conf.save()
-    , @
+    , @, resolution
 
     @
 
   setTheme: (theme) ->
-    @_conf.setTheme theme
     @_conf.preload ->
+      @_conf.setTheme theme
       @layout()
       @_conf.save()
-    , @
+    , @, null, theme
 
     @
 
@@ -161,6 +161,20 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
     @setPosition(wincenter)
     @_background.setContentSize(winsize) if @_background
+
+    #change resolution
+    autoRes = null
+    for res in cpz.GameConfigCommon.getResolutions()
+      newRes = cpz.GameConfigCommon.parseResolution res
+      oldRes = cpz.GameConfigCommon.parseResolution autoRes
+
+      if autoRes is null or
+        ((oldRes.width < newRes.width and oldRes.height < newRes.height) and
+        (newRes.width < winsize.width and newRes.height < winsize.height))
+          autoRes = res
+
+    @setResolution(autoRes) if autoRes
+
 
   layout: (anim = true) ->
     if @_game then @_game.layout(anim)

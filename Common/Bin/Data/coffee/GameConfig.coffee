@@ -132,8 +132,7 @@ cpz.GameConfigCommon = cc.Class.extend(
   getNodeThemePath: (file, sprite) -> @_getNodePath 'theme', file, sprite
 
   getResolutionSize: ->
-    m = @_resolution.match /([0-9]+)x([0-9]+)/
-    if m then cc.size(m[1], m[2]) else cc.sizeZero()
+    cpz.GameConfigCommon.parseResolution @_resolution
 
   defaultResolution: -> '480x320'
   defaultTheme: -> 'chinese'
@@ -157,7 +156,7 @@ cpz.GameConfigCommon = cc.Class.extend(
 
   encode: ->
     data =
-      resolution: @_resolution
+      #resolution: @_resolution
       theme: @_theme
       isSoundOn: @_isSoundOn
       moves: []
@@ -179,7 +178,7 @@ cpz.GameConfigCommon = cc.Class.extend(
     @clearMoves()
     @_initBoard.removeAllObjects()
 
-    @_resolution = data['resolution']
+    #@_resolution = data['resolution']
     @_theme = data['theme']
     @_isSoundOn = data['isSoundOn']
 
@@ -207,11 +206,14 @@ cpz.GameConfigCommon = cc.Class.extend(
 
     @
 
-  preload: (selector, target) ->
-    plistThemePath = cpz.CommonPath + @_resolution + '/themes/' + @_theme  + '.plist'
-    textureThemePath = cpz.CommonPath + @_resolution + '/themes/' + @_theme + '.png'
-    plistUIPath = cpz.CommonPath + @_resolution + '/ui' + '.plist'
-    textureUIPath = cpz.CommonPath + @_resolution + '/ui' + '.png'
+  preload: (selector, target, resolution = null, theme = null) ->
+    resolution = @_resolution unless resolution
+    theme = @_theme unless theme
+
+    plistThemePath = cpz.CommonPath + resolution + '/themes/' + theme  + '.plist'
+    textureThemePath = cpz.CommonPath + resolution + '/themes/' + theme + '.png'
+    plistUIPath = cpz.CommonPath + resolution + '/ui' + '.plist'
+    textureUIPath = cpz.CommonPath + resolution + '/ui' + '.png'
 
     cc.Loader.preload [
       src: plistThemePath
@@ -238,6 +240,11 @@ cpz.GameConfigCommon.getResolutionPath = (file, resolution) -> cpz.CommonPath + 
 cpz.GameConfigCommon.getUiPath = (file, resolution) -> cpz.CommonPath + resolution + '/ui/' + file
 cpz.GameConfigCommon.getThemePath = (file, resolution, theme) -> cpz.CommonPath + resolution + '/themes/' + theme + '/' + file
 cpz.GameConfigCommon.getFontPath = (file) -> cpz.CommonPath + 'fonts/' + file
+
+cpz.GameConfigCommon.parseResolution = (res) ->
+  return cc.SizeZero() unless res
+  m = res.match /([0-9]+)x([0-9]+)/
+  if m then cc.size(m[1], m[2]) else cc.SizeZero()
 
 cpz.GameConfigCommon.getResolutions = ->
   [

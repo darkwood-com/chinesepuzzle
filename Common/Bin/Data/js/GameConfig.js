@@ -138,13 +138,7 @@ cpz.GameConfigCommon = cc.Class.extend({
     return this._getNodePath('theme', file, sprite);
   },
   getResolutionSize: function() {
-    var m;
-    m = this._resolution.match(/([0-9]+)x([0-9]+)/);
-    if (m) {
-      return cc.size(m[1], m[2]);
-    } else {
-      return cc.sizeZero();
-    }
+    return cpz.GameConfigCommon.parseResolution(this._resolution);
   },
   defaultResolution: function() {
     return '480x320';
@@ -193,7 +187,6 @@ cpz.GameConfigCommon = cc.Class.extend({
   encode: function() {
     var card, coord, data, move, _i, _j, _len, _len1, _ref, _ref1;
     data = {
-      resolution: this._resolution,
       theme: this._theme,
       isSoundOn: this._isSoundOn,
       moves: [],
@@ -219,7 +212,6 @@ cpz.GameConfigCommon = cc.Class.extend({
     var board, card, coord, move, _i, _j, _len, _len1, _ref, _ref1;
     this.clearMoves();
     this._initBoard.removeAllObjects();
-    this._resolution = data['resolution'];
     this._theme = data['theme'];
     this._isSoundOn = data['isSoundOn'];
     _ref = data['board'];
@@ -252,12 +244,24 @@ cpz.GameConfigCommon = cc.Class.extend({
     }
     return this;
   },
-  preload: function(selector, target) {
+  preload: function(selector, target, resolution, theme) {
     var plistThemePath, plistUIPath, textureThemePath, textureUIPath;
-    plistThemePath = cpz.CommonPath + this._resolution + '/themes/' + this._theme + '.plist';
-    textureThemePath = cpz.CommonPath + this._resolution + '/themes/' + this._theme + '.png';
-    plistUIPath = cpz.CommonPath + this._resolution + '/ui' + '.plist';
-    textureUIPath = cpz.CommonPath + this._resolution + '/ui' + '.png';
+    if (resolution == null) {
+      resolution = null;
+    }
+    if (theme == null) {
+      theme = null;
+    }
+    if (!resolution) {
+      resolution = this._resolution;
+    }
+    if (!theme) {
+      theme = this._theme;
+    }
+    plistThemePath = cpz.CommonPath + resolution + '/themes/' + theme + '.plist';
+    textureThemePath = cpz.CommonPath + resolution + '/themes/' + theme + '.png';
+    plistUIPath = cpz.CommonPath + resolution + '/ui' + '.plist';
+    textureUIPath = cpz.CommonPath + resolution + '/ui' + '.png';
     return cc.Loader.preload([
       {
         src: plistThemePath
@@ -301,6 +305,19 @@ cpz.GameConfigCommon.getThemePath = function(file, resolution, theme) {
 
 cpz.GameConfigCommon.getFontPath = function(file) {
   return cpz.CommonPath + 'fonts/' + file;
+};
+
+cpz.GameConfigCommon.parseResolution = function(res) {
+  var m;
+  if (!res) {
+    return cc.SizeZero();
+  }
+  m = res.match(/([0-9]+)x([0-9]+)/);
+  if (m) {
+    return cc.size(m[1], m[2]);
+  } else {
+    return cc.SizeZero();
+  }
 };
 
 cpz.GameConfigCommon.getResolutions = function() {
