@@ -47,15 +47,15 @@ cpz.GameSceneCommon = cc.Scene.extend({
     this._conf = new cpz.GameConfig();
     this._conf.init();
     this._conf.load();
-    this._conf.preload(function() {
+    this.reshape(function() {
       this.playBackgroundMusic(this._conf.getIsSoundOn());
       this._game = null;
       this._menu = null;
       this._background = cpz.Background.create(this);
       this.addChild(this._background, cpz.GameSceneZOrder.BG);
       this.game();
-      this.layout();
-      return this.reshape();
+      this.reshape();
+      return this.layout();
     }, this);
     return true;
   },
@@ -101,20 +101,38 @@ cpz.GameSceneCommon = cc.Scene.extend({
     this.playSound('shuffle');
     return this;
   },
-  setResolution: function(resolution) {
+  setResolution: function(resolution, selector, target) {
+    if (selector == null) {
+      selector = null;
+    }
+    if (target == null) {
+      target = null;
+    }
     this._conf.preload(function() {
       this._conf.setResolution(resolution);
       this.setContentSize(this._conf.getResolutionSize());
       this.layout(false);
-      return this._conf.save();
+      this._conf.save();
+      if (selector) {
+        return selector.call(target);
+      }
     }, this, resolution);
     return this;
   },
-  setTheme: function(theme) {
+  setTheme: function(theme, selector, target) {
+    if (selector == null) {
+      selector = null;
+    }
+    if (target == null) {
+      target = null;
+    }
     this._conf.preload(function() {
       this._conf.setTheme(theme);
       this.layout();
-      return this._conf.save();
+      this._conf.save();
+      if (selector) {
+        return selector.call(target);
+      }
     }, this, null, theme);
     return this;
   },
@@ -146,8 +164,14 @@ cpz.GameSceneCommon = cc.Scene.extend({
       return audio.stopMusic();
     }
   },
-  reshape: function() {
+  reshape: function(selector, target) {
     var autoRes, newRes, oldRes, res, wincenter, winsize, _i, _len, _ref;
+    if (selector == null) {
+      selector = null;
+    }
+    if (target == null) {
+      target = null;
+    }
     winsize = cc.Director.getInstance().getWinSize();
     wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5);
     this.setPosition(wincenter);
@@ -165,7 +189,7 @@ cpz.GameSceneCommon = cc.Scene.extend({
       }
     }
     if (autoRes) {
-      return this.setResolution(autoRes);
+      return this.setResolution(autoRes, selector, target);
     }
   },
   layout: function(anim) {

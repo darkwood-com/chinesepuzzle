@@ -49,7 +49,8 @@ cpz.GameSceneCommon = cc.Scene.extend(
     @_conf = new cpz.GameConfig()
     @_conf.init()
     @_conf.load()
-    @_conf.preload ->
+
+    @reshape ->
       @playBackgroundMusic @_conf.getIsSoundOn()
 
       @_game = null
@@ -60,8 +61,8 @@ cpz.GameSceneCommon = cc.Scene.extend(
       
       @game()
 
-      @layout()
       @reshape()
+      @layout()
 
     , @
 
@@ -108,22 +109,26 @@ cpz.GameSceneCommon = cc.Scene.extend(
     @playSound 'shuffle'
     @
 
-  setResolution: (resolution) ->
+  setResolution: (resolution, selector = null, target = null) ->
     @_conf.preload ->
       @_conf.setResolution resolution
       @setContentSize @_conf.getResolutionSize()
 
       @layout(false)
       @_conf.save()
+
+      selector.call(target) if selector
     , @, resolution
 
     @
 
-  setTheme: (theme) ->
+  setTheme: (theme, selector = null, target = null) ->
     @_conf.preload ->
       @_conf.setTheme theme
       @layout()
       @_conf.save()
+
+      selector.call(target) if selector
     , @, null, theme
 
     @
@@ -151,11 +156,10 @@ cpz.GameSceneCommon = cc.Scene.extend(
           audio.playMusic cpz.CommonPath + 'sound/bgm1.mp3', true
           @_bgMusicTheme = cpz.GameSceneBGMusicTheme.Theme1
 
-
     else if @_bgMusicTheme isnt cpz.GameSceneBGMusicTheme.ThemeNone
       audio.stopMusic()
 
-  reshape: ->
+  reshape: (selector = null, target = null) ->
     winsize = cc.Director.getInstance().getWinSize()
     wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5)
 
@@ -167,13 +171,13 @@ cpz.GameSceneCommon = cc.Scene.extend(
     for res in cpz.GameConfigCommon.getResolutions()
       newRes = cpz.GameConfigCommon.parseResolution res
       oldRes = cpz.GameConfigCommon.parseResolution autoRes
-
+      
       if autoRes is null or
         ((oldRes.width < newRes.width and oldRes.height < newRes.height) and
         (newRes.width < winsize.width and newRes.height < winsize.height))
           autoRes = res
 
-    @setResolution(autoRes) if autoRes
+    @setResolution(autoRes, selector, target) if autoRes
 
 
   layout: (anim = true) ->

@@ -35,6 +35,8 @@ var cocos2dApp = cc.Application.extend({
         cc.AppController.shareAppController().didFinishLaunchingWithOptions();
     },
     applicationDidFinishLaunching:function () {
+        var chinesePuzzle = null;
+
         // initialize director
         var director = cc.Director.getInstance();
 
@@ -49,6 +51,10 @@ var cocos2dApp = cc.Application.extend({
                 y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 
             view.setDesignResolutionSize(x, y, cc.RESOLUTION_POLICY.NO_BORDER);
+
+            if(chinesePuzzle) {
+                chinesePuzzle.reshape();
+            }
         }
         view.resizeWithBrowserSize(true);
         view.setResizeCallback(callback);
@@ -68,7 +74,8 @@ var cocos2dApp = cc.Application.extend({
         //load resources
         cc.LoaderScene.preload(cpz.Resources, function () {
             setTimeout(function() {
-                director.replaceScene(cpz.GameScene.create());
+                chinesePuzzle = cpz.GameScene.create();
+                director.replaceScene(chinesePuzzle);
             }, 100);
         }, this);
 

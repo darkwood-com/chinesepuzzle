@@ -244,7 +244,7 @@ cpz.GameConfigCommon.getFontPath = (file) -> cpz.CommonPath + 'fonts/' + file
 cpz.GameConfigCommon.parseResolution = (res) ->
   return cc.SizeZero() unless res
   m = res.match /([0-9]+)x([0-9]+)/
-  if m then cc.size(m[1], m[2]) else cc.SizeZero()
+  if m then cc.size(parseInt(m[1]), parseInt(m[2])) else cc.SizeZero()
 
 cpz.GameConfigCommon.getResolutions = ->
   [

@@ -314,7 +314,7 @@ cpz.GameConfigCommon.parseResolution = function(res) {
   }
   m = res.match(/([0-9]+)x([0-9]+)/);
   if (m) {
-    return cc.size(m[1], m[2]);
+    return cc.size(parseInt(m[1]), parseInt(m[2]));
   } else {
     return cc.SizeZero();
   }
