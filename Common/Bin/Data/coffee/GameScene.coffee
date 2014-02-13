@@ -171,7 +171,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
     for res in cpz.GameConfigCommon.getResolutions()
       newRes = cpz.GameConfigCommon.parseResolution res
       oldRes = cpz.GameConfigCommon.parseResolution autoRes
-      
+
       if autoRes is null or
         ((oldRes.width < newRes.width and oldRes.height < newRes.height) and
         (newRes.width < winsize.width and newRes.height < winsize.height))
