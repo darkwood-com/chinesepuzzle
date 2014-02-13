@@ -88,7 +88,7 @@ cpz.MenuBox = cc.Node.extend(
     if @_titleLabel isnt null and @_layoutFontFile is fontFile then @_titleLabel.setString(title)
     else
       @removeChildByTag cpz.MenuBoxTag.Title, true
-      @_titleLabel = cc.LabelBMFont.create title, cpz.GameConfigCommon.getFontPath(fontFile)
+      @_titleLabel = cc.LabelBMFont.create title, cpz.GameConfig.getFontPath(fontFile)
       @_titleLabel.setAnchorPoint cc.p(0.0, 1.0)
       @addChild @_titleLabel, 0, cpz.MenuBoxTag.Title
   

@@ -277,7 +277,7 @@ cpz.MenuLayout = cc.Class.extend({
         itemTitle = this._mBox.getChildByTag(cpz.MenuTag.NewTitle);
         if (!itemTitle || currentFontFile !== this._layoutLastFontFile) {
           this._mBox.removeChildByTag(cpz.MenuTag.NewTitle, true);
-          itemTitle = cc.LabelBMFont.create(lang.get('menu.newgame.content'), cpz.GameConfigCommon.getFontPath(currentFontFile));
+          itemTitle = cc.LabelBMFont.create(lang.get('menu.newgame.content'), cpz.GameConfig.getFontPath(currentFontFile));
           itemTitle.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.addChild(itemTitle, 0, cpz.MenuTag.NewTitle);
         }
@@ -318,7 +318,7 @@ cpz.MenuLayout = cc.Class.extend({
         itemTitle = this._mBox.getChildByTag(cpz.MenuTag.RetryTitle);
         if (!itemTitle || currentFontFile !== this._layoutLastFontFile) {
           this._mBox.removeChildByTag(cpz.MenuTag.RetryTitle, true);
-          itemTitle = cc.LabelBMFont.create(lang.get('menu.retrygame.content'), cpz.GameConfigCommon.getFontPath(currentFontFile));
+          itemTitle = cc.LabelBMFont.create(lang.get('menu.retrygame.content'), cpz.GameConfig.getFontPath(currentFontFile));
           itemTitle.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.addChild(itemTitle, 0, cpz.MenuTag.RetryTitle);
         }
@@ -346,7 +346,7 @@ cpz.MenuLayout = cc.Class.extend({
       case cpz.MenuLayoutType.Hint:
         if (!this._mBox) {
           this._mBox = new cpz.MenuLabelContainer();
-          this._mBox.initWithConfAndContentSizeAndFntFile(conf, this._layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath(this._layoutRes('font')));
+          this._mBox.initWithConfAndContentSizeAndFntFile(conf, this._layoutRes('menuHintBoxSize'), cpz.GameConfig.getFontPath(this._layoutRes('font')));
           this._mBox.setPosition(center);
           this._mBox.setAnchorPoint(cc.p(0.5, 0.5));
           this._mBox.setOkTarget(this._menu.okMenu, this._menu);

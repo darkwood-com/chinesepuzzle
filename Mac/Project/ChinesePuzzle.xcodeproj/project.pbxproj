@@ -44,7 +44,6 @@
 		C3D0ED38187C62BF00CDDB9C /* 1680x1050 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2E187C62BF00CDDB9C /* 1680x1050 */; };
 		C3D0ED39187C62BF00CDDB9C /* 1920x1080 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED2F187C62BF00CDDB9C /* 1920x1080 */; };
 		C3D0ED3A187C62BF00CDDB9C /* 1920x1200 in Resources */ = {isa = PBXBuildFile; fileRef = C3D0ED30187C62BF00CDDB9C /* 1920x1200 */; };
-		C3F4E9261861E78900230ABA /* mac in Resources */ = {isa = PBXBuildFile; fileRef = C3F4E9251861E78900230ABA /* mac */; };
 		C3F6251318605C8B0055BBF0 /* jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009018605C7A0055BBF0 /* jsb.js */; };
 		C3F6251418605C8B0055BBF0 /* jsb_chipmunk.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */; };
 		C3F6251518605C8B0055BBF0 /* jsb_chipmunk_constants.js in Resources */ = {isa = PBXBuildFile; fileRef = C3F6009218605C7A0055BBF0 /* jsb_chipmunk_constants.js */; };
@@ -210,7 +209,6 @@
 		C3D0ED2E187C62BF00CDDB9C /* 1680x1050 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1680x1050; path = ../Bin/Data/1680x1050; sourceTree = "<group>"; };
 		C3D0ED2F187C62BF00CDDB9C /* 1920x1080 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1080; path = ../Bin/Data/1920x1080; sourceTree = "<group>"; };
 		C3D0ED30187C62BF00CDDB9C /* 1920x1200 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = 1920x1200; path = ../Bin/Data/1920x1200; sourceTree = "<group>"; };
-		C3F4E9251861E78900230ABA /* mac */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mac; sourceTree = "<group>"; };
 		C3F6009018605C7A0055BBF0 /* jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb.js; sourceTree = "<group>"; };
 		C3F6009118605C7A0055BBF0 /* jsb_chipmunk.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb_chipmunk.js; sourceTree = "<group>"; };
 		C3F6009218605C7A0055BBF0 /* jsb_chipmunk_constants.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsb_chipmunk_constants.js; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 		C347E2C118520F9100968691 /* Src - Platform */ = {
 			isa = PBXGroup;
 			children = (
-				C3F4E9101861E77A00230ABA /* Bin */,
 				C347E2C218520F9100968691 /* ChinesePuzzle */,
 			);
 			name = "Src - Platform";
@@ -353,23 +350,6 @@
 			children = (
 			);
 			path = ChipmunkDraw;
-			sourceTree = "<group>";
-		};
-		C3F4E9101861E77A00230ABA /* Bin */ = {
-			isa = PBXGroup;
-			children = (
-				C3F4E9111861E77A00230ABA /* Data */,
-			);
-			name = Bin;
-			path = ../Bin;
-			sourceTree = "<group>";
-		};
-		C3F4E9111861E77A00230ABA /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				C3F4E9251861E78900230ABA /* mac */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		C3F6000E18605C7A0055BBF0 /* scripting */ = {
@@ -705,7 +685,6 @@
 				C38D11D218634E7B00F8159A /* lang-en.plist in Resources */,
 				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
 				C308BC351873267F0009A134 /* sound in Resources */,
-				C3F4E9261861E78900230ABA /* mac in Resources */,
 				C3F63CAD18605D3B0055BBF0 /* debugger in Resources */,
 				C3F6251818605C8B0055BBF0 /* jsb_cocos2d_extension.js in Resources */,
 				C3F6251318605C8B0055BBF0 /* jsb.js in Resources */,

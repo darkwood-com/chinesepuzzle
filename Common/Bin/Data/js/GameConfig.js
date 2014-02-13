@@ -9,14 +9,14 @@ file that was distributed with this source code.
 
 cpz.XML_FILE_NAME = "chinesepuzzle.data";
 
-cpz.GameConfigCommon = cc.Class.extend({
+cpz.GameConfig = cc.Class.extend({
   _getNodePath: function(mode, file, sprite) {
     var box, cardBGSprite, color, colors, k, node, nodePath, nodeSize, path, plistPath, rank, ranks, s, spriteFrameCache, sprites, texturePath, zone, zoneAnchor, zonePosition, zoneSprite, _i, _j, _k, _len, _len1, _len2;
     path = cpz.CommonPath + this._resolution + '/' + (mode === 'theme' ? 'themes/' + this._theme : 'ui');
     plistPath = path + '.plist';
     texturePath = path + '.png';
     nodePath = path + ':' + file;
-    node = cpz.GameConfigCommon._configPaths[nodePath];
+    node = cpz.GameConfig._configPaths[nodePath];
     if (!node) {
       spriteFrameCache = cc.SpriteFrameCache.getInstance();
       spriteFrameCache.removeSpriteFramesFromFile(plistPath);
@@ -109,9 +109,9 @@ cpz.GameConfigCommon = cc.Class.extend({
           nodeSize.height = Math.max(box.y + box.height, nodeSize.height);
         }
         node.setContentSize(nodeSize);
-        cpz.GameConfigCommon._configPathsSet(path + ':' + k, node);
+        cpz.GameConfig._configPathsSet(path + ':' + k, node);
       }
-      node = cpz.GameConfigCommon._configPaths[nodePath];
+      node = cpz.GameConfig._configPaths[nodePath];
     }
     if (node) {
       return cc.copySpriteBatchNode(node, sprite);
@@ -138,7 +138,7 @@ cpz.GameConfigCommon = cc.Class.extend({
     return this._getNodePath('theme', file, sprite);
   },
   getResolutionSize: function() {
-    return cpz.GameConfigCommon.parseResolution(this._resolution);
+    return cpz.GameConfig.parseResolution(this._resolution);
   },
   defaultResolution: function() {
     return '480x320';
@@ -276,38 +276,38 @@ cpz.GameConfigCommon = cc.Class.extend({
   }
 });
 
-cpz.GameConfigCommon._configPaths = {};
+cpz.GameConfig._configPaths = {};
 
-cpz.GameConfigCommon._configPathsSet = function(key, node) {
-  if (cpz.GameConfigCommon._configPaths[key]) {
-    cpz.GameConfigCommon._configPaths[key].release();
-    cpz.GameConfigCommon._configPaths[key] = null;
+cpz.GameConfig._configPathsSet = function(key, node) {
+  if (cpz.GameConfig._configPaths[key]) {
+    cpz.GameConfig._configPaths[key].release();
+    cpz.GameConfig._configPaths[key] = null;
   }
-  cpz.GameConfigCommon._configPaths[key] = node;
+  cpz.GameConfig._configPaths[key] = node;
   return node.retain();
 };
 
-cpz.GameConfigCommon.getRootPath = function(file) {
+cpz.GameConfig.getRootPath = function(file) {
   return cpz.CommonPath + file;
 };
 
-cpz.GameConfigCommon.getResolutionPath = function(file, resolution) {
+cpz.GameConfig.getResolutionPath = function(file, resolution) {
   return cpz.CommonPath + resolution + '/' + file;
 };
 
-cpz.GameConfigCommon.getUiPath = function(file, resolution) {
+cpz.GameConfig.getUiPath = function(file, resolution) {
   return cpz.CommonPath + resolution + '/ui/' + file;
 };
 
-cpz.GameConfigCommon.getThemePath = function(file, resolution, theme) {
+cpz.GameConfig.getThemePath = function(file, resolution, theme) {
   return cpz.CommonPath + resolution + '/themes/' + theme + '/' + file;
 };
 
-cpz.GameConfigCommon.getFontPath = function(file) {
+cpz.GameConfig.getFontPath = function(file) {
   return cpz.CommonPath + 'fonts/' + file;
 };
 
-cpz.GameConfigCommon.parseResolution = function(res) {
+cpz.GameConfig.parseResolution = function(res) {
   var m;
   if (!res) {
     return cc.SizeZero();
@@ -320,10 +320,10 @@ cpz.GameConfigCommon.parseResolution = function(res) {
   }
 };
 
-cpz.GameConfigCommon.getResolutions = function() {
+cpz.GameConfig.getResolutions = function() {
   return ['480x320', '960x640', '1024x768', '1280x800', '1280x1024', '1366x768', '1440x900', '1680x1050', '1920x1080', '1920x1200'];
 };
 
-cpz.GameConfigCommon.getThemes = function() {
+cpz.GameConfig.getThemes = function() {
   return ['chinese', 'circle', 'classic', 'polkadots', 'seamless', 'shullshearts', 'splash', 'spring', 'stripes', 'vivid'];
 };

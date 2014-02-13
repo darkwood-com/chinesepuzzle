@@ -25,6 +25,14 @@ cc.textureParameters = function(texture, params) {
   }
 };
 
+cc.FileUtils.prototype.getDataFromPlistFile = function(fileName) {
+  if (sys.platform === 'browser') {
+    return this.dictionaryWithContentsOfFile(fileName);
+  } else {
+    return this.getValueMapFromFile(fileName);
+  }
+};
+
 cc.copySpriteBatchNode = function(from, to) {
   var child, zoneSprite, _i, _len, _ref;
   if (!(to instanceof cc.SpriteBatchNode && from instanceof cc.SpriteBatchNode)) {

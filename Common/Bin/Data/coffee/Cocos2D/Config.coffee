@@ -20,6 +20,12 @@ cc.textureParameters = (texture, params) ->
   else
     texture.setTexParameters(params['minFilter'], params['magFilter'], params['wrapS'], params['wrapT'])
 
+cc.FileUtils.prototype.getDataFromPlistFile = (fileName) ->
+  if sys.platform is 'browser'
+    @dictionaryWithContentsOfFile(fileName)
+  else
+    @getValueMapFromFile(fileName)
+
 cc.copySpriteBatchNode = (from, to) ->
   return unless to instanceof cc.SpriteBatchNode and from instanceof cc.SpriteBatchNode
 

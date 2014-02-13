@@ -26,9 +26,7 @@
  ****************************************************************************/
 var cpz = cpz || {};
 cpz.CommonPath = '../../../../Common/Bin/Data/';
-cpz.PlatformPath = '../../../../Browser/Bin/Data/';
 cpz.CommonSrcPath = cpz.CommonPath + 'js/';
-cpz.PlatformSrcPath = cpz.PlatformPath + 'browser/';
 
 (function () {
 
@@ -68,11 +66,7 @@ cpz.PlatformSrcPath = cpz.PlatformPath + 'browser/';
             cpz.CommonSrcPath + 'GameConfig.js',
             cpz.CommonSrcPath + 'GameScene.js',
             cpz.CommonSrcPath + 'GameStruct.js',
-            cpz.CommonSrcPath + 'Resource.js',
-
-            cpz.PlatformSrcPath + 'Cocos2Dx/CCFileUtils.js',
-            cpz.PlatformSrcPath + 'GameConfig.js',
-            cpz.PlatformSrcPath + 'GameScene.js'
+            cpz.CommonSrcPath + 'Resource.js'
             ]
     };
 

@@ -263,7 +263,7 @@ cpz.MenuLayout = cc.Class.extend(
         itemTitle = @_mBox.getChildByTag(cpz.MenuTag.NewTitle)
         if not itemTitle or currentFontFile isnt @_layoutLastFontFile
           @_mBox.removeChildByTag(cpz.MenuTag.NewTitle, true)
-          itemTitle = cc.LabelBMFont.create(lang.get('menu.newgame.content'), cpz.GameConfigCommon.getFontPath(currentFontFile))
+          itemTitle = cc.LabelBMFont.create(lang.get('menu.newgame.content'), cpz.GameConfig.getFontPath(currentFontFile))
           itemTitle.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addChild(itemTitle, 0, cpz.MenuTag.NewTitle)
         itemTitle.setPosition(@_layoutRes('menuNewTitle'))
@@ -306,7 +306,7 @@ cpz.MenuLayout = cc.Class.extend(
         itemTitle = @_mBox.getChildByTag(cpz.MenuTag.RetryTitle)
         if(!itemTitle or currentFontFile isnt @_layoutLastFontFile)
           @_mBox.removeChildByTag(cpz.MenuTag.RetryTitle, true)
-          itemTitle = cc.LabelBMFont.create(lang.get('menu.retrygame.content'), cpz.GameConfigCommon.getFontPath(currentFontFile))
+          itemTitle = cc.LabelBMFont.create(lang.get('menu.retrygame.content'), cpz.GameConfig.getFontPath(currentFontFile))
           itemTitle.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.addChild(itemTitle, 0, cpz.MenuTag.RetryTitle)
         itemTitle.setPosition(@_layoutRes('menuRetryTitle'))
@@ -334,7 +334,7 @@ cpz.MenuLayout = cc.Class.extend(
       when cpz.MenuLayoutType.Hint
         unless @_mBox
           @_mBox = new cpz.MenuLabelContainer()
-          @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), cpz.GameConfigCommon.getFontPath((@_layoutRes('font'))))
+          @_mBox.initWithConfAndContentSizeAndFntFile(conf, @_layoutRes('menuHintBoxSize'), cpz.GameConfig.getFontPath((@_layoutRes('font'))))
           @_mBox.setPosition(center)
           @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
           @_mBox.setOkTarget(@_menu.okMenu, @_menu)

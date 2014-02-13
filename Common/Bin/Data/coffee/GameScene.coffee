@@ -18,7 +18,7 @@ cpz.GameSceneBGMusicTheme =
   Theme2: 2
   Theme3: 3
 
-cpz.GameSceneCommon = cc.Scene.extend(
+cpz.GameScene = cc.Scene.extend(
   _bgMusicTheme: null
 
   _conf: null
@@ -168,9 +168,9 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
     #change resolution
     autoRes = null
-    for res in cpz.GameConfigCommon.getResolutions()
-      newRes = cpz.GameConfigCommon.parseResolution res
-      oldRes = cpz.GameConfigCommon.parseResolution autoRes
+    for res in cpz.GameConfig.getResolutions()
+      newRes = cpz.GameConfig.parseResolution res
+      oldRes = cpz.GameConfig.parseResolution autoRes
 
       if autoRes is null or
         ((oldRes.width < newRes.width and oldRes.height < newRes.height) and
@@ -196,7 +196,7 @@ cpz.GameSceneCommon = cc.Scene.extend(
   getMenu: -> @_menu
 )
 
-cpz.GameSceneCommon.create = ->
+cpz.GameScene.create = ->
   obj = new cpz.GameScene()
   return obj if obj and obj.init()
   null

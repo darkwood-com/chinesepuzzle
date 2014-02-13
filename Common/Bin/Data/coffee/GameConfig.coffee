@@ -9,14 +9,14 @@ file that was distributed with this source code.
 
 cpz.XML_FILE_NAME = "chinesepuzzle.data"
 
-cpz.GameConfigCommon = cc.Class.extend(
+cpz.GameConfig = cc.Class.extend(
   _getNodePath: (mode, file, sprite) ->
     path = cpz.CommonPath + @_resolution + '/' + (if mode is 'theme' then 'themes/' + @_theme else 'ui')
     plistPath = path + '.plist'
     texturePath = path + '.png'
     nodePath = path + ':' + file
 
-    node = cpz.GameConfigCommon._configPaths[nodePath]
+    node = cpz.GameConfig._configPaths[nodePath]
     unless node
       spriteFrameCache = cc.SpriteFrameCache.getInstance()
       spriteFrameCache.removeSpriteFramesFromFile(plistPath)
@@ -106,9 +106,9 @@ cpz.GameConfigCommon = cc.Class.extend(
 
         node.setContentSize(nodeSize)
 
-        cpz.GameConfigCommon._configPathsSet(path + ':' + k, node)
+        cpz.GameConfig._configPathsSet(path + ':' + k, node)
 
-      node = cpz.GameConfigCommon._configPaths[nodePath]
+      node = cpz.GameConfig._configPaths[nodePath]
 
     cc.copySpriteBatchNode(node, sprite) if node
 
@@ -132,7 +132,7 @@ cpz.GameConfigCommon = cc.Class.extend(
   getNodeThemePath: (file, sprite) -> @_getNodePath 'theme', file, sprite
 
   getResolutionSize: ->
-    cpz.GameConfigCommon.parseResolution @_resolution
+    cpz.GameConfig.parseResolution @_resolution
 
   defaultResolution: -> '480x320'
   defaultTheme: -> 'chinese'
@@ -226,27 +226,27 @@ cpz.GameConfigCommon = cc.Class.extend(
     ], selector, target
 )
 
-cpz.GameConfigCommon._configPaths = {};
+cpz.GameConfig._configPaths = {};
 
-cpz.GameConfigCommon._configPathsSet = (key, node) ->
-  if cpz.GameConfigCommon._configPaths[key]
-    cpz.GameConfigCommon._configPaths[key].release()
-    cpz.GameConfigCommon._configPaths[key] = null
-  cpz.GameConfigCommon._configPaths[key] = node
+cpz.GameConfig._configPathsSet = (key, node) ->
+  if cpz.GameConfig._configPaths[key]
+    cpz.GameConfig._configPaths[key].release()
+    cpz.GameConfig._configPaths[key] = null
+  cpz.GameConfig._configPaths[key] = node
   node.retain()
 
-cpz.GameConfigCommon.getRootPath = (file) -> cpz.CommonPath + file
-cpz.GameConfigCommon.getResolutionPath = (file, resolution) -> cpz.CommonPath + resolution + '/' + file
-cpz.GameConfigCommon.getUiPath = (file, resolution) -> cpz.CommonPath + resolution + '/ui/' + file
-cpz.GameConfigCommon.getThemePath = (file, resolution, theme) -> cpz.CommonPath + resolution + '/themes/' + theme + '/' + file
-cpz.GameConfigCommon.getFontPath = (file) -> cpz.CommonPath + 'fonts/' + file
+cpz.GameConfig.getRootPath = (file) -> cpz.CommonPath + file
+cpz.GameConfig.getResolutionPath = (file, resolution) -> cpz.CommonPath + resolution + '/' + file
+cpz.GameConfig.getUiPath = (file, resolution) -> cpz.CommonPath + resolution + '/ui/' + file
+cpz.GameConfig.getThemePath = (file, resolution, theme) -> cpz.CommonPath + resolution + '/themes/' + theme + '/' + file
+cpz.GameConfig.getFontPath = (file) -> cpz.CommonPath + 'fonts/' + file
 
-cpz.GameConfigCommon.parseResolution = (res) ->
+cpz.GameConfig.parseResolution = (res) ->
   return cc.SizeZero() unless res
   m = res.match /([0-9]+)x([0-9]+)/
   if m then cc.size(parseInt(m[1]), parseInt(m[2])) else cc.SizeZero()
 
-cpz.GameConfigCommon.getResolutions = ->
+cpz.GameConfig.getResolutions = ->
   [
     '480x320',
     '960x640',
@@ -260,7 +260,7 @@ cpz.GameConfigCommon.getResolutions = ->
     '1920x1200',
   ]
 
-cpz.GameConfigCommon.getThemes = ->
+cpz.GameConfig.getThemes = ->
   [
     'chinese',
     'circle',

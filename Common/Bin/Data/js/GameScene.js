@@ -20,7 +20,7 @@ cpz.GameSceneBGMusicTheme = {
   Theme3: 3
 };
 
-cpz.GameSceneCommon = cc.Scene.extend({
+cpz.GameScene = cc.Scene.extend({
   _bgMusicTheme: null,
   _conf: null,
   _background: null,
@@ -179,11 +179,11 @@ cpz.GameSceneCommon = cc.Scene.extend({
       this._background.setContentSize(winsize);
     }
     autoRes = null;
-    _ref = cpz.GameConfigCommon.getResolutions();
+    _ref = cpz.GameConfig.getResolutions();
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       res = _ref[_i];
-      newRes = cpz.GameConfigCommon.parseResolution(res);
-      oldRes = cpz.GameConfigCommon.parseResolution(autoRes);
+      newRes = cpz.GameConfig.parseResolution(res);
+      oldRes = cpz.GameConfig.parseResolution(autoRes);
       if (autoRes === null || ((oldRes.width < newRes.width && oldRes.height < newRes.height) && (newRes.width < winsize.width && newRes.height < winsize.height))) {
         autoRes = res;
       }
@@ -222,7 +222,7 @@ cpz.GameSceneCommon = cc.Scene.extend({
   }
 });
 
-cpz.GameSceneCommon.create = function() {
+cpz.GameScene.create = function() {
   var obj;
   obj = new cpz.GameScene();
   if (obj && obj.init()) {

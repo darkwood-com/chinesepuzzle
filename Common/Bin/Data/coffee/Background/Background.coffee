@@ -20,7 +20,7 @@ cpz.Background = cc.Layer.extend(
       wrapS: gl.REPEAT
       wrapT: gl.REPEAT
 
-    @_bgPattern = cc.Sprite.create cpz.GameConfigCommon.getRootPath('bgPattern.png')
+    @_bgPattern = cc.Sprite.create cpz.GameConfig.getRootPath('bgPattern.png')
     texture = @_bgPattern.getTexture()
     cc.textureParameters(texture, texParams)
 

@@ -16,15 +16,15 @@ res = [
   cpz.CommonPath + 'lang-fr.plist',
 
   #fnt
-  cpz.GameConfigCommon.getFontPath('arial16.fnt'),
-  #cpz.GameConfigCommon.getFontPath('arial16.png'),
-  cpz.GameConfigCommon.getFontPath('arial32.fnt'),
-  #cpz.GameConfigCommon.getFontPath('arial32.png'),
+  cpz.GameConfig.getFontPath('arial16.fnt'),
+  #cpz.GameConfig.getFontPath('arial16.png'),
+  cpz.GameConfig.getFontPath('arial32.fnt'),
+  #cpz.GameConfig.getFontPath('arial32.png'),
 
   #tmx
 
   #png
-  cpz.GameConfigCommon.getRootPath('bgPattern.png')
+  cpz.GameConfig.getRootPath('bgPattern.png')
 
   #effect
 
@@ -40,10 +40,10 @@ res = [
   #cpz.CommonPath + 'sound/shuffle.mp3',
 ]
 
-#for resolution in cpz.GameConfigCommon.getResolutions()
-#  for theme in cpz.GameConfigCommon.getThemes()
-#    res.push cpz.GameConfigCommon.getResolutionPath('themes/' + theme + '.plist', resolution)
-#    res.push cpz.GameConfigCommon.getResolutionPath('themes/' + theme + '.png', resolution)
+#for resolution in cpz.GameConfig.getResolutions()
+#  for theme in cpz.GameConfig.getThemes()
+#    res.push cpz.GameConfig.getResolutionPath('themes/' + theme + '.plist', resolution)
+#    res.push cpz.GameConfig.getResolutionPath('themes/' + theme + '.png', resolution)
 
 cpz.Resources = []
 for r in res

@@ -21,7 +21,7 @@ cpz.Background = cc.Layer.extend({
       wrapS: gl.REPEAT,
       wrapT: gl.REPEAT
     };
-    this._bgPattern = cc.Sprite.create(cpz.GameConfigCommon.getRootPath('bgPattern.png'));
+    this._bgPattern = cc.Sprite.create(cpz.GameConfig.getRootPath('bgPattern.png'));
     texture = this._bgPattern.getTexture();
     cc.textureParameters(texture, texParams);
     this._bgPattern.setAnchorPoint(cc.p(0.5, 0.5));

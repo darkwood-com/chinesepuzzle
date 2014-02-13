@@ -30,9 +30,7 @@ require("jsb.js");
 
 var cpz = cpz || {};
 cpz.CommonPath = '';
-cpz.PlatformPath = '';
 cpz.CommonSrcPath = cpz.CommonPath + 'js/';
-cpz.PlatformSrcPath = cpz.PlatformPath + 'mac/';
 
 var appFiles = [
     cpz.CommonSrcPath + 'Background/Background.js',
@@ -60,10 +58,6 @@ var appFiles = [
     cpz.CommonSrcPath + 'GameScene.js',
     cpz.CommonSrcPath + 'GameStruct.js',
     cpz.CommonSrcPath + 'Resource.js',
-
-    cpz.PlatformSrcPath + 'Cocos2Dx/CCFileUtils.js',
-    cpz.PlatformSrcPath + 'GameConfig.js',
-    cpz.PlatformSrcPath + 'GameScene.js'
 ];
 
 cc.dumpConfig();
