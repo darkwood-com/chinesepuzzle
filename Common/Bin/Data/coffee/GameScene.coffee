@@ -179,7 +179,6 @@ cpz.GameSceneCommon = cc.Scene.extend(
 
     @setResolution(autoRes, selector, target) if autoRes
 
-
   layout: (anim = true) ->
     if @_game then @_game.layout(anim)
     if @_menu then @_menu.layout(anim)
