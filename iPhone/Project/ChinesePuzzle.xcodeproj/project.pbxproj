@@ -60,6 +60,11 @@
 		C3B854381462935000C440B3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854371462935000C440B3 /* OpenAL.framework */; };
 		C3B8543A1462935800C440B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854391462935800C440B3 /* AudioToolbox.framework */; };
 		C3B8543C1462935E00C440B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B8543B1462935E00C440B3 /* AVFoundation.framework */; };
+		C3D38FA418B4F52A00EB8E1A /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3818B3B62D00A1EA5A /* lang-de.plist */; };
+		C3D38FA518B4F52A00EB8E1A /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3918B3B62D00A1EA5A /* lang-en.plist */; };
+		C3D38FA618B4F52A00EB8E1A /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3A18B3B62D00A1EA5A /* lang-fr.plist */; };
+		C3D38FA718B4F53D00EB8E1A /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD2B18B3B62D00A1EA5A /* 480x320 */; };
+		C3D38FA818B4F53D00EB8E1A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3618B3B62D00A1EA5A /* fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -507,11 +512,6 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = Darkwood;
-				TargetAttributes = {
-					C36ABC57146196000006151B = {
-						DevelopmentTeam = 7SWX39DWY4;
-					};
-				};
 			};
 			buildConfigurationList = C36ABC52146196000006151B /* Build configuration list for PBXProject "ChinesePuzzle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -642,6 +642,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D38FA718B4F53D00EB8E1A /* 480x320 in Resources */,
 				C3AADD3D18B3B62D00A1EA5A /* 960x640 in Resources */,
 				C3AADD3E18B3B62D00A1EA5A /* 1024x768 in Resources */,
 				C3AADD3F18B3B62D00A1EA5A /* 1280x800 in Resources */,
@@ -651,7 +652,11 @@
 				C3AADD4318B3B62D00A1EA5A /* 1680x1050 in Resources */,
 				C3AADD4418B3B62D00A1EA5A /* 1920x1080 in Resources */,
 				C3AADD4518B3B62D00A1EA5A /* 1920x1200 in Resources */,
+				C3D38FA818B4F53D00EB8E1A /* fonts in Resources */,
 				C3AADD4818B3B62D00A1EA5A /* js in Resources */,
+				C3D38FA418B4F52A00EB8E1A /* lang-de.plist in Resources */,
+				C3D38FA518B4F52A00EB8E1A /* lang-en.plist in Resources */,
+				C3D38FA618B4F52A00EB8E1A /* lang-fr.plist in Resources */,
 				C3AADD4618B3B62D00A1EA5A /* bgPattern.png in Resources */,
 				C3AADD4C18B3B62D00A1EA5A /* sound in Resources */,
 				C3AA0BBB18B3B74B00A1EA5A /* debugger in Resources */,
@@ -718,8 +723,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -763,8 +768,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -804,8 +809,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -839,8 +844,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
