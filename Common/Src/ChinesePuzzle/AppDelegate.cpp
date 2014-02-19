@@ -58,7 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     Director *director = Director::getInstance();
     GLView* glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLView::create("My Game");
+        glview = GLView::create("ChinesePuzzle");
         director->setOpenGLView(glview);
     }
     

@@ -19,13 +19,13 @@
 		C32F324F18B3CE5F0003E285 /* libjsbindings iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AA0B7318B3B6A200A1EA5A /* libjsbindings iOS.a */; };
 		C32F325118B3CF480003E285 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F325018B3CF480003E285 /* CoreMotion.framework */; };
 		C32F325318B3D1BD0003E285 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
+		C32F325718B4BA220003E285 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C32F325618B4BA220003E285 /* cocos2d-jsb.js */; };
 		C3638F5614E2BECA0082777A /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2514E2BEC90082777A /* AppDelegate.cpp */; };
 		C36ABC5D146196000006151B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC5C146196000006151B /* UIKit.framework */; };
 		C36ABC5F146196000006151B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC5E146196000006151B /* Foundation.framework */; };
 		C36ABC61146196000006151B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC60146196000006151B /* CoreGraphics.framework */; };
 		C36ABC9414619A3C0006151B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36ABC9114619A3C0006151B /* main.m */; };
 		C36ACDF114619EB10006151B /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDEE14619EB10006151B /* AppController.mm */; };
-		C36ACDF214619EB10006151B /* RootViewController.mm in Resources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
 		C3AA0BBB18B3B74B00A1EA5A /* debugger in Resources */ = {isa = PBXBuildFile; fileRef = C3AA0BBA18B3B74B00A1EA5A /* debugger */; };
 		C3AA0BCF18B3C48D00A1EA5A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AA0BCE18B3C48D00A1EA5A /* libz.dylib */; };
 		C3AA0BD118B3C49600A1EA5A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AA0BD018B3C49600A1EA5A /* libsqlite3.dylib */; };
@@ -171,6 +171,7 @@
 		C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleDefault.png; sourceTree = "<group>"; };
 		C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault@2x.png"; sourceTree = "<group>"; };
 		C32F325018B3CF480003E285 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C32F325618B4BA220003E285 /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "cocos2d-jsb.js"; sourceTree = "<group>"; };
 		C3638F2514E2BEC90082777A /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C3638F2614E2BEC90082777A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C36ABC58146196000006151B /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,7 +275,6 @@
 		C36ABC5B146196000006151B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C32F325018B3CF480003E285 /* CoreMotion.framework */,
 				C3AA0BD018B3C49600A1EA5A /* libsqlite3.dylib */,
 				C3AA0BCE18B3C48D00A1EA5A /* libz.dylib */,
 				C3B8543B1462935E00C440B3 /* AVFoundation.framework */,
@@ -285,6 +285,7 @@
 				C36ABC5C146196000006151B /* UIKit.framework */,
 				C36ABC5E146196000006151B /* Foundation.framework */,
 				C36ABC60146196000006151B /* CoreGraphics.framework */,
+				C32F325018B3CF480003E285 /* CoreMotion.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -300,6 +301,7 @@
 				C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */,
 				C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */,
 				C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */,
+				C32F325618B4BA220003E285 /* cocos2d-jsb.js */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -653,26 +655,26 @@
 				C3AADD4618B3B62D00A1EA5A /* bgPattern.png in Resources */,
 				C3AADD4C18B3B62D00A1EA5A /* sound in Resources */,
 				C3AA0BBB18B3B74B00A1EA5A /* debugger in Resources */,
-				C309579B1461A59900924761 /* InfoPlist.strings in Resources */,
 				C30BBC9914A8D41100E69DA5 /* ChinesePuzzleApp.png in Resources */,
 				C30BBC9A14A8D41100E69DA5 /* ChinesePuzzleApp@2x.png in Resources */,
 				C30BBC9E14A8D67700E69DA5 /* ChinesePuzzleDefault.png in Resources */,
 				C30BBC9F14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png in Resources */,
 				C3AAFC9718B3B69300A1EA5A /* jsb_cocos2d_extension.js in Resources */,
 				C3AAFC9218B3B69300A1EA5A /* jsb.js in Resources */,
-				C3AAFC9C18B3B69300A1EA5A /* jsb_deprecated.js in Resources */,
-				C3AAFC9E18B3B69300A1EA5A /* jsb_opengl_constants.js in Resources */,
-				C3AAFC9418B3B69300A1EA5A /* jsb_chipmunk_constants.js in Resources */,
+				C3AAFC9318B3B69300A1EA5A /* jsb_chipmunk.js in Resources */,
+				C3AAFC9618B3B69300A1EA5A /* jsb_cocos2d_constants.js in Resources */,
 				C3AAFC9B18B3B69300A1EA5A /* jsb_debugger.js in Resources */,
 				C3AAFC9918B3B69300A1EA5A /* jsb_cocos2d_studio.js in Resources */,
-				C3AAFC9D18B3B69300A1EA5A /* jsb_opengl.js in Resources */,
-				C3AAFC9618B3B69300A1EA5A /* jsb_cocos2d_constants.js in Resources */,
-				C36ACDF214619EB10006151B /* RootViewController.mm in Resources */,
-				C3AAFC9518B3B69300A1EA5A /* jsb_cocos2d.js in Resources */,
-				C3AAFC9318B3B69300A1EA5A /* jsb_chipmunk.js in Resources */,
-				C3AAFC9A18B3B69300A1EA5A /* jsb_cocosbuilder.js in Resources */,
+				C3AAFC9C18B3B69300A1EA5A /* jsb_deprecated.js in Resources */,
 				C3AAFC9F18B3B69300A1EA5A /* jsb_sys.js in Resources */,
+				C3AAFC9D18B3B69300A1EA5A /* jsb_opengl.js in Resources */,
+				C3AAFC9A18B3B69300A1EA5A /* jsb_cocosbuilder.js in Resources */,
+				C3AAFC9E18B3B69300A1EA5A /* jsb_opengl_constants.js in Resources */,
 				C3AAFC9818B3B69300A1EA5A /* jsb_cocos2d_gui.js in Resources */,
+				C3AAFC9418B3B69300A1EA5A /* jsb_chipmunk_constants.js in Resources */,
+				C3AAFC9518B3B69300A1EA5A /* jsb_cocos2d.js in Resources */,
+				C32F325718B4BA220003E285 /* cocos2d-jsb.js in Resources */,
+				C309579B1461A59900924761 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
