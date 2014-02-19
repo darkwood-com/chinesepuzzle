@@ -1,9 +1,11 @@
 module.exports = (grunt) ->
+  livereload = 3241
+
   grunt.initConfig
     pkg: grunt.file.readJSON("package.json")
 
     notify:
-      regarde:
+      watch:
         options:
           title: 'Grunt'
           message: 'Snipers on the roof, sir!'
@@ -24,6 +26,15 @@ module.exports = (grunt) ->
           title: 'Grunt Error !!'
           message: 'Seems that you loose some code skills... Cannot compile this thing !'
 
+    watch:
+      coffee:
+        files: 'Common/Bin/Data/coffee/**/*.coffee'
+        tasks: ['compile']
+      js:
+        files: 'Common/Bin/Data/js/**/*.js'
+        options:
+          livereload: livereload
+
     coffee:
       compile:
         options:
@@ -37,16 +48,9 @@ module.exports = (grunt) ->
               dest + src.replace '.coffee', '.js'
         ]
 
-    regarde:
-      coffee:
-        files: 'Common/Bin/Data/coffee/**/*.coffee'
-        tasks: ['coffee:compile','notify:coffee']
-        spawn: false
-
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-notify'
-  grunt.loadNpmTasks 'grunt-regarde'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
 
-  grunt.registerTask 'compile', ['notify:compile','coffee:compile']
-  grunt.registerTask 'watch', ['notify:regarde','regarde']
+  grunt.registerTask 'compile', ['coffee:compile','notify:compile']
   grunt.registerTask 'default', ['compile','watch']
