@@ -57,7 +57,7 @@ var appFiles = [
     cpz.CommonSrcPath + 'GameConfig.js',
     cpz.CommonSrcPath + 'GameScene.js',
     cpz.CommonSrcPath + 'GameStruct.js',
-    cpz.CommonSrcPath + 'Resource.js',
+    cpz.CommonSrcPath + 'Resource.js'
 ];
 
 cc.dumpConfig();

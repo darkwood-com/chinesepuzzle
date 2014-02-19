@@ -274,20 +274,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		C3470B1018521DE400968691 /* DecoratedBox */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DecoratedBox;
-			sourceTree = "<group>";
-		};
-		C3470B1318521DE500968691 /* JSPP */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = JSPP;
-			sourceTree = "<group>";
-		};
 		C347E2C118520F9100968691 /* Src - Platform */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,27 +315,9 @@
 		C347E30018521DBC00968691 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				C347E30118521DBC00968691 /* Archivist */,
-				C347E33718521DBC00968691 /* ChipmunkDraw */,
 				C3F6FCD518605C770055BBF0 /* Cocos2D-x */,
-				C3470B1018521DE400968691 /* DecoratedBox */,
-				C3470B1318521DE500968691 /* JSPP */,
 			);
 			path = Externals;
-			sourceTree = "<group>";
-		};
-		C347E30118521DBC00968691 /* Archivist */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Archivist;
-			sourceTree = "<group>";
-		};
-		C347E33718521DBC00968691 /* ChipmunkDraw */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ChipmunkDraw;
 			sourceTree = "<group>";
 		};
 		C3F6000E18605C7A0055BBF0 /* scripting */ = {
@@ -681,9 +649,9 @@
 				C32A0002188D1ECE00C06654 /* fonts in Resources */,
 				C3F63CBE18605FF00055BBF0 /* js in Resources */,
 				C38D11D118634E7B00F8159A /* lang-de.plist in Resources */,
-				C35A931518ABD3FC00771B07 /* bgPattern.png in Resources */,
 				C38D11D218634E7B00F8159A /* lang-en.plist in Resources */,
 				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
+				C35A931518ABD3FC00771B07 /* bgPattern.png in Resources */,
 				C308BC351873267F0009A134 /* sound in Resources */,
 				C3F63CAD18605D3B0055BBF0 /* debugger in Resources */,
 				C3F6251818605C8B0055BBF0 /* jsb_cocos2d_extension.js in Resources */,
