@@ -827,14 +827,14 @@
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-x/external/glfw3/include/ios",
 				);
 				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E5BA5E20-1F1A-4CD3-ABEE-122C45CAEBD1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -861,14 +861,14 @@
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-x/external/glfw3/include/ios",
 				);
 				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E5BA5E20-1F1A-4CD3-ABEE-122C45CAEBD1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
