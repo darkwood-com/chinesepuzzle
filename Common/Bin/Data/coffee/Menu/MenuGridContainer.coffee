@@ -9,6 +9,11 @@ file that was distributed with this source code.
 
 cpz.MenuGridContainer = cpz.MenuBox.extend(
   _container: null
+  _switchControl: null
+  _switchControlSelector: null
+  _switchControlTarget: null
+  _switchControlOn: null
+  _switchControlOff: null
 
   _gridSize: null
   _margin: null
@@ -57,7 +62,40 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
   setMinimumTouchLengthToChangePage: (length) ->
     @_container.setMinimumTouchLengthToChangePage(length)
     @
-    
+
+  getSwitchControl: -> return @_switchControl
+  setSwitchControl: (maskSprite, onSprite, offSprite, thumbSprite, onLabel, offLabel, bool, selector, target) ->
+    @removeChild(@_switchControl) if @_switchControl
+    @_switchControl = cc.ControlSwitch.create(maskSprite, onSprite, offSprite, thumbSprite)
+    @_switchControl.addTargetWithActionForControlEvents(@, @switchControlValueChanged, cc.CONTROL_EVENT_VALUECHANGED)
+    @_switchControlSelector = selector
+    @_switchControlTarget = target
+    @addChild(@_switchControl)
+
+    @removeChild(@_switchControlOn) if @_switchControlOn
+    @_switchControlOn = onLabel
+    @_switchControlOn.addLoadedEventListener(@layout, @)
+    @addChild(@_switchControlOn)
+
+    @removeChild(@_switchControlOff) if @_switchControlOff
+    @_switchControlOff = offLabel
+    @_switchControlOff.addLoadedEventListener(@layout, @)
+    @addChild(@_switchControlOff)
+
+    @_switchControl.setOn(bool)
+
+  switchControlValueChanged: (sender, controlEvent) ->
+    if sender.isOn()
+      @_switchControlOn.setVisible true
+      @_switchControlOff.setVisible false
+    else
+      @_switchControlOn.setVisible false
+      @_switchControlOff.setVisible true
+
+    @_switchControlSelector.call(@_switchControlTarget, sender.isOn()) if @_switchControlSelector
+
+    @layout()
+
   addTheme: (theme) ->
     @_container.addTheme(theme)
     @
@@ -66,28 +104,59 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
     @_super anim
     
     size = @getContentSize()
-    
+
+    switchWidth = @_margin.width
+    if @_switchControl
+      switchWidth += @_switchControl.getContentSize().width
+
+    if @_switchControlOn and @_switchControlOn.isVisible()
+      switchWidth += @_switchControlOn.getContentSize().width
+      @_switchControlOn.setAnchorPoint cc.p(0.5, 0.5)
+      @_switchControlOn.setPosition(cc.p(
+        (size.width - switchWidth + @_switchControlOn.getContentSize().width) / 2,
+        size.height / 8,
+      ))
+
+    if @_switchControlOff and @_switchControlOff.isVisible()
+      switchWidth += @_switchControlOff.getContentSize().width
+      @_switchControlOff.setAnchorPoint cc.p(0.5, 0.5)
+      @_switchControlOff.setPosition(
+        (size.width - switchWidth + @_switchControlOff.getContentSize().width) / 2,
+        size.height / 8,
+      )
+
+    if @_switchControl
+      @_switchControl.setAnchorPoint cc.p(0.5, 0.5)
+      @_switchControl.setPosition(
+        (size.width + switchWidth - @_switchControl.getContentSize().width) / 2,
+        size.height / 8,
+      )
+
     if @_container
       @_container.setPosition(cc.p(size.width / 2, size.height / 2))
       @_container.setContentSize(cc.size(size.width - 2 * @_margin.width, size.height - 2 * @_margin.height))
 
   onTouchBegan: (touch, event) ->
     return false if @_super(touch, event)
+    return true if @_switchControl and @_switchControl.onTouchBegan(touch, event)
 
     return @_container.onTouchBegan(touch, event)
     
   onTouchMoved: (touch, event) ->
     @_super(touch, event)
 
+    @_switchControl.onTouchMoved(touch, event) if @_switchControl and @_switchControl.isTouchInside(touch)
     @_container.onTouchMoved(touch, event)
   
   onTouchEnded: (touch, event) ->
     @_super(touch, event)
 
+    @_switchControl.onTouchEnded(touch, event) if @_switchControl and @_switchControl.isTouchInside(touch)
     @_container.onTouchEnded(touch, event)
     
   onTouchCancelled: (touch, event) ->
     @_super(touch, event)
 
+    @_switchControl.onTouchCancelled(touch, event) if @_switchControl and @_switchControl.isTouchInside(touch)
     @_container.onTouchCancelled(touch, event)
 )

@@ -9,7 +9,7 @@ file that was distributed with this source code.
 
 var r, res, _i, _len;
 
-res = [cpz.CommonPath + 'lang-de.plist', cpz.CommonPath + 'lang-en.plist', cpz.CommonPath + 'lang-fr.plist', cpz.GameConfig.getFontPath('arial16.fnt'), cpz.GameConfig.getFontPath('arial32.fnt'), cpz.GameConfig.getRootPath('bgPattern.png')];
+res = [cpz.CommonPath + 'lang-de.plist', cpz.CommonPath + 'lang-en.plist', cpz.CommonPath + 'lang-fr.plist', cpz.GameConfig.getFontPath('arial16.fnt'), cpz.GameConfig.getFontPath('arial32.fnt'), cpz.GameConfig.getRootPath('bgPattern.png'), cpz.GameConfig.getRootPath("switch/switch-mask.png"), cpz.GameConfig.getRootPath("switch/switch-on.png"), cpz.GameConfig.getRootPath("switch/switch-off.png"), cpz.GameConfig.getRootPath("switch/switch-thumb.png")];
 
 cpz.Resources = [];
 

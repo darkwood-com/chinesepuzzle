@@ -114,6 +114,7 @@ cpz.GameConfig = cc.Class.extend(
 
   _resolution: ''
   _theme: ''
+  _isCardLayout: false
   _isSoundOn: false
   _moves: []
   _initBoard: null
@@ -141,6 +142,8 @@ cpz.GameConfig = cc.Class.extend(
   setResolution: (@_resolution) -> @
   getTheme: -> @_theme
   setTheme: (@_theme) -> @
+  getIsCardLayout: -> @_isCardLayout
+  setIsCardLayout: (@_isCardLayout) -> @
   getIsSoundOn: -> @_isSoundOn
   setIsSoundOn: (@_isSoundOn) -> @
   getMoves: -> @_moves
@@ -158,6 +161,7 @@ cpz.GameConfig = cc.Class.extend(
     data =
       #resolution: @_resolution
       theme: @_theme
+      isCardLayout: @_isCardLayout
       isSoundOn: @_isSoundOn
       moves: []
       board: []
@@ -180,6 +184,7 @@ cpz.GameConfig = cc.Class.extend(
 
     #@_resolution = data['resolution']
     @_theme = data['theme']
+    @_isCardLayout = data['isCardLayout']
     @_isSoundOn = data['isSoundOn']
 
     for board in data['board']

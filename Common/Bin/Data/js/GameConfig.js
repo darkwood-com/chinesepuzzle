@@ -119,6 +119,7 @@ cpz.GameConfig = cc.Class.extend({
   },
   _resolution: '',
   _theme: '',
+  _isCardLayout: false,
   _isSoundOn: false,
   _moves: [],
   _initBoard: null,
@@ -160,6 +161,13 @@ cpz.GameConfig = cc.Class.extend({
     this._theme = _theme;
     return this;
   },
+  getIsCardLayout: function() {
+    return this._isCardLayout;
+  },
+  setIsCardLayout: function(_isCardLayout) {
+    this._isCardLayout = _isCardLayout;
+    return this;
+  },
   getIsSoundOn: function() {
     return this._isSoundOn;
   },
@@ -188,6 +196,7 @@ cpz.GameConfig = cc.Class.extend({
     var card, coord, data, move, _i, _j, _len, _len1, _ref, _ref1;
     data = {
       theme: this._theme,
+      isCardLayout: this._isCardLayout,
       isSoundOn: this._isSoundOn,
       moves: [],
       board: []
@@ -213,6 +222,7 @@ cpz.GameConfig = cc.Class.extend({
     this.clearMoves();
     this._initBoard.removeAllObjects();
     this._theme = data['theme'];
+    this._isCardLayout = data['isCardLayout'];
     this._isSoundOn = data['isSoundOn'];
     _ref = data['board'];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {

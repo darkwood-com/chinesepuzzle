@@ -199,6 +199,13 @@ cpz.MenuLayout = cc.Class.extend(
         @_menu.getGameScene().setTheme(key)
         @_menu.getGameScene().playSound('menu_select')
 
+  _setIsCardLayout: (bool) ->
+    gs = @_menu.getGameScene()
+
+    #gs.getConf().setIsCardLayout bool
+    #gs.layout()
+    #gs.getConf().save()
+
   _bg: null
 
   _mBox: null
@@ -393,6 +400,15 @@ cpz.MenuLayout = cc.Class.extend(
         @_mBox.setContentSize(@_layoutRes('menuThemeBoxSize'))
         @_mBox.setPosition(center)
         @_mBox.setAnchorPoint(cc.p(0.5, 0.5))
+        @_mBox.setSwitchControl(
+          cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-mask.png")),
+          cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-on.png")),
+          cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-off.png")),
+          cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-thumb.png")),
+          cc.LabelBMFont.create(lang.get('menu.themegame.cardlayout.on'), cpz.GameConfig.getFontPath(currentFontFile), null, cc.TEXT_ALIGNMENT_CENTER),
+          cc.LabelBMFont.create(lang.get('menu.themegame.cardlayout.off'), cpz.GameConfig.getFontPath(currentFontFile), null, cc.TEXT_ALIGNMENT_CENTER),
+          conf.getIsCardLayout(), @_setIsCardLayout, @
+        )
         @_mBox.layout(anim)
       
       when cpz.MenuLayoutType.None

@@ -222,6 +222,10 @@ cpz.MenuLayout = cc.Class.extend({
     }
     return _results;
   },
+  _setIsCardLayout: function(bool) {
+    var gs;
+    return gs = this._menu.getGameScene();
+  },
   _bg: null,
   _mBox: null,
   _miTheme: null,
@@ -405,6 +409,7 @@ cpz.MenuLayout = cc.Class.extend({
         this._mBox.setContentSize(this._layoutRes('menuThemeBoxSize'));
         this._mBox.setPosition(center);
         this._mBox.setAnchorPoint(cc.p(0.5, 0.5));
+        this._mBox.setSwitchControl(cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-mask.png")), cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-on.png")), cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-off.png")), cc.Sprite.create(cpz.GameConfig.getRootPath("switch/switch-thumb.png")), cc.LabelBMFont.create(lang.get('menu.themegame.cardlayout.on'), cpz.GameConfig.getFontPath(currentFontFile), null, cc.TEXT_ALIGNMENT_CENTER), cc.LabelBMFont.create(lang.get('menu.themegame.cardlayout.off'), cpz.GameConfig.getFontPath(currentFontFile), null, cc.TEXT_ALIGNMENT_CENTER), conf.getIsCardLayout(), this._setIsCardLayout, this);
         this._mBox.layout(anim);
         break;
       case cpz.MenuLayoutType.None:

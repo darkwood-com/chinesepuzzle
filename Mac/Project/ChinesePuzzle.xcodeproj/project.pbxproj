@@ -30,6 +30,7 @@
 		C347E2C918520F9100968691 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C347E2C418520F9100968691 /* AppController.mm */; };
 		C34FDCCA1860649100238872 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C34FDCC91860649100238872 /* cocos2d-jsb.js */; };
 		C35A931518ABD3FC00771B07 /* bgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C35A931418ABD3FC00771B07 /* bgPattern.png */; };
+		C36A3D4018B51EB800551C07 /* switch in Resources */ = {isa = PBXBuildFile; fileRef = C36A3D3F18B51EB800551C07 /* switch */; };
 		C38B4145185B6CC500245259 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C38B4143185B6CC500245259 /* AppDelegate.cpp */; };
 		C38D11D118634E7B00F8159A /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CE18634E7B00F8159A /* lang-de.plist */; };
 		C38D11D218634E7B00F8159A /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C38D11CF18634E7B00F8159A /* lang-en.plist */; };
@@ -194,6 +195,7 @@
 		C347E2C418520F9100968691 /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		C34FDCC91860649100238872 /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "cocos2d-jsb.js"; sourceTree = "<group>"; };
 		C35A931418ABD3FC00771B07 /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../Bin/Data/bgPattern.png; sourceTree = "<group>"; };
+		C36A3D3F18B51EB800551C07 /* switch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = switch; path = ../Bin/Data/switch; sourceTree = "<group>"; };
 		C38B4143185B6CC500245259 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C38B4144185B6CC500245259 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C38D11CE18634E7B00F8159A /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				C38D11CF18634E7B00F8159A /* lang-en.plist */,
 				C38D11D018634E7B00F8159A /* lang-fr.plist */,
 				C308BC341873267F0009A134 /* sound */,
+				C36A3D3F18B51EB800551C07 /* switch */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				C38D11D318634E7B00F8159A /* lang-fr.plist in Resources */,
 				C35A931518ABD3FC00771B07 /* bgPattern.png in Resources */,
 				C308BC351873267F0009A134 /* sound in Resources */,
+				C36A3D4018B51EB800551C07 /* switch in Resources */,
 				C3F63CAD18605D3B0055BBF0 /* debugger in Resources */,
 				C3F6251818605C8B0055BBF0 /* jsb_cocos2d_extension.js in Resources */,
 				C3F6251318605C8B0055BBF0 /* jsb.js in Resources */,

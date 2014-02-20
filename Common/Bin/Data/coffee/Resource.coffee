@@ -24,9 +24,14 @@ res = [
   #tmx
 
   #png
-  cpz.GameConfig.getRootPath('bgPattern.png')
+  cpz.GameConfig.getRootPath('bgPattern.png'),
 
+  cpz.GameConfig.getRootPath("switch/switch-mask.png"),
+  cpz.GameConfig.getRootPath("switch/switch-on.png"),
+  cpz.GameConfig.getRootPath("switch/switch-off.png"),
+  cpz.GameConfig.getRootPath("switch/switch-thumb.png")
   #effect
+  
 
   #audio
   #cpz.CommonPath + 'sound/bgm1.mp3',
