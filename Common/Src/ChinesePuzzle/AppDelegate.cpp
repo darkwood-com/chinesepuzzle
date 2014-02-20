@@ -11,12 +11,12 @@
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
  *  (at your option) any later version.
- *  
+ *
  *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
- *  
+ *
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -24,136 +24,81 @@
 
 #include "AppDelegate.h"
 
-#include "CCReshapeDelegate.h"
-#include "CCLang.h"
+#include "cocos2d.h"
+#include "SimpleAudioEngine.h"
+#include "ScriptingCore.h"
+#include "jsb_cocos2dx_auto.hpp"
+#include "jsb_cocos2dx_extension_auto.hpp"
+#include "cocos2d_specifics.hpp"
+#include "extension/jsb_cocos2dx_extension_manual.h"
+#include "chipmunk/js_bindings_chipmunk_registration.h"
+#include "jsb_opengl_registration.h"
+#include "localstorage/js_bindings_system_registration.h"
 
 USING_NS_CC;
+using namespace CocosDenshion;
 
 AppDelegate::AppDelegate()
 {
-	srand(time(NULL)); // generate random
 }
 
 AppDelegate::~AppDelegate()
 {
-	
-}
-
-bool AppDelegate::initInstance()
-{
-    bool bRet = false;
-    do 
-    {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-
-        // Initialize OpenGLView instance, that release by CCDirector when application terminate.
-        // The HelloWorld is designed as HVGA.
-        CCEGLView * pMainWnd = new CCEGLView();
-        CC_BREAK_IF(! pMainWnd
-            || ! pMainWnd->Create(TEXT("cocos2d: Hello World"), 480, 320));
-
-#endif  // CC_PLATFORM_WIN32
-        
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        // OpenGLView is initialized in AppDelegate.mm on ios platform, nothing need to do here.
-#endif  // CC_PLATFORM_IOS
-		
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-        // OpenGLView is initialized in AppDelegate.mm on mac platform, nothing need to do here.
-#endif  // CC_PLATFORM_MAC
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)        
-        // OpenGLView is initialized in HelloWorld/android/jni/helloworld/main.cpp
-		// the default setting is to create a fullscreen view
-		// if you want to use auto-scale, please enable view->create(320,480) in main.cpp
-#endif  // CC_PLATFORM_ANDROID
-        
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WOPHONE)
-
-        // Initialize OpenGLView instance, that release by CCDirector when application terminate.
-        // The HelloWorld is designed as HVGA.
-        CCEGLView* pMainWnd = new CCEGLView(this);
-        CC_BREAK_IF(! pMainWnd || ! pMainWnd->Create(320,480, WM_WINDOW_ROTATE_MODE_CW));
-
-#ifndef _TRANZDA_VM_  
-        // on wophone emulator, we copy resources files to Work7/TG3/APP/ folder instead of zip file
-        cocos2d::CCFileUtils::setResource("HelloWorld.zip");
-#endif
-
-#endif  // CC_PLATFORM_WOPHONE
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_AIRPLAY)
-		// MaxAksenov said it's NOT a very elegant solution. I agree, haha
-		CCDirector::sharedDirector()->setDeviceOrientation(kCCDeviceOrientationLandscapeLeft);
-#endif
-        
-        bRet = true;
-    } while (0);
-    return bRet;
+    ScriptEngineManager::destroyInstance();
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
 	//set langage
-	CCLang* lang = CCLang::sharedLang();
-	lang->setLang(this->getCurrentLanguage());
-	lang->addLang("lang");
-	
-	// initialize director
-	CCDirector *pDirector = CCDirector::sharedDirector();
-    pDirector->setOpenGLView(&CCEGLView::sharedOpenGLView());
+	//CCLang* lang = CCLang::sharedLang();
+	//lang->setLang(this->getCurrentLanguage());
+	//lang->addLang("lang");
 
-    // enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
-    // pDirector->enableRetinaDisplay(true);
-
-	// sets landscape mode
-	// pDirector->setDeviceOrientation(kCCDeviceOrientationLandscapeLeft);
-
+    // initialize director
+    Director *director = Director::getInstance();
+    GLView* glview = director->getOpenGLView();
+    if(!glview) {
+        glview = GLView::create("ChinesePuzzle");
+        director->setOpenGLView(glview);
+    }
+    
 	// turn on display FPS
 #if defined(COCOS2D_DEBUG)
-	pDirector->setDisplayFPS(true);
+	director->setDisplayStats(true);
 #endif
-	
-	// set FPS. the default value is 1.0/60 if you don't call this
-	pDirector->setAnimationInterval(1.0 / 60);
 
-	// create a scene. it's an autorelease object
-	pGameScene = GameScene::node();
-
-	// run
-	pDirector->runWithScene(pGameScene);
-
-	return true;
+    // set FPS. the default value is 1.0/60 if you don't call this
+    director->setAnimationInterval(1.0 / 60);
+    
+    ScriptingCore* sc = ScriptingCore::getInstance();
+    sc->addRegisterCallback(register_all_cocos2dx);
+    sc->addRegisterCallback(register_all_cocos2dx_extension);
+    sc->addRegisterCallback(register_cocos2dx_js_extensions);
+    sc->addRegisterCallback(register_all_cocos2dx_extension_manual);
+    sc->addRegisterCallback(jsb_register_chipmunk);
+    sc->addRegisterCallback(JSB_register_opengl);
+    sc->addRegisterCallback(jsb_register_system);
+    sc->start();
+    
+    ScriptEngineProtocol *engine = ScriptingCore::getInstance();
+    ScriptEngineManager::getInstance()->setScriptEngine(engine);
+    ScriptingCore::getInstance()->runScript("cocos2d-jsb.js");
+       
+    return true;
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground()
 {
-    CCDirector::sharedDirector()->pause();
-
-	// if you use SimpleAudioEngine, it must be pause
-	// SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+    Director::getInstance()->stopAnimation();
+    SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    SimpleAudioEngine::getInstance()->pauseAllEffects();
 }
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground()
 {
-    CCDirector::sharedDirector()->resume();
-	
-	// if you use SimpleAudioEngine, it must resume here
-	// SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
-}
-
-void AppDelegate::reshape()
-{
-	//update projection
-	CCDirector::sharedDirector()->reshapeProjection(CCSizeZero);
-	
-	//reshape scene
-	CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
-	CCReshapeDelegate* sceneReshape = dynamic_cast<CCReshapeDelegate*>(scene);
-	if(sceneReshape) sceneReshape->ccReshape();
-	
-	//update draw
-	CCDirector::sharedDirector()->drawScene();
+    Director::getInstance()->startAnimation();
+    SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    SimpleAudioEngine::getInstance()->resumeAllEffects();
 }

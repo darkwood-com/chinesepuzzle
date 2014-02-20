@@ -38,3 +38,6 @@ Android/Project/.settings
 
 # JetBrains
 .idea
+
+# NPM
+node_modules/

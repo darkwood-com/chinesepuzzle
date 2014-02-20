@@ -1,0 +1,13 @@
+{
+    "name": "ChinesePuzzle",
+    "description": "ChinesePuzzle",
+    "author": "Mathieu Ledru",
+    "license": "MIT",
+    "readmeFilename": "README.md",
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-notify": "~0.2.3",
+        "grunt-contrib-coffee": "~0.7.0",
+        "grunt-contrib-watch": "~0.4.4"
+    }
+}
