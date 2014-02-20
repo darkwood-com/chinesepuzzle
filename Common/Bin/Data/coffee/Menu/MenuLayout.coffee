@@ -202,9 +202,10 @@ cpz.MenuLayout = cc.Class.extend(
   _setIsCardLayout: (bool) ->
     gs = @_menu.getGameScene()
 
-    #gs.getConf().setIsCardLayout bool
-    #gs.layout()
-    #gs.getConf().save()
+    if bool isnt gs.getConf().getIsCardLayout()
+      gs.getConf().setIsCardLayout bool
+      gs.layout()
+      gs.getConf().save()
 
   _bg: null
 
