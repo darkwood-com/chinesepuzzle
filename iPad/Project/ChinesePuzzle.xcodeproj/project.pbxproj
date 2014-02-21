@@ -67,6 +67,7 @@
 		C3E0399015F9478D000622C4 /* ChinesePuzzleDefault-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */; };
 		C3E0399115F9478D000622C4 /* ChinesePuzzleDefault-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */; };
 		C3E0399215F9478D000622C4 /* ChinesePuzzleDefault-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */; };
+		C3F005E318B7BB0400B3576C /* switch in Resources */ = {isa = PBXBuildFile; fileRef = C3F005E218B7BB0400B3576C /* switch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +234,7 @@
 		C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Landscape@2x.png"; sourceTree = "<group>"; };
 		C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Portrait.png"; sourceTree = "<group>"; };
 		C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Portrait@2x.png"; sourceTree = "<group>"; };
+		C3F005E218B7BB0400B3576C /* switch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = switch; path = ../Bin/Data/switch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +386,7 @@
 				C3D38FBB18B4F7D300EB8E1A /* lang-en.plist */,
 				C3D38FBC18B4F7D300EB8E1A /* lang-fr.plist */,
 				C3D38FBD18B4F7D300EB8E1A /* sound */,
+				C3F005E218B7BB0400B3576C /* switch */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				C3D3AF2218B4F81200EB8E1A /* jsb_opengl_constants.js in Resources */,
 				C3D3AF1F18B4F81200EB8E1A /* jsb_debugger.js in Resources */,
 				C3D3AF1D18B4F81200EB8E1A /* jsb_cocos2d_studio.js in Resources */,
+				C3F005E318B7BB0400B3576C /* switch in Resources */,
 				C3D3AF2018B4F81200EB8E1A /* jsb_deprecated.js in Resources */,
 				C3D3AF2318B4F81200EB8E1A /* jsb_sys.js in Resources */,
 				C3D3AF2118B4F81200EB8E1A /* jsb_opengl.js in Resources */,

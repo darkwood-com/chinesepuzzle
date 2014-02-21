@@ -65,6 +65,7 @@
 		C3D38FA618B4F52A00EB8E1A /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3A18B3B62D00A1EA5A /* lang-fr.plist */; };
 		C3D38FA718B4F53D00EB8E1A /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD2B18B3B62D00A1EA5A /* 480x320 */; };
 		C3D38FA818B4F53D00EB8E1A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3618B3B62D00A1EA5A /* fonts */; };
+		C3F005D118B7BAF500B3576C /* switch in Resources */ = {isa = PBXBuildFile; fileRef = C3F005D018B7BAF500B3576C /* switch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +230,7 @@
 		C3B854371462935000C440B3 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		C3B854391462935800C440B3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C3B8543B1462935E00C440B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C3F005D018B7BAF500B3576C /* switch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = switch; path = ../Bin/Data/switch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +397,7 @@
 				C3AADD3918B3B62D00A1EA5A /* lang-en.plist */,
 				C3AADD3A18B3B62D00A1EA5A /* lang-fr.plist */,
 				C3AADD3B18B3B62D00A1EA5A /* sound */,
+				C3F005D018B7BAF500B3576C /* switch */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				C3D38FA818B4F53D00EB8E1A /* fonts in Resources */,
 				C3AADD4818B3B62D00A1EA5A /* js in Resources */,
 				C3D38FA418B4F52A00EB8E1A /* lang-de.plist in Resources */,
+				C3F005D118B7BAF500B3576C /* switch in Resources */,
 				C3D38FA518B4F52A00EB8E1A /* lang-en.plist in Resources */,
 				C3D38FA618B4F52A00EB8E1A /* lang-fr.plist in Resources */,
 				C3AADD4618B3B62D00A1EA5A /* bgPattern.png in Resources */,
