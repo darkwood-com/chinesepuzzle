@@ -129,7 +129,7 @@ cpz.GameConfig = cc.Class.extend({
           ];
         }
         node = cc.SpriteBatchNode.create(texturePath);
-        nodeSize = cc.SizeZero();
+        nodeSize = cc.p(0, 0);
         for (_k = 0, _len2 = s.length; _k < _len2; _k++) {
           zone = s[_k];
           if (!zone['anchor']) {
@@ -357,13 +357,13 @@ cpz.GameConfig.getFontPath = function(file) {
 cpz.GameConfig.parseResolution = function(res) {
   var m;
   if (!res) {
-    return cc.SizeZero();
+    return cc.p(0, 0);
   }
   m = res.match(/([0-9]+)x([0-9]+)/);
   if (m) {
     return cc.size(parseInt(m[1]), parseInt(m[2]));
   } else {
-    return cc.SizeZero();
+    return cc.p(0, 0);
   }
 };
 
