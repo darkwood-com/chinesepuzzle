@@ -147,18 +147,18 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
   onTouchMoved: (touch, event) ->
     @_super(touch, event)
 
-    @_switchControl.onTouchMoved(touch, event) if @_switchControl and @_switchControl.onTouchMoved and @_switchControl.onTouchMoved(touch)
+    @_switchControl.onTouchMoved(touch, event) if @_switchControl and @_switchControl.onTouchMoved and @_switchControl.isTouchInside(touch) and @_switchControl.onTouchMoved(touch)
     @_container.onTouchMoved(touch, event)
   
   onTouchEnded: (touch, event) ->
     @_super(touch, event)
 
-    @_switchControl.onTouchEnded(touch, event) if @_switchControl and @_switchControl.onTouchEnded and @_switchControl.onTouchEnded(touch)
+    @_switchControl.onTouchEnded(touch, event) if @_switchControl and @_switchControl.onTouchEnded and @_switchControl.isTouchInside(touch) and @_switchControl.onTouchEnded(touch)
     @_container.onTouchEnded(touch, event)
     
   onTouchCancelled: (touch, event) ->
     @_super(touch, event)
 
-    @_switchControl.onTouchCancelled(touch, event) if @_switchControl and @_switchControl.onTouchCancelled and @_switchControl.onTouchCancelled(touch)
+    @_switchControl.onTouchCancelled(touch, event) if @_switchControl and @_switchControl.onTouchCancelled and @_switchControl.isTouchInside(touch) and @_switchControl.onTouchCancelled(touch)
     @_container.onTouchCancelled(touch, event)
 )

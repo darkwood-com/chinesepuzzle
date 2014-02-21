@@ -160,21 +160,21 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
   },
   onTouchMoved: function(touch, event) {
     this._super(touch, event);
-    if (this._switchControl && this._switchControl.onTouchMoved && this._switchControl.onTouchMoved(touch)) {
+    if (this._switchControl && this._switchControl.onTouchMoved && this._switchControl.isTouchInside(touch) && this._switchControl.onTouchMoved(touch)) {
       this._switchControl.onTouchMoved(touch, event);
     }
     return this._container.onTouchMoved(touch, event);
   },
   onTouchEnded: function(touch, event) {
     this._super(touch, event);
-    if (this._switchControl && this._switchControl.onTouchEnded && this._switchControl.onTouchEnded(touch)) {
+    if (this._switchControl && this._switchControl.onTouchEnded && this._switchControl.isTouchInside(touch) && this._switchControl.onTouchEnded(touch)) {
       this._switchControl.onTouchEnded(touch, event);
     }
     return this._container.onTouchEnded(touch, event);
   },
   onTouchCancelled: function(touch, event) {
     this._super(touch, event);
-    if (this._switchControl && this._switchControl.onTouchCancelled && this._switchControl.onTouchCancelled(touch)) {
+    if (this._switchControl && this._switchControl.onTouchCancelled && this._switchControl.isTouchInside(touch) && this._switchControl.onTouchCancelled(touch)) {
       this._switchControl.onTouchCancelled(touch, event);
     }
     return this._container.onTouchCancelled(touch, event);

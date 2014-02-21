@@ -95,6 +95,293 @@ cpz.GameConfig = cc.Class.extend({
                   anchor: [0.5, 0.5]
                 }
               ];
+            } else if (this._isCardLayout && rank === "3") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "4") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "5") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "6") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "7") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "8") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 1.5 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 2.5 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "9") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 2 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 3 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 4 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 2 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 4 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 1.5 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "10") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 2 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 3 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, 4 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 2 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 4 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 1.5 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 3.5 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && (rank === "J" || rank === "Q" || rank === "K")) {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [box.width / 4, box.height / 2],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, box.height / 2],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'rank_' + color + rank,
+                  to: [box.width / 4, 4 * box.height / 5],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'rank_' + color + rank,
+                  to: [3 * box.width / 4, box.height / 5],
+                  anchor: [0.5, 0.5]
+                }
+              ];
             } else {
               sprites['card_' + color + rank] = [
                 {

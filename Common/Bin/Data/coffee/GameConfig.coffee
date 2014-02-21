@@ -62,7 +62,7 @@ cpz.GameConfig = cc.Class.extend(
         ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
         for color in colors
           for rank in ranks
-            if (@_isCardLayout and rank == "A")
+            if (@_isCardLayout and rank is "A")
               sprites['card_' + color + rank] = [
                 from: 'cardbg'
                 to: [0, 0]
@@ -79,7 +79,7 @@ cpz.GameConfig = cc.Class.extend(
                 to: [2 * box.width / 4, 2 * box.height / 4]
                 anchor: [0.5, 0.5]
               ]
-            else if (@_isCardLayout and rank == "2")
+            else if (@_isCardLayout and rank is "2")
               sprites['card_' + color + rank] = [
                 from: 'cardbg'
                 to: [0, 0]
@@ -92,342 +92,275 @@ cpz.GameConfig = cc.Class.extend(
                 to: [2 * box.width / 4, 3 * box.height / 4]
                 anchor: [0.5, 0.5]
               ]
-#            } else if (rank == "3") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "4") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "5") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "6") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "7") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 4.0 * box.size.height / 6}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "8") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 2.0 * box.size.height / 6}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 4.0 * box.size.height / 6}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "9") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 1.5 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "10") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 1.5 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({2.0 * box.size.width / 4, 3.5 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else if (rank == "J" || rank == "Q" || rank == "K") {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
-#                _["to"] = _$({1.0 * box.size.width / 4, 4.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 1.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#              _$({
-#              _["from"] = var("small_") + colors[colorIndex],
-#                _["to"] = _$({3.0 * box.size.width / 4, 2.0 * box.size.height / 5}),
-#              _["anchor"] = _$({0.5, 0.5}),
-#              }),
-#            });
-#            } else {
-#            sprites[cardName] = _$({
-#            _$({_["from"] = "cardbg", _["to"] = _$({0,0})}),
-#            _$({
-#            _["from"] = var("rank_") + colors[colorIndex] + ranks[rankIndex],
-#              _["to"] = _$({1.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#            _["anchor"] = _$({0.5, 0.5}),
-#            }),
-#            _$({
-#            _["from"] = var("big_") + colors[colorIndex],
-#              _["to"] = _$({2.0 * box.size.width / 4, 1.0 * box.size.height / 4}),
-#            _["anchor"] = _$({0.5, 0.5}),
-#            }),
-#            _$({
-#            _["from"] = var("small_") + colors[colorIndex],
-#              _["to"] = _$({3.0 * box.size.width / 4, 3.0 * box.size.height / 4}),
-#            _["anchor"] = _$({0.5, 0.5}),
-#            }),
-#            });
-#            }
+            else if (@_isCardLayout and rank is "3")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and rank is "4")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and rank is "5")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and rank is "6")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and rank is "7")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and rank is "8")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 2 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 3 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 1.5 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 2.5 * box.height / 4]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and rank is "9")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 2 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 3 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 4 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 2 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 3 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 4 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 1.5 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and rank is "10")
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 2 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 3 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, 4 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 2 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 3 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, 4 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 1.5 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [2 * box.width / 4, 3.5 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ]
+            else if (@_isCardLayout and (rank is "J" or rank is "Q" or rank is "K"))
+              sprites['card_' + color + rank] = [
+                from: 'cardbg'
+                to: [0, 0]
+              ,
+                from: 'small_' + color
+                to: [box.width / 4, box.height / 2]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'small_' + color
+                to: [3 * box.width / 4, box.height / 2]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'rank_' + color + rank
+                to: [box.width / 4, 4 * box.height / 5]
+                anchor: [0.5, 0.5]
+              ,
+                from: 'rank_' + color + rank
+                to: [3 * box.width / 4, box.height / 5]
+                anchor: [0.5, 0.5]
+              ]
             else
               sprites['card_' + color + rank] = [
                 from: 'cardbg'
