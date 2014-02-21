@@ -74,12 +74,12 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
 
     @removeChild(@_switchControlOn) if @_switchControlOn
     @_switchControlOn = onLabel
-    @_switchControlOn.addLoadedEventListener(@layout, @)
+    #@_switchControlOn.addLoadedEventListener(@layout, @)
     @addChild(@_switchControlOn)
 
     @removeChild(@_switchControlOff) if @_switchControlOff
     @_switchControlOff = offLabel
-    @_switchControlOff.addLoadedEventListener(@layout, @)
+    #@_switchControlOff.addLoadedEventListener(@layout, @)
     @addChild(@_switchControlOff)
 
     @_switchControl.setOn(bool)

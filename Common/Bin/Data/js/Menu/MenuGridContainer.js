@@ -85,13 +85,11 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
       this.removeChild(this._switchControlOn);
     }
     this._switchControlOn = onLabel;
-    this._switchControlOn.addLoadedEventListener(this.layout, this);
     this.addChild(this._switchControlOn);
     if (this._switchControlOff) {
       this.removeChild(this._switchControlOff);
     }
     this._switchControlOff = offLabel;
-    this._switchControlOff.addLoadedEventListener(this.layout, this);
     this.addChild(this._switchControlOff);
     return this._switchControl.setOn(bool);
   },

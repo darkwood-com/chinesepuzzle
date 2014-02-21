@@ -11,11 +11,12 @@ cpz.XML_FILE_NAME = "chinesepuzzle.data";
 
 cpz.GameConfig = cc.Class.extend({
   _getNodePath: function(mode, file, sprite) {
-    var box, cardBGSprite, color, colors, k, node, nodePath, nodeSize, path, plistPath, rank, ranks, s, spriteFrameCache, sprites, texturePath, zone, zoneAnchor, zonePosition, zoneSprite, _i, _j, _k, _len, _len1, _len2;
+    var box, cardBGSprite, color, colors, isCardLayout, k, node, nodePath, nodeSize, path, plistPath, rank, ranks, s, spriteFrameCache, sprites, texturePath, zone, zoneAnchor, zonePosition, zoneSprite, _i, _j, _k, _len, _len1, _len2;
     path = cpz.CommonPath + this._resolution + '/' + (mode === 'theme' ? 'themes/' + this._theme : 'ui');
     plistPath = path + '.plist';
     texturePath = path + '.png';
-    nodePath = path + ':' + file;
+    isCardLayout = this._isCardLayout ? '1' : '0';
+    nodePath = path + ':' + isCardLayout + ':' + file;
     node = cpz.GameConfig._configPaths[nodePath];
     if (!node) {
       spriteFrameCache = cc.SpriteFrameCache.getInstance();
@@ -60,24 +61,60 @@ cpz.GameConfig = cc.Class.extend({
           color = colors[_i];
           for (_j = 0, _len1 = ranks.length; _j < _len1; _j++) {
             rank = ranks[_j];
-            sprites['card_' + color + rank] = [
-              {
-                from: 'cardbg',
-                to: [0, 0]
-              }, {
-                from: 'rank_' + color + rank,
-                to: [box.width / 4, 3 * box.height / 4],
-                anchor: [0.5, 0.5]
-              }, {
-                from: 'big_' + color,
-                to: [2 * box.width / 4, box.height / 4],
-                anchor: [0.5, 0.5]
-              }, {
-                from: 'small_' + color,
-                to: [3 * box.width / 4, 3 * box.height / 4],
-                anchor: [0.5, 0.5]
-              }
-            ];
+            if (this._isCardLayout && rank === "A") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'rank_' + color + rank,
+                  to: [box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'rank_' + color + rank,
+                  to: [3 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 2 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else if (this._isCardLayout && rank === "2") {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [2 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            } else {
+              sprites['card_' + color + rank] = [
+                {
+                  from: 'cardbg',
+                  to: [0, 0]
+                }, {
+                  from: 'rank_' + color + rank,
+                  to: [box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'big_' + color,
+                  to: [2 * box.width / 4, box.height / 4],
+                  anchor: [0.5, 0.5]
+                }, {
+                  from: 'small_' + color,
+                  to: [3 * box.width / 4, 3 * box.height / 4],
+                  anchor: [0.5, 0.5]
+                }
+              ];
+            }
           }
         }
       }
@@ -109,7 +146,7 @@ cpz.GameConfig = cc.Class.extend({
           nodeSize.height = Math.max(box.y + box.height, nodeSize.height);
         }
         node.setContentSize(nodeSize);
-        cpz.GameConfig._configPathsSet(path + ':' + k, node);
+        cpz.GameConfig._configPathsSet(path + ':' + isCardLayout + ':' + k, node);
       }
       node = cpz.GameConfig._configPaths[nodePath];
     }
