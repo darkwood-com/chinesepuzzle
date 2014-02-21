@@ -455,7 +455,7 @@ cpz.GameConfig = cc.Class.extend(
 
         node = cc.SpriteBatchNode.create texturePath
 
-        nodeSize = cc.p(0,0)
+        nodeSize = cc.SizeZero()
         for zone in s
           unless zone['anchor']
             zone['anchor'] = [0, 0]
@@ -615,9 +615,9 @@ cpz.GameConfig.getThemePath = (file, resolution, theme) -> cpz.CommonPath + reso
 cpz.GameConfig.getFontPath = (file) -> cpz.CommonPath + 'fonts/' + file
 
 cpz.GameConfig.parseResolution = (res) ->
-  return cc.p(0,0) unless res
+  return cc.SizeZero() unless res
   m = res.match /([0-9]+)x([0-9]+)/
-  if m then cc.size(parseInt(m[1]), parseInt(m[2])) else cc.p(0,0)
+  if m then cc.size(parseInt(m[1]), parseInt(m[2])) else cc.SizeZero()
 
 cpz.GameConfig.getResolutions = ->
   [

@@ -167,9 +167,9 @@ cpz.GameLayout = cc.Class.extend(
 
   ctor: (game) ->
     @_game = game
-    @_gridCardSize = cc.p(0,0)
-    @_gridSpaceSize = cc.p(0,0)
-    @_gridPosition = cc.p(0,0)
+    @_gridCardSize = cc.SizeZero()
+    @_gridSpaceSize = cc.SizeZero()
+    @_gridPosition = cc.SizeZero()
 
   layout: (anim = true) ->
     conf = @_game.getGameScene().getConf()
