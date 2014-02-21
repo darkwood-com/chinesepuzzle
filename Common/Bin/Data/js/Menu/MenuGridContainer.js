@@ -73,10 +73,13 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
     return this._switchControl;
   },
   setSwitchControl: function(maskSprite, onSprite, offSprite, thumbSprite, onLabel, offLabel, bool, selector, target) {
+    var offLabelControl, onLabelControl;
     if (this._switchControl) {
       this.removeChild(this._switchControl);
     }
-    this._switchControl = cc.ControlSwitch.create(maskSprite, onSprite, offSprite, thumbSprite);
+    onLabelControl = cc.LabelTTF.create("On", "Arial-BoldMT", 16);
+    offLabelControl = cc.LabelTTF.create("Off", "Arial-BoldMT", 16);
+    this._switchControl = cc.ControlSwitch.create(maskSprite, onSprite, offSprite, thumbSprite, onLabelControl, offLabelControl);
     this._switchControl.addTargetWithActionForControlEvents(this, this.switchControlValueChanged, cc.CONTROL_EVENT_VALUECHANGED);
     this._switchControlSelector = selector;
     this._switchControlTarget = target;
@@ -85,11 +88,17 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
       this.removeChild(this._switchControlOn);
     }
     this._switchControlOn = onLabel;
+    if (this._switchControlOn.addLoadedEventListener) {
+      this._switchControlOn.addLoadedEventListener(this.layout, this);
+    }
     this.addChild(this._switchControlOn);
     if (this._switchControlOff) {
       this.removeChild(this._switchControlOff);
     }
     this._switchControlOff = offLabel;
+    if (this._switchControlOff.addLoadedEventListener) {
+      this._switchControlOff.addLoadedEventListener(this.layout, this);
+    }
     this.addChild(this._switchControlOff);
     return this._switchControl.setOn(bool);
   },
@@ -144,28 +153,28 @@ cpz.MenuGridContainer = cpz.MenuBox.extend({
     if (this._super(touch, event)) {
       return false;
     }
-    if (this._switchControl && this._switchControl.onTouchBegan(touch, event)) {
+    if (this._switchControl && this._switchControl.onTouchBegan && this._switchControl.onTouchBegan(touch, event)) {
       return true;
     }
     return this._container.onTouchBegan(touch, event);
   },
   onTouchMoved: function(touch, event) {
     this._super(touch, event);
-    if (this._switchControl && this._switchControl.isTouchInside(touch)) {
+    if (this._switchControl && this._switchControl.onTouchMoved && this._switchControl.onTouchMoved(touch)) {
       this._switchControl.onTouchMoved(touch, event);
     }
     return this._container.onTouchMoved(touch, event);
   },
   onTouchEnded: function(touch, event) {
     this._super(touch, event);
-    if (this._switchControl && this._switchControl.isTouchInside(touch)) {
+    if (this._switchControl && this._switchControl.onTouchEnded && this._switchControl.onTouchEnded(touch)) {
       this._switchControl.onTouchEnded(touch, event);
     }
     return this._container.onTouchEnded(touch, event);
   },
   onTouchCancelled: function(touch, event) {
     this._super(touch, event);
-    if (this._switchControl && this._switchControl.isTouchInside(touch)) {
+    if (this._switchControl && this._switchControl.onTouchCancelled && this._switchControl.onTouchCancelled(touch)) {
       this._switchControl.onTouchCancelled(touch, event);
     }
     return this._container.onTouchCancelled(touch, event);

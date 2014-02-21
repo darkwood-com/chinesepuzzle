@@ -66,7 +66,9 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
   getSwitchControl: -> return @_switchControl
   setSwitchControl: (maskSprite, onSprite, offSprite, thumbSprite, onLabel, offLabel, bool, selector, target) ->
     @removeChild(@_switchControl) if @_switchControl
-    @_switchControl = cc.ControlSwitch.create(maskSprite, onSprite, offSprite, thumbSprite)
+    onLabelControl = cc.LabelTTF.create("On", "Arial-BoldMT", 16)
+    offLabelControl = cc.LabelTTF.create("Off", "Arial-BoldMT", 16)
+    @_switchControl = cc.ControlSwitch.create(maskSprite, onSprite, offSprite, thumbSprite, onLabelControl, offLabelControl)
     @_switchControl.addTargetWithActionForControlEvents(@, @switchControlValueChanged, cc.CONTROL_EVENT_VALUECHANGED)
     @_switchControlSelector = selector
     @_switchControlTarget = target
@@ -74,12 +76,12 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
 
     @removeChild(@_switchControlOn) if @_switchControlOn
     @_switchControlOn = onLabel
-    #@_switchControlOn.addLoadedEventListener(@layout, @)
+    @_switchControlOn.addLoadedEventListener(@layout, @) if @_switchControlOn.addLoadedEventListener
     @addChild(@_switchControlOn)
 
     @removeChild(@_switchControlOff) if @_switchControlOff
     @_switchControlOff = offLabel
-    #@_switchControlOff.addLoadedEventListener(@layout, @)
+    @_switchControlOff.addLoadedEventListener(@layout, @) if @_switchControlOff.addLoadedEventListener
     @addChild(@_switchControlOff)
 
     @_switchControl.setOn(bool)
@@ -138,25 +140,25 @@ cpz.MenuGridContainer = cpz.MenuBox.extend(
 
   onTouchBegan: (touch, event) ->
     return false if @_super(touch, event)
-    return true if @_switchControl and @_switchControl.onTouchBegan(touch, event)
+    return true if @_switchControl and @_switchControl.onTouchBegan and @_switchControl.onTouchBegan(touch, event)
 
     return @_container.onTouchBegan(touch, event)
     
   onTouchMoved: (touch, event) ->
     @_super(touch, event)
 
-    @_switchControl.onTouchMoved(touch, event) if @_switchControl and @_switchControl.isTouchInside(touch)
+    @_switchControl.onTouchMoved(touch, event) if @_switchControl and @_switchControl.onTouchMoved and @_switchControl.onTouchMoved(touch)
     @_container.onTouchMoved(touch, event)
   
   onTouchEnded: (touch, event) ->
     @_super(touch, event)
 
-    @_switchControl.onTouchEnded(touch, event) if @_switchControl and @_switchControl.isTouchInside(touch)
+    @_switchControl.onTouchEnded(touch, event) if @_switchControl and @_switchControl.onTouchEnded and @_switchControl.onTouchEnded(touch)
     @_container.onTouchEnded(touch, event)
     
   onTouchCancelled: (touch, event) ->
     @_super(touch, event)
 
-    @_switchControl.onTouchCancelled(touch, event) if @_switchControl and @_switchControl.isTouchInside(touch)
+    @_switchControl.onTouchCancelled(touch, event) if @_switchControl and @_switchControl.onTouchCancelled and @_switchControl.onTouchCancelled(touch)
     @_container.onTouchCancelled(touch, event)
 )
