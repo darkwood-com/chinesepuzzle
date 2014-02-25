@@ -160,7 +160,7 @@ cpz.GameScene = cc.Scene.extend(
       audio.stopMusic()
 
   reshape: (selector = null, target = null) ->
-    winsize = cc.Director.getInstance().getWinSize()
+    winsize = cc.Director.getInstance().getWinSizeInPixels()
     wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5)
 
     @setPosition(wincenter)
@@ -174,7 +174,7 @@ cpz.GameScene = cc.Scene.extend(
 
       if autoRes is null or
         ((oldRes.width < newRes.width and oldRes.height < newRes.height) and
-        (newRes.width < winsize.width and newRes.height < winsize.height))
+        (newRes.width <= winsize.width and newRes.height <= winsize.height))
           autoRes = res
 
     @setResolution(autoRes, selector, target) if autoRes

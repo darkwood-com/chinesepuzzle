@@ -37,10 +37,10 @@
 	<string></string>
 	<key>UILaunchImageFile</key>
 	<string>ChinesePuzzleDefault.png</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>

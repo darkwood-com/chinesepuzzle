@@ -172,7 +172,7 @@ cpz.GameScene = cc.Scene.extend({
     if (target == null) {
       target = null;
     }
-    winsize = cc.Director.getInstance().getWinSize();
+    winsize = cc.Director.getInstance().getWinSizeInPixels();
     wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5);
     this.setPosition(wincenter);
     if (this._background) {
@@ -184,7 +184,7 @@ cpz.GameScene = cc.Scene.extend({
       res = _ref[_i];
       newRes = cpz.GameConfig.parseResolution(res);
       oldRes = cpz.GameConfig.parseResolution(autoRes);
-      if (autoRes === null || ((oldRes.width < newRes.width && oldRes.height < newRes.height) && (newRes.width < winsize.width && newRes.height < winsize.height))) {
+      if (autoRes === null || ((oldRes.width < newRes.width && oldRes.height < newRes.height) && (newRes.width <= winsize.width && newRes.height <= winsize.height))) {
         autoRes = res;
       }
     }
