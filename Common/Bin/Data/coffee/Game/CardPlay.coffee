@@ -43,7 +43,7 @@ cpz.CardPlay = cpz.Card.extend(
     @_super()
 
   initWithConf: (conf) ->
-    return false unless @initWithTexture cc.textureNull(), 4
+    return false unless @initWithTexture cc.textureNull(), 16
 
     @setConf conf
 

@@ -43,7 +43,7 @@ cpz.CardPlay = cpz.Card.extend({
     return this._super();
   },
   initWithConf: function(conf) {
-    if (!this.initWithTexture(cc.textureNull(), 4)) {
+    if (!this.initWithTexture(cc.textureNull(), 16)) {
       return false;
     }
     this.setConf(conf);
