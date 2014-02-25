@@ -57,6 +57,9 @@ cc.DecoratedBox = cc.Node.extend({
   },
   setContentSize: function(size) {
     var b, i, j, offh, offw, rect, uh, uw, _i, _ref, _results;
+    if (this.getContentSize().width === size.width && this.getContentSize().height === size.height) {
+      return;
+    }
     this._batchNode.removeAllChildren(true);
     this._super(size);
     uw = Math.ceil(size.width / this._cell.width);

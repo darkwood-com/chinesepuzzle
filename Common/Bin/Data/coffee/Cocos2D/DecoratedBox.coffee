@@ -57,6 +57,8 @@ cc.DecoratedBox = cc.Node.extend(
     return true
 
   setContentSize: (size) ->
+    return if @getContentSize().width is size.width and @getContentSize().height is size.height
+
     @_batchNode.removeAllChildren true
 
     @_super size
@@ -139,7 +141,6 @@ cc.DecoratedBox = cc.Node.extend(
         b.setTag(j * @_cell.height + i)
 
         @_batchNode.addChild(b)
-    
 )
 
 cc.DecoratedBox.createWithTexture = (texture, rect, size) ->
