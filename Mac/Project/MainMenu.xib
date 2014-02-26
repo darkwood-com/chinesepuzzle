@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1070" identifier="macosx"/>
+        <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -609,73 +609,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Resolution" id="Rqt-A0-oMj">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Resolution" id="618-pM-4WQ">
-                        <items>
-                            <menuItem title="480 x 320" id="nXG-d9-3gJ">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="E7c-n9-JFW"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="960 x 640" id="czk-9g-pkX">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="HaU-ba-rNA"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1024 x 768" id="xg0-j6-wYt">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="Cj3-uj-z24"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1280 x 800" id="1in-Uy-9P2">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="v8z-2I-1wF"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1280 x 1024" id="aji-t3-gwE">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="AvD-AU-VKu"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1366 x 768" id="eVI-4w-3mk">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="sFZ-e8-DbL"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1440 x 900" id="eII-Uo-NF2">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="ChS-xb-2sq"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1680 x 1050" id="5iC-ya-asu">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="pta-mU-Hh9"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1920 x 1080" id="4Eh-pV-YBL">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="MTA-IE-CCG"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="1920 x 1200" id="ZTu-Pe-gFV">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="changeResolution:" target="494" id="CRb-1M-JsX"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
                 <menuItem title="Window" id="19">
                     <menu key="submenu" title="Window" systemMenu="window" id="24">
                         <items>
@@ -726,16 +659,6 @@
         </window>
         <customObject id="494" customClass="AppController">
             <connections>
-                <outlet property="resolution1024x768" destination="xg0-j6-wYt" id="Exj-kK-mFK"/>
-                <outlet property="resolution1280x1024" destination="aji-t3-gwE" id="83L-ry-nnI"/>
-                <outlet property="resolution1280x800" destination="1in-Uy-9P2" id="93X-wf-FLj"/>
-                <outlet property="resolution1366x768" destination="eVI-4w-3mk" id="Nbf-M6-U28"/>
-                <outlet property="resolution1440x900" destination="eII-Uo-NF2" id="vuh-iP-bee"/>
-                <outlet property="resolution1680x1050" destination="5iC-ya-asu" id="7hn-Qd-Ey3"/>
-                <outlet property="resolution1920x1080" destination="4Eh-pV-YBL" id="SZZ-R2-QJy"/>
-                <outlet property="resolution1920x1200" destination="ZTu-Pe-gFV" id="V7a-1d-PLQ"/>
-                <outlet property="resolution480x320" destination="nXG-d9-3gJ" id="0mt-4M-WBf"/>
-                <outlet property="resolution960x640" destination="czk-9g-pkX" id="odU-ag-Rxd"/>
                 <outlet property="window" destination="371" id="532"/>
             </connections>
         </customObject>
