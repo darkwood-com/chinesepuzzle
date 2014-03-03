@@ -46,7 +46,7 @@ static AppDelegate s_sharedApplication;
     window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     CCEAGLView *eaglView = [CCEAGLView viewWithFrame: [window bounds]
                                          pixelFormat: kEAGLColorFormatRGBA8
-                                         depthFormat: 0 //_OES
+                                         depthFormat: GL_DEPTH24_STENCIL8_OES
                                   preserveBackbuffer: NO
                                           sharegroup: nil
                                        multiSampling: NO
