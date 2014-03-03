@@ -61,7 +61,7 @@ USING_NS_CC;
     Director *director = Director::getInstance();
     GLView* glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLView::createWithRect("Chinese Puzzle", cocos2d::Rect(0, 0, 900, 640));
+        glview = GLView::createWithRect("Chinese Puzzle", cocos2d::Rect(0, 0, 960, 640));
         director->setOpenGLView(glview);
     }
 
