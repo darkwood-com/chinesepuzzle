@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C309579B1461A59900924761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C36ABC9014619A3C0006151B /* InfoPlist.strings */; };
-		C30BBC9914A8D41100E69DA5 /* ChinesePuzzleApp.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */; };
-		C30BBC9A14A8D41100E69DA5 /* ChinesePuzzleApp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */; };
-		C30BBC9E14A8D67700E69DA5 /* ChinesePuzzleDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */; };
-		C30BBC9F14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */; };
 		C32F325118B3CF480003E285 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F325018B3CF480003E285 /* CoreMotion.framework */; };
 		C32F325318B3D1BD0003E285 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
 		C32F325718B4BA220003E285 /* cocos2d-jsb.js in Resources */ = {isa = PBXBuildFile; fileRef = C32F325618B4BA220003E285 /* cocos2d-jsb.js */; };
+		C353071518C4CAEB00B3EC40 /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C353070E18C4CAEB00B3EC40 /* Default-568@2x.png */; };
+		C353071618C4CAEB00B3EC40 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C353070F18C4CAEB00B3EC40 /* Default.png */; };
+		C353071718C4CAEB00B3EC40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C353071018C4CAEB00B3EC40 /* Default@2x.png */; };
+		C353071818C4CAEB00B3EC40 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = C353071118C4CAEB00B3EC40 /* Icon-57.png */; };
+		C353071918C4CAEB00B3EC40 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = C353071218C4CAEB00B3EC40 /* Icon-60.png */; };
+		C353071A18C4CAEB00B3EC40 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = C353071318C4CAEB00B3EC40 /* Icon-114.png */; };
+		C353071B18C4CAEB00B3EC40 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = C353071418C4CAEB00B3EC40 /* Icon-120.png */; };
+		C353072D18C4CB2000B3EC40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C353072C18C4CB2000B3EC40 /* Images.xcassets */; };
 		C3638F5614E2BECA0082777A /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3638F2514E2BEC90082777A /* AppDelegate.cpp */; };
 		C36ABC5D146196000006151B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC5C146196000006151B /* UIKit.framework */; };
 		C36ABC5F146196000006151B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36ABC5E146196000006151B /* Foundation.framework */; };
@@ -172,12 +176,16 @@
 /* Begin PBXFileReference section */
 		C30957981461A4F000924761 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
 		C30957991461A4F000924761 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
-		C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleApp.png; sourceTree = "<group>"; };
-		C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleApp@2x.png"; sourceTree = "<group>"; };
-		C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleDefault.png; sourceTree = "<group>"; };
-		C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault@2x.png"; sourceTree = "<group>"; };
 		C32F325018B3CF480003E285 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C32F325618B4BA220003E285 /* cocos2d-jsb.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "cocos2d-jsb.js"; sourceTree = "<group>"; };
+		C353070E18C4CAEB00B3EC40 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
+		C353070F18C4CAEB00B3EC40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C353071018C4CAEB00B3EC40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C353071118C4CAEB00B3EC40 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
+		C353071218C4CAEB00B3EC40 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		C353071318C4CAEB00B3EC40 /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
+		C353071418C4CAEB00B3EC40 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		C353072C18C4CB2000B3EC40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ChinesePuzzle/Images.xcassets; sourceTree = "<group>"; };
 		C3638F2514E2BEC90082777A /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		C3638F2614E2BEC90082777A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C36ABC58146196000006151B /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,14 +308,18 @@
 		C36ABC8D14619A220006151B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C353072C18C4CB2000B3EC40 /* Images.xcassets */,
 				C30957981461A4F000924761 /* ChinesePuzzle-Info.plist */,
 				C30957991461A4F000924761 /* ChinesePuzzle-Prefix.pch */,
 				C36ABC9014619A3C0006151B /* InfoPlist.strings */,
 				C36ABC9114619A3C0006151B /* main.m */,
-				C30BBC9714A8D41100E69DA5 /* ChinesePuzzleApp.png */,
-				C30BBC9814A8D41100E69DA5 /* ChinesePuzzleApp@2x.png */,
-				C30BBC9C14A8D67700E69DA5 /* ChinesePuzzleDefault.png */,
-				C30BBC9D14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png */,
+				C353070E18C4CAEB00B3EC40 /* Default-568@2x.png */,
+				C353070F18C4CAEB00B3EC40 /* Default.png */,
+				C353071018C4CAEB00B3EC40 /* Default@2x.png */,
+				C353071118C4CAEB00B3EC40 /* Icon-57.png */,
+				C353071218C4CAEB00B3EC40 /* Icon-60.png */,
+				C353071318C4CAEB00B3EC40 /* Icon-114.png */,
+				C353071418C4CAEB00B3EC40 /* Icon-120.png */,
 				C32F325618B4BA220003E285 /* cocos2d-jsb.js */,
 			);
 			name = Resources;
@@ -647,8 +659,10 @@
 			files = (
 				C3D38FA718B4F53D00EB8E1A /* 480x320 in Resources */,
 				C3AADD3D18B3B62D00A1EA5A /* 960x640 in Resources */,
+				C353071818C4CAEB00B3EC40 /* Icon-57.png in Resources */,
 				C3AADD3E18B3B62D00A1EA5A /* 1024x768 in Resources */,
 				C3AADD3F18B3B62D00A1EA5A /* 1280x800 in Resources */,
+				C353071518C4CAEB00B3EC40 /* Default-568@2x.png in Resources */,
 				C3AADD4018B3B62D00A1EA5A /* 1280x1024 in Resources */,
 				C3AADD4118B3B62D00A1EA5A /* 1366x768 in Resources */,
 				C3AADD4218B3B62D00A1EA5A /* 1440x900 in Resources */,
@@ -656,6 +670,8 @@
 				C3AADD4418B3B62D00A1EA5A /* 1920x1080 in Resources */,
 				C3AADD4518B3B62D00A1EA5A /* 1920x1200 in Resources */,
 				C3D38FA818B4F53D00EB8E1A /* fonts in Resources */,
+				C353071718C4CAEB00B3EC40 /* Default@2x.png in Resources */,
+				C353071618C4CAEB00B3EC40 /* Default.png in Resources */,
 				C3AADD4818B3B62D00A1EA5A /* js in Resources */,
 				C3D38FA418B4F52A00EB8E1A /* lang-de.plist in Resources */,
 				C3F005D118B7BAF500B3576C /* switch in Resources */,
@@ -663,11 +679,10 @@
 				C3D38FA618B4F52A00EB8E1A /* lang-fr.plist in Resources */,
 				C3AADD4618B3B62D00A1EA5A /* bgPattern.png in Resources */,
 				C3AADD4C18B3B62D00A1EA5A /* sound in Resources */,
+				C353071B18C4CAEB00B3EC40 /* Icon-120.png in Resources */,
 				C3AA0BBB18B3B74B00A1EA5A /* debugger in Resources */,
-				C30BBC9914A8D41100E69DA5 /* ChinesePuzzleApp.png in Resources */,
-				C30BBC9A14A8D41100E69DA5 /* ChinesePuzzleApp@2x.png in Resources */,
-				C30BBC9E14A8D67700E69DA5 /* ChinesePuzzleDefault.png in Resources */,
-				C30BBC9F14A8D67700E69DA5 /* ChinesePuzzleDefault@2x.png in Resources */,
+				C353072D18C4CB2000B3EC40 /* Images.xcassets in Resources */,
+				C353071918C4CAEB00B3EC40 /* Icon-60.png in Resources */,
 				C3AAFC9718B3B69300A1EA5A /* jsb_cocos2d_extension.js in Resources */,
 				C3AAFC9218B3B69300A1EA5A /* jsb.js in Resources */,
 				C3AAFC9318B3B69300A1EA5A /* jsb_chipmunk.js in Resources */,
@@ -683,6 +698,7 @@
 				C3AAFC9418B3B69300A1EA5A /* jsb_chipmunk_constants.js in Resources */,
 				C3AAFC9518B3B69300A1EA5A /* jsb_cocos2d.js in Resources */,
 				C32F325718B4BA220003E285 /* cocos2d-jsb.js in Resources */,
+				C353071A18C4CAEB00B3EC40 /* Icon-114.png in Resources */,
 				C309579B1461A59900924761 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -813,6 +829,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
 				COMPRESS_PNG_FILES = NO;
@@ -850,6 +868,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
 				COMPRESS_PNG_FILES = NO;
