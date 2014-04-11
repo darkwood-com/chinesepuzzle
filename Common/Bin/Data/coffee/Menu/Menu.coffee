@@ -39,10 +39,28 @@ cpz.Menu = cc.Layer.extend(
     @_touchListener = cc.EventListener.create
       event: cc.EventListener.TOUCH_ONE_BY_ONE
       swallowTouches: true
-      onTouchBegan: @onTouchBegan
-      onTouchMoved: @onTouchMoved
-      onTouchEnded: @onTouchEnded
-      onTouchCancelled: @onTouchCancelled
+
+      onTouchBegan: (touch, event) =>
+        if @_nav.length > 0
+          mc = @_nav[@_nav.length - 1]
+          mc.onTouchBegan(touch, event)
+
+        return true
+
+      onTouchMoved: (touch, event) =>
+        if @_nav.length > 0
+          mc = @_nav[@_nav.length - 1]
+          mc.onTouchMoved(touch, event)
+
+      onTouchEnded: (touch, event) =>
+        if @_nav.length > 0
+          mc = @_nav[@_nav.length - 1]
+          mc.onTouchEnded(touch, event)
+
+      onTouchCancelled: (touch, event) =>
+        if @_nav.length > 0
+          mc = @_nav[@_nav.length - 1]
+          mc.onTouchCancelled(touch, event)
 
     @layout()
     @schedule(@step)
@@ -82,32 +100,6 @@ cpz.Menu = cc.Layer.extend(
     @popNav()
 
     @_gs.game() if @_nav.length is 0
-
-  onTouchBegan: (touch, event) ->
-    #last menu menu touch management
-    if @_nav.length > 0
-      mc = @_nav[@_nav.length - 1]
-      mc.onTouchBegan(touch, event)
-  
-    return true
-    
-  onTouchMoved: (touch, event) ->
-    #last menu menu touch management
-    if @_nav.length > 0
-      mc = @_nav[@_nav.length - 1]
-      mc.onTouchMoved(touch, event)
-    
-  onTouchEnded: (touch, event) ->
-    #last menu menu touch management
-    if @_nav.length > 0
-      mc = @_nav[@_nav.length - 1]
-      mc.onTouchEnded(touch, event)
-  
-  onTouchCancelled: (touch, event) ->
-    #last menu menu touch management
-    if @_nav.length > 0
-      mc = @_nav[@_nav.length - 1]
-      mc.onTouchCancelled(touch, event)
 
   getGameScene: -> @_gs
   getLayout: -> @_ml

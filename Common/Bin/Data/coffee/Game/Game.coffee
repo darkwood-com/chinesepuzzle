@@ -172,10 +172,23 @@ cpz.Game = cc.Layer.extend(
     @_touchListener = cc.EventListener.create
       event: cc.EventListener.TOUCH_ONE_BY_ONE
       swallowTouches: true
-      onTouchBegan: @onTouchBegan
-      onTouchMoved: @onTouchMoved
-      onTouchEnded: @onTouchEnded
-      onTouchCancelled: @onTouchCancelled
+
+      onTouchBegan: (touch, event) =>
+        location = touch.getLocation()
+        @tapDownAt(location)
+        true
+
+      onTouchMoved: (touch, event) =>
+        location = touch.getLocation()
+        @tapMoveAt(location)
+
+      onTouchEnded: (touch, event) =>
+        location = touch.getLocation()
+        @tapUpAt(location)
+
+      onTouchCancelled: (touch, event) =>
+        location = touch.getLocation()
+        @tapUpAt(location)
 
     @layout()
 
@@ -432,23 +445,6 @@ cpz.Game = cc.Layer.extend(
       @_dragCard = null
 
     @_lastTouchLocation = location
-
-  onTouchBegan: (touch, event) ->
-    location = touch.getLocation()
-    @tapDownAt(location)
-    true
-
-  onTouchMoved: (touch, event) ->
-    location = touch.getLocation()
-    @tapMoveAt(location)
-
-  onTouchEnded: (touch, event) ->
-    location = touch.getLocation()
-    @tapUpAt(location)
-
-  onTouchCancelled: (touch, event) ->
-    location = touch.getLocation()
-    @tapUpAt(location)
 
   getGameScene: -> @_gs
   getLayout: -> @_gl

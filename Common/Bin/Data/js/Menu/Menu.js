@@ -28,6 +28,7 @@ cpz.Menu = cc.Layer.extend({
     return this._super();
   },
   initWithGameSceneAndLayout: function(gs, layout) {
+    var _this = this;
     if (!this.init()) {
       return false;
     }
@@ -37,10 +38,35 @@ cpz.Menu = cc.Layer.extend({
     this._touchListener = cc.EventListener.create({
       event: cc.EventListener.TOUCH_ONE_BY_ONE,
       swallowTouches: true,
-      onTouchBegan: this.onTouchBegan,
-      onTouchMoved: this.onTouchMoved,
-      onTouchEnded: this.onTouchEnded,
-      onTouchCancelled: this.onTouchCancelled
+      onTouchBegan: function(touch, event) {
+        var mc;
+        if (_this._nav.length > 0) {
+          mc = _this._nav[_this._nav.length - 1];
+          mc.onTouchBegan(touch, event);
+        }
+        return true;
+      },
+      onTouchMoved: function(touch, event) {
+        var mc;
+        if (_this._nav.length > 0) {
+          mc = _this._nav[_this._nav.length - 1];
+          return mc.onTouchMoved(touch, event);
+        }
+      },
+      onTouchEnded: function(touch, event) {
+        var mc;
+        if (_this._nav.length > 0) {
+          mc = _this._nav[_this._nav.length - 1];
+          return mc.onTouchEnded(touch, event);
+        }
+      },
+      onTouchCancelled: function(touch, event) {
+        var mc;
+        if (_this._nav.length > 0) {
+          mc = _this._nav[_this._nav.length - 1];
+          return mc.onTouchCancelled(touch, event);
+        }
+      }
     });
     this.layout();
     this.schedule(this.step);
@@ -80,35 +106,6 @@ cpz.Menu = cc.Layer.extend({
     this.popNav();
     if (this._nav.length === 0) {
       return this._gs.game();
-    }
-  },
-  onTouchBegan: function(touch, event) {
-    var mc;
-    if (this._nav.length > 0) {
-      mc = this._nav[this._nav.length - 1];
-      mc.onTouchBegan(touch, event);
-    }
-    return true;
-  },
-  onTouchMoved: function(touch, event) {
-    var mc;
-    if (this._nav.length > 0) {
-      mc = this._nav[this._nav.length - 1];
-      return mc.onTouchMoved(touch, event);
-    }
-  },
-  onTouchEnded: function(touch, event) {
-    var mc;
-    if (this._nav.length > 0) {
-      mc = this._nav[this._nav.length - 1];
-      return mc.onTouchEnded(touch, event);
-    }
-  },
-  onTouchCancelled: function(touch, event) {
-    var mc;
-    if (this._nav.length > 0) {
-      mc = this._nav[this._nav.length - 1];
-      return mc.onTouchCancelled(touch, event);
     }
   },
   getGameScene: function() {

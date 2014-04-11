@@ -207,7 +207,8 @@ cpz.Game = cc.Layer.extend({
     return this._super();
   },
   initWithGameScene: function(gs) {
-    var initBoard;
+    var initBoard,
+      _this = this;
     if (!this.init()) {
       return false;
     }
@@ -217,10 +218,27 @@ cpz.Game = cc.Layer.extend({
     this._touchListener = cc.EventListener.create({
       event: cc.EventListener.TOUCH_ONE_BY_ONE,
       swallowTouches: true,
-      onTouchBegan: this.onTouchBegan,
-      onTouchMoved: this.onTouchMoved,
-      onTouchEnded: this.onTouchEnded,
-      onTouchCancelled: this.onTouchCancelled
+      onTouchBegan: function(touch, event) {
+        var location;
+        location = touch.getLocation();
+        _this.tapDownAt(location);
+        return true;
+      },
+      onTouchMoved: function(touch, event) {
+        var location;
+        location = touch.getLocation();
+        return _this.tapMoveAt(location);
+      },
+      onTouchEnded: function(touch, event) {
+        var location;
+        location = touch.getLocation();
+        return _this.tapUpAt(location);
+      },
+      onTouchCancelled: function(touch, event) {
+        var location;
+        location = touch.getLocation();
+        return _this.tapUpAt(location);
+      }
     });
     this.layout();
     initBoard = this._gs.getConf().getInitBoard();
@@ -479,27 +497,6 @@ cpz.Game = cc.Layer.extend({
       this._dragCard = null;
     }
     return this._lastTouchLocation = location;
-  },
-  onTouchBegan: function(touch, event) {
-    var location;
-    location = touch.getLocation();
-    this.tapDownAt(location);
-    return true;
-  },
-  onTouchMoved: function(touch, event) {
-    var location;
-    location = touch.getLocation();
-    return this.tapMoveAt(location);
-  },
-  onTouchEnded: function(touch, event) {
-    var location;
-    location = touch.getLocation();
-    return this.tapUpAt(location);
-  },
-  onTouchCancelled: function(touch, event) {
-    var location;
-    location = touch.getLocation();
-    return this.tapUpAt(location);
   },
   getGameScene: function() {
     return this._gs;
