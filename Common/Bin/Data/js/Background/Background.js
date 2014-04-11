@@ -16,10 +16,10 @@ cpz.Background = cc.Layer.extend({
       return false;
     }
     texParams = {
-      minFilter: gl.LINEAR,
-      magFilter: gl.LINEAR,
-      wrapS: gl.REPEAT,
-      wrapT: gl.REPEAT
+      minFilter: cc._renderContext.LINEAR,
+      magFilter: cc._renderContext.LINEAR,
+      wrapS: cc._renderContext.REPEAT,
+      wrapT: cc._renderContext.REPEAT
     };
     this._bgPattern = cc.Sprite.create(cpz.GameConfig.getRootPath('bgPattern.png'));
     texture = this._bgPattern.getTexture();

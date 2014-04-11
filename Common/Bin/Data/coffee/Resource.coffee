@@ -7,7 +7,7 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 ###
 
-res = [
+cpz.Resources = [
   #image
 
   #plist
@@ -47,10 +47,6 @@ res = [
 
 #for resolution in cpz.GameConfig.getResolutions()
 #  for theme in cpz.GameConfig.getThemes()
-#    res.push cpz.GameConfig.getResolutionPath('themes/' + theme + '.plist', resolution)
-#    res.push cpz.GameConfig.getResolutionPath('themes/' + theme + '.png', resolution)
+#    cpz.Resources.push cpz.GameConfig.getResolutionPath('themes/' + theme + '.plist', resolution)
+#    cpz.Resources.push cpz.GameConfig.getResolutionPath('themes/' + theme + '.png', resolution)
 
-cpz.Resources = []
-for r in res
-  cpz.Resources.push
-    src: r

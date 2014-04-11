@@ -18,18 +18,10 @@ cc.textureNull = function() {
 };
 
 cc.textureParameters = function(texture, params) {
-  if (sys.platform === 'browser') {
+  if (cc.sys.platform === 'browser') {
     return texture.setTexParameters(params);
   } else {
     return texture.setTexParameters(params['minFilter'], params['magFilter'], params['wrapS'], params['wrapT']);
-  }
-};
-
-cc.FileUtils.prototype.getDataFromPlistFile = function(fileName) {
-  if (sys.platform === 'browser') {
-    return this.dictionaryWithContentsOfFile(fileName);
-  } else {
-    return this.getValueMapFromFile(fileName);
   }
 };
 

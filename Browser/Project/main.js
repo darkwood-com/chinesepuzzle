@@ -25,7 +25,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-var cocos2dApp = cc.Application.extend({
+/*var cocos2dApp = cc.Application.extend({
     config:document['ccConfig'],
     ctor:function () {
         this._super();
@@ -85,4 +85,17 @@ var cocos2dApp = cc.Application.extend({
         return cc.Application.getCurrentLanguage();
     }
 });
-var myApp = new cocos2dApp();
+var myApp = new cocos2dApp();*/
+
+var cpz = cpz || {};
+cpz.CommonPath = '../../Common/Bin/Data/';
+cpz.CommonSrcPath = cpz.CommonPath + 'js/';
+
+cc.game.onStart = function(){
+    cc.LoaderScene.preload(cpz.Resources, function () {
+        setTimeout(function() {
+            cc.director.runScene(cpz.GameScene.create());
+        }, 100)
+    }, this);
+};
+cc.game.run();

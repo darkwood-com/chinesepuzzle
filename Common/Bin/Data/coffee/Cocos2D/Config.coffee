@@ -15,16 +15,16 @@ cc.SafeRelease = (p) ->
 cc.textureNull = -> new cc.Texture2D()
 
 cc.textureParameters = (texture, params) ->
-  if sys.platform is 'browser'
+  if cc.sys.platform is 'browser'
     texture.setTexParameters(params)
   else
     texture.setTexParameters(params['minFilter'], params['magFilter'], params['wrapS'], params['wrapT'])
 
-cc.FileUtils.prototype.getDataFromPlistFile = (fileName) ->
-  if sys.platform is 'browser'
-    @dictionaryWithContentsOfFile(fileName)
-  else
-    @getValueMapFromFile(fileName)
+#cc.FileUtils.prototype.getDataFromPlistFile = (fileName) ->
+#  if cc.sys.platform is 'browser'
+#    @dictionaryWithContentsOfFile(fileName)
+#  else
+#    @getValueMapFromFile(fileName)
 
 cc.copySpriteBatchNode = (from, to) ->
   return unless to instanceof cc.SpriteBatchNode and from instanceof cc.SpriteBatchNode

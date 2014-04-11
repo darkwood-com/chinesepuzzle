@@ -41,7 +41,7 @@ cpz.GameScene = cc.Scene.extend({
       return false;
     }
     lang = cc.Lang.getInstance();
-    lang.setLang(cc.Application.getInstance().getCurrentLanguage());
+    lang.setLang(cc.sys.language);
     lang.addLang('lang');
     this.ignoreAnchorPointForPosition(false);
     this._conf = new cpz.GameConfig();
@@ -138,7 +138,7 @@ cpz.GameScene = cc.Scene.extend({
   },
   playSound: function(soundName) {
     var audio;
-    audio = cc.AudioEngine.getInstance();
+    audio = cc.audioEngine;
     if (this._conf.getIsSoundOn()) {
       audio.playEffect(cpz.CommonPath + 'sound/' + soundName + '.mp3');
     }
@@ -146,7 +146,7 @@ cpz.GameScene = cc.Scene.extend({
   },
   playBackgroundMusic: function(play) {
     var audio;
-    audio = cc.AudioEngine.getInstance();
+    audio = cc.audioEngine;
     if (play && this._conf.getIsSoundOn()) {
       audio.setMusicVolume(0.5);
       switch (this._bgMusicTheme) {
@@ -172,7 +172,7 @@ cpz.GameScene = cc.Scene.extend({
     if (target == null) {
       target = null;
     }
-    winsize = cc.Director.getInstance().getWinSizeInPixels();
+    winsize = cc.director.getWinSizeInPixels();
     wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5);
     this.setPosition(wincenter);
     if (this._background) {

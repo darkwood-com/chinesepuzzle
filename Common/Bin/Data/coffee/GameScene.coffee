@@ -41,7 +41,7 @@ cpz.GameScene = cc.Scene.extend(
 
     #set langage
     lang = cc.Lang.getInstance()
-    lang.setLang cc.Application.getInstance().getCurrentLanguage()
+    lang.setLang cc.sys.language
     lang.addLang 'lang'
 
     @ignoreAnchorPointForPosition(false)
@@ -134,14 +134,14 @@ cpz.GameScene = cc.Scene.extend(
     @
 
   playSound: (soundName) ->
-    audio = cc.AudioEngine.getInstance()
+    audio = cc.audioEngine
 
     if @_conf.getIsSoundOn()
       audio.playEffect(cpz.CommonPath + 'sound/' + soundName + '.mp3')
     @
 
   playBackgroundMusic: (play) ->
-    audio = cc.AudioEngine.getInstance()
+    audio = cc.audioEngine
 
     if play and @_conf.getIsSoundOn()
       audio.setMusicVolume 0.5
@@ -160,7 +160,7 @@ cpz.GameScene = cc.Scene.extend(
       audio.stopMusic()
 
   reshape: (selector = null, target = null) ->
-    winsize = cc.Director.getInstance().getWinSizeInPixels()
+    winsize = cc.director.getWinSizeInPixels()
     wincenter = cc.pMult(cc.p(winsize.width, winsize.height), 0.5)
 
     @setPosition(wincenter)

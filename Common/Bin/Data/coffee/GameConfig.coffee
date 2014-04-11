@@ -388,7 +388,7 @@ cpz.GameConfig = cc.Class.extend(
 
         node = cc.SpriteBatchNode.create texturePath
 
-        nodeSize = cc.SizeZero()
+        nodeSize = cc.size(0, 0)
         for zone in s
           unless zone['anchor']
             zone['anchor'] = [0, 0]
@@ -500,12 +500,12 @@ cpz.GameConfig = cc.Class.extend(
   save: ->
     data = @encode()
     data = base64.encode(JSON.stringify(data))
-    sys.localStorage.setItem(cpz.XML_FILE_NAME, data);
+    cc.sys.localStorage.setItem(cpz.XML_FILE_NAME, data);
 
     @
     
   load: ->
-    data = sys.localStorage.getItem(cpz.XML_FILE_NAME);
+    data = cc.sys.localStorage.getItem(cpz.XML_FILE_NAME);
     if data
       data = JSON.parse(base64.decode(data))
       @decode(data)
@@ -521,15 +521,12 @@ cpz.GameConfig = cc.Class.extend(
     plistUIPath = cpz.CommonPath + resolution + '/ui' + '.plist'
     textureUIPath = cpz.CommonPath + resolution + '/ui' + '.png'
 
-    cc.Loader.preload [
-      src: plistThemePath
-    ,
-      src: textureThemePath
-    ,
-      src: plistUIPath
-    ,
-      src: textureUIPath
-    ], selector, target
+    cc.loader.load [
+      plistThemePath,
+      textureThemePath,
+      plistUIPath,
+      textureUIPath
+    ], => selector.call(target)
 )
 
 cpz.GameConfig._configPaths = {};
@@ -548,9 +545,9 @@ cpz.GameConfig.getThemePath = (file, resolution, theme) -> cpz.CommonPath + reso
 cpz.GameConfig.getFontPath = (file) -> cpz.CommonPath + 'fonts/' + file
 
 cpz.GameConfig.parseResolution = (res) ->
-  return cc.SizeZero() unless res
+  return cc.size(0, 0) unless res
   m = res.match /([0-9]+)x([0-9]+)/
-  if m then cc.size(parseInt(m[1]), parseInt(m[2])) else cc.SizeZero()
+  if m then cc.size(parseInt(m[1]), parseInt(m[2])) else cc.size(0, 0)
 
 cpz.GameConfig.getResolutions = ->
   [

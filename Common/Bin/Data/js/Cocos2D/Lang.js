@@ -26,30 +26,6 @@ cc.Lang = cc.Class.extend({
     return this._data[key] = value;
   },
   addLang: function(fileName) {
-    var dict, filePath, fileUtils, fullPath, key, value;
-    fileUtils = cc.FileUtils.getInstance();
-    filePath = cpz.CommonPath + fileName;
-    switch (this._lang) {
-      case cc.LANGUAGE_FRENCH:
-        filePath += '-fr';
-        break;
-      case cc.LANGUAGE_GERMAN:
-        filePath += '-de';
-        break;
-      case cc.LANGUAGE_ENGLISH:
-        filePath += '-en';
-        break;
-      default:
-        filePath += '-en';
-    }
-    fullPath = fileUtils.fullPathForFilename(filePath + '.plist');
-    dict = fileUtils.getDataFromPlistFile(fullPath);
-    for (key in dict) {
-      value = dict[key];
-      if (value) {
-        this.set(key, value);
-      }
-    }
     return this;
   }
 });

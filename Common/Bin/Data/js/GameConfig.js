@@ -416,7 +416,7 @@ cpz.GameConfig = cc.Class.extend({
           ];
         }
         node = cc.SpriteBatchNode.create(texturePath);
-        nodeSize = cc.SizeZero();
+        nodeSize = cc.size(0, 0);
         for (_k = 0, _len2 = s.length; _k < _len2; _k++) {
           zone = s[_k];
           if (!zone['anchor']) {
@@ -566,12 +566,12 @@ cpz.GameConfig = cc.Class.extend({
     var data;
     data = this.encode();
     data = base64.encode(JSON.stringify(data));
-    sys.localStorage.setItem(cpz.XML_FILE_NAME, data);
+    cc.sys.localStorage.setItem(cpz.XML_FILE_NAME, data);
     return this;
   },
   load: function() {
     var data;
-    data = sys.localStorage.getItem(cpz.XML_FILE_NAME);
+    data = cc.sys.localStorage.getItem(cpz.XML_FILE_NAME);
     if (data) {
       data = JSON.parse(base64.decode(data));
       this.decode(data);
@@ -579,7 +579,8 @@ cpz.GameConfig = cc.Class.extend({
     return this;
   },
   preload: function(selector, target, resolution, theme) {
-    var plistThemePath, plistUIPath, textureThemePath, textureUIPath;
+    var plistThemePath, plistUIPath, textureThemePath, textureUIPath,
+      _this = this;
     if (resolution == null) {
       resolution = null;
     }
@@ -596,17 +597,9 @@ cpz.GameConfig = cc.Class.extend({
     textureThemePath = cpz.CommonPath + resolution + '/themes/' + theme + '.png';
     plistUIPath = cpz.CommonPath + resolution + '/ui' + '.plist';
     textureUIPath = cpz.CommonPath + resolution + '/ui' + '.png';
-    return cc.Loader.preload([
-      {
-        src: plistThemePath
-      }, {
-        src: textureThemePath
-      }, {
-        src: plistUIPath
-      }, {
-        src: textureUIPath
-      }
-    ], selector, target);
+    return cc.loader.load([plistThemePath, textureThemePath, plistUIPath, textureUIPath], function() {
+      return selector.call(target);
+    });
   }
 });
 
@@ -644,13 +637,13 @@ cpz.GameConfig.getFontPath = function(file) {
 cpz.GameConfig.parseResolution = function(res) {
   var m;
   if (!res) {
-    return cc.SizeZero();
+    return cc.size(0, 0);
   }
   m = res.match(/([0-9]+)x([0-9]+)/);
   if (m) {
     return cc.size(parseInt(m[1]), parseInt(m[2]));
   } else {
-    return cc.SizeZero();
+    return cc.size(0, 0);
   }
 };
 

@@ -176,9 +176,9 @@ cpz.GameLayout = cc.Class.extend({
   _gridPosition: null,
   ctor: function(game) {
     this._game = game;
-    this._gridCardSize = cc.SizeZero();
-    this._gridSpaceSize = cc.SizeZero();
-    return this._gridPosition = cc.SizeZero();
+    this._gridCardSize = cc.size(0, 0);
+    this._gridSpaceSize = cc.size(0, 0);
+    return this._gridPosition = cc.size(0, 0);
   },
   layout: function(anim) {
     var conf;
