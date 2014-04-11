@@ -58,15 +58,15 @@ cpz.CardBoard = cpz.Card.extend({
   },
   setConf: function(conf) {
     if (!this._emptySprite) {
-      this._emptySprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
+      this._emptySprite = cc.SpriteBatchNode.create(cc.textureNull(), 1);
       this._emptySprite.retain();
     }
     if (!this._yesSprite) {
-      this._yesSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
+      this._yesSprite = cc.SpriteBatchNode.create(cc.textureNull(), 1);
       this._yesSprite.retain();
     }
     if (!this._noSprite) {
-      this._noSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull(), 1);
+      this._noSprite = cc.SpriteBatchNode.create(cc.textureNull(), 1);
       this._noSprite.retain();
     }
     conf.getNodeThemePath('cardboardempty', this._emptySprite);

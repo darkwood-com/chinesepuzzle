@@ -19,7 +19,7 @@ cpz.GameConfig = cc.Class.extend(
 
     node = cpz.GameConfig._configPaths[nodePath]
     unless node
-      spriteFrameCache = cc.SpriteFrameCache.getInstance()
+      spriteFrameCache = cc.spriteFrameCache
       spriteFrameCache.removeSpriteFramesFromFile(plistPath)
       spriteFrameCache.addSpriteFrames(plistPath)
 
@@ -55,7 +55,7 @@ cpz.GameConfig = cc.Class.extend(
         sprites['themeBtn'] =		  		         'auto'
         sprites['undoBtn'] =				           'auto'
 
-        cardBGSprite = cc.Sprite.createWithSpriteFrameName 'cardbg.png'
+        cardBGSprite = cc.Sprite.create '#cardbg.png'
         box = cardBGSprite.getBoundingBox()
 
         colors = ['D', 'S', 'H', 'C']
@@ -396,7 +396,7 @@ cpz.GameConfig = cc.Class.extend(
           zonePosition = cc.p(zone['to'][0], zone['to'][1])
           zoneAnchor = cc.p(zone['anchor'][0], zone['anchor'][1])
 
-          zoneSprite = cc.Sprite.createWithSpriteFrameName(zone['from'] + '.png')
+          zoneSprite = cc.Sprite.create('#' + zone['from'] + '.png')
           zoneSprite.setAnchorPoint zoneAnchor
           zoneSprite.setPosition zonePosition
           node.addChild zoneSprite

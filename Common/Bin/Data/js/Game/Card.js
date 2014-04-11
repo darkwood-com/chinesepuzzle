@@ -10,7 +10,7 @@ file that was distributed with this source code.
 cpz.Card = cc.Node.extend({
   _batchNode: null,
   initWithTexture: function(tex, capacity) {
-    this._batchNode = cc.SpriteBatchNode.createWithTexture(tex, capacity);
+    this._batchNode = cc.SpriteBatchNode.create(tex, capacity);
     if (!this._batchNode) {
       return false;
     }

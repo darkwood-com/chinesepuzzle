@@ -71,10 +71,10 @@ cpz.CardPlay = cpz.Card.extend(
 
   setConf: (conf) ->
     unless @_faceSprite
-      @_faceSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_faceSprite = cc.SpriteBatchNode.create cc.textureNull()
       @_faceSprite.retain()
     unless @_backSprite
-      @_backSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_backSprite = cc.SpriteBatchNode.create cc.textureNull()
       @_backSprite.retain()
 
     conf.getNodeThemePath 'card_' + cpz.CardPlay.matchColor(@_color) + cpz.CardPlay.matchRank(@_rank), @_faceSprite

@@ -15,6 +15,8 @@ cpz.CheckMove =
   Ok: 4
 
 cpz.Game = cc.Layer.extend(
+  _touchListener: null,
+
   _board: {} #board game that reference to the deck cards
 
   _gs: null
@@ -107,7 +109,7 @@ cpz.Game = cc.Layer.extend(
       for c in cardBoards
         card = c
         cc.ArrayRemoveObject(cardBoards, c)
-        break;
+        break
       unless card
         card = cpz.CardBoard.createWithConf conf
 
@@ -123,7 +125,7 @@ cpz.Game = cc.Layer.extend(
         if data.color is c.getColor() and data.rank is c.getRank()
           card = c
           cc.ArrayRemoveObject(cardPlays, c)
-          break;
+          break
       unless card
         card = cpz.CardPlay.decode(conf, data)
 
@@ -153,6 +155,12 @@ cpz.Game = cc.Layer.extend(
       for j in [0..13]
         @_board[i][j] = null
 
+  onEnter: ->
+    locListener = @_touchListener
+    if (!locListener._isRegistered())
+      cc.eventManager.addListener(locListener, @)
+    @_super()
+
   initWithGameScene: (gs) ->
     return false unless @init()
 
@@ -161,8 +169,13 @@ cpz.Game = cc.Layer.extend(
     #@_gc = new cpz.GameControlChipmunk()
     @_gc = new cpz.GameControlNode()
 
-    @setTouchMode cc.TOUCH_ONE_BY_ONE
-    @setTouchEnabled true
+    @_touchListener = cc.EventListener.create
+      event: cc.EventListener.TOUCH_ONE_BY_ONE
+      swallowTouches: true
+      onTouchBegan: @onTouchBegan
+      onTouchMoved: @onTouchMoved
+      onTouchEnded: @onTouchEnded
+      onTouchCancelled: @onTouchCancelled
 
     @layout()
 

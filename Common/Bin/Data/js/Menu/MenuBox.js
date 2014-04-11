@@ -52,14 +52,14 @@ cpz.MenuBox = cc.Node.extend({
     this._items = [];
     this._state = cc.MENU_STATE_WAITING;
     this._selectedItem = null;
-    spriteNodeBg = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+    spriteNodeBg = cc.SpriteBatchNode.create(cc.textureNull());
     conf.getNodeUiPath('menuContainer', spriteNodeBg);
     spriteBg = cc.copyFirstSpriteBatchNode(spriteNodeBg);
     this._bg = new cc.DecoratedBox();
     this._bg.initWithTexture(spriteBg.getTexture(), spriteBg.getTextureRect(), this.getContentSize());
     this._bg.setAnchorPoint(cc.p(0.5, 0.5));
     this.addChild(this._bg);
-    spriteNodeValidBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+    spriteNodeValidBtn = cc.SpriteBatchNode.create(cc.textureNull());
     conf.getNodeUiPath('menuItemOk', spriteNodeValidBtn);
     spriteValidBtn = cc.copyFirstSpriteBatchNode(spriteNodeValidBtn);
     this._validBtn = cc.MenuItemSprite.createWithSprite(spriteValidBtn);

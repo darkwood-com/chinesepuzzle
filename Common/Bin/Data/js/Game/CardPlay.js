@@ -73,11 +73,11 @@ cpz.CardPlay = cpz.Card.extend({
   },
   setConf: function(conf) {
     if (!this._faceSprite) {
-      this._faceSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._faceSprite = cc.SpriteBatchNode.create(cc.textureNull());
       this._faceSprite.retain();
     }
     if (!this._backSprite) {
-      this._backSprite = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._backSprite = cc.SpriteBatchNode.create(cc.textureNull());
       this._backSprite.retain();
     }
     conf.getNodeThemePath('card_' + cpz.CardPlay.matchColor(this._color) + cpz.CardPlay.matchRank(this._rank), this._faceSprite);

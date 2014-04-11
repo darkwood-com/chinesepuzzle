@@ -55,7 +55,7 @@ cpz.MenuBox = cc.Node.extend(
     @_state = cc.MENU_STATE_WAITING
     @_selectedItem = null
 
-    spriteNodeBg = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+    spriteNodeBg = cc.SpriteBatchNode.create cc.textureNull()
     conf.getNodeUiPath 'menuContainer', spriteNodeBg
     spriteBg = cc.copyFirstSpriteBatchNode spriteNodeBg
 
@@ -64,7 +64,7 @@ cpz.MenuBox = cc.Node.extend(
     @_bg.setAnchorPoint cc.p(0.5, 0.5)
     @addChild @_bg
 
-    spriteNodeValidBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+    spriteNodeValidBtn = cc.SpriteBatchNode.create cc.textureNull()
     conf.getNodeUiPath 'menuItemOk', spriteNodeValidBtn
     spriteValidBtn = cc.copyFirstSpriteBatchNode spriteNodeValidBtn
 

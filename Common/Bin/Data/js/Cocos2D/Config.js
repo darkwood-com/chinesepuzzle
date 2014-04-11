@@ -35,7 +35,7 @@ cc.copySpriteBatchNode = function(from, to) {
   _ref = from.getChildren();
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
     child = _ref[_i];
-    zoneSprite = cc.Sprite.createWithTexture(to.getTexture(), child.getTextureRect());
+    zoneSprite = cc.Sprite.create(to.getTexture(), child.getTextureRect());
     zoneSprite.setAnchorPoint(child.getAnchorPoint());
     zoneSprite.setPosition(child.getPosition());
     to.addChild(zoneSprite);
@@ -45,7 +45,7 @@ cc.copySpriteBatchNode = function(from, to) {
 };
 
 cc.copySprite = function(sprite) {
-  return cc.Sprite.createWithTexture(sprite.getTexture(), sprite.getTextureRect());
+  return cc.Sprite.create(sprite.getTexture(), sprite.getTextureRect());
 };
 
 cc.copyFirstSpriteBatchNode = function(sprite) {
@@ -53,7 +53,7 @@ cc.copyFirstSpriteBatchNode = function(sprite) {
   _ref = sprite.getChildren();
   for (_i = 0, _len = _ref.length; _i < _len; _i++) {
     child = _ref[_i];
-    return cc.Sprite.createWithTexture(child.getTexture(), child.getTextureRect());
+    return cc.Sprite.create(child.getTexture(), child.getTextureRect());
   }
   return null;
 };

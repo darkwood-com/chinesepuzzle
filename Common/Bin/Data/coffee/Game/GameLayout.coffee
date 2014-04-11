@@ -179,14 +179,14 @@ cpz.GameLayout = cc.Class.extend(
     @_gridPosition = @_layoutRes 'gridPosition'
 
     if @_bg is null
-      @_bg = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_bg = cc.SpriteBatchNode.create cc.textureNull()
       @_game.addChild @_bg, cpz.GameZOrder.BG
     conf.getNodeThemePath 'bg', @_bg
     @_bg.setPosition cc.p(0, 0)
     @_bg.setAnchorPoint cc.p(0, 0)
 
     if @_newBtn is null
-      @_newBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_newBtn = cc.SpriteBatchNode.create cc.textureNull()
       @_game.addChild @_newBtn, cpz.GameZOrder.UI
       @_activesBtn.push @_newBtn
     conf.getNodeThemePath 'newBtn', @_newBtn
@@ -194,7 +194,7 @@ cpz.GameLayout = cc.Class.extend(
     @_newBtn.setScale 0.75
 
     if @_retryBtn is null
-      @_retryBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_retryBtn = cc.SpriteBatchNode.create cc.textureNull()
       @_game.addChild @_retryBtn, cpz.GameZOrder.UI
       @_activesBtn.push @_retryBtn
     conf.getNodeThemePath 'retryBtn', @_retryBtn
@@ -202,7 +202,7 @@ cpz.GameLayout = cc.Class.extend(
     @_retryBtn.setScale 0.75
 
     if @_undoBtn is null
-      @_undoBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_undoBtn = cc.SpriteBatchNode.create cc.textureNull()
       @_game.addChild @_undoBtn, cpz.GameZOrder.UI
       @_activesBtn.push @_undoBtn
     conf.getNodeThemePath 'undoBtn', @_undoBtn
@@ -210,7 +210,7 @@ cpz.GameLayout = cc.Class.extend(
     @_undoBtn.setScale 0.75
 
     if @_hintBtn is null
-      @_hintBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_hintBtn = cc.SpriteBatchNode.create cc.textureNull()
       @_game.addChild @_hintBtn, cpz.GameZOrder.UI
       @_activesBtn.push @_hintBtn
     conf.getNodeThemePath 'hintBtn', @_hintBtn
@@ -218,7 +218,7 @@ cpz.GameLayout = cc.Class.extend(
     @_hintBtn.setScale 0.75
 
     if @_soundBtn is null
-      @_soundBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_soundBtn = cc.SpriteBatchNode.create cc.textureNull()
       @_game.addChild @_soundBtn, cpz.GameZOrder.UI
       @_activesBtn.push @_soundBtn
     if conf.getIsSoundOn()
@@ -229,7 +229,7 @@ cpz.GameLayout = cc.Class.extend(
     @_soundBtn.setScale 0.75
 
     if @_themeBtn is null
-      @_themeBtn = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_themeBtn = cc.SpriteBatchNode.create cc.textureNull()
       @_game.addChild @_themeBtn, cpz.GameZOrder.UI
       @_activesBtn.push @_themeBtn
     conf.getNodeThemePath 'themeBtn', @_themeBtn

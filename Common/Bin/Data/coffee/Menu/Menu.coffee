@@ -8,12 +8,20 @@ file that was distributed with this source code.
 ###
 
 cpz.Menu = cc.Layer.extend(
+  _touchListener: null,
+
   _nav: []
 
   _gs: null
   _ml: null
 
   ctor: ->
+    @_super()
+
+  onEnter: ->
+    locListener = @_touchListener
+    if (!locListener._isRegistered())
+      cc.eventManager.addListener(locListener, @)
     @_super()
 
   onExit: ->
@@ -28,8 +36,13 @@ cpz.Menu = cc.Layer.extend(
     @_ml = new cpz.MenuLayout(@)
     @_ml.initWithType layout
 
-    @setTouchMode cc.TOUCH_ONE_BY_ONE
-    @setTouchEnabled true
+    @_touchListener = cc.EventListener.create
+      event: cc.EventListener.TOUCH_ONE_BY_ONE
+      swallowTouches: true
+      onTouchBegan: @onTouchBegan
+      onTouchMoved: @onTouchMoved
+      onTouchEnded: @onTouchEnded
+      onTouchCancelled: @onTouchCancelled
 
     @layout()
     @schedule(@step)

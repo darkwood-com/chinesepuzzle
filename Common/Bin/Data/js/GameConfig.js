@@ -19,7 +19,7 @@ cpz.GameConfig = cc.Class.extend({
     nodePath = path + ':' + isCardLayout + ':' + file;
     node = cpz.GameConfig._configPaths[nodePath];
     if (!node) {
-      spriteFrameCache = cc.SpriteFrameCache.getInstance();
+      spriteFrameCache = cc.spriteFrameCache;
       spriteFrameCache.removeSpriteFramesFromFile(plistPath);
       spriteFrameCache.addSpriteFrames(plistPath);
       sprites = {};
@@ -53,7 +53,7 @@ cpz.GameConfig = cc.Class.extend({
         sprites['soundOffBtn'] = 'auto';
         sprites['themeBtn'] = 'auto';
         sprites['undoBtn'] = 'auto';
-        cardBGSprite = cc.Sprite.createWithSpriteFrameName('cardbg.png');
+        cardBGSprite = cc.Sprite.create('#cardbg.png');
         box = cardBGSprite.getBoundingBox();
         colors = ['D', 'S', 'H', 'C'];
         ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -424,7 +424,7 @@ cpz.GameConfig = cc.Class.extend({
           }
           zonePosition = cc.p(zone['to'][0], zone['to'][1]);
           zoneAnchor = cc.p(zone['anchor'][0], zone['anchor'][1]);
-          zoneSprite = cc.Sprite.createWithSpriteFrameName(zone['from'] + '.png');
+          zoneSprite = cc.Sprite.create('#' + zone['from'] + '.png');
           zoneSprite.setAnchorPoint(zoneAnchor);
           zoneSprite.setPosition(zonePosition);
           node.addChild(zoneSprite);

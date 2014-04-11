@@ -190,14 +190,14 @@ cpz.GameLayout = cc.Class.extend({
     this._gridSpaceSize = this._layoutRes('gridSpaceSize');
     this._gridPosition = this._layoutRes('gridPosition');
     if (this._bg === null) {
-      this._bg = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._bg = cc.SpriteBatchNode.create(cc.textureNull());
       this._game.addChild(this._bg, cpz.GameZOrder.BG);
     }
     conf.getNodeThemePath('bg', this._bg);
     this._bg.setPosition(cc.p(0, 0));
     this._bg.setAnchorPoint(cc.p(0, 0));
     if (this._newBtn === null) {
-      this._newBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._newBtn = cc.SpriteBatchNode.create(cc.textureNull());
       this._game.addChild(this._newBtn, cpz.GameZOrder.UI);
       this._activesBtn.push(this._newBtn);
     }
@@ -205,7 +205,7 @@ cpz.GameLayout = cc.Class.extend({
     this._newBtn.setPosition(this._layoutRes('newBtn'));
     this._newBtn.setScale(0.75);
     if (this._retryBtn === null) {
-      this._retryBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._retryBtn = cc.SpriteBatchNode.create(cc.textureNull());
       this._game.addChild(this._retryBtn, cpz.GameZOrder.UI);
       this._activesBtn.push(this._retryBtn);
     }
@@ -213,7 +213,7 @@ cpz.GameLayout = cc.Class.extend({
     this._retryBtn.setPosition(this._layoutRes('retryBtn'));
     this._retryBtn.setScale(0.75);
     if (this._undoBtn === null) {
-      this._undoBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._undoBtn = cc.SpriteBatchNode.create(cc.textureNull());
       this._game.addChild(this._undoBtn, cpz.GameZOrder.UI);
       this._activesBtn.push(this._undoBtn);
     }
@@ -221,7 +221,7 @@ cpz.GameLayout = cc.Class.extend({
     this._undoBtn.setPosition(this._layoutRes('undoBtn'));
     this._undoBtn.setScale(0.75);
     if (this._hintBtn === null) {
-      this._hintBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._hintBtn = cc.SpriteBatchNode.create(cc.textureNull());
       this._game.addChild(this._hintBtn, cpz.GameZOrder.UI);
       this._activesBtn.push(this._hintBtn);
     }
@@ -229,7 +229,7 @@ cpz.GameLayout = cc.Class.extend({
     this._hintBtn.setPosition(this._layoutRes('hintBtn'));
     this._hintBtn.setScale(0.75);
     if (this._soundBtn === null) {
-      this._soundBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._soundBtn = cc.SpriteBatchNode.create(cc.textureNull());
       this._game.addChild(this._soundBtn, cpz.GameZOrder.UI);
       this._activesBtn.push(this._soundBtn);
     }
@@ -241,7 +241,7 @@ cpz.GameLayout = cc.Class.extend({
     this._soundBtn.setPosition(this._layoutRes('soundBtn'));
     this._soundBtn.setScale(0.75);
     if (this._themeBtn === null) {
-      this._themeBtn = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._themeBtn = cc.SpriteBatchNode.create(cc.textureNull());
       this._game.addChild(this._themeBtn, cpz.GameZOrder.UI);
       this._activesBtn.push(this._themeBtn);
     }

@@ -256,16 +256,16 @@ cpz.MenuLayout = cc.Class.extend({
     conf = this._menu.getGameScene().getConf();
     center = cc.pMult(cc.p(conf.getResolutionSize().width, conf.getResolutionSize().height), 0.5);
     if (!this._bg) {
-      this._bg = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+      this._bg = cc.SpriteBatchNode.create(cc.textureNull());
       this._menu.addChild(this._bg, 0, cpz.MenuTag.Bg);
     }
     conf.getNodeUiPath('menuMask', this._bg);
     this._bg.setPosition(cc.p(0, 0));
     this._bg.setAnchorPoint(cc.p(0, 0));
-    yesNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+    yesNode = cc.SpriteBatchNode.create(cc.textureNull());
     conf.getNodeUiPath('menuItemYes', yesNode);
     yesSprite = cc.copyFirstSpriteBatchNode(yesNode);
-    noNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+    noNode = cc.SpriteBatchNode.create(cc.textureNull());
     conf.getNodeUiPath('menuItemNo', noNode);
     noSprite = cc.copyFirstSpriteBatchNode(noNode);
     currentFontFile = this._layoutRes('font');
@@ -387,7 +387,7 @@ cpz.MenuLayout = cc.Class.extend({
           this._themes = {};
           for (key in themeNodes) {
             theme = themeNodes[key];
-            themeNode = cc.SpriteBatchNode.createWithTexture(cc.textureNull());
+            themeNode = cc.SpriteBatchNode.create(cc.textureNull());
             conf.getNodeUiPath(theme, themeNode);
             themeNode = cc.copyFirstSpriteBatchNode(themeNode);
             this._themes[key] = cc.MenuItemSprite.createWithSpriteAndCallback(themeNode, this._selectTheme, this);

@@ -235,18 +235,18 @@ cpz.MenuLayout = cc.Class.extend(
     center = cc.pMult(cc.p(conf.getResolutionSize().width, conf.getResolutionSize().height), 0.5)
   
     unless @_bg
-      @_bg = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+      @_bg = cc.SpriteBatchNode.create cc.textureNull()
       @_menu.addChild(@_bg, 0, cpz.MenuTag.Bg)
 
     conf.getNodeUiPath('menuMask', @_bg)
     @_bg.setPosition(cc.p(0, 0))
     @_bg.setAnchorPoint(cc.p(0, 0))
     
-    yesNode = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+    yesNode = cc.SpriteBatchNode.create cc.textureNull()
     conf.getNodeUiPath('menuItemYes', yesNode)
     yesSprite = cc.copyFirstSpriteBatchNode(yesNode)
     
-    noNode = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+    noNode = cc.SpriteBatchNode.create cc.textureNull()
     conf.getNodeUiPath('menuItemNo', noNode)
     noSprite = cc.copyFirstSpriteBatchNode(noNode)
     
@@ -375,7 +375,7 @@ cpz.MenuLayout = cc.Class.extend(
 
           @_themes = {}
           for key, theme of themeNodes
-            themeNode = cc.SpriteBatchNode.createWithTexture cc.textureNull()
+            themeNode = cc.SpriteBatchNode.create cc.textureNull()
             conf.getNodeUiPath(theme, themeNode)
             themeNode = cc.copyFirstSpriteBatchNode themeNode
 

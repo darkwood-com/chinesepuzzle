@@ -33,7 +33,7 @@ cc.copySpriteBatchNode = (from, to) ->
   to.setTexture(from.getTexture())
 
   for child in from.getChildren()
-    zoneSprite = cc.Sprite.createWithTexture to.getTexture(), child.getTextureRect()
+    zoneSprite = cc.Sprite.create to.getTexture(), child.getTextureRect()
     zoneSprite.setAnchorPoint(child.getAnchorPoint())
     zoneSprite.setPosition(child.getPosition())
     to.addChild(zoneSprite)
@@ -42,12 +42,12 @@ cc.copySpriteBatchNode = (from, to) ->
   to.setAnchorPoint cc.p(0.5, 0.5)
 
 cc.copySprite = (sprite) ->
-  return cc.Sprite.createWithTexture(sprite.getTexture(), sprite.getTextureRect())
+  return cc.Sprite.create(sprite.getTexture(), sprite.getTextureRect())
 
 
 cc.copyFirstSpriteBatchNode = (sprite) ->
   for child in sprite.getChildren()
-    return cc.Sprite.createWithTexture(child.getTexture(), child.getTextureRect())
+    return cc.Sprite.create(child.getTexture(), child.getTextureRect())
 
   null
 

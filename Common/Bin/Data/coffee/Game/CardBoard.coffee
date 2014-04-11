@@ -49,13 +49,13 @@ cpz.CardBoard = cpz.Card.extend(
 
   setConf: (conf) ->
     unless @_emptySprite
-      @_emptySprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+      @_emptySprite = cc.SpriteBatchNode.create cc.textureNull(), 1
       @_emptySprite.retain()
     unless @_yesSprite
-      @_yesSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+      @_yesSprite = cc.SpriteBatchNode.create cc.textureNull(), 1
       @_yesSprite.retain()
     unless @_noSprite
-      @_noSprite = cc.SpriteBatchNode.createWithTexture cc.textureNull(), 1
+      @_noSprite = cc.SpriteBatchNode.create cc.textureNull(), 1
       @_noSprite.retain()
 
     conf.getNodeThemePath 'cardboardempty', @_emptySprite

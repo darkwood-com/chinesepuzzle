@@ -8,10 +8,19 @@ file that was distributed with this source code.
 */
 
 cpz.Menu = cc.Layer.extend({
+  _touchListener: null,
   _nav: [],
   _gs: null,
   _ml: null,
   ctor: function() {
+    return this._super();
+  },
+  onEnter: function() {
+    var locListener;
+    locListener = this._touchListener;
+    if (!locListener._isRegistered()) {
+      cc.eventManager.addListener(locListener, this);
+    }
     return this._super();
   },
   onExit: function() {
@@ -25,8 +34,14 @@ cpz.Menu = cc.Layer.extend({
     this._gs = gs;
     this._ml = new cpz.MenuLayout(this);
     this._ml.initWithType(layout);
-    this.setTouchMode(cc.TOUCH_ONE_BY_ONE);
-    this.setTouchEnabled(true);
+    this._touchListener = cc.EventListener.create({
+      event: cc.EventListener.TOUCH_ONE_BY_ONE,
+      swallowTouches: true,
+      onTouchBegan: this.onTouchBegan,
+      onTouchMoved: this.onTouchMoved,
+      onTouchEnded: this.onTouchEnded,
+      onTouchCancelled: this.onTouchCancelled
+    });
     this.layout();
     this.schedule(this.step);
     return true;

@@ -18,6 +18,7 @@ cpz.CheckMove = {
 };
 
 cpz.Game = cc.Layer.extend({
+  _touchListener: null,
   _board: {},
   _gs: null,
   _gl: null,
@@ -197,6 +198,14 @@ cpz.Game = cc.Layer.extend({
     }
     return _results;
   },
+  onEnter: function() {
+    var locListener;
+    locListener = this._touchListener;
+    if (!locListener._isRegistered()) {
+      cc.eventManager.addListener(locListener, this);
+    }
+    return this._super();
+  },
   initWithGameScene: function(gs) {
     var initBoard;
     if (!this.init()) {
@@ -205,8 +214,14 @@ cpz.Game = cc.Layer.extend({
     this._gs = gs;
     this._gl = new cpz.GameLayout(this);
     this._gc = new cpz.GameControlNode();
-    this.setTouchMode(cc.TOUCH_ONE_BY_ONE);
-    this.setTouchEnabled(true);
+    this._touchListener = cc.EventListener.create({
+      event: cc.EventListener.TOUCH_ONE_BY_ONE,
+      swallowTouches: true,
+      onTouchBegan: this.onTouchBegan,
+      onTouchMoved: this.onTouchMoved,
+      onTouchEnded: this.onTouchEnded,
+      onTouchCancelled: this.onTouchCancelled
+    });
     this.layout();
     initBoard = this._gs.getConf().getInitBoard();
     if (initBoard.count() === 0) {

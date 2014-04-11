@@ -26,7 +26,7 @@ cc.DecoratedBox = cc.Node.extend({
     return this._cell = cc.rect();
   },
   initWithTexture: function(texture, rect, size) {
-    this._batchNode = cc.SpriteBatchNode.createWithTexture(texture, 9);
+    this._batchNode = cc.SpriteBatchNode.create(texture, 9);
     if (!this._batchNode) {
       return false;
     }
@@ -116,7 +116,7 @@ cc.DecoratedBox = cc.Node.extend({
           }
           rect.x += this._cell.x;
           rect.y += this._cell.y;
-          b = cc.Sprite.createWithTexture(this._batchNode.getTexture(), rect);
+          b = cc.Sprite.create(this._batchNode.getTexture(), rect);
           b.setAnchorPoint(cc.p(0, 0));
           if (j === (uh - 1) && i === (uw - 1)) {
             b.setPosition(cc.p((i - 1) * this._cell.width + offw, (j - 1) * this._cell.height + offh));

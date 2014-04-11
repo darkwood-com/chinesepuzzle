@@ -11,7 +11,7 @@ cpz.Card = cc.Node.extend(
   _batchNode: null
 
   initWithTexture: (tex, capacity) ->
-    @_batchNode = cc.SpriteBatchNode.createWithTexture tex, capacity
+    @_batchNode = cc.SpriteBatchNode.create tex, capacity
     return false unless @_batchNode
 
     @setAnchorPoint cc.p(0.5, 0.5)
