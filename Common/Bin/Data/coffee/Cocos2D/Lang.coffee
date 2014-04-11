@@ -27,20 +27,18 @@ cc.Lang = cc.Class.extend(
     @_data[key] = value
 
   addLang: (fileName) ->
-#    fileUtils = cc.FileUtils.getInstance()
-#    filePath = cpz.CommonPath + fileName
-#
-#    switch @_lang
-#      when cc.LANGUAGE_FRENCH then filePath += '-fr'
-#      when cc.LANGUAGE_GERMAN then filePath += '-de'
-#      when cc.LANGUAGE_ENGLISH then filePath += '-en'
-#      else filePath += '-en'
-#
-#    fullPath = fileUtils.fullPathForFilename filePath + '.plist'
-#    dict = fileUtils.getDataFromPlistFile fullPath
-#
-#    for key, value of dict
-#      @set key, value if value
+    filePath = cpz.CommonPath + fileName
+
+    switch @_lang
+      when cc.LANGUAGE_FRENCH then filePath += '-fr'
+      when cc.LANGUAGE_GERMAN then filePath += '-de'
+      when cc.LANGUAGE_ENGLISH then filePath += '-en'
+      else filePath += '-en'
+
+    dict = cc.loader.getRes filePath + '.plist'
+
+    for key, value of dict
+      @set key, value if value
 
     @
 )
