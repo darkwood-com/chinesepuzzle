@@ -1,0 +1,38 @@
+{
+    "debugMode" : 2,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 1,
+    "engineDir":"../../Common/Src/Externals/Cocos2D-js/frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "../../Common/Bin/Data/js/Background/Background.js",
+        "../../Common/Bin/Data/js/Cocos2D/Config.js",
+        "../../Common/Bin/Data/js/Cocos2D/DecoratedBox.js",
+        "../../Common/Bin/Data/js/Cocos2D/Lang.js",
+        "../../Common/Bin/Data/js/Game/Card.js",
+        "../../Common/Bin/Data/js/Game/CardBoard.js",
+        "../../Common/Bin/Data/js/Game/CardPlay.js",
+        "../../Common/Bin/Data/js/Game/Game.js",
+        "../../Common/Bin/Data/js/Game/GameControl.js",
+        "../../Common/Bin/Data/js/Game/GameControlChipmunk.js",
+        "../../Common/Bin/Data/js/Game/GameControlNode.js",
+        "../../Common/Bin/Data/js/Game/GameLayout.js",
+        "../../Common/Bin/Data/js/Libs/base64.js",
+        "../../Common/Bin/Data/js/Libs/json2.js",
+        "../../Common/Bin/Data/js/Menu/Menu.js",
+        "../../Common/Bin/Data/js/Menu/MenuBox.js",
+        "../../Common/Bin/Data/js/Menu/MenuGrid.js",
+        "../../Common/Bin/Data/js/Menu/MenuGridContainer.js",
+        "../../Common/Bin/Data/js/Menu/MenuLabel.js",
+        "../../Common/Bin/Data/js/Menu/MenuLabelContainer.js",
+        "../../Common/Bin/Data/js/Menu/MenuLayout.js",
+        "../../Common/Bin/Data/js/GameConfig.js",
+        "../../Common/Bin/Data/js/GameScene.js",
+        "../../Common/Bin/Data/js/GameStruct.js",
+        "../../Common/Bin/Data/js/Resource.js"
+    ]
+}
