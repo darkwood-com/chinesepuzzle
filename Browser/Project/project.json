@@ -6,7 +6,7 @@
     "renderMode" : 1,
     "engineDir":"../../Common/Src/Externals/Cocos2D-js/frameworks/cocos2d-html5",
 
-    "modules" : ["cocos2d"],
+    "modules" : ["cocos2d", "extensions"],
 
     "jsList" : [
         "../../Common/Bin/Data/js/Background/Background.js",
