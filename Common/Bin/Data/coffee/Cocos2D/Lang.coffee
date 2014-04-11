@@ -30,9 +30,9 @@ cc.Lang = cc.Class.extend(
     filePath = cpz.CommonPath + fileName
 
     switch @_lang
-      when cc.LANGUAGE_FRENCH then filePath += '-fr'
-      when cc.LANGUAGE_GERMAN then filePath += '-de'
-      when cc.LANGUAGE_ENGLISH then filePath += '-en'
+      when cc.sys.LANGUAGE_FRENCH then filePath += '-fr'
+      when cc.sys.LANGUAGE_GERMAN then filePath += '-de'
+      when cc.sys.LANGUAGE_ENGLISH then filePath += '-en'
       else filePath += '-en'
 
     dict = cc.loader.getRes filePath + '.plist'

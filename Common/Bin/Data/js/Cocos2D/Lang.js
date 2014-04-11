@@ -29,13 +29,13 @@ cc.Lang = cc.Class.extend({
     var dict, filePath, key, value;
     filePath = cpz.CommonPath + fileName;
     switch (this._lang) {
-      case cc.LANGUAGE_FRENCH:
+      case cc.sys.LANGUAGE_FRENCH:
         filePath += '-fr';
         break;
-      case cc.LANGUAGE_GERMAN:
+      case cc.sys.LANGUAGE_GERMAN:
         filePath += '-de';
         break;
-      case cc.LANGUAGE_ENGLISH:
+      case cc.sys.LANGUAGE_ENGLISH:
         filePath += '-en';
         break;
       default:
