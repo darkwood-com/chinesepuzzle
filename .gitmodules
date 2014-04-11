@@ -1,6 +1,3 @@
-[submodule "Common/Src/Externals/Cocos2D-html5"]
-	path = Common/Src/Externals/Cocos2D-html5
-	url = https://github.com/cocos2d/cocos2d-html5.git
-[submodule "Common/Src/Externals/Cocos2D-x"]
-	path = Common/Src/Externals/Cocos2D-x
-	url = https://github.com/cocos2d/cocos2d-x.git
+[submodule "Common/Src/Externals/Cocos2D-js"]
+	path = Common/Src/Externals/Cocos2D-js
+	url = https://github.com/cocos2d/cocos2d-js.git

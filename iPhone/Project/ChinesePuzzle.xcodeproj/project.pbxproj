@@ -73,6 +73,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C348304318F6FACB001FDA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3AADD5818B3B67A00A1EA5A /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4C241783777C0073F6A7;
+			remoteInfo = "cocos2dx iOS";
+		};
+		C348304518F6FACB001FDA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3AADD5818B3B67A00A1EA5A /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4E111783867C0073F6A7;
+			remoteInfo = "cocos2dx-extensions iOS";
+		};
+		C348304718F6FACB001FDA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3AADD5818B3B67A00A1EA5A /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4EFD178387670073F6A7;
+			remoteInfo = "chipmunk iOS";
+		};
+		C348304B18F6FACB001FDA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3AADD5818B3B67A00A1EA5A /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4F9F178387730073F6A7;
+			remoteInfo = "CocosDenshion iOS";
+		};
+		C348304D18F6FACB001FDA28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3AADD5818B3B67A00A1EA5A /* cocos2d_libs.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A07A4FB5178387750073F6A7;
+			remoteInfo = "jsbindings iOS";
+		};
 		C3AA0B5A18B3B6A200A1EA5A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3AADD5818B3B67A00A1EA5A /* cocos2d_libs.xcodeproj */;
@@ -513,6 +548,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				C348304818F6FACB001FDA28 /* PBXTargetDependency */,
+				C348304418F6FACB001FDA28 /* PBXTargetDependency */,
+				C348304618F6FACB001FDA28 /* PBXTargetDependency */,
+				C348304C18F6FACB001FDA28 /* PBXTargetDependency */,
+				C348304E18F6FACB001FDA28 /* PBXTargetDependency */,
 			);
 			name = ChinesePuzzle;
 			productName = ChinesePuzzle;
@@ -734,6 +774,34 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C348304418F6FACB001FDA28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "cocos2dx iOS";
+			targetProxy = C348304318F6FACB001FDA28 /* PBXContainerItemProxy */;
+		};
+		C348304618F6FACB001FDA28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "cocos2dx-extensions iOS";
+			targetProxy = C348304518F6FACB001FDA28 /* PBXContainerItemProxy */;
+		};
+		C348304818F6FACB001FDA28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "chipmunk iOS";
+			targetProxy = C348304718F6FACB001FDA28 /* PBXContainerItemProxy */;
+		};
+		C348304C18F6FACB001FDA28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CocosDenshion iOS";
+			targetProxy = C348304B18F6FACB001FDA28 /* PBXContainerItemProxy */;
+		};
+		C348304E18F6FACB001FDA28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "jsbindings iOS";
+			targetProxy = C348304D18F6FACB001FDA28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C36ABC77146196000006151B /* Debug */ = {
