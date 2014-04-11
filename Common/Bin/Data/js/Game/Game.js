@@ -124,7 +124,7 @@ cpz.Game = cc.Layer.extend({
       for (_l = 0, _len = cardBoards.length; _l < _len; _l++) {
         c = cardBoards[_l];
         card = c;
-        cc.ArrayRemoveObject(cardBoards, c);
+        cc.arrayRemoveObject(cardBoards, c);
         break;
       }
       if (!card) {
@@ -143,7 +143,7 @@ cpz.Game = cc.Layer.extend({
         c = cardPlays[_n];
         if (data.color === c.getColor() && data.rank === c.getRank()) {
           card = c;
-          cc.ArrayRemoveObject(cardPlays, c);
+          cc.arrayRemoveObject(cardPlays, c);
           break;
         }
       }

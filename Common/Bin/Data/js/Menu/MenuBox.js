@@ -143,7 +143,7 @@ cpz.MenuBox = cc.Node.extend({
     if (child === null) {
       CCLOG('cocos2d: removeItemByTag: child not found!');
     } else {
-      cc.ArrayRemoveObject(this._items, child);
+      cc.arrayRemoveObject(this._items, child);
     }
     return this.removeChildByTag(tag, cleanup);
   },

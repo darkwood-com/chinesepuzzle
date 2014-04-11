@@ -108,7 +108,7 @@ cpz.Game = cc.Layer.extend(
       card = null
       for c in cardBoards
         card = c
-        cc.ArrayRemoveObject(cardBoards, c)
+        cc.arrayRemoveObject(cardBoards, c)
         break
       unless card
         card = cpz.CardBoard.createWithConf conf
@@ -124,7 +124,7 @@ cpz.Game = cc.Layer.extend(
       for c in cardPlays
         if data.color is c.getColor() and data.rank is c.getRank()
           card = c
-          cc.ArrayRemoveObject(cardPlays, c)
+          cc.arrayRemoveObject(cardPlays, c)
           break
       unless card
         card = cpz.CardPlay.decode(conf, data)

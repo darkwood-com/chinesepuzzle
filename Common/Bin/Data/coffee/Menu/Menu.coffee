@@ -84,7 +84,7 @@ cpz.Menu = cc.Layer.extend(
   popNav: ->
     if @_nav.length > 0
       mBox = @_nav[@_nav.length - 1]
-      cc.ArrayRemoveObject @_nav, mBox
+      cc.arrayRemoveObject @_nav, mBox
       @removeChild mBox, true
       
       if @_nav.length > 0

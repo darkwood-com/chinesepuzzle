@@ -19,7 +19,7 @@ cpz.MenuLabel = cc.Node.extend({
     var rectangle, stencil, white;
     stencil = cc.DrawNode.create();
     rectangle = [cc.p(0, 0), cc.p(size.width, 0), cc.p(size.width, size.height), cc.p(0, size.height)];
-    white = cc.c4f(1, 1, 1, 1);
+    white = cc.color(1, 1, 1, 1);
     stencil.drawPoly(rectangle, white, 1, white);
     return stencil;
   },
@@ -63,7 +63,7 @@ cpz.MenuLabel = cc.Node.extend({
     return this._label.getContentSize().width;
   },
   setWidth: function(width) {
-    this._label.setWidth(width - 20);
+    this._label.setBoundingWidth(width - 20);
     return this;
   },
   setAlignment: function(alignment) {

@@ -21,7 +21,7 @@ cpz.MenuLabel = cc.Node.extend(
                  cc.p(size.width, size.height),
                  cc.p(0, size.height)]
 
-    white = cc.c4f(1, 1, 1, 1)
+    white = cc.color(1, 1, 1, 1)
     stencil.drawPoly(rectangle, white, 1, white)
     stencil
 
@@ -69,7 +69,7 @@ cpz.MenuLabel = cc.Node.extend(
 
   getWidth: -> @_label.getContentSize().width
   setWidth: (width) ->
-    @_label.setWidth(width - 20)
+    @_label.setBoundingWidth(width - 20)
     @
     
   setAlignment: (alignment) ->

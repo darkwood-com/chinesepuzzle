@@ -91,7 +91,7 @@ cpz.Menu = cc.Layer.extend({
     var mBox;
     if (this._nav.length > 0) {
       mBox = this._nav[this._nav.length - 1];
-      cc.ArrayRemoveObject(this._nav, mBox);
+      cc.arrayRemoveObject(this._nav, mBox);
       this.removeChild(mBox, true);
       if (this._nav.length > 0) {
         this.addChild(this._nav[this._nav.length - 1]);
