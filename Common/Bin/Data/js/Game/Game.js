@@ -463,7 +463,7 @@ cpz.Game = cc.Layer.extend({
       this._touchLastCard.setVisible(false);
     }
     this._hintMove();
-    return this._lastTouchLocation = location;
+    return this._lastTouchLocation = cc.p(location);
   },
   tapMoveAt: function(location) {
     var movePos;
@@ -476,7 +476,7 @@ cpz.Game = cc.Layer.extend({
       this._dragCard.setPosition(cc.pAdd(this._dragCard.getPosition(), movePos));
     }
     this._hintMove();
-    return this._lastTouchLocation = location;
+    return this._lastTouchLocation = cc.p(location);
   },
   tapUpAt: function(location) {
     var cToCard, check, coord, move;
@@ -496,7 +496,7 @@ cpz.Game = cc.Layer.extend({
       }
       this._dragCard = null;
     }
-    return this._lastTouchLocation = location;
+    return this._lastTouchLocation = cc.p(location);
   },
   getGameScene: function() {
     return this._gs;

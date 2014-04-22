@@ -415,7 +415,7 @@ cpz.Game = cc.Layer.extend(
       @_touchLastCard.setVisible false
 
     @_hintMove()
-    @_lastTouchLocation = location
+    @_lastTouchLocation = cc.p(location)
 
   tapMoveAt: (location) ->
     return if @_gl.tapMoveAt(location)
@@ -427,7 +427,7 @@ cpz.Game = cc.Layer.extend(
       @_dragCard.setPosition cc.pAdd(@_dragCard.getPosition(), movePos)
 
     @_hintMove()
-    @_lastTouchLocation = location
+    @_lastTouchLocation = cc.p(location)
 
   tapUpAt: (location) ->
     return if @_gl.tapUpAt(location)
@@ -444,7 +444,7 @@ cpz.Game = cc.Layer.extend(
 
       @_dragCard = null
 
-    @_lastTouchLocation = location
+    @_lastTouchLocation = cc.p(location)
 
   getGameScene: -> @_gs
   getLayout: -> @_gl
