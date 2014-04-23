@@ -1,0 +1,38 @@
+{
+    "debugMode" : 2,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 1,
+    "engineDir":"../../Common/Src/Externals/Cocos2D-js/frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d", "extensions"],
+
+    "jsList" : [
+        "js/Background/Background.js",
+        "js/Cocos2D/Config.js",
+        "js/Cocos2D/DecoratedBox.js",
+        "js/Cocos2D/Lang.js",
+        "js/Game/Card.js",
+        "js/Game/CardBoard.js",
+        "js/Game/CardPlay.js",
+        "js/Game/Game.js",
+        "js/Game/GameControl.js",
+        "js/Game/GameControlChipmunk.js",
+        "js/Game/GameControlNode.js",
+        "js/Game/GameLayout.js",
+        "js/Libs/base64.js",
+        "js/Libs/json2.js",
+        "js/Menu/Menu.js",
+        "js/Menu/MenuBox.js",
+        "js/Menu/MenuGrid.js",
+        "js/Menu/MenuGridContainer.js",
+        "js/Menu/MenuLabel.js",
+        "js/Menu/MenuLabelContainer.js",
+        "js/Menu/MenuLayout.js",
+        "js/GameConfig.js",
+        "js/GameScene.js",
+        "js/GameStruct.js",
+        "js/Resource.js"
+    ]
+}
