@@ -64,17 +64,17 @@ bool AppDelegate::applicationDidFinishLaunching()
     }
     director->setProjection(Director::Projection::_2D);
     
-    std::vector<std::string> searchPaths = FileUtils::getInstance()->getSearchPaths();
-    
-    searchPaths.push_back("script");
-    
+//    std::vector<std::string> searchPaths = FileUtils::getInstance()->getSearchPaths();
+//    
+//    searchPaths.push_back("script");
+//    
 //    Application::Platform platform = Application::getInstance()->getTargetPlatform();
 //    if (platform == Application::Platform::OS_IPHONE || platform == Application::Platform::OS_IPAD || platform == Application::Platform::OS_MAC)
 //    {
 //        searchPaths.push_back("js");
 //    }
-    
-    FileUtils::getInstance()->setSearchPaths(searchPaths);
+//    
+//    FileUtils::getInstance()->setSearchPaths(searchPaths);
     
     // turn on display FPS
     director->setDisplayStats(true);
