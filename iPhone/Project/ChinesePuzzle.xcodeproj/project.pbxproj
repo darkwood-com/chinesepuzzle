@@ -814,7 +814,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/cocos2d-x/cocos/2d/platform/ios",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/cocos2d-x/cocos/platform/ios",
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/external/spidermonkey/include/ios",
 				);
 				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
@@ -851,7 +851,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/cocos2d-x/cocos/2d/platform/ios",
+					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/cocos2d-x/cocos/platform/ios",
 					"$(SRCROOT)/../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/external/spidermonkey/include/ios",
 				);
 				INFOPLIST_FILE = "ChinesePuzzle-Info.plist";
