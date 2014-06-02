@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3071CA1193C6E1700CA6DAF /* jsb_ext_create_apis.js in Resources */ = {isa = PBXBuildFile; fileRef = C3071CA0193C6E1700CA6DAF /* jsb_ext_create_apis.js */; };
 		C309579B1461A59900924761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C36ABC9014619A3C0006151B /* InfoPlist.strings */; };
 		C32F325118B3CF480003E285 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F325018B3CF480003E285 /* CoreMotion.framework */; };
 		C32F325318B3D1BD0003E285 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
@@ -164,6 +165,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C3071CA0193C6E1700CA6DAF /* jsb_ext_create_apis.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jsb_ext_create_apis.js; path = "Cocos2D-js/frameworks/js-bindings/bindings/script/jsb_ext_create_apis.js"; sourceTree = "<group>"; };
 		C30957981461A4F000924761 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
 		C30957991461A4F000924761 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
 		C32F325018B3CF480003E285 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -462,6 +464,7 @@
 				C3E09E3F1907F023000EC0EE /* jsb_create_apis.js */,
 				C3E09E401907F023000EC0EE /* jsb_debugger.js */,
 				C3E09E411907F023000EC0EE /* jsb_deprecated.js */,
+				C3071CA0193C6E1700CA6DAF /* jsb_ext_create_apis.js */,
 				C3E09E421907F023000EC0EE /* jsb_loaders.js */,
 				C3E09E431907F023000EC0EE /* jsb_opengl_constants.js */,
 				C3E09E441907F023000EC0EE /* jsb_opengl.js */,
@@ -663,6 +666,7 @@
 				C3E09E521907F023000EC0EE /* jsb_create_apis.js in Resources */,
 				C3E09E531907F023000EC0EE /* jsb_debugger.js in Resources */,
 				C3E09E541907F023000EC0EE /* jsb_deprecated.js in Resources */,
+				C3071CA1193C6E1700CA6DAF /* jsb_ext_create_apis.js in Resources */,
 				C3E09E551907F023000EC0EE /* jsb_loaders.js in Resources */,
 				C3E09E561907F023000EC0EE /* jsb_opengl_constants.js in Resources */,
 				C3E09E571907F023000EC0EE /* jsb_opengl.js in Resources */,
