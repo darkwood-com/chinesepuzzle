@@ -15,7 +15,7 @@
 		C32F325118B3CF480003E285 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F325018B3CF480003E285 /* CoreMotion.framework */; };
 		C32F325318B3D1BD0003E285 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
 		C32F325718B4BA220003E285 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C32F325618B4BA220003E285 /* main.js */; };
-		C353071518C4CAEB00B3EC40 /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C353070E18C4CAEB00B3EC40 /* Default-568@2x.png */; };
+		C353071518C4CAEB00B3EC40 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C353070E18C4CAEB00B3EC40 /* Default~iphone.png */; };
 		C353071618C4CAEB00B3EC40 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C353070F18C4CAEB00B3EC40 /* Default.png */; };
 		C353071718C4CAEB00B3EC40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C353071018C4CAEB00B3EC40 /* Default@2x.png */; };
 		C353071818C4CAEB00B3EC40 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = C353071118C4CAEB00B3EC40 /* Icon-57.png */; };
@@ -173,7 +173,7 @@
 		C30957991461A4F000924761 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
 		C32F325018B3CF480003E285 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C32F325618B4BA220003E285 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
-		C353070E18C4CAEB00B3EC40 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
+		C353070E18C4CAEB00B3EC40 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		C353070F18C4CAEB00B3EC40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		C353071018C4CAEB00B3EC40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C353071118C4CAEB00B3EC40 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 				C30957991461A4F000924761 /* ChinesePuzzle-Prefix.pch */,
 				C36ABC9014619A3C0006151B /* InfoPlist.strings */,
 				C36ABC9114619A3C0006151B /* main.m */,
-				C353070E18C4CAEB00B3EC40 /* Default-568@2x.png */,
+				C353070E18C4CAEB00B3EC40 /* Default~iphone.png */,
 				C353070F18C4CAEB00B3EC40 /* Default.png */,
 				C353071018C4CAEB00B3EC40 /* Default@2x.png */,
 				C353071118C4CAEB00B3EC40 /* Icon-57.png */,
@@ -643,7 +643,7 @@
 				C3AADD4C18B3B62D00A1EA5A /* sound in Resources */,
 				C3F005D118B7BAF500B3576C /* switch in Resources */,
 				C353071818C4CAEB00B3EC40 /* Icon-57.png in Resources */,
-				C353071518C4CAEB00B3EC40 /* Default-568@2x.png in Resources */,
+				C353071518C4CAEB00B3EC40 /* Default~iphone.png in Resources */,
 				C353071718C4CAEB00B3EC40 /* Default@2x.png in Resources */,
 				C353071618C4CAEB00B3EC40 /* Default.png in Resources */,
 				C353071B18C4CAEB00B3EC40 /* Icon-120.png in Resources */,
