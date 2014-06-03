@@ -15,10 +15,10 @@ cpz.Background = cc.Layer.extend(
     return false unless @init()
 
     texParams =
-      minFilter: cc._renderContext.LINEAR
-      magFilter: cc._renderContext.LINEAR
-      wrapS: cc._renderContext.REPEAT
-      wrapT: cc._renderContext.REPEAT
+      minFilter: gl.LINEAR
+      magFilter: gl.LINEAR
+      wrapS: gl.REPEAT
+      wrapT: gl.REPEAT
 
     @_bgPattern = cc.Sprite.create cpz.GameConfig.getRootPath('bgPattern.png')
     texture = @_bgPattern.getTexture()
