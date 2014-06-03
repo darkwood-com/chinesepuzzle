@@ -35,7 +35,7 @@ cc.Lang = cc.Class.extend(
       when cc.sys.LANGUAGE_ENGLISH then filePath += '-en'
       else filePath += '-en'
 
-    dict = cc.loader.getRes filePath + '.plist'
+    dict = cc.loader.getRes filePath + '.json'
 
     for key, value of dict
       @set key, value if value

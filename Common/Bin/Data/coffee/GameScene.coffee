@@ -31,13 +31,8 @@ cpz.GameScene = cc.Scene.extend(
 
     @_bgMusicTheme = cpz.GameSceneBGMusicTheme.ThemeNone
 
-  onExit: ->
-    cc.SafeRelease @_game
-    cc.SafeRelease @_menu
+  onEnter: ->
     @_super()
-
-  init: ->
-    return false unless @_super()
 
     #set langage
     lang = cc.Lang.getInstance()
@@ -58,7 +53,7 @@ cpz.GameScene = cc.Scene.extend(
 
       @_background = cpz.Background.create(@)
       @addChild(@_background, cpz.GameSceneZOrder.BG)
-      
+
       @game()
 
       @reshape()
@@ -67,6 +62,11 @@ cpz.GameScene = cc.Scene.extend(
     , @
 
     true
+
+  onExit: ->
+    cc.SafeRelease @_game
+    cc.SafeRelease @_menu
+    @_super()
 
   game: ->
     if @_menu

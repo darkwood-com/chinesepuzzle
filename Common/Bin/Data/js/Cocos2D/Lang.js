@@ -41,7 +41,7 @@ cc.Lang = cc.Class.extend({
       default:
         filePath += '-en';
     }
-    dict = cc.loader.getRes(filePath + '.plist');
+    dict = cc.loader.getRes(filePath + '.json');
     for (key in dict) {
       value = dict[key];
       if (value) {

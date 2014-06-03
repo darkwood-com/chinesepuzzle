@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C3071CA1193C6E1700CA6DAF /* jsb_ext_create_apis.js in Resources */ = {isa = PBXBuildFile; fileRef = C3071CA0193C6E1700CA6DAF /* jsb_ext_create_apis.js */; };
+		C3071CAB193DF01800CA6DAF /* lang-en.json in Resources */ = {isa = PBXBuildFile; fileRef = C3071CAA193DF01800CA6DAF /* lang-en.json */; };
+		C3071CAE193DF23100CA6DAF /* lang-de.json in Resources */ = {isa = PBXBuildFile; fileRef = C3071CAC193DF23100CA6DAF /* lang-de.json */; };
+		C3071CAF193DF23100CA6DAF /* lang-fr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3071CAD193DF23100CA6DAF /* lang-fr.json */; };
 		C309579B1461A59900924761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C36ABC9014619A3C0006151B /* InfoPlist.strings */; };
 		C32F325118B3CF480003E285 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F325018B3CF480003E285 /* CoreMotion.framework */; };
 		C32F325318B3D1BD0003E285 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36ACDF014619EB10006151B /* RootViewController.mm */; };
@@ -45,9 +48,6 @@
 		C3B854381462935000C440B3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854371462935000C440B3 /* OpenAL.framework */; };
 		C3B8543A1462935800C440B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B854391462935800C440B3 /* AudioToolbox.framework */; };
 		C3B8543C1462935E00C440B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B8543B1462935E00C440B3 /* AVFoundation.framework */; };
-		C3D38FA418B4F52A00EB8E1A /* lang-de.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3818B3B62D00A1EA5A /* lang-de.plist */; };
-		C3D38FA518B4F52A00EB8E1A /* lang-en.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3918B3B62D00A1EA5A /* lang-en.plist */; };
-		C3D38FA618B4F52A00EB8E1A /* lang-fr.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3A18B3B62D00A1EA5A /* lang-fr.plist */; };
 		C3D38FA718B4F53D00EB8E1A /* 480x320 in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD2B18B3B62D00A1EA5A /* 480x320 */; };
 		C3D38FA818B4F53D00EB8E1A /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = C3AADD3618B3B62D00A1EA5A /* fonts */; };
 		C3DA06051907F08600C7F43A /* libcocos2dx iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E09E221907EFE8000EC0EE /* libcocos2dx iOS.a */; };
@@ -166,6 +166,9 @@
 
 /* Begin PBXFileReference section */
 		C3071CA0193C6E1700CA6DAF /* jsb_ext_create_apis.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jsb_ext_create_apis.js; path = "Cocos2D-js/frameworks/js-bindings/bindings/script/jsb_ext_create_apis.js"; sourceTree = "<group>"; };
+		C3071CAA193DF01800CA6DAF /* lang-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "lang-en.json"; path = "../Bin/Data/lang-en.json"; sourceTree = "<group>"; };
+		C3071CAC193DF23100CA6DAF /* lang-de.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "lang-de.json"; path = "../Bin/Data/lang-de.json"; sourceTree = "<group>"; };
+		C3071CAD193DF23100CA6DAF /* lang-fr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "lang-fr.json"; path = "../Bin/Data/lang-fr.json"; sourceTree = "<group>"; };
 		C30957981461A4F000924761 /* ChinesePuzzle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ChinesePuzzle-Info.plist"; sourceTree = "<group>"; };
 		C30957991461A4F000924761 /* ChinesePuzzle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChinesePuzzle-Prefix.pch"; sourceTree = "<group>"; };
 		C32F325018B3CF480003E285 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -205,9 +208,6 @@
 		C3AADD3518B3B62D00A1EA5A /* bgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPattern.png; path = ../Bin/Data/bgPattern.png; sourceTree = "<group>"; };
 		C3AADD3618B3B62D00A1EA5A /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Bin/Data/fonts; sourceTree = "<group>"; };
 		C3AADD3718B3B62D00A1EA5A /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = ../Bin/Data/js; sourceTree = "<group>"; };
-		C3AADD3818B3B62D00A1EA5A /* lang-de.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-de.plist"; path = "../Bin/Data/lang-de.plist"; sourceTree = "<group>"; };
-		C3AADD3918B3B62D00A1EA5A /* lang-en.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-en.plist"; path = "../Bin/Data/lang-en.plist"; sourceTree = "<group>"; };
-		C3AADD3A18B3B62D00A1EA5A /* lang-fr.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "lang-fr.plist"; path = "../Bin/Data/lang-fr.plist"; sourceTree = "<group>"; };
 		C3AADD3B18B3B62D00A1EA5A /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = ../Bin/Data/sound; sourceTree = "<group>"; };
 		C3B854321462934100C440B3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C3B854351462934800C440B3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -403,9 +403,9 @@
 				C3AADD3518B3B62D00A1EA5A /* bgPattern.png */,
 				C3AADD3618B3B62D00A1EA5A /* fonts */,
 				C3AADD3718B3B62D00A1EA5A /* js */,
-				C3AADD3818B3B62D00A1EA5A /* lang-de.plist */,
-				C3AADD3918B3B62D00A1EA5A /* lang-en.plist */,
-				C3AADD3A18B3B62D00A1EA5A /* lang-fr.plist */,
+				C3071CAC193DF23100CA6DAF /* lang-de.json */,
+				C3071CAA193DF01800CA6DAF /* lang-en.json */,
+				C3071CAD193DF23100CA6DAF /* lang-fr.json */,
 				C3AADD3B18B3B62D00A1EA5A /* sound */,
 				C3F005D018B7BAF500B3576C /* switch */,
 			);
@@ -637,9 +637,9 @@
 				C3AADD4618B3B62D00A1EA5A /* bgPattern.png in Resources */,
 				C3D38FA818B4F53D00EB8E1A /* fonts in Resources */,
 				C3AADD4818B3B62D00A1EA5A /* js in Resources */,
-				C3D38FA418B4F52A00EB8E1A /* lang-de.plist in Resources */,
-				C3D38FA518B4F52A00EB8E1A /* lang-en.plist in Resources */,
-				C3D38FA618B4F52A00EB8E1A /* lang-fr.plist in Resources */,
+				C3071CAE193DF23100CA6DAF /* lang-de.json in Resources */,
+				C3071CAB193DF01800CA6DAF /* lang-en.json in Resources */,
+				C3071CAF193DF23100CA6DAF /* lang-fr.json in Resources */,
 				C3AADD4C18B3B62D00A1EA5A /* sound in Resources */,
 				C3F005D118B7BAF500B3576C /* switch in Resources */,
 				C353071818C4CAEB00B3EC40 /* Icon-57.png in Resources */,

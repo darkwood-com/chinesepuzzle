@@ -11,9 +11,9 @@ cpz.Resources = [
   #image
 
   #plist
-  cpz.CommonPath + 'lang-de.plist',
-  cpz.CommonPath + 'lang-en.plist',
-  cpz.CommonPath + 'lang-fr.plist',
+  cpz.CommonPath + 'lang-de.json',
+  cpz.CommonPath + 'lang-en.json',
+  cpz.CommonPath + 'lang-fr.json',
 
   #fnt
   cpz.GameConfig.getFontPath('arial16.fnt'),
