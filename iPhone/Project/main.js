@@ -31,8 +31,9 @@ cpz.CommonSrcPath = cpz.CommonPath + 'js/';
 
 cc.game.onStart = function() {
     cc.view.adjustViewPort(true);
-    cc.view.setDesignResolutionSize(320,480,cc.ResolutionPolicy.SHOW_ALL);
-    cc.view.resizeWithBrowserSize(true);
+    //cc.view.setDesignResolutionSize(320,480,cc.ResolutionPolicy.SHOW_ALL);
+    //cc.view.resizeWithBrowserSize(true);
+
     //load resources
     cc.LoaderScene.preload(cpz.Resources, function () {
         chinesePuzzle = cpz.GameScene.create();

@@ -155,12 +155,6 @@ cpz.Game = cc.Layer.extend(
       for j in [0..13]
         @_board[i][j] = null
 
-  onEnter: ->
-    locListener = @_touchListener
-    if (!locListener._isRegistered())
-      cc.eventManager.addListener(locListener, @)
-    @_super()
-
   initWithGameScene: (gs) ->
     return false unless @init()
 
@@ -169,7 +163,7 @@ cpz.Game = cc.Layer.extend(
     #@_gc = new cpz.GameControlChipmunk()
     @_gc = new cpz.GameControlNode()
 
-    @_touchListener = cc.EventListener.create
+    cc.eventManager.addListener(cc.EventListener.create(
       event: cc.EventListener.TOUCH_ONE_BY_ONE
       swallowTouches: true
 
@@ -189,6 +183,7 @@ cpz.Game = cc.Layer.extend(
       onTouchCancelled: (touch, event) =>
         location = touch.getLocation()
         @tapUpAt(location)
+    ), @)
 
     @layout()
 

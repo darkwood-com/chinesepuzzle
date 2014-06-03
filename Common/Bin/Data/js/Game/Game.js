@@ -198,14 +198,6 @@ cpz.Game = cc.Layer.extend({
     }
     return _results;
   },
-  onEnter: function() {
-    var locListener;
-    locListener = this._touchListener;
-    if (!locListener._isRegistered()) {
-      cc.eventManager.addListener(locListener, this);
-    }
-    return this._super();
-  },
   initWithGameScene: function(gs) {
     var initBoard,
       _this = this;
@@ -215,7 +207,7 @@ cpz.Game = cc.Layer.extend({
     this._gs = gs;
     this._gl = new cpz.GameLayout(this);
     this._gc = new cpz.GameControlNode();
-    this._touchListener = cc.EventListener.create({
+    cc.eventManager.addListener(cc.EventListener.create({
       event: cc.EventListener.TOUCH_ONE_BY_ONE,
       swallowTouches: true,
       onTouchBegan: function(touch, event) {
@@ -239,7 +231,7 @@ cpz.Game = cc.Layer.extend({
         location = touch.getLocation();
         return _this.tapUpAt(location);
       }
-    });
+    }), this);
     this.layout();
     initBoard = this._gs.getConf().getInitBoard();
     if (initBoard.count() === 0) {

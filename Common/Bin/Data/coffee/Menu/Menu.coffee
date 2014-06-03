@@ -18,12 +18,6 @@ cpz.Menu = cc.Layer.extend(
   ctor: ->
     @_super()
 
-  onEnter: ->
-    locListener = @_touchListener
-    if (!locListener._isRegistered())
-      cc.eventManager.addListener(locListener, @)
-    @_super()
-
   onExit: ->
     while @popNav() then
 
@@ -36,7 +30,7 @@ cpz.Menu = cc.Layer.extend(
     @_ml = new cpz.MenuLayout(@)
     @_ml.initWithType layout
 
-    @_touchListener = cc.EventListener.create
+    cc.eventManager.addListener(cc.EventListener.create(
       event: cc.EventListener.TOUCH_ONE_BY_ONE
       swallowTouches: true
 
@@ -61,6 +55,7 @@ cpz.Menu = cc.Layer.extend(
         if @_nav.length > 0
           mc = @_nav[@_nav.length - 1]
           mc.onTouchCancelled(touch, event)
+    ), @)
 
     @layout()
     @schedule(@step)

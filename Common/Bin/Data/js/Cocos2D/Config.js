@@ -17,14 +17,6 @@ cc.textureNull = function() {
   return new cc.Texture2D();
 };
 
-cc.textureParameters = function(texture, params) {
-  if (cc.sys.platform === 'browser') {
-    return texture.setTexParameters(params);
-  } else {
-    return texture.setTexParameters(params['minFilter'], params['magFilter'], params['wrapS'], params['wrapT']);
-  }
-};
-
 cc.copySpriteBatchNode = function(from, to) {
   var child, zoneSprite, _i, _len, _ref;
   if (!(to instanceof cc.SpriteBatchNode && from instanceof cc.SpriteBatchNode)) {

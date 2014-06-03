@@ -15,15 +15,25 @@ cpz.Background = cc.Layer.extend({
     if (!this.init()) {
       return false;
     }
-    texParams = {
-      minFilter: gl.LINEAR,
-      magFilter: gl.LINEAR,
-      wrapS: gl.REPEAT,
-      wrapT: gl.REPEAT
-    };
     this._bgPattern = cc.Sprite.create(cpz.GameConfig.getRootPath('bgPattern.png'));
     texture = this._bgPattern.getTexture();
-    cc.textureParameters(texture, texParams);
+    if (cc._renderContext !== void 0) {
+      texParams = {
+        minFilter: cc._renderContext.LINEAR,
+        magFilter: cc._renderContext.LINEAR,
+        wrapS: cc._renderContext.REPEAT,
+        wrapT: cc._renderContext.REPEAT
+      };
+      texture.setTexParameters(texParams['minFilter'], texParams['magFilter'], texParams['wrapS'], texParams['wrapT']);
+    } else {
+      texParams = {
+        minFilter: gl.LINEAR,
+        magFilter: gl.LINEAR,
+        wrapS: gl.REPEAT,
+        wrapT: gl.REPEAT
+      };
+      texture.setTexParameters(texParams['minFilter'], texParams['magFilter'], texParams['wrapS'], texParams['wrapT']);
+    }
     this._bgPattern.setAnchorPoint(cc.p(0.5, 0.5));
     this.addChild(this._bgPattern, cpz.GameSceneZOrder.BG);
     this._gs = gs;

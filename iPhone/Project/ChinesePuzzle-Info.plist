@@ -28,14 +28,12 @@
 	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2014 Mathieu Ledru. All rights reserved.</string>
-	<key>NSMainNibFile</key>
-	<string></string>
 	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

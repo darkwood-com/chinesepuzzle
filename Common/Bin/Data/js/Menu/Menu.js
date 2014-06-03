@@ -15,14 +15,6 @@ cpz.Menu = cc.Layer.extend({
   ctor: function() {
     return this._super();
   },
-  onEnter: function() {
-    var locListener;
-    locListener = this._touchListener;
-    if (!locListener._isRegistered()) {
-      cc.eventManager.addListener(locListener, this);
-    }
-    return this._super();
-  },
   onExit: function() {
     while (this.popNav()) {}
     return this._super();
@@ -35,7 +27,7 @@ cpz.Menu = cc.Layer.extend({
     this._gs = gs;
     this._ml = new cpz.MenuLayout(this);
     this._ml.initWithType(layout);
-    this._touchListener = cc.EventListener.create({
+    cc.eventManager.addListener(cc.EventListener.create({
       event: cc.EventListener.TOUCH_ONE_BY_ONE,
       swallowTouches: true,
       onTouchBegan: function(touch, event) {
@@ -67,7 +59,7 @@ cpz.Menu = cc.Layer.extend({
           return mc.onTouchCancelled(touch, event);
         }
       }
-    });
+    }), this);
     this.layout();
     this.schedule(this.step);
     return true;

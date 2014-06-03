@@ -14,15 +14,23 @@ cpz.Background = cc.Layer.extend(
   initWithGameScene: (gs) ->
     return false unless @init()
 
-    texParams =
-      minFilter: gl.LINEAR
-      magFilter: gl.LINEAR
-      wrapS: gl.REPEAT
-      wrapT: gl.REPEAT
-
     @_bgPattern = cc.Sprite.create cpz.GameConfig.getRootPath('bgPattern.png')
     texture = @_bgPattern.getTexture()
-    cc.textureParameters(texture, texParams)
+    if cc._renderContext isnt undefined
+      texParams =
+        minFilter: cc._renderContext.LINEAR
+        magFilter: cc._renderContext.LINEAR
+        wrapS: cc._renderContext.REPEAT
+        wrapT: cc._renderContext.REPEAT
+      #texture.setTexParameters(texParams)
+      texture.setTexParameters(texParams['minFilter'], texParams['magFilter'], texParams['wrapS'], texParams['wrapT'])
+    else
+      texParams =
+        minFilter: gl.LINEAR
+        magFilter: gl.LINEAR
+        wrapS: gl.REPEAT
+        wrapT: gl.REPEAT
+      texture.setTexParameters(texParams['minFilter'], texParams['magFilter'], texParams['wrapS'], texParams['wrapT'])
 
     @_bgPattern.setAnchorPoint cc.p(0.5, 0.5)
     @addChild @_bgPattern, cpz.GameSceneZOrder.BG
