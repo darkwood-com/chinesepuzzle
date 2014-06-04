@@ -71,14 +71,21 @@ cpz.MenuGrid = cc.Node.extend({
   _delegate: null,
   _minimumTouchLengthToSlide: null,
   _minimumTouchLengthToChangePage: null,
+  _stencil: null,
   _clip: null,
-  _getStencil: function(size) {
-    var rectangle, stencil, white;
+  _setStencil: function(_clip, size) {
+    var lastStencil, rectangle, stencil, white;
+    this._clip = _clip;
+    lastStencil = this._clip.getStencil();
     stencil = cc.DrawNode.create();
     rectangle = [cc.p(0, 0), cc.p(size.width, 0), cc.p(size.width, size.height), cc.p(0, size.height)];
     white = cc.color(1, 1, 1, 1);
     stencil.drawPoly(rectangle, white, 1, white);
-    return stencil;
+    stencil.retain();
+    this._clip.setStencil(stencil);
+    if (lastStencil) {
+      return lastStencil.cleanup();
+    }
   },
   ctor: function() {
     this._super();
@@ -104,13 +111,14 @@ cpz.MenuGrid = cc.Node.extend({
     if (this.init()) {
       this.setContentSize(size);
       this._minimumTouchLengthToChangePage = size.width / 8;
-      this._clip.setStencil(this._getStencil(size));
+      this._setStencil(this._clip, size);
       return true;
     }
     return false;
   },
   onExit: function() {
     var theme, _i, _len, _ref;
+    cc.SafeRelease(this._stencil);
     _ref = this._themes;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       theme = _ref[_i];
@@ -153,7 +161,7 @@ cpz.MenuGrid = cc.Node.extend({
     }
     size = this.getContentSize();
     if (this._clip) {
-      this._clip.setStencil(this._getStencil(size));
+      this._setStencil(this._clip, size);
     }
     if (this._gridSize.width > 0 && this._gridSize.height > 0) {
       pad = cc.size(size.width / this._gridSize.width, size.height / this._gridSize.height);

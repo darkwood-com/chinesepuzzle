@@ -76,9 +76,13 @@ cpz.MenuGrid = cc.Node.extend(
   _minimumTouchLengthToSlide: null
   _minimumTouchLengthToChangePage: null
 
+  _stencil: null
+
   #clip
   _clip: null
-  _getStencil: (size) ->
+  _setStencil: (@_clip, size) ->
+    lastStencil = @_clip.getStencil()
+
     stencil = cc.DrawNode.create()
     rectangle = [cc.p(0, 0),cc.p(size.width, 0),
                  cc.p(size.width, size.height),
@@ -86,7 +90,12 @@ cpz.MenuGrid = cc.Node.extend(
 
     white = cc.color(1, 1, 1, 1)
     stencil.drawPoly(rectangle, white, 1, white)
-    stencil
+    stencil.retain()
+    @_clip.setStencil(stencil)
+
+    if lastStencil
+      lastStencil.cleanup()
+      #cc.SafeRelease lastStencil
 
   ctor: ->
     @_super()
@@ -120,13 +129,15 @@ cpz.MenuGrid = cc.Node.extend(
       # Set default minimum touch length to scroll.
       @_minimumTouchLengthToChangePage = size.width / 8
 
-      @_clip.setStencil(@_getStencil(size))
+      @_setStencil(@_clip, size)
 
       return true
 
     false
 
   onExit: ->
+    cc.SafeRelease @_stencil
+
     for theme in @_themes
       theme.release()
 
@@ -157,7 +168,7 @@ cpz.MenuGrid = cc.Node.extend(
     size = @getContentSize()
 
     if @_clip
-      @_clip.setStencil(@_getStencil(size))
+      @_setStencil(@_clip, size)
 
     if @_gridSize.width > 0 and @_gridSize.height > 0
       pad = cc.size(size.width / @_gridSize.width, size.height / @_gridSize.height)

@@ -15,7 +15,9 @@ cpz.MenuLabel = cc.Node.extend(
   _label: null
 
   _clip: null
-  _getStencil: (size) ->
+  _setStencil: (@_clip, size) ->
+    lastStencil = @_clip.getStencil()
+
     stencil = cc.DrawNode.create()
     rectangle = [cc.p(0, 0),cc.p(size.width, 0),
                  cc.p(size.width, size.height),
@@ -23,7 +25,12 @@ cpz.MenuLabel = cc.Node.extend(
 
     white = cc.color(1, 1, 1, 1)
     stencil.drawPoly(rectangle, white, 1, white)
-    stencil
+    stencil.retain()
+    @_clip.setStencil(stencil)
+
+    if lastStencil
+      lastStencil.cleanup()
+      #cc.SafeRelease lastStencil
 
   _startSwipe: null
   _state: null
@@ -46,7 +53,7 @@ cpz.MenuLabel = cc.Node.extend(
     @setContentSize size
 
     @_clip = cc.ClippingNode.create()
-    @_clip.setStencil(@_getStencil(size))
+    @_setStencil(@_clip, size)
 
     @_label = new cc.LabelBMFont()
     @_label.initWithString("", fntFile, 0, cc.TEXT_ALIGNMENT_LEFT)
@@ -58,6 +65,7 @@ cpz.MenuLabel = cc.Node.extend(
     return true
 
   onExit: ->
+    cc.SafeRelease @_stencil
     @removeChild @_clip
 
     @_super()
@@ -96,7 +104,7 @@ cpz.MenuLabel = cc.Node.extend(
     size = @getContentSize()
 
     if @_clip
-      @_clip.setStencil(@_getStencil(size))
+      @_setStencil(@_clip, size)
     
     if @_label
       @_label.setPosition(cc.pAdd(cc.p(size.width / 2, size.height), cc.p(0, @_offsetScroll + @_offsetSwipe)))
