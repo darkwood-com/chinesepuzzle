@@ -125,9 +125,12 @@ cpz.GameScene = cc.Scene.extend({
       target = null;
     }
     this._conf.preload(function() {
+      var _this = this;
       this._conf.setTheme(theme);
-      this.layout();
       this._conf.save();
+      setTimeout(function() {
+        return _this.layout();
+      }, cc.PREVENT_FREEZE_TIME);
       if (selector) {
         return selector.call(target);
       }

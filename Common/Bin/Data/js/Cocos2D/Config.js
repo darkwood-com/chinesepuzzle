@@ -7,6 +7,8 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 */
 
+cc.PREVENT_FREEZE_TIME = 100;
+
 cc.SafeRelease = function(p) {
   if (p) {
     return p.release();

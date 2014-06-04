@@ -125,8 +125,10 @@ cpz.GameScene = cc.Scene.extend(
   setTheme: (theme, selector = null, target = null) ->
     @_conf.preload ->
       @_conf.setTheme theme
-      @layout()
       @_conf.save()
+      setTimeout =>
+        @layout()
+      , cc.PREVENT_FREEZE_TIME
 
       selector.call(target) if selector
     , @, null, theme

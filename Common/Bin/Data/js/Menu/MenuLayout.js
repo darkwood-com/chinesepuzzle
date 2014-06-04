@@ -227,8 +227,10 @@ cpz.MenuLayout = cc.Class.extend({
     gs = this._menu.getGameScene();
     if (bool !== gs.getConf().getIsCardLayout()) {
       gs.getConf().setIsCardLayout(bool);
-      gs.layout();
-      return gs.getConf().save();
+      gs.getConf().save();
+      return setTimeout(function() {
+        return gs.layout();
+      }, cc.PREVENT_FREEZE_TIME);
     }
   },
   _bg: null,

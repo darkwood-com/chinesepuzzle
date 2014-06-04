@@ -9,6 +9,8 @@ file that was distributed with this source code.
 
 #cc.SpriteBatchNode.extend = cc.Class.extend unless cc.SpriteBatchNode.extend
 
+cc.PREVENT_FREEZE_TIME = 100
+
 cc.SafeRelease = (p) ->
   p.release() if p
 

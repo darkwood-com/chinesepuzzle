@@ -204,8 +204,10 @@ cpz.MenuLayout = cc.Class.extend(
 
     if bool isnt gs.getConf().getIsCardLayout()
       gs.getConf().setIsCardLayout bool
-      gs.layout()
       gs.getConf().save()
+      setTimeout ->
+        gs.layout()
+      , cc.PREVENT_FREEZE_TIME
 
   _bg: null
 
