@@ -33,16 +33,16 @@ cc.game.onStart = function() {
     cc.view.adjustViewPort(true);
     //cc.view.setDesignResolutionSize(320,480,cc.ResolutionPolicy.SHOW_ALL);
     //cc.view.resizeWithBrowserSize(true);
-
+    
     //load resources
     cc.LoaderScene.preload(cpz.Resources, function () {
-        cpz.GameConfig.getResolutions = function() {
+       cpz.GameConfig.getResolutions = function() {
             return [
                 '480x320',
-                '960x640'
+                '1024x768'
             ];
         };
-        
+                           
         chinesePuzzle = cpz.GameScene.create();
         cc.director.runScene(chinesePuzzle);
     }, this);

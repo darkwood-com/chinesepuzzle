@@ -38,6 +38,17 @@
 // cocos2d application instance
 static AppDelegate s_sharedApplication;
 
+typedef struct tagResource
+{
+    cocos2d::CCSize size;
+    char directory[100];
+}Resource;
+
+static Resource smallResource  =  { cocos2d::Size(480, 320),   "iphone" };
+static Resource mediumResource =  { cocos2d::Size(1024, 768),  "ipad"   };
+static Resource largeResource  =  { cocos2d::Size(2048, 1536), "ipadhd" };
+static cocos2d::CCSize designResolutionSize = cocos2d::Size(1024, 768);
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
     // Override point for customization after application launch.
@@ -76,6 +87,20 @@ static AppDelegate s_sharedApplication;
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView((__bridge void*)eaglView);
     cocos2d::Director::getInstance()->setOpenGLView(glview);
+    
+//    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
+//    
+//    cocos2d::Size frameSize = glview->getFrameSize();
+//    
+//    // limit resolution with scale factor
+//    
+//    // if the frame's height is larger than the height of medium resource size, select large resource.
+//    if (frameSize.height > mediumResource.size.height)
+//    {
+//        //searchPath.push_back(largeResource.directory);
+//        auto director = cocos2d::Director::getInstance();
+//        director->setContentScaleFactor(mediumResource.size.height/designResolutionSize.height);
+//    }
     
     cocos2d::Application::getInstance()->run();
     return YES;
