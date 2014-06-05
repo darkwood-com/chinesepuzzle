@@ -647,6 +647,54 @@ cpz.GameConfig.parseResolution = function(res) {
   }
 };
 
+cpz.GameConfig.compareResolution = function(res1, res2) {
+  var size1, size2;
+  size1 = this.parseResolution(res1);
+  size2 = this.parseResolution(res2);
+  return this.compareSize(size1, size2);
+};
+
+cpz.GameConfig.compareSize = function(size1, size2) {
+  if ((size1.width < size2.width) && (size1.height < size2.height)) {
+    return {
+      min: size1,
+      max: size2
+    };
+  } else if ((size1.width >= size2.width) && (size1.height >= size2.height)) {
+    return {
+      min: size2,
+      max: size1
+    };
+  } else {
+    return {
+      min: null,
+      max: null
+    };
+  }
+};
+
+cpz.GameConfig.bestSize = function(size) {
+  var bestSize, compareSize, res, sizeA, sizeB, sizeRes, _i, _len, _ref;
+  bestSize = cc.size(0, 0);
+  _ref = this.getResolutions();
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+    res = _ref[_i];
+    sizeRes = this.parseResolution(res);
+    compareSize = this.compareSize(size, sizeRes);
+    if (compareSize.min) {
+      compareSize = this.compareSize(compareSize.min, bestSize);
+      if (compareSize.max) {
+        bestSize = compareSize.max;
+      }
+    }
+  }
+  sizeA = cc.size(bestSize.width, bestSize.width * size.height / size.width);
+  sizeB = cc.size(bestSize.height * size.width / size.height, bestSize.height);
+  compareSize = this.compareSize(sizeA, sizeB);
+  bestSize = compareSize.max;
+  return bestSize;
+};
+
 cpz.GameConfig.getResolutions = function() {
   return ['480x320', '960x640', '1024x768', '1280x800', '1280x1024', '1366x768', '1440x900', '1680x1050', '1920x1080', '1920x1200'];
 };

@@ -29,6 +29,14 @@ var cpz = cpz || {};
 cpz.CommonPath = '';
 cpz.CommonSrcPath = cpz.CommonPath + 'js/';
 
+var chinesePuzzle = null;
+
+cpz.reshape = function(width, height) {
+    if(chinesePuzzle) {
+        chinesePuzzle.reshapeViewWithSize(cc.view, cc.size(width, height));
+    }
+};
+
 cc.game.onStart = function() {
     cc.view.adjustViewPort(true);
     //cc.view.setDesignResolutionSize(320,480,cc.ResolutionPolicy.SHOW_ALL);
@@ -36,7 +44,7 @@ cc.game.onStart = function() {
     
     //load resources
     cc.LoaderScene.preload(cpz.Resources, function () {
-       cpz.GameConfig.getResolutions = function() {
+        cpz.GameConfig.getResolutions = function() {
             return [
                 '480x320',
                 '1024x768'
@@ -44,6 +52,7 @@ cc.game.onStart = function() {
         };
                            
         chinesePuzzle = cpz.GameScene.create();
+        chinesePuzzle.reshapeViewWithSize(cc.view);
         cc.director.runScene(chinesePuzzle);
     }, this);
 };

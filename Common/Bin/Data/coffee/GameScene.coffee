@@ -31,19 +31,18 @@ cpz.GameScene = cc.Scene.extend(
 
     @_bgMusicTheme = cpz.GameSceneBGMusicTheme.ThemeNone
 
-  onEnter: ->
-    @_super()
-
     #set langage
     lang = cc.Lang.getInstance()
     lang.setLang cc.sys.language
     lang.addLang 'lang'
 
-    @ignoreAnchorPointForPosition(false)
-
     @_conf = new cpz.GameConfig()
     @_conf.init()
     @_conf.load()
+
+  onEnter: ->
+    @_super()
+    @ignoreAnchorPointForPosition(false)
 
     @reshape ->
       @playBackgroundMusic @_conf.getIsSoundOn()
@@ -160,6 +159,17 @@ cpz.GameScene = cc.Scene.extend(
 
     else if @_bgMusicTheme isnt cpz.GameSceneBGMusicTheme.ThemeNone
       audio.stopMusic()
+
+  reshapeViewWithSize: (view, size = null, selector = null, target = null) ->
+    size ?= view.getFrameSize()
+
+    view.setFrameSize size.width, size.height
+
+    designSize = cpz.GameConfig.bestSize size
+
+    view.setDesignResolutionSize designSize.width, designSize.height, cc.ResolutionPolicy.SHOW_ALL
+
+    @reshape selector, target
 
   reshape: (selector = null, target = null) ->
     winsize = cc.director.getWinSizeInPixels()

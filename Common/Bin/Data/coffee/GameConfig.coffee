@@ -549,6 +549,41 @@ cpz.GameConfig.parseResolution = (res) ->
   m = res.match /([0-9]+)x([0-9]+)/
   if m then cc.size(parseInt(m[1]), parseInt(m[2])) else cc.size(0, 0)
 
+cpz.GameConfig.compareResolution = (res1, res2) ->
+  size1 = @parseResolution res1
+  size2 = @parseResolution res2
+
+  @compareSize size1, size2
+
+cpz.GameConfig.compareSize = (size1, size2) ->
+  if (size1.width < size2.width) and (size1.height < size2.height)
+    min: size1
+    max: size2
+  else if (size1.width >= size2.width) and (size1.height >= size2.height)
+    min: size2
+    max: size1
+  else
+    min: null
+    max: null
+
+cpz.GameConfig.bestSize = (size) ->
+  bestSize = cc.size 0, 0
+
+  for res in @getResolutions()
+    sizeRes = @parseResolution res
+
+    compareSize = @compareSize size, sizeRes
+    if compareSize.min
+      compareSize = @compareSize compareSize.min, bestSize
+      bestSize = compareSize.max if compareSize.max
+
+  sizeA = cc.size bestSize.width, bestSize.width * size.height / size.width
+  sizeB = cc.size bestSize.height * size.width / size.height, bestSize.height
+
+  compareSize = @compareSize sizeA, sizeB
+  bestSize = compareSize.max
+  bestSize
+
 cpz.GameConfig.getResolutions = ->
   [
     '480x320',

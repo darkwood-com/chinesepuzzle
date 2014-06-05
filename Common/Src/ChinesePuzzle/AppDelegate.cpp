@@ -128,3 +128,10 @@ void AppDelegate::applicationWillEnterForeground()
     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
     SimpleAudioEngine::getInstance()->resumeAllEffects();
 }
+
+void AppDelegate::applicationScreenSizeChanged(int newWidth, int newHeight)
+{
+    char string[200]; jsval outVal;
+    sprintf(string, "cpz.reshape(%d, %d);", newWidth, newHeight);
+    ScriptingCore::getInstance()->evalString(string, &outVal);
+}
