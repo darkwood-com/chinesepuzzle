@@ -126,7 +126,7 @@ cpz.MenuBox = cc.Node.extend(
     child = @getChildByTag(tag)
 
     if child is null
-      CCLOG('cocos2d: removeItemByTag: child not found!')
+      cc.log('cocos2d: removeItemByTag: child not found!')
     else
       cc.arrayRemoveObject @_items, child
 
