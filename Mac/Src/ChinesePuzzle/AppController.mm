@@ -24,33 +24,28 @@
 
 #import <AppKit/AppKit.h>
 #import "AppController.h"
-//#include "cpMacro.h"
-//#import "EAGLView.h"
-//#include "CCEGLView.h"
-#include "platform/desktop/CCGLView.h"
-#include "CCDirector.h"
-#include "CCGeometry.h"
+
+#include "cocos2d.h"
 #import "AppDelegate.h"
-//#include CP_PLATFORM(GameScene)
 
 @implementation AppController
 @synthesize window;
 
 USING_NS_CC;
 
-- (id)init
-{
-    if (self = [super init])
-	{
-        
-    }
-
-    return self;
-}
-
-- (void)dealloc
-{
-}
+//- (id)init
+//{
+//    if (self = [super init])
+//	{
+//        
+//    }
+//
+//    return self;
+//}
+//
+//- (void)dealloc
+//{
+//}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
