@@ -10,6 +10,15 @@
 		C3071CBC193F5E8800CA6DAF /* lang-de.json in Resources */ = {isa = PBXBuildFile; fileRef = C3071CB9193F5E8800CA6DAF /* lang-de.json */; };
 		C3071CBD193F5E8800CA6DAF /* lang-en.json in Resources */ = {isa = PBXBuildFile; fileRef = C3071CBA193F5E8800CA6DAF /* lang-en.json */; };
 		C3071CBE193F5E8800CA6DAF /* lang-fr.json in Resources */ = {isa = PBXBuildFile; fileRef = C3071CBB193F5E8800CA6DAF /* lang-fr.json */; };
+		C32E37E31941E2CB00BE5996 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37DB1941E2CB00BE5996 /* Default-Landscape.png */; };
+		C32E37E41941E2CB00BE5996 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37DC1941E2CB00BE5996 /* Default-Landscape@2x.png */; };
+		C32E37E51941E2CB00BE5996 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37DD1941E2CB00BE5996 /* Default-Portrait.png */; };
+		C32E37E61941E2CB00BE5996 /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37DE1941E2CB00BE5996 /* Default-Portrait@2x.png */; };
+		C32E37E71941E2CB00BE5996 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37DF1941E2CB00BE5996 /* Icon-72.png */; };
+		C32E37E81941E2CB00BE5996 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37E01941E2CB00BE5996 /* Icon-76.png */; };
+		C32E37E91941E2CB00BE5996 /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37E11941E2CB00BE5996 /* Icon-144.png */; };
+		C32E37EA1941E2CB00BE5996 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = C32E37E21941E2CB00BE5996 /* Icon-152.png */; };
+		C32E37EC1941E2F300BE5996 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32E37EB1941E2F300BE5996 /* Images.xcassets */; };
 		C33D560015F6DE4C0039A184 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33D55FF15F6DE4C0039A184 /* UIKit.framework */; };
 		C33D560215F6DE4C0039A184 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33D560115F6DE4C0039A184 /* Foundation.framework */; };
 		C33D560415F6DE4C0039A184 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C33D560315F6DE4C0039A184 /* CoreGraphics.framework */; };
@@ -58,12 +67,6 @@
 		C3D3BE5518B4FB3900EB8E1A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D3BE5418B4FB3900EB8E1A /* CoreMotion.framework */; };
 		C3D3BE5718B4FB4200EB8E1A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D3BE5618B4FB4200EB8E1A /* libz.dylib */; };
 		C3D3BE5918B4FB4A00EB8E1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D3BE5818B4FB4A00EB8E1A /* libsqlite3.dylib */; };
-		C3E0398915F946F5000622C4 /* ChinesePuzzleApp.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398315F946F5000622C4 /* ChinesePuzzleApp.png */; };
-		C3E0398A15F946F5000622C4 /* ChinesePuzzleApp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398415F946F5000622C4 /* ChinesePuzzleApp@2x.png */; };
-		C3E0398F15F9478D000622C4 /* ChinesePuzzleDefault-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398B15F9478C000622C4 /* ChinesePuzzleDefault-Landscape.png */; };
-		C3E0399015F9478D000622C4 /* ChinesePuzzleDefault-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */; };
-		C3E0399115F9478D000622C4 /* ChinesePuzzleDefault-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */; };
-		C3E0399215F9478D000622C4 /* ChinesePuzzleDefault-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */; };
 		C3F005E318B7BB0400B3576C /* switch in Resources */ = {isa = PBXBuildFile; fileRef = C3F005E218B7BB0400B3576C /* switch */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +161,15 @@
 		C3071CB9193F5E8800CA6DAF /* lang-de.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "lang-de.json"; path = "../Bin/Data/lang-de.json"; sourceTree = "<group>"; };
 		C3071CBA193F5E8800CA6DAF /* lang-en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "lang-en.json"; path = "../Bin/Data/lang-en.json"; sourceTree = "<group>"; };
 		C3071CBB193F5E8800CA6DAF /* lang-fr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "lang-fr.json"; path = "../Bin/Data/lang-fr.json"; sourceTree = "<group>"; };
+		C32E37DB1941E2CB00BE5996 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		C32E37DC1941E2CB00BE5996 /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
+		C32E37DD1941E2CB00BE5996 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		C32E37DE1941E2CB00BE5996 /* Default-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x.png"; sourceTree = "<group>"; };
+		C32E37DF1941E2CB00BE5996 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		C32E37E01941E2CB00BE5996 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		C32E37E11941E2CB00BE5996 /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-144.png"; sourceTree = "<group>"; };
+		C32E37E21941E2CB00BE5996 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
+		C32E37EB1941E2F300BE5996 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ChinesePuzzle/Images.xcassets; sourceTree = "<group>"; };
 		C33D55FB15F6DE4C0039A184 /* ChinesePuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChinesePuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33D55FF15F6DE4C0039A184 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C33D560115F6DE4C0039A184 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -210,12 +222,6 @@
 		C3D3BE5418B4FB3900EB8E1A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		C3D3BE5618B4FB4200EB8E1A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C3D3BE5818B4FB4A00EB8E1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		C3E0398315F946F5000622C4 /* ChinesePuzzleApp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChinesePuzzleApp.png; sourceTree = "<group>"; };
-		C3E0398415F946F5000622C4 /* ChinesePuzzleApp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleApp@2x.png"; sourceTree = "<group>"; };
-		C3E0398B15F9478C000622C4 /* ChinesePuzzleDefault-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Landscape.png"; sourceTree = "<group>"; };
-		C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Landscape@2x.png"; sourceTree = "<group>"; };
-		C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Portrait.png"; sourceTree = "<group>"; };
-		C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChinesePuzzleDefault-Portrait@2x.png"; sourceTree = "<group>"; };
 		C3F005E218B7BB0400B3576C /* switch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = switch; path = ../Bin/Data/switch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,18 +401,21 @@
 		C3CFF6F615F795FA00A14011 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C32E37EB1941E2F300BE5996 /* Images.xcassets */,
 				C3CFF6F715F7960900A14011 /* ChinesePuzzle-Info.plist */,
 				C3CFF6F815F7960900A14011 /* ChinesePuzzle-Prefix.pch */,
 				C3CFF6F915F7960900A14011 /* InfoPlist.strings */,
 				C3CFF6FA15F7960900A14011 /* main.m */,
-				C3E0398315F946F5000622C4 /* ChinesePuzzleApp.png */,
-				C3E0398415F946F5000622C4 /* ChinesePuzzleApp@2x.png */,
-				C3E0398B15F9478C000622C4 /* ChinesePuzzleDefault-Landscape.png */,
-				C3E0398C15F9478C000622C4 /* ChinesePuzzleDefault-Landscape@2x.png */,
-				C3E0398D15F9478C000622C4 /* ChinesePuzzleDefault-Portrait.png */,
-				C3E0398E15F9478C000622C4 /* ChinesePuzzleDefault-Portrait@2x.png */,
 				C3A8270B193F65CA009BBEED /* main.js */,
 				C3A82735193F6E28009BBEED /* project.json */,
+				C32E37DB1941E2CB00BE5996 /* Default-Landscape.png */,
+				C32E37DC1941E2CB00BE5996 /* Default-Landscape@2x.png */,
+				C32E37DD1941E2CB00BE5996 /* Default-Portrait.png */,
+				C32E37DE1941E2CB00BE5996 /* Default-Portrait@2x.png */,
+				C32E37DF1941E2CB00BE5996 /* Icon-72.png */,
+				C32E37E01941E2CB00BE5996 /* Icon-76.png */,
+				C32E37E11941E2CB00BE5996 /* Icon-144.png */,
+				C32E37E21941E2CB00BE5996 /* Icon-152.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -474,6 +483,11 @@
 			attributes = {
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = Darkwood;
+				TargetAttributes = {
+					C33D55FA15F6DE4C0039A184 = {
+						DevelopmentTeam = 7SWX39DWY4;
+					};
+				};
 			};
 			buildConfigurationList = C33D55F515F6DE4B0039A184 /* Build configuration list for PBXProject "ChinesePuzzle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -603,18 +617,15 @@
 				C3071CBD193F5E8800CA6DAF /* lang-en.json in Resources */,
 				C3071CBE193F5E8800CA6DAF /* lang-fr.json in Resources */,
 				C3D38FCE18B4F7D300EB8E1A /* sound in Resources */,
+				C32E37EC1941E2F300BE5996 /* Images.xcassets in Resources */,
 				C3F005E318B7BB0400B3576C /* switch in Resources */,
-				C3E0398915F946F5000622C4 /* ChinesePuzzleApp.png in Resources */,
-				C3E0398A15F946F5000622C4 /* ChinesePuzzleApp@2x.png in Resources */,
-				C3E0398F15F9478D000622C4 /* ChinesePuzzleDefault-Landscape.png in Resources */,
-				C3E0399015F9478D000622C4 /* ChinesePuzzleDefault-Landscape@2x.png in Resources */,
-				C3E0399115F9478D000622C4 /* ChinesePuzzleDefault-Portrait.png in Resources */,
-				C3E0399215F9478D000622C4 /* ChinesePuzzleDefault-Portrait@2x.png in Resources */,
 				C3A8270C193F65CA009BBEED /* main.js in Resources */,
 				C3A82736193F6E28009BBEED /* project.json in Resources */,
 				C3CFF6FC15F7961A00A14011 /* InfoPlist.strings in Resources */,
 				C3A826F6193F63C7009BBEED /* debugger in Resources */,
+				C32E37E81941E2CB00BE5996 /* Icon-76.png in Resources */,
 				C3A826F7193F63C7009BBEED /* jsb_boot.js in Resources */,
+				C32E37E31941E2CB00BE5996 /* Default-Landscape.png in Resources */,
 				C3A826F8193F63C7009BBEED /* jsb_chipmunk_constants.js in Resources */,
 				C3A826F9193F63C7009BBEED /* jsb_chipmunk.js in Resources */,
 				C3A826FA193F63C7009BBEED /* jsb_cocos2d_constants.js in Resources */,
@@ -622,16 +633,22 @@
 				C3A826FC193F63C7009BBEED /* jsb_cocos2d_studio.js in Resources */,
 				C3A826FD193F63C7009BBEED /* jsb_cocos2d_ui.js in Resources */,
 				C3A826FE193F63C7009BBEED /* jsb_cocos2d.js in Resources */,
+				C32E37E41941E2CB00BE5996 /* Default-Landscape@2x.png in Resources */,
 				C3A826FF193F63C7009BBEED /* jsb_cocosbuilder.js in Resources */,
+				C32E37EA1941E2CB00BE5996 /* Icon-152.png in Resources */,
 				C3A82700193F63C7009BBEED /* jsb_create_apis.js in Resources */,
 				C3A82701193F63C7009BBEED /* jsb_debugger.js in Resources */,
 				C3A82702193F63C7009BBEED /* jsb_deprecated.js in Resources */,
 				C3A82703193F63C7009BBEED /* jsb_ext_create_apis.js in Resources */,
 				C3A82704193F63C7009BBEED /* jsb_loaders.js in Resources */,
+				C32E37E51941E2CB00BE5996 /* Default-Portrait.png in Resources */,
+				C32E37E71941E2CB00BE5996 /* Icon-72.png in Resources */,
 				C3A82705193F63C7009BBEED /* jsb_opengl_constants.js in Resources */,
 				C3A82706193F63C7009BBEED /* jsb_opengl.js in Resources */,
 				C3A82707193F63C7009BBEED /* jsb_property_apis.js in Resources */,
 				C3A82708193F63C7009BBEED /* jsb_property_impls.js in Resources */,
+				C32E37E61941E2CB00BE5996 /* Default-Portrait@2x.png in Resources */,
+				C32E37E91941E2CB00BE5996 /* Icon-144.png in Resources */,
 				C3A82709193F63C7009BBEED /* jsb.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -763,7 +780,9 @@
 		C33D561415F6DE4C0039A184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -787,6 +806,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -794,8 +814,10 @@
 		C33D561515F6DE4C0039A184 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Ledru (7SWX39DWY4)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
@@ -816,8 +838,9 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "371CA744-3322-4752-9418-869686FF7D5E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "371CA744-3322-4752-9418-869686FF7D5E";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

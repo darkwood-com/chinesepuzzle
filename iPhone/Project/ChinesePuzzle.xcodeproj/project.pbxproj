@@ -480,6 +480,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Darkwood;
+				TargetAttributes = {
+					C36ABC57146196000006151B = {
+						DevelopmentTeam = 7SWX39DWY4;
+					};
+				};
 			};
 			buildConfigurationList = C36ABC52146196000006151B /* Build configuration list for PBXProject "ChinesePuzzle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -769,8 +774,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
@@ -802,8 +807,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Ledru (P4WB4CJAMG)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mathieu Ledru (7SWX39DWY4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Ledru (7SWX39DWY4)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChinesePuzzle-Prefix.pch";
@@ -824,8 +829,8 @@
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "5651790C-E316-4EB8-AC1E-7AF238CA6D13";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5651790C-E316-4EB8-AC1E-7AF238CA6D13";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
