@@ -1,0 +1,7 @@
+{
+    "project_type": "js",
+    "has_native": true,
+    "android_cfg": {
+        "project_path": "Project"
+    }
+}
