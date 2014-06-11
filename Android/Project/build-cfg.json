@@ -1,21 +1,49 @@
 {
     "copy_resources": [
         {
-            "from": "../../src", 
-            "to": "src"
-        }, 
+            "from": "../../Common/Bin/Data/480x320",
+            "to": "480x320"
+        },
         {
-            "from": "../../res", 
-            "to": "res"
-        }, 
+            "from": "../../Common/Bin/Data/960x640",
+            "to": "960x640"
+        },
         {
-            "from": "../../main.js", 
+            "from": "../../Common/Bin/Data/1024x768",
+            "to": "1024x768"
+        },
+        {
+            "from": "../../Common/Bin/Data/fonts",
+            "to": "fonts"
+        },
+        {
+            "from": "../../Common/Bin/Data/js",
+            "to": "js"
+        },
+        {
+            "from": "../../Common/Bin/Data/sound",
+            "to": "sound"
+        },
+        {
+            "from": "../../Common/Bin/Data/switch",
+            "to": "switch"
+        },
+        {
+            "from": "../../Common/Bin/Data/bgPattern.png",
             "to": ""
-        }, 
+        },
         {
-            "from": "../../project.json", 
+            "from": "../../Common/Bin/Data/lang-de.json",
             "to": ""
-        }, 
+        },
+        {
+            "from": "../../Common/Bin/Data/lang-en.json",
+            "to": ""
+        },
+        {
+            "from": "../../Common/Bin/Data/lang-fr.json",
+            "to": ""
+        },
         {
             "from": "../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/bindings/script",
             "to": ""

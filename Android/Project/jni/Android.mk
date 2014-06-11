@@ -9,7 +9,7 @@ LOCAL_MODULE_FILENAME := libjs_chinesepuzzle
 LOCAL_SRC_FILES := main.cpp \
                    ../../../Common/Src/ChinesePuzzle/AppDelegate.cpp
 
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../Common/Src/ChinesePuzzle
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos_jsb_static
 LOCAL_WHOLE_STATIC_LIBRARIES += jsb_chipmunk_static
