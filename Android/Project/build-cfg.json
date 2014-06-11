@@ -47,6 +47,22 @@
         {
             "from": "../../Common/Src/Externals/Cocos2D-js/frameworks/js-bindings/bindings/script",
             "to": ""
+        },
+        {
+            "from": "src",
+            "to": "src"
+        },
+        {
+            "from": "res",
+            "to": "res"
+        },
+        {
+            "from": "main.js",
+            "to": ""
+        },
+        {
+            "from": "project.json",
+            "to": ""
         }
     ], 
     "ndk_module_path": [
