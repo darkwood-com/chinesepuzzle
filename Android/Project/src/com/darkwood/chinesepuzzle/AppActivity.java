@@ -1,4 +1,4 @@
-package org.cocos2dx.js_chinesepuzzle;
+package com.darkwood.chinesepuzzle;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
