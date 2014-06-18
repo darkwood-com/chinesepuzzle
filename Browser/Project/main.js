@@ -29,36 +29,38 @@ var cpz = cpz || {};
 cpz.CommonPath = '../../Common/Bin/Data/';
 cpz.CommonSrcPath = cpz.CommonPath + 'js/';
 
-cc.game.onStart = function(){
-    var chinesePuzzle = null;
+document.addEventListener('DOMContentLoaded', function() {
+    cc.game.onStart = function(){
+        var chinesePuzzle = null;
 
-    //view resize
-    var view = cc.view;
-    var callback = function() {
-        var w = window,
-            d = document,
-            e = d.documentElement,
-            g = d.getElementsByTagName('body')[0],
-            x = w.innerWidth || e.clientWidth || g.clientWidth,
-            y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        //view resize
+        var view = cc.view;
+        var callback = function() {
+            var w = window,
+                d = document,
+                e = d.documentElement,
+                g = d.getElementsByTagName('body')[0],
+                x = w.innerWidth || e.clientWidth || g.clientWidth,
+                y = w.innerHeight|| e.clientHeight|| g.clientHeight;
 
-        view.setDesignResolutionSize(x, y, cc.ResolutionPolicy.NO_BORDER);
+            view.setDesignResolutionSize(x, y, cc.ResolutionPolicy.NO_BORDER);
 
-        if(chinesePuzzle) {
-            chinesePuzzle.reshape();
-        }
+            if(chinesePuzzle) {
+                chinesePuzzle.reshape();
+            }
+        };
+        view.resizeWithBrowserSize(true);
+        view.setResizeCallback(callback);
+        callback.call();
+
+        //view.setDesignResolutionSize(800,450,cc.ResolutionPolicy.SHOW_ALL);
+
+        cc.LoaderScene.preload(cpz.Resources, function () {
+            setTimeout(function() {
+                chinesePuzzle = cpz.GameScene.create();
+                cc.director.runScene(chinesePuzzle);
+            }, 100)
+        }, this);
     };
-    view.resizeWithBrowserSize(true);
-    view.setResizeCallback(callback);
-    callback.call();
-
-    //view.setDesignResolutionSize(800,450,cc.ResolutionPolicy.SHOW_ALL);
-
-    cc.LoaderScene.preload(cpz.Resources, function () {
-        setTimeout(function() {
-            chinesePuzzle = cpz.GameScene.create();
-            cc.director.runScene(chinesePuzzle);
-        }, 100)
-    }, this);
-};
-cc.game.run();
+    cc.game.run();
+});
