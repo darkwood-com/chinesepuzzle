@@ -9,7 +9,7 @@ Mac OS X : [http://www.darkwood.fr/argosSites/pagesperso/images/projects/chinese
 
 iPhone : [http://itunes.apple.com/fr/app/chinesepuzzle/id561759611?mt=8](http://itunes.apple.com/fr/app/chinesepuzzle/id561759611?mt=8)
 
-iPad : [http://itunes.apple.com/fr/app/chinesepuzzle-hd/id561782526?mt=8"](http://itunes.apple.com/fr/app/chinesepuzzle-hd/id561782526?mt=8)
+iPad : [http://itunes.apple.com/fr/app/chinesepuzzle-hd/id561782526?mt=8](http://itunes.apple.com/fr/app/chinesepuzzle-hd/id561782526?mt=8)
 
 Android : [https://play.google.com/store/apps/details?id=com.darkwood.chinesepuzzle](https://play.google.com/store/apps/details?id=com.darkwood.chinesepuzzle)
 
