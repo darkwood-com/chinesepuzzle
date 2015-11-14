@@ -1,11 +1,11 @@
 ChinesePuzzle
 =============
 
-More informations at [http://www.darkwood.fr/pagesperso/chinesepuzzle/](http://www.darkwood.fr/pagesperso/chinesepuzzle/)
+More informations at [http://apps.darkwood.fr/chinesepuzzle](http://apps.darkwood.fr/chinesepuzzle)
 
-HTML5 Demo at : [http://www.darkwood.fr/pagesperso/chinesepuzzle/demonstration/](http://www.darkwood.fr/pagesperso/chinesepuzzle/demonstration/)
+HTML5 Demo at : [http://apps.darkwood.fr/chinesepuzzle/demonstration](http://apps.darkwood.fr/chinesepuzzle/demonstration)
 
-Mac OS X : [http://www.darkwood.fr/argosSites/pagesperso/images/projects/chinesepuzzle/ChinesePuzzle.app.zip](http://www.darkwood.fr/argosSites/pagesperso/images/projects/chinesepuzzle/ChinesePuzzle.app.zip)
+Mac OS X : [http://apps.darkwood.fr/bundles/front/apps/images/projects/chinesepuzzle/ChinesePuzzle.app.zip](http://apps.darkwood.fr/bundles/front/apps/images/projects/chinesepuzzle/ChinesePuzzle.app.zip)
 
 iPhone : [http://itunes.apple.com/fr/app/chinesepuzzle/id561759611?mt=8](http://itunes.apple.com/fr/app/chinesepuzzle/id561759611?mt=8)
 
