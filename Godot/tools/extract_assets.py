@@ -8,7 +8,7 @@ import glob, os
 from psd_tools import PSDImage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-SRC = os.path.join(ROOT, "Common/Bin/Design/960x640")
+SRC = os.path.join(ROOT, "Design/960x640")
 DST = os.path.join(ROOT, "Godot/assets")
 THEMES = ["chinese", "classic", "polkadots", "seamless", "shullshearts", "splash", "spring", "stripes", "vivid"]
 

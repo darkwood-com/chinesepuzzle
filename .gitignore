@@ -1,48 +1,15 @@
-# Common
-Common/Bin/Data/480x320
-Common/Bin/Data/960x640
-Common/Bin/Data/1024x768
-Common/Bin/Data/1280x800
-Common/Bin/Data/1280x1024
-Common/Bin/Data/1366x768
-Common/Bin/Data/1440x900
-Common/Bin/Data/1680x1050
-Common/Bin/Data/1920x1080
-Common/Bin/Data/1920x1200
-Common/Bin/Export
-Common/Bin/Inspiration
-
-# Android
-Android/Project/assets
-Android/Project/bin
-Android/Project/gen
-Android/Project/libs
-Android/Project/obj
-Android/Project/local.properties
-Android/publish
-Android/runtime
-
-# Mac
+# OS / IDE
 .DS_Store
-
-# Xcode
-*.pbxuser
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-*.xcuserstate
-project.xcworkspace/
-xcuserdata/
-
-# Eclipse
-Android/Project/.classpath
-Android/Project/.project
-Android/Project/.settings
-
-# JetBrains
 .idea
 
-# NPM
-node_modules/
+# Godot
+Godot/.godot/
+*.translation
+
+# Build outputs
 /Exports/
 
+# Local signing config (never commit keystores or passwords)
+build/local.env
+*.keystore
+*.jks
