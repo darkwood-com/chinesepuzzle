@@ -13,3 +13,4 @@ Godot/.godot/
 build/local.env
 *.keystore
 *.jks
+Godot/android/
