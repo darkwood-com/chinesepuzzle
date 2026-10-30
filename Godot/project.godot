@@ -18,7 +18,7 @@ config/icon="res://assets/icon.png"
 
 [autoload]
 
-GPX="*res://addons/gpx-godot-plugin/gpx.gd"
+GPX="*uid://b4qk7wy4evc32"
 
 [display]
 
@@ -26,7 +26,7 @@ window/size/viewport_width=960
 window/size/viewport_height=640
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/handheld/orientation=0
+window/handheld/orientation=4
 
 [editor_plugins]
 
@@ -36,4 +36,5 @@ enabled=PackedStringArray("res://addons/gpx-godot-plugin/plugin.cfg")
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.95, 0.96, 0.97, 1)
