@@ -1,13 +1,13 @@
 {
     "menu.newgame.title": "New game",
-    "menu.newgame.content": "Do you want start a new game?",
-    "menu.retrygame.title": "Retry game",
-    "menu.retrygame.content": "Do you want retry the game?",
-    "menu.hintgame.title": "Hint",
-    "menu.hintgame.content": "Chinese Puzzle is a two-deck solitaire card game in which your memory and familiarity with the rules are tested to the limit. The game laid out in a tableau of eight rows. The goal is to move cards around in vacant spaces, so that all rows end up in a same family-colored and sorted order from Ace to King. Ace cards can only be moved at the first column, then you can fill the vacant space by drag and dropping one of the two card from same family color and next rank to the left card. Not clear? Just make some moves and play the game, but be careful with Kings!",
+    "menu.newgame.content": "Start a new game? Your current progress will be replaced.",
+    "menu.retrygame.title": "Restart deal",
+    "menu.retrygame.content": "Restart this deal? All moves in this game will be reset.",
+    "menu.hintgame.title": "How to play",
+    "menu.hintgame.content": "Sort all eight rows from Ace to King, with one suit in each row. There are two copies of every card.\n\n1. Drag a card into an empty space, or tap a card and then tap a space.\n\n2. Only an Ace can fill a space in the first column.\n\n3. In any other column, the card must be the next rank in the same suit as the card on its left. For example, place the 5 of hearts after the 4 of hearts.\n\n4. A space after a King cannot be filled. Cards already in order from an Ace at the start of a row are locked.\n\nGreen means a valid move; red means an invalid move. Use Undo to take back a move, or Restart to try the same deal again.",
     "menu.themegame.title": "Themes",
-    "menu.themegame.cardlayout.on": "Second render On",
-    "menu.themegame.cardlayout.off": "Second render Off",
+    "menu.themegame.cardlayout.on": "Detailed cards: On",
+    "menu.themegame.cardlayout.off": "Detailed cards: Off",
     "menu.wingame.title": "Congratulations!",
     "menu.wingame.content": "All rows are sorted from Ace to King. Do you want to start a new game?"
 }

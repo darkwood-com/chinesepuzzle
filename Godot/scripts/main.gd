@@ -6,6 +6,7 @@ const CARD := Vector2(52, 72)
 const SPACE := Vector2(8, 8)
 const GRID_POS := Vector2(8, 0)
 const BUTTONS := ["newBtn", "retryBtn", "undoBtn", "hintBtn", "soundBtn", "themeBtn"]
+const BUTTON_LABELS := ["New game", "Restart", "Undo", "Rules", "Sound", "Themes"]
 const BUTTON_Y := [580, 476, 372, 268, 164, 60]   # cocos (bottom-left origin) coordinates, x = 902
 const THEMES := ["classic", "chinese", "polkadots", "seamless", "shullshearts", "splash", "spring", "stripes", "vivid"]
 const SAVE_PATH := "user://chinesepuzzle.json"
@@ -13,7 +14,7 @@ const SAVE_KEY := "chinesepuzzle.data"
 
 enum Z { BG, UI, BOARD, CARD, MOVE_CARD, HINT_CARD }
 
-var conf := {"theme": "chinese", "card_layout": false, "sound_on": true, "init_board": [], "moves": []}
+var conf := {"theme": "classic", "card_layout": false, "sound_on": true, "init_board": [], "moves": []}
 var lang := {}
 var skin: CpzSkin
 var board := []            # [i][j] -> CpzCard (card or slot), mirrors CpzRules board
@@ -58,6 +59,17 @@ func _ready() -> void:
 		s.z_index = Z.UI
 		root.add_child(s)
 		buttons[b] = s
+		var caption := Label.new()
+		caption.text = BUTTON_LABELS[BUTTONS.find(b)]
+		caption.label_settings = _font(18)
+		caption.label_settings.outline_size = 4
+		caption.label_settings.outline_color = Color("17241b")
+		caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		caption.position = s.position + Vector2(-54, 32)
+		caption.size = Vector2(108, 24)
+		caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		caption.z_index = Z.UI
+		root.add_child(caption)
 	touch_last.visible = false
 	touch_last.z_index = Z.HINT_CARD
 	root.add_child(touch_last)
@@ -89,12 +101,8 @@ func _ready() -> void:
 # ---------------------------------------------------------------- config / save
 
 func _load_lang() -> void:
-	var code := OS.get_locale_language()
-	if OS.has_feature("web") and GPX.gpx != null:
-		code = str(GPX.lang()).substr(0, 2)
-	if code not in ["en", "fr", "de"]:
-		code = "en"
-	var f := FileAccess.open("res://assets/lang/%s.json" % code, FileAccess.READ)
+	# English is the publishing default, independent of browser/SDK locale.
+	var f := FileAccess.open("res://assets/lang/en.json", FileAccess.READ)
 	lang = JSON.parse_string(f.get_as_text())
 
 func tr_key(key: String) -> String:
@@ -494,7 +502,7 @@ func play_background_music(play: bool) -> void:
 
 func _font(size: int) -> LabelSettings:
 	var ls := LabelSettings.new()
-	ls.font = load("res://assets/fonts/arial32.fnt")
+	ls.font_color = Color.WHITE
 	ls.font_size = size
 	return ls
 

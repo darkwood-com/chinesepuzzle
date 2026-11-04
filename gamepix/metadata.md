@@ -4,7 +4,7 @@
 - Engine: Godot 4.7.2 (GL Compatibility, single-threaded Web export), project in `Godot/`
 - GamePix: GamePix Godot SDK 1.2r (`Godot/addons/gpx-godot-plugin`, autoload `GPX`) with the v3 manual lifecycle
 - Builds: `gamepix/build.sh` → `Exports/chinesepuzzle-gamepix.zip`; `itch/build.sh` → `Exports/chinesepuzzle-itch-html5.zip` (index.html at the root of both)
-- Languages: English, French, German (auto-detected; GamePix language on GamePix)
+- Languages: English (default on every browser and GamePix locale)
 
 ## GamePix
 
@@ -15,12 +15,12 @@
 Chinese Puzzle is a two-deck solitaire played on a grid of eight rows. Slide cards into the empty spaces to rebuild every row in a single suit, from Ace to King. Aces only go into the first column; any other gap can only take the next card of the same suit as the card on its left, so plan ahead and watch out for gaps stuck behind Kings. Undo moves, retry the same deal or shuffle a new one, and pick one of nine card themes.
 
 ### Controls
-Mouse or touch: drag a card onto an empty space (the space turns green when the move is valid, red when it is not), or tap a card and then tap an empty space. Buttons on the right: New game, Retry, Undo, Rules, Sound on/off, Themes.
+Desktop: drag a card into an empty space, or click a card and then a space. Mobile: drag, or tap a card and then a space. Green means a valid move; red means an invalid move. Use the labeled buttons on the right for New game, Restart, Undo, Rules, Sound and Themes. Sort each row from Ace to King in one suit.
 
 ### Assets
 - Icon 256x256: `gamepix/icon-256.png`
-- Cover 1360x850: `gamepix/cover-1360x850.png` (also packed as `background.jpg` loading background)
-- Smoke screenshots (headless Chrome): `gamepix/smoke-game.png`, `gamepix/smoke-themes.png`
+- Promotional cover 1360x850: `gamepix/cover-1360x850.jpg` (upload this JPEG; it meets the 1.5 MB limit) (also packed as `background.jpg` loading background)
+- QA evidence only; do not upload as promotional assets. Smoke screenshots (headless Chrome): `gamepix/smoke-game.png`, `gamepix/smoke-themes.png`
 
 ## itch.io
 
@@ -50,7 +50,16 @@ Features:
 - Unlimited undo, retry the same deal, or shuffle a new game
 - Nine card themes and an alternative card face layout
 - Your game is saved automatically
-- English, French and German
+- Clear English instructions
 
 ### Controls
 Mouse or touch: drag a card onto an empty space (green = valid move, red = invalid), or tap a card then tap an empty space. Right-hand buttons: New game, Retry, Undo, Rules, Sound on/off, Themes.
+
+## Resubmission verification — 4 November 2026
+
+Version 2.0.1 was uploaded as GamePix build `3Lf67ktq6NbSSeuw1pOTmdZj39L` and submitted for review. The dashboard confirmed **REVIEW** / **Game in review!**.
+
+- Native regression suite passed: deal/rules, legal and invalid moves, undo, win dialog, English default, platform mute/pause behavior.
+- `tools/verify-web.js` passed with no browser errors: mouse drag, taps, real touch input, save/reload, sound, nine themes, card layout, confirmation dialogs, restart and new game. Tested real iframes at 800×450, 960×640, 1280×720 and 450×800. The deterministic local UI fixture isolates the SDK; the real SDK was checked separately in GamePix Preview.
+- Final uploaded build checked in GamePix Preview: loading/loaded/gameStart, pause/resume and sound-off/on during startup and gameplay, with no SDK warnings. Full board and readable English rules verified at the smaller 620×349 player size.
+- Local QA evidence: `Exports/QA/`; submission archive: `Exports/chinesepuzzle-gamepix.zip`. QA screenshots are test evidence, not store artwork.

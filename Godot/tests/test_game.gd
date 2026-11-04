@@ -103,11 +103,20 @@ func _test_win_reachable() -> void:
 
 func _test_scene() -> void:
 	var main = load("res://scenes/main.tscn").instantiate()
+	var original_save: String = main._storage_get()
 	root.add_child(main)
 	await process_frame
+	ok(main.tr_key("menu.hintgame.title") == "How to play", "English is the default language")
 	ok(main.board.size() == 8 and main.board[0].size() == 14, "scene built an 8x14 board")
 	await create_timer(2.5).timeout
 	ok(not main.is_busy(), "deal animation finished")
+	# Isolate checks from progress left by an earlier run or a real player.
+	var test_rng := RandomNumberGenerator.new()
+	test_rng.seed = 42
+	main.conf["init_board"] = CpzRules.deal(test_rng)
+	main.conf["moves"] = []
+	main._load_board()
+	main.layout(false)
 	var moves: Array = CpzRules.legal_moves(main.grid)
 	print("legal moves at start: ", moves.size())
 	if moves.size() > 0:
@@ -140,6 +149,27 @@ func _test_scene() -> void:
 	main._select_theme("classic")
 	ok(main.skin.theme_name == "classic", "theme switch applied")
 	main.close_menu()
+	var final_board := _solved()
+	CpzRules.swap(final_board, Vector2i(0, 12), Vector2i(0, 13))
+	main.conf["init_board"] = final_board
+	main.conf["moves"] = []
+	main._load_board()
+	main.layout(false)
+	ok(main.make_move(Vector2i(0, 13), Vector2i(0, 12)) == CpzRules.Check.OK, "final King completes a row")
+	await create_timer(0.8).timeout
+	ok(main.won_shown and main.menu != null, "completing the board opens the win dialog")
+	main.close_menu()
+	var sdk := root.get_node("GPX")
+	sdk._on_gpx_sound_off([])
+	sdk._on_gpx_pause([])
+	sdk._on_gpx_resume([])
+	ok(AudioServer.is_bus_mute(0), "platform mute survives pause and resume")
+	sdk._on_gpx_pause([])
+	sdk._on_gpx_sound_on([])
+	ok(AudioServer.is_bus_mute(0), "sound-on does not unmute a paused game")
+	sdk._on_gpx_resume([])
+	ok(not paused and not AudioServer.is_bus_mute(0), "resume restores gameplay and permitted audio")
+	main._storage_set(original_save)
 	main.queue_free()
 	await process_frame
 	CpzSkin._ui_tex.clear()

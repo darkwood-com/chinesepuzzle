@@ -50,6 +50,9 @@ func happyMoment(type := ""):
 # the game reports the start of real gameplay here.
 var _pause_cb = null
 var _resume_cb = null
+var _sound_off_cb = null
+var _sound_on_cb = null
+var _platform_sound_off := false
 var _game_started := false
 
 func game_start():
@@ -67,10 +70,20 @@ func _register_pause_resume():
 		return
 	_pause_cb = JavaScriptBridge.create_callback(_on_gpx_pause)
 	_resume_cb = JavaScriptBridge.create_callback(_on_gpx_resume)
+	_sound_off_cb = JavaScriptBridge.create_callback(_on_gpx_sound_off)
+	_sound_on_cb = JavaScriptBridge.create_callback(_on_gpx_sound_on)
 	var events = gpx.events
 	if events != null:
 		events.on("pause", _pause_cb)
 		events.on("resume", _resume_cb)
+	# The player checks these named callbacks as well as dispatching events.
+	gpx.soundOff = _sound_off_cb
+	gpx.soundOn = _sound_on_cb
+	_platform_sound_off = bool(JavaScriptBridge.eval("!!(window.cpzPlatform && window.cpzPlatform.muted)", true))
+	if bool(JavaScriptBridge.eval("!!(window.cpzPlatform && window.cpzPlatform.paused)", true)):
+		_on_gpx_pause([])
+	else:
+		AudioServer.set_bus_mute(0, _platform_sound_off)
 
 # Pause gameplay and mute all audio (idempotent).
 func _on_gpx_pause(_args):
@@ -79,7 +92,15 @@ func _on_gpx_pause(_args):
 
 func _on_gpx_resume(_args):
 	get_tree().paused = false
-	AudioServer.set_bus_mute(0, false)
+	AudioServer.set_bus_mute(0, _platform_sound_off)
+
+func _on_gpx_sound_off(_args):
+	_platform_sound_off = true
+	AudioServer.set_bus_mute(0, true)
+
+func _on_gpx_sound_on(_args):
+	_platform_sound_off = false
+	AudioServer.set_bus_mute(0, get_tree().paused)
 
 func interstitialAd(fn = null):
 	if gpx != null:
